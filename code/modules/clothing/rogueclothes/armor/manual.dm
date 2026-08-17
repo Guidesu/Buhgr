@@ -139,13 +139,15 @@
 
 /obj/item/clothing/suit/roguetown/armor/manual/sewable
 	repair_fraction = 0.20 //20% per 5s of sewing, ~25s to full.
-	var/list/repair_items[] = list(
+	var/list/repair_items = list(
 		/obj/item/needle = 'sound/foley/sewflesh.ogg',
 		/obj/item/needle/thorn = 'sound/foley/sewflesh.ogg',
 		/obj/item/needle/bronze = 'sound/foley/sewflesh.ogg',
 		/obj/item/needle/pestra = 'sound/foley/sewflesh.ogg'
 	)
 
+/obj/item/clothing/suit/roguetown/armor/manual/tool
+	parent_type = /obj/item/clothing/suit/roguetown/armor/manual/sewable
 /obj/item/clothing/suit/roguetown/armor/manual/tool/get_mechanics_examine(mob/user)
 	. = ..()
 

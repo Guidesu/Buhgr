@@ -140,7 +140,8 @@
 #define STATS_LAWS_AND_DECREES_MADE "laws_and_decrees_made"
 #define STATS_ALIVE_NOBLES "alive_nobles"
 #define STATS_NOBLE_DEATHS "noble_deaths"
-#define STATS_AUXENTIUS_REVIVALS "auxentius_revivals"
+#define STATS_AUXENTIUS_REVIVALS "auxentius_revials"
+#define STATS_ASTRATA_REVIVALS "astrata_revivals"
 #define STATS_TAXES_COLLECTED "taxes_collected"
 #define STATS_BANDITRY_LOSSES "banditry_losses"
 #define STATS_BANDITRY_DEBT_OUTSTANDING "banditry_debt_outstanding"
@@ -298,6 +299,7 @@ GLOBAL_LIST_INIT(round_stats, list(
 	STATS_LAUGHS_MADE = 0,
 	STATS_POTIONS_BREWED = 0,
 	STATS_AUXENTIUS_REVIVALS = 0,
+	STATS_ASTRATA_REVIVALS = 0,
 	STATS_PLANTS_HARVESTED = 0,
 	STATS_ANIMALS_TAMED = 0,
 	STATS_LAWS_AND_DECREES_MADE = 0,

@@ -47,6 +47,8 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 	var/turns_per_move = 1
 	var/turns_since_move = 0
+	/// Multiplier for movement speed when barded.
+	var/barding_speed_mult = 1
 	///Use this to temporarely stop random movement or to if you write special movement code for animals.
 	var/stop_automated_movement = 0
 	///Does the mob wander around when idle?

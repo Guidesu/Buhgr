@@ -60,10 +60,6 @@
 	var/list/spawned_crawlers
 	var/max_crawlers = 3
 
-	// Capped, or a long fight buries the party in crawlers.
-	var/list/spawned_crawlers
-	var/max_crawlers = 3
-
 /mob/living/simple_animal/hostile/retaliate/rogue/elemental/colossus/Initialize(mapload)
 	src.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
 	. = ..()

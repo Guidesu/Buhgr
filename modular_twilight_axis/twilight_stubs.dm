@@ -17,6 +17,11 @@ GLOBAL_VAR_INIT(cold_breath_overlay, null)
 /datum/stressevent/lovezizo
 /datum/stressevent/thrillsex
 /datum/stressevent/soulchurnerpsydon
+/datum/stressevent/music/two
+/datum/stressevent/music/three
+/datum/stressevent/music/four
+/datum/stressevent/music/five
+/datum/stressevent/music/six
 
 // ============================================================================
 // MISSING JOB TYPES (Twilight-specific jobs)
@@ -69,8 +74,16 @@ GLOBAL_VAR_INIT(cold_breath_overlay, null)
 /obj/item/clothing/head/roguetown/roguehood/psydon
 /obj/item/clothing/head/roguetown/roguehood/psydon/confessor
 /obj/item/clothing/head/roguetown/roguehood/psydon/black
+/obj/item/clothing/head/roguetown/roguehood/shawl
 
 /obj/item/clothing/shoes/roguetown/boots/psydonboots
+
+/obj/item/undies/bandages
+
+/obj/item/clothing/suit/roguetown/armor/manual/resting/chest/monk
+
+/obj/item/clothing/suit/roguetown/armor/manual/meditation/easttats/ruma
+	parent_type = /obj/item/clothing/suit/roguetown/armor/manual/meditation/body/easttats/ruma
 
 // ============================================================================
 // MISSING STATUS EFFECTS
@@ -88,6 +101,7 @@ GLOBAL_VAR_INIT(cold_breath_overlay, null)
 // MISSING DATUM TYPES
 // ============================================================================
 /datum/storyteller/zizo
+/datum/sprite_accessory/underwear/bandages
 /datum/asset/spritesheet_batched/loadout_icons
 	name = "loadout-icons"
 
