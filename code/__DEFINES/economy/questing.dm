@@ -11,6 +11,7 @@
 #define QUEST_BOUNTY "Bounty"
 #define QUEST_RECOVERY "Recovery"
 #define QUEST_BLOCKADE_DEFENSE "Blockade Defense"
+#define BLOCKADE_RECALL_WINDOW_DS (15 MINUTES)
 #define QUEST_HOARD_RECOVERY "Hoard Recovery"
 #define QUEST_TOWNER_SMITH_CARAVAN "Smith Caravan"
 #define QUEST_TOWNER_MINER_OREVEIN "Ore Vein"

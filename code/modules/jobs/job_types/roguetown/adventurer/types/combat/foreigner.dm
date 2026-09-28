@@ -641,7 +641,7 @@
 				ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC) //Lite!Barbarian.
 				head = /obj/item/clothing/head/roguetown/helmet/bronzegladiator
 				wrists = /obj/item/clothing/wrists/roguetown/bracers/cloth/gladiator
-				armor = /obj/item/clothing/suit/roguetown/armor/manual/resting/padded/gladiator
+				armor = /obj/item/clothing/suit/roguetown/armor/manual/resting/body/gladiator
 				pants = /obj/item/clothing/under/roguetown/loincloth/brown
 				belt = /obj/item/storage/belt/rogue/leather/battleskirt/breechcloth/red
 				//shirt = /obj/item/clothing/suit/roguetown/shirt/tribalrag/gladiator //no empty hands to put this in, and cannot seem to 'pre-load' the cosmetic slot of a skin armor. Can hang in limbo untill someone figures out how to grant it.
@@ -902,3 +902,12 @@
 	max_integrity = ARMOR_INT_SIDE_LEATHER - 25 // -20% durability hit, with 175HP instead of 225HP.
 
 //
+
+// Restored from origin/main during 2026-09 mainstream merge
+
+/obj/item/gun/ballistic/revolver/grenadelauncher/bow/autumn
+	name = "autumnwoad bow"
+	desc = "A medium length bow hewn from an Azurian elk tree branch, it still feels as if it is one with nature; unsullied by the cruder butcherments of Man. \
+	</br>'The summer sun is fading \
+	as the year grows old, and darker days are drawing near..'"
+	icon_state = "bow_blackoak"

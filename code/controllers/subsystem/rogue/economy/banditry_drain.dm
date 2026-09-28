@@ -43,3 +43,9 @@
 		daily_report_diff["banditry_drain_burned"] = burn_now
 		daily_report_diff["banditry_drain_accrued_debt"] = shortfall
 		daily_report_diff["banditry_drain_lines"] = preview["lines"]
+
+/datum/controller/subsystem/economy/proc/total_banditry_hoard()
+	var/total = 0
+	for(var/datum/threat_region/TR as anything in SSregionthreat.threat_regions)
+		total += TR.banditry_hoard
+	return total

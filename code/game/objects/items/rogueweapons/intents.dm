@@ -1059,3 +1059,6 @@
 	candodge = FALSE
 	canparry = FALSE
 	swingdelay_type = SWINGDELAY_CANCEL
+
+/datum/intent/proc/get_part_damage_factor()
+	return min(1, intent_intdamage_factor)

@@ -50,7 +50,7 @@
 #define WMOD_THROWFORCE_ADD "throwforce_add"   // Flat addition to throwforce
 #define WMOD_BLOCK_CHANCE_ADD "block_chance_add" // Flat addition to block_chance (shields)
 #define WMOD_COVERAGE_ADD "coverage_add"       // Flat addition to coverage (shields)
-#define WMOD_CHARGESPEED_MULT "chargespeed_mult" // Multiplier to chargingspeed (crossbows)
+#define WMOD_CHARGESPEED_MULT "chargespeed_mult" // Multiplier to draw_base (crossbow draw time)
 #define WMOD_RELOADTIME_MULT "reloadtime_mult" // Multiplier to reloadtime (crossbows)
 #define WMOD_DAMFACTOR_MULT "damfactor_mult"   // Multiplier to damfactor (bows/crossbows)
 #define WMOD_ACCFACTOR_MULT "accfactor_mult"   // Multiplier to accfactor (bows/crossbows)

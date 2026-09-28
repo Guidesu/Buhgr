@@ -391,8 +391,6 @@
 	if(!job.bypass_jobban)
 		if(is_banned_from(ckey, rank))
 			return JOB_UNAVAILABLE_BANNED
-		if(client.blacklisted())
-			return JOB_UNAVAILABLE_BANNED
 	if(!job.player_old_enough(client))
 		return JOB_UNAVAILABLE_ACCOUNTAGE
 	if(job.required_playtime_remaining(client))
@@ -425,8 +423,6 @@
 		return JOB_UNAVAILABLE_AGE
 	if(length(job.allowed_patrons) && !(job_prefs.selected_patron.type in job.allowed_patrons))
 		return JOB_UNAVAILABLE_PATRON
-	if((client.prefs.lastclass == job.title) && !job.bypass_lastclass)
-		return JOB_UNAVAILABLE_LASTCLASS
 	if((job.same_job_respawn_delay) && (ckey in GLOB.job_respawn_delays))
 		if(world.time < GLOB.job_respawn_delays[ckey])
 			return JOB_UNAVAILABLE_JOB_COOLDOWN

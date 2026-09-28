@@ -1683,3 +1683,14 @@
 	target_items = list(
 		/obj/item/rogueweapon/sword/sabre/shamshir = /obj/item/rogueweapon/sword/sabre/shamshir/dono_scidragon_sand
 	)
+
+// Restored from origin/main during 2026-09 mainstream merge
+
+/obj/item/enchantingkit/aticius_fls
+	name = "'For Love's Sake' morphing elixir"
+	target_items = list(
+		/obj/item/rogueweapon/sword/long
+	)
+	result_item = /obj/item/rogueweapon/sword/long/aticius
+
+//Octus - Falling Star

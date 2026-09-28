@@ -136,7 +136,7 @@
 	/area/rogue/underworld = "Something is deeply, deeply wrong. My senses tell me my target is somewhere in the Underworld.",
 	// SPECIAL
 	/area/rogue/indoors/eventarea = "My HEART POUNDS. My target is hidden somewhere special.",
-	/area/rogue/indoors/ravoxarena = "Clamorous battle! My head hurts... my target has been transported into Ravox's domain!",
+	/area/rogue/indoors/auxentiusarena = "Clamorous battle! My head hurts... my target has been transported into Auxentius's domain!",
 	// HAG
 	/area/rogue/indoors/shelter/bog_hag = "The foul magicks of faerie-creachers surrounds my target. A hag has taken what I desire."
 	)

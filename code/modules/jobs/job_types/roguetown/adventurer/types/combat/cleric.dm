@@ -266,11 +266,11 @@
 
 	//Armor varients here
 	var/armors = list("Hauberk")
-	if(H.patron?.type != /datum/patron/old_god)
+	if(H.patron?.type != /datum/patron/tribunal/praecursor)
 		armors += list("Cuirass")
 		shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
-	if(H.patron?.type == /datum/patron/old_god)
-		armors += list("Psydonic Cuirass")
+	if(H.patron?.type == /datum/patron/tribunal/praecursor)
+		armors += list("Vaeltic Cuirass")
 		shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/inq/cleric
 
 	var/armor_choice = input(H, "Choose your MAILLE.", "STAND BEFORE THE DARKNESS.") as anything in armors //
@@ -279,7 +279,7 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
 		if("Cuirass")
 			armor = /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted
-		if("Psydonic Cuirass")
+		if("Vaeltic Cuirass")
 			armor = /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate
 
 	//helmets and cloaks here
@@ -290,13 +290,6 @@
 				helmets += list("Vaeltic Armet" = /obj/item/clothing/head/roguetown/helmet/heavy/praecursorhelm,
 							"Vaeltic Bucket Helm" = /obj/item/clothing/head/roguetown/helmet/heavy/psybucket,
 							"Greatplumed Vaeltic Armet" = /obj/item/clothing/head/roguetown/helmet/heavy/knight/psy/greatplume)
-				var/armors = list("Hauberk","Cuirass")
-				var/armor_choice = input(H, "Choose your MAILLE.", "STAND AGAINST HER DARKNESS.") as anything in armors
-				switch(armor_choice)
-					if("Hauberk")
-						armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
-					if("Cuirass")
-						armor = /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate
 		if(/datum/patron/concordat/auxentius)
 			cloak = /obj/item/clothing/cloak/tabard/devotee/auxentius
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk

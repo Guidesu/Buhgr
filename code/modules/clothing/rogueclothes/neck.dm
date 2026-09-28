@@ -1835,3 +1835,46 @@
 	name = "Aurum's Amulets"
 	desc = "A long gold chain that was double woven for strength. At regular intervals, a gold loop just barely big enough to have something attached to it. Two of the loops had charms dangling from them. Each gold still. One in the shape of a Xylixian mask, the other in the shape of Dendor's claws."
 	icon_state = "lief_amulet"
+
+// Restored from origin/main during 2026-09 mainstream merge
+
+/obj/item/clothing/neck/roguetown/psicross/noc/aalloy
+	name = "decrepit amulet of Noc"
+	desc = "The ultimate answer to the ultimate question is not a parable, but a pair of numbers; 'four' and 'two'. Thou may not understand it, yet, but I assure thee; it shall all make sense in due tyme."
+	icon_state = "noc_a"
+	color = "#bb9696"
+	chunkcolor = "#532e25"
+	material_category = ARMOR_MAT_PLATE
+	resistance_flags = FIRE_PROOF
+
+/obj/item/clothing/neck/roguetown/psicross/abyssor/g
+	name = "golden amulet of Abyssor"
+	desc = "Fortune favors the bold."
+	icon_state = "abyssor_g"
+	item_state = "abyssor_g"
+	resistance_flags = FIRE_PROOF
+
+/obj/item/clothing/neck/roguetown/psicross/pestra/g
+	name = "golden amulet of Pestra"
+	desc = "My elixirs are far too strong for you, adventurer; they would stagger a hero, much less a vagabond like thineself."
+	icon_state = "pestra_g"
+	item_state = "pestra_g"
+	resistance_flags = FIRE_PROOF
+
+/obj/item/clothing/neck/roguetown/psicross/ravox/bronze
+	name = "bronze amulet of Ravox"
+	desc = "'YOU FIGHT WELL, RAVOX OF UR-SYON. YOUR CLEMENCY HATH BEEN EARNED. SURRENDER NOW, AND GRAGGAR SHALL-'</br>‎	</br>'No.' </br>‎	</br>'-WHAT? YOU'RE GOING TO THROW AWAY YOUR LYFE FOR A GOD THAT HAS NO LOVE FOR YOU?' </br>‎	</br>'One of us will.'"
+	icon_state = "ravox_b"
+
+/obj/item/clothing/neck/roguetown/psicross/xylix/g
+	name = "golden amulet of Xylix"
+	desc = "That's all, folks!"
+	icon_state = "xylix_g"
+	item_state = "xylix_g"
+	resistance_flags = FIRE_PROOF
+
+/obj/item/clothing/neck/roguetown/psicross/naledi
+	name = "naledian psy-bracelet"
+	desc = "A peculiar icon of worship from a foreign land. Forming the three-pronged Psydonite cross in a circular ring, this bracelet embodies the Naledian belief of Psydon's eternity."
+	icon_state = "psybracelet"
+	item_state = null

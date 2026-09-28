@@ -269,3 +269,33 @@
 
 /datum/virtue/combat/combat_aware/apply_to_human(mob/living/carbon/human/recipient)
 	add_verb(recipient, /mob/living/carbon/human/proc/togglecombatawareness)
+
+// Restored from HEAD during 2026-09 mainstream merge
+
+/datum/virtue/combat/bowman
+	name = "Toxophilite"
+	desc = "I've had an interest in archery from a young age, and I always keep a spare bow and quiver around."
+	custom_text = "+1 to Bows, Up to Legendary, Minimum Apprentice"
+	added_stashed_items = list("Recurve Bow" = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve,
+								"Quiver (Arrows)" = /obj/item/quiver/arrows
+	)
+
+/datum/virtue/combat/bowman/apply_to_human(mob/living/carbon/human/recipient)
+	if(recipient.get_skill_level(/datum/skill/combat/bows) < SKILL_LEVEL_APPRENTICE)
+		recipient.adjust_skillrank_up_to(/datum/skill/combat/bows, SKILL_LEVEL_APPRENTICE, silent = TRUE)
+	else
+		added_skills = list(list(/datum/skill/combat/bows, 1, 6))
+
+/datum/virtue/combat/crossbowman
+	name = "Marksman"
+	desc = "Warfare is changing, and the crossbow is the next pedestal. I have always been ahead of the curve, as compared to my peers."
+	custom_text = "+1 to Crossbows, Up to Legendary, Minimum Apprentice"
+	added_stashed_items = list(
+		"Quiver (Bolts)" = /obj/item/quiver/bolt/standard
+	)
+
+/datum/virtue/combat/crossbowman/apply_to_human(mob/living/carbon/human/recipient)
+	if(recipient.get_skill_level(/datum/skill/combat/crossbows) < SKILL_LEVEL_APPRENTICE)
+		recipient.adjust_skillrank_up_to(/datum/skill/combat/crossbows, SKILL_LEVEL_APPRENTICE, silent = TRUE)
+	else
+		added_skills = list(list(/datum/skill/combat/crossbows, 1, 6))

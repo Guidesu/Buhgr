@@ -95,14 +95,14 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	first_time_text = "FORGOTTEN KEEP"
 	droning_sound = 'sound/music/area/morosewaters.ogg'
 
-/area/rogue/indoors/ravoxarena
-	name = "Ravox's Arena"
+/area/rogue/indoors/auxentiusarena
+	name = "Auxentius's Arena"
 	deathsight_message = "an arena of justice"
 
-/area/rogue/indoors/ravoxarena/can_craft_here()
+/area/rogue/indoors/auxentiusarena/can_craft_here()
 	return FALSE
 
-/area/rogue/indoors/ravoxarena/proc/cleanthearena(turf/returnzone)
+/area/rogue/indoors/auxentiusarena/proc/cleanthearena(turf/returnzone)
 	for(var/obj/item/trash in src)
 		do_teleport(trash, returnzone)
 	GLOB.arenafolks.len = list()

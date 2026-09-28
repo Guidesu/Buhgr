@@ -649,13 +649,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			O.client.images -= default_image
 			O.client.images -= simple_image
 
-/proc/updateallghostimages()
-	listclearnulls(GLOB.ghost_images_default)
-	listclearnulls(GLOB.ghost_images_simple)
-
-	for (var/mob/dead/observer/O in GLOB.player_list)
-		O.updateghostimages()
-
 /mob/dead/observer/proc/horde_respawn()
 	if(trapped)
 		return
@@ -1196,7 +1189,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		list("type" = /datum/antagonist/zizo_knight, "group" = "major", "priority" = 63),
 		list("type" = /datum/antagonist/prebel/head, "group" = "minor", "priority" = 70),
 		list("type" = /datum/antagonist/prebel, "group" = "minor", "priority" = 71),
-		list("type" = /datum/antagonist/aspirant, "group" = "minor", "priority" = 72),
 		list("type" = /datum/antagonist/assassin, "group" = "minor", "priority" = 73),
 		list("type" = /datum/antagonist/hag, "group" = "minor", "priority" = 74)
 	)

@@ -175,8 +175,6 @@
 
 // ============== SEXCON COMPAT STUBS ==============
 
-// Round stats (Ratwood uses GLOB.azure_round_stats)
-GLOBAL_LIST_INIT(azure_round_stats, list())
 #define STATS_KNOTTED "knotted"
 #define STATS_KNOTTED_NOT_LUPIANS "knotted_not_lupians"
 

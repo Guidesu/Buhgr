@@ -57,80 +57,22 @@
 	update_body()
 	src.regenerate_icons() //Fixes the weird body
 
-
-/datum/outfit/job/roguetown/human/species/human/northern/mad_touched_treasure_hunter/pre_equip(mob/living/carbon/human/H)
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/iron
-	mask = /obj/item/clothing/mask/rogue/facemask/steel/paalloy/mad_touched
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy
-	pants = /obj/item/clothing/under/roguetown/platelegs/iron
-	belt = /obj/item/storage/belt/rogue/leather
-	neck = /obj/item/clothing/neck/roguetown/chaincoif/chainmantle
-	gloves = /obj/item/clothing/gloves/roguetown/plate/iron/banded
-	cloak = /obj/item/clothing/cloak/wickercloak
-	if(prob(40))
-		var/amulet_choice = rand(1, 4)
-		switch(amulet_choice)
-			if(1)
-				id = /obj/item/clothing/neck/roguetown/psicross/aurelian/aalloy //ZIZO. ZIZO. ZIZO.
-			if(2)
-				id = /obj/item/clothing/neck/roguetown/psicross/aalloy
-			if(3)
-				id = /obj/item/clothing/neck/roguetown/psicross/miluse/aalloy
-			if(4)
-				id = /obj/item/clothing/neck/roguetown/psicross/morwenna //IS THIS TRVE?!
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
-	if(prob(20))
-		shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
-	if(prob(33))
-		beltl = /obj/item/reagent_containers/glass/bottle/alchemical/healthpot
-	head = /obj/item/clothing/head/roguetown/menacing/mad_touched_treasure_hunter
-	if(prob(50))
-		head = /obj/item/clothing/head/roguetown/menacing/bandit/mad_touched_treasure_hunter //IS THIS TRVE?!
-	if(prob(33))
-		r_hand = /obj/item/rogueweapon/greatsword/paalloy
-	else if(prob(33))
-		r_hand = /obj/item/rogueweapon/shield/buckler
-		l_hand = /obj/item/rogueweapon/huntingknife/idagger/steel/padagger
-	else
-		r_hand = /obj/item/rogueweapon/sword/sabre/bronzekhopesh
-		l_hand = /obj/item/rogueweapon/sword/sabre/bronzekhopesh
-		ADD_TRAIT(H, TRAIT_DUALWIELDER, TRAIT_GENERIC) //Making them an absolute menace again
-
-	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
-	//carbon ai is still pretty dumb so making them a threat to players requires pretty crazy looking stats. don't think too hard about it.
-	H.STASTR = 15
-	H.STASPD = 15
-	H.STACON = 12
-	H.STAWIL = 12
-	H.STAPER = 15
-	H.STAINT = 12
-
-	H.adjust_skillrank_up_to(/datum/skill/combat/polearms, SKILL_LEVEL_EXPERT, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/maces, SKILL_LEVEL_APPRENTICE, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/axes, SKILL_LEVEL_APPRENTICE, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_EXPERT, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/knives, SKILL_LEVEL_EXPERT, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/shields, SKILL_LEVEL_EXPERT, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, SKILL_LEVEL_JOURNEYMAN, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, SKILL_LEVEL_JOURNEYMAN, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/misc/swimming, SKILL_LEVEL_APPRENTICE, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
-
-	if(prob(40))
-		var/voicepack_choice = rand(1, 4)
-		switch(voicepack_choice)
-			if(1)
-				H.dna.species.soundpack_m = GLOB.voice_packs[/datum/voicepack/male/warrior]
-				H.dna.species.soundpack_f = GLOB.voice_packs[/datum/voicepack/female/warrior]
-			if(2)
-				H.dna.species.soundpack_m = GLOB.voice_packs[/datum/voicepack/male/stern]
-				H.dna.species.soundpack_f = GLOB.voice_packs[/datum/voicepack/female/haughty]
-			if(3)
-				H.dna.species.soundpack_m = GLOB.voice_packs[/datum/voicepack/male/foppish]
-				H.dna.species.soundpack_f = GLOB.voice_packs[/datum/voicepack/female/dainty]
-			if(4)
-				H.dna.species.soundpack_m = GLOB.voice_packs[/datum/voicepack/male/knight]
-				H.dna.species.soundpack_f = GLOB.voice_packs[/datum/voicepack/female/haughty]
+/mob/living/carbon/human/species/human/northern/mad_touched_treasure_hunter/proc/roll_mad_touched_voice()
+	if(!prob(40))
+		return
+	switch(rand(1, 4))
+		if(1)
+			dna.species.soundpack_m = GLOB.voice_packs[/datum/voicepack/male/warrior]
+			dna.species.soundpack_f = GLOB.voice_packs[/datum/voicepack/female/warrior]
+		if(2)
+			dna.species.soundpack_m = GLOB.voice_packs[/datum/voicepack/male/stern]
+			dna.species.soundpack_f = GLOB.voice_packs[/datum/voicepack/female/haughty]
+		if(3)
+			dna.species.soundpack_m = GLOB.voice_packs[/datum/voicepack/male/foppish]
+			dna.species.soundpack_f = GLOB.voice_packs[/datum/voicepack/female/dainty]
+		if(4)
+			dna.species.soundpack_m = GLOB.voice_packs[/datum/voicepack/male/knight]
+			dna.species.soundpack_f = GLOB.voice_packs[/datum/voicepack/female/haughty]
 
 /obj/item/clothing/head/roguetown/menacing/bandit/mad_touched_treasure_hunter //its here so it doesnt wind up on some class' loadout.
 	name = "sack hood"

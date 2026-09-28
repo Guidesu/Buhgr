@@ -4715,3 +4715,194 @@ As Excaliber."
 	icon_state = "radiantgoldmask"
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+
+// Restored from origin/main during 2026-09 mainstream merge
+
+/obj/item/herbseed/rosa/azure
+	name = "azurosa seeds"
+	seed_identity = "azurosa seeds"
+	makes_herb = /obj/structure/flora/roguegrass/herb/rosa/azure
+
+/obj/item/reagent_containers/food/snacks/grown/rogue/rosa_petals_dried/azure
+	name = "dried azurosa petals"
+	desc = "Dried azurosa petals, fragrant and fragile. When dried out on a tanning rack and steeped in \
+	boiling water for long enough, these petals brew into a bright herbal tea; a cultural delight, commonly \
+	served to visiting diplomats and to those who're recovering from both injury-and-malaise alike."
+	icon = 'icons/obj/items/donor_objects.dmi'
+	icon_state = "azurosa_petal_dry"
+	seed = /obj/item/herbseed/rosa/azure
+	tastes = list("pleasantly mild sweetness" = 1)
+	bitesize = 1
+	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/medicine/antidote = 2)
+	rotprocess = null
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/clothing/head/roguetown/helmet/bascinet/pigface/burgeonet
+	name = "gothic burgeonet"
+	desc = "A magnificent steel helmet, and the newest of the venerable armet's lineage. The intricate fluting serves as a clear sign of its \
+	Grenzelhoftian heritage; ornate, but not obnoxiously so."
+	item_state = "burgeonet"
+	icon_state = "burgeonet"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+
+/obj/item/clothing/suit/roguetown/shirt/robe/limetease
+	name = "noviciate robe"
+	desc = "Used by more risque followers of the arcayne"
+	body_parts_covered = null // Keyhole should show boob size and the outfit is too open to get in the way of sex
+	icon_state = "limedress"
+	item_state = "limedress"
+	flags_inv = null
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+	sleevetype = "limedress"
+	color = null
+
+/obj/item/clothing/suit/roguetown/shirt/robe/limetease/equipped(mob/user, slot)
+	. = ..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/breasts/B = H.getorganslot(ORGAN_SLOT_BREASTS)
+
+		if(B && B.breast_size == 3)
+			flags_inv &= ~HIDEBOOB
+			boobed = TRUE
+			boobed_detail = TRUE
+		else
+			flags_inv |= HIDEBOOB
+			boobed = FALSE
+			boobed_detail = FALSE
+
+		H.update_inv_wear_suit()
+
+/obj/item/clothing/suit/roguetown/shirt/robe/limetease/color
+	name = "noviciate robe"
+	desc = "Used by more risque followers of the arcayne, this one seem to dye easily"
+	icon_state = "limedress_color"
+	item_state = "limedress_color"
+	detail_tag = "_detail"
+	detail_color = "#FFFFFF"
+
+// Restored from origin/main during 2026-09 mainstream merge
+
+/obj/structure/flora/roguegrass/herb/rosa/azure
+	name = "azurosa"
+	desc = "A prickly, blueish mutation of the common Rosa found uniquely in the plains of \
+	central Azuria, this flower rarely grows upon the Azurian coast. Its sight here means only \
+	one thing: a donation from the inner lands."
+	icon_state = "azurosa_plant"
+	icon = 'icons/obj/items/donor_objects.dmi'
+
+	herbtype = /obj/item/alch/rosa/azure
+
+/obj/item/rogueweapon/sword/long/aticius
+	name = "For Love's Sake"
+	desc = "An oversized cleaver, fashioned out of polished gilbranze. A psycruciform starguard fits at the hilt, where a strip of cloth has been tied, dyed in Eoran pink.<br>\
+	The metal is not alive. Perhaps it never will be. Perhaps that is the point. A blade for a tyme that is not now, and may never be - yet it is here, and undeniable.<br>\
+	'Liebe. Do you know how long forever is?'<br>\
+	'Liebe. This is a promise to remember. From me, to you.'<br>\
+	'I promise that, 'til the sands are amaranthine and Noc wanders darkly...'<br>\
+	'That I will be here with you. For love's sake.'"
+	icon_state = "fls"
+	sheathe_icon = "fls"
+	icon = 'icons/obj/items/donor_weapons_64.dmi'
+	swingsound = BLADEWOOSH_HUGE
+
+/obj/item/rogueweapon/sword/long/aticius/get_examine_highlight_status()
+	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_ODD, HERESYDESC_GILBRANZE_ARTIFICE)
+
+// OCTUS
+
+// Restored from origin/main during 2026-09 mainstream merge
+
+/obj/item/alch/rosa/azure
+	name = "azurosa"
+	icon_state = "azurosa"
+	item_state = "azurosa"
+	desc = "A reminder, hued blue, that happiness is always worth fighting for."
+	sellprice = SELLPRICE_HERB_COMMON
+	icon = 'icons/obj/items/donor_objects.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK|ITEM_SLOT_MOUTH
+	body_parts_covered = NONE
+	w_class = WEIGHT_CLASS_TINY
+	spitoutmouth = FALSE
+	muteinmouth = FALSE
+	alternate_worn_layer	= 8.9 //On top of helmet
+	mill_result = /obj/item/reagent_containers/food/snacks/grown/rogue/rosa_petals/azure
+	major_pot = /datum/alch_cauldron_recipe/lck_potion
+	med_pot = /datum/alch_cauldron_recipe/antidote
+	minor_pot = /datum/alch_cauldron_recipe/restoration_potion
+
+/obj/item/alch/rosa/azure/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot == SLOT_MOUTH)
+		icon_state = "azurosa_mouth"
+		user.update_inv_mouth()
+	else
+		icon_state = "azurosa"
+		user.update_icon()
+
+// ---- Azure Peak mainstream types (merged 2026-09) ----
+
+/obj/item/storage/belt/rogue/pouch/azurosa_seeds
+	name = "pouch of azurosa seeds"
+	desc = "A pouch that's been filled with seeds of the Azurosa flower, freshly harvested from the highest plateaus of the Azure Peak."
+	populate_contents = list(
+	/obj/item/herbseed/rosa/azure,
+	/obj/item/herbseed/rosa/azure,
+	/obj/item/herbseed/rosa/azure,
+	/obj/item/herbseed/rosa/azure,
+	)
+
+/obj/item/flowercrown/rosa/azure
+	name = "crown of azurosa"
+	desc = "A crown formed of azurosas, freshly plucked from the plains of central Azuria. Often worn during \
+	the many festivals and holidaes that're celebrated throughout the yil, as a sign of pride and propserity."
+	icon = 'icons/obj/items/donor_objects.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	item_state = "azurosa_crown"
+	icon_state = "azurosa_crown"
+
+/obj/item/bouquet/rosa/azure
+	name = "azurosa bouquet"
+	desc = "Azurian affections bundled together in string, most popularly seen in the grand tournmanets that're \
+	hosted, every yil, at the summer's solstice. Should a jousting knight successfully catch such a bouquet during \
+	their charge, they're surely to be blessed with incoming fortune by a higher power; that, or they might just \
+	be particularly dextrous."
+	icon = 'icons/obj/items/donor_objects.dmi'
+	item_state = "azurosa_bouquet"
+	icon_state = "azurosa_bouquet"
+
+/obj/item/reagent_containers/food/snacks/grown/rogue/rosa_petals/azure
+	name = "fresh azurosa petals"
+	desc = "Crushed azurosa petals, teeming with a sweet fragrance. Long ago, Azuria's original settlers used these herbs \
+	as an antiquated treatment for poisonings and sickness. Though alchemical solutions are more popular nowadaes, those who \
+	grew up in Azuria's highest peaks might still remember chewing on these leaves in their youngest yils, to riposte fell humors."
+	icon = 'icons/obj/items/donor_objects.dmi'
+	icon_state = "azurosa_petal"
+	tastes = list("pleasantly mild sweetness" = 1)
+	seed = /obj/item/herbseed/rosa/azure
+	bitesize = 1
+	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/medicine/antidote = 2)
+	rotprocess = null
+	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/clothing/neck/roguetown/psicross/astrata/dasfox
+	name = "defiled Astratan periapt"
+	desc = "This golden-lashed eye atop a blade was once a periapt of Astrata, \
+	used in prayer and reverence of Her Tyrannical Light. This one has been damaged heavily, \
+	and near-shattered- and is bound together by cloth and silver wires. \
+	In lieu of its former nature, it now serves as amulet or attachment to armor due to the braided wire to be \
+	utilized as a chain."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "astrata_periapt"
+
+/obj/item/clothing/head/roguetown/helmet/heavy/psydonhelm/ryan
+	name = "maimed psydonic helm"
+	desc = "Disavowed lamb, suicidal hero, cursed idiot - Psydon is dead. Will you follow Him to the grave, as a beacon of dying hope, or surrender to temptation?"
+	icon_state = "ryan_maimedhelm"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes64.dmi'

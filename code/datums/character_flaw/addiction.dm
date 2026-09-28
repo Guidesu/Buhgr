@@ -348,6 +348,18 @@
 	voyeur_descriptor = "pleased by others"
 	partial_sating = FALSE
 
+// Restored from HEAD during 2026-09 mainstream merge
+
+/datum/charflaw/addiction/kleptomaniac
+	name = "Thief-born"
+	desc = "As a child I had to rely on theft to survive. Whether that changed or not, I just can't get over it."
+	time = ADDICT_TIME_OFTEN
+	needsate_text = "I need to STEAL something! I'll die if I don't!"
+	voyeur_descriptor = "quick-fingered"
+
+
+/// JUNKIE
+
 #undef ADDICT_TIME_STANDARD
 #undef ADDICT_TIME_OFTEN
 #undef ADDICT_TIME_FREQUENT

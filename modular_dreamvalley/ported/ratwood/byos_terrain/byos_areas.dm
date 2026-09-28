@@ -22,10 +22,10 @@
 				/mob/living/carbon/human/species/skeleton/npc/hardspread = 40,
 				/mob/living/simple_animal/hostile/retaliate/rogue/minotaur/axe = 15,
 				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 30,
-				new /datum/ambush_config/mirespiders_ambush = 110,
-				new /datum/ambush_config/mirespiders_crawlers = 25,
-				new /datum/ambush_config/mirespiders_aragn = 10,
-				new /datum/ambush_config/mirespiders_unfair = 5)
+				/datum/npc_warband/mirespiders_ambush = 110,
+				/datum/npc_warband/mirespiders_crawlers = 25,
+				/datum/npc_warband/mirespiders_aragn = 10,
+				/datum/npc_warband/mirespiders_unfair = 5)
 	first_time_text = "THE DREAD JUNGLE"
 	threat_region = THREAT_REGION_JUNGLE
 	deathsight_message = "a wretched, sweltering jungle"
@@ -119,8 +119,8 @@
 	ambush_mobs = list(
 		/mob/living/carbon/human/species/goblin/npc/ambush/sea = 20,
 		/mob/living/simple_animal/hostile/retaliate/rogue/mossback = 30,
-		new /datum/ambush_config/triple_deepone = 20,
-		new /datum/ambush_config/deepone_party = 10,
+		/datum/npc_warband/triple_deepone = 20,
+		/datum/npc_warband/deepone_party = 10,
 	)
 
 /area/rogue/outdoors/beach/harbor

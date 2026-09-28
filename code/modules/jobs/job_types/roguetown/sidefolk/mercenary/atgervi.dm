@@ -335,3 +335,14 @@
 	return null
 
 //
+
+// Restored from origin/main during 2026-09 mainstream merge
+
+/obj/item/clothing/neck/roguetown/psicross/inhumen/matthios/gronn/generic
+	name = "tooth necklace" //starving talisman, (non-gronnic, generic)
+	desc = "A necklace with a large fanged tooth. Or is that a particularly large claw?"
+
+/obj/item/clothing/neck/roguetown/psicross/inhumen/matthios/gronn/generic/get_examine_highlight_status()
+	return null
+
+//

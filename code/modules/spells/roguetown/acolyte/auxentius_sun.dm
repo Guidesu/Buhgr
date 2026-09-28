@@ -183,7 +183,6 @@
 	light_color = "#a98107"
 	damage = 50
 	damage_type = BURN
-	accuracy = 50 //Auxentius show me true or something?
 	nodamage = FALSE
 	speed = 0.3
 	flag = "fire"

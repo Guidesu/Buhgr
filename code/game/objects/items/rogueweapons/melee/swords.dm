@@ -2677,3 +2677,18 @@
 #undef LONGSWORD_STOCK_INTENTS
 #undef LONGSWORD_STOCK_GRIPPED_INTENTS
 #undef LONGSWORD_STOCK_ALT_GRIPS
+
+// Restored from HEAD during 2026-09 mainstream merge
+
+/obj/item/rogueweapon/sword/saber/iron
+	name = "iron saber"
+	desc = "A Naledian sword mass produced for line infantry. Its fittings are simple, munitions grade, but the construction is sturdy and the blade as threatening \
+	as any."
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = 100
+	icon_state = "isaber"
+
+/obj/item/rogueweapon/sword/saber/iron/wodao
+	name = "iron wodao"
+	desc = "A wrought-iron wodao, mass produced by the thousands in the state arsenals for Xinyi infantry and provincial militias. The blade is competent, its edge sharp, but it will not hold as long under use. But at a fraction of the cost of a hwando, it is more than enough to slay a man or five before it needs to be sharpened."
+	icon_state = "iwodao"

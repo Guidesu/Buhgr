@@ -480,6 +480,12 @@
 	name = "pit-hardened skin"
 	desc = "Are you not entertained?!"
 
+/obj/item/clothing/suit/roguetown/armor/manual/resting/body/bailiff
+	name = "scar-marred skin"
+	desc = "Bearing scars of countless whips leaves a gnarly visage. Now it's your time to inflict the same fate upon others."
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER //1.2x integrity (300) vs baseline padded skin armor (250).
+	//Perk of being a MAA kinda-powerclass. Basically just a heavy gambeson.
+
 /obj/item/clothing/suit/roguetown/armor/manual/resting/body/berzerker
 	name = "unstoppable skin"
 	desc = "I've endured enough. The onslaught has lost its meaning."

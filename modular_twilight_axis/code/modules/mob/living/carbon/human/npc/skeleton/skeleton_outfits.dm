@@ -1,3 +1,13 @@
+// Azure Peak moved skeleton gear into /datum/npc_archetype and dropped skel_outfit.
+// These twilight skeletons still use fixed outfit datums, so equip them here.
+/mob/living/carbon/human/species/skeleton
+	var/skel_outfit = null
+
+/mob/living/carbon/human/species/skeleton/after_creation()
+	..()
+	if(skel_outfit)
+		equipOutfit(new skel_outfit)
+
 // Rockhill style medium skeleton
 /mob/living/carbon/human/species/skeleton/npc/rockhill
 	skel_outfit = /datum/outfit/job/roguetown/skeleton/npc/rockhill

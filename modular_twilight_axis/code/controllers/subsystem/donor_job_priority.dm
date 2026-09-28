@@ -145,10 +145,6 @@ GLOBAL_VAR_INIT(donor_job_boost_round_index_loaded, FALSE)
 	if(!isnull(job.max_pq) && (get_playerquality(player.ckey) > job.max_pq))
 		return FALSE
 	#endif
-	if((player.client.prefs.lastclass == job.title) && !job.bypass_lastclass)
-		return FALSE
-	if(check_blacklist(player.client.ckey) && !job.bypass_jobban)
-		return FALSE
 	if(CONFIG_GET(flag/usewhitelist) && job.whitelist_req && !player.client.whitelisted())
 		return FALSE
 	if(!job.special_job_check(player))

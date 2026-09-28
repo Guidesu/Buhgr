@@ -203,7 +203,7 @@
 		if(WMOD_CHARGESPEED_MULT)
 			if(istype(weapon, /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow))
 				var/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/C = weapon
-				C.chargingspeed = round(C.chargingspeed * val)
+				C.draw_base = round(C.draw_base * val)
 		if(WMOD_RELOADTIME_MULT)
 			if(istype(weapon, /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow))
 				var/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/C = weapon
@@ -255,7 +255,7 @@
 		if(WMOD_CHARGESPEED_MULT)
 			if(istype(weapon, /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow))
 				var/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/C = weapon
-				C.chargingspeed = round(C.chargingspeed / val)
+				C.draw_base = round(C.draw_base / val)
 		if(WMOD_RELOADTIME_MULT)
 			if(istype(weapon, /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow))
 				var/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/C = weapon

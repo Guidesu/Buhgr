@@ -15,6 +15,7 @@
 #define THREAT_REGION_WHISPERING_GROVE "Whispering Grove"
 #define THREAT_REGION_SUNKEN_COAST "Sunken Coast"
 #define THREAT_REGION_ISLAND "New Kingsfield Isle"
+#define THREAT_REGION_JUNGLE "Dread Jungle"
 
 #define LOWPOP_THRESHOLD 30 // When do we give highpop tick?
 

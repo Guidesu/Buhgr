@@ -1076,7 +1076,7 @@
 	equip_delay_self = 8 SECONDS
 	armor_class = ARMOR_CLASS_HEAVY
 	armor = ARMOR_PLATE
-	max_integrity = ARMOR_INT_CHEST_PLATE_PSYDON
+	max_integrity = ARMOR_INT_CHEST_PLATE_PRAECURSOR
 	is_silver = TRUE
 	is_lesser_silver = TRUE
 

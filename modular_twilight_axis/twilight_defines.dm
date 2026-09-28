@@ -121,7 +121,6 @@
 // Clothing color defines
 
 // Detail text defines
-#define DETAIL_TEXT_UNIVERSITY_OF_AZURIA "university_of_azuria"
 
 // Stat tracking defines
 #define STATS_ASTRATA_REVIVALS "astrata_revivals"

@@ -246,7 +246,7 @@
 	threat_point = THREAT_ELITE
 	stat_modifiers = null
 	statpack = /datum/npc_statpack/skeleton/lich
-	patron = /datum/patron/inhumen/zizo
+	patron = /datum/patron/unveiled/aurelian
 	melee = SKILL_LEVEL_JOURNEYMAN
 	brawl = SKILL_LEVEL_APPRENTICE
 	athletics = SKILL_LEVEL_EXPERT
@@ -312,7 +312,7 @@
 	id = list(
 		/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy = 1, //ZIZO. ZIZO. ZIZO.
 		/obj/item/clothing/neck/roguetown/psicross/aalloy = 1,
-		/obj/item/clothing/neck/roguetown/psicross/noc/aalloy = 1,
+		/obj/item/clothing/neck/roguetown/psicross/miluse/aalloy = 1,
 		NPC_NOTHING = 27,
 	)
 
@@ -384,7 +384,7 @@
 	id = list(
 		/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy = 5, //ZIZO. ZIZO. ZIZO.
 		/obj/item/clothing/neck/roguetown/psicross/aalloy = 5,
-		/obj/item/clothing/neck/roguetown/psicross/noc/aalloy = 5,
+		/obj/item/clothing/neck/roguetown/psicross/miluse/aalloy = 5,
 		/obj/item/clothing/neck/roguetown/psicross/abyssor = 15,
 		NPC_NOTHING = 70,
 	)
@@ -407,7 +407,7 @@
 	)
 	id = list( //Cultist look so, no Psydon choice
 		/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy,
-		/obj/item/clothing/neck/roguetown/psicross/noc/aalloy,
+		/obj/item/clothing/neck/roguetown/psicross/miluse/aalloy,
 	)
 
 /datum/npc_loadout/kit/skeleton_dreadnought/withered

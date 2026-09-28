@@ -712,8 +712,7 @@ GLOBAL_LIST_INIT(averse_factions, list(
 	insane_fool.hallucination = INFINITY
 	ADD_TRAIT(insane_fool, TRAIT_PSYCHOSIS, TRAIT_GENERIC)
 	insane_fool.adjust_triumphs(3)
-	if(insane_fool.patron?.type == /datum/patron/concordat/wulfric) 
-	if(insane_fool.patron?.type == /datum/patron/divine/abyssor)
+	if(insane_fool.patron?.type == /datum/patron/concordat/wulfric)
 		insane_fool.grant_language(/datum/language/abyssal)
 
 /datum/charflaw/indebted

@@ -368,3 +368,16 @@
 	"Lupian's Lullaby" = 'sound/music/instruments/psyaltery (8).ogg',
 	"White Wine Before Breakfast" = 'sound/music/instruments/psyaltery (9).ogg',
 	"Chevalier de Naledi" = 'sound/music/instruments/psyaltery (10).ogg')
+
+// Restored from HEAD during 2026-09 mainstream merge (used by modular_twilight_axis bard_music)
+/obj/item/rogue/instrument/proc/check_file(infile, filename, user)
+	var/file_ext = LOWER_TEXT(copytext(filename, -4))
+	var/file_size = length(infile)
+
+	if(file_ext != ".ogg")
+		return "SONG MUST BE AN OGG."
+	if(file_size > 4 * 1024 * 1024)
+		return "TOO BIG. 4 MEGS OR LESS."
+
+	message_admins("[ADMIN_LOOKUPFLW(user)] uploaded a song [filename] of size [file_size / 1000000] (~MB).")
+	return null

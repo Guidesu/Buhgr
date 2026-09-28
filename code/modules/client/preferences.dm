@@ -31,6 +31,9 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	var/tgui_lock = TRUE
 	var/tgui_theme = "azure_default"
+	/// Family-tree preference used by modular_twilight_axis/familytree_module. 1 = FAMILY_NONE
+	/// (define lives in the module config, included after this file).
+	var/family = 1
 	/// Character Sheet draggable-tile x/y/w/h layout, keyed by storageKey, saved as JSON text.
 	/// DM-side because browser localStorage in the client webview isn't reliably durable
 	/// across sessions - see character_sheet_ui.dm's character_sheet_tile_layout action.

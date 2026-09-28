@@ -7,7 +7,7 @@
 	category = FACTION_ORCS
 	faction_tag = "orcs"
 	body = /datum/npc_body/orc
-	patron = /datum/patron/inhumen/graggar
+	patron = /datum/patron/oldkin/volkovoi
 	athletics = SKILL_LEVEL_EXPERT
 	survival = SKILL_LEVEL_APPRENTICE
 
@@ -141,7 +141,7 @@
 		NPC_NOTHING = 92,
 	)
 	id = list(
-		/obj/item/clothing/neck/roguetown/psicross/inhumen/graggar = 10, //SHATTER MY BINDS
+		/obj/item/clothing/neck/roguetown/psicross/volkovoi = 10, //SHATTER MY BINDS
 		NPC_NOTHING = 90,
 	)
 	pants = /obj/item/clothing/under/roguetown/loincloth
@@ -153,7 +153,7 @@
 		NPC_NOTHING = 90,
 	)
 	id = list(
-		/obj/item/clothing/neck/roguetown/psicross/inhumen/graggar = 10, //SHATTER MY BINDS
+		/obj/item/clothing/neck/roguetown/psicross/volkovoi = 10, //SHATTER MY BINDS
 		NPC_NOTHING = 90,
 	)
 
@@ -163,7 +163,7 @@
 		NPC_NOTHING = 85,
 	)
 	id = list(
-		/obj/item/clothing/neck/roguetown/psicross/inhumen/graggar = 20, //SHATTER MY BINDS
+		/obj/item/clothing/neck/roguetown/psicross/volkovoi = 20, //SHATTER MY BINDS
 		NPC_NOTHING = 80,
 	)
 
@@ -178,7 +178,7 @@
 		NPC_NOTHING = 34,
 	)
 	id = list(
-		/obj/item/clothing/neck/roguetown/psicross/inhumen/graggar = 60, //SHATTER MY BINDS
+		/obj/item/clothing/neck/roguetown/psicross/volkovoi = 60, //SHATTER MY BINDS
 		NPC_NOTHING = 40,
 	)
 

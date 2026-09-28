@@ -220,7 +220,7 @@ GLOBAL_LIST_INIT(skeleton_aggro, list(
 /mob/living/carbon/human/species/skeleton/conjured/after_creation()
 	..()
 
-	patron = /datum/patron/inhumen/zizo
+	patron = /datum/patron/unveiled/aurelian
 
 	AddComponent(/datum/component/ai_aggro_system)
 

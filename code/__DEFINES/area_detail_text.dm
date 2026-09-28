@@ -97,3 +97,9 @@ Rusted metals distantly grind in anoxic pus-condensate in-tune with the Signal. 
 // Tomb of Alotheos
 #define DETAIL_TEXT_TOMB_OF_ALOTHEOS ""
 
+// Azure Peak mainstream area names (merged 2026-09)
+#define DETAIL_TEXT_AZURE_GROVE ""
+#define DETAIL_TEXT_AZURE_BASIN ""
+#define DETAIL_TEXT_AZURE_PEAK ""
+#define DETAIL_TEXT_UNIVERSITY_OF_AZURIA "university_of_azuria"
+
