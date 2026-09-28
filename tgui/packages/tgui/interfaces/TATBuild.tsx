@@ -890,6 +890,34 @@ const groupEntriesByCategoryAndSlot = <
 };
 
 const TileIcon = ({ icon, name }: { icon?: string | null; name: string }) => {
+  // "css:<classes>" points into the tat_items spritesheet; anything else is a base64 PNG.
+  if (icon?.startsWith('css:')) {
+    const classes = icon.slice(4);
+    const size = /tat_items(\d+)x(\d+)/.exec(classes);
+    const scale = size ? 64 / Math.max(Number(size[1]), Number(size[2])) : 2;
+    return (
+      <div
+        title={name}
+        style={{
+          width: '64px',
+          height: '64px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+        }}
+      >
+        <span
+          className={classes}
+          style={{
+            transform: `scale(${scale})`,
+            imageRendering: 'pixelated',
+            pointerEvents: 'none',
+          }}
+        />
+      </div>
+    );
+  }
   return (
     <div
       style={{

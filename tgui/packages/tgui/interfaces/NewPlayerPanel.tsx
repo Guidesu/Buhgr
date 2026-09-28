@@ -25,6 +25,9 @@ type Data = {
   time_remaining: number;
   ready_count: number;
   ready_jobs: Job[];
+
+  // DreamValley: number of saved characters this player can resume, or null when campaigns are off.
+  dv_saved_characters?: number | null;
 };
 
 enum TickerState {
@@ -219,6 +222,24 @@ const ActiveGame = () => {
                 : 'Join Late'}
             </Button>
           </Stack.Item>
+          {data.dv_saved_characters !== null &&
+            data.dv_saved_characters !== undefined && (
+              <Stack.Item>
+                <Button
+                  onClick={() => act('dv_saved_characters')}
+                  disabled={!data.dv_saved_characters}
+                  tooltip={
+                    data.dv_saved_characters
+                      ? null
+                      : 'Use Far Travel or sleep in a bed to save a character.'
+                  }
+                  fluid
+                  icon="bed"
+                >
+                  {`Saved Characters (${data.dv_saved_characters})`}
+                </Button>
+              </Stack.Item>
+            )}
           <Stack.Item>
             <Button onClick={() => act('migrants')} fluid icon="caravan">
               Migration

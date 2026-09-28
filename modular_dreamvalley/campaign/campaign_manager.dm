@@ -13,25 +13,13 @@
 	var/next_persistence_id = 1
 	/// Stable ID to live runtime object for objects newer than the static DMM.
 	var/list/persistent_objects = list()
-	/// Complete parked records keyed by "ckey/preference-slot".
-	var/list/parked_characters = list()
-	/// Runtime-only parking transactions waiting for host durability acknowledgement.
-	var/list/pending_character_parking = list()
-	/// Runtime-only Continue transactions waiting for their resuming lock.
-	var/list/pending_character_resumes = list()
 	var/list/dirty_turfs = list()
 	/// Complete latest state for every turf changed after the static DMM loaded.
 	var/list/persisted_turfs = list()
 	/// Prevent restoration changes from being journalled as player changes.
 	var/restoring_snapshot = FALSE
-	/// Local checkpoint counter, persisted in save.json. A write to disk is
-	/// immediately durable - see checkpoint_is_durable() in campaign_transport.dm.
+	/// Counts every world save ever written for this campaign; stored in each save.
 	var/checkpoint_generation = 0
-	/// world.realtime of the last successful emit_checkpoint() write, for the
-	/// save-status UI (see campaign_save_status_ui.dm). Not persisted itself -
-	/// on a fresh boot this stays null until the first checkpoint this session,
-	/// which is the correct "no write yet" state to show.
-	var/last_checkpoint_at
 
 	/// Round completion/reboot is replaced by explicit campaign save and shutdown.
 	var/suppress_round_end = TRUE
@@ -61,12 +49,7 @@
 	var/restored_station_time
 	var/restored_days_passed
 
-	/// The transaction still performs preflight and a shadow-body round trip;
-	/// unsupported character state cancels safely before staging a checkpoint.
-	var/character_parking_ready = TRUE
 	var/save_and_shutdown_in_progress = FALSE
-	var/last_auto_park_failures = 0
-	var/last_auto_park_candidates = 0
 
 /datum/dreamvalley_campaign_manager/proc/configure(new_campaign_id)
 	if(!istext(new_campaign_id) || !length(new_campaign_id))
@@ -298,7 +281,7 @@
 		"turfs" = turfs,
 		"objects" = capture_persistent_objects(),
 		"characters" = copy_character_records(),
-		"bed_respawns" = capture_bed_respawns(),
+		"next_character_number" = next_character_number,
 	)
 
 /datum/dreamvalley_campaign_manager/proc/load_snapshot(list/snapshot)
@@ -349,10 +332,10 @@
 	var/list/objects = snapshot["objects"]
 	if(islist(objects))
 		load_persistent_objects(objects)
-	var/list/characters = snapshot["characters"]
-	load_character_records(characters)
-	var/list/saved_bed_respawns = snapshot["bed_respawns"]
-	load_bed_respawns(saved_bed_respawns)
+	var/saved_character_number = snapshot["next_character_number"]
+	if(isnum(saved_character_number))
+		next_character_number = max(1, saved_character_number)
+	load_character_records(snapshot["characters"])
 	dirty_turfs.Cut()
 	return TRUE
 
@@ -365,14 +348,11 @@
 		"dirty_turfs" = length(dirty_turfs),
 		"persisted_turfs" = length(persisted_turfs),
 		"persistent_objects" = length(persistent_objects),
-		"parked_characters" = length(parked_characters),
-		"parking_characters" = length(pending_character_parking),
-		"resuming_characters" = length(pending_character_resumes),
+		"saved_characters" = length(character_records),
 		"checkpoint_generation" = checkpoint_generation,
 		"suppress_round_end" = suppress_round_end,
 		"suppress_daily_triumphs" = suppress_daily_triumphs,
 		"rules" = rules_status(),
-		"character_parking_ready" = character_parking_ready,
 		"clock" = clock_status(),
 	)
 

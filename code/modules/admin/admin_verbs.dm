@@ -56,7 +56,6 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
 	/client/proc/investigate_show,		/*various admintools for investigation. Such as a singulo grief-log*/
 	/client/proc/secrets,				/* Almost entirely non-functional after debloatening. Final few are redundant, but keeping just in case */
-	/client/proc/toggle_hear_radio,		/*allows admins to hide all radio output*/
 	/client/proc/reload_admins,
 	/client/proc/recalc_pq_bulk,
 	/client/proc/recalc_pq_single,
@@ -185,8 +184,6 @@ GLOBAL_PROTECT(admin_verbs_server)
 	/datum/admins/proc/BC_RemoveKeyVerb,
 	/datum/admins/proc/admin_add_donator_verb,
 	/datum/admins/proc/admin_remove_donator_verb,
-	/client/proc/cmd_admin_dreamvalley_save_now,
-	/client/proc/cmd_admin_dreamvalley_save_and_shutdown,
 	/client/proc/toggle_hub,
 	/client/proc/download_player_save
 	)
@@ -235,9 +232,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/performance_stress_test, // Uncomment these if you tick the performance stress test .dm file
 	/client/proc/cleanup_stress_test_mobs,
 	/client/proc/cmd_admin_economic_panel,
-	/client/proc/cmd_admin_view_chronicle,
-	/client/proc/cmd_admin_campaign_save_status,
-	/client/proc/cmd_admin_reset_campaign_save
+	/client/proc/cmd_admin_view_chronicle
 	)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, GLOBAL_PROC_REF(release)))
 GLOBAL_PROTECT(admin_verbs_possess)

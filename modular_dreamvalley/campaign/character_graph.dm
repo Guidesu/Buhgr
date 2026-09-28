@@ -815,8 +815,7 @@
 	var/list/restored_items = list()
 	var/list/item_restore_issues = restore_character_items(character, core["items"], restored_items)
 	if(length(item_restore_issues))
-		restoring_snapshot = FALSE
-		return FALSE
+		log_world("DreamValley: [character.real_name] restored with [length(item_restore_issues)] item problem(s): [item_restore_issues.Join(", ")]")
 	restore_character_mind(character, core["mind"], restored_items)
 	restore_character_traits(character, core["traits"])
 	restore_character_status_effects(character, core["status_effects"], restored_items)

@@ -751,6 +751,9 @@
 /datum/tat_build/ui_state(mob/user)
 	return GLOB.always_state
 
+/datum/tat_build/ui_assets(mob/user)
+	return list(get_asset_datum(/datum/asset/spritesheet_batched/tat_items))
+
 /datum/tat_build/ui_interact(mob/user, datum/tgui/ui)
 	attach_preferences_from_mob(user)
 	if(is_owner_tat_banned(user))

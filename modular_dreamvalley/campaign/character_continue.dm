@@ -1,176 +1,119 @@
 /**
- * Slot-aware Continue flow.
+ * Resuming a saved character from the lobby.
  *
- * Continue never calls late-join job setup, AssignRole, EquipRank, or an
- * advclass outfit. It reconstructs only the exact parked graph belonging to
- * the Character Sheet slot currently loaded by the client.
+ * Resume skips job setup and outfits entirely: the body is rebuilt from the
+ * saved record. If the character's bed still exists, they wake up lying in
+ * it; otherwise they appear where they were last saved.
  */
 
-/proc/dreamvalley_character_continue_link(mob/user)
-	if(!user?.client || !GLOB.dreamvalley_campaign?.can_continue_character(user.client))
-		return ""
-	var/list/record = GLOB.dreamvalley_campaign.get_parked_character(user.client)
-	var/list/core = record?["core"]
-	var/list/identity = core?["identity"]
-	var/character_name = html_encode(identity?["real_name"] || "saved character")
-	return "<a style='white-space:nowrap;' href='?_src_=prefs;preference=dreamvalley_continue'><b>CONTINUE [character_name]</b></a>"
+/// Lets a lobby player pick one of their saved characters and resume it.
+/datum/dreamvalley_campaign_manager/proc/prompt_resume_character(mob/dead/new_player/lobby)
+	if(!istype(lobby) || !lobby.client)
+		return
+	if(!SSticker?.IsRoundInProgress())
+		to_chat(lobby, span_warning("You can resume a character once the game has started."))
+		return
+	var/list/records = get_resumable_characters(lobby.ckey)
+	if(!length(records))
+		to_chat(lobby, span_notice("You have no saved characters. Use Far Travel or sleep in a bed to save one."))
+		return
 
-/proc/dreamvalley_handle_continue_link(mob/user, list/href_list)
-	if(href_list?["preference"] != "dreamvalley_continue")
+	var/list/choices = list()
+	for(var/list/record in records)
+		choices["[record["name"]] - saved [record["saved_at"]], [record["bed"] ? "in bed at [record["bed"]["location"]]" : "at [record["location"]]"]"] = record["uid"]
+	var/choice = tgui_input_list(lobby, "Which character do you want to play?", "Saved Characters", choices)
+	if(!choice || QDELETED(lobby) || !lobby.client)
+		return
+	resume_character(lobby, choices[choice])
+
+/datum/dreamvalley_campaign_manager/proc/resume_character(mob/dead/new_player/lobby, uid)
+	var/list/record = character_records[uid]
+	if(!islist(record) || record["owner_ckey"] != lobby.ckey)
+		to_chat(lobby, span_warning("That character is no longer available."))
 		return FALSE
-	if(!GLOB.dreamvalley_campaign)
-		return TRUE
-	GLOB.dreamvalley_campaign.begin_character_resume(user)
-	return TRUE
-
-/datum/dreamvalley_campaign_manager/proc/validate_parked_character_record(list/record)
-	var/list/issues = list()
-	if(!islist(record) || record["state"] != "parked" || record["complete"] != TRUE)
-		issues += "parked_record_unavailable"
-		return issues
+	if(record["state"] != "stored")
+		to_chat(lobby, span_warning("[record["name"]] is already in the world."))
+		return FALSE
 	var/mob_path = text2path(record["mob_type"])
 	if(!ispath(mob_path, /mob/living/carbon/human))
-		issues += "parked_mob_type_invalid"
+		to_chat(lobby, span_warning("[record["name"]]'s save is damaged (unknown body type). Ask an admin for help."))
+		return FALSE
+
+	var/obj/structure/bed/rogue/bed = find_saved_bed(record)
+	var/turf/spawn_turf = bed ? get_turf(bed) : find_saved_position(record)
+	if(!spawn_turf)
+		to_chat(lobby, span_warning("[record["name"]]'s saved location no longer exists. Ask an admin for help."))
+		return FALSE
+
+	var/mob/living/carbon/human/body = new mob_path(spawn_turf)
+	var/datum/mind/body_mind = new /datum/mind()
+	body.mind = body_mind
+	body_mind.current = body
+	body_mind.active = FALSE
+	if(!restore_character_core(body, record["core"]))
+		qdel(body)
+		qdel(body_mind)
+		to_chat(lobby, span_warning("[record["name"]] could not be rebuilt from the save. The save was kept; ask an admin for help."))
+		log_world("DreamValley: failed to rebuild [uid] for [lobby.ckey].")
+		return FALSE
+
+	body.dreamvalley_character_uid = uid
 	var/list/position = record["position"]
-	if(!islist(position) || !locate(position["x"], position["y"], position["z"]))
-		issues += "parked_position_invalid"
-	var/list/core = record["core"]
-	issues |= validate_character_core(core)
-	if(length(issues) || !ispath(mob_path, /mob/living/carbon/human))
-		return issues
-
-	var/mob/living/carbon/human/probe = new mob_path(null)
-	if(!probe || QDELETED(probe))
-		issues += "continue_probe_create_failed"
-		return issues
-	issues |= validate_character_round_trip(probe, core)
-	qdel(probe)
-	return issues
-
-/datum/dreamvalley_campaign_manager/proc/begin_character_resume(mob/user)
-	if(!istype(user, /mob/dead/new_player) || !user.client)
-		to_chat(user, span_boldwarning("Continue is only available from the Character Sheet."))
-		return FALSE
-	var/record_key = character_record_key(user.client)
-	if(!record_key || pending_character_resumes[record_key])
-		to_chat(user, span_notice("This character is already being resumed."))
-		return FALSE
-	var/list/record = get_parked_character(user.client)
-	if(!islist(record) || !can_continue_character(user.client))
-		to_chat(user, span_boldwarning("The selected Character Sheet slot has no complete parked character."))
-		user.client.prefs?.ShowChoices(user, 4)
+	if(islist(position) && isnum(position["dir"]))
+		body.setDir(position["dir"])
+	SSticker.minds |= body_mind
+	lobby.spawning = TRUE
+	body.key = lobby.key
+	if(!body.client)
+		lobby.spawning = FALSE
+		qdel(body)
+		qdel(body_mind)
+		to_chat(lobby, span_warning("Could not move you into [record["name"]]. Please try again."))
 		return FALSE
 
-	var/list/identity = record["core"]?["identity"]
-	var/character_name = identity?["real_name"] || "this character"
-	if(alert(user, "Continue exactly where [character_name] stopped? Character Sheet edits are not applied to Continue.", "Continue", "Continue", "Cancel") != "Continue")
-		return FALSE
+	record["state"] = "in_world"
+	request_checkpoint_soon()
+	qdel(lobby)
 
-	var/list/issues = validate_parked_character_record(record)
-	if(length(issues))
-		to_chat(user, span_boldwarning("The parked character did not pass its restore audit: [issues.Join(", ")]. Continue was cancelled."))
-		return FALSE
-
-	record["state"] = "resuming"
-	var/generation = request_durable_checkpoint()
-	if(!isnum(generation))
-		record["state"] = "parked"
-		to_chat(user, span_boldwarning("The host did not accept the resume checkpoint. Continue was cancelled."))
-		return FALSE
-
-	pending_character_resumes[record_key] = list(
-		"record_key" = record_key,
-		"generation" = generation,
-		"lobby" = user,
-	)
-	to_chat(user, span_notice("Preparing [character_name] from durable checkpoint [generation]."))
+	if(bed)
+		bed.buckle_mob(body, force = TRUE)
+		body.set_resting(TRUE)
+		body.SetSleeping(5 SECONDS)
+		to_chat(body, span_notice("You wake up in your bed."))
+	else
+		to_chat(body, span_notice("You return to [record["location"]]."))
+	log_game("[key_name(body)] resumed saved character [uid] ([record["name"]]).")
 	return TRUE
 
-/datum/dreamvalley_campaign_manager/proc/cancel_character_resume(record_key, message)
-	var/list/record = parked_characters[record_key]
-	if(islist(record) && record["complete"] == TRUE)
-		record["state"] = "parked"
-	var/list/transaction = pending_character_resumes[record_key]
-	var/mob/dead/new_player/lobby = transaction?["lobby"]
-	if(lobby && !QDELETED(lobby) && message)
-		to_chat(lobby, span_boldwarning(message))
-		lobby.new_player_panel()
-	pending_character_resumes -= record_key
-	request_durable_checkpoint()
+/// The character's bed, if the save has one and a bed is still at that spot.
+/datum/dreamvalley_campaign_manager/proc/find_saved_bed(list/record)
+	var/list/bed_state = record["bed"]
+	if(!islist(bed_state))
+		return null
+	var/turf/bed_turf = locate(bed_state["x"], bed_state["y"], bed_state["z"])
+	if(!bed_turf)
+		return null
+	var/obj/structure/bed/rogue/bed = locate() in bed_turf
+	if(!bed || bed.has_buckled_mobs())
+		return null
+	return bed
 
-/datum/dreamvalley_campaign_manager/proc/poll_character_resume_transactions()
-	if(!length(pending_character_resumes))
-		return 0
-	var/completed = 0
-	for(var/record_key in pending_character_resumes.Copy())
-		var/list/transaction = pending_character_resumes[record_key]
-		if(!islist(transaction))
-			pending_character_resumes -= record_key
-			continue
-		if(!checkpoint_is_durable(transaction["generation"]))
-			continue
+/datum/dreamvalley_campaign_manager/proc/find_saved_position(list/record)
+	var/list/position = record["position"]
+	if(!islist(position))
+		return null
+	return locate(position["x"], position["y"], position["z"])
 
-		var/list/record = parked_characters[record_key]
-		var/mob/dead/new_player/lobby = transaction["lobby"]
-		if(!islist(record) || record["state"] != "resuming" || record["complete"] != TRUE)
-			cancel_character_resume(record_key, "The saved character record changed while Continue was waiting.")
-			continue
-		if(!lobby || QDELETED(lobby) || !lobby.client)
-			cancel_character_resume(record_key, null)
-			continue
+// Lobby menu hook (tgui/packages/tgui/interfaces/NewPlayerPanel.tsx).
+/mob/dead/new_player/ui_data(mob/user)
+	var/list/data = ..()
+	data["dv_saved_characters"] = GLOB.dreamvalley_campaign?.enabled ? length(GLOB.dreamvalley_campaign.get_resumable_characters(ckey)) : null
+	return data
 
-		var/list/position = record["position"]
-		var/turf/resume_turf = locate(position["x"], position["y"], position["z"])
-		var/mob_path = text2path(record["mob_type"])
-		if(!resume_turf || !ispath(mob_path, /mob/living/carbon/human))
-			cancel_character_resume(record_key, "The saved world position or body type is no longer valid.")
-			continue
-
-		var/mob/living/carbon/human/restored_body = new mob_path(resume_turf)
-		var/datum/mind/restored_mind = new /datum/mind()
-		restored_body.mind = restored_mind
-		restored_mind.current = restored_body
-		restored_mind.active = FALSE
-		if(!restore_character_core(restored_body, record["core"]))
-			qdel(restored_body)
-			qdel(restored_mind)
-			cancel_character_resume(record_key, "The exact body could not be reconstructed. The parked record was retained.")
-			continue
-
-		var/list/restored_core = capture_character_core(restored_body)
-		var/list/issues = validate_character_core(restored_core)
-		for(var/section in list(
-			"identity", "vitals", "stats", "skills", "mind", "bodyparts",
-			"organs", "traits", "status_effects", "reagents", "items",
-		))
-			if(!character_section_round_trip_matches(section, record["core"][section], restored_core[section]))
-				issues += "continue_mismatch:[section]"
-		if(length(issues))
-			qdel(restored_body)
-			qdel(restored_mind)
-			cancel_character_resume(record_key, "The reconstructed body failed validation: [issues.Join(", ")]. The parked record was retained.")
-			continue
-
-		restored_body.dir = position["dir"]
-		SSticker.minds |= restored_mind
-		var/datum/mind/lobby_mind = lobby.mind
-		var/character_key = lobby.key
-		lobby.spawning = TRUE
-		restored_body.key = character_key
-		if(!restored_body.client)
-			lobby.spawning = FALSE
-			qdel(restored_body)
-			qdel(restored_mind)
-			cancel_character_resume(record_key, "Client transfer failed. The parked record was retained.")
-			continue
-
-		parked_characters -= record_key
-		pending_character_resumes -= record_key
-		qdel(lobby)
-		if(lobby_mind && lobby_mind != restored_mind && !QDELETED(lobby_mind))
-			qdel(lobby_mind)
-		to_chat(restored_body, span_nicegreen("Continued [restored_body.real_name] from the exact parked campaign state."))
-		log_game("[key_name(restored_body)] continued a DreamValley character from slot record [record_key].")
-		request_durable_checkpoint()
-		completed++
-	return completed
+/mob/dead/new_player/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+	if(action == "dv_saved_characters")
+		GLOB.dreamvalley_campaign?.prompt_resume_character(src)
+		return TRUE

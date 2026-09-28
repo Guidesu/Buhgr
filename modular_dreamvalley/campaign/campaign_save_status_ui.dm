@@ -1,16 +1,25 @@
 /**
- * Save-status + control UI for the DreamValley campaign system.
+ * The "Campaign" panel: the single entry point for campaign saves.
  *
- * Two audiences, one backend datum:
- * - Admins get the full picture: world save health, dirty/pending state, dungeon
- *   generator and economy subsystem health, every parked character record, and
- *   mutation actions (force checkpoint, force-unpark/cancel-resume, delete a
- *   single parked record).
- * - Players get a read-only narrow slice: just their own parked character(s)
- *   and the same world save-health line (so they can tell "is the server
- *   actually saving" without seeing anyone else's info or any controls).
+ * Everyone: when the world last saved, and their own saved characters
+ * (where they are, their bed, delete).
+ * Admins (R_ADMIN or R_DEBUG): world save slots (save, load next boot, load
+ * now, delete), every player's saved characters, and campaign management.
+ * Saving and shutting down additionally needs R_SERVER.
  */
 /datum/dreamvalley_campaign_manager/var/datum/dreamvalley_save_status_ui/save_status_ui
+
+/mob/verb/dreamvalley_campaign_panel()
+	set category = "OOC"
+	set name = "Campaign"
+	set desc = "See when the world last saved, manage your saved characters, and (admins) manage world saves."
+
+	if(!GLOB.dreamvalley_campaign)
+		to_chat(src, span_warning("Campaign saving is not active on this server."))
+		return
+	if(!GLOB.dreamvalley_campaign.save_status_ui)
+		GLOB.dreamvalley_campaign.save_status_ui = new(GLOB.dreamvalley_campaign)
+	GLOB.dreamvalley_campaign.save_status_ui.ui_interact(src)
 
 /datum/dreamvalley_save_status_ui
 	var/datum/dreamvalley_campaign_manager/manager
@@ -24,281 +33,228 @@
 /datum/dreamvalley_save_status_ui/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "CampaignSaveStatus", "Campaign Save Status")
+		ui = new(user, src, "CampaignSaveStatus", "Campaign")
 		ui.open()
 
 /datum/dreamvalley_save_status_ui/proc/is_admin_viewer(mob/user)
 	return user?.client && check_rights_for(user.client, R_ADMIN|R_DEBUG)
 
+/datum/dreamvalley_save_status_ui/proc/can_shutdown(mob/user)
+	return user?.client && check_rights_for(user.client, R_SERVER)
+
+/datum/dreamvalley_save_status_ui/proc/admin_log(mob/user, text)
+	log_admin("[key_name(user)] [text]")
+	message_admins("[key_name_admin(user)] [text]")
+
 /datum/dreamvalley_save_status_ui/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
-	if(!is_admin_viewer(usr))
+	var/mob/user = ui.user
+	if(!manager || !user?.client)
 		return TRUE
-	if(!manager)
+	var/is_admin = is_admin_viewer(user)
+
+	// Actions on a single saved character: the owner or an admin.
+	if(action in list("delete_character", "forget_bed"))
+		var/uid = params["uid"]
+		var/list/record = manager.character_records[uid]
+		if(!islist(record) || (record["owner_ckey"] != user.ckey && !is_admin))
+			return TRUE
+		if(action == "forget_bed")
+			if(manager.clear_character_bed(uid))
+				to_chat(user, span_notice("[record["name"]] will no longer wake up in a bed."))
+			return TRUE
+		if(record["state"] == "in_world" && record["owner_ckey"] == user.ckey && !is_admin)
+			to_chat(user, span_warning("You can't delete a character you are currently playing."))
+			return TRUE
+		if(tgui_alert(user, "Delete the save of [record["name"]]? This can't be undone.", "Delete Saved Character", list("Delete", "Keep")) != "Delete")
+			return TRUE
+		manager.delete_character_record(uid)
+		if(record["owner_ckey"] != user.ckey)
+			admin_log(user, "deleted [record["owner_ckey"]]'s saved character [record["name"]] ([uid]).")
+		return TRUE
+
+	if(action == "save_and_shutdown")
+		if(can_shutdown(user))
+			save_and_shutdown(user)
+		return TRUE
+
+	if(!is_admin)
 		return TRUE
 
 	switch(action)
-		if("force_checkpoint")
-			var/parked_count = manager.auto_park_connected_characters()
-			var/generation = manager.request_durable_checkpoint()
-			if(isnum(generation))
-				to_chat(usr, span_notice("Forced a checkpoint - now at generation [generation]. Parked [parked_count] connected character(s); capture failures: [manager.last_auto_park_failures]."))
-				log_admin("[key_name(usr)] forced a DreamValley campaign checkpoint (generation [generation], [parked_count] connected characters parked, [manager.last_auto_park_failures] failures).")
+		if("save_now")
+			if(manager.saves_frozen)
+				to_chat(user, span_warning(manager.frozen_reason))
+				return TRUE
+			var/count = manager.save_all_player_characters("in_world")
+			if(manager.write_world_save(DREAMVALLEY_AUTOSAVE_SLOT))
+				to_chat(user, span_notice("World saved to the autosave slot ([count] player character(s) included)."))
 			else
-				to_chat(usr, span_warning("Checkpoint write failed - see server log."))
+				to_chat(user, span_warning("The save failed. Check the server log."))
 			return TRUE
 
-		if("delete_parked_record")
-			var/record_key = params["record_key"]
-			if(!record_key || !islist(manager.parked_characters) || !manager.parked_characters[record_key])
-				to_chat(usr, span_warning("That parked record no longer exists."))
+		if("save_to_slot")
+			var/slot = params["slot"]
+			if(!slot)
+				slot = manager.sanitize_save_name(tgui_input_text(user, "Name for the new save (letters, digits, - and _):", "Save World", max_length = 64))
+				if(!slot)
+					return TRUE
+			else if(tgui_alert(user, "Overwrite the save \"[slot]\" with the current world?", "Save World", list("Overwrite", "Cancel")) != "Overwrite")
 				return TRUE
-			var/list/record = manager.parked_characters[record_key]
-			var/list/identity = record["core"]?["identity"]
-			var/display_name = identity?["real_name"] || identity?["name"] || record_key
-			if(alert(usr, "Permanently delete the parked record for [display_name]? This cannot be undone.", "Delete Parked Record", "Delete", "Cancel") != "Delete")
+			if(slot == DREAMVALLEY_AUTOSAVE_SLOT)
+				to_chat(user, span_warning("\"[slot]\" is reserved for autosaves. Pick another name."))
 				return TRUE
-			manager.parked_characters -= record_key
-			manager.request_durable_checkpoint()
-			to_chat(usr, span_boldannounce("Deleted parked record for [display_name]."))
-			log_admin("[key_name(usr)] deleted DreamValley parked record '[record_key]' ([display_name]).")
-			message_admins("[key_name_admin(usr)] deleted DreamValley parked record '[record_key]' ([display_name]).")
+			var/count = manager.save_all_player_characters("in_world")
+			if(manager.write_world_save(slot))
+				to_chat(user, span_notice("World saved as \"[slot]\" ([count] player character(s) included)."))
+				admin_log(user, "saved the campaign world to slot \"[slot]\".")
+			else
+				to_chat(user, span_warning("The save failed. Check the server log."))
 			return TRUE
 
-		if("cancel_pending_parking")
-			var/record_key = params["record_key"]
-			var/list/transaction = manager.pending_character_parking[record_key]
-			if(!record_key || !islist(transaction))
-				to_chat(usr, span_warning("That pending parking transaction no longer exists."))
-				return TRUE
-			var/mob/living/carbon/human/body = transaction["body"]
-			var/mob/dead/new_player/lobby = transaction["lobby"]
-			var/obj/structure/far_travel/source = transaction["source"]
-			manager.pending_character_parking -= record_key
-			var/list/existing = manager.parked_characters[record_key]
-			if(islist(existing) && existing["state"] == "parking")
-				manager.parked_characters -= record_key
-			if(lobby && !QDELETED(lobby) && lobby.client)
-				to_chat(lobby, span_boldwarning("An admin cancelled your pending campaign save. Your body has been returned."))
-			if(body && !QDELETED(body) && lobby?.key)
-				body.key = lobby.key
-			if(source && !QDELETED(source))
-				source.in_use = FALSE
-			to_chat(usr, span_boldannounce("Cancelled pending parking transaction for '[record_key]' and returned control to the body."))
-			log_admin("[key_name(usr)] cancelled a stuck DreamValley parking transaction ('[record_key]').")
-			message_admins("[key_name_admin(usr)] cancelled a stuck DreamValley parking transaction ('[record_key]').")
+		if("load_next_boot")
+			var/slot = params["slot"]
+			if(manager.set_boot_slot(slot))
+				to_chat(user, span_notice("\"[slot]\" will load the next time the server starts."))
+				admin_log(user, "set campaign save \"[slot]\" to load on the next boot.")
+			else
+				to_chat(user, span_warning("That save can't be loaded (missing or damaged)."))
 			return TRUE
 
-		if("cancel_pending_resume")
-			var/record_key = params["record_key"]
-			if(!record_key || !islist(manager.pending_character_resumes[record_key]))
-				to_chat(usr, span_warning("That pending resume transaction no longer exists."))
+		if("load_now")
+			var/slot = params["slot"]
+			if(tgui_alert(user, "Load \"[slot]\" now? The server restarts, and everything since that save is lost unless it's saved in another slot.", "Load Save", list("Load and restart", "Cancel")) != "Load and restart")
 				return TRUE
-			manager.cancel_character_resume(record_key, "An admin cancelled your pending Continue. Your saved character is still parked safely.")
-			to_chat(usr, span_boldannounce("Cancelled pending resume transaction for '[record_key]'."))
-			log_admin("[key_name(usr)] cancelled a stuck DreamValley resume transaction ('[record_key]').")
-			message_admins("[key_name_admin(usr)] cancelled a stuck DreamValley resume transaction ('[record_key]').")
+			if(!manager.set_boot_slot(slot))
+				to_chat(user, span_warning("That save can't be loaded (missing or damaged)."))
+				return TRUE
+			manager.freeze_saves("Loading \"[slot]\". The server is restarting.")
+			admin_log(user, "loaded campaign save \"[slot]\" and restarted the server.")
+			to_chat(world, span_boldannounce("An admin is loading an earlier save of the world. The server is restarting."))
+			world.Reboot("Campaign save loaded by [user.client.key]")
+			return TRUE
+
+		if("delete_slot")
+			var/slot = params["slot"]
+			if(tgui_alert(user, "Delete the save \"[slot]\"? This can't be undone.", "Delete Save", list("Delete", "Keep")) != "Delete")
+				return TRUE
+			if(manager.delete_slot(slot))
+				admin_log(user, "deleted campaign save \"[slot]\".")
+			else
+				to_chat(user, span_warning("That save can't be deleted."))
 			return TRUE
 
 		if("switch_campaign")
 			var/target_id = params["campaign_id"]
-			if(!target_id || target_id == manager.campaign_id)
+			if(tgui_alert(user, "Save this campaign and switch to \"[target_id]\"? The server restarts.", "Switch Campaign", list("Switch", "Cancel")) != "Switch")
 				return TRUE
-			if(alert(usr, "Switch to campaign '[target_id]'? All connected players will be disconnected and the server will restart.", "Switch Campaign", "Switch", "Cancel") != "Switch")
+			var/old_id = manager.campaign_id
+			if(!manager.switch_campaign(target_id))
+				to_chat(user, span_warning("Couldn't switch. Check the server log."))
 				return TRUE
-			log_admin("[key_name(usr)] switched DreamValley campaign from '[manager.campaign_id]' to '[target_id]' via UI.")
-			message_admins("[key_name_admin(usr)] switched DreamValley campaign from '[manager.campaign_id]' to '[target_id]'.")
-			manager.switch_campaign(target_id)
-			world.Reboot("Campaign switched by [usr.client.key]")
+			admin_log(user, "switched the campaign from \"[old_id]\" to \"[target_id]\".")
+			to_chat(world, span_boldannounce("The campaign is switching to \"[target_id]\". The server is restarting."))
+			world.Reboot("Campaign switched by [user.client.key]")
 			return TRUE
 
 		if("create_campaign")
-			var/new_id = input(usr, "Enter a campaign ID (alphanumeric, underscore, hyphen only):", "Create Campaign") as text|null
-			if(!new_id || !length(new_id))
+			var/new_id = tgui_input_text(user, "Name for the new campaign (letters, digits, - and _):", "New Campaign", max_length = 64)
+			if(!new_id)
 				return TRUE
 			var/result = manager.create_campaign(new_id)
-			if(!result)
-				to_chat(usr, span_warning("Failed to create campaign '[new_id]'. It may already exist or the ID is invalid."))
-				return TRUE
-			to_chat(usr, span_notice("Created campaign '[result]'."))
-			log_admin("[key_name(usr)] created DreamValley campaign '[result]' via UI.")
+			if(result)
+				to_chat(user, span_notice("Created campaign \"[result]\". Switch to it to start playing it."))
+				admin_log(user, "created campaign \"[result]\".")
+			else
+				to_chat(user, span_warning("That name is invalid or already used."))
 			return TRUE
 
 		if("delete_campaign")
 			var/target_id = params["campaign_id"]
-			if(!target_id || target_id == manager.campaign_id)
+			if(tgui_alert(user, "Delete the campaign \"[target_id]\" and all its saves? This can't be undone.", "Delete Campaign", list("Delete", "Keep")) != "Delete")
 				return TRUE
-			if(alert(usr, "Permanently delete campaign '[target_id]'? This cannot be undone.", "Delete Campaign", "Delete", "Cancel") != "Delete")
-				return TRUE
-			manager.delete_campaign(target_id)
-			to_chat(usr, span_boldannounce("Deleted campaign '[target_id]'."))
-			log_admin("[key_name(usr)] deleted DreamValley campaign '[target_id]' via UI.")
+			if(manager.delete_campaign(target_id))
+				admin_log(user, "deleted campaign \"[target_id]\".")
+			else
+				to_chat(user, span_warning("That campaign can't be deleted."))
 			return TRUE
+
+/datum/dreamvalley_save_status_ui/proc/save_and_shutdown(mob/user)
+	if(manager.saves_frozen)
+		to_chat(user, span_warning(manager.frozen_reason))
+		return
+	if(manager.save_and_shutdown_in_progress)
+		return
+	if(tgui_alert(user, "Save the world and every character, then shut the server down?", "Save and Shut Down", list("Save and shut down", "Cancel")) != "Save and shut down")
+		return
+	manager.save_and_shutdown_in_progress = TRUE
+	var/count = manager.save_all_player_characters("stored")
+	if(!manager.write_world_save(DREAMVALLEY_AUTOSAVE_SLOT))
+		manager.save_and_shutdown_in_progress = FALSE
+		to_chat(user, span_boldwarning("The save failed, so the server stays up. Check the server log."))
+		return
+	manager.freeze_saves("The server is shutting down.")
+	to_chat(world, span_boldannounce("The world and [count] character(s) have been saved. The server is shutting down."))
+	admin_log(user, "saved the campaign and shut the server down.")
+	sleep(1 SECONDS)
+	Master.Shutdown()
+	world.Del()
 
 /datum/dreamvalley_save_status_ui/ui_data(mob/user)
 	var/list/data = list()
 	var/is_admin = is_admin_viewer(user)
 	data["is_admin"] = is_admin
+	data["can_shutdown"] = can_shutdown(user)
 	data["enabled"] = manager?.enabled || FALSE
-	data["campaign_id"] = manager?.campaign_id || "default"
-	data["available_campaigns"] = build_available_campaigns()
-
-	data["world_save"] = list(
-		"checkpoint_generation" = manager?.checkpoint_generation || 0,
-		"last_checkpoint_at" = manager?.last_checkpoint_at,
-		"last_checkpoint_ago_text" = format_ago_text(manager?.last_checkpoint_at),
-		"save_file_bytes" = manager?.get_save_file_size() || 0,
-	)
+	data["campaign_id"] = manager?.campaign_id
+	data["frozen_reason"] = manager?.saves_frozen ? manager.frozen_reason : null
+	data["last_saved"] = describe_time_since(manager?.last_save_at)
+	data["loaded_slot"] = manager?.loaded_slot
+	data["my_characters"] = build_character_rows(manager?.get_owned_characters(user.ckey))
 
 	if(is_admin)
-		data["parked_characters"] = build_all_parked_rows()
-		data["pending_state"] = build_pending_state()
-		data["subsystem_health"] = build_subsystem_health()
-	else
-		data["parked_characters"] = build_own_parked_rows(user)
-
+		data["boot_slot"] = manager.get_boot_slot()
+		data["slots"] = manager.list_slots()
+		var/list/everyone = list()
+		for(var/uid in manager.character_records)
+			everyone += list(manager.character_records[uid])
+		data["all_characters"] = build_character_rows(sort_list(everyone, GLOBAL_PROC_REF(cmp_character_records_newest_first)))
+		var/list/campaigns = manager.list_campaigns()
+		var/list/campaign_rows = list()
+		for(var/cid in campaigns)
+			campaign_rows += list(list(
+				"id" = cid,
+				"last_saved" = campaigns[cid]["last_saved"],
+				"active" = cid == manager.campaign_id,
+			))
+		data["campaigns"] = campaign_rows
 	return data
 
-/// Dirty/in-flight state that hasn't hit a durable checkpoint yet - separate from
-/// the "last completed checkpoint" line above, which only shows what's already saved.
-/datum/dreamvalley_save_status_ui/proc/build_pending_state()
-	return list(
-		"dirty_turf_count" = islist(manager?.dirty_turfs) ? length(manager.dirty_turfs) : 0,
-		"pending_parking_count" = islist(manager?.pending_character_parking) ? length(manager.pending_character_parking) : 0,
-		"pending_resume_count" = islist(manager?.pending_character_resumes) ? length(manager.pending_character_resumes) : 0,
-	)
-
-/// Other subsystems whose health is relevant to "is the campaign in a good state" -
-/// surfaced here instead of admins needing to hunt through separate debug verbs.
-/datum/dreamvalley_save_status_ui/proc/build_subsystem_health()
-	var/list/dungeon = list(
-		"setup_done" = FALSE,
-		"generation_complete" = FALSE,
-		"markers_remaining" = 0,
-		"failed_markers_remaining" = 0,
-		"rooms_placed" = 0,
-	)
-
-	var/list/economy = list(
-		"last_processed_day" = SSeconomy?.last_processed_day || 0,
-		"roundstart_events_fired" = SSeconomy?.roundstart_events_fired || FALSE,
-	)
-
-	return list(
-		"dungeon" = dungeon,
-		"economy" = economy,
-	)
-
-/// Build a list of available campaigns for the UI.
-/datum/dreamvalley_save_status_ui/proc/build_available_campaigns()
-	var/list/result = list()
-	if(!manager)
-		return result
-	var/list/campaigns = manager.list_campaigns()
-	for(var/cid in campaigns)
-		var/list/info = campaigns[cid]
-		result += list(list(
-			"id" = cid,
-			"name" = info["name"],
-			"generation" = info["generation"],
-			"saved_at" = info["saved_at"],
-			"is_active" = (cid == manager.campaign_id),
+/datum/dreamvalley_save_status_ui/proc/build_character_rows(list/records)
+	var/list/rows = list()
+	for(var/list/record in records)
+		rows += list(list(
+			"uid" = record["uid"],
+			"owner" = record["owner_ckey"],
+			"name" = record["name"],
+			"in_world" = record["state"] == "in_world",
+			"saved_at" = record["saved_at"],
+			"location" = record["location"],
+			"bed" = record["bed"]?["location"],
 		))
-	return result
-
-/datum/dreamvalley_save_status_ui/proc/format_ago_text(at_time)
-	if(!isnum(at_time) || at_time <= 0)
-		return "never this session"
-	var/elapsed_seconds = max(0, round((world.realtime - at_time) / 10))
-	if(elapsed_seconds < 60)
-		return "[elapsed_seconds]s ago"
-	if(elapsed_seconds < 3600)
-		return "[round(elapsed_seconds / 60)]m ago"
-	return "[round(elapsed_seconds / 3600)]h ago"
-
-/datum/dreamvalley_save_status_ui/proc/build_parked_row(record_key, list/record)
-	var/list/core = record["core"]
-	var/list/identity = core?["identity"]
-	return list(
-		"record_key" = record_key,
-		"owner_ckey" = record["owner_ckey"],
-		"real_name" = identity?["real_name"] || identity?["name"] || "Unknown",
-		"state" = record["state"],
-		"complete" = record["complete"] == TRUE,
-	)
-
-/datum/dreamvalley_save_status_ui/proc/build_all_parked_rows()
-	var/list/rows = list()
-	if(!islist(manager?.parked_characters))
-		return rows
-	for(var/record_key in manager.parked_characters)
-		var/list/record = manager.parked_characters[record_key]
-		if(islist(record))
-			rows += list(build_parked_row(record_key, record))
 	return rows
 
-/datum/dreamvalley_save_status_ui/proc/build_own_parked_rows(mob/user)
-	var/list/rows = list()
-	if(!user?.client || !islist(manager?.parked_characters))
-		return rows
-	var/own_ckey = ckey(user.client.key)
-	for(var/record_key in manager.parked_characters)
-		var/list/record = manager.parked_characters[record_key]
-		if(!islist(record))
-			continue
-		if(ckey(record["owner_ckey"]) != own_ckey)
-			continue
-		rows += list(build_parked_row(record_key, record))
-	return rows
-
-/client/proc/cmd_admin_campaign_save_status()
-	set category = "Debug"
-	set name = "Campaign Save Status"
-	set desc = "View the DreamValley campaign world save status and every parked character."
-
-	if(!check_rights(R_ADMIN|R_DEBUG))
-		return
-	if(!GLOB.dreamvalley_campaign)
-		to_chat(usr, span_warning("The DreamValley campaign system is not active on this server."))
-		return
-	if(!GLOB.dreamvalley_campaign.save_status_ui)
-		GLOB.dreamvalley_campaign.save_status_ui = new(GLOB.dreamvalley_campaign)
-	GLOB.dreamvalley_campaign.save_status_ui.ui_interact(usr)
-
-/mob/verb/cmd_my_campaign_save_status()
-	set category = "OOC"
-	set name = "My Campaign Save Status"
-	set desc = "View your own parked character(s) and whether the campaign is saving."
-
-	if(!GLOB.dreamvalley_campaign)
-		to_chat(usr, span_warning("The DreamValley campaign system is not active on this server."))
-		return
-	if(!GLOB.dreamvalley_campaign.save_status_ui)
-		GLOB.dreamvalley_campaign.save_status_ui = new(GLOB.dreamvalley_campaign)
-	GLOB.dreamvalley_campaign.save_status_ui.ui_interact(src)
-
-/client/proc/cmd_admin_reset_campaign_save()
-	set category = "Debug"
-	set name = "Reset Campaign Save"
-	set desc = "Wipe the DreamValley campaign save file and all parked characters. Cannot be undone."
-
-	if(!check_rights(R_ADMIN|R_DEBUG))
-		return
-	if(!GLOB.dreamvalley_campaign)
-		to_chat(usr, span_warning("The DreamValley campaign system is not active on this server."))
-		return
-
-	var/datum/dreamvalley_campaign_manager/manager = GLOB.dreamvalley_campaign
-	var/parked_count = islist(manager.parked_characters) ? length(manager.parked_characters) : 0
-	var/confirm_text = "Generation [manager.checkpoint_generation], [parked_count] parked character(s) on file. This deletes the save and cannot be undone. Type the campaign ID ([manager.campaign_id]) to confirm."
-	var/typed = input(usr, confirm_text, "Reset Campaign Save") as text|null
-	if(isnull(typed) || typed != manager.campaign_id)
-		to_chat(usr, span_warning("Campaign save reset cancelled."))
-		return
-
-	GLOB.dreamvalley_campaign.reset_campaign_save()
-	to_chat(usr, span_boldannounce("DreamValley campaign save has been reset. Generation is now 0, all parked characters cleared."))
-	log_admin("[key_name(usr)] reset the DreamValley campaign save.")
-	message_admins("[key_name_admin(usr)] reset the DreamValley campaign save.")
+/datum/dreamvalley_save_status_ui/proc/describe_time_since(at_time)
+	if(!isnum(at_time))
+		return "not yet since the server started"
+	var/minutes = round((world.realtime - at_time) / (1 MINUTES))
+	if(minutes < 1)
+		return "less than a minute ago"
+	if(minutes == 1)
+		return "1 minute ago"
+	if(minutes < 60)
+		return "[minutes] minutes ago"
+	var/hours = round(minutes / 60)
+	return hours == 1 ? "1 hour ago" : "[hours] hours ago"

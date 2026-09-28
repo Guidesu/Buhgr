@@ -1181,9 +1181,34 @@
 		return null
 	return paint.Copy()
 
+/// Rendered loadout icons keyed by "path|primary|detail|altdetail". Rendering means
+/// spawning the item and base64-encoding a composited icon, which was being redone
+/// for every loadout item on every click in the TAT window.
+GLOBAL_LIST_EMPTY(tat_loadout_icon_cache)
+
 /datum/tat_items/proc/build_loadout_item_icon_payload(item_path)
 	if(!ispath(item_path, /obj/item))
 		return null
+	var/list/paint = item_paint[item_path]
+	var/painted = islist(paint) && length(paint)
+	// Unpainted items look exactly like their shop entry, so reuse that icon.
+	if(!painted && GLOB.tat_item_icon_cache_ready)
+		var/list/catalog_entry = GLOB.tat_item_catalog_cache["[item_path]"]
+		if(catalog_entry?["icon"])
+			return list("icon" = catalog_entry["icon"], "icon_state" = catalog_entry["icon_state"])
+	var/cache_key = painted ? "[item_path]|[paint["primary"]]|[paint["detail"]]|[paint["altdetail"]]" : "[item_path]"
+	var/list/cached = GLOB.tat_loadout_icon_cache[cache_key]
+	if(cached)
+		return cached
+	var/list/rendered
+	try
+		rendered = render_loadout_item_icon_payload(item_path)
+	catch(var/exception/icon_error)
+		log_world("TAT: could not render the loadout icon for [item_path]: [icon_error]")
+	GLOB.tat_loadout_icon_cache[cache_key] = rendered || list()
+	return rendered
+
+/datum/tat_items/proc/render_loadout_item_icon_payload(item_path)
 	var/obj/item/preview_item = new item_path(null)
 	if(!preview_item)
 		return null

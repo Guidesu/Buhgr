@@ -767,35 +767,76 @@ GLOBAL_LIST_INIT(tat_donation_access_all_ckeys, TAT_DONATION_ACCESS_ALL_CKEYS)
 	
 GLOBAL_LIST_INIT(tat_available_items, list(TAT_AVAILABLE_ITEMS_LIST))
 
+/// TAT shop icons as one spritesheet. rust-g renders it once and caches it on disk
+/// across restarts (data/spritesheets/), and clients cache the image too, so opening
+/// TAT sends a short CSS class per item instead of hundreds of base64 images.
+/datum/asset/spritesheet_batched/tat_items
+	name = "tat_items"
+	ignore_dir_errors = TRUE
+
+/datum/asset/spritesheet_batched/tat_items/create_spritesheets()
+	var/list/states_by_file = list()
+	for(var/item_path in GLOB.tat_available_items)
+		if(!ispath(item_path, /obj/item))
+			continue
+		var/obj/item/typed_path = item_path
+		var/icon_file = initial(typed_path.icon)
+		var/icon_state = initial(typed_path.icon_state)
+		if(!icon_file)
+			continue
+		// Skip missing states instead of letting one bad item break the whole sheet.
+		var/list/valid_states = states_by_file[icon_file]
+		if(!valid_states)
+			valid_states = states_by_file[icon_file] = icon_states(icon_file)
+		if(!(icon_state in valid_states))
+			continue
+		insert_icon(tat_item_sprite_key(item_path), get_display_icon_for(item_path))
+
+/// CSS-safe sprite name for an item path: /obj/item/foo/bar -> tat-obj-item-foo-bar
+/proc/tat_item_sprite_key(item_path)
+	return "tat[replacetext("[item_path]", "/", "-")]"
+
+/// Icon payload for the TAT UI. "icon" is "css:<classes>" pointing into the tat_items
+/// spritesheet (TATBuild.tsx TileIcon understands both this and raw base64).
 /proc/build_tat_item_icon_payload(item_path)
 	if(!ispath(item_path, /obj/item))
 		return null
-	var/obj/item/path = item_path
-	var/icon_file = initial(path.icon)
-	var/icon_state_value = initial(path.icon_state)
-	if(!icon_file)
+	var/datum/asset/spritesheet_batched/tat_items/sheet = get_asset_datum(/datum/asset/spritesheet_batched/tat_items)
+	var/class_name = sheet.icon_class_name(tat_item_sprite_key(item_path))
+	if(!class_name)
 		return null
-	var/icon/render_icon = icon(icon_file, icon_state_value, SOUTH, 1)
-	if(!render_icon)
-		return null
+	var/obj/item/typed_path = item_path
 	return list(
-		"icon" = icon2base64(render_icon),
-		"icon_state" = "[icon_state_value]",
+		"icon" = "css:[class_name]",
+		"icon_state" = "[initial(typed_path.icon_state)]",
 	)
 
 /proc/warm_tat_item_catalog()
 	if(GLOB.tat_item_icon_cache_ready)
 		return
 	if(GLOB.tat_item_icon_cache_warming)
-		UNTIL(GLOB.tat_item_icon_cache_ready)
+		UNTIL(GLOB.tat_item_icon_cache_ready || !GLOB.tat_item_icon_cache_warming)
 		return
 	GLOB.tat_item_icon_cache_warming = TRUE
+	// Makes sure the spritesheet exists (read from the disk cache after the first boot).
+	var/datum/asset/spritesheet_batched/tat_items/sheet = get_asset_datum(/datum/asset/spritesheet_batched/tat_items)
+	try
+		sheet.ensure_ready()
+	catch(var/exception/sheet_error)
+		log_world("TAT: the item spritesheet reported an error: [sheet_error]")
 	var/list/catalog = list()
 	for(var/item_path in GLOB.tat_available_items)
 		var/list/entry = GLOB.tat_available_items[item_path]
 		if(!islist(entry))
 			continue
-		var/list/icon_payload = build_tat_item_icon_payload(item_path)
+		// One broken item icon must not abort the whole warm-up: that used to leave
+		// tat_item_icon_cache_warming stuck TRUE, and every later TAT open waited on
+		// it forever, so the window never opened for anyone until a restart.
+		var/list/icon_payload
+		try
+			icon_payload = build_tat_item_icon_payload(item_path)
+		catch(var/exception/icon_error)
+			log_world("TAT: could not render the icon for [item_path]: [icon_error]")
 		catalog["[item_path]"] = list(
 			"name" = entry["name"],
 			"cost" = entry["cost"],

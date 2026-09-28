@@ -1,303 +1,164 @@
 /**
- * Durable character-record boundary.
+ * Saved characters.
  *
- * A record belongs to the currently loaded preference slot, not merely to a
- * ckey. This lets Character Sheet editing keep its normal meaning while a
- * parked body remains an exact, separate Continue target.
+ * Every player character that has been saved has one record, identified by a
+ * uid ("ckey:number") that also lives on the body as dreamvalley_character_uid,
+ * so later saves of the same body update the same record.
  *
- * Draft records are intentionally marked incomplete until every graph section
- * has a verified serializer and restorer. Incomplete records are never offered
- * by can_continue_character().
+ * A record is in one of two states:
+ * - "stored":   the character is not in the world. Its owner can resume it
+ *               from the lobby.
+ * - "in_world": the character is being played right now; the record is only a
+ *               backup. It can't be resumed (that would duplicate the body).
+ *               On boot every "in_world" record becomes "stored", because no
+ *               bodies survive a restart.
+ *
+ * Saving never refuses: whatever the capture engine (character_graph.dm)
+ * can't represent is skipped and logged, and the rest is kept.
  */
+/datum/dreamvalley_campaign_manager
+	/// uid -> record. Saved inside every world save slot.
+	var/list/character_records = list()
+	/// Counter for new character uids. Saved with the world.
+	var/next_character_number = 1
 
-/datum/dreamvalley_campaign_manager/proc/character_record_key(client/player)
-	if(!player)
-		return null
-	var/owner_ckey = ckey(player.key)
-	if(!length(owner_ckey))
-		return null
-	var/preference_slot = player.prefs?.loaded_slot
-	if(!isnum(preference_slot) || preference_slot < 1)
-		preference_slot = player.prefs?.default_slot
-	if(!isnum(preference_slot) || preference_slot < 1)
-		preference_slot = 1
-	return "[owner_ckey]/[preference_slot]"
+/mob/living/carbon/human
+	/// DreamValley saved-character uid for this body, or null if never saved.
+	var/dreamvalley_character_uid
 
-/datum/dreamvalley_campaign_manager/proc/get_parked_character(client/player)
-	var/record_key = character_record_key(player)
-	if(!record_key)
+/// The ckey that owns a body, whether or not the player is connected.
+/datum/dreamvalley_campaign_manager/proc/character_owner_ckey(mob/living/carbon/human/character)
+	if(character.ckey)
+		return character.ckey
+	if(character.mind?.key)
+		return ckey(character.mind.key)
+	return null
+
+/**
+ * Saves a body into its record and returns the record (or null if the body
+ * has no owning player). new_state is "stored" or "in_world".
+ */
+/datum/dreamvalley_campaign_manager/proc/save_character(mob/living/carbon/human/character, new_state)
+	if(!istype(character) || QDELETED(character))
 		return null
-	var/list/record = parked_characters[record_key]
-	if(!islist(record))
+	var/owner = character_owner_ckey(character)
+	if(!owner)
 		return null
+
+	var/uid = character.dreamvalley_character_uid
+	var/list/previous = uid ? character_records[uid] : null
+	// A uid that belongs to someone else (body handed over by an admin) starts a new record.
+	if(!islist(previous) || previous["owner_ckey"] != owner)
+		uid = "[owner]:[next_character_number++]"
+		previous = null
+		character.dreamvalley_character_uid = uid
+
+	var/list/core = capture_character_core(character)
+	var/list/skipped = core?["validation_issues"]
+	if(length(skipped))
+		log_world("DreamValley: saved [key_name(character)] as [uid]; skipped [length(skipped)] unsupported detail(s): [skipped.Join(", ")]")
+
+	var/turf/here = get_turf(character)
+	var/area/here_area = get_area(character)
+	var/list/record = list(
+		"schema_version" = 2,
+		"uid" = uid,
+		"owner_ckey" = owner,
+		"name" = character.real_name,
+		"state" = new_state,
+		"saved_at" = time2text(world.realtime, "YYYY-MM-DD hh:mm"),
+		"saved_day" = GLOB.dayspassed,
+		"location" = here_area ? here_area.name : "unknown",
+		"position" = here ? list("x" = here.x, "y" = here.y, "z" = here.z, "dir" = character.dir) : previous?["position"],
+		"bed" = previous?["bed"],
+		"mob_type" = "[character.type]",
+		"skipped_count" = length(skipped),
+		"core" = core,
+	)
+	character_records[uid] = record
 	return record
 
-/datum/dreamvalley_campaign_manager/proc/can_continue_character(client/player)
-	var/list/record = get_parked_character(player)
-	return islist(record) && record["state"] == "parked" && record["complete"] == TRUE
+/// Characters a player can resume right now, newest first.
+/datum/dreamvalley_campaign_manager/proc/get_resumable_characters(player_ckey)
+	var/list/result = list()
+	for(var/uid in character_records)
+		var/list/record = character_records[uid]
+		if(islist(record) && record["owner_ckey"] == player_ckey && record["state"] == "stored")
+			result += list(record)
+	return sort_list(result, GLOBAL_PROC_REF(cmp_character_records_newest_first))
 
+/// Every record a player owns (stored and in the world), newest first.
+/datum/dreamvalley_campaign_manager/proc/get_owned_characters(player_ckey)
+	var/list/result = list()
+	for(var/uid in character_records)
+		var/list/record = character_records[uid]
+		if(islist(record) && record["owner_ckey"] == player_ckey)
+			result += list(record)
+	return sort_list(result, GLOBAL_PROC_REF(cmp_character_records_newest_first))
+
+/proc/cmp_character_records_newest_first(list/a, list/b)
+	return sorttext(a["saved_at"] || "", b["saved_at"] || "")
+
+/// Records as written into a world save.
 /datum/dreamvalley_campaign_manager/proc/copy_character_records()
 	var/list/result = list()
-	for(var/record_key in parked_characters)
-		var/list/record = parked_characters[record_key]
+	for(var/uid in character_records)
+		var/list/record = character_records[uid]
 		if(islist(record))
-			result[record_key] = record.Copy()
+			result[uid] = record.Copy()
 	return result
 
+/// Loads records from a world save. Every body is gone after a restart, so
+/// every record becomes resumable. Old-format (schema 1) records are converted.
 /datum/dreamvalley_campaign_manager/proc/load_character_records(list/records)
-	parked_characters = list()
+	character_records = list()
 	if(!islist(records))
-		return TRUE
-	for(var/record_key in records)
-		var/list/record = records[record_key]
-		if(!istext(record_key) || !islist(record))
+		return
+	for(var/key in records)
+		var/list/record = records[key]
+		if(!islist(record) || !islist(record["core"]))
 			continue
-		if(record["record_key"] != record_key)
-			continue
-		// A crash after the staging checkpoint is safe to recover as parked:
-		// that checkpoint already contains the complete character graph and no
-		// campaign character bodies are restored from the ordinary world graph.
-		if((record["state"] in list("parking", "resuming")) && record["complete"] == TRUE)
-			record["state"] = "parked"
-		parked_characters[record_key] = record.Copy()
-	return TRUE
+		record = record.Copy()
+		if(record["schema_version"] != 2)
+			record = convert_legacy_character_record(key, record)
+			if(!record)
+				continue
+		record["state"] = "stored"
+		character_records[record["uid"]] = record
 
-/datum/dreamvalley_campaign_manager/proc/capture_character_draft(mob/living/carbon/human/character)
-	if(!character?.client)
+/// Schema 1 records were keyed "ckey/preference-slot" and used "parked" states.
+/datum/dreamvalley_campaign_manager/proc/convert_legacy_character_record(old_key, list/record)
+	var/owner = record["owner_ckey"]
+	if(!istext(owner) || !length(owner))
 		return null
-	var/record_key = character_record_key(character.client)
-	if(!record_key)
-		return null
-
-	var/preference_slot = character.client.prefs?.loaded_slot
-	if(!isnum(preference_slot) || preference_slot < 1)
-		preference_slot = 1
-	var/turf/position = get_turf(character)
-	var/list/core = capture_character_core(character)
-	var/list/core_issues = validate_character_core(core)
-
-	var/list/equipment_manifest = list()
-	for(var/slot_id in ALL_ITEM_SLOTS)
-		var/obj/item/equipped = character.get_item_by_slot(slot_id)
-		if(equipped)
-			equipment_manifest["[slot_id]"] = list(
-				"type" = "[equipped.type]",
-				"name" = equipped.name,
-			)
-	for(var/hand_index in 1 to length(character.held_items))
-		var/obj/item/held = character.held_items[hand_index]
-		if(held)
-			equipment_manifest["hand:[hand_index]"] = list(
-				"type" = "[held.type]",
-				"name" = held.name,
-			)
-
-	var/list/record = list(
-		"schema_version" = 1,
-		"graph_version" = 2,
-		"mob_type" = "[character.type]",
-		"record_key" = record_key,
-		"owner_ckey" = ckey(character.client.key),
-		"preference_slot" = preference_slot,
-		"state" = "draft",
-		"complete" = FALSE,
-		"missing_sections" = character_record_missing_sections(core_issues, FALSE),
-		"validation_issues" = core_issues,
-		"core" = core,
-		"position" = list(
-			"x" = position?.x,
-			"y" = position?.y,
-			"z" = position?.z,
-			"dir" = character.dir,
-		),
-		"equipment_manifest" = equipment_manifest,
-	)
+	var/list/identity = record["core"]["identity"]
+	record["schema_version"] = 2
+	record["uid"] = "[owner]:[next_character_number++]"
+	record["name"] = identity?["real_name"] || "Unnamed"
+	record["saved_at"] = "before the save update"
+	record["location"] = "unknown"
+	record["skipped_count"] = 0
 	return record
 
-/datum/dreamvalley_campaign_manager/proc/validate_character_core(list/core)
-	var/list/issues = list()
-	if(!islist(core))
-		issues += "character_core_missing"
-		return issues
+/datum/dreamvalley_campaign_manager/proc/delete_character_record(uid)
+	if(!character_records[uid])
+		return FALSE
+	character_records -= uid
+	request_checkpoint_soon()
+	return TRUE
 
-	for(var/required_section in list(
-		"identity", "vitals", "stats", "skills", "mind", "bodyparts",
-		"organs", "traits", "status_effects", "reagents", "items",
-	))
-		if(!(required_section in core))
-			issues += "missing_core_section:[required_section]"
-
-	var/list/capture_issues = core["validation_issues"]
-	if(islist(capture_issues))
-		issues |= capture_issues
-
-	var/list/item_graph = core["items"]
-	var/list/nodes = islist(item_graph) ? item_graph["nodes"] : null
-	if(!islist(nodes))
-		issues += "item_graph_nodes_missing"
-		return issues
-	if(item_graph["item_count"] != length(nodes))
-		issues += "item_graph_count_mismatch"
-
-	var/list/root_placements = list()
-	for(var/item_id in nodes)
-		var/list/node = nodes[item_id]
-		if(!islist(node) || node["id"] != item_id)
-			issues += "invalid_item_node:[item_id]"
+/**
+ * Saves every player body in the world. At shutdown bodies are about to
+ * vanish, so they are saved as "stored"; otherwise as "in_world" backups.
+ * Returns how many were saved.
+ */
+/datum/dreamvalley_campaign_manager/proc/save_all_player_characters(new_state)
+	var/saved = 0
+	for(var/mob/living/carbon/human/H as anything in GLOB.human_list)
+		if(QDELETED(H) || H.stat == DEAD || !character_owner_ckey(H))
 			continue
-		var/item_path = text2path(node["type"])
-		if(!ispath(item_path, /obj/item))
-			issues += "invalid_item_type:[item_id]"
-		var/list/placement = node["placement"]
-		var/placement_kind = islist(placement) ? placement["kind"] : null
-		var/parent_id = node["parent_id"]
-		if(placement_kind == "nested")
-			if(!parent_id || !islist(nodes[parent_id]) || parent_id == item_id)
-				issues += "invalid_item_parent:[item_id]"
-		else if(placement_kind == "slot")
-			var/slot_key = "slot:[placement["slot"]]"
-			if(root_placements[slot_key])
-				issues += "duplicate_item_placement:[slot_key]"
-			root_placements[slot_key] = item_id
-		else if(placement_kind == "hand")
-			var/hand_key = "hand:[placement["hand"]]"
-			if(root_placements[hand_key])
-				issues += "duplicate_item_placement:[hand_key]"
-			root_placements[hand_key] = item_id
-		else if(placement_kind == "bandage")
-			var/bandage_key = "bandage:[placement["body_zone"]]"
-			if(root_placements[bandage_key])
-				issues += "duplicate_item_placement:[bandage_key]"
-			root_placements[bandage_key] = item_id
-		else if(placement_kind != "embedded")
-			issues += "invalid_item_placement:[item_id]"
-
-		var/current_id = item_id
-		var/hops = 0
-		while(current_id && hops <= length(nodes))
-			var/list/current_node = nodes[current_id]
-			current_id = islist(current_node) ? current_node["parent_id"] : null
-			hops++
-		if(current_id)
-			issues += "item_parent_cycle:[item_id]"
-
-	return issues
-
-/datum/dreamvalley_campaign_manager/proc/character_record_missing_sections(list/issues, round_trip_passed)
-	var/list/missing = list()
-	if(length(issues))
-		missing += "runtime_state_contracts"
-	for(var/issue in issues)
-		var/issue_text = "[issue]"
-		if(findtext(issue_text, "item_") || findtext(issue_text, "reagent") || findtext(issue_text, "bandage") || findtext(issue_text, "embedded"))
-			missing |= "exact_item_graph"
-		if(findtext(issue_text, "spell") || findtext(issue_text, "status_effect"))
-			missing |= "spell_and_status_runtime_validation"
-		if(findtext(issue_text, "component") || findtext(issue_text, "non_serializable"))
-			missing |= "custom_datum_contracts"
-	if(!round_trip_passed)
-		missing |= "restore_validation"
-	return missing
-
-/datum/dreamvalley_campaign_manager/proc/validate_character_round_trip(mob/living/carbon/human/character, list/saved_core)
-	var/list/issues = validate_character_core(saved_core)
-	if(length(issues))
-		return issues
-	if(!character)
-		issues += "round_trip_source_missing"
-		return issues
-
-	// Never test restoration against the live player. A disposable nullspace
-	// body catches missing component constructors, equipment failures, and
-	// subclass state mismatches without touching the source character.
-	var/mob/living/carbon/human/shadow = new character.type(null)
-	if(!shadow || QDELETED(shadow))
-		issues += "round_trip_shadow_create_failed"
-		return issues
-	shadow.invisibility = INVISIBILITY_MAXIMUM
-	// restore_character_core() yields (sleep(0) during species assignment), and
-	// this mob is otherwise indistinguishable from a live one to SSmobs. A
-	// Life() tick in that window would clot wounds and nudge blood_volume on
-	// any character with prior injuries, failing the strict comparison below
-	// on real characters while a fresh test mob (no wounds, capped blood)
-	// never shows the drift. Pull it out of processing before it can tick.
-	GLOB.mob_living_list -= shadow
-	var/datum/mind/shadow_mind = new /datum/mind()
-	shadow.mind = shadow_mind
-	shadow_mind.current = shadow
-	shadow_mind.active = FALSE
-
-	if(!restore_character_core(shadow, saved_core))
-		issues += "restore_failed"
-		qdel(shadow)
-		qdel(shadow_mind)
-		return issues
-	var/list/restored_core = capture_character_core(shadow)
-	issues |= validate_character_core(restored_core)
-	if(length(issues))
-		qdel(shadow)
-		qdel(shadow_mind)
-		return issues
-	for(var/section in list(
-		"identity", "vitals", "stats", "skills", "mind", "bodyparts",
-		"organs", "traits", "status_effects", "reagents", "items",
-	))
-		if(!character_section_round_trip_matches(section, saved_core[section], restored_core[section]))
-			issues += "round_trip_mismatch:[section]"
-	qdel(shadow)
-	qdel(shadow_mind)
-	return issues
-
-/datum/dreamvalley_campaign_manager/proc/character_section_round_trip_matches(section, saved_value, restored_value)
-	var/saved_copy = islist(saved_value) ? deepCopyList(saved_value) : saved_value
-	var/restored_copy = islist(restored_value) ? deepCopyList(restored_value) : restored_value
-	if(section == "mind")
-		var/list/saved_mind = saved_copy
-		var/list/restored_mind = restored_copy
-		var/list/saved_spells = saved_mind?["spells"]
-		var/list/restored_spells = restored_mind?["spells"]
-		if(length(saved_spells) != length(restored_spells))
-			return FALSE
-		for(var/index in 1 to length(saved_spells))
-			var/list/saved_spell = saved_spells[index]
-			var/list/restored_spell = restored_spells[index]
-			for(var/time_field in list("cooldown_remaining", "last_process_age"))
-				var/saved_time = saved_spell[time_field]
-				var/restored_time = restored_spell[time_field]
-				if(isnum(saved_time) && isnum(restored_time) && abs(saved_time - restored_time) > 2)
-					return FALSE
-				if(time_field in saved_spell)
-					saved_spell[time_field] = 0
-				if(time_field in restored_spell)
-					restored_spell[time_field] = 0
-	else if(section == "status_effects")
-		var/list/saved_effects = saved_copy
-		var/list/restored_effects = restored_copy
-		if(length(saved_effects) != length(restored_effects))
-			return FALSE
-		for(var/index in 1 to length(saved_effects))
-			var/list/saved_effect = saved_effects[index]
-			var/list/restored_effect = restored_effects[index]
-			for(var/time_field in list("remaining_duration", "remaining_tick"))
-				var/saved_time = saved_effect[time_field]
-				var/restored_time = restored_effect[time_field]
-				if(isnum(saved_time) && isnum(restored_time) && abs(saved_time - restored_time) > 2)
-					return FALSE
-				saved_effect[time_field] = 0
-				restored_effect[time_field] = 0
-	return json_encode(saved_copy) == json_encode(restored_copy)
-
-/datum/dreamvalley_campaign_manager/proc/audit_character_for_parking(mob/living/carbon/human/character)
-	var/list/record = capture_character_draft(character)
-	if(!islist(record))
-		return list(
-			"ready" = FALSE,
-			"issues" = list("character_record_capture_failed"),
-			"missing_sections" = list("character_record"),
-		)
-	return list(
-		"ready" = record["complete"] == TRUE,
-		"issues" = record["validation_issues"],
-		"missing_sections" = record["missing_sections"],
-		"item_count" = record["core"]?["items"]?["item_count"],
-	)
+		if(istype(H, /mob/living/carbon/human/dummy))
+			continue
+		if(save_character(H, new_state))
+			saved++
+	return saved

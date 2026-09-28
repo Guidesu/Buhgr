@@ -3,6 +3,9 @@
 /// DreamValley consumed the Far Travel request, either by parking or safely refusing it.
 #define DREAMVALLEY_TRAVEL_HANDLED 1
 
+/// Save slot the game autosaves into.
+#define DREAMVALLEY_AUTOSAVE_SLOT "autosave"
+
 /// A complete in-game day in deciseconds.
 #define DREAMVALLEY_DAY_LENGTH 864000
 
