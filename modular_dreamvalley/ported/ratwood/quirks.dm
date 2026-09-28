@@ -1,4 +1,4 @@
-// Ratwood quirks (Ratwood PR #2650) in Azure Peak's quirk system (AP PR #8671).
+// Ratwood quirks in Azure Peak's quirk system.
 // Only quirks whose effect exists in this codebase are here; Ratwood quirks that
 // duplicate an AP one (Fabled Lover, Night Owl, Noble, Outdoorsy, Ugly) are covered
 // by AP's version. Redolent, Acquired Tastes and Rough Lover live with the sexcon
@@ -52,7 +52,7 @@
 	add_verb(recipient, /mob/living/carbon/human/proc/changevoice)
 	add_verb(recipient, /mob/living/carbon/human/proc/swapvoice)
 
-// AP PR #8671 hooks these quirks into AP's sexcon2 sessions; this codebase runs Ratwood's
+// Azure Peak hooks these quirks into its sexcon2 sessions; this codebase runs Ratwood's
 // sexcon, so the same effects hook in here.
 
 /// Prickly (TRAIT_CAUSTIC): intimate contact with a prickly partner hurts a little.

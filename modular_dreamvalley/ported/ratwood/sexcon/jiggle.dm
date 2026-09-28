@@ -1,5 +1,5 @@
-// Ratwood breast jiggle (the "Bath Dance" feature, Ratwood commit 342888f9c2, as on Ratwood
-// main) plus PR #2892 "Jiggle 2 Rough Intent": breasts jiggle during rough (high force) sex.
+// Ratwood breast jiggle (the "Bath Dance" feature, as on Ratwood
+// main), plus Ratwood's "jiggle on rough intent": breasts jiggle during rough (high force) sex.
 // Sprites: icons/mob/sprite_accessory/genitals/breasts.dmi carries the *_jiggle states.
 
 #define MIN_JIGGLE_BREASTS_SIZE 1
@@ -121,7 +121,7 @@
 		return
 	stop_jiggle()
 
-// PR #2892: a short jiggle on each rough thrust (called from sexcon do_thrust_animate()).
+// Rough intent: a short jiggle on each rough thrust (called from sexcon do_thrust_animate()).
 /obj/item/organ/breasts/proc/thrust_jiggle_on()
 	if(!ishuman(owner))
 		return
@@ -138,7 +138,7 @@
 	stop_jiggle()
 	refresh_viewers(owner)
 
-/// PR #2892: refreshes the vision of everyone who can see source, so icon_state changes show.
+/// Refreshes the vision of everyone who can see source, so icon_state changes show.
 /proc/refresh_viewers(atom/source)
 	for(var/mob/M in viewers(7, source))
 		if(M.client)
