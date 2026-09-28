@@ -79,6 +79,7 @@
 			if(do_after(L, 3 SECONDS, target = src))
 				wash_atom(user, CLEAN_STRONG)
 				user.remove_stress(/datum/stressevent/sewertouched)
+				user.remove_stress(/datum/stressevent/unlanded_noble_bloody_equipment)
 				playsound(user, pick(wash), 100, FALSE)
 				if(user.bodytemperature < BODYTEMP_NORMAL_MIN)	//washing yourself helps to warm you up.
 					user.adjust_bodytemperature(75)

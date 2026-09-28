@@ -1,14 +1,15 @@
 // Redolent (Ratwood quirk): a strong personal scent that lingers on anyone you touch
-// intimately and that nearby people notice. Ratwood makes it a quirk; this codebase has
-// no quirk system, so it's a virtue. The scent type and text are chosen in the character
-// menu (DreamValley card) and saved with the character.
+// intimately and that nearby people notice. The scent type and text are chosen in the
+// character menu (DreamValley card) and saved with the character.
 
-/datum/virtue/utility/redolent
+/datum/quirk/redolent
 	name = "Redolent"
 	desc = "My body odor is strong and distinct. Without regular baths, others will notice..."
+	mechdesc = "Choose the scent (pleasant, neutral or gross) in the DreamValley card. Soap or a bath hides it for a while."
 	added_traits = list(TRAIT_REDOLENT)
+	ui_fa_icon = "wind"
 
-/datum/virtue/utility/redolent/apply_to_human(mob/living/carbon/human/recipient)
+/datum/quirk/redolent/apply_to_human(mob/living/carbon/human/recipient)
 	recipient.redolent_scent_type = recipient.client?.prefs?.redolent_type || "Neutral"
 	recipient.redolent_scent = recipient.client?.prefs?.redolent_scent || ""
 
@@ -260,14 +261,18 @@
 	desc = span_green("A pleasant scent lifts my mood.")
 
 
-// Two more Ratwood quirks tied to sexcon, also as virtues.
-/datum/virtue/utility/acquired_tastes
+// Two more Ratwood quirks tied to sexcon.
+/datum/quirk/acquired_tastes
 	name = "Acquired Tastes"
 	desc = "Despite my unorthodox tastes, I'm always prepared to handle a guest with the toys I keep stashed."
-	custom_text = "Adds a bag of sexual instruments, including a small vial of emberwine, to your stash."
-	added_stashed_items = list("Bag of Fetish Gear" = /obj/item/storage/roguebag/fetish)
+	mechdesc = "Adds a bag of sexual instruments, including a small vial of emberwine, to your stash."
+	ui_fa_icon = "box-open"
 
-/datum/virtue/utility/rough_lover
+/datum/quirk/acquired_tastes/apply_to_human(mob/living/carbon/human/recipient)
+	recipient.mind?.special_items["Bag of Fetish Gear"] = /obj/item/storage/roguebag/fetish
+
+/datum/quirk/rough_lover
 	name = "Rough Lover"
 	desc = "With strong intent, I am a violent partner in bed. Breaking pelvis and spirit alike."
 	added_traits = list(TRAIT_DEATHBYSNUSNU)
+	ui_fa_icon = "hand-fist"

@@ -102,7 +102,7 @@ const SubtabIdentityCardDreamValley = () => {
           <Button
             fluid
             ellipsis
-            tooltip="Only noticed if you take the Redolent virtue."
+            tooltip="Only noticed if you take the Redolent quirk."
             onClick={() => act('dv_set_scent_text')}
           >
             {data.dv_scent_text}
