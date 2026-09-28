@@ -619,15 +619,37 @@
 
 /obj/item/natural/bundle/worms
 	name = "worms"
-	desc = "Multiple tiny creatures of the earth squirm and writhe together in a small pile."
-	color = "#964B00"
-	maxamount = 12
+	desc = "Multiple wriggly worms."
 	icon_state = "worm2"
-	icon1 = "worm2"
-	icon1step = 6
-	icon2 = "worm4"
-	icon2step = 12
-	icon3 = "worm6"
+	color = "#964B00"
+	maxamount = 6
+	icon1step = 3
+	icon2 = "worm3"
+	icon2step = 5
+	icon3 = "worm4"
 	stacktype = /obj/item/natural/worms
 	stackname = "worms"
 	bundling_time = 1 SECONDS
+
+/obj/item/natural/bundle/worms/update_bundle()
+	. = ..()
+	icon_state = "worm[clamp(amount, 1, 6)]"
+
+/obj/item/natural/worms/attack_right(mob/user)
+	to_chat(user, span_warning("I start to collect [src]..."))
+	if(move_after(user, bundling_time, target = src))
+		var/wormcount = 0
+		for(var/obj/item/natural/worms/F in get_turf(src))
+			wormcount++
+		while(wormcount > 0)
+			if(wormcount == 1)
+				new /obj/item/natural/worms(user.drop_location())
+				wormcount--
+			else if(wormcount >= 2)
+				var/obj/item/natural/bundle/worms/B = new(user.drop_location())
+				B.amount = clamp(wormcount, 2, B.maxamount)
+				B.update_bundle()
+				wormcount -= clamp(wormcount, 2, B.maxamount)
+				user.put_in_hands(B)
+		for(var/obj/item/natural/worms/F in get_turf(src))
+			qdel(F)

@@ -2149,3 +2149,21 @@
 /obj/effect/wisp/prestidigitation/runelight
 	name = "arcyne mote"
 	desc = "An ethereal ball of pure light, manifested through an arcyne sigil."
+
+/obj/structure/ship_wheel
+	name = "ship's wheel"
+	desc = "A large wooden wheel, traditionally used to steer a ship's rudder."
+	icon = 'icons/obj/wheel.dmi'
+	icon_state = "wheel"
+
+/obj/structure/ship_wheel/north
+	dir = 1
+
+/obj/structure/ship_wheel/south
+	dir = 2
+
+/obj/structure/ship_wheel/east
+	dir = 4
+
+/obj/structure/ship_wheel/west
+	dir = 8

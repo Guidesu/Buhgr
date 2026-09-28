@@ -218,28 +218,48 @@
 				needed--
 				qdel(I)
 
-/obj/effect/proc_holder/spell/invoked/resurrect/abyssor
+/obj/effect/proc_holder/spell/invoked/resurrect/abyssor// ANY FISH will work for this. Must be done next to seawater
 	name = "Abyssal Rite of Anastasis"
 	desc = "Resurrects the chosen target, bringing them back from the dead. </br>Unlike the 'Anastasis' blessing, this requires a certain type of fish to cast. Cast \
 	the blessing on yourself to check what's needed. </br>The resurrected target will not be brought back, alone; a fierce dreamfriend will be tethered to their spirit, \
 	stalking and sapping their strength. Slaying this dreamfiend will fully restore their strength. </br>Unlike a regular Healing miracle, this can affect - and resurrect - devout Vaeltians as well."
 	sound = 'sound/magic/whale.ogg'
-	//A medley of common ocean fish, totalling 6
-	required_items = list(
-		/obj/item/reagent_containers/food/snacks/fish/sole = 2,
-		/obj/item/reagent_containers/food/snacks/fish/cod = 2,
-		/obj/item/reagent_containers/food/snacks/fish/plaice = 1,
-		/obj/item/reagent_containers/food/snacks/fish/lobster = 1,
-	)
-	alt_required_items = list(
-		/obj/item/reagent_containers/food/snacks/fish/plaice = 2,
-		/obj/item/reagent_containers/food/snacks/fish/angler = 1
-	)
+	// Any 10 fish (the new fishing adds many species).
+	var/any_fish_needed = 10
 	debuff_type = /datum/status_effect/debuff/dreamfiend_curse
 	//This will be Abyssor's statue soon.
+	required_items = list() // fish requirement is handled entirely via any_fish_needed, not the item system
 	required_structure = /turf/open/water/ocean
+	alt_required_items = null // explicitly: no cost-reduction alternate for this revival
 	action_icon = 'icons/mob/actions/abyssormiracles.dmi'
 	overlay_icon = 'icons/mob/actions/abyssormiracles.dmi'
+
+/obj/effect/proc_holder/spell/invoked/resurrect/abyssor/proc/get_nearby_fish(atom/center)
+	var/list/fish = list()
+	for(var/obj/item/reagent_containers/food/snacks/fish/F in range(item_radius, center))
+		fish += F
+	return fish
+
+/obj/effect/proc_holder/spell/invoked/resurrect/abyssor/validate_items(atom/center)
+	if(get_current_required_items() == alt_required_items)
+		return ..()
+
+	var/have = length(get_nearby_fish(center))
+	if(have >= any_fish_needed)
+		return ""
+	var/short = any_fish_needed - have
+	return "Missing components: [short] more fish of any kind."
+
+/obj/effect/proc_holder/spell/invoked/resurrect/abyssor/consume_items(atom/center)
+	var/list/current_required_items = get_current_required_items()
+	if(current_required_items == alt_required_items)
+		return ..()
+	var/needed = any_fish_needed
+	for(var/obj/item/F in get_nearby_fish(center))
+		if(needed <= 0)
+			break
+		needed--
+		qdel(F)
 
 /datum/status_effect/debuff/dreamfiend_curse
 	id = "dreamfiend_curse"

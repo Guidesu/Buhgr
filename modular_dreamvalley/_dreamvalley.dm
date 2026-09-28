@@ -27,6 +27,7 @@
 #include "ported\ratwood\sexcon\partners.dm"
 #include "ported\ratwood\sexcon\jiggle.dm"
 #include "ported\ratwood\quirks.dm"
+#include "ported\ratwood\fishing_dreamvalley.dm"
 #include "ported\ratwood\byos_terrain\byos_desert_floors.dm"
 #include "ported\ratwood\byos_terrain\byos_desert_walls.dm"
 #include "ported\ratwood\byos_terrain\byos_areas.dm"

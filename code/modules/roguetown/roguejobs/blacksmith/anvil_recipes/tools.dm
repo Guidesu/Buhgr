@@ -399,6 +399,13 @@
 	created_item = /obj/item/kitchen/fork/bronze
 	display_category = ITEM_CAT_TOOLS_COOKWARE
 	createditem_num = 2
+/datum/anvil_recipe/tools/iron/fishingrod
+	name = "Fishing Rod, Iron (+1 Iron)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/fishingrod/aalloy/iron
+	i_type = "Tools"
+
 	craftdiff = 0
 
 /datum/anvil_recipe/tools/bronze/spoon
@@ -840,6 +847,13 @@
 	created_item = /obj/item/reagent_containers/glass/bowl/iron
 	display_category = ITEM_CAT_TOOLS_COOKWARE
 	craftdiff = 1
+
+/datum/anvil_recipe/tools/blacksteel/fishing
+	name = "Fishing Rod, Blacksteel (+1 Sticks)"
+	additional_items = list(/obj/item/grown/log/tree/stick)
+	created_item = /obj/item/fishingrod/blacksteel
+	i_type = "Tools"
+	display_category = ITEM_CAT_TOOLS_FIELD
 
 // --------- HEARTBEAST TOOLS -----------
 /datum/anvil_recipe/tools/heartbeast_vials

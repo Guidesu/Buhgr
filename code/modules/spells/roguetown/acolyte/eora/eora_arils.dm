@@ -157,7 +157,7 @@
 	icon_state = "cerulean"
 	effect_desc = "Excellent fishing bait that attracts treasure."
 	baitpenalty = 5
-	baitresilience = 4
+	baitresilience = 5
 	isbait = TRUE
 	fishingMods=list(
 		"commonFishingMod" = 0.2,

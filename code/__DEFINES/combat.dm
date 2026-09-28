@@ -208,6 +208,7 @@ GLOBAL_LIST_INIT(ranged_draw_curve, list(1, 0.79, 0.58, 0.33, 0.17, 0.08, 0))
 // Swingdelay presets
 #define SWINGDELAY_NORMAL 1	//No penalties, we just swing.
 #define SWINGDELAY_PENALTY 2 //We suffer a defensive penalty if struck during it. Otherwise, normal.
+#define ROD_AUTO			/datum/intent/auto
 #define SWINGDELAY_CANCEL 3 //We have -no- defense during it, and it can be interrupted if we are hit.
 #define SWINGDELAY_CANCELSLOW 4	//Same as cancel but our speed is also hardset to 10 for the delay.
 

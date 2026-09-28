@@ -30,6 +30,7 @@
 #define TG_SUPPLY_FISH_BULK			8	// Fish filet from Saltwick
 #define TG_SUPPLY_FISH_MINCE			6	// Fish mince
 #define TG_SUPPLY_FISH_SPECIALTY		6	// Named fish - salmon, cod, crab, bass, carp, sole, clam, lobster, shrimp
+#define TG_SUPPLY_FISH_RARE			6	// Rare-quality fish (fishing overhaul)
 #define TG_SUPPLY_REFINED_INGOTS		6	// Hagenwald's iron/steel/copper/tin ingots
 
 // ---- Demand (what a consuming region buys per day) ----
@@ -51,6 +52,7 @@
 #define TG_DEMAND_MEAT_BULK			6
 #define TG_DEMAND_COMMON_VEG			4
 #define TG_DEMAND_FISH_BULK			8
+#define TG_DEMAND_FISH_RARE			4
 #define TG_DEMAND_FISH_SPECIALTY		6
 #define TG_DEMAND_GEM				4	// Kingsfield luxury; no region produces
 #define TG_DEMAND_REFINED_INGOTS		5	// Iron/steel/copper/tin/gold/silver ingots - player-crafted
