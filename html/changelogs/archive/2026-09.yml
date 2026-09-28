@@ -1199,3 +1199,57 @@
       belt.
   saltprjak:
   - balance: Man at Arms Bailiff is now Thickblooded and Enduring.
+2026-09-28:
+  KatTheFox:
+  - rscadd: Adds a new vice, "Last Legs", which makes the Death's Door effect (DNR
+      post revival) permanent. Requires an extra vice.
+  Lamasmaster:
+  - rscdel: Acolytes lose divine blast entirely, they don't need it.
+  - balance: Makes divine blast 15 second cooldown, it only does 4 to 2 firestacks
+      not 10 to 5 depending on mind or not.
+  NonQueueingMatt:
+  - bugfix: Post-revival DNR is no longer removed after 10 minutes anyway if the user
+      dies.
+  OrbisAnima:
+  - balance: Reduces the Saddleborn penalty for losing your mount from 10 to 5, going
+      from the mood you get from being excomunicated by the bishop to the mood you
+      get from the Averse vice being in presence of a group of people from the corresponding
+      faction.
+  - balance: Changes the Alchemist outfit to be more in base with an adventurer (Sorcerer
+      outfit with alchemical flasks, mortar and pestle)
+  - balance: Gives missionary homestead expert and apprentice cooking
+  - balance: Reduces the cooldown of the Conjure Aegis minor arcana from 120 seconds
+      to 5 seconds, so that it remains consistent with the other conjure weapons spells.
+      The energy cost was reduced from 150 to 100, the 5 seconds of cast time with
+      yellow vulnerability and severe slowdown while casting remain intact.
+  - rscadd: Increases the vice limit from 3 to 7, as we have more lesser vices, this
+      allows for further customization of characters.
+  - rscadd: Expands Arcyne Forge to get chisel set and hunting knife (replacing iron
+      dagger). Made a chisel set variant you cannot unbind so we dont get arcyne shenanigans,
+      used only for the spell. Adds it to the Elemental Spell List.
+  - bugfix: Marks the chisel set as a tool.
+  - balance: Removes Cunning Provisioner. Replaces Forester Apprentice with Chef Apprentice.
+      Grants Homesteader, Cicerone and Seed Known. Cooking and Fishing are raised
+      by three and two levels respectively, then Athletics, Farming, Butchering raised
+      to Apprentice. Stashed hoe and bag with food, fishing rod and frying pan.
+  - balance: Removes Clams from fishing poles tables, moves them to the fishing cage
+      weights. Adjustd weights to keep sort of similar ratio while keeping human readable
+      values.
+  Quinalion:
+  - balance: Improved the durability of Ancient Sandals, Decrepit Sandals and Decrepit
+      Boots.
+  - balance: Ancient Sandals now provide protection comparable to chainmail.
+  crunchypretzels:
+  - rscadd: Three new half-orc skintones; Iron Splinter (Grayish), Glass Crag (Red-Brown),
+      and Daemonscar (Brown).
+  eirenxiv:
+  - rscadd: New Mistwalker ability to drain your own blood- within reason
+  - balance: adjusted mistwalker statweight from 9 -> 10
+  - balance: adjusted stat gain from mistwalker weapon selection
+  - balance: adjusted journey's end buffs for more sensible gain of power
+  - balance: adjusted mistwalker stat caps
+  - bugfix: now properly limits mistwalker to kazengun and lingyue origin
+  - bugfix: fixed potential leech powergaming on mistwalker
+  mumblemancer:
+  - bugfix: mage hand sense intent should have sprite now
+  - qol: bandages are now at the bottom instead of the middle of the medicine pouch
