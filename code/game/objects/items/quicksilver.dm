@@ -53,7 +53,7 @@
 	if(user == M)
 		to_chat(user, span_warning("I cannot anoint myself with this. I must find someone else to perform the rites."))
 		return
-	
+
 	if(M.stat == DEAD)
 		to_chat(user, span_warning("With their lux departed, the ritual will have no purchase upon them. It would be a waste."))
 		return
@@ -71,6 +71,9 @@
 
 	var/datum/antagonist/werewolf/Were = M.mind.has_antag_datum(/datum/antagonist/werewolf/)
 	var/datum/antagonist/werewolf/lesser/Wereless = M.mind.has_antag_datum(/datum/antagonist/werewolf/lesser/)
+	if(M.mind.has_antag_datum(/datum/antagonist/werewolf/noinfect))//added if they are a werewolf lite, they can be deconverted.
+		Wereless = M.mind.has_antag_datum(/datum/antagonist/werewolf/noinfect)
+
 	var/datum/antagonist/vampire/Vamp = M.mind.has_antag_datum(/datum/antagonist/vampire)
 
 	user.visible_message(span_notice("[user] begins to anoint [M] with [src]."))
@@ -100,7 +103,7 @@
 	else
 		icon_state = "[initial(icon_state)]_half"
 		to_chat(user, span_notice("My inquisitorial training leaves just enough of the poultice left for one more anointment."))
-		
+
 
 	//Werewolf deconversion
 	if(Were && !Wereless) //The roundstart elder/alpha werewolf, it cannot be saved
@@ -135,8 +138,8 @@
 			M.Jitter(30)
 			return
 
-	else if(Vamp) 
-		if(Vamp.generation >= GENERATION_METHUSELAH || HAS_TRAIT(M, TRAIT_BLOODPOOL_BORN)) //Vampire Lords + their bloodpool summons cannot be deconverted.
+	else if(Vamp)
+		if(Vamp.generation >= GENERATION_METHUSELAH) //Vampire Lords + their bloodpool summons cannot be deconverted.
 			to_chat(M, span_userdanger("This wretched silver weighs heavy on my brow. An insult I shall never forget, for as long as I die."))
 			user.visible_message(span_danger("The quicksilver poultice effortlessly boils away from [M]'s brow, viscerally rejecting the divine anointment."))
 			M.Stun(30)
@@ -160,7 +163,7 @@
 			M.Knockdown(30)
 			M.Jitter(30)
 			return
-		
+
 
 //A letter to give info on how to make this thing.
 /obj/item/paper/inquisition_poultice_info

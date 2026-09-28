@@ -11,9 +11,9 @@
 					/datum/action/cooldown/spell/ravox_expansion/warriors_resolve	= CLERIC_T0,
 					/datum/action/cooldown/spell/miracle/heal 				= CLERIC_T1,
 					/datum/action/cooldown/spell/miracle/bloodmiracle		= CLERIC_T1,
-					/datum/action/cooldown/spell/ravox/strikeoraegis		= CLERIC_T1,
-					/datum/action/cooldown/spell/ravox/withstand				= CLERIC_T2,
-					/datum/action/cooldown/spell/ravox/challenge			= CLERIC_T2,
+					/datum/action/cooldown/spell/projectile/ravox_tug		= CLERIC_T1,
+					/datum/action/cooldown/spell/ravox/withstand			= CLERIC_T2,
+					/datum/action/cooldown/spell/ravox/trial/glory			= CLERIC_T2,
 					/datum/action/cooldown/spell/ravox/persistence			= CLERIC_T3,
 					/datum/action/cooldown/spell/ravox/battlecry			= CLERIC_T3,
 					/datum/action/cooldown/spell/ravox_expansion/glorious_judgment	= CLERIC_T4,
@@ -28,8 +28,7 @@
 	COOLDOWN_DECLARE(lesser_heal_buff_cooldown)
 
 	titles = list(
-		"Justiciar",
-		"Justicar", // it is misspelled ingame enough that we should probably accept this too
+		"Justicar", // it is misspelled ingame and at this point probably shoudl be the valid title
 		"Ratake"
 	)
 

@@ -110,6 +110,9 @@
 		T.remove_heat_source(src)
 	. = ..()
 
+/obj/machinery/light/rogue/proc/on_ignited()
+	return
+
 /obj/machinery/light/rogue/fire_act(added, maxstacks)
 	if(!on && ((fueluse > 0) || (initial(fueluse) == 0)))
 		playsound(src.loc, 'sound/items/firelight.ogg', 100)
@@ -119,6 +122,7 @@
 		if(soundloop)
 			soundloop.start()
 		addtimer(CALLBACK(src, PROC_REF(trigger_weather)), rand(5,20))
+		on_ignited()
 		return TRUE
 
 /obj/proc/trigger_weather()

@@ -15,12 +15,12 @@
 	traits_tier = list(TRAIT_CRACKHEAD = CLERIC_T1)
 	crafting_recipes = list(/datum/crafting_recipe/roguetown/structure/baotha_cross_stone, /datum/crafting_recipe/roguetown/structure/baotha_cross_meat)
 	miracles = list(/datum/action/cooldown/spell/touch/orison						= CLERIC_ORI,
+					/datum/action/cooldown/spell/baotha/emotional_sway			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/baothavice				= CLERIC_T0,
-					/obj/effect/proc_holder/spell/invoked/baothablessings			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lasthigh					= CLERIC_T0,
 					/datum/action/cooldown/spell/miracle/heal						= CLERIC_T1,
 					/datum/action/cooldown/spell/miracle/bloodmiracle				= CLERIC_T1,
-					/obj/effect/proc_holder/spell/self/insufflation					= CLERIC_T1,
-					/obj/effect/proc_holder/spell/targeted/touch/loversruin			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/heart_on_sleeve			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/griefflower				= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/projectile/blowingdust	= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/lasthigh					= CLERIC_T2,

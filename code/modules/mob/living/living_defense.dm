@@ -71,7 +71,7 @@
 			var/obj/item/I = used_weapon
 			if(I.sharpness && I.max_blade_int && !(attack_flag in ARMOR_DR_TYPES))
 				var/dullness_ratio = I.blade_int / I.max_blade_int
-				if(dullness_ratio <= SHARPNESS_TIER2_THRESHOLD)	//Our weapon is CHUNKED. What are we PENNING WITH.
+				if(dullness_ratio <= SHARPNESS_TIER2_THRESHOLD && armor_tier)	//Our weapon is CHUNKED. What are we PENNING WITH.
 					blocked = block_damage * 10
 
 	if(mob_timers[MT_INVISIBILITY] > world.time)
@@ -183,7 +183,8 @@
 			return TRUE
 	return FALSE
 
-/mob/living/proc/guard_deflect_spell(spell_name = "the spell", no_message = FALSE, mob/living/attacker)
+/// Riposting Ground Effect should not punish the caster wit an expose, as you can walk into it
+/mob/living/proc/guard_deflect_spell(spell_name = "the spell", no_message = FALSE, mob/living/attacker, punish_caster = TRUE)
 	var/datum/status_effect/buff/clash/guard = has_status_effect(/datum/status_effect/buff/clash)
 	if(guard)
 		if(isarcyne(src))
@@ -206,7 +207,8 @@
 			apply_status_effect(/datum/status_effect/buff/adrenaline_rush/ranged)
 		guard.deflected_spell = TRUE
 		remove_status_effect(/datum/status_effect/buff/clash)
-		punish_deflected_caster(attacker)
+		if(punish_caster)
+			punish_deflected_caster(attacker)
 		return TRUE
 	if(has_status_effect(/datum/status_effect/buff/parry_buffer))
 		return TRUE
@@ -247,7 +249,7 @@
 		return
 	var/aimed_zone = def_zone
 	var/list/roll_out = list()
-	def_zone = bullet_hit_accuracy_check(P.accuracy + P.bonus_accuracy, def_zone, roll_out)
+	def_zone = bullet_hit_accuracy_check(P.get_aim_from(src), def_zone, roll_out)
 	var/armor = run_armor_check(def_zone, P.flag, "", "",armor_penetration = P.armor_penetration, damage = P.damage, intdamfactor = P.intdamfactor, used_weapon = P)
 
 	next_attack_msg.Cut()

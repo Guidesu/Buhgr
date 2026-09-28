@@ -368,7 +368,7 @@
 
 /datum/action/cooldown/spell/earthen_forge
 	name = "Earthen Forge"
-	desc = "Shape your earthen form into a tool or weapon. When the item breaks, you will revert to your original form. Cast again to manually revert."
+	desc = "Shape your earthen form into a tool or weapon. When the item breaks, you will revert to your original form. Resist to manually revert."
 
 	button_icon = 'icons/mob/actions/mage_conjure.dmi'
 	button_icon_state = "arcyne_forge"
@@ -409,6 +409,7 @@
 		"Bowl" = /obj/item/reagent_containers/glass/bowl,
 		"Fork" = /obj/item/kitchen/fork/iron,
 		"Spoon" = /obj/item/kitchen/spoon/iron,
+		"Chisel Set" = /obj/item/rogueweapon/chisel/assembly/arcyne,
 		"Needle" = /obj/item/needle
 	)
 	cooldown_time = 30 SECONDS
@@ -456,7 +457,7 @@
 		I.fiber_salvage = FALSE
 
 		// Conjured glow
-		I.AddComponent(/datum/component/conjured_item, GLOW_COLOR_EARTHEN)
+		I.AddComponent(/datum/component/conjured_item, GLOW_COLOR_EARTHEN, do_not_decay = TRUE)
 	RegisterSignal(R, COMSIG_ITEM_BROKEN, PROC_REF(revert))
 	RegisterSignal(H, COMSIG_LIVING_RESIST, PROC_REF(revert))
 	RegisterSignal(R, COMSIG_ITEM_DROPPED, PROC_REF(revert_perspective))
@@ -504,7 +505,7 @@
 
 /datum/action/cooldown/spell/earthen_forge/void // lmao
 	name = "Void Forge"
-	desc = "Shape your ever-malleable form into a tool or weapon. When the item breaks, you will revert to your original form. Cast again to manually revert."
+	desc = "Shape your ever-malleable form into a tool or weapon. When the item breaks, you will revert to your original form. Resist to manually revert."
 
 /datum/action/cooldown/spell/arcyne_forge/elementalt2
 	name = "Greater Earthen Shaping"
@@ -540,6 +541,7 @@
 		"Bowl" = /obj/item/reagent_containers/glass/bowl,
 		"Fork" = /obj/item/kitchen/fork/iron,
 		"Spoon" = /obj/item/kitchen/spoon/iron,
+		"Chisel Set" = /obj/item/rogueweapon/chisel/assembly/arcyne,
 		"Needle" = /obj/item/needle
 	)
 	cooldown_time = 30 SECONDS

@@ -34,6 +34,8 @@ export interface SexSessionData {
   pleasure: number;
   pain: number;
   frozen: boolean;
+  freeuse: boolean;
+  doing_subtly: boolean;
 
   // Which actions can be performed
   can_perform: string[];

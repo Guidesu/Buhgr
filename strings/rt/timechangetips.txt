@@ -93,9 +93,6 @@ LOOK UP TO THOSE WHO EXCEL AT VIOLENCE; THEY CARRY THE WILL OF THE GODS AND RECI
 O WORD, forgive your wayward child. Forgive us our ignorance. Forgive us our defilement of your silence.
 Skeletons have no BRAIN. Try to FEINT them. But don't tell this to everyone!
 A DODGING rogue who keeps their eyes FIXED retreats only backwards.
-The Aragn is a large black spider capable of outrunning even the swiftest of elves. Its venom is paralytic, and it preys within sewers and bogs.
-The heads of goblins, minotaurs, dragons, trolls, and various other creachers can be sold to the HEADEATER in town.
-Wearing a red tabard provokes even the most serene minotaur.
 An arcing arrow can only hit a target below you, not above you. A thrown rock, however...
 AUXENTIUS is a VILE TYRANT and must be CONSUMED AND SUBSUMED.
 AUXENTIUS is law made manifest and must be respected, lest society fall into chaos.
@@ -142,7 +139,6 @@ Often used measurements include the 'mote' for time, the 'cubit' or 'imperial fo
 I KICK THE LAMPTERN. THE FYRE-BEARER BLOCKS MY SHOT-- MY TEAM LOSES THE GAME OF LAMPTERNBALL!!!
 Campfires and bedrolls alone aid in fatigue. Combining both, however, grants a particularly potent restorative effect...
 Hand-axes are the superior weapon of choice for destroying most objects and barriers... though iron gates will require a mace.
-Sharpening blades with rocks slowly destroys the edge. One must hone their blade at a grindwheel, should they wish to recover their blade's maximum sharpness.
 Bandages soak up a limited amount of blood. Get stitching quick, or die snow white.
 I SEE THE DREADED GEM-EATER. HIS METAL MITTS HOLD MY HIDDEN STASH OF SAFFIRA. ONE BY ONE, HE POPS THEM INTO HIS MOUTH...
 WHY IS IT WRITTEN SAIGA AND NOT VAYGA?
@@ -214,6 +210,8 @@ Silver is cherished by the worshippers of Miluše, as they believe it to be the 
 Spells are bound to ALT ONE through ALT SIX. Control-clicking said spells and shifting them between each other changes which spell is bound to a given number.
 Using a rope on an open space drops the rope down, allowing allies to easily scale a given surface. Pull it onto yourself to retrieve it.
 Having someone else within your personal space assists in climbing many surfaces.
+Shift-clicking allows you to EXAMINE items, and EXAMINING items allows you to further understand all the MECHANICS tethered to them. Check a bed to figure out how to sleep, check a tree to figure out how to climb, check a steak to figure out how to eat, and much more!
+Spells are bound to ALT ONE through ALT SIX. Control-clicking said spells and shifting them between each other changes which spell is bound to a given number.
 If someone is barely conscious, it means they are not long for this world. By WEAKLY blowing air into their MOUTH, even the most horrifically injured can be brought back from death's door.. so long as any gushing wounds've been stitched up beforehand.
 The body is a fickle instrument, equally resillient and fragile. Water is the best choice for rebalancing the humors that're disrupted from blood loss, lifeblood excels at mending the disrupted state of flesh, and antidotes turn poisonings into mere hiccups.
 Shift-clicking allows you to EXAMINE items, and EXAMINING items allows you to further understand all the MECHANICS tethered to them. Check a bed to figure out how to sleep, check a tree to figure out how to climb, check a steak to figure out how to eat, and much more!
@@ -282,7 +280,6 @@ INTELLIGENCE represents your actor's wisdom. This affects the potency of their m
 SPEED represents your actor's fleet-footedness. This affect the haste of their movements, their proficiency with many underhanded tactics, and their chances of successfully dodging oncoming attacks.
 FORTUNE represents your actor's luck. This affects their chance to sway seemingly random events in their favor, or - in the inverse - against their favor.
 Remember that there is another face behind the masks of every actor you meet. Cruelty in service of a story becomes unacceptable when it is done purely out of single-minded malice.
-There are only three things that're certain; death, taxes, and the quality of an Innhouse's liqour.
 New? Overwhelmed? Confused? Try checking out 'A Tutorialeer's Handbook' from the Loadout's 'Miscellanious' section, in order to get a crash course on everything you'd need to know!
 Losing is fun!
 It was all a dream.. ?!

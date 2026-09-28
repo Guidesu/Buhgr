@@ -1,3 +1,25 @@
+/mob/living/proc/revive_check(mob/user)
+	if(!mind)
+		to_chat(user, span_warning("[src]'s mind cannot be found."))
+		return FALSE
+	if(HAS_TRAIT(src, TRAIT_DNR))
+		to_chat(user, span_warning("[src] can't be brought back."))
+		return FALSE
+	if(!key && !get_ghost(FALSE, TRUE))
+		to_chat(user, span_warning("[src]'s soul has departed."))
+		return FALSE
+	if(src.has_status_effect(/datum/status_effect/debuff/rotted_zombie))
+		to_chat(user, span_warning("[src] is rotting. They can't be brought back like this!"))
+		return FALSE
+	var/choice = tgui_alert(src, "[user] is attempting to bring you back to life. Do you wish to return?", "Resurrection", list("Accept", "Decline"), timeout = 15 SECONDS)
+	if(choice == "Accept")
+		return TRUE
+	if(choice == "Decline")
+		to_chat(user, span_warning("[src] has declined the resurrection."))
+		return FALSE
+	to_chat(user, span_warning("[src] can still be revived, but are not responding."))
+	return null
+
 /// SPELL DATUMS
 /// Shared cross-pantheon "invoked resurrect" spells and their mechanical trappings, carried over from the old
 /// Inhumen resurrect_inhumen.dm. Renamed to match the new gods: Matthios -> Morwenna (Concordat), Graggar ->

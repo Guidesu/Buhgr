@@ -58,8 +58,8 @@
 
 /obj/item/clothing/shoes/roguetown/boots/aalloy
 	name = "decrepit boots"
-	desc = "Frayed bronze greaves, shingled atop boots of rotted leather. The toebones of its former legionnaire remain within, rattling about with every step taken."
-	max_integrity = 40
+	desc = "Rotted metal greaves, shingled atop boots of rotted leather. The toebones of its former legionnaire remain within, rattling about with every step taken."
+	max_integrity = ARMOR_INT_SIDE_DECREPIT
 	armor = ARMOR_BRONZE
 	icon_state = "ancientboots"
 	smeltresult = /obj/item/ingot/aaslag
@@ -73,7 +73,7 @@
 	blocksound = PLATEHIT
 	resistance_flags = FIRE_PROOF
 	max_integrity = ARMOR_INT_SIDE_STEEL
-	color = "#bb9696"
+	color = "#FFFFFF"
 	armor = ARMOR_PLATE
 	pickup_sound = 'sound/foley/equip/equip_armor_plate.ogg'
 	equip_sound = 'sound/foley/equip/equip_armor_plate.ogg'
@@ -217,21 +217,23 @@
 	item_state = "sandals"
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/cloth
+	sewrepair = TRUE
 
 /obj/item/clothing/shoes/roguetown/sandals/aalloy
 	name = "decrepit sandals"
-	desc = "Frayed bronze platforms, curled about to cradle the feet. The beaches that these sandals once treaded are no more; pearly sands, long since turnt to glass from the Comet Syon's impact."
+	desc = "Rotted metal platforms, curled about to cradle the feet. The beaches that these sandals once treaded are no more; pearly sands, long since turnt to glass from the Comet Syon's impact."
 	icon_state = "ancientsandals"
 	color = "#bb9696"
-	armor = ARMOR_LEATHER
+	max_integrity = ARMOR_INT_SIDE_DECREPIT
+	armor = ARMOR_BRONZE
 
 /obj/item/clothing/shoes/roguetown/sandals/paalloy
 	name = "ancient sandals"
 	desc = "Polished gilbranze platforms, laced with bog-reeds to remain secured beneath skeletal soles. A thousand yils later, and they still clack-and-clop like new."
 	icon_state = "ancientsandals"
 	color = null
-	max_integrity = 100			//Half that of iron boots
-	armor = ARMOR_LEATHER			//Better than regular leather.
+	max_integrity = ARMOR_INT_SIDE_IRON
+	armor = ARMOR_MAILLE			//Better than regular leather.
 
 /obj/item/clothing/shoes/roguetown/shalal
 	name = "babouche"
@@ -308,7 +310,6 @@
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	armor = ARMOR_LEATHER
 	max_integrity = ARMOR_INT_SIDE_HARDLEATHER
-	allowed_race = NON_DWARVEN_RACE_TYPES
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
 	sewrepair = TRUE
@@ -592,7 +593,7 @@
 
 /obj/item/clothing/shoes/roguetown/boots/armor/baotha
 	name = "saccharine heels"
-	desc = "..yet, even as She indulges and mourns beneath the stars, one must wonder; is She truly damned by the Pantheon, or by Herself alone?"
+	desc = "Yet, as the lepers begged for comfort from Eora, she gave them naught but love and platitude; and Belladoth's heart throbbed with pity."
 	icon_state = "baothaboots"
 	item_state = "baothaboots"
 	chunkcolor = "#6d1c87"
@@ -766,6 +767,31 @@
 	heat_protection = FOOT_LEFT | FOOT_RIGHT
 	max_heat_protection_temperature = BODYTEMP_HEAT_LEVEL_ONE_MAX
 
+/obj/item/clothing/shoes/roguetown/boots/otavan/inqboots/heels
+	name = "inquisitorial heels"
+	desc = "Elegantly crafted heeled boots inlaid with silver clasps and blacksteel. They clack rhythmically with every stride, made to stomp out darkness."
+	icon_state = "inqheels"
+	item_state = "inqheels"
+
+/obj/item/clothing/shoes/roguetown/boots/otavan/inqboots/heels/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_HEELS, 2)
+	stepnoise_flag = STEPNOISE_HEELS
+
+/obj/item/clothing/shoes/roguetown/boots/otavan/inqboots/heels/attack_self(mob/living/user)
+	. = ..()
+	user.visible_message(span_notice("[user] begins carefully detaching the heavy blacksteel heels from [src]..."))
+	if(do_after(user, 3 SECONDS, target = src))
+		var/obj/item/clothing/shoes/roguetown/boots/otavan/inqboots/B = new /obj/item/clothing/shoes/roguetown/boots/otavan/inqboots(get_turf(src.loc))
+		if(user.is_holding(src))
+			user.dropItemToGround(src)
+			user.put_in_hands(B)
+		B.obj_integrity = src.obj_integrity
+		user.visible_message(span_notice("[user] snaps off the heels of [src], turning them back into standard inquisitorial boots."))
+		qdel(src)
+	else
+		user.visible_message(span_notice("[user] stops adjusting [src]."))
+		return
 
 // ----------------- BLACKSTEEL -----------------------
 
@@ -905,7 +931,6 @@
 	. = ..()
 	update_icon()
 
-
 /obj/item/clothing/shoes/courtphysician/female/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_HEELS, 2)
@@ -919,6 +944,11 @@
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
+
+/obj/item/clothing/shoes/courtphysician/female/keeper //unique to keepers, intended to also be unarmored. Role is grab-immune sire, please.
+	name = "pestrian heels"
+	desc = "Leather heels, oft worn by those of Pestra's sects.</br> Raised just enough to fit the warped feet of those mutated by sickness without being uncomfortable; the solemn tap of these oft bears grim news, or salvation."
+	detail_color = CLOTHING_GREEN
 
 //Wraps
 
@@ -973,11 +1003,55 @@
 	max_integrity = ARMOR_INT_SIDE_HARDLEATHER
 
 /obj/item/clothing/shoes/roguetown/sandals/toga
-	name = "toga sandals"
-	desc = "A fancy pair of sandals delicately woven in a style that harken back to bygone yils of antiquity."
+	name = "classical sandals"
+	desc = "A fancy pair of sandals delicately woven in a style that hark back to bygone yils of antiquity."
 	gender = PLURAL
 	icon_state = "togasandals"
 	item_state = "togasandals"
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/cloth
+
+/obj/item/clothing/shoes/roguetown/rosa
+	name = "ivory shoes"
+	desc = "Finely crafted shoes of silk and leather."
+	icon_state = "rosashoes1"
+	icon = 'icons/roguetown/clothing/special/rosewood.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/rosewood.dmi'
+	sleeved = 'icons/roguetown/clothing/special/onmob/rosewood.dmi'
+
+/obj/item/clothing/shoes/roguetown/rosa/two
+	name = "scarlet shoes"
+	icon_state = "rosashoes2"
+
+/obj/item/clothing/shoes/roguetown/rosa/three
+	name = "silvered shoes"
+	icon_state = "rosashoes3"
+
+/obj/item/clothing/shoes/roguetown/rosa/four
+	name = "obsidian shoes"
+	icon_state = "rosashoes4"
+
+/obj/item/clothing/shoes/roguetown/rosa/five
+	name = "sable shoes"
+	icon_state = "rosashoes5"
+
+/obj/item/clothing/shoes/roguetown/rosa/six
+	name = "maroon shoes"
+	icon_state = "rosashoes6"
+
+/obj/item/clothing/shoes/roguetown/rosa/seven
+	name = "regal shoes"
+	icon_state = "rosashoes7"
+
+/obj/item/clothing/shoes/roguetown/rosa/eight
+	name = "courtly shoes"
+	icon_state = "rosashoes8"
+
+/obj/item/clothing/shoes/roguetown/rosa/nine
+	name = "royal shoes"
+	icon_state = "rosashoes9"
+
+/obj/item/clothing/shoes/roguetown/rosa/ten
+	name = "stately shoes"
+	icon_state = "rosashoes10"
 

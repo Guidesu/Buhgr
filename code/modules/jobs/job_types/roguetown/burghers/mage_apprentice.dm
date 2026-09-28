@@ -30,8 +30,7 @@
 	job_traits = list(TRAIT_ALCHEMY_EXPERT)
 	job_subclasses = list(
 		/datum/advclass/wapprentice/associate,
-		/datum/advclass/wapprentice/alchemist,
-		/datum/advclass/wapprentice/apprentice,
+		/datum/advclass/wapprentice/associate/apprentice,
 		// /datum/advclass/wapprentice/spellblade
 	)
 
@@ -157,7 +156,7 @@
 		backr = choose_implement(H, "lesser")
 		SStreasury.grant_savings(ECONOMIC_LOWER_MIDDLE_CLASS, H)
 
-/datum/advclass/wapprentice/apprentice
+/datum/advclass/wapprentice/associate/apprentice // this has been maid less impactful on purpose - you lose a lot of combat power, but not skills/stats, so that you can actually be trained in the new gameplay loops
 	name = "Magician's Apprentice"
 	tutorial = "The road to arcyne mastery is long and treacherous. Books, scrolls, gems, studies, \
 	singed hair, and summoning gone wrong. Expenses and death alike, it is not a path for the pauper \

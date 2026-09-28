@@ -79,14 +79,15 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/holysee
 	wrists = /obj/item/clothing/neck/roguetown/psicross/auxentius
 	gloves = /obj/item/clothing/gloves/roguetown/chain
-	belt = /obj/item/storage/belt/rogue/leather/black
+	belt = /obj/item/storage/belt/rogue/leather/steel
 	pants = /obj/item/clothing/under/roguetown/chainlegs
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron
-	id = /obj/item/clothing/ring/silver
+	id = /obj/item/clothing/ring/silver/cleric
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/shield/tower/holysee
 	backpack_contents = list(
 		/obj/item/ritechalk = 1,
+		/obj/item/rope/chain = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/mid = 1,
 		/obj/item/storage/keyring/acolyte = 1
@@ -168,7 +169,7 @@
 
 /datum/outfit/job/roguetown/templar/crusader/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-	var/weapons = list("Longsword","Flail","Mace","Battle Axe","Spear")
+	var/weapons = list("Arming Sword","Longsword","Flail","Mace","Battle Axe","Spear")
 	switch(H.patron?.type)
 		if(/datum/patron/concordat/auxentius) //Unique patron weapons, more can be added here if wanted.
 			weapons += "Solar Judgement"
@@ -201,6 +202,10 @@
 			weapons += "Tidecleaver"
 	var/weapon_choice = input(H,"Choose your WEAPON.", "TAKE UP YOUR GOD'S ARMS") as anything in weapons
 	switch(weapon_choice)
+		if("Arming Sword")
+			H.put_in_hands(new /obj/item/rogueweapon/sword/church(H))
+			H.adjust_skillrank(/datum/skill/combat/swords, SKILL_LEVEL_NOVICE, TRUE)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sword, SLOT_BELT_L, TRUE)
 		if("Longsword")
 			H.put_in_hands(new /obj/item/rogueweapon/sword/long/church(H))
 			H.adjust_skillrank(/datum/skill/combat/swords, SKILL_LEVEL_NOVICE, TRUE)
@@ -218,6 +223,10 @@
 		if("Battle Axe")
 			H.put_in_hands(new /obj/item/rogueweapon/stoneaxe/battle/holyseeaxe(H))
 			H.adjust_skillrank(/datum/skill/combat/axes, SKILL_LEVEL_NOVICE, TRUE)
+		if("Decaritterschwerte")
+			H.put_in_hands(new /obj/item/rogueweapon/sword/undivided(H))
+			H.adjust_skillrank(/datum/skill/combat/swords, SKILL_LEVEL_NOVICE, TRUE)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sword, SLOT_BELT_L, TRUE)
 		if("Decablade")
 			H.put_in_hands(new /obj/item/rogueweapon/sword/long/undivided(H))
 			H.adjust_skillrank(/datum/skill/combat/swords, SKILL_LEVEL_NOVICE, TRUE)

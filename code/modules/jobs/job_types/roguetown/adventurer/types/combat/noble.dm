@@ -46,7 +46,7 @@
 			clothing += "Underdark" //dullahan are only included for oversights/downstreams where they might be able to roll for this.
 		//if(is_species(H, /datum/species/kobold) || is_species(H, /datum/species/dracon)) //Species Exclusive Options -> Lirvan
 			//clothing += "Lirvan" EXCLUDED for now cause of content lacking. If you ever want to add this, de-comment this.
-		var/clothing_choice = input(H, "Choose your clothing style.", "FROM WHERE DOTH YOUR HOUSE HAIL FROM?") as anything in clothing
+		var/clothing_choice = input(H, "Choose your clothing style.", "FROM WHERE DOES YOUR HOUSE HAIL FROM?") as anything in clothing
 		switch(clothing_choice)
 			if("Classic - Nowhere Significant") //Sovl, arguably the /worst/ gear-wise but it STAYS because its the OG loadout.
 				if(should_wear_masc_clothes(H))
@@ -67,6 +67,7 @@
 				H.cmode_music = 'sound/music/combat_noble.ogg'
 			if("The Outpost")
 				if(should_wear_masc_clothes(H))
+					cloak = /obj/item/clothing/cloak/half/azuria
 					shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
 					armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/nightman
 					pants = /obj/item/clothing/under/roguetown/trou/beltpants
@@ -74,9 +75,10 @@
 				if(should_wear_femme_clothes(H))
 					shirt = /obj/item/clothing/suit/roguetown/armor/armordress/winterdress/triumph/blue
 					shoes = /obj/item/clothing/shoes/roguetown/boots
-				cloak = /obj/item/clothing/cloak/half/blue
+				cloak = /obj/item/clothing/cloak/half/azuria
 				head = /obj/item/clothing/head/roguetown/chaperon/noble
 				gloves = /obj/item/clothing/gloves/roguetown/leather/black
+				neck = /obj/item/clothing/neck/roguetown/ornateamulet/noble
 				backl = /obj/item/storage/backpack/rogue/satchel/black
 				belt = /obj/item/storage/belt/rogue/leather/plaquesilver //On-part with courtier noblilty
 				beltr = /obj/item/flashlight/flare/torch/lantern
@@ -95,39 +97,37 @@
 				mask = /obj/item/clothing/mask/rogue/shepherd/shadowmask/delf
 				gloves = /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves //Unarmored varient
 				backl = /obj/item/storage/backpack/rogue/satchel/black
-				belt = /obj/item/storage/belt/rogue/leather/plaquegold/steward
+				belt = /obj/item/storage/belt/rogue/leather/plaquegold/noble
 				beltr = /obj/item/flashlight/flare/torch/lantern
 				id = /obj/item/clothing/ring/gold
 				H.cmode_music = 'sound/music/combat_delf.ogg'
 				change_origin(H, /datum/virtue/origin/racial/underdark) //Yeah obviously
-			if("Grenzelhoft") //Half-cloak and gilded shirt, or Dress and Cloak
-				if(should_wear_masc_clothes(H))
-					cloak = /obj/item/clothing/cloak/half/red
-					shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
-				if(should_wear_femme_clothes(H))
-					shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
-					cloak = /obj/item/clothing/cloak/lordcloak/ladycloak
+			if("Grenzelhoft") //Half-cloak and grenzelshirt, with fancy cloak - Gender Neutral.
+				armor = /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat/astrocrat
+				cloak = /obj/item/clothing/cloak/half/red
+				shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/grenzelhoft/loadout/astrocrat
 				shoes = /obj/item/clothing/shoes/roguetown/grenzelhoft
 				pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/grenzelpants
 				head = /obj/item/clothing/head/roguetown/grenzelhofthat/triumph
 				gloves = /obj/item/clothing/gloves/roguetown/angle/grenzelgloves
-				belt = /obj/item/storage/belt/rogue/leather/plaquegold/steward
+				belt = /obj/item/storage/belt/rogue/leather/plaquegold/noble
 				beltr = /obj/item/flashlight/flare/torch/lantern
 				id = /obj/item/clothing/ring/blacksteel //Most Grenzelhoftian ass ring you can get
 				neck = /obj/item/clothing/neck/roguetown/psicross/custodius //The Ten Undivided!
 				H.cmode_music = 'sound/music/combat_grenzelhoft.ogg'
 				H.grant_language(/datum/language/vergenmarkian) //Duh
 				backl = /obj/item/storage/backpack/rogue/satchel/black
-			if("Otava") //Shoulder-Cloak or Silk Coat
+			if("Otava") //Rosa-Attire, Meant to be quite Silver-Lined mixed w/ Psydonic culture, Uniquely stands out.
 				if(should_wear_masc_clothes(H))
-					cloak = /obj/item/clothing/cloak/thief_cloak/yoruku
+					armor = /obj/item/clothing/suit/roguetown/shirt/tunic/rosacoat/four
+					head = /obj/item/clothing/head/roguetown/chaperon/noble/aristocratotava
 					shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
 				if(should_wear_femme_clothes(H))
-					armor = /obj/item/clothing/suit/roguetown/shirt/dress/gown/wintergown/aristocratotava
+					head = /obj/item/clothing/head/roguetown/rosa/three
+					shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/rosa/three
+				gloves = /obj/item/clothing/gloves/roguetown/otavan/psygloves
 				shoes = /obj/item/clothing/shoes/roguetown/boots/otavan
 				pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/otavan
-				head = /obj/item/clothing/head/roguetown/chaperon/noble/aristocratotava
-				gloves = /obj/item/clothing/gloves/roguetown/otavan/psygloves
 				belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 				beltr = /obj/item/flashlight/flare/torch/lantern
 				id = /obj/item/clothing/ring/signet
@@ -146,7 +146,15 @@
 				belt = /obj/item/storage/belt/rogue/leather/steel
 				beltr = /obj/item/flashlight/flare/torch/lantern
 				id = /obj/item/clothing/ring/silver
-				neck = /obj/item/clothing/neck/roguetown/psicross/reform //God is dead but I still follow his word!
+				switch(H.patron?.type) //No Graggarite amulet because you'd get instantly ganked lol.
+					if(/datum/patron/divine/ravox)
+						neck = /obj/item/clothing/neck/roguetown/psicross/ravox/bronze //FOR GLORY AND HONOR!!
+					if(/datum/patron/inhumen/graggar)
+						neck = /obj/item/clothing/neck/roguetown/psicross/inhumen/matthios/gronn/generic //its a tooth amulet, close enough.
+					if(/datum/patron/old_god)
+						neck = /obj/item/clothing/neck/roguetown/psicross/reform //GOD IS DEAD, YET I FOLLOW HIS WORD!!
+					else
+						neck = null //fallback is nothing, heretic
 				H.cmode_music = 'sound/music/frei_lancer.ogg'
 				H.grant_language(/datum/language/dvojezemi) //Duh
 				backl = /obj/item/storage/backpack/rogue/satchel/black
@@ -154,7 +162,7 @@
 				if(should_wear_masc_clothes(H))
 					armor = /obj/item/clothing/cloak/tabard/stabard/dungeon
 				if(should_wear_femme_clothes(H))
-					armor = /obj/item/clothing/suit/roguetown/armor/armordress/winterdress/triumph/raneshen
+					armor = /obj/item/clothing/suit/roguetown/shirt/tunic/thinwinterdress/raneshen
 				shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
 				shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/raneshen //Shittier version with regular gambeson protection levels
 				pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/raneshen
@@ -204,16 +212,17 @@
 						neck = null //fallback is nothing, heretic
 			if("Etrusca") //Somewhat placeholdery
 				if(should_wear_masc_clothes(H))
-					cloak = /obj/item/clothing/cloak/half/rider/orange
-					shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
+					shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/rosacoat/two
+					gloves = /obj/item/clothing/gloves/roguetown/rosa/seven
+					shoes = /obj/item/clothing/shoes/roguetown/rosa/ten
 				if(should_wear_femme_clothes(H))
-					cloak = /obj/item/clothing/cloak/half/orange
-					shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
+					shoes = /obj/item/clothing/shoes/roguetown/rosa/five
+					shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/rosa/five
+					gloves = /obj/item/clothing/gloves/roguetown/rosa/five
+				cloak = /obj/item/clothing/cloak/half/rider/orange
 				pants = /obj/item/clothing/under/roguetown/trou/shadowpants
 				mask = /obj/item/alch/rosa //SOVL
-				shoes = /obj/item/clothing/shoes/roguetown/boots
-				head = /obj/item/clothing/head/roguetown/duelhat/aristocrat
-				gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
+				head = /obj/item/clothing/head/roguetown/duelisthat/aristocrat
 				belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 				beltr = /obj/item/flashlight/flare/torch/lantern
 				id = /obj/item/clothing/ring/gold
@@ -221,33 +230,34 @@
 				H.grant_language(/datum/language/medullan) //Duh
 				backl = /obj/item/storage/backpack/rogue/satchel/black
 			if("Naledi") //100% Gender neutral fit, just like the warscholars and refugees
-				var/list/hmm = list("I left for a reason... (Default)", "The Djinn could be anywhere! (Naledi Complex)")
-				var/complex = input(H, "How tightly bound to traditions you are?", "I HATE DJINNS!") as anything in hmm
 				armor = /obj/item/clothing/cloak/tabard/stabard/dungeon
 				shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hierophant/civilian
 				pants = /obj/item/clothing/under/roguetown/skirt/black
 				shoes = /obj/item/clothing/shoes/roguetown/sandals
 				head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab/black
-				belt = /obj/item/storage/belt/rogue/leather/plaquegold/steward
+				belt = /obj/item/storage/belt/rogue/leather/plaquegold/noble
 				beltr = /obj/item/flashlight/flare/torch/lantern
 				wrists = /obj/item/clothing/neck/roguetown/psicross/auxentia
 				neck = /obj/item/clothing/neck/roguetown/psicross/g //Not warded or anything, just raw vaeltic status vs ring
 				H.cmode_music = 'sound/music/warscholar.ogg'
+				id = /obj/item/clothing/neck/roguetown/psicross/naledi //you get the psybracelet too, sire.
 				H.grant_language(/datum/language/celestial) //Yes
 				backl = /obj/item/storage/backpack/rogue/satchel/black
-				switch(complex)
-					if("The Djinn could be anywhere! (Naledi Complex)")
-						ADD_TRAIT(H, TRAIT_NALEDI, TRAIT_GENERIC) //Inconvenience for no benefit than flavor
-						mask = /obj/item/clothing/mask/rogue/lordmask/naledi
-					else
-						mask = /obj/item/clothing/mask/rogue/lordmask/tarnished
-			if("Kazengun") //Placeholdery until we have proper noble clothing for Kazengun - Gender Neutral
-				cloak = /obj/item/clothing/cloak/cotehardie/aristocrat
-				head = /obj/item/clothing/head/roguetown/smokingcap
+				mask = /obj/item/clothing/mask/rogue/lordmask/tarnished //Be an Actual Naledian for the real deal.
+				change_origin(H, /datum/virtue/origin/naledi) //so you get the mask pick + it just makes sense.
+			if("Kazengun") //Semi-Placeholdery until we have proper noble clothing for Kazengun
+				if(should_wear_masc_clothes(H))
+					head = /obj/item/clothing/head/roguetown/smokingcap
+					armor = /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
+					armor = /obj/item/clothing/suit/roguetown/shirt/tunic/rosacoat
+					gloves = /obj/item/clothing/gloves/roguetown/rosa/seven
+				if(should_wear_femme_clothes(H))
+					head = /obj/item/clothing/head/roguetown/rosa/six
+					armor = /obj/item/clothing/suit/roguetown/shirt/tunic/rosa/six
+					gloves = /obj/item/clothing/gloves/roguetown/rosa/six
 				shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt1
 				pants = /obj/item/clothing/under/roguetown/trou/leather/eastern
-				shoes = /obj/item/clothing/shoes/roguetown/armor/rumaclan/shitty
-				gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
+				shoes = /obj/item/clothing/shoes/roguetown/rosa/seven
 				belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 				beltr = /obj/item/flashlight/flare/torch/lantern
 				id = /obj/item/clothing/ring/gold
@@ -255,9 +265,18 @@
 				H.grant_language(/datum/language/ostrovian) //Duh
 				backl = /obj/item/storage/backpack/rogue/satchel/black
 
-		var/proficiencies = list("Decorated Sabre + Maille Training + 1 WIL", "Decorated Rapier + Maille Training + 1 WIL", "Decorated Arming Sword + Maille Training + 1 WIL", "Decorated Dagger + Maille Training + 1 WIL", "Recurve Bow + Hunting Skill/Masterful Hunter Trait + Boar Maps + 1 PER", "Extra Coin + Expert Appraiser + Intellectual", "Inbred Noble - +5 LCK + Stat 8 baseline + Crit Weakness + No Run + Maille Training", "Survival Skills + Expert Hunter + Outdoorsman + Less Starting Coin + 1 PER", "Thieves Jargon + Expert Climbing + Journeyman Sneaking + Keen Ears + Cicerone + Deceiving Meakness + 1 PER")
+		var/proficiencies = list("Decorated Sabre + Dodge Expert + 1 WIL", "Decorated Sabre + Maille Training + 1 WIL", "Decorated Rapier + Dodge Expert + 1 WIL", "Decorated Rapier + Maille Training + 1 WIL", "Decorated Arming Sword + Maille Training + 1 WIL", "Bow + Hunting Skill/Masterful Hunter Trait + Boar Maps + 1 PER", "Extra Coin + Expert Appraiser + Intellectual", "Inbred Noble - +5 LCK + Stat 8 baseline + Crit Weakness + No Run + Maille Training", "Survival Skills + Expert Hunter + Outdoorsman + Less Starting Coin + 1 PER", "Decorated Dagger + Thieves Jargon + Expert Climbing + Spy Skills & Traits + Deceiving Meakness + 1 PER")
 		var/proficiency_choice = input(H, "Choose your proficiency.", "WHAT IS THY TALENT?") as anything in proficiencies
 		switch(proficiency_choice)
+			if("Decorated Sabre + Dodge Expert + 1 WIL") //Rich Battlemaster Lite (Without the Armor or Proper Training)
+				H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_JOURNEYMAN, TRUE)
+				H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, SKILL_LEVEL_APPRENTICE, TRUE) //Not a complete pushover
+				beltl = /obj/item/rogueweapon/scabbard/sword/noble
+				r_hand = /obj/item/rogueweapon/sword/sabre/dec
+				backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/rich = 1)
+				H.change_stat(STATKEY_WIL, 1)
+				ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+				to_chat(H, span_warning("You are a traveling noble visiting foreign lands. With wealth, come the poor, ready to pilfer you of your hard earned (inherited) coin, so tread lightly unless you want to meet a grisly end."))
 			if("Decorated Sabre + Maille Training + 1 WIL") //Rich Battlemaster Lite (Without the Armor or Proper Training)
 				H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, SKILL_LEVEL_APPRENTICE, TRUE) //Not a complete pushover
@@ -266,6 +285,15 @@
 				backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/rich = 1)
 				H.change_stat(STATKEY_WIL, 1)
 				ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+				to_chat(H, span_warning("You are a traveling noble visiting foreign lands. With wealth, come the poor, ready to pilfer you of your hard earned (inherited) coin, so tread lightly unless you want to meet a grisly end."))
+			if("Decorated Rapier + Dodge Expert + 1 WIL") //Rich Battlemaster Lite (Without the Armor or Proper Training)
+				H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_JOURNEYMAN, TRUE)
+				H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, SKILL_LEVEL_APPRENTICE, TRUE) //Not a complete pushover
+				beltl = /obj/item/rogueweapon/scabbard/sword/noble
+				r_hand = /obj/item/rogueweapon/sword/rapier/dec
+				backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/rich = 1)
+				H.change_stat(STATKEY_WIL, 1)
+				ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 				to_chat(H, span_warning("You are a traveling noble visiting foreign lands. With wealth, come the poor, ready to pilfer you of your hard earned (inherited) coin, so tread lightly unless you want to meet a grisly end."))
 			if("Decorated Rapier + Maille Training + 1 WIL") //Rich Battlemaster Lite (Without the Armor or Proper Training)
 				H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_JOURNEYMAN, TRUE)
@@ -285,21 +313,12 @@
 				H.change_stat(STATKEY_WIL, 1)
 				ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 				to_chat(H, span_warning("You are a traveling noble visiting foreign lands. With wealth, come the poor, ready to pilfer you of your hard earned (inherited) coin, so tread lightly unless you want to meet a grisly end."))
-			if("Decorated Dagger + Maille Training + 1 WIL") //Rich Battlemaster Lite (Without the Armor or Proper Training)
-				H.adjust_skillrank_up_to(/datum/skill/combat/knives, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, SKILL_LEVEL_APPRENTICE, TRUE) //Not a complete pushover
-				beltl = /obj/item/rogueweapon/scabbard/sheath/noble
-				r_hand = /obj/item/rogueweapon/huntingknife/idagger/steel/decorated
-				backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/rich = 1)
-				H.change_stat(STATKEY_WIL, 1)
-				ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-				to_chat(H, span_warning("You are a traveling noble visiting foreign lands. With wealth, come the poor, ready to pilfer you of your hard earned (inherited) coin, so tread lightly unless you want to meet a grisly end."))
-			if("Recurve Bow + Hunting Skill/Masterful Hunter Trait + Boar Maps + 1 PER") //Huntmaster lite, a poacher or perhaps an offical hunter?
+			if("Bow + Hunting Skill/Masterful Hunter Trait + Boar Maps + 1 PER") //Huntmaster lite, a poacher or perhaps an offical hunter?
 				H.adjust_skillrank_up_to(/datum/skill/combat/bows, SKILL_LEVEL_EXPERT, TRUE)
 				H.adjust_skillrank_up_to(/datum/skill/labor/butchering, SKILL_LEVEL_APPRENTICE, TRUE) //To make it worth it w/trait too
 				H.adjust_skillrank_up_to(/datum/skill/misc/hunting, SKILL_LEVEL_EXPERT, TRUE)
 				H.change_stat(STATKEY_PER, 1)
-				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 				beltl = /obj/item/quiver/arrows
 				backpack_contents = list(/obj/item/hunting_map/boars = 1, /obj/item/storage/belt/rogue/pouch/coins/mid = 1)
 				ADD_TRAIT(H, TRAIT_MASTERFUL_HUNTER, TRAIT_GENERIC) //Unique starting prompt, you sort of did actually earn that
@@ -358,11 +377,15 @@
 				H.adjust_skillrank_up_to(/datum/skill/misc/climbing, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				//Impoverished noble sort of, you get a much less (I am a very rich guy) prompt and more of a despite it all, you're still here one.
 				to_chat(H, span_warning("You are a traveling noble visiting foreign lands. Despite tymes costing most of your coin, you've kept the clothes on your back and picked up a few skills along the way, yet you still know to tread lightly unless you want to meet a grisly end."))
-			if("Thieves Jargon + Expert Climbing + Journeyman Sneaking + Keen Ears + Cicerone + Deceiving Meakness + 1 PER") //A noble spy perhaps? Or a high-ranking smuggler
+			if("Decorated Dagger + Thieves Jargon + Expert Climbing + Spy Skills & Traits + Deceiving Meakness + 1 PER") //A noble spy perhaps? Or a high-ranking smuggler
 				H.adjust_skillrank_up_to(/datum/skill/misc/sneaking, SKILL_LEVEL_JOURNEYMAN, TRUE)
 				H.adjust_skillrank_up_to(/datum/skill/misc/climbing, SKILL_LEVEL_EXPERT, TRUE)
 				H.change_stat(STATKEY_PER, 1)
 				//No lockpicking, go thief for that. You're geared to cause problems, be it for or against the court.
+				beltl = /obj/item/rogueweapon/scabbard/sheath/noble
+				r_hand = /obj/item/rogueweapon/huntingknife/idagger/steel/decorated
+				H.adjust_skillrank_up_to(/datum/skill/combat/knives, SKILL_LEVEL_JOURNEYMAN, TRUE)
+
 				backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/rich = 1)
 				ADD_TRAIT(H, TRAIT_KEENEARS, TRAIT_GENERIC)
 				ADD_TRAIT(H, TRAIT_CICERONE, TRAIT_GENERIC)
@@ -430,6 +453,7 @@
 			"Slitted Kettle"		= /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle,
 			"Visored Barbute" = /obj/item/clothing/head/roguetown/helmet/heavy/barbute/visor,
 			"Great Barbute" = /obj/item/clothing/head/roguetown/helmet/heavy/barbute/great,
+			"Snouted Burgonet" = /obj/item/clothing/head/roguetown/helmet/heavy/burgonet,
 			"Volfskulle Bascinet"		= /obj/item/clothing/head/roguetown/helmet/heavy/volfplate,
 			"Roundface Bascinet"	= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/roundface,
 			"Snouted Roundface Bascinet"	= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/roundface/snouted,
@@ -604,7 +628,7 @@
 				backl = /obj/item/rogueweapon/shield/tower
 			if("Bow & Quiver")
 				H.adjust_skillrank_up_to(/datum/skill/combat/bows, SKILL_LEVEL_JOURNEYMAN, TRUE)
-				r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/classic
+				r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 				backl = /obj/item/quiver/arrows
 			if("Crossbow & Quiver")
 				H.adjust_skillrank_up_to(/datum/skill/combat/crossbows, SKILL_LEVEL_JOURNEYMAN, TRUE)

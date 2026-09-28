@@ -44,10 +44,11 @@
 	subclass_skills = list(
 		/datum/skill/combat/wrestling = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/unarmed = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/climbing = SKILL_LEVEL_APPRENTICE, //so you can use a chair to climb up a wall
 		/datum/skill/combat/staves = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/medicine = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/craft/alchemy = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/reading = SKILL_LEVEL_EXPERT,
 		/datum/skill/craft/cooking = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/crafting = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/craft/sewing = SKILL_LEVEL_APPRENTICE,
@@ -69,11 +70,18 @@
 /datum/outfit/job/roguetown/monk/basic/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_blindness(-3)
-	belt = /obj/item/storage/belt/rogue/leather/rope/upgraded
+	shirt = /obj/item/clothing/suit/roguetown/armor/vestments_padded
+	belt = /obj/item/storage/belt/rogue/leather/cloth/upgraded
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
-	beltl = /obj/item/storage/keyring/acolyte
+	pants = /obj/item/clothing/under/roguetown/trou/leather
+	shoes = /obj/item/clothing/shoes/roguetown/boots
 	backl = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/ritechalk, /obj/item/mini_flagpole/church)
+	id = /obj/item/clothing/ring/gold
+	backpack_contents = list(
+		/obj/item/ritechalk = 1,
+		/obj/item/mini_flagpole/church,
+		/obj/item/storage/keyring/acolyte
+		)
 	H.cmode_music = 'sound/music/cmode/church/combat_acolyte.ogg' // has to be defined here for the selection below to work. sm1 please rewrite cmusic to apply pre-equip.
 	switch(H.patron?.type)
 		if(/datum/patron/tribunal/custodius)
@@ -117,8 +125,7 @@
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/necra
-			shirt = /obj/item/clothing/suit/roguetown/armor/vestments_padded
-			cloak = /obj/item/clothing/cloak/raincloak/mortus
+			cloak = /obj/item/clothing/cloak/templar/necrancleric
 			var/list/necra_tools = list("Silver Shovel", "Silver Scythe")
 			var/tool_choice = input(H, "A reaper, or a digger?", "HOW WILL YOU APPEASE THE UNDERMAIDEN?") as anything in necra_tools
 			switch(tool_choice) // choose wisely... larp or effectiveness?
@@ -131,10 +138,10 @@
 			neck = /obj/item/clothing/neck/roguetown/psicross/handwerra
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/phys
 			head = /obj/item/clothing/head/roguetown/roguehood/phys
-			shoes = /obj/item/clothing/shoes/roguetown/boots
-			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
+			neck = /obj/item/clothing/neck/roguetown/psicross/pestra/g
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/phys
+			gloves = /obj/item/clothing/gloves/roguetown/angle/phys/cleric
 			cloak = /obj/item/clothing/cloak/templar/pestran
-			shirt = /obj/item/clothing/suit/roguetown/armor/vestments_padded
 			l_hand = /obj/item/storage/belt/rogue/surgery_bag
 		if(/datum/patron/concordat/miluse) //Eora content from Stonekeep
 			head = /obj/item/clothing/head/roguetown/eoramask
@@ -143,7 +150,6 @@
 			cloak = /obj/item/clothing/cloak/templar/eoran
 			r_hand = /obj/item/rogueweapon/huntingknife/scissors
 			l_hand = /obj/item/needle/thorn
-			shirt = /obj/item/clothing/suit/roguetown/armor/vestments_padded
 			var/robes = list("Modest","Exposed")
 			var/robe_choice = input(H, "Choose your ROBES.", "TAKE UP ROBES.") as anything in robes
 			switch(robe_choice) // This feels wrong to do but I am unsure how else to do it
@@ -164,22 +170,17 @@
 			head = /obj/item/clothing/head/roguetown/roguehood/ravox
 			neck = /obj/item/clothing/neck/roguetown/psicross/auxentius
 			cloak = /obj/item/clothing/cloak/templar/ravox
-			wrists = /obj/item/clothing/wrists/roguetown/wrappings
-			shoes = /obj/item/clothing/shoes/roguetown/boots
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/ravox
-			shirt = /obj/item/clothing/suit/roguetown/armor/vestments_padded
 			l_hand = /obj/item/rope/chain
 		if(/datum/patron/concordat/viator)
 			head = /obj/item/clothing/head/roguetown/roguehood/black
+			neck = /obj/item/clothing/neck/roguetown/psicross/xylix/g
 			cloak = /obj/item/clothing/cloak/templar/xylixian
-			wrists = /obj/item/clothing/wrists/roguetown/wrappings
-			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/black
 			neck = /obj/item/clothing/neck/roguetown/psicross/viator
 			H.cmode_music = 'sound/music/combat_jester.ogg'
 			var/datum/inspiration/I = new /datum/inspiration(H)
 			I.grant_inspiration(H, bard_tier = BARD_T2)
-			shirt = /obj/item/clothing/suit/roguetown/armor/vestments_padded
 			if(H.mind)
 				var/instruments = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola","Vocal Talisman", "Psyaltery", "Flute", "Drum", "Shamisen")
 				var/instrument_choice = tgui_input_list(H, "Choose your instrument.", "TAKE UP ARMS", instruments)

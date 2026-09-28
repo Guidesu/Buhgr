@@ -36,8 +36,6 @@ without going through the click pipeline, so spells can deliver weapon-style str
 		def_zone = user.zone_selected || BODY_ZONE_CHEST
 
 	// exact_zone bypasses the roll entirely, striking precisely where the caster aimed.
-	var/aimed_zone = def_zone
-	var/list/roll_out = list()
 	if(!exact_zone && def_zone != BODY_ZONE_CHEST && isliving(target))
 		// A bound weapon carries arcyne as its own skill, so Bind Armament transfers accuracy onto it.
 		var/datum/skill/accuracy_skill = weapon?.associated_skill || /datum/skill/combat/arcyne
@@ -75,8 +73,12 @@ without going through the click pipeline, so spells can deliver weapon-style str
 
 	var/datum/status_effect/buff/clash/limbguard/LG = target.has_status_effect(/datum/status_effect/buff/clash/limbguard)
 	if(LG?.is_active && LG.protected_zone == def_zone && user != target)
-		LG.process_attack(target, target, user, weapon, def_zone)
-		return 0
+	// Only an attack with an actual weapon can trigger a the full guard deflect effect. So no disarming / exposure from blocking fire breath.
+		if(weapon)
+			LG.process_attack(target, target, user, weapon, def_zone)
+		else
+			LG.block_spell(target, user, spell_name)
+		return ARCYNE_STRIKE_WARDED
 
 	// Optional shield check — blocked like a projectile (shield takes 25% as integrity damage).
 	if(allow_shield_check && ishuman(target))
@@ -87,7 +89,7 @@ without going through the click pipeline, so spells can deliver weapon-style str
 				if(I.block_chance > 0)
 					I.take_damage(floor(damage / 4))
 					break
-			return 0
+			return ARCYNE_STRIKE_WARDED
 
 	// Default intdamage factor: blunt gets 1.6x (same as melee blunt), others get 1.0
 	if(isnull(intdamage_factor))

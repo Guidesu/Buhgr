@@ -48,6 +48,7 @@
 	min_cold_protection_temperature = BODYTEMP_NORMAL_MIN
 	heat_protection = HAND_LEFT | HAND_RIGHT
 	max_heat_protection_temperature = BODYTEMP_HEAT_LEVEL_ONE_MAX
+	unarmed_weapon_effects = TRUE
 
 /obj/item/clothing/gloves/roguetown/bandages/get_mechanics_examine(mob/user)
 	. = ..()
@@ -76,6 +77,7 @@
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/steel
 	unarmed_bonus = 8
+	unarmed_weapon_effects = TRUE
 
 /obj/item/clothing/gloves/roguetown/knuckles/get_mechanics_examine(mob/user)
 	. = ..()

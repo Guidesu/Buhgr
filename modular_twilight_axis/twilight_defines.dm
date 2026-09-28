@@ -119,7 +119,6 @@
 #define CLEAN_TYPE_LIGHT_DECAL 4096
 
 // Clothing color defines
-#define CLOTHING_AZURE "#4a7aaa"
 
 // Detail text defines
 #define DETAIL_TEXT_UNIVERSITY_OF_AZURIA "university_of_azuria"

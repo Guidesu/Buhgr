@@ -7,6 +7,7 @@
 	body_parts_covered = CHEST
 	salvage_result = /obj/item/natural/hide/cured
 	sewrepair = TRUE
+	flags_inv = null
 	salvage_amount = 1
 	grid_height = 64
 	grid_width = 64
@@ -16,7 +17,7 @@
 	desc = "A padded longcoat meant to keep you warm in the frigid winters."
 	icon_state = "longcoat"
 	color = CLOTHING_BLACK
-	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT|ITEM_SLOT_CLOAK
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sewrepair = TRUE
@@ -27,6 +28,9 @@
 	min_cold_protection_temperature = BODYTEMP_COLD_LEVEL_ONE_MAX
 	heat_protection = CHEST | GROIN | ARM_RIGHT | ARM_LEFT
 	max_heat_protection_temperature = BODYTEMP_HEAT_LEVEL_ONE_MAX
+	grid_width = 64
+	grid_height = 64
+	attachment_component = null
 
 /obj/item/clothing/suit/roguetown/armor/longcoat/brown
 	color = "#997C4F"
@@ -88,16 +92,4 @@
 /obj/item/clothing/suit/roguetown/armor/silkcoat/Initialize(mapload)
 	. = ..()
 	color = pick(CLOTHING_PURPLE, null,CLOTHING_GREEN, CLOTHING_RED)
-
-/obj/item/clothing/suit/roguetown/armor/corset_color
-	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
-	name = "corset"
-	desc = "A leather binding to constrict one's figure... and lungs."
-	icon_state = "corset_color"
-	body_parts_covered = CHEST
-	salvage_result = /obj/item/natural/hide/cured
-	sewrepair = TRUE
-	salvage_amount = 1
-	grid_height = 64
-	grid_width = 64
 

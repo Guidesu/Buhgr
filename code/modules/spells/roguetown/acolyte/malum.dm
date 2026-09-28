@@ -162,8 +162,9 @@
 
 	secondary_resource_cost = SPELLCOST_UTILITY_BUFF
 
-	//invocations = list("Through flame and ash, let vigor rise, by Handwerra's hand, let strength reprise!")
-	invocation_type = INVOCATION_NONE
+	//invocations = list("Through flame and ash, let vigor rise, by Handwerra's hand, let strength reprise!") Old Invocation
+	invocations = list("Lay stone upon stone, pile foe upon foe, ‘til thy Handwerra's work is done.")
+	invocation_type = INVOCATION_SHOUT
 
 	charge_required = TRUE
 	charge_time = 1 SECONDS
@@ -201,6 +202,7 @@
 
 /datum/action/cooldown/spell/malum/hammerfall
 	name = "Hammerfall"
+	expose_caster_on_deflect = FALSE
 	desc = "Heave a conjured maul overhead, then bring it crashing down on the ground before you, leaving any struck stumbling.\n\n\
 	Deals 50 brute damage and applies Immobilizes to everything in the smash. Against structures does triple damage."
 	background_icon = 'icons/mob/actions/malummiracles.dmi'
@@ -228,7 +230,8 @@
 	secondary_resource_type = SPELL_COST_STAMINA
 	secondary_resource_cost = SPELLCOST_MIRACLE//Dunno it's not properly inhereting for some reason.
 
-	invocations = list("By molten might and hammer's weight, in Handwerra's flame, the earth shall quake!")
+	//invocations = list("By molten might and hammer's weight, in Handwerra's flame, the earth shall quake!")Old Invocation
+	invocations = list("Let my hammer fall in righteousness on the brows of heathens and miscreants!")
 	invocation_type = INVOCATION_SHOUT
 
 	cooldown_time = 45 SECONDS
@@ -506,7 +509,7 @@
 
 	secondary_resource_cost = SPELLCOST_ULTIMATE
 
-	invocations = list("Sanctuary!")
+	invocations = list("Malum lead me against the dark towards the light!")
 	invocation_type = INVOCATION_SHOUT
 
 	charge_required = TRUE

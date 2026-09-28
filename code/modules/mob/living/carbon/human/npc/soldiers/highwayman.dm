@@ -1,30 +1,24 @@
-GLOBAL_LIST_INIT(highwayman_aggro, world.file2list("strings/rt/highwaymanaggrolines.txt"))
-
 /mob/living/carbon/human/species/human/northern/highwayman
+	npc_archetype = /datum/npc_archetype/highwayman
 	ai_controller = /datum/ai_controller/human_npc
 	faction = list(FACTION_BANDITS, FACTION_STATION)
 	ambushable = FALSE
 	dodgetime = 30
 	d_intent = INTENT_PARRY
 	blood_toll_bucket = STATS_KILLED_HIGHWAYMEN
-	var/highwayman_outfit = /datum/outfit/job/roguetown/human/species/human/northern/highwayman
 
 /mob/living/carbon/human/species/human/northern/highwayman/ambush
 	threat_point = THREAT_HIGH
 	ambush_faction = "bandits"
 
 /mob/living/carbon/human/species/human/northern/highwayman/mount_reaver
+	npc_archetype = /datum/npc_archetype/highwayman/mount_reaver
 	name = "mount reaver"
 	threat_point = THREAT_TOUGH
 	ambush_faction = "bandits"
-	highwayman_outfit = /datum/outfit/job/roguetown/human/species/human/northern/highwayman/mount_reaver
-
-/mob/living/carbon/human/species/human/northern/highwayman/mount_reaver/after_creation()
-	..()
-	job = "Mount Reaver"
 
 /mob/living/carbon/human/species/human/northern/highwayman/archer
-	ai_controller = /datum/ai_controller/human_npc/archer
+	npc_archetype = /datum/npc_archetype/highwayman/archer
 	threat_point = THREAT_HIGH
 	ambush_faction = "bandits"
 	highwayman_outfit = /datum/outfit/job/roguetown/human/species/human/northern/highwayman/archer
@@ -41,7 +35,7 @@ GLOBAL_LIST_INIT(highwayman_aggro, world.file2list("strings/rt/highwaymanaggroli
 	equipOutfit(new /datum/outfit/job/roguetown/human/species/human/northern/highwayman/archer)
 
 /mob/living/carbon/human/species/human/northern/highwayman/crossbowman
-	ai_controller = /datum/ai_controller/human_npc/archer
+	npc_archetype = /datum/npc_archetype/highwayman/crossbowman
 	threat_point = THREAT_HIGH
 	ambush_faction = "bandits"
 	highwayman_outfit = /datum/outfit/job/roguetown/human/species/human/northern/highwayman/crossbowman
@@ -269,95 +263,21 @@ GLOBAL_LIST_INIT(highwayman_aggro, world.file2list("strings/rt/highwaymanaggroli
 	H.adjust_skillrank_up_to(/datum/skill/combat/crossbows, SKILL_LEVEL_EXPERT, TRUE)
 
 /mob/living/carbon/human/species/human/northern/highwayman/road_knight
+	npc_archetype = /datum/npc_archetype/highwayman/road_knight
 	threat_point = THREAT_DEADLY
 	ambush_faction = "bandits"
-	highwayman_outfit = /datum/outfit/job/roguetown/human/species/human/northern/highwayman/road_knight
-
-/mob/living/carbon/human/species/human/northern/highwayman/road_knight/after_creation()
-	..()
-	job = "Road Knight"
-	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(src, TRAIT_BADTRAINER, TRAIT_GENERIC)
-	regenerate_icons()
-	for(var/obj/item/gear in get_equipped_items() + held_items)
-		lock_gear_piece(gear, "road_knight_gear")
-
-/mob/living/carbon/human/species/human/northern/highwayman/road_knight/death(gibbed, nocutscene = FALSE)
-	. = ..()
-	for(var/obj/item/gear in get_equipped_items() + held_items)
-		REMOVE_TRAIT(gear, TRAIT_NODROP, "road_knight_gear")
-
-/datum/outfit/job/roguetown/human/species/human/northern/highwayman/road_knight/pre_equip(mob/living/carbon/human/H)
-	..()
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/iron
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/iron
-	gloves = /obj/item/clothing/gloves/roguetown/plate/iron
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
-	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/iron
-	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
-	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron
-	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
-	belt = /obj/item/storage/belt/rogue/leather
-	r_hand = /obj/item/rogueweapon/sword/iron
-	l_hand = /obj/item/rogueweapon/shield/heater
-	H.STASTR = 14
-	H.STASPD = 10
-	H.STACON = 10
-	H.STAWIL = 10
-	H.STAPER = 10
-	H.STAINT = 8
-	H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_MASTER, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/shields, SKILL_LEVEL_EXPERT, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, SKILL_LEVEL_EXPERT, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, SKILL_LEVEL_JOURNEYMAN, TRUE)
 
 /mob/living/carbon/human/species/human/northern/highwayman/sharpshooter
-	ai_controller = /datum/ai_controller/human_npc/archer
+	npc_archetype = /datum/npc_archetype/highwayman/sharpshooter
 	threat_point = THREAT_DEADLY
 	ambush_faction = "bandits"
-	highwayman_outfit = /datum/outfit/job/roguetown/human/species/human/northern/highwayman/sharpshooter
 
-/mob/living/carbon/human/species/human/northern/highwayman/sharpshooter/after_creation()
-	..()
-	job = "Highwayman Sharpshooter"
-	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(src, TRAIT_BADTRAINER, TRAIT_GENERIC)
-	regenerate_icons()
-	for(var/obj/item/gear in get_equipped_items())
-		if(gear == backr || gear == backl)
-			continue
-		lock_gear_piece(gear, "sharpshooter_gear")
+/mob/living/carbon/human/species/human/northern/highwayman/light
+	npc_archetype = /datum/npc_archetype/highwayman/light
+	threat_point = THREAT_HIGH
+	ambush_faction = "bandits"
 
-/mob/living/carbon/human/species/human/northern/highwayman/sharpshooter/death(gibbed, nocutscene = FALSE)
-	. = ..()
-	for(var/obj/item/gear in get_equipped_items())
-		REMOVE_TRAIT(gear, TRAIT_NODROP, "sharpshooter_gear")
-
-/datum/outfit/job/roguetown/human/species/human/northern/highwayman/sharpshooter/pre_equip(mob/living/carbon/human/H)
-	..()
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/cuirass/iron
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/iron
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
-	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
-	gloves = /obj/item/clothing/gloves/roguetown/leather
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/iron
-	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
-	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron
-	cloak = /obj/item/clothing/cloak/raincloak/green
-	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/rogueweapon/sword/short/iron
-	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
-	backl = /obj/item/quiver/randomfill/reaver
-	r_hand = null
-	l_hand = null
-	H.STASTR = 12
-	H.STASPD = 10
-	H.STACON = 7
-	H.STAWIL = 8
-	H.STAPER = 13
-	H.STAINT = 8
-	H.adjust_skillrank_up_to(/datum/skill/combat/bows, SKILL_LEVEL_MASTER, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_JOURNEYMAN, TRUE)
-	H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, SKILL_LEVEL_JOURNEYMAN, TRUE)
-	H.upgrade_ai_controller(/datum/ai_controller/human_npc/archer)
+/mob/living/carbon/human/species/human/northern/highwayman/bulwark
+	npc_archetype = /datum/npc_archetype/highwayman/bulwark
+	threat_point = THREAT_TOUGH
+	ambush_faction = "bandits"

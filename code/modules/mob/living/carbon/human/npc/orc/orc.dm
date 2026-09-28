@@ -3,7 +3,6 @@
 	skin_tone = SKIN_COLOR_GROONN
 	hairstyle = "Bald"
 	facial_hairstyle = "Shaved"
-	var/orc_outfit = /datum/outfit/job/roguetown/orc/npc
 
 	race = /datum/species/orc
 	gender = MALE
@@ -18,19 +17,24 @@
 	possible_mmb_intents = list(INTENT_SPECIAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE)
 
 /mob/living/carbon/human/species/orc/npc
+	npc_archetype = /datum/npc_archetype/orc/savage
 	faction = list(FACTION_ORCS, FACTION_STATION)
 	ai_controller = /datum/ai_controller/human_npc
 	cmode_music = FALSE
 	ambush_faction = "orcs"
 
 /mob/living/carbon/human/species/orc/npc/archer
+	npc_archetype = /datum/npc_archetype/orc/savage/archer
 	threat_point = THREAT_HIGH
-	orc_outfit = /datum/outfit/job/roguetown/orc/npc/archer
 
-/mob/living/carbon/human/species/orc/npc/Initialize(mapload)
-	. = ..()
-	set_species(/datum/species/orc)
-	addtimer(CALLBACK(src, PROC_REF(after_creation)), 1 SECONDS)
+/mob/living/carbon/human/species/orc/npc/footsoldier
+	npc_archetype = /datum/npc_archetype/orc/footsoldier
+	threat_point = THREAT_HIGH
+	ambush_faction = "orcs"
+
+/mob/living/carbon/human/species/orc/npc/marauder
+	npc_archetype = /datum/npc_archetype/orc/marauder
+	threat_point = THREAT_DANGEROUS
 
 /mob/living/carbon/human/species/orc/npc/after_creation()
 	..()
@@ -129,4 +133,11 @@
 	H.adjust_skillrank_up_to(/datum/skill/misc/climbing, SKILL_LEVEL_APPRENTICE, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/misc/swimming, SKILL_LEVEL_APPRENTICE, TRUE)
 
+/mob/living/carbon/human/species/orc/npc/warlord
+	npc_archetype = /datum/npc_archetype/orc/warlord
+	threat_point = THREAT_DEADLY
 
+/mob/living/carbon/human/species/orc/npc/juggernaut
+	npc_archetype = /datum/npc_archetype/orc/warlord/juggernaut
+	threat_point = THREAT_ELITE
+	ambush_faction = "orcs"

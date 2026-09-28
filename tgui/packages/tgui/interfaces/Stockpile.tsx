@@ -259,11 +259,13 @@ const StockRowView = (props: {
           title={
             row.import_price <= 0
               ? 'No region has supply of this good today.'
-              : !!data.food_stipend && row.import_price > data.budget
-                ? 'Food stipend covers this import through the treasury.'
-                : data.charter_active
-                  ? 'Import directly. Pays duty to the Crown.'
-                  : 'Import directly. The surcharge covers transport.'
+              : overriding
+                ? 'Closed to the public. You may withdraw as a Clerk / Steward.'
+                : data.food_stipend && row.import_price > data.budget
+                  ? 'Food stipend covers this import through the treasury.'
+                  : data.charter_active
+                    ? 'Import directly. Pays duty to the Crown.'
+                    : 'Import directly. The surcharge covers transport.'
           }
         >
           {row.import_price > 0 ? `Import ${row.import_price}m` : 'NO SUPPLY'}

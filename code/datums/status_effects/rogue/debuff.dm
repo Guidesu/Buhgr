@@ -289,9 +289,9 @@
 	. = ..()
 
 /datum/status_effect/debuff/netted/on_apply()
-		. = ..()
-		var/mob/living/carbon/C = owner
-		C.add_movespeed_modifier(MOVESPEED_ID_NET_SLOWDOWN, multiplicative_slowdown = 3)
+	. = ..()
+	var/mob/living/carbon/C = owner
+	C.add_movespeed_modifier(MOVESPEED_ID_NET_SLOWDOWN, multiplicative_slowdown = 3)
 
 /datum/status_effect/debuff/netted/on_remove()
 	. = ..()
@@ -423,6 +423,16 @@
 	desc = "I can barely feel my limbs!"
 	icon_state = "chilled"
 
+/datum/status_effect/debuff/slip_recovery
+	id = "slip_recovery"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/slip_recovery
+	duration = 30 SECONDS // Lower than the CD
+
+/atom/movable/screen/alert/status_effect/debuff/slip_recovery
+	name = "Winded"
+	desc = "I am too winded to slip between spaces again!"
+	icon_state = "debuff"
+
 /// RITUOS DEBUFFS
 /datum/status_effect/debuff/ritesexpended
 	id = "ritesexpended"
@@ -480,38 +490,38 @@
 	. = ..()
 	owner.add_stress(/datum/stressevent/resurrected)
 	switch(owner.patron?.type)
-		if(/datum/patron/tribunal/praecursor) //Pseudoplaceholder. Feel free to rewrite, if desired.
+		if(/datum/patron/old_god) //Pseudoplaceholder. Feel free to rewrite, if desired.
 			to_chat(owner, span_gamedeadsay("Blinding light, enveloping warmth, unconditional love. The darkness recedes behind me, as I come closer to the end of the tunnel - yet, just before I crest the horizon, something jerks me back into the inky-black.."))
-		if(/datum/patron/tribunal/custodius) //Pseudoplaceholder. Feel free to rewrite, if desired.
+		if(/datum/patron/divine/undivided) //Pseudoplaceholder. Feel free to rewrite, if desired.
 			to_chat(owner, span_gamedeadsay("Blinding light, enveloping warmth, unconditional love. The darkness recedes behind me, as I come closer to the end of the tunnel - yet, just before I crest the horizon, something jerks me back into the inky-black.."))
-		if(/datum/patron/concordat/auxentius)
+		if(/datum/patron/divine/astrata)
 			to_chat(owner, span_gamedeadsay("It was so cold without Her light. I felt it in my bones and my skin and my insides. Permeating darkness - consuming what little light I took with me. I will never take Her warmth for granted again.."))
-		if(/datum/patron/concordat/miluse)
+		if(/datum/patron/divine/noc)
 			to_chat(owner, span_gamedeadsay("There, at the edge of reality, laid a singular point of light. The more I focused upon it, the more it expanded. A tapestry of stars, speckled amongst a sea of phlogiston, forming indecipherable truths for me to ponder. I shouldn't have stared for so long.."))
-		if(/datum/patron/concordat/morwenna)
+		if(/datum/patron/divine/necra)
 			to_chat(owner, span_gamedeadsay("Her halls were beautiful. Cold. Sterile. The world seems so much more chaotic compared to her demesne. I wasn't meant to come back.."))
-		if(/datum/patron/concordat/handwerra)
+		if(/datum/patron/divine/pestra)
 			to_chat(owner, span_gamedeadsay("I trailed my body as it laid slumped over in that terrible, terrible place. To see my life spilling out onto the soil, to see my flesh wither into crusted rot, and to feel my grasp on this world slipping; it was too much for anyone to bare, let alone me.."))
-		if(/datum/patron/concordat/handwerra)
+		if(/datum/patron/divine/malum)
 			to_chat(owner, span_gamedeadsay("The heat of the forge was overwhelming. My skin was tempered into moving steel and living armor. They fitted me with weapons of war and sent me to the line. There were so many others. All perfect in their construction. Waking up was the sweetest relief.."))
-		if(/datum/patron/severance/ignatius)
+		if(/datum/patron/divine/dendor)
 			to_chat(owner, span_gamedeadsay("The hunting grounds! Absolute freedom - primal violence and dancing madmen. So many were consumed by the beasts. But I was faster, more cunning, staying just ahead of the Mad God.."))
-		if(/datum/patron/concordat/viator)
+		if(/datum/patron/divine/xylix)
 			to_chat(owner, span_gamedeadsay("The play has come to a close, yet the crowd hungers for an encore. Amidst a sea of tossed rosas, who am I to deny the audience what they crave the most? I clear my throat and prepare.."))
-		if(/datum/patron/concordat/miluse)
+		if(/datum/patron/divine/eora)
 			to_chat(owner, span_gamedeadsay("I woke upon a bed of silken sheets and creamy pillows, surrounded by my family. They looked overjoyed to see me - but I could hardly see their faces. They smiled and spoke, reaching out to welcome me. I wish I could remember what they looked like.."))
-		if(/datum/patron/concordat/wulfric)
+		if(/datum/patron/divine/abyssor)
 			to_chat(owner, span_gamedeadsay("The rushing currents swept me down, down. Down towards the sleeping God. My lungs cried out in pain as I took saltwater into them. Vision clouding with red and black. His eye opened. His eye opened his eye opened HIS EYE OPENED HIS EYE OPENED HE WAS STIRRING-"))
-		if(/datum/patron/concordat/auxentius)
+		if(/datum/patron/divine/ravox)
 			to_chat(owner, span_gamedeadsay("One by one - the injustices I committed were set upon the scales. Sweat ran down my back as I watched those that I saved plead my case. One by one - the scale lifted so slowly. The line of petitioners growing shorter.."))
-		if(/datum/patron/concordat/morwenna) //Pseudoplaceholder. Feel free to rewrite, if desired.
-			to_chat(owner, span_gamedeadsay("It was so cold without Her light. I felt it in my bones and my skin and my insides. Permeating darkness - consuming what little light I took with me. I will never take Her warmth for granted again.."))
-		if(/datum/patron/oldkin/volkovoi) //Pseudoplaceholder. Feel free to rewrite, if desired.
-			to_chat(owner, span_gamedeadsay("One by one - the injustices I committed were set upon the scales. Sweat ran down my back as I watched those that I saved plead my case. One by one - the scale lifted so slowly. The line of petitioners growing shorter.."))
-		if(/datum/patron/oldkin/hausvette) //Pseudoplaceholder. Feel free to rewrite, if desired.
-			to_chat(owner, span_gamedeadsay("I woke upon a bed of silken sheets and creamy pillows, surrounded by my family. They looked overjoyed to see me - but I could hardly see their faces. They smiled and spoke, reaching out to welcome me. I wish I could remember what they looked like.."))
-		if(/datum/patron/unveiled/aurelian) //Pseudoplaceholder. Feel free to rewrite, if desired.
-			to_chat(owner, span_gamedeadsay("There, at the edge of reality, laid a singular point of light. The more I focused upon it, the more it expanded. A tapestry of stars, speckled amongst a sea of phlogiston, forming indecipherable truths for me to ponder. I shouldn't have stared for so long.."))
+		if(/datum/patron/inhumen/matthios) // Slightly better placeholder, feel free to rewrite.
+			to_chat(owner, span_gamedeadsay("Darkness, cold, my body curled around a fading golden flame. The endless void fades into a spiral of flickering lights, blazing together agaist the dark."))
+		if(/datum/patron/inhumen/graggar) // Slightly better placeholder. Graggar is going to ultrakill you. Might be too long
+			to_chat(owner, span_gamedeadsay("The Sinistar screamed and raged and wept in ten thousand voices as my body was crushed and torn within its jaws. I felt my self being torn away, victory, defeat, my mortal lyfe all sinking into a river of wrath and regret.."))
+		if(/datum/patron/inhumen/baotha) // Slightly better placeholder, feel free to rewrite
+			to_chat(owner, span_gamedeadsay("I woke upon a bed of silk and roses, my body weightless as a lyfetime of pain and heartbreak melted away into a bissful haze. I want to go back.. "))
+		if(/datum/patron/inhumen/zizo)
+			to_chat(owner, span_gamedeadsay(" I rise, the twice dammed carcass world shrinks below me. My mind expands, filling with forbidden truth as my body is drawn towards a twisting bloody vortex. I sink into the endless storm, it screams its hate in a million voices.."))
 		if(/datum/patron/godless) //Pseudoplaceholder. Feel free to rewrite, if desired.
 			to_chat(owner, span_gamedeadsay("I saw my entire lyfe flash before my eyes, and then-.. nothing. No light, no darkness; complete, utter nothingness - save for a single thought, sinking into the inky-blackness.. and into whatever awaited on the other side. Suddenly, I feel myself yanked in a non-existing direction!"))
 		else
@@ -526,7 +536,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/rotted
 	effectedstats = list(STATKEY_STR = -2, STATKEY_PER = -2, STATKEY_INT = -2, STATKEY_WIL = -2, STATKEY_CON = -2, STATKEY_SPD = -2, STATKEY_LCK = -2)
 	duration = 30 MINUTES	// Back to a temporary 30 minute duration. It hurts.
-	examine_text = "<font color='#2c8b00'>SUBJECTPRONOUN looks frail and unnaturally pale, moving with the hesitant stiffness of one whose body has only recently remembered how to live.</font>"
+	examine_text = "<font color='#008b56'>SUBJECTPRONOUN looks frail and unnaturally pale, as if they recently got brought back from death.</font>"
 
 /atom/movable/screen/alert/status_effect/debuff/rotted
 	name = "Atrophia"
@@ -547,8 +557,8 @@
 /datum/status_effect/debuff/permadeath
 	id = "permadeath"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/permadeath
-	duration = 10 MINUTES //Effectively determines how long a character is threatened with permadeath. Kicks into gear once the initial deathmark-imposed grace period completes. Timed to match Revival Sickness.
-	examine_text = "<font color='#b40000'>SUBJECTPRONOUN appears haunted by an unseen burden. It feels as though their spirit hangs by the thinnest of threads. Another death may well be their last.</font>"
+	duration = PERMADEATH_DURATION //Effectively determines how long a character is threatened with permadeath. Kicks into gear once the initial deathmark-imposed grace period completes. Timed to match Revival Sickness.
+	examine_text = "<font color='#b40000'>SUBJECTPRONOUN seems mentally and spiritually unstable. Another death could well be their last.</font>"
 
 /atom/movable/screen/alert/status_effect/debuff/permadeath
 	name = "Death's Door"
@@ -562,9 +572,21 @@
 
 /datum/status_effect/debuff/permadeath/on_remove()
 	. = ..()
-	REMOVE_TRAIT(owner, TRAIT_DNR, id)
+	if(owner.stat != DEAD) //removing DNR if the user is dead means they'll just be able to get rezzed after 10 mins elapse
+		REMOVE_TRAIT(owner, TRAIT_DNR, id)
 	owner.remove_stress(/datum/stressevent/permadeath_threat)
 	owner.add_stress(/datum/stressevent/permadeath_end)
+
+/datum/status_effect/debuff/permadeath/permanent
+	duration = -1
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/permadeath/permanent
+
+/datum/status_effect/debuff/permadeath/permanent/on_apply()
+	. = ..()
+	REMOVE_TRAIT(owner, TRAIT_LASTLEGS, null) // no need to have both this AND dnr
+
+/atom/movable/screen/alert/status_effect/debuff/permadeath/permanent
+	desc = "Your heart beats with arrythmic fright, as an otherworldly chill rolls through your very spirit. Should you perish again, nothing will be able to bring you back from death's grasp."
 
 /// CONT. DEBUFFS
 /datum/status_effect/debuff/dazed
@@ -585,6 +607,17 @@
 /datum/status_effect/debuff/dazed/smite
 	effectedstats = list(STATKEY_PER = -1, STATKEY_INT = -2, STATKEY_SPD = -1)
 	duration = 1 MINUTES
+
+/datum/status_effect/debuff/jester_flip_dazed
+	id = "flip_cooldown"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/jester_flip_dazed
+	duration = 5 SECONDS
+	status_type = STATUS_EFFECT_REFRESH
+
+/atom/movable/screen/alert/status_effect/debuff/jester_flip_dazed
+	name = "Hazy"
+	desc = "...woah...! I feel a little uneasy!"
+	icon_state = "dazed"
 
 /atom/movable/screen/alert/status_effect/debuff/dazed
 	name = "Dazed"
@@ -654,13 +687,12 @@
 /datum/status_effect/debuff/dazed/longsword
 	id = "durchlauffen"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/dazed/longsword
-	effectedstats = list(STATKEY_WIL = -4, STATKEY_INT = -1)
-	duration = 18 SECONDS
+	effectedstats = list(STATKEY_PER = -3, STATKEY_INT = -3)
 	status_type = STATUS_EFFECT_REFRESH
 
 /atom/movable/screen/alert/status_effect/debuff/dazed/longsword
-	name = "CAN'T FUCKING BREATHE"
-	desc = "WHAT THE HELL DID THEY DO TO ME?! I NEED TO ATTACK THEM WHILE THEY'RE SWINGING SO THEY CAN'T SHATTER MY WINDPIPE!!"
+	name = "VERY Dazed"
+	desc = "You've been smacked in the face very, very hard. Everything is spinning!"
 	icon_state = "mstrike"
 
 /datum/status_effect/debuff/dazed/longsword2h
@@ -690,8 +722,8 @@
 /datum/status_effect/debuff/dazed/swipe
 	id = "clinch & swipe"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/dazed/swipe
-	effectedstats = list(STATKEY_CON = -4, STATKEY_STR = -1)
-	duration = 1.5 SECONDS	//Should last BARELY ENOUGH for someone who's actively grappling and swiping you to get a constant refresh of the dedbuff, otherwise it's useless.
+	effectedstats = list(STATKEY_STR = -2) // Grappling escapes are dependent on their STR/Wrestling vs your CON/Wrestling. We only reduce the victim's STR.
+	duration = 1.5 SECONDS
 	status_type = STATUS_EFFECT_REFRESH
 
 /atom/movable/screen/alert/status_effect/debuff/dazed/swipe
@@ -1168,7 +1200,7 @@
 		phy.bleed_mod = 1.15 + (con_mod * 0.1) // at 15 con you'll bleed from a wound by .825
 	else
 		phy.bleed_mod = 1.15 // if you already have low con, we're not going to turbofuck you. ok?
-	H.visible_message(span_warning("[owner]'s blood runs thin and begins GUSHING out of their wounds!"), span_danger("A FOUL SPELL IS CAUSING ME TO BLEED EN MASSE!"))
+	H.visible_message(span_artery("[owner]'s blood runs thin and begins GUSHING out of their wounds!"), span_danger("I CAN'T STOP THIS BLEEDING!"))
 
 /datum/status_effect/debuff/bloody_mess/on_remove()
 	. = ..()
@@ -1177,7 +1209,7 @@
 	var/mob/living/carbon/human/H = owner
 	var/datum/physiology/phy = H.physiology
 	phy.bleed_mod = initial(phy.bleed_mod) // con can lower from the bleeding so we want it to just directly be set back to the initial
-	H.visible_message(span_warning("[owner] has their wounds calm..."), span_warning("My wounds stop bleeding so heavily!"))
+	H.visible_message(span_warning("[owner]'s blood thickens a little, returning to normal."), span_warning("My wounds stop bleeding so heavily!"))
 
 
 /atom/movable/screen/alert/status_effect/debuff/bloody_mess
@@ -1197,7 +1229,7 @@
 	var/datum/physiology/phy = H.physiology
 	var/pain_mod = phy.pain_mod
 	phy.pain_mod = pain_mod * 1.15 // this then gets reduced by wil, among other things. change as needed.
-	H.visible_message(span_warning("[owner] looks to be in great pain, their wounds BLACKENING!"), span_danger("EVERYTHING HURTS!! MY WOUNDS PAIN HAS INCREASED!!"))
+	H.visible_message(span_artery("[owner] stiffens, blackening streaks crawling through their wounds!"), span_danger("I AM IN MISERY! EVERYTHING HURTS WORSE!"))
 
 /datum/status_effect/debuff/sensitive_nerves/on_remove()
 	. = ..()
@@ -1207,7 +1239,7 @@
 	var/datum/physiology/phy = H.physiology
 	var/pain_mod = phy.pain_mod
 	phy.pain_mod = pain_mod / 1.15 // this should be a define fuuuck
-	H.visible_message(span_warning("[owner]'s wounds suddenly return to normal!"), span_warning("My magickally induced pain subsides!"))
+	H.visible_message(span_warning("[owner]'s wounds slowly return to normal!"), span_warning("The unnaturally induced pain subsides!"))
 
 
 /atom/movable/screen/alert/status_effect/debuff/sensitive_nerves
@@ -1270,66 +1302,3 @@
 
 /atom/movable/screen/alert/status_effect/debuff/knockout
 	name = "Drowsy"
-
-////////////////////////////////////////////////////////////////////////////
-// Temperature debuffs (Weather & Temperature Overhaul, Phase 1 port).
-////////////////////////////////////////////////////////////////////////////
-
-/// Applied at cold level 2. Constitution debuff while chilled to the bone.
-/datum/status_effect/debuff/freezing
-	id = "freezing"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/freezing
-	effectedstats = list(STATKEY_CON = -1)
-	duration = 100
-
-/atom/movable/screen/alert/status_effect/debuff/freezing
-	name = "Freezing"
-	desc = "It's so cold!"
-	icon_state = "chilled"
-
-/// Construct-only equivalent of cold level 2. Simple debuff path instead of the human wound system.
-/datum/status_effect/debuff/brittle
-	id = "brittle cold"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/brittle
-	duration = 10 SECONDS
-
-/datum/status_effect/debuff/brittle/on_apply()
-	. = ..()
-	var/mob/living/carbon/C = owner
-	to_chat(C, span_warning("My joints stiffen as the cold hardens my frame."))
-	ADD_TRAIT(C, TRAIT_CRITICAL_WEAKNESS, STATUS_EFFECT_TRAIT)
-	return TRUE
-
-/datum/status_effect/debuff/brittle/on_remove()
-	. = ..()
-	var/mob/living/carbon/C = owner
-	to_chat(C, span_notice("My frame loosens as warmth returns."))
-	REMOVE_TRAIT(C, TRAIT_CRITICAL_WEAKNESS, STATUS_EFFECT_TRAIT)
-
-/atom/movable/screen/alert/status_effect/debuff/brittle
-	name = "brittle cold"
-	desc = "My frame is so cold it's brittle!"
-	icon_state = "chilled"
-
-/// Construct-only equivalent of heat level 2. Simple debuff path instead of the human wound system.
-/datum/status_effect/debuff/overheat
-	id = "overheating"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/overheat
-	duration = 10 SECONDS
-	effectedstats = list(STATKEY_SPD = 2, STATKEY_WIL = -4)
-
-/datum/status_effect/debuff/overheat/on_apply()
-	. = ..()
-	var/mob/living/carbon/C = owner
-	to_chat(C, span_userdanger("My core temperature rises, overheating my frame."))
-	return TRUE
-
-/datum/status_effect/debuff/overheat/on_remove()
-	. = ..()
-	var/mob/living/carbon/C = owner
-	to_chat(C, span_userdanger("My core temperature returns to normal."))
-
-/atom/movable/screen/alert/status_effect/debuff/overheat
-	name = "overheating"
-	desc = "My frame is overheating!"
-	icon_state = "fire"

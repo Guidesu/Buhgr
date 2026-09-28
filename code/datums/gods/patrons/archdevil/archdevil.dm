@@ -1,3 +1,11 @@
+// Minimal faith stub so vheslyn's associated_faith resolves. Lore to be reworked.
+/datum/faith/accelerationism
+	name = "Accelerationism"
+	desc = "The creed of the Archdevil Vheslyn: to hasten the unmaking of all things."
+	worshippers = "The broken, the hurt, and those who would see the world burn."
+	godhead = /datum/patron/vheslyn
+	preference_accessible = FALSE
+
 /datum/patron/vheslyn
 	name = "Vheslyn"
 	domain = "Unreality. The space in between your world and nothingness. The back of your amygdala."

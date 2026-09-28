@@ -276,7 +276,7 @@
 			if(!combo_valid(user, target))
 				combo_broken = TRUE
 				break
-			if(spell_guard_check(target, FALSE, deflected ? null : user))
+			if(spell_guard_check(target, FALSE, user, punish_caster = deflected ? FALSE : null))
 				deflected = TRUE
 				combo_broken = TRUE
 				break
@@ -291,7 +291,7 @@
 
 	sleep(3)
 	if(!combo_broken && cling(user, target) && combo_valid(user, target))
-		if(!spell_guard_check(target, FALSE, deflected ? null : user))
+		if(!spell_guard_check(target, FALSE, user, punish_caster = deflected ? FALSE : null))
 			user.emote("attack", forced = TRUE)
 			arcyne_strike(user, target, null, kick_damage, target_zone, BCLASS_BLUNT, spell_name = "Storm of Praecursor (Kick)", exact_zone = TRUE)
 			playsound(get_turf(target), pick('sound/combat/hits/blunt/genblunt (1).ogg','sound/combat/hits/blunt/genblunt (2).ogg','sound/combat/hits/blunt/genblunt (3).ogg'), 100, TRUE)
@@ -314,7 +314,7 @@
 		if(!combo_valid(user, target))
 			combo_broken = TRUE
 			break
-		if(spell_guard_check(target, FALSE, deflected ? null : user))
+		if(spell_guard_check(target, FALSE, user, punish_caster = deflected ? FALSE : null))
 			deflected = TRUE
 			combo_broken = TRUE
 			break
@@ -323,7 +323,7 @@
 
 	sleep(1)
 	if(!combo_broken && cling(user, target) && combo_valid(user, target))
-		if(!spell_guard_check(target, FALSE, deflected ? null : user))
+		if(!spell_guard_check(target, FALSE, user, punish_caster = deflected ? FALSE : null))
 			user.emote("attack", forced = TRUE)
 			arcyne_strike(user, target, null, kick_damage, target_zone, BCLASS_BLUNT, spell_name = "Storm of Praecursor (Kick)", exact_zone = TRUE)
 			playsound(get_turf(target), pick('sound/combat/hits/blunt/genblunt (1).ogg','sound/combat/hits/blunt/genblunt (2).ogg','sound/combat/hits/blunt/genblunt (3).ogg'), 100, TRUE)

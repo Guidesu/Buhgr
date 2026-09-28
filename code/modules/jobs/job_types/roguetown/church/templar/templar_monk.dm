@@ -36,9 +36,16 @@
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
 	id = /obj/item/clothing/ring/silver
 	gloves = /obj/item/clothing/gloves/roguetown/bandages/weighted
+	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
+	belt = /obj/item/storage/belt/rogue/leather/rope/upgraded
+	beltr = /obj/item/storage/keyring/acolyte
+	shoes = /obj/item/clothing/shoes/roguetown/footwraps/padded
+	id = /obj/item/clothing/ring/silver/cleric
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
+		/obj/item/storage/belt/rogue/pouch/coins/mid = 1,
 		/obj/item/ritechalk = 1,
+		/obj/item/rope/chain = 1,
 		)
 	H.cmode_music = 'sound/music/cmode/church/combat_reckoning.ogg'
 	switch(H.patron?.type)
@@ -93,16 +100,6 @@
 	if(patron_dagger)
 		backpack_contents += patron_dagger
 		backpack_contents += /obj/item/rogueweapon/scabbard/sheath
-
-	head = /obj/item/clothing/head/roguetown/headband/monk
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/cloth/monk
-	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/black
-	armor = /obj/item/clothing/suit/roguetown/shirt/robe/monk/holy
-	pants = /obj/item/clothing/under/roguetown/tights/black
-	belt = /obj/item/storage/belt/rogue/leather/rope/upgraded
-	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
-	beltr = /obj/item/storage/keyring/acolyte
-	shoes = /obj/item/clothing/shoes/roguetown/footwraps/padded
 
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_MINOR, devotion_limit = CLERIC_REQ_2)	//Capped to T2 miracles.

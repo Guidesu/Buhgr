@@ -69,6 +69,7 @@
 #define CLOTHING_GREEN				"#428138"
 #define CLOTHING_DARK_GREEN			"#264d26"
 #define CLOTHING_BLUE				"#007fff"
+#define CLOTHING_AZURE				"#007fff"
 #define CLOTHING_YELLOW				"#ffcd43"
 #define CLOTHING_TEAL				"#249589"
 #define CLOTHING_LUNARA			"#5e50e9"

@@ -165,15 +165,16 @@
 				L.visible_message(span_warning("The beam splinters against [L]!"))
 				playsound(T, 'sound/magic/magic_nulled.ogg', 100)
 				continue
-			if(guard_source && !QDELETED(guard_source) && guard_source.spell_guard_check(L, TRUE, deflected ? null : caster))
+			if(guard_source && !QDELETED(guard_source) && guard_source.spell_guard_check(L, TRUE, caster, punish_caster = deflected ? FALSE : null))
 				deflected = TRUE
 				L.visible_message(span_warning("[L] turns the beam aside!"))
 				continue
 			if(istype(caster) && !QDELETED(caster) && ishuman(L))
-				arcyne_strike(caster, L, null, damage, caster.zone_selected, \
+				if(arcyne_strike(caster, L, null, damage, caster.zone_selected, \
 					BCLASS_PIERCE, spell_name = spell_name, \
 					damage_type = BRUTE, \
-					skip_animation = TRUE)
+					skip_animation = TRUE) == ARCYNE_STRIKE_WARDED)
+					continue
 			else
 				L.adjustBruteLoss(damage)
 				SEND_SIGNAL(L, COMSIG_ATOM_WAS_ATTACKED, caster, damage)

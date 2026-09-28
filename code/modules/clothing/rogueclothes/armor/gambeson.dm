@@ -47,7 +47,7 @@
 					H.update_inv_armor()
 			return
 	else
-		if(alert(user, "Would you like to wear your padded gambeson traditionally? This restores the original coloration.",, "Yes", "No") != "No")
+		if(alert(user, "Would you like to wear your gambeson traditionally? This restores the original coloration.",, "Yes", "No") != "No")
 			icon_state = "gambesonold"
 			color = null
 			update_icon()
@@ -104,6 +104,9 @@
 	armor = ARMOR_PADDED_BAD
 	max_integrity = ARMOR_INT_CHEST_LIGHT_BASE
 	shiftable = FALSE
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/light/dark
+	color = "#646464"
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/lord/heavy
 	name = "padded arming jacket"
@@ -308,6 +311,9 @@
 	. = ..()
 	loadoutize()
 
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/grenzelhoft/loadout/astrocrat
+	name = "thin grenzelhoftian hip-shirt"
+
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/raneshen
 	name = "padded desert coat"
 	desc = "A slim-fitting sherwani, a Ranesheni-styled coat meant to endure in the desert's climate. This one is heavily padded, meant for a warrior to wear."
@@ -364,6 +370,12 @@
 	armor = ARMOR_PADDED
 	shiftable = FALSE
 	body_parts_covered = COVERAGE_ALL_BUT_HANDFEET
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/inq/cleric //trash varient for aura
+	name = "worn psydonic leather tunic"
+	desc = "A firm and rugged leather tunic; made to ENDURE, made to PERSIST, its seen a lot of wear and tear in its tyme."
+	armor = ARMOR_PADDED_BAD
+	max_integrity = ARMOR_INT_CHEST_LIGHT_BASE
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/shadowrobe
 	name = "stalker robe"

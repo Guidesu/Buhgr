@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	forbidden_races = list(RACES_CONSTRUCT RACES_DESPISED RACES_OOZE)		//Too recent arrivals to ascend to priesthood.
 	allowed_patrons = ALL_DIVINE_PATRONS
 	allowed_sexes = list(MALE, FEMALE)
-	tutorial = "The Divine is all that matters in a world of the immoral. The Weeping God abandoned us, and in his stead the TEN rule over us mortals--and you will preach their wisdom to any who still heed their will. The faithless are growing in number. It is up to you to shepherd them toward a Gods-fearing future; for you are a Bishop of the Holy See."
+	tutorial = "The Divine is all that matters in a world of the immoral. The Weeping God abandoned us, and in his stead the TEN rule over us mortals--and you will preach their wisdom to any who still heed their will. The faithless are growing in number. Guide your flock towards a brighter future, no matter what fate has in store for you."
 	whitelist_req = FALSE
 	cmode_music = 'sound/music/cmode/church/combat_astrata.ogg'
 
@@ -37,7 +37,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	outfit = /datum/outfit/job/roguetown/priest
 	display_order = JDO_BISHOP
 	give_bank_account = TRUE
-	min_pq = 5 // You should know the basics of things if you're going to lead the town's entire religious sector
+	min_pq = 50 // You should know the basics of things if you're going to lead the town's entire religious sector
 	max_pq = null
 	round_contrib_points = 5
 
@@ -93,11 +93,12 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	..()
 	H.adjust_blindness(-3)
 	head = /obj/item/clothing/head/roguetown/priestmask
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/priest
-	wrists = /obj/item/clothing/wrists/roguetown/wrappings
-	shoes = /obj/item/clothing/shoes/roguetown/sandals
+	neck = /obj/item/clothing/neck/roguetown/psicross/silver/undivided
+	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/silktunic
+	pants = /obj/item/clothing/under/roguetown/tights/black
+	shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
+	belt = /obj/item/storage/belt/rogue/leather/plaquegold
 	beltl = /obj/item/storage/keyring/church
-	belt = /obj/item/storage/belt/rogue/leather/rope/upgraded
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	id = /obj/item/clothing/ring/active/nomag
 	backl = /obj/item/storage/backpack/rogue/satchel

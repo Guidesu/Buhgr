@@ -80,7 +80,7 @@
 		for(var/mob/living/victim in affected_turf)
 			if(victim == H || victim.stat == DEAD)
 				continue
-			if(spell_guard_check(victim, FALSE, deflected ? null : H))
+			if(spell_guard_check(victim, FALSE, H, punish_caster = deflected ? FALSE : null))
 				deflected = TRUE
 				continue
 			arcyne_strike(H, victim, null, damage, def_zone, BCLASS_BLUNT, spell_name = "Fist of Praecursor")

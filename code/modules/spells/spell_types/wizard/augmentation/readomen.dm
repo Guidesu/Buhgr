@@ -8,7 +8,7 @@
 	spell_color = GLOW_COLOR_ARCANE
 	glow_intensity = GLOW_INTENSITY_LOW
 
-	click_to_activate = FALSE
+	click_to_activate = TRUE
 	self_cast_possible = TRUE
 
 	primary_resource_type = SPELL_COST_STAMINA
@@ -19,11 +19,11 @@
 
 	charge_required = TRUE
 	charge_swingdelay_type = SWINGDELAY_PENALTY
-	charge_time = 2 SECONDS
+	charge_time = 1 SECONDS
 	hold_drain = 0
 	charge_slowdown = CHARGING_SLOWDOWN_SMALL
 	charge_sound = 'sound/magic/charging.ogg'
-	cooldown_time = 2 MINUTES
+	cooldown_time = 1 MINUTES
 
 	associated_skill = /datum/skill/magic/arcane
 	spell_tier = 1
@@ -33,10 +33,92 @@
 
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_HUMAN | SPELL_REQUIRES_SAME_Z
 
-/datum/action/cooldown/spell/readomen/cast(mob/living/user)
+	var/current_mode = 1
+	var/list/modes = list(
+		list("name" = "Read Omen", "tag" = "OMEN", "icon" = "readomen", "invocation" = "Caelum Feri!"),
+		list("name" = "Orb of Wisdom", "tag" = "ORB", "icon" = "readomen", "invocation" = "Feri Fulmine Hostem!"),
+	)
+
+	var/list/reign_messages = list(
+		/datum/faith/divine = list(
+			/datum/faith/divine = "The Leylines feel still, and ready to be molded.",
+			/datum/faith/inhumen = "They Leylines feel controlled, like it's potential is being suppressed.",
+			/datum/faith/old_god = "They Leylines feel average, they could always be more controlled.",
+		),
+		/datum/faith/inhumen = list(
+			/datum/faith/inhumen = "The Leylines feel ripe for change, excitement fills your Lux as you behold it.",
+			/datum/faith/divine = "The Leylines feel unstable, something is causing the mana in them to fluxuate.",
+			/datum/faith/old_god = "The Leylines are being leeched, something is manipulating Psydonia.",
+		),
+		/datum/faith/old_god = list(
+			/datum/faith/divine = "The Leylines feel dull, perhaps they are healing.",
+			/datum/faith/inhumen = "The Leylines power is being dulled, an insult to the Arcyne.",
+			/datum/faith/old_god = "The Leylines are as they should be, a perfect balance of calm.",
+		)
+	)
+
+	var/obj/item/rogueweapon/conjured_orb = null
+
+/datum/action/cooldown/spell/readomen/Grant(mob/grant_to)
+	. = ..()
+	apply_mode(current_mode)
+
+/datum/action/cooldown/spell/readomen/proc/apply_mode(index)
+	var/list/mode = modes[index]
+	name = mode["name"]
+	button_icon_state = mode["icon"]
+	invocations = list(mode["invocation"])
+	build_all_button_icons()
+	update_mode_maptext(mode["tag"])
+
+/datum/action/cooldown/spell/readomen/toggle_alt_mode(mob/user)
+	current_mode = (current_mode % length(modes)) + 1
+	apply_mode(current_mode)
+	to_chat(user, span_notice("[name]: [modes[current_mode]["name"]] mode."))
+	return TRUE
+
+/datum/action/cooldown/spell/readomen/proc/update_mode_maptext(tag)
+	for(var/datum/hud/hud as anything in viewers)
+		var/atom/movable/screen/movable/action_button/B = viewers[hud]
+		var/atom/movable/screen/arc_maptext_holder/holder
+		for(var/atom/movable/screen/arc_maptext_holder/existing in B.vis_contents)
+			holder = existing
+			break
+		if(!holder)
+			holder = new(B)
+			B.vis_contents.Add(holder)
+		holder.maptext = MAPTEXT(tag)
+		holder.maptext_x = 5
+		holder.color = GLOW_COLOR_LIGHTNING
+
+/datum/action/cooldown/spell/readomen/cast()
 	. = ..()
 
+	var/mob/living/carbon/human/H = owner
+	if(current_mode == 1)
+		cast_omen(H)
+	else
+		cast_orb(H)
+	return TRUE
+
+/datum/action/cooldown/spell/readomen/proc/cast_omen(mob/living/user)
+	var/dominant_faith = GLOB.dominant_faith_tracker.dominant_faith
 	user.visible_message(span_info("The eyes of [user] roll back into their head for a moment!"), span_info("Your eyes roll into the back of your head!"))
+	if(!istype(user) || !user.patron || ispath(user.patron.associated_faith, /datum/faith/godless))
+		to_chat(user, "<span class='warning'>For some reason, I cannot get a good grasp of the Leylines.</span>")
+		return FALSE
+	if(ispath(user.patron.associated_faith, /datum/faith/accelerationism))
+		to_chat(user, "<span class='warningbig'>FUCK THE LEYLINES, THEY ARE A TOOL, I DON'T CARE HOW THEY FEEL. I'LL BLOW THEM THE FUCK UP TOO WHEN I'M DONE.</span>")
+		return FALSE
+	if(ispath(user.patron.associated_faith, /datum/faith/mossmother))
+		to_chat(user, "<span class='blue'>The Leylines moods are of no concern to me.</span>")
+		return FALSE
+	if(ispath(dominant_faith, /datum/faith/old_god))
+		to_chat(user, span_blue(replacetext(reign_messages[user.patron.associated_faith][dominant_faith], "$patron", get_god_name(user.patron))))
+	else if(ispath(user.patron.associated_faith, dominant_faith))
+		to_chat(user, span_boldgreen(replacetext(reign_messages[user.patron.associated_faith][dominant_faith], "$patron", get_god_name(user.patron))))
+	else
+		to_chat(user, span_warningbig(replacetext(reign_messages[user.patron.associated_faith][dominant_faith], "$patron", get_god_name(user.patron))))
 
 	var/datum/storyteller/current_god = SSgamemode.storytellers[SSgamemode.ruling_god]
 	

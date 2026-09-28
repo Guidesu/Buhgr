@@ -78,6 +78,8 @@
 	var/requires_aspect_access = FALSE
 	/// Visual impact intensity for on-hit effects. See SPELL_IMPACT defines.
 	var/spell_impact_intensity = SPELL_IMPACT_NONE
+	/// Whether a guard deflecting this spell's non-projectile effect will expose the caster or not
+	var/expose_caster_on_deflect = TRUE
 	/// If true, the spell can be refunded. Set by learnspell when learned.
 	var/refundable = FALSE
 	/// Aspect type path this spell was granted by, if any. Used by the aspect picker
@@ -614,6 +616,8 @@
 		return FALSE
 	if(!ishuman(owner))
 		return FALSE
+	if(HAS_TRAIT(owner, TRAIT_WARLOCK)) //rituos users get to ignore this, that's your whole shtick
+		return FALSE
 	var/mob/living/carbon/human/H = owner
 	for(var/obj/item/held in list(H.get_active_held_item(), H.get_inactive_held_item()))
 		if(ispath(held?.associated_skill, /datum/skill/combat/staves) || ispath(held?.associated_skill, /datum/skill/combat/arcyne))
@@ -774,7 +778,7 @@
 			owner.balloon_alert(owner, "My vitae drowns out the spell!")
 		return FALSE
 
-	if(HAS_TRAIT(owner, TRAIT_NOC_CURSE))
+	if(HAS_TRAIT(owner, TRAIT_CURSE_NOC))
 		if(feedback)
 			owner.balloon_alert(owner, "My bendinga has left me...")
 		return FALSE
@@ -856,14 +860,15 @@
 			return FALSE
 
 	if(LAZYLEN(required_items))
-		var/found = FALSE
-		for(var/obj/item/I in owner.contents)
-			if(is_type_in_list(I, required_items) || HAS_TRAIT(owner, TRAIT_HALLOWED))
-				found = TRUE
-				break
-		if(!found && feedback)
-			owner.balloon_alert(owner, "Missing something to cast!")
-			return FALSE
+		if(!HAS_TRAIT(owner, TRAIT_HALLOWED))
+			var/found = FALSE
+			for(var/obj/item/I in owner.contents)
+				if(is_type_in_list(I, required_items))
+					found = TRUE
+					break
+			if(!found && feedback)
+				owner.balloon_alert(owner, "Missing something to cast!")
+				return FALSE
 
 	return TRUE
 
@@ -1212,6 +1217,7 @@
 
 /// When we start charging the spell called from set_click_ability or start_casting
 /datum/action/cooldown/spell/proc/on_start_charge()
+	set waitfor = 0
 	currently_charging = TRUE
 	fully_charged = FALSE
 	fully_charged_at = 0
@@ -2014,14 +2020,17 @@
 	if(source)
 		source.click_intercept_time = 0
 
-/datum/action/cooldown/spell/proc/spell_guard_check(mob/living/target, no_message = FALSE, mob/living/attacker)
+/// punish_caster overrides expose_caster_on_deflect for one call, for spells that mix a direct strike with a telegraphed zone.
+/datum/action/cooldown/spell/proc/spell_guard_check(mob/living/target, no_message = FALSE, mob/living/attacker, punish_caster)
 	if(!isliving(target))
 		return FALSE
 	if(target == owner)
 		return FALSE
 	if(isnull(attacker))
 		attacker = owner
-	return target.guard_deflect_spell(name, no_message, attacker)
+	if(isnull(punish_caster))
+		punish_caster = expose_caster_on_deflect
+	return target.guard_deflect_spell(name, no_message, attacker, punish_caster)
 
 /datum/action/cooldown/spell/proc/signal_cancel()
 	SIGNAL_HANDLER

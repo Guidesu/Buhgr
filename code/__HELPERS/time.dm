@@ -1,4 +1,5 @@
 GLOBAL_LIST_INIT(time_change_tips, world.file2list("strings/rt/timechangetips.txt"))
+GLOBAL_LIST_INIT(time_change_quotes, world.file2list("strings/rt/timechangequotes.txt"))
 
 //Returns the world time in english
 /proc/worldtime2text()
@@ -34,6 +35,66 @@ GLOBAL_VAR_INIT(date_override_day, 1)
 GLOBAL_VAR_INIT(date_override_month, 1)
 GLOBAL_VAR_INIT(date_override_offset, 0)
 
+// Rain is the spring/summer/autumn precipitation, replaced entirely by snow in winter. This scales
+// the old flat per-tod rain chances: common in Spring (100%), sort of common in Summer (60%),
+// less common in Autumn (30%), and never in Winter.
+/proc/get_rain_scale_for_season(season)
+	switch(season)
+		if(SEASON_SPRING)
+			return 100
+		if(SEASON_SUMMER)
+			return 60
+		if(SEASON_AUTUMN)
+			return 30
+	return 0
+
+/proc/roll_dawn_weather(season, rain_scale)
+	if(prob(25 * rain_scale / 100))
+		GLOB.forecast = PARTICLEWEATHER_RAIN
+	if(season == SEASON_WINTER && prob(25))
+		GLOB.forecast = PARTICLEWEATHER_SNOW
+	if(season == SEASON_AUTUMN && prob(5))
+		GLOB.forecast = PARTICLEWEATHER_SNOW //rare early flurry
+	if(season == SEASON_SPRING && prob(20))
+		GLOB.forecast = PARTICLEWEATHER_SAKURA
+
+/proc/roll_day_weather(season, rain_scale)
+	if(prob(20 * rain_scale / 100))
+		GLOB.forecast = PARTICLEWEATHER_RAIN
+	if(season == SEASON_WINTER && prob(20))
+		GLOB.forecast = PARTICLEWEATHER_SNOW
+	if(season == SEASON_AUTUMN)
+		if(prob(45))
+			GLOB.forecast = PARTICLEWEATHER_LEAVES
+		if(prob(5))
+			GLOB.forecast = PARTICLEWEATHER_SNOW //rare early flurry
+	if(season == SEASON_SPRING && prob(20))
+		GLOB.forecast = PARTICLEWEATHER_SAKURA
+
+/proc/roll_dusk_weather(season, rain_scale)
+	if(prob(30 * rain_scale / 100))
+		GLOB.forecast = PARTICLEWEATHER_RAIN
+	if(season == SEASON_WINTER && prob(30))
+		GLOB.forecast = PARTICLEWEATHER_SNOW
+	if(season == SEASON_AUTUMN)
+		if(prob(40))
+			GLOB.forecast = PARTICLEWEATHER_LEAVES
+		if(prob(5))
+			GLOB.forecast = PARTICLEWEATHER_SNOW //rare early flurry
+
+/proc/roll_night_weather(season, rain_scale)
+	if(prob(40 * rain_scale / 100))
+		GLOB.forecast = PARTICLEWEATHER_RAIN
+	if(season == SEASON_WINTER && prob(40))
+		GLOB.forecast = PARTICLEWEATHER_SNOW
+	if(season == SEASON_AUTUMN)
+		if(prob(35))
+			GLOB.forecast = PARTICLEWEATHER_LEAVES
+		if(prob(5))
+			GLOB.forecast = PARTICLEWEATHER_SNOW //rare early flurry
+	if(prob(40) && (SSgamemode.current_storyteller.name == "Zizo" || SSgamemode.current_storyteller.name == "Graggar"))
+		GLOB.forecast = PARTICLEWEATHER_BLOODRAIN
+
 /proc/settod()
 	var/time = station_time()
 	var/oldtod = GLOB.tod
@@ -55,6 +116,7 @@ GLOBAL_VAR_INIT(date_override_offset, 0)
 	if(GLOB.tod != oldtod)
 		if(GLOB.tod == "dawn" && SSticker?.current_state == GAME_STATE_PLAYING)
 			GLOB.dayspassed++
+			SSseason?.check_season_change()
 			scom_announce_new_dawn()
 			update_moon_phase()
 			if(SStreasury?.initialized)
@@ -129,8 +191,17 @@ GLOBAL_VAR_INIT(date_override_offset, 0)
 		playsound_local(src, 'sound/misc/newday.ogg', 60, FALSE)
 		animate(T, alpha = 255, time = 10, easing = EASE_IN)
 		addtimer(CALLBACK(src, PROC_REF(clear_area_text), T), 35)
-		var/time_change_tips_random = pick(GLOB.time_change_tips)
-		to_chat(client, span_notice("<b>[time_change_tips_random]</b>"))
+		// thanks to kat for the idea here :)
+		var/static/list/tip_or_quote_list = list(
+			GLOB.time_change_tips,
+			GLOB.time_change_quotes
+		)
+		// needed for ternary in addition to accessing list #
+		var/modulo_day = (day_number%2)
+		// OK. we're going to do an even-odd system. you alternate between tips or quotes. minimizes chat-spam, maximizes FLAVOR *AND* UTILITY!
+		var/rumor_or_tip = pick(tip_or_quote_list[(modulo_day + 1)])
+
+		to_chat(client, span_notice("[modulo_day ? "<b>" : "<i>"][rumor_or_tip][modulo_day ? "</b>" : "</i>"]"))
 	else if(GLOB.tod == "day")
 		playsound_local(src, 'sound/misc/midday.ogg', 100, FALSE)
 	else if(GLOB.tod == "night")

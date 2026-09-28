@@ -11,7 +11,7 @@
 	icon = 'modular/Neu_Food/icons/others/sweet.dmi'
 	icon_state = "chocolate"
 	bitesize = 4
-	slices_num = 2
+	slices_num = 4
 	slice_path = /obj/item/reagent_containers/food/snacks/chocolate/slice
 	list_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_HALF_MEAL)
 	w_class = WEIGHT_CLASS_TINY
