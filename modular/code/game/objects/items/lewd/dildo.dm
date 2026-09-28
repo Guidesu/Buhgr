@@ -10,13 +10,13 @@
 	throwforce = 10
 	w_class = WEIGHT_CLASS_TINY
 	obj_flags = CAN_BE_HIT
+	sellprice = 1
 	var/dildo_type = "human"
 	var/dildo_size = "small"
 	var/pleasure = 4
 	var/can_custom = TRUE
 	var/dildo_material
-	/// Set TRUE while this dildo is mounted onto a chastity device (see /obj/item/chastity/proc/attach_toy) so it can't be double-mounted elsewhere.
-	var/is_attached_to_belt = FALSE
+	var/is_attached_to_belt = FALSE // used to track attached toys so they can't be attached to more than one belt
 
 /obj/item/dildo/New()
 	. = ..()
@@ -33,7 +33,7 @@
 	if(!can_custom)
 		return FALSE
 	if(src && !user.incapacitated() && in_range(user,src))
-		var/shape_choice = input(user, "Choose a shape for your dildo.","Dildo Shape") as null|anything in list("human", "knotted", "flared")
+		var/shape_choice = input(user, "Choose a shape for your dildo.","Dildo Shape") as null|anything in list("knotted", "human", "flared")
 		if(src && shape_choice && !user.incapacitated() && in_range(user,src))
 			dildo_type = shape_choice
 	update_appearance()
@@ -43,11 +43,11 @@
 			dildo_size = size_choice
 			switch(dildo_size)
 				if("small")
-					pleasure = 6
+					pleasure = 4
 				if("medium")
-					pleasure = 8
+					pleasure = 6
 				if("big")
-					pleasure = 10
+					pleasure = 8
 	update_appearance()
 	return TRUE
 
@@ -59,9 +59,9 @@
 
 /obj/item/dildo/examine()
 	. = ..()
-	. += span_notice("It can be attached onto most belts and chastity devices.")
+	. += "[span_notice("It can be attached onto most belts and chastity devices.")]"
 
-/obj/item/dildo/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+/obj/item/dildo/afterattack(atom/target, mob/user, proximity_flag, click_parameters)  // lets you mount the dildo directly onto a chastity device or belt by clicking on the mob wearing it with the dildo in hand
 	. = ..()
 	if(!proximity_flag || !ishuman(target))
 		return
@@ -78,7 +78,6 @@
 	if(device.attach_toy(src, user))
 		user.visible_message(span_warning("[user] equips \the [src] onto [H]'s [device]."))
 
-/// Silver dildos burn silver-weak creatures (vampires, fog mobs) on use, same as silver weapons do.
 /obj/item/dildo/proc/do_silver_check(mob/living/victim)
 	if(!is_silver || !HAS_TRAIT(victim, TRAIT_SILVER_WEAK))
 		return
@@ -98,20 +97,40 @@
 	color = "#7D4033"
 	resistance_flags = FLAMMABLE
 	dildo_material = "wooden"
+	sellprice = 1
 
 /obj/item/dildo/iron
 	color = "#9EA48E"
 	dildo_material = "iron"
+	sellprice = 5
+
+/obj/item/dildo/copper
+	color = "#8C4734"
+	dildo_material = "copper"
+	sellprice = 5
 
 /obj/item/dildo/steel
 	color = "#9BADB7"
 	dildo_material = "steel"
+	sellprice = 10
+
+/obj/item/dildo/bronze
+	color = "#cbbf9a"
+	dildo_material = "bronze"
+	sellprice = 12
 
 /obj/item/dildo/silver
 	color = "#C6D5E1"
 	dildo_material = "silver"
-	is_silver = TRUE // inherited from /obj/item; silver dildos burn silver-weak creatures on use
+	sellprice = 30
+	is_silver = TRUE
 
 /obj/item/dildo/gold
-	color = "#A0A075"
+	color = "#c4b651"
 	dildo_material = "golden"
+	sellprice = 50
+
+/obj/item/dildo/blacksteel
+	color = "#A2CBE3"
+	dildo_material = "blacksteel"
+	sellprice = 150

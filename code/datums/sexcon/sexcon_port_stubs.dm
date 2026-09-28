@@ -18,50 +18,9 @@
 /datum/charflaw/malodorous
 	name = "Malodorous (stub)"
 
-/// Ratwood had a "baothamarked" addiction flaw tied to the Baotha patron. this codebase
-/// renamed Baotha to Hausvette; the addiction flaw wasn't ported. Stub for compile.
-/datum/charflaw/addiction/baothamarked
-	name = "Baotha-Marked (stub)"
-
 // --- Missing status effects ----------------------------------------------------
 
-/datum/status_effect/debuff/stinky_contact
-	id = "stinky_contact"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/stinky_contact
-	duration = 2 MINUTES
-
-/atom/movable/screen/alert/status_effect/debuff/stinky_contact
-	name = "Stinky Contact"
-	desc = "Someone stinky touched you."
-	icon_state = "debuff"
-
-/datum/status_effect/debuff/emberwine
-	id = "emberwine"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/emberwine
-
-/atom/movable/screen/alert/status_effect/debuff/emberwine
-	name = "Aphrodisiac"
-	desc = "The warmth is spreading through my body..."
-	icon_state = "emberwine"
-
-/datum/status_effect/buff/cum_consumed
-	id = "cum_consumed"
-	alert_type = /atom/movable/screen/alert/status_effect/buff/cum_consumed
-	duration = 10 MINUTES
-
-/atom/movable/screen/alert/status_effect/buff/cum_consumed
-	name = "Cumdrunk"
-	desc = "I've swallowed someone's load..."
-	icon_state = "drunk"
-
 // --- Missing stress events -----------------------------------------------------
-
-/datum/stressevent/cumok
-
-/datum/stressevent/cummax
-
-/datum/stressevent/unseemly_made_love
-/datum/stressevent/unseemly_made_love/beautiful
 
 // --- Missing confetti type (Xylix prank effect) --------------------------------
 
@@ -89,17 +48,6 @@
 	H.sexcon.target = target
 	H.sexcon.show_ui()
 
-// --- Cursed collar path alias and stub -----------------------------------------
-// this codebase has the cursed collar at /obj/item/clothing/neck/roguetown/gorget/cursed_collar
-// but chastity_helpers.dm references /obj/item/clothing/neck/roguetown/cursed_collar (without
-// gorget). This alias ensures the reference resolves. Also adds the record_nonself_ejaculation
-// proc that chastity_helpers.dm calls on the collar.
-
-/obj/item/clothing/neck/roguetown/cursed_collar
-	parent_type = /obj/item/clothing/neck/roguetown/gorget/cursed_collar
-
-/obj/item/clothing/neck/roguetown/cursed_collar/proc/record_nonself_ejaculation(mob/living/carbon/human/source, mob/living/carbon/human/wearer)
-	return
 
 /// Ratwood tracks knotting stats separately for lupians vs non-lupians. this codebase doesn't
 /// distinguish, so this just aliases the existing STATS_KNOTTED counter.
@@ -115,23 +63,12 @@
 
 // --- Missing item var ---------------------------------------------------------
 
-// Ratwood has a bellsound var on /obj/item for jingle-bell collars. this codebase's bell collar
-// uses a movement rustle component instead, but sexcon checks collar.bellsound. Stub it here.
+// Ratwood's bellsound var on /obj/item marks jingle-bell collars (the Twilight bell collars set it).
 /obj/item
-	/// Ported from Ratwood: TRUE if this item jingles when moved (bell collar). Always FALSE in this codebase.
+	/// TRUE if this item jingles when moved (bell collar).
 	var/bellsound = FALSE
 
 // --- Missing procs -------------------------------------------------------------
-
-/// Ported from Ratwood's /mob/proc/check_handholding. this codebase has no handholding mechanic,
-/// so this always returns FALSE (no handholding to check).
-/mob/proc/check_handholding()
-	return FALSE
-
-/// Ported from Ratwood's /datum/sex_controller/proc/eora_register_consensual_pair.
-/// this codebase has no Eora consensual-pair tracking, so this is a no-op.
-/datum/sex_controller/proc/eora_register_consensual_pair(mob/living/carbon/human/a, mob/living/carbon/human/b)
-	return
 
 // --- Patron path aliases -------------------------------------------------------
 // this codebase renamed Xylix -> Viator (under /datum/patron/concordat/) and Baotha -> Hausvette.
@@ -151,56 +88,166 @@
 /datum/patron/divine/eora
 	parent_type = /datum/patron/concordat/miluse
 
-/datum/status_effect/surrender/collar
+#define COMSIG_CARBON_LOSE_CHASTITY "carbon_lose_chastity"
+
+// ============== Ratwood sexcon sync (2026-09) ==============
+// Things the current Ratwood sexcon expects from Ratwood's core code.
+
+/// Ratwood declares lock vars on every /obj; here doors/closets/keys declare their
+/// own, so only the chastity device gets them.
+/obj/item/chastity
+	var/lockid
+	var/lockhash
+	var/locked
+
+/// Ratwood keeps permanent addictions on reagents (used by emberwine).
+/datum/reagent
+	var/addiction_permanent = 0
+
+/mob/living/proc/get_blood_volume()
+	return blood_volume
+
+/mob/living/proc/set_blood_volume(amount)
+	blood_volume = amount
+
+
+
+// Restored from ratwood-2.0/main during 2026-09 mainstream merge
+
+/datum/status_effect/debuff/false_sensation
+	id = "false_sensation"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/false_sensation
+	effectedstats = null
+	duration = 2 MINUTES
+	status_type = STATUS_EFFECT_REFRESH
+
+/atom/movable/screen/alert/status_effect/debuff/false_sensation
+	name = "False Sensation"
+	desc = "My body is aflame, but it's not real. Only a real touch of passion will sate my urges."
+	icon_state = "debuff"
+
+// Restored from ratwood-2.0/main during 2026-09 mainstream merge
+
+/obj/effect/temp_visual/heart/sex_effects/invisible
+	icon_state = null
+
+/obj/effect/temp_visual/heart/sex_effects/invisible/Initialize(mapload, mob/seers, custom_state = "redheart")
+	. = ..()
+	layer = prob(50) ? ABOVE_MOB_LAYER : BELOW_MOB_LAYER
+	var/image/I = image(icon = 'icons/effects/erpeffects.dmi', icon_state = custom_state, layer = layer, loc = src)
+	add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/People, "erp_effect", I, seers)
+	I.alpha = 255
+	I.appearance_flags = RESET_ALPHA
+	I.pixel_x = rand(-10, 10)
+	I.pixel_y = rand(-10, 10)
+	animate(I, pixel_x = I.pixel_x + rand(-5, 5), pixel_y = I.pixel_y + rand(28, 40), alpha = 0, time = duration)
+
+// Restored from ratwood-2.0/main during 2026-09 mainstream merge
+
+/datum/stressevent/cumok
+	timer = 15 MINUTES
+	stressadd = -2
+	desc = "<span class='green'>I came.</span>"
+
+/datum/stressevent/cummax
+	timer = 30 MINUTES
+	stressadd = -4
+	desc = "<span class='green'>I came, and it was incredible.</span>"
+
+// Restored from ratwood-2.0/main during 2026-09 mainstream merge
+
+/datum/stressevent/unseemly_made_love
+	stressadd = 3
+	desc = span_red("That ugly fiend... Touched me!")
+	timer = 30 MINUTES
+
+/datum/stressevent/unseemly_made_love/beautiful
+	desc = span_red("That ugly thing... RUINED me!")
+	timer = 45 MINUTES
+
+// Restored from ratwood-2.0/main during 2026-09 mainstream merge
+
+/datum/status_effect/debuff/emberwine
+	id = "emberwine"
+	effectedstats = list("strength" = -1, "willpower" = -2, "speed" = -2, "intelligence" = -3)
+	duration = 1 MINUTES
+	alert_type = /atom/movable/screen/alert/status_effect/emberwine
+
+// Restored from ratwood-2.0/main during 2026-09 mainstream merge
+
+/datum/status_effect/buff/cum_consumed
+	id = "cum_consumed"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/cum_consumed
+	duration = 10 MINUTES
+
+/datum/status_effect/buff/cum_consumed/on_apply()
+	. = ..()
+	if(owner.has_flaw(/datum/charflaw/addiction/lovefiend))
+		owner.add_stress(/datum/stressevent/cumconsumed)
+
+/datum/status_effect/buff/cum_consumed/on_remove()
+	if(owner.has_flaw(/datum/charflaw/addiction/lovefiend))
+		owner.remove_stress(/datum/stressevent/cumconsumed)
+	. = ..()
+
+/atom/movable/screen/alert/status_effect/buff/cum_consumed
+	name = "Cumdrunk"
+	desc = "I've swallowed someone's load..."
+	icon_state = "drunk"
+
+// Restored from ratwood-2.0/main during 2026-09 mainstream merge
+
+/datum/charflaw/addiction/baothamarked
+	name = "Baothan Marked"
+	desc = "I've been branded by a Baothan mark."
+	time = 45 MINUTES
+	needsate_text = "My brand burns painfully."
+	sated_text = "The brand's glow lessens, relief washing over me..."
+	debuff = /datum/status_effect/debuff/addiction/baothamarked
+
+/datum/status_effect/debuff/addiction/baothamarked
+	id = "addiction_baothamark"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/addiction/baothamarked
+	effectedstats = list(STATKEY_CON = -1, STATKEY_WIL = -1)
+
+/atom/movable/screen/alert/status_effect/debuff/addiction/baothamarked
+	name = "Baothan Mania"
+	desc = "That accursed rune. It burns brightly across my flesh, searing my loins with a painful desire for release."
+	icon_state = "nymphomaniac"
+
+
+// Restored from ratwood-2.0/main during 2026-09 mainstream merge
+
+/datum/stressevent/cumconsumed
+	timer = 10 MINUTES
+	stressadd = -2
+	desc = "<span class='green'>The taste of cum has sated my desire.</span>"
+
+// Restored from ratwood-2.0/main during 2026-09 mainstream merge
 
 /datum/stressevent/chastity_devout
-	timer = 999 MINUTES
+	timer = INFINITY
 	stressadd = -1
 	desc = span_green("This restraint steadies my spirit.")
 
 /datum/stressevent/chastity_masochist
-	timer = 999 MINUTES
+	timer = INFINITY
 	stressadd = -1
 	desc = span_green("The spikes keep me pleasantly focused.")
 
 /datum/stressevent/chastity_church
-	timer = 999 MINUTES
+	timer = INFINITY
 	stressadd = -1
 	desc = span_green("My vows feel stronger in this restraint.")
 
+// Restored from ratwood-2.0/main during 2026-09 mainstream merge
+
 /datum/stressevent/chastity_frustration
-	timer = 999 MINUTES
+	timer = INFINITY
 	stressadd = 1
 	desc = span_red("This restraint is maddening.")
 
 /datum/stressevent/chastity_flat_cramped
-	timer = 999 MINUTES
+	timer = INFINITY
 	stressadd = 1
 	desc = span_red("This cage is too cramped for me.")
-
-/datum/component/collar_master
-	var/list/registered_pets = list()
-	var/list/my_pets = list()
-
-/datum/component/collar_master/proc/add_pet(mob/living/carbon/human/pet)
-	if(!pet)
-		return FALSE
-	if(!(pet in registered_pets))
-		registered_pets += pet
-	if(!(pet in my_pets))
-		my_pets += pet
-	return TRUE
-
-/datum/component/collar_master/proc/remove_pet(mob/living/carbon/human/pet)
-	registered_pets -= pet
-	my_pets -= pet
-	return TRUE
-
-/datum/component/collar_master/proc/cleanup_pet(mob/living/carbon/human/pet)
-	return remove_pet(pet)
-
-/proc/log_chastity_command(mob/living/carbon/human/wearer, datum/mind/master, command, details = "", remote = FALSE)
-	if(wearer)
-		log_admin("Chastity command [command] on [key_name(wearer)] ([details])[remote ? " [remote]" : ""]")
-
-#define COMSIG_CARBON_LOSE_CHASTITY "carbon_lose_chastity"

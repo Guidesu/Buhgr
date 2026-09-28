@@ -1,3 +1,5 @@
+GLOBAL_LIST_INIT(sex_actions, build_sex_actions())
+
 #define SEX_ACTION(sex_action_type) GLOB.sex_actions[sex_action_type]
 
 #define MAX_AROUSAL 150
@@ -65,6 +67,15 @@
 #define SEX_PART_ANUS (1<<2)
 #define SEX_PART_JAWS (1<<3)
 #define SEX_PART_SLIT_SHEATH (1<<4)
+#define SEX_PART_BREASTS (1<<5)
+#define SEX_PART_FOOT (1<<6) // any foot
+#define SEX_PART_FEET (1<<7) // BOTH feet
+#define SEX_PART_CHEST (1<<8) // distinct from SEX_PART_BREASTS, which checks for breasts as opposed to just the chest being exposed
+#define SEX_PART_BALLS (1<<9)
+#define SEX_PART_GROIN (1<<10) // requires groin exposed but no particular organ
+#define SEX_PART_TAIL (1<<11) // requires a tail we can use to penetrate with
+
+#define ALL_KNOTTABLE_SEX_PARTS (SEX_PART_CUNT | SEX_PART_ANUS | SEX_PART_JAWS | SEX_PART_SLIT_SHEATH)
 
 #define SEX_ACTION_INTIMATE_CHECK_NONE 0
 #define SEX_ACTION_INTIMATE_CHECK_USER (1<<0)
@@ -101,29 +112,3 @@
 	#define ERP_LOCATION 6
 	#define ERP_GRABS 7
 	#define ERP_SKIPUNDIES 8
-
-/////////////////
-// Chastity defines (ported from Ratwood)
-
-#define CHASTITY_HARDMODE_DISABLED 0
-#define CHASTITY_HARDMODE_ENABLED 1
-
-#define CHASTITY_STRINGS_PATH "modular/code/game/objects/items/lewd/chastity/strings"
-
-#define pick_chastity_string(FILE, KEY) (pick(strings(FILE, KEY, CHASTITY_STRINGS_PATH)))
-
-#define CHASTITY_MOVE_SOUND_DELAY 4
-#define CHASTITY_HIGH_POP_THRESHOLD 120
-#define CHASTITY_HIGH_POP_SOUND_MULT 0.4
-
-#define CHASTITY_LOG_IMPRINT "imprint"
-#define CHASTITY_LOG_LOCK "lock"
-#define CHASTITY_LOG_FRONT "front"
-#define CHASTITY_LOG_ANAL "anal"
-#define CHASTITY_LOG_SPIKES "spikes"
-#define CHASTITY_LOG_FLAT "flat"
-
-#define BODYPART_FEATURE_CHASTITY "chastity"
-
-#define TRAIT_CHASTITY_LOCKED "Locked Chastity Device"
-#define TRAIT_SOURCE_CHASTITY "chastity"

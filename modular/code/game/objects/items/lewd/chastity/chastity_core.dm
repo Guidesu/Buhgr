@@ -26,7 +26,7 @@ GLOBAL_LIST_INIT(chastity_standard_traits, list(
 	var/chastity_move_delay = CHASTITY_MOVE_SOUND_DELAY // delay between movement sounds
 	var/chastity_move_volume = 55 // how loud is our cock cage?
 	var/chastity_move_chance = 5 // how often does it trigger on move?
-	var/chastity_high_pop_client_cap = CHASTITY_HIGH_POP_THRESHOLD // for jingle throttle. Don't want the server spamming the noise when 120 people potentially cage up.
+	var/chastity_high_pop_client_cap = CHASTITY_HIGH_POP_THRESHOLD // for jingle throttle. Don't want the server spamming the noise when 120 people potentially cage up. 
 	var/chastity_high_pop_move_chance_mult = CHASTITY_HIGH_POP_SOUND_MULT // lower chance to play the sound in high pop.
 	var/tmp/chastity_move_counter = 0 // counter for move sound delay
 // Core type definition — base name, icon, sizing, and feature-slot vars.
@@ -35,6 +35,7 @@ GLOBAL_LIST_INIT(chastity_standard_traits, list(
 // form the full /obj/item/chastity type; this split is purely a compile-order requirement.
 /obj/item/chastity
 	name = "chastity belt"
+	always_show_examine_link = TRUE
 	desc = "A unisex metal device designed to prevent penetrative sex. It has a lock on the front, and encloses the groin area behind robust iron bars. For the devout."
 	icon = 'modular/icons/obj/lewd/chastity.dmi'
 	icon_state = "cage_belt"
@@ -47,9 +48,7 @@ GLOBAL_LIST_INIT(chastity_standard_traits, list(
 	var/chastity_organtype = 0 // 0 = neuter, 1 = penis required, 2 = vagina required, 3 = both required
 	var/obj/item/roguekey/chastity/generated_key = null // persistent key object for this device; reused across re-equips
 	var/lockable = TRUE // if the device can be traditionally locked with a key or lockpick, should be true for everything but cursed devices which are locked via the collar master menu
-	var/lockhash = null
-	var/lockid = null
-	var/locked = FALSE
+	locked = FALSE
 	var/chastity_cursed = FALSE // if the device works like a cursed collar
 	var/mob/living/carbon/human/chastity_victim = null // variable for anyone currently caged
 	var/datum/mind/chastity_master = null // varient of the collar master variable but for specifically cages
@@ -64,6 +63,7 @@ GLOBAL_LIST_INIT(chastity_standard_traits, list(
 	var/sprite_acc = /datum/sprite_accessory/chastity/full // overlay for chastity items on the sprite, function in a similar vein to underwear in that they aren't traditional equipped clothing items, instead going in a snowflake slot
 	lefthand_file = 'modular/icons/mob/inhands/lewd/items_lefthand.dmi'
 	righthand_file = 'modular/icons/mob/inhands/lewd/items_righthand.dmi'
+	nudist_approved = TRUE
 
 // Ensure each chastity item has a unique lockhash used by matching keys.
 /obj/item/chastity/Initialize()
@@ -78,11 +78,19 @@ GLOBAL_LIST_INIT(chastity_standard_traits, list(
 	. = ..()
 	if(attached_toy)
 		. += "[span_notice("\An [attached_toy] appears attached to \the [initial(name)]. Alt+RMB to remove it.")]"
-	if(chastity_cursed)
-		if(received_cum_count == 1)
-			. += span_notice("1 tally mark is etched into the chastity device's metal surface.")
-		else if(received_cum_count > 1)
-			. += span_notice("[received_cum_count] tally marks are etched into the chastity device's metal surface.")
+	if(chastity_cursed && received_cum_count > 0)
+		var/tally_text = received_cum_count == 1 ? "1 tally mark" : "[received_cum_count] tally marks"
+		. += span_notice("[tally_text] are etched into the chastity device's metal surface.")
+
+/obj/item/chastity/get_hover_examine_html(mob/user, self_examine = FALSE)
+	. = ..()
+	if(chastity_cursed && received_cum_count > 0)
+		var/tally_text = received_cum_count == 1 ? "1 tally mark" : "[received_cum_count] tally marks"
+		var/tally_line = "<span class='notice'>[tally_text] are etched into the chastity device's metal surface.</span>"
+		if(length(.))
+			. += "<br>[tally_line]"
+		else
+			. = tally_line
 
 /obj/item/chastity/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/dildo))
@@ -196,10 +204,10 @@ GLOBAL_LIST_INIT(chastity_standard_traits, list(
 	if(chastity_feature)
 		return TRUE
 	var/datum/bodypart_feature/chastity/chastity_new = new /datum/bodypart_feature/chastity()
-	// Use the base accessory setter so we don't spawn a second hidden chastity item.
-	call(chastity_new, /datum/bodypart_feature/proc/set_accessory_type)(sprite_acc, null, H)
 	chastity_new.chastity_item = src
-	chastity_feature = chastity_new
+	// Use the base accessory setter so we don't spawn a second hidden chastity item.
+	// ^ DON'T DO THAT, IF YOU DO THAT YOU WROTE YOUR CODE WRONG
+	chastity_new.set_accessory_type(sprite_acc, null, H)
 	return TRUE
 
 // Attaches the prepared chastity bodypart feature to the chest bodypart.
@@ -217,9 +225,6 @@ GLOBAL_LIST_INIT(chastity_standard_traits, list(
 	forceMove(H)
 	H.chastity_device = src
 	chastity_victim = H
-	var/datum/component/intimate_action_guard/chastity/action_guard_component = LoadComponent(/datum/component/intimate_action_guard/chastity)
-	if(action_guard_component)
-		action_guard_component.bind_to_wearer(H)
 	var/datum/component/intimate_reaction/chastity_receive_flavor/reaction_component = LoadComponent(/datum/component/intimate_reaction/chastity_receive_flavor)
 	if(reaction_component)
 		reaction_component.bind_to_wearer(H)

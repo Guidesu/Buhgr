@@ -1,4 +1,3 @@
-GLOBAL_LIST_INIT(sex_actions, build_sex_actions())
 
 GLOBAL_LIST_EMPTY(sex_sessions)
 GLOBAL_LIST_EMPTY(sex_collectives)
@@ -309,5 +308,4 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 #define COMSIG_MOB_EJACULATED "mob_ejaculated"
 #define STATS_KNOTTED "knotted"
 #define STATS_IMPREGNATIONS "impregnations"
-#define addiction_permanent FALSE
 #define LOWER_TEXT lowertext

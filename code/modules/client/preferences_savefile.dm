@@ -150,6 +150,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["grain"]				>> grain
 	S["sexable"]			>> sexable
 	S["edging"]				>> edging
+	S["erp_visuals"]		>> erp_visuals
+	S["chastenable"]		>> chastenable
+	S["chastity_hardmode"]	>> chastity_hardmode
+	S["extreme_erp"]		>> extreme_erp
+	S["cursed_collarable"]	>> cursed_collarable
 	S["shake"]				>> shake
 	S["mastervol"]			>> mastervol
 	S["compliance_notifs"]  >> compliance_notifs
@@ -191,6 +196,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	auto_fit_viewport	= sanitize_bool(auto_fit_viewport, initial(auto_fit_viewport))
 	shake				= sanitize_bool(shake, initial(shake))
 	sexable				= sanitize_bool(sexable, initial(sexable))
+	erp_visuals			= sanitize_bool(erp_visuals, initial(erp_visuals))
+	chastenable			= sanitize_bool(chastenable, initial(chastenable))
+	extreme_erp			= sanitize_bool(extreme_erp, initial(extreme_erp))
+	cursed_collarable	= sanitize_bool(cursed_collarable, initial(cursed_collarable))
+	chastity_hardmode	= sanitize_integer(chastity_hardmode, CHASTITY_HARDMODE_DISABLED, CHASTITY_HARDMODE_ENABLED, initial(chastity_hardmode))
 	compliance_notifs	= sanitize_bool(compliance_notifs, initial(compliance_notifs))
 	stopdroning			= sanitize_bool(stopdroning, initial(stopdroning))
 	anonymize			= sanitize_bool(anonymize, initial(anonymize))
@@ -309,6 +319,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["grain"], grain)
 	WRITE_FILE(S["sexable"], sexable)
 	WRITE_FILE(S["edging"], edging)
+	WRITE_FILE(S["erp_visuals"], erp_visuals)
+	WRITE_FILE(S["chastenable"], chastenable)
+	WRITE_FILE(S["chastity_hardmode"], chastity_hardmode)
+	WRITE_FILE(S["extreme_erp"], extreme_erp)
+	WRITE_FILE(S["cursed_collarable"], cursed_collarable)
 	WRITE_FILE(S["shake"], shake)
 	WRITE_FILE(S["mastervol"], mastervol)
 	WRITE_FILE(S["lastchangelog"], lastchangelog)
@@ -602,14 +617,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["tat_build"] >> tat_character_data
 	dreamvalley_get_tat_build().load_tat_slots_state_from_list(tat_character_data)
 
-	//Custom names
-	for(var/custom_name_id in GLOB.preferences_custom_names)
-		var/savefile_slot_name = custom_name_id + "_name" //TODO remove this
-		S[savefile_slot_name] >> custom_names[custom_name_id]
-
-	S["preferred_ai_core_display"] >> preferred_ai_core_display
-	S["prefered_security_department"] >> prefered_security_department
-
 	//Jobs
 	S["joblessrole"] >> joblessrole
 	//Load prefs
@@ -655,6 +662,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["averse_chosen_faction"]	>> averse_chosen_faction
 	S["song_artist"]			>> song_artist
 	S["song_title"]				>> song_title
+	S["redolent_type"]			>> redolent_type
+	S["redolent_scent"]			>> redolent_scent
+	if(!(redolent_type in list("Gross", "Neutral", "Pleasant")))
+		redolent_type = "Neutral"
 	S["nsfwflavortext"]			>> nsfwflavortext
 	S["erpprefs"]				>> erpprefs
 
@@ -941,6 +952,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["averse_chosen_faction"] , html_decode(averse_chosen_faction))
 	WRITE_FILE(S["song_artist"] , song_artist)
 	WRITE_FILE(S["song_title"] , song_title)
+	WRITE_FILE(S["redolent_type"] , redolent_type)
+	WRITE_FILE(S["redolent_scent"] , redolent_scent)
 	WRITE_FILE(S["examine_theme"] , examine_theme)
 	WRITE_FILE(S["voice_type"] , voice_type)
 	WRITE_FILE(S["voice_pack"] , voice_pack)

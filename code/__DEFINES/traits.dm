@@ -268,6 +268,7 @@
 #define TRAIT_ADRENALINE_RUSH "Adrenaline Rush"
 #define TRAIT_NODEF "Recklessness" //Inability to parry at all
 #define TRAIT_VAMPIRE_SPAWN_PROTECTION "Vampire Spawn Protection"
+#define TRAIT_BLOODPOOL_BORN "Bloodpool Born"
 
 // POWERFUL TRAITS WE SHOULD NOT GIVE OUT EASILY
 #define TRAIT_SHOCKIMMUNE "Shock Immunity"
@@ -981,6 +982,11 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 // common trait sources
 #define TRAIT_GENERIC "generic"
 #define TRAIT_STATUS_EFFECT	"status_effect"
+// Ratwood sexcon/chastity (ported 2026-09)
+#define TRAIT_CHASTITY_LOCKED "Locked Chastity Device" // Prevents removal of the chastity device.
+#define TRAIT_REDOLENT "Redolent"
+#define TRAIT_BATHHOUSE_DANCER "Bathhouse Dancer" // Jiggling costs no stamina inside the bathhouse.
+#define TRAIT_SOURCE_CHASTITY "chastity" //source for chastity device traits
 #define TRAIT_VIRTUE "virtue"
 #define TRAIT_MIRACLE "miracle"
 #define TRAIT_RITUAL "ritual"

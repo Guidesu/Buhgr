@@ -7,6 +7,7 @@
 	metabolization_rate = 0.02 * REAGENTS_METABOLISM
 	overdose_threshold = 18
 	addiction_threshold = 12 //Three sips, or a full goblet if properly mixed with two other reagents to hide the taste.
+	addiction_permanent = TRUE
 	color = "#721a46"
 
 /datum/reagent/consumable/ethanol/beer/emberwine/on_mob_metabolize(mob/living/carbon/human/C)
@@ -108,8 +109,8 @@
 		var/mob/living/carbon/human/H = M
 		H.adjust_hydration(1)
 		H.adjust_nutrition(0.5) //Semen is not very nutritious. The player can go about 3 rounds of cumming before needing to wait a long time code-wise to cum more.
-		if(H.blood_volume < BLOOD_VOLUME_NORMAL)
-			H.blood_volume = min(H.blood_volume+10, BLOOD_VOLUME_NORMAL)
+		if(H.get_blood_volume() < BLOOD_VOLUME_NORMAL)
+			H.set_blood_volume(min(H.get_blood_volume()+10, BLOOD_VOLUME_NORMAL))
 	..()
 
 /datum/reagent/erpjuice/cum
