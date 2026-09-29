@@ -192,4 +192,18 @@
 			adjective = "a large"
 		if(5)
 			adjective = "an enormous"
+		if(6)
+			adjective = "a heavy"
+		if(7)
+			adjective = "a massive"
+		if(8)
+			adjective = "a heaping"
+		if(9)
+			adjective = "an obscene"
+		if(10)
+			adjective = "a colossal"
+		if(11)
+			adjective = "a titanic"
+		else
+			adjective = "a gargantuan"
 	return "[adjective] pair of breasts"

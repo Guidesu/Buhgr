@@ -14,31 +14,18 @@ The `roguetown.dmb` output is the compiled game file.
 OpenDream can also be used but the path in older docs is stale; DreamMaker
 is the primary compiler.
 
-## Simple Animal / Carbon Architecture
+## Simple Animals
 
-All simple animals inherit from `/mob/living/carbon/simple_animal` (not
-`/mob/living/simple_animal`). This means every simple animal — hostile
-creatures, farm animals, familiars, bosses, undead, etc. — is now a full
-carbon mob with bodyparts, organs, reagents, and carbon combat mechanics.
+Animals are Azure Peak's simple mobs: `/mob/living/simple_animal` (defined in
+`code/modules/mob/living/simple_animal/simple_animal.dm`). They are not carbon
+mobs and have no bodyparts or organs. Hit locations, weak points and
+part damage come from Azure Peak's anatomy profiles
+(`code/modules/mob/living/simple_animal/weakpoints.dm`).
 
-Key implementation details:
-
-- **Type path**: `/mob/living/carbon/simple_animal` (defined in
-  `code/modules/mob/living/simple_animal/simple_animal.dm`)
-- **Bodyparts/organs**: Created in `Initialize()` via `create_bodyparts()`
-  and `create_internal_organs()`. Default organs (lungs, heart, brain,
-  tongue, eyes, ears, liver, stomach) are spawned if none are set.
-- **Health**: `updatehealth()` counts ALL damage types (brute, burn, tox,
-  oxy, clone) using carbon's bodypart-based getters, so bodypart damage
-  reduces health just like the old simple_animal system.
-- **Damage routing**: `adjustHealth()` routes through carbon's
-  `take_overall_damage()` / `heal_overall_damage()` which distribute
-  damage across bodyparts.
-- **Icon rendering**: `update_body_parts()` and `update_damage_overlays()`
-  are no-ops; simple animals use a single icon state, not bodypart overlays.
-- **pseudo_carbon**: The old `/mob/living/carbon/simple_animal/pseudo_carbon`
-  subtype still exists for backward compatibility but is now largely
-  redundant since all simple animals are already carbon.
+An earlier DreamValley experiment made every animal a carbon mob
+(`/mob/living/carbon/simple_animal`) with per-limb natural armor. That was
+fully reverted in September 2026; don't reintroduce the carbon type path.
+`issimple()` / `isanimal()` check `/mob/living/simple_animal`.
 
 ## Sexcon / Chastity Port
 
@@ -162,32 +149,6 @@ boss, rim, coating
 - Melee: blade oils (fire/poison/holy), razor edge, rust coating, leather/wire/balanced grips, heavy/light/gemstone pommels, reinforced/basket guards, reinforced/metal shafts
 - Ranged: silk/sinew bowstrings, sighting pin, quick/heavy cranks
 - Shield: iron/steel bosses, metal/spiked rims, sanctified coating
-
-## Pseudo-Carbon Mob System (REMOVED)
-
-The pseudo_carbon system has been fully removed. All simple animals are now
-full carbon mobs (`/mob/living/carbon/simple_animal`) with real bodyparts,
-organs, blood, and grapple support. The grabbing, limb-targeting, and
-tackle systems work through the standard carbon architecture — no
-pseudo_carbon component or type is needed.
-
-**What was removed:**
-
-- `/mob/living/simple_animal/pseudo_carbon` type
-- `/datum/component/pseudo_carbon` component
-- `/datum/pseudo_bodypart` datum
-- `is_pseudo_carbon()`, `get_pseudo_carbon_bodypart()`, `get_pseudo_carbon_grab_limb()`
-- `twistlimb_pseudo`, `smashlimb_pseudo` procs
-- All pseudo-carbon branches in grabbing code
-
-**What replaces it:**
-
-- All simple animals inherit from `/mob/living/carbon/simple_animal`
-- Grabbing works through standard carbon `grabbedby()` and bodypart system
-- Limb targeting works through standard carbon `get_bodypart()` and zone system
-- Damage routing uses standard carbon `take_overall_damage()` / bodypart damage
-- Organ protection: simple animals have `TRAIT_STABLEHEART` and a
-  `handle_organs()` override that suppresses ORGAN_VITAL death
 
 ## Sanity / Insight System (Eris Port)
 
@@ -359,96 +320,6 @@ integrated with DreamValley's existing organ and surgery architecture.
 - Inspiration component attached to: paintings, books, instruments
 - Sanity HUD: clicking stress indicator shows sanity/insight status;
   low sanity (<20) overrides stress icon to show distress
-
-## Superior Animal System (Eris Approach)
-
-All simple animals in this codebase inherit from
-`/mob/living/carbon/simple_animal`, which itself inherits from
-`/mob/living/carbon`. This means every simple animal is already a full
-carbon mob with bodyparts, organs, blood, reagents, grapple,
-dismemberment, and status effects — the same architecture CEV-Eris uses
-for its `/mob/living/carbon/superior_animal`.
-
-**Note:** `AGENTS.md` previously listed files under
-`code/modules/mob/living/carbon/superior_animal/` — those files do not
-exist. The carbon-based animal system is implemented through
-`/mob/living/carbon/simple_animal` directly. There is no separate
-`superior_animal` type; the simple_animal type IS the superior animal.
-
-**Files:**
-
-- Base type: `code/modules/mob/living/simple_animal/simple_animal.dm`
-- Animal mob files: `code/modules/mob/living/simple_animal/rogue/creacher/`
-    - `direbear.dm`, `volf.dm` (wolf), `boar.dm`, `minotaur.dm`, `dragon.dm`
-    - `trolls/troll.dm`
-
-**What animals get from carbon (automatically):**
-
-- Full bodyparts (head, chest, arms, legs) — per-limb damage tracking
-- Full organ system (heart, lungs, brain, liver, stomach, etc.)
-- Full blood system — bleeding, blood loss, transfusions
-- Full reagent system — **all chems work** (poisons, healing, drugs)
-- Full grapple system — grab/choke/twist/smash/dismember
-- Full status effect system — all debuffs/buffs
-- Fire/burn damage with bodypart-specific effects
-- Dismemberment — limbs can be cut off
-- Organ damage — heart attacks, liver failure, brain damage
-  - **BUT**: simple animals are protected from organ-failure death via
-    `TRAIT_STABLEHEART` and a `handle_organs()` override that suppresses
-    `ORGAN_VITAL` death. Their death is governed by the classic
-    `health <= 0` check in `update_stat()`.
-- Bodypart `brute_reduction` / `burn_reduction` — flat damage reduction
-  per limb (Eris-style, used by natural armor system)
-
-**What it ports from simple_animal:**
-
-- AI controller support (ai_controller var inherited from /atom)
-- Intent system (base_intents inherited from /mob)
-- Barding armor (bbarding)
-- Butcher results (butcher_results, botched/perfect, head_butcher)
-- Food type system (food_type, food_typecache)
-- Remains type (remains_type)
-- Death message, icon states (icon_living, icon_dead)
-- Faction, ambushable, blood_toll_bucket (inherited from /mob/living)
-
-## Limb-Specific Animal Armor (Eris-Inspired)
-
-Simple animals have per-bodypart natural armor using two complementary
-approaches, both inspired by CEV-Eris's superior_animal per-bodypart
-armor design.
-
-**Files:**
-
-- Vars + getarmor(): `code/modules/mob/living/simple_animal/simple_animal.dm` (vars),
-  `code/modules/mob/living/simple_animal/animal_defense.dm` (getarmor override)
-- Animal assignments: `code/modules/mob/living/simple_animal/animal_natural_armor.dm`
-- Bodypart reduction calls: each animal's `Initialize()` in
-  `code/modules/mob/living/simple_animal/rogue/creacher/`
-
-**Two-layer defense:**
-
-1. **Bodypart reduction (Eris-style flat reduction)**: Sets
-   `brute_reduction` and `burn_reduction` on bodyparts via
-   `apply_bodypart_reduction()` in Initialize(). Flat damage is
-   subtracted from every hit to that limb before armor rating applies.
-   Presets: `ANIMAL_BP_THICK_HIDE`, `ANIMAL_BP_TOUGH_HIDE`,
-   `ANIMAL_BP_STONE_SKIN`, `ANIMAL_BP_DRAGON_SCALES`.
-
-2. **Armor rating (tier-based)**: `natural_armor` list maps
-   BODY_ZONE_* -> armor list (same format as ARMOR_* defines).
-   `natural_armor_default` is the fallback when no zone-specific entry
-   exists. `getarmor()` takes the max of barding armor and natural armor
-   for the hit zone. `attacked_by()` and `attack_hand()` pass the actual
-   zone to `run_armor_check()`.
-
-**Animals with natural armor:**
-
-- Direbear: thick hide (chest), tough hide (limbs), vulnerable head
-- Wolf: tough hide (chest), exposed limbs, vulnerable head
-- Boar: tough hide (chest/head), exposed limbs
-- Troll: stone skin (all), weaker head, weak to fire
-- Minotaur: thick hide (chest), tough hide (head/limbs)
-- Dragon: dragon scales (all), near-impenetrable, fire-immune
 
 ## Procedural Multi-Biome Dungeon
 

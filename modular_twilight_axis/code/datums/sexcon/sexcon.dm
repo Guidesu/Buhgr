@@ -15,16 +15,16 @@
 		breasts.milk_stored -= milk_to_add
 		milk_container(milker.get_active_held_item(), milk_to_add)
 	else
-		to_chat(milker, span_notice(""))
+		to_chat(milker, span_notice("No milk comes from the breasts..."))
 
 /datum/sex_controller/proc/milk_container(obj/item/reagent_containers/glass/C, amout)
-	user.visible_message(span_lovebold(""))
+	user.visible_message(span_lovebold("[user.name] fills [C.name] with milk!"))
 	playsound(user, 'sound/misc/mat/segso.ogg', 50, TRUE, ignore_walls = FALSE)
 	C.reagents.add_reagent(/datum/reagent/consumable/milk, amout)
 
 /datum/sex_controller/proc/ejaculate_container(obj/item/reagent_containers/glass/C)
-	log_combat(user, user, "")
-	user.visible_message(span_lovebold(""))
+	log_combat(user, user, "Climax into a container")
+	user.visible_message(span_lovebold("[user.name] fills [C.name] with seed!"))
 	playsound(user, 'sound/misc/mat/endout.ogg', 50, TRUE, ignore_walls = FALSE)
 	C.reagents.add_reagent(/datum/reagent/erpjuice/cum, 3)
 	after_ejaculation()

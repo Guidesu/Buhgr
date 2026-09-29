@@ -171,6 +171,23 @@
 				to_chat(user, span_warning("That name is invalid or already used."))
 			return TRUE
 
+		if("reset_campaign")
+			if(!can_shutdown(user))
+				return TRUE
+			var/choice = tgui_alert(user, "Reset the world of \"[manager.campaign_id]\"? Every world save is deleted and the server restarts on a fresh map. Saved characters can be kept or deleted too.", "Reset Campaign", list("Reset world, keep characters", "Reset world and characters", "Cancel"))
+			if(!choice || choice == "Cancel")
+				return TRUE
+			var/wipe_characters = (choice == "Reset world and characters")
+			if(tgui_alert(user, "Are you sure? This can't be undone.", "Reset Campaign", list("Yes, reset it", "Cancel")) != "Yes, reset it")
+				return TRUE
+			if(!manager.reset_campaign(wipe_characters))
+				to_chat(user, span_warning("Couldn't delete the saves. Check the server log."))
+				return TRUE
+			admin_log(user, "reset the campaign \"[manager.campaign_id]\"[wipe_characters ? " and its saved characters" : ""].")
+			to_chat(world, span_boldannounce("The campaign has been reset. The server is restarting on a fresh map."))
+			world.Reboot("Campaign reset by [user.client.key]")
+			return TRUE
+
 		if("delete_campaign")
 			var/target_id = params["campaign_id"]
 			if(tgui_alert(user, "Delete the campaign \"[target_id]\" and all its saves? This can't be undone.", "Delete Campaign", list("Delete", "Keep")) != "Delete")

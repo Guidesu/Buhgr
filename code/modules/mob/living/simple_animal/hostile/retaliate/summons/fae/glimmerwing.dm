@@ -21,8 +21,8 @@
 	death_loot = list(/obj/item/magic/fae/iridescentscale = 2)
 	faction = list(FACTION_FAE)
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	health = 270
-	maxHealth = 270
+	health = 220
+	maxHealth = 220
 	threat_point = THREAT_HIGH
 	melee_damage_lower = 18
 	melee_damage_upper = 25
@@ -48,9 +48,6 @@
 	attack_sound = 'sound/blank.ogg'
 	dodgetime = 40
 	aggressive = 1
-
-	ai_controller = /datum/ai_controller/fae/skirmisher/melee/reactive
-	move_base_delay = MOVEMENT_DELAY_SPD_10
 
 	ai_controller = /datum/ai_controller/fae/skirmisher/melee/reactive
 	move_base_delay = MOVEMENT_DELAY_SPD_10

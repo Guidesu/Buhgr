@@ -2015,7 +2015,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 	var/turf/T = get_turf(src)
 	if(T)
 		for(var/mob/living/target in range(0, T))
-			if(!target.mind || istype(target, /mob/living/carbon/simple_animal))
+			if(!target.mind || istype(target, /mob/living/simple_animal))
 				target.adjustBruteLoss(5)
 			if(iscarbon(target))
 				target.blur_eyes(5)

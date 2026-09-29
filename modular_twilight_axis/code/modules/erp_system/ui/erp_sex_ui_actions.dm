@@ -29,7 +29,7 @@
 
 	var/datum/erp_sex_organ/penis/P = C.get_owner_penis_organ()
 	D["climax_mode"] = P ? (P.climax_mode || "outside") : "outside"
-	D["climax_modes"] = list(list("id"="outside","name"=""),list("id"="inside","name"=""))
+	D["climax_modes"] = list(list("id"="outside","name"="OUTSIDE"),list("id"="inside","name"="INSIDE"))
 	D["actor_nodes"] = C.get_actor_type_filters_ui() || list()
 	D["partner_nodes"] = C.get_partner_type_filters_ui() || list()
 	D["actions"] = C.get_action_list_ui(selected_actor_type, selected_partner_type) || list()

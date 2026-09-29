@@ -60,7 +60,7 @@
 	if(istype(H) && !has_liquid())
 		H.remove_status_effect(/datum/status_effect/mouth_full)
 
-	H.visible_message(span_notice(""), span_notice(""))
+	H.visible_message(span_notice("[H] swallows."), span_notice("I swallow the seed in my mouth."))
 	return TRUE
 
 /datum/erp_sex_organ/mouth/proc/spit(amount = 5)
@@ -80,7 +80,7 @@
 	if(istype(H) && !has_liquid())
 		H.remove_status_effect(/datum/status_effect/mouth_full)
 
-	H.visible_message(span_notice(""), span_notice(""))
+	H.visible_message(span_notice("[H] spits."), span_notice("I spit the seed out of my mouth."))
 	return TRUE
 
 /datum/erp_sex_organ/mouth/apply_contact_effect(datum/erp_sex_link/L, mult = 1)

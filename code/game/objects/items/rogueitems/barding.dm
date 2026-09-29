@@ -54,7 +54,7 @@
 	user.visible_message(span_notice("[user] fits a bard onto [animal]."), span_notice("I fit a bard onto [animal]."))
 
 /obj/item/clothing/barding/obj_destruction(damage_flag)
-	if(istype(loc, /mob/living/carbon/simple_animal))
+	if(istype(loc, /mob/living/simple_animal))
 		var/mob/living/simple_animal/A = loc
 		if(A.bbarding == src)
 			A.bbarding = null

@@ -2877,12 +2877,15 @@ GLOBAL_LIST_INIT(sight_trait_signals, build_sight_trait_signals())
 	var/list/prefixes = list()
 	var/list/suffixes = list()
 	for(var/datum/mob_affix/A as anything in mob_affixes)
+		if(!length(A.name))
+			continue
 		if(A.affix_type == AFFIX_PREFIX_MOB)
 			prefixes += A.name
 		else
 			suffixes += A.name
-	var/prefix_string = english_list(prefixes, nothing_text = "", and_text = ", ", final_comma_text = ", ")
-	var/suffix_string = english_list(suffixes, nothing_text = "", and_text = ", ", final_comma_text = ", ")
+	// "Giant Armored Keen goblin"
+	var/prefix_string = jointext(prefixes, " ")
+	var/suffix_string = english_list(suffixes, nothing_text = "")
 	if(prefix_string && suffix_string)
 		name = "[prefix_string] [affix_base_name] [suffix_string]"
 	else if(prefix_string)

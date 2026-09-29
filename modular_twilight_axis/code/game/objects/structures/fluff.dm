@@ -1,17 +1,17 @@
 /obj/structure/fluff/statue/noc
 	name = "noc statue"
-	desc = ""
+	desc = "A stone statue of Noc, lady of the moon, wise and calm."
 	icon_state = "noc"
 	icon = 'modular_twilight_axis/icons/roguetown/misc/statue_noc.dmi'
 
 /obj/structure/fluff/statue/noc/guard
 	name = "active noc statue"
-	desc = ""
+	desc = "A stone statue of Noc, lady of the moon, her staff shedding a heavenly glow."
 	icon_state = "noc_guard"
 
 /obj/structure/fluff/statue/eora
 	name = "eora statue"
-	desc = ""
+	desc = "A stone statue of the beautiful, enchanting lady Eora."
 	icon_state = "eora"
 	icon = 'modular_twilight_axis/icons/roguetown/misc/statue_eora.dmi'
 

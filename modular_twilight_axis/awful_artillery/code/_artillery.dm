@@ -3,7 +3,7 @@
 #define OVERHEAT_ERROR 50
 
 /obj/item/artillery_shell
-	name = ""
+	name = "Friend, if you're seeing this, the admins or the mapper messed up"
 	icon = 'modular_twilight_axis/awful_artillery/icons/artillery.dmi'
 	icon_state = "cannonball"
 	
@@ -11,8 +11,8 @@
 /obj/item/artillery_shell/proc/shell_action()
 
 /obj/structure/artillery 
-	name = ""
-	desc = ""
+	name = "Friend, if you're seeing this, the server admins messed up"
+	desc = "Don't steal, Smiley"
 
 	icon = 'modular_twilight_axis/awful_artillery/icons/artillery.dmi'
 	icon_state = "mortar"
@@ -53,40 +53,40 @@
 /obj/structure/artillery/examine(mob/user)
 	. = ..()
 	if((world.time - last_fired) < cooldown)
-		. += span_info("")
+		. += span_info("The barrel feels hot. It may be wise not to fire right now.")
 	else 
-		. += span_info("")
+		. += span_info("The barrel feels cool. It's safe to fire.")
 
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/C = user
 		var/perception = C.get_stat(STAT_PERCEPTION) - 10
 		if(perception > 0 || HAS_TRAIT(user, TRAIT_ARTILLERY_EXPERT))
 			if(((barrel_integrity - perception) < 1) || HAS_TRAIT(user, TRAIT_ARTILLERY_EXPERT))
-				. += span_danger("")
+				. += span_danger("My perception tells me the barrel will fail in [barrel_integrity] shots")
 			else 
-				. += span_green("")
+				. += span_green("The gun seems sturdy. It will hold for at least a few more shots")
 		else 
-			. += span_green("")
+			. += span_green("The gun seems sturdy. It will hold for at least a few more shots")
 
 /obj/structure/artillery/attackby(obj/item/used_item, mob/user)
 	if(istype(used_item, ammo_type))
 		if(ammo)
-			to_chat(usr, span_info(""))
+			to_chat(usr, span_info("There's already a charge in the barrel"))
 		else
 			if(do_after(user, 20, target = src))
 				used_item.forceMove(src)
 				ammo = used_item
-				to_chat(usr, span_info(""))
+				to_chat(usr, span_info("I load a shell into [src.name]"))
 				playsound(src, 'modular_twilight_axis/awful_artillery/sound/loading.ogg', 100, 0, 1, 1, null, null, FALSE, TRUE)
 				log_game("[user] loaded artillery shell into [src]")
 
 	if(istype(used_item, /obj/item/twilight_powderflask))
 		if(ammo)
-			to_chat(usr, span_info(""))
+			to_chat(usr, span_info("There's a shell inside. It has to come out before adding powder"))
 		else
 			playsound(src, 'modular_twilight_axis/awful_artillery/sound/powder.ogg', 100, 0, 1, 1, null, null, FALSE, TRUE)
 			if(do_after(user, 20, target = src))
-				to_chat(usr, span_info(""))
+				to_chat(usr, span_info("I pour powder into [src.name]"))
 				charge_level = min(charge_level + 1, charge_max)
 				log_game("[user] added gun powder into [src]")
 
@@ -132,11 +132,11 @@
 /obj/structure/artillery/proc/fire_artillery(mob/user)
 	var/mob/living/carbon/human/H = user
 	if(charge_level == 0)
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("There's no charge in the barrel"))
 		return
 
 	if(!ammo)
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("There's no shell in the barrel"))
 		return
 
 	if(!HAS_TRAIT(user, TRAIT_ARTILLERY_EXPERT))
@@ -146,18 +146,18 @@
 		var/rand_roll = rand(1, 20)
 
 		if((rand_roll + overall_artillery_skill) < 12)
-			user.visible_message(span_danger(""))
+			user.visible_message(span_danger("[user] botches the shot! [src] is destroyed"))
 			explosion(src, 1, 2, 4, flame_range = 2)
 			H.adjustBruteLoss(150)
 			return
 
 	var/vector/hit_coordinates = calculate_coordinates(user)
 	if(!hit_coordinates)
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("Something is stopping me from firing there"))
 		return
 	var/turf/target = locate(hit_coordinates.x, hit_coordinates.y, src.z)
 	if(!target)
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("Something is stopping me from firing there"))
 		return
 
 	for(var/turf/AT in get_adjacent_turfs(src.loc))
@@ -190,45 +190,45 @@
 		barrel_integrity--
 	last_fired = world.time
 	
-	user.visible_message(span_danger(""))
+	user.visible_message(span_danger("[user] fires [src]!"))
 	log_game("[user] fired artillery([src]) at [target.loc.name]([target.x] [target.y] [target.z])")
 	message_admins("Artillery fired at [ADMIN_VERBOSEJMP(src.loc)] by [user] to [ADMIN_VERBOSEJMP(target)]")
 
 	for(var/mob/M in GLOB.player_list)
 		if(istype(M, /mob/living))
-			var/message = ""
+			var/message = "The boom of artillery fire rings out"
 			var/dist = get_dist(get_turf(src), M)
 			if(dist > 15)
-				message += ""
+				message += " roughly [floor(dist/15)*15] meters away"
 			if(M.z < src.z)
-				message += ""
+				message += " from somewhere above"
 			if(M.z > src.z)
-				message += ""
+				message += " from somewhere below"
 
 			var/dir = get_dir(M, src)
 			switch(dir)
 				if(NORTH)
-					message += ""
+					message += " from the north"
 				if(SOUTH) 
-					message += ""
+					message += " from the south"
 				if(EAST) 
-					message += ""
+					message += " from the east"
 				if(WEST)
-					message += ""
+					message += " from the west"
 				if(NORTHEAST) 
-					message += ""
+					message += " from the northeast"
 				if(NORTHWEST) 
-					message += ""
+					message += " from the northwest"
 				if(SOUTHEAST)  
-					message += ""
+					message += " from the southeast"
 				if(SOUTHWEST)
-					message += ""
+					message += " from the southwest"
 			
 			message += "."
 			to_chat(M, message)
 
 	if(barrel_integrity <= 0)
-		src.visible_message(span_danger(""))
+		src.visible_message(span_danger("[src] explodes from barrel wear!"))
 		explosion(src, 1, 2, 10, flame_range = 3)
 
 /obj/structure/artillery/proc/get_parts()
@@ -262,11 +262,11 @@
 
 			data["area_name"] = target_turf.loc.name
 		else 
-			data["range"] = ""
-			data["area_name"] = ""
+			data["range"] = "UNKNOWN"
+			data["area_name"] = "UNKNOWN"
 	else
-		data["range"] = ""
-		data["area_name"] = ""
+		data["range"] = "UNKNOWN"
+		data["area_name"] = "UNKNOWN"
 
 
 	return data
@@ -279,37 +279,37 @@
 	switch(action)
 		if("fire")
 			if(charge_level == 0)
-				to_chat(ui.user, span_warning(""))
+				to_chat(ui.user, span_warning("There's no charge in the barrel."))
 				return
 			if(!ammo)
-				to_chat(ui.user, span_warning(""))
+				to_chat(ui.user, span_warning("There's no shell in the barrel."))
 				return
 			if(HAS_TRAIT(ui.user, TRAIT_ARTILLERY_EXPERT))
 				if(do_after(ui.user, 15, target = src))
 					fire_artillery(ui.user)
 			else
-				if(tgui_alert(ui.user, "", "", list("", "")) == "")
+				if(tgui_alert(ui.user, "You don't know how to use this piece. Right now you're relying on guesswork and wits alone, and using it wrong could end very badly.", "Mortar", list("I won't fire", "FIRE!")) == "FIRE!")
 					if(do_after(ui.user, 15, target = src))
 						fire_artillery(ui.user)
 		if("decrease_charge")
 			if(do_after(ui.user, 10, target = src))
 				charge_level = max(charge_level - 1, charge_min)
 				playsound(src, 'modular_twilight_axis/awful_artillery/sound/removepowder.ogg', 100, 1, 1, 1, null, null, FALSE, FALSE)
-				ui.user.visible_message(span_info(""))
+				ui.user.visible_message(span_info("[ui.user] clears the excess powder from [src]."))
 		if("set_elevation")
 			elevation = params["value"]
 			playsound(src, 'modular_twilight_axis/awful_artillery/sound/anglecorrection.ogg', 100, 1, 1, 1, null, null, FALSE, FALSE)
-			ui.user.visible_message(span_info(""))
+			ui.user.visible_message(span_info("[ui.user] adjusts the elevation."))
 		if("set_azimuth")
 			azimuth = params["value"]
 			playsound(src, 'modular_twilight_axis/awful_artillery/sound/anglecorrection.ogg', 100, 1, 1, 1, null, null, FALSE, FALSE)
-			ui.user.visible_message(span_info(""))
+			ui.user.visible_message(span_info("[ui.user] adjusts the bearing."))
 		if("eject_ammo")
 			if(do_after(ui.user, 20, target = src))
 				playsound(src, 'modular_twilight_axis/awful_artillery/sound/anglecorrection.ogg', 100, 1, 1, 1, null, null, FALSE, FALSE)
 				ammo.forceMove(loc)
 				ammo = null
-				ui.user.visible_message(span_info(""))
+				ui.user.visible_message(span_info("[ui.user] unloads the shell from [src]."))
 		if("disasseble")
 			if(do_after(ui.user, 20, target = src))
 				playsound(src, 'modular_twilight_axis/awful_artillery/sound/anglecorrection.ogg', 100, 1, 1, 1, null, null, FALSE, FALSE)
@@ -318,12 +318,12 @@
 					new path(loc)
 				ui.close()
 				qdel(src)
-				ui.user.visible_message(span_info(""))
+				ui.user.visible_message(span_info("[ui.user] takes [src] apart."))
 
 	SStgui.try_update_ui(ui.user, src)
 
 /obj/item/artillery_assembly
-	name = ""
+	name = "Gun carriage"
 	w_class = WEIGHT_CLASS_HUGE
 
 

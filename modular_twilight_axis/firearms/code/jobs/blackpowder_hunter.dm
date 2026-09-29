@@ -44,7 +44,7 @@
 
 	switch(class_choice)
 		if("Noble")
-			to_chat(H, span_purple(""))
+			to_chat(H, span_purple("'..Oh, your forebears clearly worked hard to earn Astrata's blessing. Don't shame them.. Ah, you already have.. how did you manage to ride your horse to death?..'"))
 			var/helmets = list(
 				"Sallet"			= /obj/item/clothing/head/roguetown/helmet/sallet/iron,
 				"Visored Sallet"	= /obj/item/clothing/head/roguetown/helmet/sallet/visored/iron,
@@ -73,7 +73,7 @@
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 		if("Peasant")
-			to_chat(H, span_purple(""))
+			to_chat(H, span_purple("'..So-o... you chose to be a simple hunter. You have good potential for the future!..'"))
 			belt = /obj/item/storage/belt/rogue/leather
 			neck = /obj/item/clothing/neck/roguetown/leather
 			backl = /obj/item/gun/ballistic/twilight_firearm/barker

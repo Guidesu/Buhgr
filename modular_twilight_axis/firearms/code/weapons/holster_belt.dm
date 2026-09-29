@@ -1,6 +1,6 @@
 /obj/item/storage/belt/rogue/leather/twilight_holsterbelt
 	name = "holster belt"
-	desc = ""
+	desc = "A belt with a holster. It gives up some belt space so a pistol can be carried comfortably."
 	icon = 'modular_twilight_axis/firearms/icons/obj_belts.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/firearms/icons/onmob_belts.dmi'
 	icon_state = "holsterbelt"
@@ -58,13 +58,13 @@
 /obj/item/storage/belt/rogue/leather/twilight_holsterbelt/examine(mob/user)
 	. = ..()
 	if(pistol.len == 1)
-		. += span_notice("")
+		. += span_notice("There's a weapon in the holster.")
 	else
-		. += span_notice("")
+		. += span_notice("The holster is empty.")
 
 /obj/item/storage/belt/rogue/leather/twilight_holsterbelt/lord
 	name = "plaque holster belt"
-	desc = ""
+	desc = "A belt with gilded metal inlays that show off wealth and status. It has a holster for carrying a pistol comfortably."
 	sellprice = 50
 	sewrepair = FALSE
 	anvilrepair = /datum/skill/craft/armorsmithing
@@ -81,7 +81,7 @@
 
 /obj/item/storage/belt/rogue/leather/twilight_holsterbelt/black
 	name = "black holster belt"
-	desc = ""
+	desc = "A black belt with a holster. It gives up some belt space so a pistol can be carried comfortably."
 	icon = 'modular_twilight_axis/firearms/icons/obj_belts_black.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/firearms/icons/onmob_belts_black.dmi'
 
@@ -95,7 +95,7 @@
 
 /obj/item/storage/belt/rogue/leather/twilight_holsterbelt/blackpowder
 	name = "blackpowder order holster belt"
-	desc = ""
+	desc = "An Order of Black Powder pattern belt with a holster. The improved fit lets you carry a pistol without losing belt space."
 	icon = 'modular_twilight_axis/firearms/icons/obj_belts_blackpowder.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/firearms/icons/onmob_belts_blackpowder.dmi'
 	component_type = /datum/component/storage/concrete/roguetown/belt

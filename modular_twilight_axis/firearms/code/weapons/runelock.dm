@@ -154,11 +154,11 @@
 				if(chambered)
 					. += span_bold("Cocked and ready to fire.")
 				else
-					. += span_bold("")
+					. += span_bold("The runes are charged, but no bullet is seated.")
 			else
-				. += span_bold("")
+				. += span_bold("Not loaded.")
 		else
-			. += span_info("")
+			. += span_info("You don't recognize the design of the lock on this weapon.")
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/twilight_runelock/process_fire/(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	var/skill = user.get_skill_level(/datum/skill/combat/twilight_firearms)
@@ -233,7 +233,7 @@
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/twilight_runelock/rifle
 	name = "\"Doomsdae\""
-	desc = ""
+	desc = "A relic of a new age, made for the war that will end the history of creation as we know it. Crafted by Otava's master artificers and enchanted by Otava's rune mages, this runic rifle is a weapon that will crush the legions of darkness at the End of Days. The runes were written on the barrel in the blood of heretics who paid with their lives for betraying the true faith."
 	icon = 'modular_twilight_axis/firearms/icons/runelock_rifle.dmi'
 	icon_state = "runelock"
 	icon_state_ready = "runelock_loaded"

@@ -26,7 +26,6 @@ type SlotRow = {
   readable: BooleanLike;
   saved_at: string | null;
   in_game_day: number | null;
-  characters: number;
 };
 
 type CampaignRow = {
@@ -96,6 +95,15 @@ const OverviewSection = () => {
           )}
           {!!can_shutdown && (
             <Button
+              icon="rotate-left"
+              color="bad"
+              onClick={() => act('reset_campaign')}
+            >
+              Reset Campaign
+            </Button>
+          )}
+          {!!can_shutdown && (
+            <Button
               icon="power-off"
               color="caution"
               onClick={() => act('save_and_shutdown')}
@@ -117,7 +125,8 @@ const OverviewSection = () => {
       </LabeledList>
       <Box mt={1} color="label">
         The world saves itself every few minutes and when the server shuts
-        down.
+        down. Saved characters are kept separately, so loading an older world
+        save doesn't change them.
       </Box>
     </Section>
   );
@@ -211,7 +220,6 @@ const WorldSavesSection = () => {
             <Table.Cell>Save</Table.Cell>
             <Table.Cell>Saved</Table.Cell>
             <Table.Cell>Day</Table.Cell>
-            <Table.Cell>Characters</Table.Cell>
             <Table.Cell collapsing />
           </Table.Row>
           {slots.map((slot) => (
@@ -228,10 +236,9 @@ const WorldSavesSection = () => {
                 <>
                   <Table.Cell>{slot.saved_at}</Table.Cell>
                   <Table.Cell>{slot.in_game_day ?? '-'}</Table.Cell>
-                  <Table.Cell>{slot.characters}</Table.Cell>
                 </>
               ) : (
-                <Table.Cell colSpan={3} color="bad">
+                <Table.Cell colSpan={2} color="bad">
                   Damaged - can't be loaded
                 </Table.Cell>
               )}

@@ -1,5 +1,5 @@
 /datum/preferences
-	var/current_loadout_category = ""
+	var/current_loadout_category = "All"
 
 
 
@@ -21,14 +21,14 @@
 
 	if(has_invalid_items)
 		selected_loadout_items = valid_items
-		to_chat(user, "")
+		to_chat(user, "Your loadout was cleared because of changes to the items.")
 
 
 /datum/preferences/proc/handle_loadout_size(mob/user)
 	if(selected_loadout_items.len <= get_loadout_size(user))
 		return
 	selected_loadout_items = list()
-	to_chat(user, "")
+	to_chat(user, "The size of your loadout changed, so it had to be reset!")
 
 
 /datum/preferences/proc/get_loadout_size(mob/user)
@@ -178,7 +178,7 @@
 				return TRUE
 
 			if(user_prefs.selected_loadout_items.len >= user_prefs.get_loadout_size(user))
-				to_chat(user, "")
+				to_chat(user, "Limit reached!")
 				return TRUE
 
 			var/lock_reason = item.get_loadout_lock_reason(user)
@@ -195,7 +195,7 @@
 
 		if("clear")
 			user_prefs.selected_loadout_items = list()
-			to_chat(user, "")
+			to_chat(user, "Loadout cleared!")
 			return TRUE
 
 		if("boosty")

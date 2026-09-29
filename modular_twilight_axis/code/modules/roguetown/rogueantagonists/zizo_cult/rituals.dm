@@ -238,9 +238,9 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	abstract_type = /datum/ritual/servantry
 
 /datum/ritual/servantry/convert
-	name = ""
-	desk = ""
-	center_book = ""
+	name = "Convert a Lackey"
+	desk = "Turns a victim into a new lackey!"
+	center_book = "Victim"
 	center_requirement = /mob/living/carbon/human
 	is_cultist_ritual = TRUE
 
@@ -251,24 +251,24 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	if(target == user)
 		return
 	if(is_zizocultist(target.mind) || is_zizolackey(target.mind))
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("They're already my lackey!"))
 		return
 	if(target.mind.assigned_role == "Gnoll")
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("This is Graggar's spawn. It doesn't deserve to be my lackey..."))
 	if(HAS_TRAIT(target, TRAIT_SILVER_WEAK))
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("I only need the living..."))
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/skeleton))
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("The dead servants already belong to Zizo. They don't need converting."))
 		return
 	if(istype(target.wear_neck, /obj/item/clothing/neck/roguetown/psicross/silver) || istype(target.wear_wrists, /obj/item/clothing/neck/roguetown/psicross/silver))
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("They wear a silver cross! It stops me from converting them..."))
 		return
 
 	var/datum/antagonist/zizocultist/PR = user.mind.has_antag_datum(/datum/antagonist/zizocultist)
 	if(!PR)
 		return
 	target.Immobilize(3 SECONDS)
-	to_chat(target, span_notice(""))
+	to_chat(target, span_notice("The truth! She... SHE REVEALED IT TO ME! They're not bad at all... I... I must help them!"))
 	PR.add_cultist(target.mind)
 	target.praise()
 	target.playsound_local(target, 'modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sounds/tesa.ogg', 25)
@@ -277,10 +277,10 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	message_admins("[key_name(target)] was converted to Zizoid Lackey by [key_name(PR.owner.current)]")
 
 /datum/ritual/servantry/zizofication
-	name = ""
-	desk = ""
+	name = "Rite of Enlightenment"
+	desk = "A rite for common followers of Zizo who aren't cultists. Lets you convert someone to the faith of Zizo."
 	center_requirement = /mob/living/carbon/human
-	center_book = ""
+	center_book = "Victim"
 
 /datum/ritual/servantry/zizofication/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
@@ -289,7 +289,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		return
 
 	if(target.stat == DEAD)
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("They must be alive..."))
 		return
 	
 	var/list/options = list(
@@ -297,7 +297,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		"Resist"
 	)
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/skeleton))
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("Zizo's will already shines in those empty sockets. They have no need of enlightenment."))
 		return
 	
 	var/chosen = tgui_input_list(target, "Do you yield to the darkness?", "You are shown the path of Zizo.", options)
@@ -314,7 +314,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 /datum/ritual/servantry/zizofication/proc/convert_yield(mob/living/carbon/human/target)
 	target.Immobilize(3 SECONDS)
 	target.set_patron(/datum/patron/inhumen/zizo)
-	to_chat(target, span_notice(""))
+	to_chat(target, span_notice("Zizo... She... She will show me the true path now..."))
 	target.praise()
 	target.playsound_local(target, 'modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sounds/tesa.ogg', 25)
 	target.whisper("O'vena tesa...")
@@ -323,18 +323,18 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /datum/ritual/servantry/zizofication/proc/convert_resist(mob/living/carbon/human/target)
 	target.Immobilize(3 SECONDS)
-	target.visible_message(span_danger(""))
-	to_chat(target, span_reallybigredtext(""))
+	target.visible_message(span_danger("[target] shakes, renouncing Zizo!"))
+	to_chat(target, span_reallybigredtext("Accept Her path! RIGHT NOW!"))
 	if(target.electrocute_act(10))
 		target.emote("painscream")
 	log_game("[key_name(target)] was resist to convert by zizoid")
 
 /datum/ritual/servantry/skeletaljaunt
-	name = ""
-	desk = ""
+	name = "Skeletonization"
+	desk = "Turns the victim into a strong, special skeleton of Zizo! And if the body has no soul, another soul will take it. Doesn't accept cultists."
 	ritual_limit = 2
 	number_cultist_for_add_limit = 2
-	center_book = ""
+	center_book = "Victim"
 	center_requirement = /mob/living/carbon/human
 
 	n_req = /obj/item/natural/bone
@@ -403,8 +403,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	to_chat(target, span_userdanger("My master is [user]."))
 
 /datum/ritual/servantry/thecall
-	name = ""
-	desk = ""
+	name = "Abduction"
+	desk = "Lets you abduct someone straight onto the rune, but not clergy or anyone under Astrata's protection."
 	ritual_limit = 2
 	number_cultist_for_add_limit = 2
 	center_requirement = /obj/item/bedsheet
@@ -481,9 +481,9 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		victim.forceMove(to_go)
 
 /datum/ritual/servantry/falseappearance
-	name = ""
-	desk = ""
-	center_book = ""
+	name = "False Guise"
+	desk = "Changes your appearance to a random one. It can't be changed back."
+	center_book = "Cultist"
 	center_requirement = /mob/living/carbon/human
 
 	n_req = /obj/item/bodypart/head
@@ -503,8 +503,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	target.update_body()
 
 /datum/ritual/servantry/heartache
-	name = ""
-	desk = ""
+	name = "Suffering"
+	desk = "Summons a cursed heart that can help in capturing victims. It won't help in a fight."
 	center_requirement = /obj/item/organ/heart
 
 	s_req = /obj/item/alch/sinew
@@ -517,28 +517,28 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	to_chat(user, span_notice("A corrupted heart. When used on a non-enlightened mortal their heart shall ache and they will be immobilized and too stunned to speak. Perfect for getting new soon-to-be enlightened. Now, just don't use it at the combat ready."))
 
 /datum/ritual/servantry/luxstol
-	name = ""
-	desk = ""
+	name = "Theft of a Soul Shard"
+	desk = "A cruel rite that tears away a shard of the victim's soul."
 	center_requirement = /mob/living/carbon/human // One to be gutted.human
-	center_book = ""
+	center_book = "Dead body"
 
 /datum/ritual/servantry/luxstol/invoke(mob/living/user, turf/center)
 	. = ..()
 	var/mob/living/carbon/human/target = locate() in center.contents
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/skeleton))
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("This is a skeleton. There's no soul shard left in it..."))
 		return
 	if(!target.mind)
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("Zizo rejects this body."))
 		return
 	if(is_zizocultist(target.mind) || is_zizolackey(target.mind))
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("Zizo can't give up a soul shard of her own follower..."))
 		return
 	if(target.patron.type == /datum/patron/inhumen/zizo)
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("Zizo can't give up a soul shard of her own follower..."))
 		return
 	if(target.has_status_effect(/datum/status_effect/debuff/ritualdefiled/cult))
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("Their soul is already defiled..."))
 		return
 	target.Stun(30)
 	target.Knockdown(30)
@@ -564,7 +564,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	if(!do_after(user, 1 SECONDS, target))
 		return
 	if(target.cmode)
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("The heart can't be used while the target is on guard"))
 	target.Sleeping(40)
 	if(iscarbon(target))
 		var/mob/living/carbon/carbon_target = target
@@ -573,7 +573,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /*/datum/ritual/servantry/darksunmark
 	name = "Dark Sun's Mark"
-	desk = ""
+	desk = "Marks the chosen creature as the cult's target. Assassins also receive information about them.."
 	center_requirement = /obj/item/rogueweapon/huntingknife/idagger // Requires a combat dagger. Can be iron, steel or silver.
 
 /datum/ritual/servantry/darksunmark/invoke(mob/living/user, turf/center)
@@ -609,9 +609,9 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	target.playsound_local(target, 'sound/magic/marked.ogg', 100) */
 
 /datum/ritual/servantry/devotionretrv
-	name = ""
-	desk = ""
-	center_book = ""
+	name = "Replenish Enlightenment"
+	desk = "Restores Zizo's holy energy to clerics."
+	center_book = "Cleric"
 	center_requirement = /mob/living/carbon/human
 	n_req = /obj/item/natural/bone
 	s_req = /obj/item/natural/bone
@@ -624,8 +624,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	abstract_type = /datum/ritual/transmutation
 
 /datum/ritual/transmutation/allseeingeye
-	name = ""
-	desk = ""
+	name = "All-Seeing Eye"
+	desk = "Summons the all-seeing eye."
 	center_requirement = /obj/item/organ/eyes
 
 /datum/ritual/transmutation/allseeingeye/invoke(mob/living/user, turf/center)
@@ -634,8 +634,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	to_chat(user, span_notice("The All-seeing Eye. To see beyond sight."))
 
 /datum/ritual/transmutation/book
-	name = ""
-	desk = ""
+	name = "Summon the Ritual Book"
+	desk = "Replaces an ordinary book with a book that helps new cultists with their rites."
 	center_requirement = /obj/item/book/rogue
 
 /datum/ritual/transmutation/book/invoke(mob/living/user, turf/center)
@@ -646,8 +646,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	to_chat(user, span_notice("Now you know how to make another ritual..."))
 
 /datum/ritual/transmutation/criminalstool
-	name = ""
-	desk = ""
+	name = "Summon Zizo's Soap"
+	desk = "Summons Zizo's soap."
 	center_requirement = /obj/item/natural/cloth
 
 /datum/ritual/transmutation/criminalstool/invoke(mob/living/user, turf/center)
@@ -662,7 +662,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /*/datum/ritual/transmutation/propaganda
 	name = "Propaganda"
-	desk = ""
+	desk = "We'll change this later"
 	center_requirement = /obj/item/natural/worms/leech
 	n_req = /obj/item/paper
 	s_req = /obj/item/natural/feather
@@ -672,8 +672,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	to_chat(user, span_notice("A leech to make their minds wrangled. They'll be in bad spirits.")) */
 
 /datum/ritual/transmutation/invademind
-	name = ""
-	desk = ""
+	name = "Message"
+	desk = "Sends a message to a creature."
 	center_requirement = /obj/item/paper
 
 /datum/ritual/transmutation/invademind/invoke(mob/living/user, turf/center)
@@ -694,12 +694,12 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	abstract_type = /datum/ritual/fleshcrafting
 
 /datum/ritual/fleshcrafting/bunnylegs
-	name = ""
-	desk = ""
+	name = "Strong Legs"
+	desk = "Lets you jump rather high.."
 	cultist_number = 6
 	//number_cultist_for_add_limit = 1
 	//ritual_limit = 1
-	center_book = ""
+	center_book = "Cultist"
 	center_requirement = /mob/living/carbon/human
 
 	w_req = /obj/item/bodypart/l_leg
@@ -716,9 +716,9 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	to_chat(target, span_notice("I feel like my legs have become stronger."))
 
 /datum/ritual/fleshcrafting/fleshmend
-	name = ""
-	desk = ""
-	center_book = ""
+	name = "Fleshmending"
+	desk = "Grants the target a full healing."
+	center_book = "Wounded"
 	center_requirement = /mob/living/carbon/human
 	n_req =  /obj/item/alch/viscera
 	s_req = /obj/item/alch/calendula
@@ -747,8 +747,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		to_chat(target, span_notice("ZIZO EMPOWERS ME!"))
 
 /datum/ritual/fleshcrafting/darkeyes
-	name = ""
-	desk = ""
+	name = "Eyes of the Night"
+	desk = "Replaces your eyes with special ones that see extremely well in the dark, but there's one catch.."
 	center_requirement = /mob/living/carbon/human
 
 	w_req = /obj/item/alch/viscera
@@ -760,11 +760,11 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	if(!target)
 		return
 	ADD_TRAIT(target, TRAIT_ZIZOEYES, TRAIT_GENERIC)
-	to_chat(target, span_notice(""))
+	to_chat(target, span_notice("I'm no longer afraid of the dark. But now I have to hide my eyes.."))
 
 /datum/ritual/fleshcrafting/undead
-	name = ""
-	desk = ""
+	name = "Necromancer's Relic"
+	desk = "Bring Her offerings and you can receive a special crystal."
 	ritual_limit = 2
 	number_cultist_for_add_limit = 2
 	center_requirement = /obj/item/natural/glass_shard
@@ -785,13 +785,13 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	playsound(get_turf(center), pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 /*
 /datum/ritual/fleshcrafting/arcane
-	name = ""
-	desk = ""
+	name = "Arcana Consumption"
+	desk = "Sacrificing a mage grants the cultist spell points and raises their arcane skill. You must already be a mage..."
 	cultist_number = 2
 	number_cultist_for_add_limit = 3
 	ritual_limit = 1
-	center_book = ""
-	north_book = ""
+	center_book = "Cultist"
+	north_book = "Mage"
 	center_requirement = /mob/living/carbon/human
 
 	n_req = /mob/living/carbon/human
@@ -849,11 +849,11 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 //	victim.gib()
 
 /datum/ritual/fleshcrafting/nopain
-	name = ""
-	desk = ""
+	name = "Painless Combat"
+	desk = "You stop feeling pain, drawing on your victim's strong faith in Psydon"
 	center_requirement = /mob/living/carbon/human
-	center_book = ""
-	north_book = ""
+	center_book = "Cultist"
+	north_book = "A cleric who believes in Psydon"
 	center_requirement = /mob/living/carbon/human
 
 	n_req = /mob/living/carbon/human
@@ -863,15 +863,15 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	var/mob/living/carbon/human/victim = locate() in get_step(center, NORTH)
 
 	if(victim.has_status_effect(/datum/status_effect/debuff/ritualdefiled/cult))
-		to_chat(target, span_danger(""))
+		to_chat(target, span_danger("Their soul is already defiled..."))
 		return
 	if(victim.patron.type != /datum/patron/old_god)
-		to_chat(target, span_danger(""))
+		to_chat(target, span_danger("I need someone who believes in Psydon..."))
 		return
 	if(victim.patron.type == /datum/patron/old_god)
 		ADD_TRAIT(target, TRAIT_NOPAIN, TRAIT_GENERIC)
-		to_chat(target, span_notice(""))
-		to_chat(victim, span_danger(""))
+		to_chat(target, span_notice("With their lux, I no longer feel pain!"))
+		to_chat(victim, span_danger("Oh no.. My faith made them stronger.. What do I do now.."))
 		target.change_stat(STATKEY_WIL, 1)
 		victim.apply_status_effect(/datum/status_effect/debuff/ritualdefiled/cult)
 		victim.Stun(30)
@@ -879,10 +879,10 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		victim.Sleeping(60)
 
 /datum/ritual/fleshcrafting/immortality
-	name = ""
-	desk = ""
-	center_book = ""
-	north_book = ""
+	name = "Flawed Immortality"
+	desk = "Sacrificing an aasimar grants you many powers, but you'll pay a certain price."
+	center_book = "Cultist"
+	north_book = "Living aasimar"
 	center_requirement = /mob/living/carbon/human
 
 	n_req = /mob/living/carbon/human
@@ -920,11 +920,11 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	target.mind.AddSpell(new /obj/effect/proc_holder/spell/self/zizo_regenerate)
 
 /datum/ritual/fleshcrafting/fleshform
-	name = ""
-	desk = ""
+	name = "Battle Flesh"
+	desk = "Turns the victim into mindless living flesh."
 	cultist_number = 2
 	center_requirement = /mob/living/carbon/human
-	center_book = ""
+	center_book = "Victim"
 
 	n_req = /obj/item/organ/heart
 	is_cultist_ritual = TRUE
@@ -968,10 +968,10 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	victim.gib()
 
 /datum/ritual/fleshcrafting/gutted
-	name = ""
-	desk = ""
+	name = "Disembowelment"
+	desk = "Guts a corpse, removing every organ and severing every limb."
 	center_requirement = /mob/living/carbon/human // One to be gutted.human
-	center_book = ""
+	center_book = "Dead body"
 
 /datum/ritual/fleshcrafting/gutted/invoke(mob/living/user, turf/center)
 	var/mob/living/carbon/human/target = locate() in center.contents
@@ -992,7 +992,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	for(var/obj/item/bodypart/part as anything in target.bodyparts)
 		part.drop_limb()
 	if(target.has_status_effect(/datum/status_effect/debuff/ritualdefiled/cult))
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("They're already gutted"))
 		return
 	new /obj/item/natural/bundle/bone(center)
 	new /obj/item/natural/bundle/bone(center)
@@ -1012,12 +1012,12 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		addomen(OMEN_ROUNDSTART) */
 
 /datum/ritual/fleshcrafting/ascend
-	name = ""
-	desk = ""
+	name = "!ASCENSION!"
+	desk = "FINISH IT. COME ON!! FOR ZIZO!!!"
 	center_requirement = /mob/living/carbon/human // cult leader
 	n_req = /mob/living/carbon/human // the ruler
 	center_book = "Leader"
-	north_book = ""
+	north_book = "Ascension target"
 
 	is_cultist_ritual = TRUE
 
@@ -1235,8 +1235,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	abstract_type = /datum/ritual/weaponary
 
 /datum/ritual/weaponary/zsteel
-	name = ""
-	desk = ""
+	name = "Creation of Steel"
+	desk = "A rite that lets you create steel from simple scraps"
 	center_requirement = /obj/item/scrap
 
 	s_req = /obj/item/scrap
@@ -1252,8 +1252,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	new /obj/item/ingot/steel(center)
 
 /datum/ritual/weaponary/zingot
-	name = ""
-	desk = ""
+	name = "Creation of a Cursed Ingot"
+	desk = "A rite that lets you summon ancient ingots that may prove useful.."
 	center_requirement = /obj/item/ingot/steel
 
 	n_req = /obj/item/natural/bone
@@ -1270,8 +1270,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	new /obj/item/ingot/steel/zizo(center)
 
 /datum/ritual/weaponary/cross
-	name = ""
-	desk = ""
+	name = "Summon Zizo's Amulet"
+	desk = "Summons a special cross of Zizo that both protects you and grants Her favour."
 	center_requirement = /obj/item/clothing/neck/roguetown/psicross
 
 	n_req = /obj/item/natural/bone
@@ -1285,8 +1285,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	to_chat(user, span_notice("The psycross is transmuted into an amulet of Zizo."))
 
 /datum/ritual/weaponary/repaircross
-	name = ""
-	desk = ""
+	name = "Replenish the Amulet"
+	desk = "Replenishes Zizo's amulet, restoring its protection."
 	center_requirement = /obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy/cult
 
 	w_req = /obj/item/natural/bone
@@ -1301,11 +1301,11 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	playsound(get_turf(center), pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 
 	new /obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy/cult(center)
-	to_chat(user, span_notice(""))
+	to_chat(user, span_notice("The cross can protect you again.."))
 
 /datum/ritual/weaponary/zdagger
-	name = ""
-	desk = ""
+	name = "Creation of Zizo's Cursed Dagger"
+	desk = "Summons a dagger of Zizo that can hold poison."
 	center_requirement = /obj/item/rogueweapon/huntingknife/idagger
 
 	n_req = /obj/item/ingot/steel/zizo
@@ -1320,8 +1320,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	new /obj/item/rogueweapon/huntingknife/idagger/steel/zizo(center)
 
 /datum/ritual/weaponary/summonweapon
-	name = ""
-	desk = ""
+	name = "Creation of a Longsword"
+	desk = "Summons a longsword of Zizo."
 	center_requirement = /obj/item/rogueweapon/sword/long
 	
 	e_req = /obj/item/ingot/steel/zizo
@@ -1336,8 +1336,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	playsound(get_turf(center), pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 
 /datum/ritual/weaponary/summonaxe
-	name = ""
-	desk = ""
+	name = "Creation of a Battle Axe"
+	desk = "Summons an especially sharp battle axe."
 	center_requirement = /obj/item/rogueweapon/stoneaxe
 	
 	n_req = /obj/item/ingot/steel/zizo
@@ -1351,8 +1351,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	playsound(get_turf(center), pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 
 /datum/ritual/weaponary/summonegreataxe
-	name = ""
-	desk = ""
+	name = "Creation of a Double-Bladed Greataxe"
+	desk = "Summons an especially sharp two-handed battle axe."
 	center_requirement = /obj/item/rogueweapon/stoneaxe/battle/zizo
 	
 	n_req = /obj/item/ingot/steel/zizo
@@ -1366,8 +1366,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	playsound(get_turf(center), pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 
 /datum/ritual/weaponary/summonasword
-	name = ""
-	desk = ""
+	name = "Creation of a Draining Sword"
+	desk = "Summons a sword that steals life energy."
 	center_requirement = /obj/item/rogueweapon/sword
 	
 	n_req = /obj/item/ingot/steel/zizo
@@ -1381,8 +1381,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	playsound(get_turf(center), pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 
 /datum/ritual/weaponary/summonmace
-	name = ""
-	desk = ""
+	name = "Summon a Mace"
+	desk = "Summons a special mace of Zizo."
 	center_requirement = /obj/item/rogueweapon/mace
 
 	n_req = /obj/item/ingot/steel/zizo
@@ -1398,8 +1398,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	playsound(get_turf(center), pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 
 /datum/ritual/weaponary/summonshield
-	name = ""
-	desk = ""
+	name = "Creation of a Shield"
+	desk = "Summons a longsword of Zizo."
 	center_requirement = /obj/item/rogueweapon/shield/tower
 	
 	e_req = /obj/item/ingot/steel/zizo
@@ -1414,8 +1414,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	playsound(get_turf(center), pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 
 /datum/ritual/weaponary/summonneant
-	name = ""
-	desk = ""
+	name = "Summon a Scythe"
+	desk = "Summons a special scythe of Zizo."
 	center_requirement = /obj/item/rogueweapon/scythe
 
 	w_req = /obj/item/ingot/steel/zizo
@@ -1434,8 +1434,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	playsound(get_turf(center), pick('sound/items/bsmith1.ogg','sound/items/bsmith2.ogg','sound/items/bsmith3.ogg','sound/items/bsmith4.ogg'), 100, FALSE)
 
 /datum/ritual/weaponary/summonoutfit
-	name = ""
-	desk = ""
+	name = "Summon Cult Robes and Rope"
+	desk = "Summons cult gear: a light robe, a hood and rope."
 	center_requirement = /obj/item/natural/cloth
 
 	n_req = /obj/item/natural/hide

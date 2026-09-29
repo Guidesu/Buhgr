@@ -688,8 +688,6 @@
 					hud_used.energy.icon_state = "energy10"
 				else if(energy > 0)
 					hud_used.energy.icon_state = "energy5"
-		if(hud_used.mana)
-			hud_used.mana.update_from_mob(src)
 		if(hud_used.temperature)
 			hud_used.temperature.update_from_mob(src)
 

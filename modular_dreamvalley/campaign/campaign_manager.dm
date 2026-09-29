@@ -280,8 +280,6 @@
 		"clock" = clock_status(),
 		"turfs" = turfs,
 		"objects" = capture_persistent_objects(),
-		"characters" = copy_character_records(),
-		"next_character_number" = next_character_number,
 	)
 
 /datum/dreamvalley_campaign_manager/proc/load_snapshot(list/snapshot)
@@ -332,10 +330,12 @@
 	var/list/objects = snapshot["objects"]
 	if(islist(objects))
 		load_persistent_objects(objects)
-	var/saved_character_number = snapshot["next_character_number"]
-	if(isnum(saved_character_number))
-		next_character_number = max(1, saved_character_number)
-	load_character_records(snapshot["characters"])
+	// Saves from before characters got their own file still carry them.
+	if(!characters_loaded_from_file && islist(snapshot["characters"]))
+		var/saved_character_number = snapshot["next_character_number"]
+		if(isnum(saved_character_number))
+			next_character_number = max(1, saved_character_number)
+		load_character_records(snapshot["characters"])
 	dirty_turfs.Cut()
 	return TRUE
 

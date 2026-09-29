@@ -68,15 +68,15 @@
 /datum/controller/subsystem/familytree/proc/do_ask_monarch_noble_permission(mob/living/carbon/human/monarch)
 	if(!monarch?.client)
 		return
-	var/result = tgui_alert(monarch, "", "", list("", ""))
+	var/result = tgui_alert(monarch, "Can other nobles (knights, councillors and others of noble blood) be part of your family?", "Ducal family", list("Yes", "No"))
 
 	if(!monarch || QDELETED(monarch))
 		return
 
-	if(result == "")
+	if(result == "Yes")
 		allow_nobles_in_ruling_family = TRUE
 		ftlog("NOBLE DYNASTY: [monarch.real_name] allowed nobles in ruling family")
-		to_chat(monarch, span_notice(""))
+		to_chat(monarch, span_notice("Nobles of noble blood can now become part of your family."))
 		if(monarch?.client?.prefs)
 			current_royal_partner_owner = null
 			current_royal_partner_snapshot = list()
@@ -132,7 +132,7 @@
 
 	ftlog("NOBLE DYNASTY: [H.real_name] added to ruling family")
 	familytree_admin_log_house_assignment(H, ruling_family, "joined ruling family through noble dynasty", monarch)
-	to_chat(H, span_love(""))
+	to_chat(H, span_love("You have been welcomed into the ducal family!"))
 	stop_tracking_human(H, "assigned to ruling family as noble")
 
 /datum/controller/subsystem/familytree/proc/notify_family_head_departure(mob/living/carbon/human/departed)
@@ -153,9 +153,9 @@
 
 	var/relation = head.family_member_datum?.GetRelationshipTo(departed_member)
 	if(!relation)
-		relation = ""
+		relation = "relative"
 
-	to_chat(head, span_warning(""))
+	to_chat(head, span_warning("Your [relation] [departed.real_name] has left these lands. You feel uneasy."))
 	ftlog("NOTIFY: [head.real_name] notified about [departed.real_name] departure ([relation])")
 
 /datum/controller/subsystem/familytree/proc/offer_setspouse_reset(mob/living/carbon/human/H, status)
@@ -164,7 +164,7 @@
 	var/offered_target = familytree_get_target_name(H)
 	if(!offered_target || !length(offered_target))
 		return
-	var/result = tgui_alert(H, "", "", list("", ""), 60 SECONDS)
+	var/result = tgui_alert(H, "You've been waiting [DisplayTimeText(FAMILYTREE_SETSPOUSE_TIMEOUT)] for your favourite '[offered_target]', but they weren't found.\n\nDo you want to drop the name preference and look for a match with your current settings?", "Family system", list("Yes, drop it", "No, keep waiting"), 60 SECONDS)
 
 	if(!H || QDELETED(H))
 		return
@@ -180,7 +180,7 @@
 			addtimer(CALLBACK(src, PROC_REF(run_local_assignment), H, H.familytree_pref), 1 SECONDS)
 		return
 
-	if(result == "")
+	if(result == "Yes, drop it")
 		ftlog("SETSPOUSE RESET: [H.real_name] cleared setspouse '[offered_target]'")
 		H.setspouse = ""
 		var/datum/familytree_prefs/round_prefs = familytree_get_round_prefs(H, FALSE)
@@ -296,9 +296,9 @@
 		SSfamilytree.pause_familytree_human(idler, "disconnected during confirmation")
 		return
 	if(other && SSfamilytree.familytree_record_timeout_block(idler, other))
-		to_chat(idler, span_warning(""))
+		to_chat(idler, span_warning("You didn't answer the offer and it expired. This match will be set aside for a few tries, but the system will keep looking."))
 	else
-		to_chat(idler, span_warning(""))
+		to_chat(idler, span_warning("You didn't answer the offer and it expired. The system will keep looking."))
 	SSfamilytree.try_queue_assignment(idler)
 
 /datum/family_confirm_session/proc/force_timeout()
@@ -315,7 +315,7 @@
 		return
 	SSfamilytree.ftlog("MUTUAL CONFIRM: [person.real_name] cancelled (other side refused) type=[confirm_type]")
 	if(person.client)
-		to_chat(person, span_warning(""))
+		to_chat(person, span_warning("The other side declined to join the family. Your request is cancelled. The system will try to find you a new match."))
 	if(person.familytree_assignment_scheduled)
 		return
 	if(!person.familytree_opted_out && !person.family_datum && !person.spouse_mob && familytree_pref_enabled(person.familytree_pref))
@@ -355,27 +355,27 @@
 /datum/controller/subsystem/familytree/proc/familytree_confirmation_found_text(confirm_type, mob/living/carbon/human/person, mob/living/carbon/human/partner = null, mutual = FALSE, relation_text = null)
 	var/base_text
 	if(confirm_type == "targeted_spouse" && partner)
-		base_text = ""
+		base_text = "Your fate has crossed with [partner.real_name]!"
 	else if(confirm_type == "spouse" || confirm_type == "targeted_spouse")
-		base_text = ""
+		base_text = "A match has been found for you!"
 	else if(confirm_type == "sibling_house")
-		base_text = mutual ? "" : ""
+		base_text = mutual ? "You're being offered the chance to found a house of siblings!" : "You're being offered the chance to found a house of siblings!"
 	else if(confirm_type == "family")
-		base_text = mutual ? "" : ""
+		base_text = mutual ? "The system found a family bond for you!" : "The system found a family for you!"
 	else if(confirm_type == "house")
-		base_text = ""
+		base_text = "The system found a family for you!"
 	else
-		base_text = ""
+		base_text = "The system found a family for you!"
 	if(relation_text)
-		base_text += ""
+		base_text += "\nYour role: [relation_text]"
 	if(person?.know_your_fate && partner)
 		base_text += familytree_format_fate_reveal(partner)
 	return base_text
 
 /datum/controller/subsystem/familytree/proc/familytree_confirmation_prompt_body(found_text, mob/living/carbon/human/person, mob/living/carbon/human/partner)
 	if(person?.know_your_fate && partner)
-		return ""
-	return ""
+		return "[found_text]\n\nDo you want to continue?\n\nIf you don't choose, it counts as declining.\nIf you decline, you won't be matched with this character again this round."
+	return "[found_text]\n\nDo you want to continue?\n\nIf you don't choose, it counts as declining.\nIf you decline, you lose the chance to find a family this round."
 
 /datum/controller/subsystem/familytree/proc/familytree_record_blocked_pair(mob/living/carbon/human/refuser, mob/living/carbon/human/other)
 	if(!refuser || !other || !other.ckey)
@@ -426,14 +426,14 @@
 		return
 
 	var/found_text = familytree_confirmation_found_text(confirm_type, H, context_person, FALSE, relation_text)
-	var/result = tgui_alert(H, familytree_confirmation_prompt_body(found_text, H, context_person), "", list("", ""), 60 SECONDS)
+	var/result = tgui_alert(H, familytree_confirmation_prompt_body(found_text, H, context_person), "Family system", list("Yes", "No"), 60 SECONDS)
 
 	if(!H || QDELETED(H))
 		return
 
 	H.familytree_confirmation_pending = FALSE
 
-	if(result == "")
+	if(result == "Yes")
 		ftlog("CONFIRM ACCEPT: [H.real_name] type=[confirm_type]")
 		on_accept.Invoke()
 	else
@@ -545,15 +545,15 @@
 	if(!person.client)
 		return
 
-	var/result = tgui_alert(person, body, "", list("", ""), 60 SECONDS)
+	var/result = tgui_alert(person, body, "Family system", list("Yes", "No"), 60 SECONDS)
 
 	if(!person || QDELETED(person))
 		return
 	if(QDELETED(session) || session.resolved)
-		to_chat(person, span_warning(""))
+		to_chat(person, span_warning("This offer is no longer valid."))
 		return
 
-	var/accepted = (result == "")
+	var/accepted = (result == "Yes")
 	if(is_person_a)
 		session.result_a = accepted ? CONFIRM_ACCEPTED : CONFIRM_REJECTED
 	else

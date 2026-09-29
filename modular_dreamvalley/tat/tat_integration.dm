@@ -19,7 +19,7 @@
 	build.ui_interact(user)
 
 /proc/dreamvalley_tat_character_sheet_link()
-	return "<a href='?_src_=prefs;preference=dreamvalley_tat;task=input'><b>Open Character Sheet</b></a>"
+	return "<a href='?_src_=prefs;preference=dreamvalley_tat;task=input'><b>Open Character Creation</b></a>"
 
 /proc/dreamvalley_tat_rank_for_bucket(bucket)
 	for(var/rank in list("Adventurer"))
@@ -55,7 +55,7 @@
 	var/rank = dreamvalley_tat_rank_for_bucket(build.get_role_bucket())
 	var/datum/job/job = SSjob?.GetJob(rank)
 	if(!rank || !job)
-		to_chat(player, span_warning("That TAT direction does not have a spawn role yet."))
+		to_chat(player, span_warning("That direction does not have a spawn role yet."))
 		return FALSE
 
 	build.save_current_to_active_slot()
@@ -100,18 +100,22 @@
 	preferences.dreamvalley_tat_join_pending = FALSE
 	var/datum/tat_build/build = preferences.dreamvalley_get_tat_build()
 	if(!build?.can_save())
-		to_chat(human, span_warning("Your saved TAT build is no longer valid. Choose a class to finish joining."))
+		to_chat(human, span_warning("Your saved character build is no longer valid. Choose a class to finish joining."))
 		return FALSE
 
 	var/class_path = build.get_tat_role_class_path(build.get_role_bucket())
 	var/datum/advclass/tat_class/class = dreamvalley_get_tat_class(class_path)
 	if(!class || !class.check_requirements(human))
-		to_chat(human, span_warning("That TAT role cannot be applied. Choose a class to finish joining."))
+		to_chat(human, span_warning("That role cannot be applied. Choose a class to finish joining."))
 		return FALSE
 
 	if(human.mind)
 		human.mind.picked_advclass = class
 	class.equipme(human)
+	// Show the title the player picked (bank, examine, records) instead of "Free Soul".
+	var/chosen_title = build.get_magic_value("free_soul_selected_role_title")
+	if(istext(chosen_title) && length(chosen_title))
+		human.advjob = chosen_title
 	human.invisibility = 0
 	var/atom/movable/screen/advsetup/setup_button = locate() in human.hud_used?.static_inventory
 	qdel(setup_button)

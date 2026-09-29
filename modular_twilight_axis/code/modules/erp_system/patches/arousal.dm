@@ -631,7 +631,7 @@
 	var/sp = satisfaction_points
 
 	if(is_lovefiend() && sp <= 1)
-		return ""
+		return "weak"
 
 	if(is_lovefiend())
 		sp -= 1
@@ -639,17 +639,17 @@
 	var/t = clamp(round(sp), 0, ERP_SP_MAX)
 
 	switch(t)
-		if(0) 	return ""   
-		if(1) 	return ""
-		if(2)   return ""
-		if(3)   return ""
-		if(4)   return ""
-		if(5)   return ""
-		if(6)   return ""
+		if(0) 	return "empty"   
+		if(1) 	return "fine"
+		if(2)   return "good"
+		if(3)   return "very good"
+		if(4)   return "wonderful"
+		if(5)   return "bliss"
+		if(6)   return "overwhelmed"
 
-	return ""
+	return "fine"
 
-/datum/component/arousal/proc/get_arousal(datum/source, list/arousal_data)
+/datum/component/arousal/get_arousal(datum/source, list/arousal_data)
 	var/cost = get_charge_cost_for_climax()
 	var/overload_active = (overload_points > 0) ? TRUE : FALSE
 

@@ -1,6 +1,6 @@
 /obj/item/quiver/twilight_bullet
 	name = "ammo bag"
-	desc = ""
+	desc = "A small pouch for holding bullets for firearms."
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'
 	icon_state = "pouch1"
 	item_state = "pouch1"
@@ -96,7 +96,7 @@
 
 /obj/item/quiver/twilight_bullet/cannonball
 	name = "cannonball bag"
-	desc = ""
+	desc = "A small pouch for holding cannonballs and grapeshot."
 	icon_state = "cpouch1"
 	item_state = "cpouch1"
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_CLOAK|ITEM_SLOT_BELT
@@ -135,7 +135,7 @@
 
 /obj/item/quiver/twilight_bullet/runicbag
 	name = "pharetra"
-	desc = ""
+	desc = "A leather pouch made to hold runic bullets. The rune on the clasp binds to the rounds inside and, when activated, returns spent runic bullets to the pouch to be used again."
 	icon_state = "runebag"
 	item_state = "runebag"
 	max_storage = 6
@@ -205,7 +205,7 @@
 
 /obj/item/quiver/twilight_bullet/paper
 	name = "cartridge bag"
-	desc = ""
+	desc = "A belt pouch for paper cartridges. Its easy-opening flap and wide mouth make it handy for reloading one-handed."
 	icon_state = "merc_pouch1"
 	item_state = "merc_pouch1"
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_CLOAK|ITEM_SLOT_BELT

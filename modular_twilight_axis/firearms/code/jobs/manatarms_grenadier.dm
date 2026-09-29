@@ -48,14 +48,14 @@
 	H.adjust_blindness(-3)
 
 	if(H.mind)
-		var/weapons = list("","")
-		var/weapon_choice = input(H, "", "") as anything in weapons
+		var/weapons = list("Arquebus with bayonet","Culverin and grapeshot")
+		var/weapon_choice = input(H, "Choose your weapon.", "TO ARMS") as anything in weapons
 		H.set_blindness(0)
 		switch(weapon_choice)
-			if("")
+			if("Arquebus with bayonet")
 				beltr = /obj/item/quiver/twilight_bullet/lead
 				backl = /obj/item/gun/ballistic/twilight_firearm/arquebus/bayonet
-			if("")
+			if("Culverin and grapeshot")
 				beltr = /obj/item/quiver/twilight_bullet/cannonball/grapeshot
 				backl = /obj/item/gun/ballistic/twilight_firearm/handgonne
 				backpack_contents += list(/obj/item/natural/bundle/fibers/full = 1)

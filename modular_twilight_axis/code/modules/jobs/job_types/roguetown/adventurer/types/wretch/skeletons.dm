@@ -1,6 +1,6 @@
 /obj/item/clothing/head/roguetown/duelhat/pretzel/skelet
 	name = "old rebel's hat"
-	desc = ""
+	desc = "An old feathered hat, chewed by time, just right for some rebel against this society who has nothing left behind them but a pile of bones."
 	max_integrity = 100
 	armor = ARMOR_LEATHER
 	body_parts_covered = HEAD|HAIR|EARS

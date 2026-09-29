@@ -62,7 +62,7 @@ GLOBAL_LIST_INIT(our_forest_sex, typecacheof(list(
 //Mobs
 #define isliving(A) (istype(A, /mob/living))
 
-#define issimple(A) (istype(A, /mob/living/carbon/simple_animal))
+#define issimple(A) (istype(A, /mob/living/simple_animal))
 
 #define isbrain(A) (istype(A, /mob/living/brain))
 
@@ -107,7 +107,7 @@ GLOBAL_LIST_INIT(our_forest_sex, typecacheof(list(
 #define isfamiliar(A) (istype(A, /mob/living/carbon/human/species/familiar))
 
 //Simple animals
-#define isanimal(A) (istype(A, /mob/living/carbon/simple_animal))
+#define isanimal(A) (istype(A, /mob/living/simple_animal))
 
 #define isrevenant(A) (istype(A, /mob/living/simple_animal/revenant))
 

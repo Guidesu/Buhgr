@@ -22,3 +22,4 @@
 #include "..\..\modular_twilight_axis\code\modules\jobs\job_types\roguetown\tat_build\tat_class.dm"
 #include "tat_integration.dm"
 #include "alt_form_trait.dm"
+#include "tat_quirks.dm"

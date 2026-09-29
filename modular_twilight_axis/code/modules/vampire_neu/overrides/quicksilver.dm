@@ -21,7 +21,7 @@
 
 /obj/item/quicksilver/TA/anoint(mob/living/carbon/human/M, mob/living/carbon/human/user)
 	if(ta_find_active_demonic_lord())
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("The silver goes dead in my hands. The bloody darkness won't let it heal."))
 		return
 
 	. = ..()

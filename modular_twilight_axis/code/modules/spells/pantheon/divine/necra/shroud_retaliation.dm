@@ -24,8 +24,8 @@
 	undead_source.adjust_fire_stacks(TRANQUILITY_SHROUD_RETALIATION_FIRE_STACKS, /datum/status_effect/fire_handler/fire_stacks/divine)
 	undead_source.ignite_mob()
 	if(owner && !QDELETED(owner))
-		to_chat(owner, span_notice(""))
-		owner.visible_message(span_warning(""))
+		to_chat(owner, span_notice("Necra's ward flares white, stunning and igniting the undead that attacked."))
+		owner.visible_message(span_warning("The pale ward around [owner] bursts into white flame, engulfing [undead_source]!"))
 	return TRUE
 
 #undef TRANQUILITY_SHROUD_DURATION

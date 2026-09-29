@@ -5,17 +5,17 @@
 	gendered = TRUE
 
 /datum/body_marking/aura/z
-	name = ""
+	name = "Peace"
 	icon_state = "z"
 
 /datum/body_marking/aura/x
-	name = ""
+	name = "Word"
 	icon_state = "x"
 
 /datum/body_marking/aura/c
-	name = ""
+	name = "Strength"
 	icon_state = "c"
 
 /datum/body_marking/aura/v
-	name = ""
+	name = "Balance"
 	icon_state = "v"

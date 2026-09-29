@@ -191,7 +191,6 @@
 // Craft/Skills/Sneak/Dodge, nowhere near the heart. Moved both indicators to rows
 // ABOVE the heart in the same WEST-5 column instead, which is confirmed-clear space
 // (nothing else uses WEST-5 above CENTER+2).
-#define rogueui_mana "WEST-5,CENTER+3"
 #define rogueui_temperature "WEST-5,CENTER+4"
 #define rogueui_feint  "WEST-1:-6,SOUTH+10:15"
 

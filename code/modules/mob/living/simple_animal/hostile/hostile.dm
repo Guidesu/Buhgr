@@ -509,7 +509,7 @@
 		playsound(src, projectilesound, 100, TRUE)
 		apply_ranged_accuracy(casing.BB)
 		var/atom/aim_at = locked_turf ? get_ranged_lead_turf(targeted_atom, locked_turf, casing.BB?.speed) : targeted_atom
-		casing.fire_casing(aim_at || targeted_atom, src, null, null, null, ran_zone(), 0,  src)
+		casing.fire_casing(aim_at || targeted_atom, src, null, null, null, ran_zone(), 0,	src)
 	else if(projectiletype)
 		var/obj/projectile/P = new projectiletype(startloc)
 		playsound(src, projectilesound, 100, TRUE)

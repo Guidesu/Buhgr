@@ -374,7 +374,7 @@
 		return
 	var/datum/tat_build/build = client.prefs.dreamvalley_get_tat_build()
 	if(!build)
-		to_chat(src, span_warning("No TAT build loaded."))
+		to_chat(src, span_warning("No character build loaded."))
 		return
 	if(!build.traits?.has_trait(TAT_TRAIT_ALT_FORM))
 		to_chat(src, span_warning("You do not have the Alternate Form trait."))

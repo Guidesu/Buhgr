@@ -2,8 +2,8 @@
 #define TA_RIFT_PORTAL_DURATION 3000
 
 /obj/item/clothing/neck/portalamulet/TA
-	name = ""
-	desc = ""
+	name = "Blood Rift Amulet"
+	desc = "A wearable rift anchor, forged in a crimson crucible."
 	uses = 3
 
 /obj/structure/vampire/portalmaker/attack_hand(mob/living/user)
@@ -22,7 +22,7 @@
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "VampireRiftGate", "")
+		ui = new(user, src, "VampireRiftGate", "Rift Gate")
 		ui.open()
 
 /obj/structure/vampire/portalmaker/ui_data(mob/user)
@@ -63,7 +63,7 @@
 
 	var/obj/item/clothing/neck/portalamulet/amulet = locate(params["amulet_ref"])
 	if(!istype(amulet) || !(amulet in GLOB.vampire_objects) || amulet.uses <= 0)
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("The rift can't find this amulet."))
 		return TRUE
 
 	switch(action)
@@ -80,7 +80,7 @@
 		return FALSE
 	if(!user.mind?.has_antag_datum(/datum/antagonist/vampire))
 		if(feedback)
-			to_chat(user, span_warning(""))
+			to_chat(user, span_warning("Only a vampire can wake the Rift Gate."))
 		return FALSE
 	return TRUE
 
@@ -88,30 +88,30 @@
 	if(!TA_can_use_rift(user, TRUE))
 		return
 	if(QDELETED(amulet) || !istype(amulet) || amulet.uses <= 0)
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("The rift can't find this amulet."))
 		return
 	if(sending_portal && sending)
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("A departing portal is already active."))
 		return
 	if(!user.has_bloodpool_cost(TA_RIFT_PORTAL_VITAE_COST))
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("This costs [TA_RIFT_PORTAL_VITAE_COST] vitae. I don't have enough."))
 		return
 
 	var/turf/amulet_turf = get_turf(amulet)
 	if(!amulet_turf)
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("The amulet has no stable anchor."))
 		return
 
-	user.visible_message("", "")
+	user.visible_message("[user] begins summoning a portal.", "I begin summoning a portal.")
 	if(!do_after(user, 3 SECONDS, src))
 		return
 	if(QDELETED(src) || QDELETED(amulet) || get_dist(user, src) > 1 || !TA_can_use_rift(user, TRUE))
 		return
 	if(sending_portal && sending)
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("A departing portal is already active."))
 		return
 	if(!user.has_bloodpool_cost(TA_RIFT_PORTAL_VITAE_COST))
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("This costs [TA_RIFT_PORTAL_VITAE_COST] vitae. I don't have enough."))
 		return
 
 	user.adjust_bloodpool(-TA_RIFT_PORTAL_VITAE_COST)
@@ -124,7 +124,7 @@
 
 	user.playsound_local(get_turf(src), 'sound/misc/portalactivate.ogg', 100, FALSE, pressure_affected = FALSE)
 	if(amulet.uses <= 0)
-		amulet.visible_message("")
+		amulet.visible_message("[amulet] crumbles!")
 		qdel(amulet)
 	SStgui.update_uis(src)
 
@@ -135,7 +135,7 @@
 	var/obj/structure/vampire/portal/portal = new(destination)
 	portal.duration = TA_RIFT_PORTAL_DURATION
 	portal.spawntime = world.time
-	portal.visible_message(span_boldnotice(""))
+	portal.visible_message(span_boldnotice("There's a sickening crack, and a sinister portal opens in the air."))
 
 /obj/structure/vampire/portal/proc/TA_can_transport(atom/movable/AM)
 	var/mob/living/living_target = AM

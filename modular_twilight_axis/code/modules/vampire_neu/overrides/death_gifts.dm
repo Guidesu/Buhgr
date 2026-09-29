@@ -148,27 +148,27 @@
 
 	var/list/available_gifts = list()
 	if(!has_status_effect(/datum/status_effect/buff/ta_death_gift_darksight))
-		available_gifts += ""
+		available_gifts += "Gift of Dark Sight"
 	if(!has_status_effect(/datum/status_effect/buff/ta_death_gift_power))
-		available_gifts += ""
+		available_gifts += "Gift of Strength"
 	if(!has_status_effect(/datum/status_effect/buff/ta_death_gift_berserk))
-		available_gifts += ""
+		available_gifts += "Gift of the Berserker"
 
 	if(!length(available_gifts))
 		return FALSE
 
 	var/static/list/death_gift_descriptions = list(
-		"" = "",
-		"" = "",
-		"" = "",
+		"Gift of Dark Sight" = "Sharpens your sight in the dark almost to that of the undead.",
+		"Gift of Strength" = "+1 to all stats, plus at random +1 strength, +1 speed or +2 intelligence.",
+		"Gift of the Berserker" = "Grievous wounds can strip away the last of your will and unleash a dark fury. Your body will rise through pain and broken bones, your mind will drown in hunger, and the nearest living will become prey. Exhausting sleep follows.",
 	)
 
 	var/use_byond_alert = stat != CONSCIOUS || InCritical()
 	var/list/options = available_gifts.Copy()
 	var/choice = ta_tgui_tooltip_alert(
 		src,
-		"",
-		"",
+		"A dark creature drained your soul and body, but your will let you overcome its curse.\n\nChoose the dark gift you will steal.",
+		"GIFT OF DEATH",
 		options,
 		2 MINUTES,
 		strict_byond = use_byond_alert,
@@ -190,23 +190,23 @@
 
 /mob/living/carbon/human/proc/ta_apply_death_gift(choice, mob/living/carbon/human/sire)
 	switch(choice)
-		if("")
+		if("Gift of Dark Sight")
 			if(has_status_effect(/datum/status_effect/buff/ta_death_gift_darksight))
 				return FALSE
 			apply_status_effect(/datum/status_effect/buff/ta_death_gift_darksight)
-			to_chat(src, span_notice(""))
+			to_chat(src, span_notice("My eyes open to the night. Darkness no longer hides the world from me."))
 			return TRUE
-		if("")
+		if("Gift of Strength")
 			if(has_status_effect(/datum/status_effect/buff/ta_death_gift_power))
 				return FALSE
 			apply_status_effect(/datum/status_effect/buff/ta_death_gift_power)
-			to_chat(src, span_notice(""))
+			to_chat(src, span_notice("Dark power fills my body and mind."))
 			return TRUE
-		if("")
+		if("Gift of the Berserker")
 			if(has_status_effect(/datum/status_effect/buff/ta_death_gift_berserk))
 				return FALSE
 			apply_status_effect(/datum/status_effect/buff/ta_death_gift_berserk)
-			to_chat(src, span_notice(""))
+			to_chat(src, span_notice("Deep in my blood a fury wakes, ready to raise me to my feet in the hour of death."))
 			return TRUE
 	return FALSE
 
@@ -237,8 +237,8 @@
 		source.lighting_alpha = min(source.lighting_alpha, undead_lighting_alpha, TA_DEATH_GIFT_DARKSIGHT_LIGHTING_ALPHA)
 
 /atom/movable/screen/alert/status_effect/buff/ta_death_gift_darksight
-	name = ""
-	desc = ""
+	name = "Gift of Dark Sight"
+	desc = "My eyes see perfectly in the dark, like the creatures of the night."
 	icon_state = "buff"
 
 /datum/status_effect/buff/ta_death_gift_power
@@ -274,15 +274,15 @@
 		return
 	switch(extra_stat)
 		if(STATKEY_STR)
-			to_chat(owner, span_notice(""))
+			to_chat(owner, span_notice("The dark gift answers most strongly in my muscles."))
 		if(STATKEY_SPD)
-			to_chat(owner, span_notice(""))
+			to_chat(owner, span_notice("The dark gift answers most strongly in my speed."))
 		if(STATKEY_INT)
-			to_chat(owner, span_notice(""))
+			to_chat(owner, span_notice("The dark gift answers most strongly as clarity of mind."))
 
 /atom/movable/screen/alert/status_effect/buff/ta_death_gift_power
-	name = ""
-	desc = ""
+	name = "Gift of Strength"
+	desc = "Dark power strengthens my body and mind."
 	icon_state = "buff"
 
 /datum/status_effect/buff/ta_death_gift_berserk
@@ -304,8 +304,8 @@
 	return ..()
 
 /atom/movable/screen/alert/status_effect/buff/ta_death_gift_berserk
-	name = ""
-	desc = ""
+	name = "Gift of the Berserker"
+	desc = "Grievous wounds may wake a great fury in me."
 	icon_state = "buff"
 
 /datum/status_effect/debuff/ta_death_gift_tired
@@ -316,7 +316,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/ta_death_gift_tired
 	name = "Tired"
-	desc = ""
+	desc = "The dark fury has drained me. I'm falling over with exhaustion."
 	icon_state = "sleepy"
 
 /datum/component/ta_death_gift_berserk
@@ -418,7 +418,7 @@
 	owner.clear_frenzy_cache()
 	drive_berserk(owner)
 	schedule_berserk_loop(owner)
-	owner.visible_message(span_userdanger(""), span_userdanger(""))
+	owner.visible_message(span_userdanger("[owner] rises in a bloody fury!"), span_userdanger("A dark fury clouds my mind. I AM READY TO DESTROY THIS WORLD."))
 
 /datum/component/ta_death_gift_berserk/proc/end_berserk(mob/living/carbon/human/owner, broken_by_silver = FALSE)
 	if(!active && !ending)
@@ -438,9 +438,9 @@
 	owner.Sleeping(TA_DEATH_GIFT_BERSERK_SLEEP_DURATION, ignore_canstun = TRUE)
 	owner.clear_frenzy_cache()
 	if(broken_by_silver)
-		owner.visible_message(span_warning(""), span_userdanger(""))
+		owner.visible_message(span_warning("Silver quenches [owner]'s dark fury."), span_userdanger("Silver burns through my fury and throws me back into weakness."))
 	else
-		owner.visible_message(span_warning(""), span_warning(""))
+		owner.visible_message(span_warning("[owner] shudders and falls after the burst of dark fury."), span_warning("The dark fury lets go of me, leaving exhaustion behind."))
 
 /datum/component/ta_death_gift_berserk/proc/set_berserk_traits(mob/living/carbon/human/owner, enabled)
 	var/static/list/berserk_traits = list(
@@ -520,7 +520,7 @@
 
 	if(broke_free)
 		playsound(owner, 'sound/misc/chain_snap.ogg', 100, FALSE, 10)
-		owner.visible_message(span_danger(""), span_userdanger(""))
+		owner.visible_message(span_danger("[owner] tears furiously at their bonds!"), span_userdanger("Fury snaps the shackles like rotten twine."))
 
 /datum/component/ta_death_gift_berserk/proc/keep_berserk_upright(mob/living/carbon/human/owner)
 	break_restraints(owner)
@@ -704,7 +704,7 @@
 		rising = FALSE
 		return
 
-	owner.visible_message(span_userdanger(""), span_userdanger(""))
+	owner.visible_message(span_userdanger("[owner]'s wounds knit together with a wet crunch, and the dead body rises to its feet!"), span_userdanger("Death won't hold my fury. THE FLESH KNITS, AND I RISE."))
 	if(!active && !starting)
 		start_berserk(owner)
 	rising = FALSE
@@ -721,7 +721,7 @@
 		return
 	silver_hits_taken++
 	if(silver_hits_taken < silver_hits_to_break)
-		to_chat(owner, span_userdanger(""))
+		to_chat(owner, span_userdanger("Silver bites into the dark fury. A little more and it will put it out."))
 		return
 	ending = TRUE
 	INVOKE_ASYNC(src, PROC_REF(end_berserk), owner, TRUE)
@@ -763,7 +763,7 @@
 	var/bite_attack = !(berserk_attack_count % TA_DEATH_GIFT_BERSERK_BITE_INTERVAL)
 	var/selected_zone = pick_berserk_zone(target, bite_attack)
 	if(!prob(TA_DEATH_GIFT_BERSERK_HIT_CHANCE))
-		owner.visible_message(span_danger(""), span_warning(""))
+		owner.visible_message(span_danger("[owner] lunges at [target], but misses!"), span_warning("My fury carries me past the target."))
 		return
 	if(bite_attack)
 		handle_berserk_bite(owner, target, selected_zone)
@@ -809,12 +809,12 @@
 		carbon_target.next_attack_msg.Cut()
 		carbon_target.apply_damage(TA_DEATH_GIFT_BERSERK_PUNCH_DAMAGE, BRUTE, zone, forced = TRUE)
 		affecting.bodypart_attacked_by(BCLASS_BITE, TA_DEATH_GIFT_BERSERK_PUNCH_DAMAGE, owner, selected_zone, crit_message = TRUE, armor = 0)
-		carbon_target.visible_message(span_danger(""), span_userdanger(""), span_hear(""), COMBAT_MESSAGE_RANGE, owner)
+		carbon_target.visible_message(span_danger("[owner] sinks their teeth into [carbon_target]'s [parse_zone(selected_zone)]![carbon_target.next_attack_msg.Join()]"), span_userdanger("[owner] sinks their teeth into my [parse_zone(selected_zone)]![carbon_target.next_attack_msg.Join()]"), span_hear("There's a wet, tearing sound of chewing!"), COMBAT_MESSAGE_RANGE, owner)
 		carbon_target.next_attack_msg.Cut()
 	else
 		target.apply_damage(TA_DEATH_GIFT_BERSERK_PUNCH_DAMAGE, BRUTE, zone, forced = TRUE)
 		target.simple_woundcritroll(BCLASS_BITE, TA_DEATH_GIFT_BERSERK_PUNCH_DAMAGE, owner, zone, crit_message = TRUE)
-		target.visible_message(span_danger(""), span_userdanger(""), span_hear(""), COMBAT_MESSAGE_RANGE, owner)
+		target.visible_message(span_danger("[owner] sinks their teeth into [target]!"), span_userdanger("[owner] sinks their teeth into me!"), span_hear("There's a wet, tearing sound of chewing!"), COMBAT_MESSAGE_RANGE, owner)
 
 	playsound(target, 'sound/gore/flesh_eat_01.ogg', vol = 50, vary = FALSE, extrarange = -2, ignore_walls = FALSE, quiet = TRUE)
 	owner.frenzy_target = find_berserk_target(owner, target)
@@ -824,7 +824,7 @@
 	if(gibbing || !istype(owner) || QDELETED(owner))
 		return
 	gibbing = TRUE
-	owner.visible_message(span_userdanger(""))
+	owner.visible_message(span_userdanger("[owner] bursts into bloody shreds as the dark fury devours their body!"))
 	owner.gib(FALSE, FALSE, FALSE)
 
 #undef TA_DEATH_GIFT_DARKSIGHT_SEE_IN_DARK

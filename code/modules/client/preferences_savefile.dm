@@ -441,6 +441,14 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	else
 		virtuetwo = new /datum/virtue/none
 
+	// DreamValley: virtues are picked in Character Creation, so old menu picks are dropped.
+	QDEL_NULL(virtue)
+	QDEL_NULL(virtuetwo)
+	virtue = new /datum/virtue/none
+	virtuetwo = new /datum/virtue/none
+	virtue_choices = null
+	virtuetwo_choices = null
+
 	if(length(virtue_choices))
 		var/error_found = FALSE
 		for(var/choice in virtue_choices)
@@ -514,6 +522,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if(ispath(quirkgreater_type, /datum/quirk))
 		QDEL_NULL(quirkgreater)
 		quirkgreater = new quirkgreater_type
+
+	dreamvalley_load_extra_quirks(S)
 
 /datum/preferences/proc/_load_gear_list(savefile/S)
 	S["gear_list"] >> gear_list
@@ -992,6 +1002,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["virtue_origin"], virtue_origin.type)
 	WRITE_FILE(S["quirklesser"] , quirklesser.type)
 	WRITE_FILE(S["quirkgreater"] , quirkgreater.type)
+	dreamvalley_save_extra_quirks(S)
 	WRITE_FILE(S["race_bonus"], race_bonus)
 	WRITE_FILE(S["combat_music"], combat_music.type)
 	WRITE_FILE(S["body_size"] , features["body_size"])

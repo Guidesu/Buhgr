@@ -4,7 +4,7 @@
 /datum/species/aura
 	name = "Au Ra"
 	id = "aura"
-	desc_title = ""
+	desc_title = "Au Ra"
 	desc = "          ,     . \
 	  ,             .    \
 	  ,    ,    ,   ,    , \
@@ -118,6 +118,6 @@
 
 /datum/species/aura/get_skin_list()
 	return list(
-		"" = SKIN_COLOR_GRENZELHOFT,
-		"" = SKIN_COLOR_TAFRAVMA,
+		"Azri" = SKIN_COLOR_GRENZELHOFT,
+		"Naiire" = SKIN_COLOR_TAFRAVMA,
 	)

@@ -777,14 +777,14 @@
 
 		if(TEMP_STATE_VERY_COLD)
 			examination += span_danger("<B>[m1] extremely cold!</B>")
-			examination += span_biginfo("- Severe shivering")
-			examination += span_biginfo("- Movement speed reduced")
-			examination += span_biginfo("- Constitution reduced")
-			examination += span_danger("- Risk of frostbite after prolonged exposure")
+			examination += span_biginfo("- Severe shivering, and hunger grows much faster")
+			examination += span_biginfo("- Movement is slowed")
+			examination += span_danger("- Hypothermia sets in after about two minutes")
+			examination += span_danger("- Frostbite if it gets any colder")
 
 		if(TEMP_STATE_COLD)
 			examination += span_danger("[m1] cold.")
-			examination += span_biginfo("- Hunger increases faster")
+			examination += span_biginfo("- Hunger grows faster")
 			examination += span_biginfo("- Occasional shivering")
 
 		if(TEMP_STATE_NORMAL)
@@ -792,14 +792,14 @@
 
 		if(TEMP_STATE_HOT)
 			examination += span_danger("[m1] hot.")
-			examination += span_biginfo("- Thirst increases faster")
+			examination += span_biginfo("- Thirst grows faster")
 			examination += span_biginfo("- Occasional sweating")
 
 		if(TEMP_STATE_VERY_HOT)
 			examination += span_danger("<B>[m1] extremely hot!</B>")
-			examination += span_biginfo("- Actions take more stamina")
-			examination += span_biginfo("- Stamina recovery takes twice as long")
-			examination += span_danger("- Risk of heatstroke after prolonged exposure")
+			examination += span_biginfo("- Thirst grows much faster, and energy drains away")
+			examination += span_danger("- Heat exhaustion sets in after about two minutes")
+			examination += span_danger("- Burns if it gets any hotter")
 
 	var/turf/open/floor/F = loc
 	if(isfloorturf(F) && F.heat)

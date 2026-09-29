@@ -46,13 +46,13 @@
 		embed.colour = colour
 		embed.footer = create_discord_embed_footer()
 		var/datum/tgs_chat_embed/field/field_player_ckey = new(
-			"", "`[player_ckey]`"
+			"Player", "`[player_ckey]`"
 		)
 		var/datum/tgs_chat_embed/field/field_admin_ckey = new(
-			"", "`[admin_ckey]`"
+			"Administrator", "`[admin_ckey]`"
 		)
 		var/datum/tgs_chat_embed/field/field_reason = new(
-			"", "[copytext_char(reason, 1)]"
+			"Reason", "[copytext_char(reason, 1)]"
 		)
 		field_player_ckey.is_inline = TRUE
 		field_admin_ckey.is_inline = TRUE
@@ -98,9 +98,9 @@
 		return
 
 	var/severity_dict = list(
-		"high" = "",
-		"medium" = "",
-		"minor" = "",
+		"high" = "High",
+		"medium" = "Medium",
+		"minor" = "Minor",
 		"none" = "None",
 	)
 
@@ -154,11 +154,11 @@
 	embed.footer = create_discord_embed_footer()
 
 	var/datum/tgs_chat_embed/field/field_player_ckey = new(
-		"", "`[player_ckey]`"
+		"Player", "`[player_ckey]`"
 	)
 
 	var/datum/tgs_chat_embed/field/field_admin_ckey = new(
-		"", "`[admin_ckey]`"
+		"Administrator", "`[admin_ckey]`"
 	)
 
 	var/datum/tgs_chat_embed/field/field_changed_value = new(
@@ -200,11 +200,11 @@
 	embed.footer = create_discord_embed_footer()
 
 	var/datum/tgs_chat_embed/field/field_player_ckey = new(
-		"", "`[player_ckey]`"
+		"Player", "`[player_ckey]`"
 	)
 
 	var/datum/tgs_chat_embed/field/field_admin_ckey = new(
-		"", "`[admin_ckey]`"
+		"Administrator", "`[admin_ckey]`"
 	)
 
 	var/datum/tgs_chat_embed/field/field_changed_value = new(
@@ -245,11 +245,11 @@
 	embed.footer = create_discord_embed_footer()
 
 	var/datum/tgs_chat_embed/field/field_player_ckey = new(
-		"", "`[player_ckey]`"
+		"Player", "`[player_ckey]`"
 	)
 
 	var/datum/tgs_chat_embed/field/field_admin_ckey = new(
-		"", "`[admin_ckey]`"
+		"Administrator", "`[admin_ckey]`"
 	)
 
 	field_player_ckey.is_inline = TRUE
@@ -284,11 +284,11 @@
 	embed.footer = create_discord_embed_footer()
 
 	var/datum/tgs_chat_embed/field/field_player_ckey = new(
-		"", "`[target_key]`"
+		"Player", "`[target_key]`"
 	)
 
 	var/datum/tgs_chat_embed/field/field_admin_ckey = new(
-		"", "`[admin_ckey]`"
+		"Administrator", "`[admin_ckey]`"
 	)
 
 	var/datum/tgs_chat_embed/field/field_secret = new(
@@ -306,7 +306,7 @@
 	)
 
 	if(expiry)
-		embed.fields.Add(new /datum/tgs_chat_embed/field("", "[expiry]"))
+		embed.fields.Add(new /datum/tgs_chat_embed/field("Expires", "[expiry]"))
 
 	var/datum/tgs_message_content/message = new("")
 	message.embed = embed
@@ -353,7 +353,7 @@
 		description = "     :\n[role_lines.Join("\n")]"
 
 	send_discord_ban_log(
-		"",
+		"Unban",
 		description,
 		"#a6da95",
 		player_ckey,
@@ -374,12 +374,12 @@
 		return
 
 	var/list/change_names = list(
-		"Key" = "",
+		"Key" = "Key",
 		"IP" = "IP",
 		"CID" = "CID",
 		"Applies to admins" = "  ",
-		"Duration" = "",
-		"Reason" = "",
+		"Duration" = "Duration",
+		"Reason" = "Reason",
 	)
 	var/list/change_lines = list()
 	for(var/change_key in changes)
@@ -418,9 +418,9 @@
 	var/pretty_type
 	switch(type)
 		if("note")
-			pretty_type = ""
+			pretty_type = "notes"
 		if("message")
-			pretty_type = ""
+			pretty_type = "messages"
 		if("watchlist entry")
 			pretty_type = "  watchlist"
 		else
@@ -459,15 +459,15 @@
 	embed.footer = create_discord_embed_footer()
 
 	var/datum/tgs_chat_embed/field/field_player_ckey = new(
-		"", "`[target_key]`"
+		"Player", "`[target_key]`"
 	)
 
 	var/datum/tgs_chat_embed/field/field_admin_ckey = new(
-		"", "`[admin_ckey]`"
+		"Removed by", "`[admin_ckey]`"
 	)
 
 	var/datum/tgs_chat_embed/field/field_type = new(
-		"", "`[type]`"
+		"Type", "`[type]`"
 	)
 
 	field_player_ckey.is_inline = TRUE

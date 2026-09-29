@@ -58,10 +58,10 @@
 
 /proc/chess_side_name(color)
 	if(color == CHESS_WHITE)
-		return ""
+		return "White"
 	if(color == CHESS_BLACK)
-		return ""
-	return ""
+		return "Black"
+	return "Nobody"
 
 /proc/chess_piece_color(piece)
 	if(!istext(piece) || length(piece) < 2)
@@ -91,7 +91,7 @@
 
 /proc/chess_display_name(mob/user)
 	if(!user)
-		return ""
+		return "Unknown"
 	if(user.real_name)
 		return user.real_name
 	return user.name
@@ -197,9 +197,9 @@
 		selected = match.forced_capture_from
 
 	data["board_title"] = " "
-	data["white_player_name"] = match.white_player_name ? match.white_player_name : ""
-	data["black_player_name"] = match.black_player_name ? match.black_player_name : ""
-	data["my_side"] = my_side ? chess_side_name(my_side) : ""
+	data["white_player_name"] = match.white_player_name ? match.white_player_name : "Open"
+	data["black_player_name"] = match.black_player_name ? match.black_player_name : "Open"
+	data["my_side"] = my_side ? chess_side_name(my_side) : "Spectator"
 	data["my_side_key"] = my_side
 	data["turn"] = chess_side_name(match.turn)
 	data["turn_key"] = match.turn
@@ -808,12 +808,12 @@
 	if(mode == BOARD_MODE_NONE)
 		return " "
 	if(mode == BOARD_MODE_CHESS)
-		return ""
+		return "Chess"
 	if(mode == BOARD_MODE_CHECKERS)
-		return ""
+		return "Checkers"
 	if(mode == BOARD_MODE_NARDS)
-		return ""
-	return ""
+		return "Backgammon"
+	return "Unknown"
 
 /datum/chess_match/proc/get_mode_label_with_rules(mode, use_checkers_flying_kings = checkers_flying_kings, use_nards_long_rules = nards_long_rules)
 	if(mode == BOARD_MODE_CHECKERS)
@@ -867,7 +867,7 @@
 		var/requester = pending_reset_requester_name ? pending_reset_requester_name : "  "
 		return "[requester]   .     ."
 	if(pending_observer_reset_ckey && pending_observer_reset_at > world.time)
-		var/requester2 = pending_observer_reset_name ? pending_observer_reset_name : ""
+		var/requester2 = pending_observer_reset_name ? pending_observer_reset_name : "Spectator"
 		var/seconds_left = max(1, round((pending_observer_reset_at - world.time) / 10))
 		return "[requester2]   .    [seconds_left] .   ."
 	return null
@@ -1583,7 +1583,7 @@
 
 	var/notation = move_info["notation"]
 	if(gives_check)
-		if(result_text && findtext(result_text, ""))
+		if(result_text && findtext(result_text, "Checkmate"))
 			notation += "#"
 		else
 			notation += "+"
@@ -1591,7 +1591,7 @@
 
 	if(result_text)
 		paused = TRUE
-		if(findtext(result_text, ""))
+		if(findtext(result_text, "Checkmate"))
 			owner.play_win_loss_sounds(opposite(enemy))
 	else if(gives_check)
 		owner.play_check_alert()

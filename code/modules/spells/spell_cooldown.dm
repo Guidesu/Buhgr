@@ -281,12 +281,6 @@
 		R.pixel_y += cast_effect_y_offset
 		mob_charge_effect = R
 
-	if(mana_cost > 0)
-		AddComponent(/datum/component/uses_mana/spell, \
-			get_user_callback = CALLBACK(src, PROC_REF(get_spell_owner)), \
-			mana_required = CALLBACK(src, PROC_REF(get_mana_cost)), \
-		)
-
 	if(!charge_required)
 		return
 	if(charge_time <= 0)
@@ -295,14 +289,6 @@
 		return
 	if(charge_sound)
 		charge_sound_instance = sound(charge_sound)
-
-/// Callback target for the uses_mana component - returns whoever currently owns this spell.
-/datum/action/cooldown/spell/proc/get_spell_owner()
-	return owner
-
-/// Callback target for the uses_mana component - returns this spell's current mana cost.
-/datum/action/cooldown/spell/proc/get_mana_cost()
-	return mana_cost
 
 /datum/action/cooldown/spell/Destroy()
 	QDEL_NULL(mob_charge_effect)

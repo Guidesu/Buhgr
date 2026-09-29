@@ -39,13 +39,13 @@
 		var/direction = angle2dir(Get_Angle(player, origin_turf))
 		switch(direction)
 			if(NORTH)
-				dirtext += ""
+				dirtext += "north"
 			if(SOUTH)
-				dirtext += ""
+				dirtext += "south"
 			if(EAST)
-				dirtext += ""
+				dirtext += "east"
 			if(WEST)
-				dirtext += ""
+				dirtext += "west"
 			if(NORTHWEST)
 				dirtext += "-"
 			if(NORTHEAST)
@@ -145,13 +145,13 @@
 		var/direction = angle2dir(Get_Angle(player, origin_turf))
 		switch(direction)
 			if(NORTH)
-				dirtext += ""
+				dirtext += "north"
 			if(SOUTH)
-				dirtext += ""
+				dirtext += "south"
 			if(EAST)
-				dirtext += ""
+				dirtext += "east"
 			if(WEST)
-				dirtext += ""
+				dirtext += "west"
 			if(NORTHWEST)
 				dirtext += "-"
 			if(NORTHEAST)
@@ -197,13 +197,13 @@
 		var/direction = angle2dir(Get_Angle(player, origin_turf))
 		switch(direction)
 			if(NORTH)
-				dirtext += ""
+				dirtext += "north"
 			if(SOUTH)
-				dirtext += ""
+				dirtext += "south"
 			if(EAST)
-				dirtext += ""
+				dirtext += "east"
 			if(WEST)
-				dirtext += ""
+				dirtext += "west"
 			if(NORTHWEST)
 				dirtext += "-"
 			if(NORTHEAST)
@@ -249,13 +249,13 @@
 		var/direction = angle2dir(Get_Angle(player, origin_turf))
 		switch(direction)
 			if(NORTH)
-				dirtext += ""
+				dirtext += "north"
 			if(SOUTH)
-				dirtext += ""
+				dirtext += "south"
 			if(EAST)
-				dirtext += ""
+				dirtext += "east"
 			if(WEST)
-				dirtext += ""
+				dirtext += "west"
 			if(NORTHWEST)
 				dirtext += "-"
 			if(NORTHEAST)
@@ -331,13 +331,13 @@
 		var/direction = angle2dir(Get_Angle(player, origin_turf))
 		switch(direction)
 			if(NORTH)
-				dirtext += ""
+				dirtext += "north"
 			if(SOUTH)
-				dirtext += ""
+				dirtext += "south"
 			if(EAST)
-				dirtext += ""
+				dirtext += "east"
 			if(WEST)
-				dirtext += ""
+				dirtext += "west"
 			if(NORTHWEST)
 				dirtext += "-"
 			if(NORTHEAST)
@@ -383,13 +383,13 @@
 		var/direction = angle2dir(Get_Angle(player, origin_turf))
 		switch(direction)
 			if(NORTH)
-				dirtext += ""
+				dirtext += "north"
 			if(SOUTH)
-				dirtext += ""
+				dirtext += "south"
 			if(EAST)
-				dirtext += ""
+				dirtext += "east"
 			if(WEST)
-				dirtext += ""
+				dirtext += "west"
 			if(NORTHWEST)
 				dirtext += "-"
 			if(NORTHEAST)
@@ -435,13 +435,13 @@
 		var/direction = angle2dir(Get_Angle(player, origin_turf))
 		switch(direction)
 			if(NORTH)
-				dirtext += ""
+				dirtext += "north"
 			if(SOUTH)
-				dirtext += ""
+				dirtext += "south"
 			if(EAST)
-				dirtext += ""
+				dirtext += "east"
 			if(WEST)
-				dirtext += ""
+				dirtext += "west"
 			if(NORTHWEST)
 				dirtext += "-"
 			if(NORTHEAST)
@@ -517,13 +517,13 @@
 		var/direction = angle2dir(Get_Angle(player, origin_turf))
 		switch(direction)
 			if(NORTH)
-				dirtext += ""
+				dirtext += "north"
 			if(SOUTH)
-				dirtext += ""
+				dirtext += "south"
 			if(EAST)
-				dirtext += ""
+				dirtext += "east"
 			if(WEST)
-				dirtext += ""
+				dirtext += "west"
 			if(NORTHWEST)
 				dirtext += "-"
 			if(NORTHEAST)
@@ -569,13 +569,13 @@
 		var/direction = angle2dir(Get_Angle(player, origin_turf))
 		switch(direction)
 			if(NORTH)
-				dirtext += ""
+				dirtext += "north"
 			if(SOUTH)
-				dirtext += ""
+				dirtext += "south"
 			if(EAST)
-				dirtext += ""
+				dirtext += "east"
 			if(WEST)
-				dirtext += ""
+				dirtext += "west"
 			if(NORTHWEST)
 				dirtext += "-"
 			if(NORTHEAST)
@@ -621,13 +621,13 @@
 		var/direction = angle2dir(Get_Angle(player, origin_turf))
 		switch(direction)
 			if(NORTH)
-				dirtext += ""
+				dirtext += "north"
 			if(SOUTH)
-				dirtext += ""
+				dirtext += "south"
 			if(EAST)
-				dirtext += ""
+				dirtext += "east"
 			if(WEST)
-				dirtext += ""
+				dirtext += "west"
 			if(NORTHWEST)
 				dirtext += "-"
 			if(NORTHEAST)

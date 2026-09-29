@@ -46,7 +46,7 @@
 /proc/tat_tell_banned(mob/user)
 	if(!user)
 		return FALSE
-	to_chat(user, span_warning("You are banned from using the TAT build system. Reason: [tat_get_ban_reason(user.ckey)]"))
+	to_chat(user, span_warning("You are banned from using Character Creation. Reason: [tat_get_ban_reason(user.ckey)]"))
 	return TRUE
 
 /// Applies an already-created stock role ban to an active TAT character.

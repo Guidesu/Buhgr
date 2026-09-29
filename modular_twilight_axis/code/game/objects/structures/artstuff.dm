@@ -45,24 +45,24 @@
 	src.author_ckey = data["author_ckey"]
 	src.title = data["title"]
 	src.name = src.title
-	src.desc = ""
+	src.desc = "Artist: [src.author]."
 	return TRUE
 
 /obj/item/canvas/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/natural/feather))
-		var/new_author = input(user, "", "", user.real_name)
-		var/new_title = input(user, "", "", "")
+		var/new_author = input(user, "Who painted this picture?", "Signature", user.real_name)
+		var/new_title = input(user, "What is this painting called?", "Title", "Untitled")
 		
 		if(new_author && new_title)
 			author = new_author
 			author_ckey = user.ckey
 			title = new_title
 			name = title
-			desc = ""
+			desc = "Artist: [author]."
 			
-			to_chat(user, span_notice(""))
+			to_chat(user, span_notice("You add the final touches and sign the canvas..."))
 			if(save_to_disk())
-				to_chat(user, span_notice(""))
+				to_chat(user, span_notice("The painting '[title]' is signed."))
 		return
 	..()
 
@@ -93,7 +93,7 @@
 
 	var/chosen_id = pick(valid_paintings)
 	if(!C.load_from_disk(chosen_id))
-		C.name = ""
+		C.name = "rejected canvas"
 		return
 
 

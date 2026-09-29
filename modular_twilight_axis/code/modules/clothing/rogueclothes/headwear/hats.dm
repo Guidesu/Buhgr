@@ -278,7 +278,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/burgerhood
 	name = "noble hood"
-	desc = ""
+	desc = "A silk hood that shows its wearer's high standing. At least it looks decent."
 	color = null
 	icon_state = "burgerhood"
 	item_state = "burgerhood"
@@ -316,7 +316,7 @@
 	color = null
 
 /obj/item/clothing/head/roguetown/hscarf
-	desc = ""
+	desc = "A silk bandana most often seen on the head of a sailor, or a pirate!"
 	name = "head scarf"
 	icon_state = "headscarf"
 	item_state = "headscarf"

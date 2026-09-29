@@ -5,13 +5,13 @@
 /proc/origin_picker_group_name(group_order)
 	switch(group_order)
 		if(1)
-			return ""
+			return "Western continent"
 		if(2)
-			return ""
+			return "Eastern continent"
 		if(3)
-			return ""
+			return "Island realms"
 		else
-			return ""
+			return "Not on the map"
 
 
 /proc/origin_picker_species_name(species_ref)
@@ -70,14 +70,14 @@
 	if(length(names) == 1)
 		return "[names[1]]"
 	if(length(names) == 2)
-		return ""
+		return "[names[1]] and [names[2]]"
 
 	var/result = ""
 	for(var/i = 1, i <= length(names), i++)
 		if(i == 1)
 			result += "[names[i]]"
 		else if(i == length(names))
-			result += ""
+			result += " and [names[i]]"
 		else
 			result += ", [names[i]]"
 
@@ -128,7 +128,7 @@
 	if(!length(names))
 		return null
 
-	return english_list(names, nothing_text = null, and_text = "")
+	return english_list(names, nothing_text = null, and_text = " and")
 
 /proc/origin_picker_trait_name(trait_ref)
 	if(isnull(trait_ref))
@@ -154,7 +154,7 @@
 	if(!length(names))
 		return null
 
-	return english_list(names, nothing_text = null, and_text = "")
+	return english_list(names, nothing_text = null, and_text = " and")
 
 /datum/asset/simple/origin_picker
 	assets = list(
@@ -174,7 +174,7 @@
 /datum/origin_picker_panel/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "OriginPicker", "")
+		ui = new(user, src, "OriginPicker", "Choose an origin")
 		ui.open()
 		ui.set_autoupdate(FALSE)
 
@@ -202,11 +202,11 @@
 				return FALSE
 
 			if(!origin_check(chosen_origin, preferences.pref_species))
-				var/warning_text = ""
+				var/warning_text = "This origin isn't available for the chosen race."
 				if(islist(chosen_origin.races) && length(chosen_origin.races))
 					var/required_races_text = origin_picker_species_list_text(chosen_origin.races)
 					if(required_races_text)
-						warning_text += ""
+						warning_text += " Available to races: [required_races_text]."
 				to_chat(user, span_warning(warning_text))
 				return FALSE
 
@@ -270,9 +270,9 @@
 					var/language_text = origin_picker_language_list_text(O.added_languages)
 					if(O.extra_language)
 						if(language_text)
-							language_text += ""
+							language_text += "; free choice of language"
 						else
-							language_text = ""
+							language_text = "free choice of language"
 
 					var/trait_text = origin_picker_trait_list_text(O.added_traits)
 
@@ -371,5 +371,5 @@
 	data["groups"] = groups
 	data["map_states"] = map_states
 	data["current_origin_type"] = current_origin ? "[current_origin.type]" : null
-	data["current_species_name"] = current_species ? origin_picker_species_name(current_species) : ""
+	data["current_species_name"] = current_species ? origin_picker_species_name(current_species) : "Unknown"
 	return data

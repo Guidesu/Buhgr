@@ -285,7 +285,7 @@
 
 /obj/item/clothing/cloak/sheriff
 	name = "sheriff's cloak"
-	desc = ""
+	desc = "A cape embroidered with the watch's heraldry in silver."
 	icon = 'modular_twilight_axis/icons/roguetown/clothing/special/citywatch_armor.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/icons/roguetown/clothing/special/onmob/citywatch_armor.dmi'
 	sleeved = 'modular_twilight_axis/icons/roguetown/clothing/special/onmob/citywatch_armor.dmi'

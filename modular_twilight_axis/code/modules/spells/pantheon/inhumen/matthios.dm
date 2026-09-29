@@ -47,7 +47,7 @@
 			m_devotion = 10,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Rogue Arts",
-			lines = list("", "", "", "", "")
+			lines = list("Try and dodge this!", "A handful of freedom!", "Catch a present!", "Mind your eyes!", "Works like a charm!")
 		),
 		//basically just lesser knock
 		"Gilded Lockpick" = list(
@@ -56,7 +56,7 @@
 			m_devotion = 10,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Gilded Tools",
-			lines = list("", "", "")
+			lines = list("+Guide my hand, Matthios.", "+No lock can hold those who are free!", "+Your tools will lead us to freedom!")
 		),
 		//freely spawns 400 mammon!!! no wae! is this trve?!!?!??
 		"Pouch of Smuggling" = list(
@@ -65,7 +65,7 @@
 			m_devotion = 100,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Rogue Arts",
-			lines = list("", "", "")
+			lines = list("+Matthios, protect our stores.", "+The greedy hunger for our riches, but they'll never see the gold of free folk...", "+May your tools protect our spoils...")
 		),
 		//makes failed lockpicking attempts muffled
 		"Gilded Dexterous Gloves" = list(
@@ -74,7 +74,7 @@
 			m_devotion = 100,
 			m_rank = SKILL_LEVEL_JOURNEYMAN,
 			category = "Gilded Tools",
-			lines = list("", "", "")
+			lines = list("+A master's hands work in silence.", "+In silence we prepare our blow against tyranny.", "+Sleight of hand, and no cheating.")
 		),
 		//makes your footsteps muffled
 		"Gilded Muffled Boots" = list(
@@ -83,7 +83,7 @@
 			m_devotion = 100,
 			m_rank = SKILL_LEVEL_APPRENTICE,
 			category = "Gilded Tools",
-			lines = list("", "")
+			lines = list("+I walk in His shadow, unheard and unseen.", "+They can't chain what they can't hear.")
 		),
 		//enables piss night vision and sets your lockpick timer to 3 secs, makes you insane over time and prolonged use
 		"Gilded Lockpicking Specs" = list(
@@ -92,7 +92,7 @@
 			m_devotion = 200,
 			m_rank = SKILL_LEVEL_EXPERT,
 			category = "Gilded Tools",
-			lines = list("","","")
+			lines = list("+Matthios, show me the way.","+Through bolts and locks I see what we fight for.","+Matthios, reveal the truth to me in the dark.")
 		),
 		//normal chains that bind nobility faster
 		"Gilded Chains" = list(
@@ -101,7 +101,7 @@
 			m_devotion = 200,
 			m_rank = SKILL_LEVEL_JOURNEYMAN,
 			category = "Gilded Tools",
-			lines = list("", "", "")
+			lines = list("Matthios! Chains for the masters!", "You won't escape the people's justice!", "Let us bind the tyrants in their own chains!")
 		),
 		//enables thieves' cant when worn on neck
 		"Gilded Amulet of Matthios" = list(
@@ -110,7 +110,7 @@
 			m_devotion = 50,
 			m_rank = SKILL_LEVEL_NONE,
 			category = "Gilded Tools",
-			lines = list("", "", "")
+			lines = list("+Matthios, I place myself in your hands.", "+Lord of Nothing, I bear your banner with pride.", "+Father of Freedom, your will be done.")
 		),
 		//miralchemy mode on
 		"Vial of Firstlaw" = list(
@@ -119,7 +119,7 @@
 			m_devotion = 75,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Malchem Vials",
-			lines = list("", "", "")
+			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
 		),
 		//turns 10 organic items into 1 rich food of choice (that will often be burned mess or bread if you're not starving to death)
 		"Vial of Kingsfeast Base" = list(
@@ -128,7 +128,7 @@
 			m_devotion = 25,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Malchem Vials",
-			lines = list("", "", "")
+			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
 		),
 		//basically turns water or fruits into wine, if used with blood or lux instead, becomes Kingsblood
 		"Vial of Kingswine Base" = list(
@@ -137,7 +137,7 @@
 			m_devotion = 25,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Malchem Vials",
-			lines = list("", "", "")
+			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
 		),
 		//makes you honk shoo mimimi, while restoring energy over time
 		"Vial of Goodnite Base" = list(
@@ -146,7 +146,7 @@
 			m_devotion = 50,
 			m_rank = SKILL_LEVEL_APPRENTICE,
 			category = "Malchem Vials",
-			lines = list("", "", "")
+			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
 		),
 		//a 4 use vial of mending
 		"Vial of Warsmith Base" = list(
@@ -155,7 +155,7 @@
 			m_devotion = 50,
 			m_rank = SKILL_LEVEL_JOURNEYMAN,
 			category = "Malchem Vials",
-			lines = list("", "", "")
+			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
 		),
 		// idk what else, but it should be used by baothans, something they'll want a lot
 /*		"Vial of Liquid Desire Base" = list(
@@ -197,7 +197,7 @@
 			m_devotion = 100,
 			m_rank = SKILL_LEVEL_EXPERT,
 			category = "Malchem Vials",
-			lines = list("", "", "")
+			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
 		),
 		// a spicy, explosive grenade that ignites over a massive area, making tennites and nobles roll in agony and go insane
 		// but in my BETTER JUDGEMENT, this is just my early april fools joke, go to sleep my child
@@ -229,9 +229,9 @@
 	glow_color = GLOW_COLOR_MATTHIOS
 	glow_intensity = GLOW_INTENSITY_LOW
 	recharge_time = 3 MINUTES
-	invocations = list("",
-		"",
-		""
+	invocations = list("Father, break my chains.",
+		"Matthios, don't let them hold me.",
+		"Father of Freedom, shatter these chains."
 	)
 	invocation_type = "whisper"
 	sound = 'sound/misc/chain_snap.ogg'
@@ -333,11 +333,11 @@
 		else
 			switch(rand(1,3))
 				if(1)
-					user.say("")
+					user.say("Feel the weight of our shackles!")
 				if(2)
-					user.say("")
+					user.say("See how it feels to be the ones you oppress!")
 				if(3)
-					user.say("")
+					user.say("We have nothing to lose but our chains!")
 			target.apply_status_effect(/datum/status_effect/debuff/twilight_weightofchains, has_chains)
 			return TRUE
 	revert_cast()
@@ -395,8 +395,8 @@
 	sound = 'sound/magic/swap.ogg'
 	chargedrain = 0
 	chargetime = 15
-	invocations = list("",
-		""
+	invocations = list("Pick on someone your own size!",
+		"Come here and fight fair, coward!"
 	)
 	invocation_type = "shout"
 	releasedrain = 60
@@ -568,26 +568,26 @@
 			revert_cast()
 			return FALSE
 		if(totalvalue <=30)
-			user.say("")
+			user.say("Greed stands in the way of freedom!")
 			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I feel the weight of my wealth burning at my soul!"))
 			target.adjustFireLoss(30)
 			playsound(user, 'sound/magic/churn.ogg', 100, TRUE)
 			return TRUE
 		if(totalvalue <=60)
-			user.say("")
+			user.say("Greed stands in the way of freedom!")
 			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I feel the weight of my wealth burning at my soul!"))
 			target.adjustFireLoss(60)
 			playsound(user, 'sound/magic/churn.ogg', 100, TRUE)
 			return TRUE
 		if(totalvalue <=100)
-			user.say("")
+			user.say("Greed stands in the way of freedom!")
 			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I feel the weight of my wealth burning at my soul!"))
 			target.adjustFireLoss(80)
 			//target.Stun(20)
 			playsound(user, 'sound/magic/churn.ogg', 100, TRUE)
 			return TRUE
 		if(totalvalue <=200)
-			user.say("")
+			user.say("The God of Freedom rejects you!")
 			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I feel the weight of my wealth tearing at my soul!"))
 			target.adjustFireLoss(100)
 			target.adjust_fire_stacks(7, /datum/status_effect/fire_handler/fire_stacks/divine)
@@ -596,7 +596,7 @@
 			playsound(user, 'sound/magic/churn.ogg', 100, TRUE)
 			return TRUE
 		if(totalvalue <=500)
-			user.say("")
+			user.say("The God of Freedom rejects you!")
 			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I feel the weight of my wealth tearing at my soul!"))
 			target.adjustFireLoss(120)
 			target.adjust_fire_stacks(9, /datum/status_effect/fire_handler/fire_stacks/divine)
@@ -606,7 +606,7 @@
 			return TRUE
 		if(totalvalue <= 2500)
 			target.visible_message(span_danger("[target] is smited with holy light!"), span_userdanger("I feel the weight of my wealth rend my soul apart!"))
-			user.say("")
+			user.say("Your final transaction! The God of Freedom rejects you!!")
 			//target.Stun(60)
 			target.emote("agony")
 			target.adjustFireLoss(140)
@@ -617,7 +617,7 @@
 			return TRUE
 		if(totalvalue >=2501) //THE POWER OF MY STAND: 'EXPLODE AND DIE INSTANTLY'
 			target.visible_message(span_danger("[target]'s skin begins to SLOUGH AND BURN HORRIFICALLY, glowing like molten metal!"), span_userdanger("MY LIMBS BURN IN AGONY..."))
-			user.say("")
+			user.say("Wealth beyond all measure. YOUR FINAL TRANSACTION!!")
 			target.Stun(80)
 			target.emote("agony")
 			target.adjustFireLoss(50)
@@ -661,8 +661,8 @@
 	glow_color = GLOW_COLOR_MATTHIOS
 	glow_intensity = GLOW_INTENSITY_LOW
 	recharge_time = 5 MINUTES
-	invocations = list("",
-	"")
+	invocations = list("There are no gods among us!",
+	"Your gods won't protect you!")
 	invocation_type = "shout"
 	sound = 'sound/magic/timestop.ogg'
 	releasedrain = 30
@@ -763,7 +763,7 @@
 	no_early_release = TRUE
 	movement_interrupt = FALSE
 	antimagic_allowed = TRUE
-	invocations = list("")
+	invocations = list("A crown for the king!")
 	invocation_type = "shout"
 	charging_slowdown = 3
 	chargedloop = /datum/looping_sound/invokeascendant
@@ -841,8 +841,8 @@
 	clothes_req = FALSE
 	overlay_state = "peoplesbanner"
 	action_icon = 'modular_twilight_axis/icons/mob/actions/matthios_miracles.dmi'
-	invocations = list("",
-	"")
+	invocations = list("Comrades, rally to the banner of the Father of Freedom!",
+	"We will tear our freedom from their cold hands!")
 	invocation_type = "shout"
 	chargedrain = 0
 	chargetime = 2 SECONDS
@@ -1009,7 +1009,7 @@
 	chargetime = 0
 	recharge_time = 10 MINUTES
 	cooldown_min = 10 MINUTES
-	invocations = list("")
+	invocations = list("I will burn the world of tyranny to the ground!!")
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	devotion_cost = 200
@@ -1507,7 +1507,7 @@
 
 /datum/status_effect/debuff/twilight_matthios_revival/on_apply()
 	. = ..()
-	owner.visible_message("", "")
+	owner.visible_message("<font size=9 color=9c830b>Necra has no power over my children. Rise, son of Freedom.</font><br>", "<font size=9 color=9c830b>Your comrades need you. Rise, son of Freedom.</font><br>")
 
 #undef EQUALIZED_GLOW
 #undef FREEDOM_FILTER

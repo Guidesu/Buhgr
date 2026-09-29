@@ -38,8 +38,8 @@
 	if(!refuser || QDELETED(refuser))
 		return
 	if(refuser.know_your_fate && other && familytree_record_blocked_pair(refuser, other))
-		to_chat(refuser, span_warning(""))
+		to_chat(refuser, span_warning("You won't be matched with this character again this round."))
 		try_queue_assignment(refuser)
 		return
-	to_chat(refuser, span_warning(""))
+	to_chat(refuser, span_warning("You've opted out of the family system for this round."))
 	familytree_mark_opted_out(refuser, "player declined [confirm_type]")

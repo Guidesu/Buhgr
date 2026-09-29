@@ -126,7 +126,7 @@ const SkillsTab = ({ skills }: { skills: SkillEntry[] }) => {
                 <Box as="span" style={{ color: skill.color || 'inherit' }} bold>
                   {skill.name}
                 </Box>
-                {skill.trait_gated && (
+                {!!skill.trait_gated && (
                   <Box
                     as="span"
                     ml={1}
@@ -139,12 +139,12 @@ const SkillsTab = ({ skills }: { skills: SkillEntry[] }) => {
               </Stack.Item>
               <Stack.Item basis="25%" style={{ whiteSpace: 'nowrap' }}>
                 <Box bold>{skill.level}</Box>
-                {skill.can_advance_post && (
+                {!!skill.can_advance_post && (
                   <Box as="span" color="green" style={{ fontSize: '10px' }}>
                     {' ★'}
                   </Box>
                 )}
-                {skill.can_advance && !skill.can_advance_post && (
+                {!!skill.can_advance && !skill.can_advance_post && (
                   <Box as="span" color="green" style={{ fontSize: '10px' }}>
                     {' ☆'}
                   </Box>

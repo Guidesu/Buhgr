@@ -106,7 +106,9 @@ GLOBAL_VAR_INIT(cold_breath_overlay, null)
 	name = "loadout-icons"
 
 /datum/asset/spritesheet_batched/loadout_icons/create_spritesheets()
-	return
+	// Nothing uses this sheet, but an empty sheet runtimes when it's built.
+	var/list/states = icon_states('icons/hud/pref_backgrounds.dmi')
+	insert_icon("placeholder", uni_icon('icons/hud/pref_backgrounds.dmi', states[1]))
 
 // ============================================================================
 // MISSING OBJ TYPES
@@ -196,8 +198,8 @@ GLOBAL_VAR_INIT(cold_breath_overlay, null)
 /datum/preferences/proc/validate_prefs_for_job()
 	return TRUE
 
-/datum/preferences/proc/get_job_prefs()
-	return list()
+/datum/preferences/proc/get_job_prefs(rank)
+	return src
 
 /datum/job/proc/validate_prefs_for_job()
 	return TRUE
@@ -260,12 +262,6 @@ GLOBAL_VAR_INIT(cold_breath_overlay, null)
 
 /mob/living/simple_animal
 	var/speed = 0
-	var/obj/item/natural/saddle/ssaddle = null
-	var/can_saddle = FALSE
-	var/simple_detect_bonus = 0
-	var/dodge_fatigue = 0
-	var/dodge_fatigue_updated = 0
-	var/winded_until = 0
 	var/natural_armor_default = list()
 	var/natural_armor = list()
 
@@ -297,12 +293,6 @@ GLOBAL_VAR_INIT(cold_breath_overlay, null)
 /obj/item/canvas
 	var/painting_id = ""
 
-/datum/component/arousal
-	var/arousal_multiplier = 1
-	var/last_moan = 0
-	var/last_arousal_increase_time = 0
-	var/arousal_frozen = FALSE
-
 /datum/advclass
 	var/origin_limits = list()
 
@@ -318,60 +308,6 @@ GLOBAL_VAR_INIT(cold_breath_overlay, null)
 /area
 	var/ticket_ping = null
 	var/ticket_ping_stop = null
-
-// ============================================================================
-// MISSING ERP PROCS (stubs for arousal component)
-// ============================================================================
-/datum/component/arousal/proc/is_spent()
-	return FALSE
-
-/datum/component/arousal/proc/set_arousal()
-	return
-
-/datum/component/arousal/proc/adjust_arousal()
-	return
-
-/datum/component/arousal/proc/check_processing()
-	return TRUE
-
-/datum/component/arousal/proc/handle_charge()
-	return
-
-/datum/component/arousal/proc/can_lose_arousal()
-	return TRUE
-
-/datum/component/arousal/proc/get_force_pleasure_multiplier()
-	return 1
-
-/datum/component/arousal/proc/get_force_pain_multiplier()
-	return 1
-
-/datum/component/arousal/proc/get_speed_pain_multiplier()
-	return 1
-
-/datum/component/arousal/proc/damage_from_pain()
-	return
-
-/datum/component/arousal/proc/try_do_moan()
-	return
-
-/datum/component/arousal/proc/try_do_pain_effect()
-	return
-
-/datum/component/arousal/proc/ejaculate()
-	return
-
-/datum/component/arousal/proc/handle_climax()
-	return
-
-/datum/component/arousal/proc/after_ejaculation()
-	return
-
-/datum/component/arousal/proc/try_ejaculate()
-	return
-
-/datum/component/arousal/proc/receive_sex_action()
-	return
 
 // ============================================================================
 // MISSING FAMILY TREE PROCS

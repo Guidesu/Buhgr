@@ -34,7 +34,7 @@
 
 	if(prob(clamp(chance, 0, 90)))
 		pregnant = TRUE
-		to_chat(mother, span_love(""))
+		to_chat(mother, span_love("I feel warmth in my belly... I think I'm pregnant."))
 
 /obj/item/organ/vagina/Insert(mob/living/carbon/M, special, drop_if_replaced)
 	. = ..()

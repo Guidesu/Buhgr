@@ -50,7 +50,7 @@
 		var/crimeschoice_baotha = input(H, "Who is me", "How much have I done?") as anything in crimes
 		switch(crimeschoice_baotha)
 			if("I'm nobody")
-				to_chat(H, span_purple(""))
+				to_chat(H, span_purple("'I hid well, but I trained poorly...'"))
 			if("They fear me")
 				if(HAS_TRAIT(H, TRAIT_PSYDONIAN_GRIT))
 					H.put_in_hands(new /obj/item/clothing/mask/rogue/spectacles/inq)

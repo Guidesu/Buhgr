@@ -59,7 +59,7 @@
 
 	var/last = copytext(text, length(text), length(text) + 1)
 	if(last == "." || last == "!" || last == "?")
-		return ""
+		return "[copytext(text, 1, length(text))] all the way to the knot[last]"
 
-	return ""
+	return "[text] all the way to the knot"
 

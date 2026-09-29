@@ -635,15 +635,15 @@ GLOBAL_LIST_INIT(familytree_title_prefixes, list(
 		if("sibling")
 			return "/"
 		if("child")
-			return ""
+			return "child"
 		if("parent")
-			return ""
+			return "parent"
 		if("uncle_aunt")
 			return "/"
 		if("nibling")
 			return "()"
 		if("relative")
-			return ""
+			return "relative"
 	return null
 
 /proc/familytree_new_family_role_text_ru(relation, is_a)
@@ -726,24 +726,24 @@ GLOBAL_LIST_INIT(familytree_title_prefixes, list(
 	var/gender_text
 	switch(partner.gender)
 		if(MALE)
-			gender_text = ""
+			gender_text = "male"
 		if(FEMALE)
-			gender_text = ""
+			gender_text = "female"
 		if(PLURAL)
-			gender_text = ""
+			gender_text = "plural"
 		if(NEUTER)
-			gender_text = ""
+			gender_text = "neuter"
 		else
-			gender_text = ""
+			gender_text = "undefined"
 	var/has_penis = partner.getorganslot(ORGAN_SLOT_PENIS) != null
 	var/has_vagina = partner.getorganslot(ORGAN_SLOT_VAGINA) != null
 	var/anatomy_text
 	if(has_penis && has_vagina)
-		anatomy_text = ""
+		anatomy_text = "intersex"
 	else if(has_penis)
-		anatomy_text = ""
+		anatomy_text = "male"
 	else if(has_vagina)
-		anatomy_text = ""
+		anatomy_text = "female"
 	else
 		anatomy_text = "  "
 	return "\n: [species_name]\n: [gender_text]\n: [anatomy_text]"

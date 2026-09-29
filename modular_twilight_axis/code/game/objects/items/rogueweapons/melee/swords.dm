@@ -22,7 +22,7 @@
 
 /obj/item/rogueweapon/sword/rapier/foldsword
 	name = "pathmaker"
-	desc = ""
+	desc = "A costly folding sword made to order for the Hand. It can be worn like an ordinary sword in a scabbard, or folded and carried in a bag or on the belt."
 	icon = 'modular_twilight_axis/icons/roguetown/weapons/64.dmi'
 	icon_state = "folding_sword_on"
 	item_state = "folding_sword_on"

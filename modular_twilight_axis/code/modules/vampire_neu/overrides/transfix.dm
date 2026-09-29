@@ -1,5 +1,5 @@
 /obj/effect/proc_holder/spell/targeted/TA_transfix_neu
-	name = ""
+	name = "Mesmerize"
 	desc = "     ,    .     ,          \n"
 	overlay_state = "transfix"
 	associated_skill = /datum/skill/magic/blood

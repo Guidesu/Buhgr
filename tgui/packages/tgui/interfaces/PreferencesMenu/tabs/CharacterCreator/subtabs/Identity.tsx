@@ -69,12 +69,6 @@ export const SubtabIdentity = () => {
             <SubtabIdentityCardGameplay />
           </Stack.Item>
           <Stack.Item>
-            <SubtabIdentityCardVirtues />
-          </Stack.Item>
-          <Stack.Item>
-            <SubtabIdentityCardQuirks />
-          </Stack.Item>
-          <Stack.Item>
             <SubtabIdentityCardVices />
           </Stack.Item>
           <SubtabIdentityDownstreamPaneRight />

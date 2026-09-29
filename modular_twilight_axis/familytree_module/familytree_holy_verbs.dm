@@ -8,33 +8,33 @@
 /proc/bond_type_display(bond_type)
 	switch(bond_type)
 		if(BOND_SPOUSE_M)
-			return ""
+			return "Husband"
 		if(BOND_SPOUSE_F)
-			return ""
+			return "Wife"
 		if(BOND_ADOPTED_SON)
 			return " "
 		if(BOND_ADOPTED_DAUGHTER)
 			return " "
 		if(BOND_BROTHER)
-			return ""
+			return "Brother"
 		if(BOND_SISTER)
-			return ""
+			return "Sister"
 	return bond_type
 
 /proc/bond_type_instrumental(bond_type)
 	switch(bond_type)
 		if(BOND_SPOUSE_M)
-			return ""
+			return "husband"
 		if(BOND_SPOUSE_F)
-			return ""
+			return "wife"
 		if(BOND_ADOPTED_SON)
 			return " "
 		if(BOND_ADOPTED_DAUGHTER)
 			return " "
 		if(BOND_BROTHER)
-			return ""
+			return "brother"
 		if(BOND_SISTER)
-			return ""
+			return "sister"
 	return bond_type
 
 /proc/bond_type_is_marriage(bond_type)
@@ -149,7 +149,7 @@
 	var/instr = bond_type_instrumental(bond_type)
 
 	var/priest_confirm = tgui_alert(priest, "[person1.real_name]  [instr] [person2.real_name].  ?", "Establish Bond", list("", ""))
-	if(priest_confirm != "")
+	if(priest_confirm != "Yes")
 		return
 
 	if(!(person1 in view(FAMILYTREE_BOND_RANGE, priest)) || !(person2 in view(FAMILYTREE_BOND_RANGE, priest)))
@@ -157,12 +157,12 @@
 		return
 
 	var/offer1 = tgui_alert(person1, "  [instr] [person2.real_name]. ?", " ", list("", ""))
-	if(offer1 != "")
+	if(offer1 != "Yes")
 		to_chat(priest, span_warning("[person1.real_name] ()."))
 		return
 
 	var/offer2 = tgui_alert(person2, "[person1.real_name]  () [instr]. ?", " ", list("", ""))
-	if(offer2 != "")
+	if(offer2 != "Yes")
 		to_chat(priest, span_warning("[person2.real_name] ()."))
 		return
 
@@ -234,12 +234,12 @@
 		return
 
 	var/confirm1 = tgui_alert(person1, "     [person2.real_name]?", "Dissolve Marriage", list("", ""))
-	if(confirm1 != "")
+	if(confirm1 != "Yes")
 		to_chat(priest, span_warning("[person1.real_name]  () ."))
 		return
 
 	var/confirm2 = tgui_alert(person2, "     [person1.real_name]?", "Dissolve Marriage", list("", ""))
-	if(confirm2 != "")
+	if(confirm2 != "Yes")
 		to_chat(priest, span_warning("[person2.real_name]  () ."))
 		return
 

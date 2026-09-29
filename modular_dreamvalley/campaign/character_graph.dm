@@ -503,6 +503,7 @@
 		"skills" = capture_character_skills(character),
 		"mind" = capture_character_mind(character, issues, item_ids),
 		"bodyparts" = capture_character_bodyparts(character, issues),
+		"taur" = dreamvalley_capture_taur(character),
 		"organs" = capture_character_organs(character),
 		"traits" = capture_character_traits(character, issues),
 		"status_effects" = capture_character_status_effects(character, issues, item_ids),
@@ -523,7 +524,20 @@
 		"lich_headshot_link", "vampire_headshot_link", "vampire_skin",
 		"vampire_eyes", "vampire_hair", "vampire_ears", "taur_type",
 		"taur_color", "job", "advjob", "adaptive_name", "adaptive_name_title",
+		// Everything else character creation sets on the body.
+		"flavortext_cached", "ooc_notes_cached", "nsfwflavortext_cached",
+		"erpprefs_cached", "vocal_bark_id", "vocal_speed", "vocal_pitch",
+		"vocal_pitch_range", "examine_theme", "cmode_music_override_name",
+		"song_artist", "song_title", "ooc_extra", "ooc_extra_img",
+		"nsfw_ooc_extra_img", "noble_gossip", "noble_gossip_cached", "rumour",
+		"rumour_cached", "freeuse", "d_intent",
 	))
+	identity_vars["img_gallery"] = islist(character.img_gallery) ? character.img_gallery.Copy() : null
+	identity_vars["nsfw_img_gallery"] = islist(character.nsfw_img_gallery) ? character.nsfw_img_gallery.Copy() : null
+	var/list/descriptor_paths = list()
+	for(var/descriptor in character.mob_descriptors)
+		descriptor_paths += "[descriptor]"
+	identity_vars["mob_descriptors"] = descriptor_paths
 	var/list/dna_state = list()
 	if(character.dna)
 		dna_state = dreamvalley_capture_scalar_vars(character.dna, list(
@@ -809,6 +823,7 @@
 	restore_character_identity(character, core["identity"])
 	restore_character_bodyparts(character, core["bodyparts"])
 	restore_character_organs(character, core["organs"])
+	dreamvalley_restore_taur(character, core["taur"])
 	// Items are restored before mind/status effects so a bound-weapon graph
 	// reference (an arcyne conduit, a ferramancy bind) can resolve to the
 	// exact restored item instance instead of a placeholder.
@@ -916,7 +931,19 @@
 	// mob's own real /datum/dna "dna" var — applying it blindly here would
 	// overwrite character.dna with a plain list. The dna_state block below is
 	// the only thing allowed to touch character.dna.
-	dreamvalley_apply_scalar_vars(character, state, list("dna"))
+	dreamvalley_apply_scalar_vars(character, state, list("dna", "img_gallery", "nsfw_img_gallery", "mob_descriptors"))
+	if(islist(state["img_gallery"]))
+		character.img_gallery = state["img_gallery"].Copy()
+	if(islist(state["nsfw_img_gallery"]))
+		character.nsfw_img_gallery = state["nsfw_img_gallery"].Copy()
+	if(islist(state["mob_descriptors"]))
+		character.clear_mob_descriptors()
+		for(var/descriptor_text in state["mob_descriptors"])
+			var/descriptor_path = text2path(descriptor_text)
+			if(descriptor_path)
+				character.add_mob_descriptor(descriptor_path)
+	if(istext(state["vocal_bark_id"]))
+		character.set_bark(state["vocal_bark_id"])
 	if(character.dna && islist(dna_state))
 		dreamvalley_apply_scalar_vars(character.dna, dna_state)
 		var/list/features = dna_state["features"]
@@ -1001,6 +1028,10 @@
 			var/datum/bodypart_feature/feature = new feature_path()
 			var/list/feature_vars = feature_state["vars"]
 			var/accessory_path = text2path(feature_vars["accessory_type"])
+			// An empty feature (no style) would just blank the hair out.
+			if(!accessory_path)
+				qdel(feature)
+				continue
 			if(accessory_path)
 				feature.set_accessory_type(accessory_path, feature_vars["accessory_colors"], character)
 			dreamvalley_apply_scalar_vars(feature, feature_vars)
@@ -1024,17 +1055,16 @@
 				qdel(restored_wound)
 
 /datum/dreamvalley_campaign_manager/proc/restore_character_organs(mob/living/carbon/human/character, list/states)
+	// Build every organ from the saved DNA the same way character creation does:
+	// tail, ears, snout, eyes, breasts, genitals and so on all keep their sprite,
+	// colours and sizes. Then markings go back on the body parts.
+	var/datum/species/species = character.dna?.species
+	if(species)
+		species.regenerate_organs(character, species)
+		apply_markings_to_body_parts(character.dna.body_markings, character)
 	if(!islist(states))
 		return
-	var/list/existing_organs = character.internal_organs.Copy()
-	for(var/obj/item/organ/existing as anything in existing_organs)
-		var/list/state = states["[existing.slot]"]
-		var/saved_type = islist(state) ? text2path(state["type"]) : null
-		if(!state || existing.type != saved_type)
-			existing.Remove(character, special = TRUE, drop_if_replaced = FALSE)
-			if(!QDELETED(existing))
-				qdel(existing)
-
+	// Put saved damage and state back on top of the rebuilt organs.
 	for(var/organ_slot in states)
 		var/list/state = states[organ_slot]
 		if(!islist(state))
@@ -1160,3 +1190,16 @@
 			var/datum/status_effect/fire_handler/fire_stacks/fire = effect
 			if(fire.on_fire && fire.moblight_type && (!fire.moblight || QDELETED(fire.moblight)))
 				fire.moblight = new fire.moblight_type(character)
+
+/proc/dreamvalley_capture_taur(mob/living/carbon/human/character)
+	var/obj/item/bodypart/taur/taur = character.get_taur_tail()
+	if(!taur)
+		return null
+	return list("type" = "[taur.type]", "color" = taur.taur_color)
+
+/proc/dreamvalley_restore_taur(mob/living/carbon/human/character, list/state)
+	if(!islist(state))
+		return
+	var/taur_path = text2path(state["type"])
+	if(ispath(taur_path, /obj/item/bodypart/taur))
+		character.Taurize(taur_path, state["color"] || "#ffffff")

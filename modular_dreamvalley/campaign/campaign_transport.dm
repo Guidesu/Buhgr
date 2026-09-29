@@ -5,9 +5,13 @@
  *   data/dreamvalley/active_campaign.txt             which campaign boots
  *   data/dreamvalley/campaigns/<campaign>/slots/<slot>.json
  *   data/dreamvalley/campaigns/<campaign>/boot_slot.txt   which slot loads next boot
+ *   data/dreamvalley/campaigns/<campaign>/characters.json saved characters
+ *
+ * Characters are kept apart from world saves: loading an older world save or
+ * resetting the world doesn't touch them.
  *
  * Every save slot is a complete world save (changed turfs, persistent
- * objects, saved characters, clock, rules). The game autosaves into the
+ * objects, clock, rules). The game autosaves into the
  * "autosave" slot. Admins can also save into named slots and pick which slot
  * the next boot loads. After a slot is loaded, the boot slot goes back to
  * "autosave", since autosaves continue from the loaded state.
@@ -38,6 +42,44 @@
 
 /datum/dreamvalley_campaign_manager/proc/boot_slot_file_path()
 	return "[campaign_dir_path()]/boot_slot.txt"
+
+/datum/dreamvalley_campaign_manager/proc/characters_file_path()
+	return "[campaign_dir_path()]/characters.json"
+
+/datum/dreamvalley_campaign_manager/var/characters_loaded_from_file = FALSE
+
+/// Loads the campaign's saved characters. Returns FALSE if there's no file yet.
+/datum/dreamvalley_campaign_manager/proc/load_characters_file()
+	var/path = characters_file_path()
+	if(!fexists(path))
+		return FALSE
+	var/list/data
+	try
+		data = json_decode(rustg_file_read(path))
+	catch
+		log_world("DreamValley: characters file of campaign '[campaign_id]' is not valid JSON.")
+		return FALSE
+	if(!islist(data))
+		return FALSE
+	if(isnum(data["next_character_number"]))
+		next_character_number = max(1, data["next_character_number"])
+	load_character_records(data["characters"])
+	characters_loaded_from_file = TRUE
+	return TRUE
+
+/datum/dreamvalley_campaign_manager/proc/write_characters_file()
+	if(!enabled || saves_frozen)
+		return FALSE
+	var/list/data = list(
+		"schema_version" = 1,
+		"campaign_id" = campaign_id,
+		"next_character_number" = next_character_number,
+		"characters" = copy_character_records(),
+	)
+	if(!write_text_file(json_encode(data), characters_file_path()))
+		log_world("DreamValley: failed to write the characters file of campaign '[campaign_id]'.")
+		return FALSE
+	return TRUE
 
 SUBSYSTEM_DEF(dreamvalley)
 	name = "DreamValley Campaign"
@@ -112,6 +154,7 @@ SUBSYSTEM_DEF(dreamvalley)
 	if(fexists(boot_slot_file_path()))
 		slot = sanitize_save_name(rustg_file_read(boot_slot_file_path())) || DREAMVALLEY_AUTOSAVE_SLOT
 	migrate_old_save_files()
+	load_characters_file()
 
 	var/list/save_data = read_slot(slot)
 	if(!save_data && slot != DREAMVALLEY_AUTOSAVE_SLOT)
@@ -184,6 +227,7 @@ SUBSYSTEM_DEF(dreamvalley)
 	if(!write_text_file(json_encode(save_data), slot_file_path(slot)))
 		log_world("DreamValley: failed to write save slot '[slot]' of campaign '[campaign_id]'.")
 		return FALSE
+	write_characters_file()
 	last_save_at = world.realtime
 	return TRUE
 
@@ -211,7 +255,6 @@ SUBSYSTEM_DEF(dreamvalley)
 			"saved_at" = save_data?["saved_at"],
 			"in_game_day" = save_data?["in_game_day"],
 			"generation" = save_data?["checkpoint_generation"],
-			"characters" = length(save_data?["snapshot"]?["characters"]),
 		))
 	return result
 
@@ -295,6 +338,30 @@ SUBSYSTEM_DEF(dreamvalley)
 	if(!fexists(campaign_dir))
 		return FALSE
 	return fdel(campaign_dir)
+
+/// Wipes every world save of the active campaign so the next boot starts on a
+/// fresh map. Saved characters are kept unless wipe_characters is set.
+/// Saves stay frozen until the caller reboots.
+/datum/dreamvalley_campaign_manager/proc/reset_campaign(wipe_characters = FALSE)
+	if(wipe_characters)
+		character_records = list()
+	else
+		// Keep anyone playing right now along with the stored characters.
+		save_all_player_characters("stored")
+	write_characters_file()
+	freeze_saves("The campaign is being reset. The server is restarting.")
+	var/slots_dir = "[campaign_dir_path()]/slots/"
+	if(fexists(slots_dir))
+		fdel(slots_dir)
+	write_text_file("", "[slots_dir].keep")
+	if(fexists(boot_slot_file_path()))
+		fdel(boot_slot_file_path())
+	// Old single-file saves would otherwise be migrated back in on the next boot.
+	if(fexists("[campaign_dir_path()]/save.json"))
+		fdel("[campaign_dir_path()]/save.json")
+	if(campaign_id == "default" && fexists(DREAMVALLEY_LEGACY_SAVE_FILE))
+		fdel(DREAMVALLEY_LEGACY_SAVE_FILE)
+	return !fexists(slot_file_path(DREAMVALLEY_AUTOSAVE_SLOT))
 
 #undef DREAMVALLEY_SAVE_ROOT
 #undef DREAMVALLEY_CAMPAIGNS_ROOT

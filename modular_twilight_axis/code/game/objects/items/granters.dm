@@ -1,8 +1,8 @@
 /obj/item/book/granter/residentcard
-	name = ""
+	name = "Residency writ"
 	icon_state = "contractunsigned"
 	icon = 'icons/roguetown/items/misc.dmi'
-	desc = ""
+	desc = "This writ grants its signer residency and the right to claim a free house in town."
 	oneuse = TRUE
 	drop_sound = 'sound/foley/dropsound/paper_drop.ogg'
 	pickup_sound = 'sound/blank.ogg'
@@ -16,13 +16,13 @@
 
 /obj/item/book/granter/residentcard/attack_self(mob/living/user)
 	if(!resident_manuscripts_enabled())
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("Residency writs are temporarily unavailable on this map."))
 		return FALSE
 	if(HAS_TRAIT(user, TRAIT_RESIDENT))
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("I already have residency!"))
 		return FALSE
 	if(icon_state == "contractsigned")
-		to_chat(user, span_danger(""))
+		to_chat(user, span_danger("This writ is already signed."))
 		return FALSE
 	else
 		var/obj/item/writefeather
@@ -31,19 +31,19 @@
 				writefeather = I
 				break
 		if(!writefeather)
-			to_chat(user, span_warning(""))
+			to_chat(user, span_warning("I need to be holding a quill!"))
 			return FALSE
 
 		var/turf/T = get_step(user, user.dir)
 		if(!(locate(/obj/structure/table) in T))
-			to_chat(user, span_warning(""))
+			to_chat(user, span_warning("I need a table to fill out the writ."))
 			return FALSE
 
 		if(!do_after(user, 4 SECONDS, TRUE))
-			to_chat(user, span_warning(""))
+			to_chat(user, span_warning("I lose focus and can't sign the writ properly."))
 			return FALSE
 
-		to_chat(user, span_notice(""))
+		to_chat(user, span_notice("I sign the writ and gain the right of residency in town."))
 		playsound(user, 'sound/items/write.ogg', 50, TRUE, -2)
 		ADD_TRAIT(user, TRAIT_RESIDENT, TRAIT_GENERIC)
 		onlearned(user)
@@ -51,47 +51,47 @@
 /obj/item/book/granter/residentcard/onlearned(mob/living/carbon/user)
 	..()
 	if(oneuse == TRUE)
-		name = ""
-		desc = ""
+		name = "[user.real_name] - residency writ"
+		desc = "A writ confirming residency by its owner's signature."
 		icon_state = "contractsigned"
 
 #ifdef COMPILE_LEGACY_RESIDENTCARDVIRTUE
-#define MANUSCRIPT_ITEM_DESCRIPTION ""
+#define MANUSCRIPT_ITEM_DESCRIPTION "This supple ivory scroll is perfectly smooth, cool to the touch, and flawless when held to the light. Its gilded edges shimmer as it unrolls with a dry crackle. The text is set in deep blue-black ink with lapis initials, and a detailed wax seal hangs from a silk-and-gold cord at the bottom. The document smells of wax, herbs and fine leather."
 
-#define MANUSCRIPT_DESCRIPTION ""
+#define MANUSCRIPT_DESCRIPTION "Be it proclaimed to all: by the will of the Crown and under the eye of the Council, the bearer of this document is recognized as a lawful resident of these lands and dwells under the shelter of common law. Every rank and station is bound to recognize the named person as a loyal subject and to place no obstacle in their dealings or their travels. Whoever, by deed or intent, harms the bearer of this writ shall answer before the law to the full severity of its codes, for they strike at the order the throne has established"
 
 #define MANUSCRIPT_DEFECT_NOTES list(\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
+	"A faint blot is visible in one corner of the paper.",\
+	"The ink on the seal is slightly smudged.",\
+	"One of the letters in the name is written with an unsteady hand.",\
+	"The edge of the parchment is cut unevenly.",\
+	"The signature is not entirely confident.",\
+	"The parchment smells stale.",\
+	"A lapis initial sits out of line and has dried over the main text.",\
+	"The ruling pricks in the lower margin are a fresh row and don't match the lines of text.",\
+	"In places the gilded border lies over a fresh cut.",\
+	"The silk-and-gold cord has been threaded twice: the fibres are cracked around the holes.",\
+	"The wax of one seal is warmer in colour and shines as if recently remelted.",\
+	"The ink in the middle of a line has a bluish halo, as if thinned with different water.",\
+	"One stroke in the date is crossed out too neatly for a clerk's hand.",\
+	"A stranger's note shows between the lines: 'Zizo keeps the whisper, Graggar awaits blood, Matthios will weigh the debt.'",\
 )
 
 #define MANUSCRIPT_MIN_FOUND_DEFECT_COUNT 3
 #define MANUSCRIPT_MAX_FOUND_DEFECT_COUNT 5
 
 #define MANUSCRIPT_VALIDATION_NOTES list(\
-	"",\
-	"",\
-	"",\
-	"",\
-	"",\
+	"The seals sit straight, the ink went down with confidence, and the cord shows no sign of being refastened.",\
+	"The ruling, the pricks and the lines of text all agree: this is a writ of proper form.",\
+	"The hand, the seals and the gilded edge agree with one another. There's no reason to doubt this writ.",\
+	"The wax took the impression deeply and cleanly, and the lines betray no other hand.",\
+	"The document appears to have been drawn up according to every rule of chancery.",\
 )
 
 #define FAKE_DEFECT_CHANCE 65
 
 /obj/item/book/granter/residentcardvirtue
-	name = ""
+	name = "Travel writ"
 	desc = MANUSCRIPT_ITEM_DESCRIPTION
 	icon_state = "contractsigned"
 	icon = 'icons/roguetown/items/misc.dmi'
@@ -141,10 +141,10 @@
 	var/raw = SSmapping.config?.map_name
 	switch(raw)
 		if("Dun World")
-			return ""
+			return "Duchy of Azuria"
 		if("Rockhill")
-			return ""
-	return raw || ""
+			return "Rockhill"
+	return raw || "Azure Peak"
 
 /obj/item/book/granter/residentcardvirtue/proc/compute_expiry_date()
 	var/round_id = text2num(GLOB.round_id) || 0
@@ -170,20 +170,20 @@
 
 /obj/item/book/granter/residentcardvirtue/proc/get_ruler_seal_title()
 	if(SSmapping.config?.map_name == "Rockhill")
-		return ""
-	return ""
+		return "King"
+	return "Duke"
 
 /obj/item/book/granter/residentcardvirtue/proc/is_noble_manuscript_status()
-	return owner_status_label == ""
+	return owner_status_label == "By Astrata's grace"
 
 /obj/item/book/granter/residentcardvirtue/proc/should_initially_include_duke_seal()
 	return is_noble_manuscript_status()
 
 /obj/item/book/granter/residentcardvirtue/proc/stamp_all_seals(include_duke_seal = TRUE)
-	seals["chancellor"] = list("stamper" = "", "time" = world.time)
-	seals["elder"] = list("stamper" = "", "time" = world.time)
+	seals["chancellor"] = list("stamper" = "Chancellor", "time" = world.time)
+	seals["elder"] = list("stamper" = "Elder", "time" = world.time)
 	seals["duke"] = include_duke_seal ? list("stamper" = get_ruler_seal_title(), "time" = world.time) : null
-	seals["hand"] = list("stamper" = "", "time" = world.time)
+	seals["hand"] = list("stamper" = "Hand", "time" = world.time)
 
 /obj/item/book/granter/residentcardvirtue/proc/has_any_seal()
 	if(!seals)
@@ -211,13 +211,13 @@
 /obj/item/book/granter/residentcardvirtue/proc/seal_title_for_key(key)
 	switch(key)
 		if("chancellor")
-			return ""
+			return "Chancellor"
 		if("elder")
-			return ""
+			return "Elder"
 		if("duke")
 			return get_ruler_seal_title()
 		if("hand")
-			return ""
+			return "Hand"
 	return ""
 
 /obj/item/book/granter/residentcardvirtue/proc/get_detection_character_key(mob/living/carbon/human/user)
@@ -243,9 +243,9 @@
 /obj/item/book/granter/residentcardvirtue/examine(mob/user)
 	. = ..()
 	if(is_bound && owner_name)
-		. += span_info("")
+		. += span_info("Writ issued in the name of: [owner_name].")
 	else
-		. += span_info("")
+		. += span_info("The writ isn't bound to an owner yet.")
 
 /obj/item/book/granter/residentcardvirtue/attack_self(mob/living/user)
 	ui_interact(user)
@@ -267,7 +267,7 @@
 	owner_name = target.real_name
 	owner_status_label = status_label_for(target)
 	is_bound = TRUE
-	name = ""
+	name = "Travel writ"
 	if(auto_stamp_seals)
 		stamp_all_seals(should_initially_include_duke_seal())
 
@@ -318,8 +318,8 @@
 
 /obj/item/book/granter/residentcardvirtue/proc/status_label_for(mob/living/carbon/human/target)
 	if(HAS_TRAIT(target, TRAIT_NOBLE))
-		return ""
-	return ""
+		return "By Astrata's grace"
+	return "Unknown"
 
 /obj/item/book/granter/residentcardvirtue/ui_state(mob/user)
 	return GLOB.hands_state
@@ -342,8 +342,8 @@
 		can_edit_fake = can_edit_fake_manuscript(human_user)
 		can_become_resident = can_claim_residence(human_user)
 		is_owner_viewing = is_owner_viewer(human_user)
-	data["owner_name"] = owner_name || (can_edit_fake ? "" : "")
-	data["owner_status"] = owner_status_label || (can_edit_fake ? "" : "—")
+	data["owner_name"] = owner_name || (can_edit_fake ? "" : "Unknown")
+	data["owner_status"] = owner_status_label || (can_edit_fake ? "Unknown" : "—")
 	data["expiry_date"] = expiry_date || "—"
 	data["issued_place"] = issued_place || "—"
 	data["description"] = description || ""
@@ -351,10 +351,10 @@
 	data["is_bound"] = is_bound
 	data["can_edit_fake"] = can_edit_fake
 	data["can_become_resident"] = can_become_resident
-	data["seal_chancellor"] = seal_entry("chancellor", "")
-	data["seal_elder"] = seal_entry("elder", "")
+	data["seal_chancellor"] = seal_entry("chancellor", "Chancellor")
+	data["seal_elder"] = seal_entry("elder", "Elder")
 	data["seal_duke"] = seal_entry("duke", get_ruler_seal_title(), FALSE)
-	data["seal_hand"] = seal_entry("hand", "")
+	data["seal_hand"] = seal_entry("hand", "Hand")
 
 	data["can_detect"] = FALSE
 	data["detection_done"] = FALSE
@@ -451,9 +451,9 @@
 	if(!isnull(value))
 		text_value = "[value]"
 	switch(text_value)
-		if("")
-			return ""
-	return ""
+		if("By Astrata's grace")
+			return "By Astrata's grace"
+	return "Unknown"
 
 /obj/item/book/granter/residentcardvirtue/proc/save_fake_manuscript(mob/living/carbon/human/user, list/params)
 	if(!can_edit_fake_manuscript(user))
@@ -462,13 +462,13 @@
 		params = list()
 	var/perfect_forgery = can_make_undetectable_forgery(user)
 	owner_character_key = null
-	owner_name = sanitize_manuscript_field(params["owner_name"], MAX_NAME_LEN, "")
+	owner_name = sanitize_manuscript_field(params["owner_name"], MAX_NAME_LEN, "Unknown")
 	owner_status_label = normalize_manuscript_status(params["owner_status"])
 	expiry_date = expiry_date || compute_expiry_date()
 	issued_place = issued_place || get_map_display_name()
 	description = description || MANUSCRIPT_DESCRIPTION
 	is_bound = TRUE
-	name = ""
+	name = "Travel writ"
 	icon_state = "contractsigned"
 	stamp_all_seals(should_initially_include_duke_seal())
 	authority_validated = FALSE
@@ -482,9 +482,9 @@
 	detection_results = list()
 	detection_notes = list()
 	if(perfect_forgery)
-		to_chat(user, span_notice(""))
+		to_chat(user, span_notice("Your mastery of the pen lets you craft a flawless forged writ. No one will be able to tell it's a lie! Almost..."))
 	else
-		to_chat(user, span_notice(""))
+		to_chat(user, span_notice("You forge a writ, making it look genuine."))
 	playsound(user, 'sound/items/write.ogg', 40, TRUE, -2)
 	return TRUE
 
@@ -495,7 +495,7 @@
 	REMOVE_TRAIT(user, TRAIT_OUTLANDER, ADVENTURER_TRAIT)
 	REMOVE_TRAIT(user, TRAIT_OUTLANDER, JOB_TRAIT)
 	REMOVE_TRAIT(user, TRAIT_OUTLANDER, TRAIT_GENERIC)
-	to_chat(user, span_notice(""))
+	to_chat(user, span_notice("The seals on the writ are deemed sufficient: from now on you are considered a citizen of these lands."))
 	return TRUE
 
 /obj/item/book/granter/residentcardvirtue/proc/handle_detection(mob/living/carbon/human/user)
@@ -535,7 +535,7 @@
 			result = "real"
 	LAZYSET(detection_results, detection_key, result)
 	if(result == "fake")
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("You find that the writ is forged: [format_defect_notes()]"))
 	if(result != "fake")
 		LAZYSET(detection_notes, detection_key, pick(MANUSCRIPT_VALIDATION_NOTES))
 
@@ -553,7 +553,7 @@
 			authority_validated = TRUE
 	LAZYSET(detection_results, detection_key, result)
 	if(result == "fake")
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("You find that the writ is forged: [format_defect_notes()]"))
 	if(result != "fake")
 		LAZYSET(detection_notes, detection_key, pick(MANUSCRIPT_VALIDATION_NOTES))
 
@@ -567,23 +567,23 @@
 	if(!is_bound)
 		if(can_make_undetectable_forgery(user))
 			forge_undetectable_fake(user)
-			to_chat(user, span_notice(""))
+			to_chat(user, span_notice("Your mastery of the pen lets you craft a flawless forged writ. No one will be able to tell it's a lie! Almost..."))
 		else
 			bind_to_holder(user)
-			to_chat(user, span_notice(""))
+			to_chat(user, span_notice("You draw up a travel writ, writing in your name and likeness."))
 		icon_state = "contractsigned"
 		playsound(user, 'sound/items/write.ogg', 40, TRUE, -2)
 		return TRUE
 	var/seal_key = get_seal_key_for_user(user)
 	if(!seal_key)
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("You don't have the right to seal this writ."))
 		return TRUE
 	if(seals[seal_key])
-		to_chat(user, span_warning(""))
+		to_chat(user, span_warning("Your seal is already on it."))
 		return TRUE
 	var/title = seal_title_for_key(seal_key)
 	stamp_seal(seal_key, title)
-	to_chat(user, span_notice(""))
+	to_chat(user, span_notice("You set the seal of [title] on the writ."))
 	playsound(user, 'sound/items/write.ogg', 50, TRUE, -2)
 	return TRUE
 
@@ -596,7 +596,7 @@
 	return TRUE
 
 /obj/item/book/granter/residentcardvirtue/fake
-	name = ""
+	name = "Travel writ"
 	desc = MANUSCRIPT_ITEM_DESCRIPTION
 	is_fake = TRUE
 	auto_stamp_seals = FALSE
@@ -615,18 +615,18 @@
 	expiry_year_bonus_max = 10
 
 /obj/item/book/granter/residentcardvirtue/base
-	name = ""
-	desc = ""
+	name = "Blank travel writ"
+	desc = "A blank travel writ. Take a quill and write your name in, then send it to the proper officials to be sealed."
 	icon_state = "contractunsigned"
 	auto_stamp_seals = FALSE
 
 /datum/supply_pack/rogue/drugs/fake_manuscript
-	name = ""
+	name = "Suspicious scroll"
 	cost = 100
 	contains = list(/obj/item/book/granter/residentcardvirtue/fake)
 
 /datum/supply_pack/rogue/luxury/manuscript_base
-	name = ""
+	name = "Blank travel writ"
 	cost = 50
 	contains = list(/obj/item/book/granter/residentcardvirtue/base)
 

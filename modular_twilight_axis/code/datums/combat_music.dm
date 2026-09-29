@@ -9,21 +9,21 @@
 	name = "Watchman of Rockhill"
 	desc = ""
 	shortname = "Watchman"
-	credits = ""
+	credits = "Some hard banging on pipes with planks being sawn in the background. I don't remember where I ripped this from a year ago."
 	musicpath = list('modular_twilight_axis/sound/music/combat/combat_watchman.ogg')
 
 /datum/combat_music/man_at_arms_enigma
 	name = "Man At Arms of Rockhill"
 	desc = ""
 	shortname = "Man At Arms"
-	credits = ""
+	credits = "I don't remember where I ripped this from a year ago."
 	musicpath = list('modular_twilight_axis/sound/music/combat/combat_retinue.ogg')
 
 /datum/combat_music/vanguard_enigma
 	name = "Vanguard of Rockhill"
 	desc = ""
 	shortname = "Vanguard"
-	credits = ""
+	credits = "I don't remember where I ripped this from a year ago."
 	musicpath = list('modular_twilight_axis/sound/music/combat/combat_vanguard.ogg')
 
 
@@ -176,9 +176,9 @@
 
 /datum/combat_music/ImperialSpellbade
 	name = "Imperial Spellblade combat song"
-	desc = ""
+	desc = "So here you are, Grenzel swine, traitor to tradition and faithless student of our school. I'll fight you only out of great pity for your wretched life."
 	shortname = "ImperialSpellbade"
-	credits = ""
+	credits = "Original: https://youtu.be/mhsFGJs8a3A?si=wR0c07aVHyqXOPUG"
 	musicpath = list('sound/music/combat_imperial_spellblade.ogg')
 
 /datum/combat_music/hussar

@@ -272,7 +272,7 @@
 	ftlog("do_assign_house: [H.real_name] confirmed, calling AssignToHouse")
 	AssignToHouse(H)
 	if(H.family_datum)
-		to_chat(H, span_love(""))
+		to_chat(H, span_love("You successfully joined the family!"))
 		stop_tracking_human(H, "assigned to house")
 	else
 		retry_local_assignment(H, "no suitable house found after confirm")
@@ -620,7 +620,7 @@
 	if(H.family_datum)
 		var/favorite_role = familytree_relative_assignment_audit_text(assignment)
 		familytree_admin_log_house_assignment(H, house, "joined favorite house as [favorite_role]")
-		to_chat(H, span_love(""))
+		to_chat(H, span_love("You successfully joined the family!"))
 		stop_tracking_human(H, "assigned to favorite house")
 	else
 		retry_local_assignment(H, "favorite house assignment failed")
@@ -1142,7 +1142,7 @@
 		new_member.generation = 0
 	if(!house.housename)
 		house.housename = house.SurnameFormatting(person)
-	to_chat(person, span_notice(""))
+	to_chat(person, span_notice("You were added to the family [house.housename]."))
 	house.InheritCurses(new_member)
 	return new_member
 
@@ -1935,8 +1935,8 @@
 	familytree_admin_log_house_assignment(initiator, new_house, "formed sibling house with [key_name(partner)]", partner_member)
 	familytree_admin_log_house_assignment(partner, new_house, "joined sibling house with [key_name(initiator)]", new_house.founder)
 
-	to_chat(initiator, span_love(""))
-	to_chat(partner, span_love(""))
+	to_chat(initiator, span_love("You founded the house [new_house.housename]!"))
+	to_chat(partner, span_love("You joined the house [new_house.housename]."))
 
 	stop_tracking_human(initiator, "formed sibling house")
 	stop_tracking_human(partner, "joined sibling house")
@@ -1952,20 +1952,20 @@
 	if(!leader?.client)
 		return
 
-	var/result = tgui_alert(leader, "", "", list("", ""))
+	var/result = tgui_alert(leader, "Open the house [house.housename] for relatives to join?", "House [house.housename]", list("Yes", "No"))
 
 	if(!leader || QDELETED(leader))
 		return
 	if(!house)
 		return
 
-	if(result == "")
+	if(result == "Yes")
 		house.closed = FALSE
 		ftlog("SIBLING HOUSE: [leader.real_name] opened house '[house.housename]' for relatives")
-		to_chat(leader, span_notice(""))
+		to_chat(leader, span_notice("House [house.housename] is open to relatives."))
 	else
 		ftlog("SIBLING HOUSE: [leader.real_name] kept house '[house.housename]' closed")
-		to_chat(leader, span_notice(""))
+		to_chat(leader, span_notice("House [house.housename] will stay closed. It can only be joined through a priest's rite."))
 
 /datum/controller/subsystem/familytree/proc/HasSuitableHouseForRelative(mob/living/carbon/human/H, forced_role = null)
 	if(!H)
@@ -2076,11 +2076,11 @@
 		return
 	if(H.mind)
 		H.mind.special_items["Silver wedding ring"] = /obj/item/clothing/ring/band
-		to_chat(H, span_love(""))
+		to_chat(H, span_love("A silver wedding ring was added to your stash as a token of the union."))
 		return
 	var/obj/item/clothing/ring/band/ring = new(H)
 	ring.forceMove(get_turf(H))
-	to_chat(H, span_love(""))
+	to_chat(H, span_love("A silver wedding ring fell at your feet as a token of the union."))
 
 /datum/controller/subsystem/familytree/proc/house_allows_relatives(datum/heritage/house, mob/living/carbon/human/seeker = null)
 	if(!house)
@@ -2134,7 +2134,7 @@
 		ftlog("RETRY SKIP: [H.real_name] already scheduled reason=[reason]")
 		return
 	ftlog("RETRY: [H.real_name] reason=[reason], scheduling re-assignment in 10s")
-	to_chat(H, span_warning(""))
+	to_chat(H, span_warning("No suitable family was found. The system will try again."))
 	H.familytree_assignment_scheduled = TRUE
 	addtimer(CALLBACK(src, PROC_REF(run_local_assignment), H, H.familytree_pref), 10 SECONDS)
 

@@ -101,7 +101,7 @@
 
 /obj/item/mortar_used_barrel
 	name = "damaged mortar barrel"
-	desc = ""
+	desc = "Firing it in a kiln can partly restore the barrel."
 	icon = 'modular_twilight_axis/awful_artillery/icons/artillery.dmi'
 	icon_state = "barrel"
 	color = "#ecaf86"
@@ -115,7 +115,7 @@ GLOBAL_VAR_INIT(has_mortar_spawned, FALSE)
 		GLOB.has_mortar_spawned = TRUE
 		var/obj/structure/artillery/mortar/mortar = new /obj/structure/artillery/mortar(H.loc)
 		H.start_pulling(mortar)
-		to_chat(H, span_danger(""))
+		to_chat(H, span_danger("My trophy mortar is with me. Wonderful."))
 */
 #undef PROJECTILE_NUM 
 #undef PROJECTILE_DEGREES_DIV

@@ -368,7 +368,7 @@
 
 		// If it's a corpse and was not a player
 		if(corpse.stat == DEAD && !was_player)
-			var/is_animal = istype(corpse, /mob/living/carbon/simple_animal)
+			var/is_animal = istype(corpse, /mob/living/simple_animal)
 			if(is_animal)
 				var/mob/living/simple_animal/animal = corpse
 				if(animal.initial_butcher_count > 0 && length(animal.butcher_results) < animal.initial_butcher_count)

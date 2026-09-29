@@ -72,9 +72,9 @@
 	if(!istype(partner))
 		return
 
-	to_chat(me, span_warning(""))
+	to_chat(me, span_warning("I feel milk spill from my breasts."))
 	if(me != partner)
-		to_chat(partner, span_warning(""))
+		to_chat(partner, span_warning("I feel [me]'s breasts let down milk."))
 
 #undef BREAST_BASE_PROD_PER_SIZE
 #undef BREAST_STORAGE_PER_SIZE

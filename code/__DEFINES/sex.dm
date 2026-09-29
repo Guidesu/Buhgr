@@ -233,9 +233,9 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 	"Massive" = BREAST_SIZE_MASSIVE,\
 	"Heaping" = BREAST_SIZE_HEAPING,\
 	"Obscene" = BREAST_SIZE_OBSCENE,\
-	"Size 10" = BREAST_SIZE_10,\
-	"Size 11" = BREAST_SIZE_11,\
-	"Size 12" = BREAST_SIZE_12,\
+	"Colossal" = BREAST_SIZE_10,\
+	"Titanic" = BREAST_SIZE_11,\
+	"Gargantuan" = BREAST_SIZE_12,\
 	)
 
 #define KINK_PROCESS (1 << 0)

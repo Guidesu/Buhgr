@@ -101,7 +101,7 @@
 			icon_state = "drider"
 			icon_living = "drider"
 
-/mob/living/simple_animal/hostile/retaliate/rogue/drider/tame/saddled/Initialize()
+/mob/living/simple_animal/hostile/retaliate/rogue/drider/tame/saddled/Initialize(mapload)
 	. = ..()
 	var/obj/item/natural/saddle/S = new(src)
 	ssaddle = S

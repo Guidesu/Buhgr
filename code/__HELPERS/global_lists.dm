@@ -118,6 +118,7 @@
 		var/datum/loadout_item/loadout_item = new path()
 		GLOB.loadout_items[path] = loadout_item
 		GLOB.loadout_items_by_name[loadout_item.name] = loadout_item
+	dreamvalley_expand_donator_kits()
 
 	// DreamValley TAT extension traits
 	if(GLOB.tat_available_traits)

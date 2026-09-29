@@ -57,8 +57,6 @@
 		NOTABLE_RESIDENCY,
 	)
 	choice_tooltips = list(
-		NOTABLE_BEAUTY = "Just looking at me relieves some of the hardships of the world, and I'm quite good in bed.",
-		NOTABLE_STASH = "I've a hidden coinpurse for a particularly dark dae.",
 		NOTABLE_RESIDENCY = "I am a Resident of the outpost, with access to one of its buildings all to myself.",
 		NOTABLE_SHREWD = "Grants Secular Appraise -- a spell that allows you to tell how much wealth someone has on them, and in their Meister."
 	)

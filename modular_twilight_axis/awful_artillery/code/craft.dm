@@ -33,7 +33,7 @@
 //////////////////////////////////////////////////////////////////////
 /obj/item/artillery_barrel_assembly
 	name = "artillery barrel blank"
-	desc = ""
+	desc = "Can be specialized for a particular piece of artillery"
 	icon = 'modular_twilight_axis/awful_artillery/icons/artillery.dmi'
 	icon_state = "barrel"
 	color = "#5c524b"
@@ -41,7 +41,7 @@
 
 /obj/item/mortar_barrel_assembly
 	name = "mortar barrel blank"
-	desc = ""
+	desc = "A careful polish and it will be ready"
 	icon = 'modular_twilight_axis/awful_artillery/icons/artillery.dmi'
 	icon_state = "barrel"
 	color = "#96745e"

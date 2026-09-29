@@ -28,7 +28,7 @@
  */
 /obj/projectile/bullet/twilight_lead
 	name = "lead sphere"
-	desc = ""
+	desc = "A small lead ball. Goes well with powder."
 	damage = 120
 	damage_type = BRUTE
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'
@@ -47,7 +47,7 @@
 
 /obj/projectile/bullet/twilight_lead/silver
 	name = "silver sphere"
-	desc = ""
+	desc = "A small silver ball. Softer than a lead bullet, but extremely effective against the undead."
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/twilight_lead/silver
 	damage = 120
 	armor_penetration = PEN_NONE
@@ -57,7 +57,7 @@
 
 /obj/projectile/bullet/twilight_cannonball
 	name = "cannonball"
-	desc = ""
+	desc = "A large lead ball. It's not the size of the barrel that matters, but the size of the hole it leaves in your enemy."
 	damage = 150
 	damage_type = BRUTE
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'
@@ -77,7 +77,7 @@
 
 /obj/projectile/bullet/twilight_grapeshot
 	name = "grapeshot"
-	desc = ""
+	desc = "A set of small metal balls packed tightly in paper. Goes well with powder."
 	damage = 30
 	damage_type = BRUTE
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'
@@ -102,7 +102,7 @@
 
 /obj/projectile/bullet/twilight_lead/twilight_runelock
 	name = "runed sphere"
-	desc = ""
+	desc = "A small, perfectly round metal ball covered in Psydonite runes. Deadly at high speed."
 	damage = 90
 	speed = 0.6
 	damage_type = BRUTE
@@ -121,7 +121,7 @@
 
 /obj/projectile/bullet/twilight_lead/twilight_runelock/blessed
 	name = "blessed sphere"
-	desc = ""
+	desc = "A small, perfectly round ball of pure silver. Such rounds are made by the finest Otavan smiths and blessed personally by the Grand Master. Deadly against the undead, and quite effective against other heretics too."
 	damage = 100
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/twilight_lead/runelock/blessed
 	icon_state = "musketball_blessed"
@@ -432,7 +432,7 @@
 
 /obj/item/ammo_casing/caseless/rogue/twilight_lead
 	name = "lead sphere"
-	desc = ""
+	desc = "A small lead ball. Goes well with powder."
 	projectile_type = /obj/projectile/bullet/twilight_lead
 	caliber = "lead_sphere"
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'
@@ -443,7 +443,7 @@
 
 /obj/item/ammo_casing/caseless/rogue/twilight_lead/runelock
 	name = "runed sphere"
-	desc = ""
+	desc = "A small, perfectly round metal ball covered in Psydonite runes. Deadly at high speed."
 	projectile_type = /obj/projectile/bullet/twilight_lead/twilight_runelock
 	caliber = "runed_sphere"
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'
@@ -479,13 +479,13 @@
 
 /obj/item/ammo_casing/caseless/rogue/twilight_lead/silver
 	name = "silver sphere"
-	desc = ""
+	desc = "A small silver ball. Softer than a lead bullet, but extremely effective against the undead."
 	projectile_type = /obj/projectile/bullet/twilight_lead/silver
 	icon_state = "musketball_silver"
 
 /obj/item/ammo_casing/caseless/rogue/twilight_lead/runelock/blessed
 	name = "blessed sphere"
-	desc = ""
+	desc = "A small, perfectly round ball of pure silver. Such rounds are made by the finest Otavan smiths and blessed personally by the Grand Master. Deadly against the undead, and quite effective against other heretics too."
 	projectile_type = /obj/projectile/bullet/twilight_lead/twilight_runelock/blessed
 	icon_state = "musketball_blessed"
 	w_class = WEIGHT_CLASS_TINY
@@ -493,7 +493,7 @@
 
 /obj/item/ammo_casing/caseless/rogue/twilight_cannonball
 	name = "lead cannonball"
-	desc = ""
+	desc = "A large lead ball. It's not the size of the barrel that matters, but the size of the hole it leaves in your enemy."
 	projectile_type = /obj/projectile/bullet/twilight_cannonball
 	caliber = "cannonball"
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'
@@ -506,7 +506,7 @@
 
 /obj/item/ammo_casing/caseless/rogue/twilight_cannonball/grapeshot
 	name = "grapeshot"
-	desc = ""
+	desc = "A set of small metal balls packed tightly in paper. Goes well with powder."
 	projectile_type = /obj/projectile/bullet/twilight_grapeshot
 	caliber = "cannonball"
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'
@@ -518,7 +518,7 @@
 
 /obj/item/ammo_casing/caseless/rogue/twilight_lead/paper
 	name = "paper cartridge"
-	desc = ""
+	desc = "At heart, a paper cartridge is no different from the usual powder and ball, but it's far easier to use."
 	projectile_type = /obj/projectile/bullet/twilight_lead
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'
 	icon_state = "paper_bullet"

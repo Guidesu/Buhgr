@@ -19,7 +19,7 @@
 	var/turf/T2 = get_turf(target)
 	if(!T1 || !T2) return FALSE
 	if(get_dist(T1, T2) > range)
-		to_chat(source, span_warning(""))
+		to_chat(source, span_warning("Too far!"))
 		return FALSE
 	return TRUE
 
@@ -95,8 +95,8 @@
 
 
 /datum/special_intent/range_special/bow_doubleshot
-	name = ""
-	desc = ""
+	name = "Double Shot"
+	desc = "Instantly looses a second arrow from the quiver right after the first."
 	range = 14
 	use_doafter = 1 SECONDS
 	stamcost = 25
@@ -133,8 +133,8 @@
 	perform_archery_shot()
 
 /datum/special_intent/range_special/bow_longshot
-	name = ""
-	desc = ""
+	name = "Long Shot"
+	desc = "A careful aim. The farther the target, the more damage."
 	range = 25 
 	use_doafter = 1.5 SECONDS
 	stamcost = 30
@@ -153,8 +153,8 @@
 	apply_cooldown(cooldown)
 
 /datum/special_intent/range_special/bow_backstep
-	name = ""
-	desc = ""
+	name = "Leaping Shot"
+	desc = "A shot fired while leaping backward, with a brief speed boost."
 	range = 14
 	use_doafter = 0.5 SECONDS 
 	stamcost = 20
@@ -182,6 +182,6 @@
 	effectedstats = list(STATKEY_SPD = 10)
 
 /atom/movable/screen/alert/status_effect/archer_haste
-	name = ""
-	desc = ""
+	name = "Lightness of the Wind"
+	desc = "My movements are quicker after that deft leap."
 	icon_state = "buff"

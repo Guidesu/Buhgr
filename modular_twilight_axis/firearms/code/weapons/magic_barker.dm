@@ -125,7 +125,7 @@
 
 /obj/item/gun/ballistic/twilight_firearm/barker/barker_light/dendor1
 	name = "hermit's barker"
-	desc = ""
+	desc = "One of the first firearms, made by Otavan masters at the start of the century before last. This one is overgrown with bone and hide like a druid's staff, which has made it a little sturdier"
 	icon = 'modular_twilight_axis/firearms/icons/magic/dendor1.dmi'
 	icon_state = "dendor1"
 	item_state = "dendor1"
@@ -134,7 +134,7 @@
 
 /obj/item/gun/ballistic/twilight_firearm/barker/barker_light/dendor2
 	name = "guiding light"
-	desc = ""
+	desc = "A battered weapon that has clearly seen enough in its life, and after all of it became the vessel for a shard of a mad god whose radiance now guides its wielder."
 	icon = 'modular_twilight_axis/firearms/icons/magic/dendor2.dmi'
 	icon_state = "dendor2"
 	item_state = "dendor2"
@@ -174,7 +174,7 @@
 
 /obj/item/gun/ballistic/twilight_firearm/barker/arti_barker1
 	name = "ignited barker"
-	desc = ""
+	desc = "One of the first firearms, made by Otavan masters at the start of the century before last. This one has a swivel handle holding a smouldering coal that lights the match for you."
 	icon = 'modular_twilight_axis/firearms/icons/magic/barti.dmi'
 	icon_state = "barti"
 	item_state = "barti"
@@ -182,7 +182,7 @@
 
 /obj/item/gun/ballistic/twilight_firearm/barker/arti_barker2
 	name = "hunter's barker"
-	desc = ""
+	desc = "A twisted take on one of the first firearms, meant for hunters who leap along steep slopes."
 	icon = 'modular_twilight_axis/firearms/icons/magic/barti1.dmi'
 	icon_state = "barti2"
 	item_state = "barti2"
@@ -200,7 +200,7 @@
 
 /obj/item/gun/ballistic/twilight_firearm/barker/arti_barker3
 	name = "shepherd's barker"
-	desc = ""
+	desc = "An old stick that can spit fire at game and makes a good pole for climbing up and down whole mountains."
 	icon = 'modular_twilight_axis/firearms/icons/magic/barti2.dmi'
 	icon_state = "barti3"
 	item_state = "barti3"

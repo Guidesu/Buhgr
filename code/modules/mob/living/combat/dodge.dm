@@ -1,4 +1,4 @@
-/mob/living/carbon/simple_animal
+/mob/living/simple_animal
 	// Pseudo dodge expert system for simple animals that let you exhausts them with normal attacks
 	var/dodge_fatigue = 0
 	var/dodge_fatigue_updated = 0

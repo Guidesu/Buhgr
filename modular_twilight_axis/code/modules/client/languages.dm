@@ -1,3 +1,3 @@
 /datum/preferred_ui_language/russian
-	display_name = ""
+	display_name = "Russian"
 	language_code = "ru"

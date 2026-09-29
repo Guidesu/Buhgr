@@ -14,17 +14,17 @@
 /datum/stressevent/tranquility_shroud/restless
 	stressadd = 2
 	timer = 12 MINUTES
-	desc = span_red("")
+	desc = span_red("A chill washes over my whole body, making me shiver...")
 
 /datum/stressevent/tranquility_shroud/deadite
 	stressadd = 4
 	timer = 12 MINUTES
-	desc = span_boldred("")
+	desc = span_boldred("The cold numbs my body, and my legs can barely carry me...")
 
 /datum/stressevent/tranquility_shroud/vampire
 	stressadd = 6
 	timer = 12 MINUTES
-	desc = span_boldred("")
+	desc = span_boldred("A pale mist covers my skin, and the voices within it want to vent their malice on me...")
 
 /proc/tranquility_shroud_stress_for_mode(shroud_mode)
 	switch(shroud_mode)
@@ -35,15 +35,15 @@
 	return /datum/stressevent/tranquility_shroud/restless
 
 /datum/action/cooldown/spell/touch/shroud_of_tranquility
-	name = ""
-	desc = ""
+	name = "Shroud of Oblivion"
+	desc = "Wards the target against the undead, hiding them from sight. The disguise lasts until it expires; violence and the touch of the undead won't break it."
 
 	background_icon = 'icons/mob/actions/genericmiracles.dmi'
 	button_icon = 'modular_twilight_axis/code/modules/spells/pantheon/divine/necra/necra_shroud.dmi'
 	button_icon_state = "consecrateburial"
 
-	draw_message = span_notice("")
-	drop_message = span_notice("")
+	draw_message = span_notice("I gather a mist around my hand that slowly wraps it in a freezing chill.<br>What do I wish to ask of them?")
+	drop_message = span_notice("I wave my hand and the haze dissolves into the air.")
 
 	hand_path = /obj/item/melee/new_touch_attack/shroud
 	can_cast_on_self = TRUE
@@ -88,46 +88,46 @@
 	return applied_shroud_tier
 
 /datum/action/cooldown/spell/touch/shroud_of_tranquility/proc/choose_tranquility_shroud_mode(mob/living/carbon/caster, mob/living/living_target, applied_shroud_tier)
-	var/restless_choice = ""
-	var/deadite_choice = ""
-	var/vampire_choice = ""
+	var/restless_choice = "Veil of Oblivion"
+	var/deadite_choice = "Guise of the Zombie"
+	var/vampire_choice = "Guise of the Vampire"
 	var/list/options = list(restless_choice)
 	var/list/descriptions = list()
 	var/list/shroud_modes_by_choice = list()
-	descriptions[restless_choice] = ""
+	descriptions[restless_choice] = "T0: hides the target from the undead's sight. T1: adds a single retaliation against an undead attack to the concealment."
 	shroud_modes_by_choice[restless_choice] = TRANQUILITY_SHROUD_MODE_RESTLESS
 
 	if(applied_shroud_tier >= CLERIC_T2)
 		options += deadite_choice
-		descriptions[deadite_choice] = ""
+		descriptions[deadite_choice] = "T2: the body takes on a green tint, running becomes impossible, the heartbeat can't be heard, and the flesh is protected from rising as undead."
 		shroud_modes_by_choice[deadite_choice] = TRANQUILITY_SHROUD_MODE_DEADITE
 	if(applied_shroud_tier >= CLERIC_T3)
 		options += vampire_choice
-		descriptions[vampire_choice] = ""
+		descriptions[vampire_choice] = "T3: the body takes on a pale tint and vampires don't sense an outsider; in exchange, Astrata's light burns the flesh."
 		shroud_modes_by_choice[vampire_choice] = TRANQUILITY_SHROUD_MODE_VAMPIRE
 
-	var/choice = tgui_input_list(caster, "", "", options, options[1], descriptions = descriptions)
+	var/choice = tgui_input_list(caster, "Which mist do I pass to [living_target]?", "Shroud of Oblivion", options, options[1], descriptions = descriptions)
 	return shroud_modes_by_choice[choice]
 
 /datum/action/cooldown/spell/touch/shroud_of_tranquility/cast_on_hand_hit(obj/item/melee/new_touch_attack/hand, atom/victim, mob/living/carbon/caster, list/modifiers)
 	if(QDELETED(hand) || QDELETED(caster))
 		return FALSE
 	if(!isliving(victim))
-		to_chat(caster, span_warning(""))
+		to_chat(caster, span_warning("The mist won't settle on those who aren't aware of anything."))
 		return FALSE
 	if(get_dist(caster, victim) > 1)
-		to_chat(caster, span_warning(""))
+		to_chat(caster, span_warning("I need to get closer to [victim] to pass the mist to them."))
 		return FALSE
 
 	var/mob/living/living_target = victim
 	if(QDELETED(living_target) || living_target.stat != CONSCIOUS)
-		to_chat(caster, span_warning(""))
+		to_chat(caster, span_warning("The mist won't settle on those who aren't aware of anything."))
 		return FALSE
 	if((living_target.mob_biotypes & MOB_UNDEAD) || living_target.mind?.has_antag_datum(/datum/antagonist/zombie))
-		to_chat(caster, span_warning(""))
+		to_chat(caster, span_warning("The mist withdraws from [living_target] and comes back."))
 		return FALSE
 	if(living_target.has_tranquility_shroud())
-		to_chat(caster, span_notice(""))
+		to_chat(caster, span_notice("The mist withdraws from [living_target] and comes back."))
 		return FALSE
 
 	var/applied_shroud_tier = get_available_shroud_tier(caster)
@@ -137,47 +137,47 @@
 	if(QDELETED(hand) || QDELETED(caster) || QDELETED(living_target))
 		return FALSE
 	if(get_dist(caster, living_target) > 1 || living_target.stat != CONSCIOUS)
-		to_chat(caster, span_warning(""))
+		to_chat(caster, span_warning("The mist disperses before it can settle."))
 		return FALSE
 	if((living_target.mob_biotypes & MOB_UNDEAD) || living_target.mind?.has_antag_datum(/datum/antagonist/zombie))
-		to_chat(caster, span_warning(""))
+		to_chat(caster, span_warning("The mist withdraws from [living_target] and comes back."))
 		return FALSE
 	if(living_target.has_tranquility_shroud())
-		to_chat(caster, span_notice(""))
+		to_chat(caster, span_notice("The mist withdraws from [living_target] and comes back."))
 		return FALSE
 
-	caster.visible_message(span_notice(""), span_notice(""))
+	caster.visible_message(span_notice("[caster] brings their palm up to [living_target]."), span_notice("I raise my palm, letting the mist pass from my hand to [living_target]."))
 	if(living_target != caster)
-		to_chat(living_target, span_notice(""))
+		to_chat(living_target, span_notice("The mist starts to swirl around me."))
 
 	if(!do_after(caster, TRANQUILITY_SHROUD_APPLY_TIME, target = living_target))
 		return FALSE
 	if(QDELETED(hand) || QDELETED(caster) || QDELETED(living_target))
 		return FALSE
 	if(get_dist(caster, living_target) > 1 || living_target.stat != CONSCIOUS)
-		to_chat(caster, span_warning(""))
+		to_chat(caster, span_warning("The mist disperses before it can settle."))
 		return FALSE
 	if((living_target.mob_biotypes & MOB_UNDEAD) || living_target.mind?.has_antag_datum(/datum/antagonist/zombie))
-		to_chat(caster, span_warning(""))
+		to_chat(caster, span_warning("The mist withdraws from [living_target] and comes back."))
 		return FALSE
 	if(living_target.has_tranquility_shroud())
-		to_chat(caster, span_notice(""))
+		to_chat(caster, span_notice("The mist withdraws from [living_target] and comes back."))
 		return FALSE
 
 	var/datum/status_effect/tranquility_shroud/shroud = living_target.apply_status_effect(/datum/status_effect/tranquility_shroud, caster, caster.get_skill_level(/datum/skill/magic/holy), applied_shroud_tier, selected_shroud_mode)
 	if(!shroud)
-		to_chat(caster, span_warning(""))
+		to_chat(caster, span_warning("The mist disperses before it can settle."))
 		return FALSE
 
 	playsound(get_turf(living_target), sound, 50, TRUE)
-	caster.visible_message(span_notice(""), span_notice(""))
-	to_chat(living_target, span_notice(""))
+	caster.visible_message(span_notice("The mist covers [living_target] and starts to swirl around them."), span_notice("The mist covers [living_target] and starts to swirl around them."))
+	to_chat(living_target, span_notice("The mist covers me and starts to swirl around me."))
 	hand.remove_hand_with_no_refund(caster)
 	return TRUE
 
 /obj/item/melee/new_touch_attack/shroud
-	name = ""
-	desc = ""
+	name = "thin mist"
+	desc = "A mist of many spirits forms a sheet around the hand and can pass to another person."
 	possible_item_intents = list(/datum/intent/use)
 	icon = 'icons/mob/roguehudgrabs.dmi'
 	icon_state = "grabbing_greyscale"
@@ -233,7 +233,7 @@
 		return FALSE
 	var/area/rogue/under/cave/licharena/arena = get_area(owner)
 	if(istype(arena) && arena.hallowed_against_undead_disguise)
-		to_chat(owner, span_warning(""))
+		to_chat(owner, span_warning("The hallowed ground rejects the shroud. The guise of the dead won't settle here."))
 		return FALSE
 	mask_active = TRUE
 	protection_active = (shroud_mode == TRANQUILITY_SHROUD_MODE_RESTLESS && shroud_tier >= CLERIC_T1)
@@ -250,11 +250,11 @@
 		owner.RemoveElement(/datum/element/tranquility_shroud)
 		if(!suppress_remove_message)
 			if(removal_reason == TRANQUILITY_SHROUD_REMOVAL_HALLOWED)
-				to_chat(owner, span_boldwarning(""))
+				to_chat(owner, span_boldwarning("The Archlich's domain tears the stolen guise apart. The shroud falls from me!"))
 			else if(removal_reason)
-				to_chat(owner, span_warning(""))
+				to_chat(owner, span_warning("The mist tears and can no longer hide me from the undead."))
 			else
-				to_chat(owner, span_notice(""))
+				to_chat(owner, span_notice("The mist disperses around me."))
 	return ..()
 
 /datum/status_effect/tranquility_shroud/proc/dispel(reason, mob/living/undead_source)
@@ -269,7 +269,7 @@
 	update_shroud_alert()
 	examine_text = null
 	if(protection_active)
-		examine_text = ""
+		examine_text = "The mist still lingers near me, ready to pass to the undead."
 		return
 
 /datum/status_effect/tranquility_shroud/proc/get_shroud_alert_icon_state()
@@ -297,8 +297,8 @@
 		owner.remove_stress(stress_event_type)
 
 /atom/movable/screen/alert/status_effect/buff/shroud
-	name = ""
-	desc = ""
+	name = "Cold Mist"
+	desc = "The mist clings around me. The dead won't attack me while it's on me."
 	icon = 'modular_twilight_axis/code/modules/spells/pantheon/divine/necra/necra_shroud.dmi'
 	icon_state = "shroud_t0"
 
@@ -418,7 +418,7 @@
 		return
 	if(H.is_face_concealed_for_shroud())
 		return
-	examine_list += span_redtext("")
+	examine_list += span_redtext("A strange light flickers in [H]'s eyes, and fangs show behind their lips!")
 
 /mob/living/proc/has_tranquility_shroud()
 	return !!has_status_effect(/datum/status_effect/tranquility_shroud)
@@ -501,9 +501,9 @@
 		return null
 	var/mob/living/living_examiner = examiner
 	if(shroud.uses_vampire_mask() && living_examiner.mind?.has_antag_datum(/datum/antagonist/vampire))
-		return span_boldnotice("")
+		return span_boldnotice("Pale flesh doesn't feel foreign to my blood.")
 	if(shroud.uses_deadite_mask() && living_examiner.tranquility_shroud_is_real_undead())
-		return span_boldnotice("")
+		return span_boldnotice("Just another zombie.")
 	return null
 
 /mob/living/get_villain_text(mob/examiner)

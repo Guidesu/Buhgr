@@ -34,8 +34,8 @@
 	desc = "The vines hirt you, but protects!"
 
 /datum/intent/simple/beast_claws/slash
-	name = ""
-	desc = ""
+	name = "Rending Strike"
+	desc = "Bestial claws help tear at your prey, making it bleed."
 	blade_class = BCLASS_CHOP
 	animname = "cut"
 	hitsound = "genslash"
@@ -73,7 +73,7 @@
 // - - -
 
 /obj/effect/proc_holder/spell/self/beast_claws
-	name = ""
+	name = "Claws of the Beast"
 	desc = "    ,      . \
 	   ,       , \
 	   ,  . \
@@ -110,8 +110,8 @@
 // -- Debuff
 
 /atom/movable/screen/alert/status_effect/debuff/beast_rage
-	name = ""
-	desc = ""
+	name = "Weary Beast"
+	desc = "My inner beast is tired, just as I am."
 	icon_state = "debuff"
 
 /datum/status_effect/debuff/beast_rage_weakness
@@ -127,8 +127,8 @@
 // -- Buff
 
 /atom/movable/screen/alert/status_effect/buff/beast_rage
-	name = ""
-	desc = ""
+	name = "Raging Beast"
+	desc = "My inner beast rages! Strength overflows in me, but my mind grows dim!"
 	icon_state = "buff"
 
 /datum/status_effect/buff/beast_rage
@@ -150,14 +150,14 @@
 // -- Spell
 
 /obj/effect/proc_holder/spell/self/beast_rage
-	name = ""
+	name = "Rage of the Beast"
 	desc = ""
 	overlay_state = "dendor"
 	recharge_time = 3 MINUTES
 	req_items = /obj/item/clothing/neck/roguetown/psicross/dendor
 	sound = 'sound/magic/churn.ogg'
 	associated_skill = /datum/skill/magic/druidic
-	invocations = list("")
+	invocations = list("There it is! The fury of a wild heart!")
 	invocation_type = "shout" //can be none, whisper, emote and shout
 	miracle = TRUE
 	devotion_cost = 125
@@ -169,7 +169,7 @@
 	user.Dizzy(10)
 
 /obj/effect/proc_holder/spell/targeted/create_seed
-	name = ""
+	name = "Miracle of Seedmaking"
 	range = -1
 	overlay_state = "blesscrop"
 	releasedrain = 30
@@ -184,17 +184,17 @@
 /obj/effect/proc_holder/spell/targeted/create_seed/proc/get_seeds_dict()
 	var/list/allowed_seeds = list()
 
-	allowed_seeds[""] = /obj/item/seeds/swampweed
-	allowed_seeds[""] = /obj/item/seeds/pipeweed
-	allowed_seeds[""] = /obj/item/seeds/cabbage
-	allowed_seeds[""] = /obj/item/seeds/potato
-	allowed_seeds[""] = /obj/item/seeds/onion
-	allowed_seeds[""] = /obj/item/seeds/wheat/oat
-	allowed_seeds[""] = /obj/item/seeds/wheat
-	allowed_seeds[""] = /obj/item/seeds/tea
-	allowed_seeds[""] = /obj/item/seeds/apple
-	allowed_seeds[""] = /obj/item/seeds/berryrogue/poison
-	allowed_seeds[""] = /obj/item/seeds/berryrogue
+	allowed_seeds["Swampweed"] = /obj/item/seeds/swampweed
+	allowed_seeds["Tobacco"] = /obj/item/seeds/pipeweed
+	allowed_seeds["Cabbage"] = /obj/item/seeds/cabbage
+	allowed_seeds["Potato"] = /obj/item/seeds/potato
+	allowed_seeds["Onion"] = /obj/item/seeds/onion
+	allowed_seeds["Oat"] = /obj/item/seeds/wheat/oat
+	allowed_seeds["Wheat"] = /obj/item/seeds/wheat
+	allowed_seeds["Tea"] = /obj/item/seeds/tea
+	allowed_seeds["Apple tree"] = /obj/item/seeds/apple
+	allowed_seeds["Berry bush (poisonous)"] = /obj/item/seeds/berryrogue/poison
+	allowed_seeds["Berry bush"] = /obj/item/seeds/berryrogue
 
 	return allowed_seeds
 
@@ -205,8 +205,8 @@
 
 	var/selected_option = input(
 		user,
-		"",
-		""
+		"What plant's seeds do you want to create?",
+		"Seedmaking"
 	) as null | anything in seeds_dict
 
 	if(!selected_option)

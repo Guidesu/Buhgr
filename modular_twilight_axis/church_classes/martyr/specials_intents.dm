@@ -663,7 +663,7 @@
 
 /datum/special_intent/martyr_malum_hammerfall
 	name = "Malum's Hammerfall"
-	desc = ""
+	desc = "A crushing blow to the ground ahead. A moment later Malum's hammer falls from the heavens, striking the same area again and badly damaging any walls and fortifications."
 	tile_coordinates = list(
 		list(-1,0), list(0,0), list(1,0),
 		list(-1,1), list(0,1), list(1,1),
@@ -701,10 +701,10 @@
 	var/scorched_duration = 15 SECONDS
 
 	var/list/malum_cries = list(
-		"",
-		"",
-		"",
-		""
+		"Malum, crush them in the forge of war!",
+		"Let Malum's fire and hammer fall upon you!",
+		"Malum, reveal your forge upon the battlefield!",
+		"In Malum's crucible you'll be reforged into ash!"
 	)
 
 /datum/special_intent/martyr_malum_hammerfall/_reset()
@@ -839,7 +839,7 @@
 
 /datum/special_intent/martyr_abyssor_harpoon
 	name = "Abyssor's Harpoon"
-	desc = ""
+	desc = "You hurl a trident toward the cursor. The first enemy it hits is impaled and dragged to you. If it hits nothing, it returns."
 	use_clickloc = TRUE
 	respect_adjacency = FALSE
 	respect_dir = FALSE
@@ -869,8 +869,8 @@
 	var/final_wave_length = 4
 
 	var/list/abyssor_cries = list(
-		"",
-		""
+		"Catch me some prey, trident!",
+		"Abyssor claims his due!"
 	)
 
 /datum/special_intent/martyr_abyssor_harpoon/_reset()
@@ -900,7 +900,7 @@
 		return
 
 	if(!(howner.mobility_flags & MOBILITY_STAND))
-		to_chat(howner, span_warning(""))
+		to_chat(howner, span_warning("I need to be on my feet to throw the trident!"))
 		return
 
 	if(!click_loc)
@@ -1086,8 +1086,8 @@
 	new /obj/effect/temp_visual/abyssor_trident_hit(target_turf)
 
 	hooked_target.visible_message(
-		span_warning(""),
-		span_userdanger("")
+		span_warning("[hooked_target] is impaled by the trident, which starts dragging them to the martyr!"),
+		span_userdanger("The trident bites into me and drags me toward the martyr!")
 	)
 
 	if(hooked_target.mobility_flags & MOBILITY_STAND)
@@ -1214,8 +1214,8 @@
 			apply_generic_weapon_damage(L, final_damage, "stab", BODY_ZONE_CHEST, bclass = BCLASS_PICK)
 
 		L.visible_message(
-			span_danger(""),
-			span_userdanger("")
+			span_danger("[L] is impaled by the trident!"),
+			span_userdanger("I'm impaled by a trident!")
 		)
 
 	..()
@@ -1317,7 +1317,7 @@
 
 /datum/special_intent/martyr_dendor_vine_reap
 	name = "Dendor's Vine Reap"
-	desc = ""
+	desc = "You sweep your scythe ahead of you and Dendor's vines burst from the ground. They seize their victims by the legs and hold them in place for a while."
 	tile_coordinates = list(
 		list(-1,0), list(0,0), list(1,0),
 		list(-2,1), list(-1,1), list(0,1), list(1,1), list(2,1)
@@ -1354,10 +1354,10 @@
 	var/vulnerable_dur = 5 SECONDS
 
 	var/list/dendor_cries = list(
-		"",
-		"",
-		"",
-		""
+		"Dendor, bind them in root and vine!",
+		"Let Dendor's thicket rise against you!",
+		"Dendor, bind them with the will of the forest!",
+		"Let Dendor's vines close upon you!"
 	)
 
 /datum/special_intent/martyr_dendor_vine_reap/_reset()
@@ -1399,8 +1399,8 @@
 			new /obj/effect/temp_visual/dendor_vines_begin(mark_turf)
 
 		L.visible_message(
-			span_warning(""),
-			span_userdanger("")
+			span_warning("Dendor's vines begin sprouting rapidly beneath [L]!"),
+			span_userdanger("Vines are sprouting beneath me!")
 		)
 
 		addtimer(CALLBACK(src, PROC_REF(begin_entangle), L), vine_begin_delay)
@@ -1427,8 +1427,8 @@
 		apply_generic_weapon_damage(L, constrict_dam, "slash", BODY_ZONE_CHEST, bclass = BCLASS_CHOP)
 
 	L.visible_message(
-		span_danger(""),
-		span_userdanger("")
+		span_danger("Dendor's vines snap shut around [L]!"),
+		span_userdanger("The vines snap tight around me and hold me fast!")
 	)
 
 	if(T)

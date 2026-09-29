@@ -150,7 +150,7 @@ SUBSYSTEM_DEF(job)
 		if(length(job.virtue_restrictions) && ((player.client.prefs.virtue?.type in job.virtue_restrictions) || (player.client.prefs.virtuetwo?.type in job.virtue_restrictions) || (player.client.prefs.virtue_origin?.type in job.virtue_restrictions)))
 			JobDebug("FOC incompatible with virtues, Player: [player], Job: [job.title], Virtue 1: [player.client.prefs.virtue?.name], Virtue 2: [player.client.prefs.virtuetwo?.name]")
 			continue
-		if(length(job.quirk_restrictions) && ((player.client.prefs.quirklesser?.type in job.quirk_restrictions) || (player.client.prefs.quirkgreater?.type in job.quirk_restrictions)))
+		if(length(job.quirk_restrictions) && length(player.client.prefs.get_all_quirk_types() & job.quirk_restrictions))
 			JobDebug("FOC incompatible with quirks, Player: [player], Job: [job.title], Quirk 1: [player.client.prefs.quirklesser?.name], Quirk 2: [player.client.prefs.quirkgreater?.name]")
 			continue
 		if(length(job.vice_restrictions))
@@ -239,7 +239,7 @@ SUBSYSTEM_DEF(job)
 			JobDebug("GRJ incompatible with virtues, Player: [player], Job: [job.title], Virtue 1: [player.client.prefs.virtue?.name], Virtue 2: [player.client.prefs.virtuetwo?.name]")
 			continue
 
-		if(length(job.quirk_restrictions) && ((player.client.prefs.quirklesser?.type in job.quirk_restrictions) || (player.client.prefs.quirkgreater?.type in job.quirk_restrictions)))
+		if(length(job.quirk_restrictions) && length(player.client.prefs.get_all_quirk_types() & job.quirk_restrictions))
 			JobDebug("GRJ incompatible with quirks, Player: [player], Job: [job.title], Quirk 1: [player.client.prefs.quirklesser?.name], Quirk 2: [player.client.prefs.quirkgreater?.name]")
 			continue
 
@@ -386,6 +386,10 @@ SUBSYSTEM_DEF(job)
 	for(var/i in GLOB.new_player_list)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY && player.check_preferences() && player.mind && !player.mind.assigned_role)
+			// DreamValley: a Character Creation build joins as its own role, like a late join does.
+			var/datum/preferences/prefs = player.client?.prefs
+			if(prefs?.dreamvalley_tat_join_pending && prefs.topjob && AssignRole(player, prefs.topjob, TRUE))
+				continue
 			unassigned += player
 
 	initial_players_to_assign = unassigned.len

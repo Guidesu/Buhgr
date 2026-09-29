@@ -37,16 +37,9 @@
 
 // --- Missing proc: start_sex_session -------------------------------------------
 
-/// Ported from Ratwood: opens the sex UI for the user targeting another mob.
-/// this codebase's sexcon controller has show_ui() and start() procs; this wraps them.
+/// Ratwood callers open the intimacy panel, which is Twilight's system.
 /mob/living/proc/start_sex_session(mob/living/carbon/human/target)
-	if(!ishuman(src))
-		return
-	var/mob/living/carbon/human/H = src
-	if(!H.sexcon)
-		return
-	H.sexcon.target = target
-	H.sexcon.show_ui()
+	return start_erp_session(target)
 
 
 /// Ratwood tracks knotting stats separately for lupians vs non-lupians. this codebase doesn't
@@ -143,6 +136,11 @@
 	animate(I, pixel_x = I.pixel_x + rand(-5, 5), pixel_y = I.pixel_y + rand(28, 40), alpha = 0, time = duration)
 
 // Restored from ratwood-2.0/main during 2026-09 mainstream merge
+
+/datum/stressevent/blue_balls
+	timer = 1 MINUTES
+	stressadd = 2
+	desc = "<span class='red'>I'm pent up and can't find release.</span>"
 
 /datum/stressevent/cumok
 	timer = 15 MINUTES

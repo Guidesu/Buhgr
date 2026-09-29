@@ -57,6 +57,7 @@
 		log_world("DreamValley: failed to rebuild [uid] for [lobby.ckey].")
 		return FALSE
 
+	dreamvalley_restore_missing_appearance(body, lobby.client?.prefs, record)
 	body.dreamvalley_character_uid = uid
 	var/list/position = record["position"]
 	if(islist(position) && isnum(position["dir"]))
@@ -117,3 +118,45 @@
 	if(action == "dv_saved_characters")
 		GLOB.dreamvalley_campaign?.prompt_resume_character(src)
 		return TRUE
+
+/// Saves written while appearance wasn't being restored lost the hair and
+/// features. When that's the case, fill them back in from the character's
+/// own preferences (only if the preference slot is that same character).
+/datum/dreamvalley_campaign_manager/proc/dreamvalley_restore_missing_appearance(mob/living/carbon/human/body, datum/preferences/prefs, list/record)
+	if(!prefs || prefs.real_name != record["name"])
+		return
+	if(!record["core"]?["taur"] && prefs.taur_type && !body.get_taur_tail())
+		body.Taurize(prefs.taur_type, prefs.taur_color)
+	// Saves from before the profile fields were saved: take them from preferences.
+	if(!("vocal_bark_id" in record["core"]?["identity"]))
+		body.flavortext_cached = prefs.flavortext_cached
+		body.ooc_notes_cached = prefs.ooc_notes_cached
+		body.nsfwflavortext_cached = prefs.nsfwflavortext_cached
+		body.erpprefs_cached = prefs.erpprefs_cached
+		body.rumour = prefs.rumour
+		body.rumour_cached = prefs.rumour_cached
+		body.noble_gossip = prefs.noble_gossip
+		body.noble_gossip_cached = prefs.noble_gossip_cached
+		body.img_gallery = prefs.img_gallery
+		body.nsfw_img_gallery = prefs.nsfw_img_gallery
+		body.ooc_extra = prefs.ooc_extra
+		body.ooc_extra_img = prefs.ooc_extra_img
+		body.nsfw_ooc_extra_img = prefs.nsfw_ooc_extra_img
+		body.examine_theme = prefs.examine_theme
+		body.song_title = prefs.song_title
+		body.song_artist = prefs.song_artist
+		body.set_bark(prefs.bark_id)
+		body.vocal_speed = prefs.bark_speed
+		body.vocal_pitch = prefs.bark_pitch
+		body.vocal_pitch_range = prefs.bark_variance
+		prefs.apply_descriptors(body)
+	var/obj/item/bodypart/head/head = body.get_bodypart(BODY_ZONE_HEAD)
+	if(!head)
+		return
+	for(var/datum/bodypart_feature/feature as anything in head.bodypart_features)
+		if(feature.accessory_type)
+			return
+	prefs.apply_customizers_to_character(body)
+	body.update_body()
+	body.update_hair()
+	body.update_body_parts(TRUE)

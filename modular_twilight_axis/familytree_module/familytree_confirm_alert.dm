@@ -1,8 +1,8 @@
 #define FAMILYTREE_CONFIRM_ALERT_CATEGORY "familytree_confirm"
 
 /atom/movable/screen/alert/familytree_confirm
-	name = ""
-	desc = ""
+	name = "Family bond"
+	desc = "The system found a family bond for you. Click to open the accept or decline menu."
 	icon_state = "buff"
 	alert_group = ALERT_BUFF
 	// Render above the rest of the HUD and get a fixed prominent spot (see the
@@ -36,7 +36,7 @@
 		return FALSE
 	alert.on_open = on_open
 	if(button_desc)
-		alert.desc = ""
+		alert.desc = "[button_desc]\n\nClick to open the accept or decline menu."
 	alert.add_filter("familytree_glow", 2, list("type" = "outline", "size" = 1, "color" = "#e8b923"))
 	animate(alert, alpha = 150, time = 8 SECONDS, loop = -1, flags = ANIMATION_PARALLEL, easing = SINE_EASING)
 	animate(alpha = 255, time = 8 SECONDS, easing = SINE_EASING)

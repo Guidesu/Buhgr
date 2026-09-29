@@ -14,7 +14,7 @@
 	var/solitaire_completed_sets = 0
 	var/list/xylix_seen_cards = list()
 	var/list/xylix_cheat_used = list()
-	var/message = ""
+	var/message = "Choose a game and seats."
 	var/fool_variant = CARD_TABLE_FOOL_CLASSIC
 	var/poker_variant = CARD_TABLE_POKER_DRAW
 	var/blackjack_variant = CARD_TABLE_BLACKJACK_AZURE
@@ -123,60 +123,60 @@
 		player.left = FALSE
 	if(dealer_index > players.len)
 		dealer_index = players.len ? 1 : 0
-	message = ""
+	message = "The round is reset. The players stay at the table."
 
 /datum/card_table_session/proc/game_label()
 	switch(game_type)
 		if(CARD_TABLE_GAME_FOOL)
-			return ""
+			return "Fool"
 		if(CARD_TABLE_GAME_BLACKJACK)
-			return ""
+			return "Blackjack"
 		if(CARD_TABLE_GAME_POKER)
-			return ""
+			return "Poker"
 		if(CARD_TABLE_GAME_SOLITAIRE)
-			return ""
-	return ""
+			return "Solitaire"
+	return "Not chosen"
 
 /datum/card_table_session/proc/fool_variant_label()
 	switch(fool_variant)
 		if(CARD_TABLE_FOOL_THROW_IN)
-			return ""
+			return "Etruscan"
 		if(CARD_TABLE_FOOL_TRANSFER)
-			return ""
+			return "Otavan"
 		if(CARD_TABLE_FOOL_THROW_TRANSFER)
-			return ""
-	return ""
+			return "Grenzelhoftian"
+	return "Hammerholdian"
 
 /datum/card_table_session/proc/poker_variant_label()
 	switch(poker_variant)
 		if(CARD_TABLE_POKER_TEXAS)
-			return ""
+			return "Raneshenian"
 		if(CARD_TABLE_POKER_OMAHA)
-			return ""
+			return "Valorian"
 		if(CARD_TABLE_POKER_STUD)
-			return ""
-	return ""
+			return "Giza"
+	return "Azurian"
 
 /datum/card_table_session/proc/blackjack_variant_label()
 	switch(blackjack_variant)
 		if(CARD_TABLE_BLACKJACK_GRON)
-			return ""
+			return "Grennian"
 		if(CARD_TABLE_BLACKJACK_VALORIA)
-			return ""
+			return "Valorian"
 		if(CARD_TABLE_BLACKJACK_GRENZELHOFT)
-			return ""
+			return "Grenzelhoftian"
 		if(CARD_TABLE_BLACKJACK_KAZENGUN)
-			return ""
-	return ""
+			return "Kazengunite"
+	return "Azurian"
 
 /datum/card_table_session/proc/solitaire_variant_label()
 	switch(solitaire_variant)
 		if(CARD_TABLE_SOLITAIRE_SPIDER)
-			return ""
-	return ""
+			return "Spider"
+	return "Klondike"
 
 /datum/card_table_session/proc/dealer_rotation_label()
-	return dealer_rotates ? "" : ""
+	return dealer_rotates ? "Rotating dealer" : "Single dealer"
 
 /datum/card_table_session/proc/max_players()
 	switch(game_type)
@@ -225,7 +225,7 @@
 		return
 	var/datum/card_table_player/spirit = new()
 	spirit.ckey = "card_table_spirit"
-	spirit.name = ""
+	spirit.name = "Card spirit"
 	spirit.is_spirit = TRUE
 	players += spirit
 

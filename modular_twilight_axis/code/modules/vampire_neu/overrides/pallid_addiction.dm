@@ -58,8 +58,8 @@
 	extra_stat_amount = 2
 
 /atom/movable/screen/alert/status_effect/buff/pallid_blood
-	name = ""
-	desc = ""
+	name = "Cursed Blood"
+	desc = "A vampire's cursed blood gives me strength. I need to drink it or lose my mind."
 	icon_state = "buff"
 
 /datum/status_effect/debuff/pallid_withdrawal
@@ -84,7 +84,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/pallid_withdrawal
 	name = "Blood Withdrawal"
-	desc = ""
+	desc = "My body is incredibly weak. It feels like any breeze could break it apart"
 	icon_state = "hunger1"
 
 /datum/status_effect/debuff/pallid_blood_high
@@ -95,9 +95,9 @@
 	effectedstats = list(STATKEY_INT = -PALLID_THRALL_BLOOD_HIGH_INT_LOSS)
 	tick_interval = 10 SECONDS
 	var/list/high_messages = list(
-		"",
-		"",
-		""
+		"Another's blood roars in my head like a sweet haze.",
+		"My thoughts drift, but my body begs for more blood.",
+		"The curse turns blood into a sticky bliss."
 	)
 
 /datum/status_effect/debuff/pallid_blood_high/on_apply()
@@ -121,7 +121,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/pallid_blood_high
 	name = "Blood Haze"
-	desc = ""
+	desc = "Another's blood has become a drug. I feel better, but my thoughts grow cloudy."
 	icon_state = "hunger2"
 
 /// COMPONENT
@@ -182,13 +182,13 @@
 
 	switch(extra_stat)
 		if(STATKEY_STR)
-			to_chat(owner, span_notice(""))
+			to_chat(owner, span_notice("The cursed blood grants me unnatural strength."))
 		if(STATKEY_SPD)
-			to_chat(owner, span_notice(""))
+			to_chat(owner, span_notice("The cursed blood grants me unnatural speed."))
 		if(STATKEY_INT)
-			to_chat(owner, span_notice(""))
+			to_chat(owner, span_notice("The cursed blood grants me unnatural clarity of mind."))
 		else
-			to_chat(owner, span_notice(""))
+			to_chat(owner, span_notice("The cursed blood spreads through my body with unnatural power."))
 	return buff
 
 /datum/component/pallid_addiction/proc/suspend_death_gifts(mob/living/carbon/human/owner)
@@ -244,9 +244,9 @@
 
 	if(!withdrawal_warning_sent && !withdrawal_active)
 		if(sire_blood)
-			to_chat(owner, span_notice(""))
+			to_chat(owner, span_notice("My sire's blood tastes like honey, but my body doesn't crave it yet."))
 		else
-			to_chat(owner, span_notice(""))
+			to_chat(owner, span_notice("The vampire's blood warms my veins, but the hunger hasn't woken yet."))
 		return FALSE
 
 	last_fed_time = world.time
@@ -254,9 +254,9 @@
 	withdrawal_warning_sent = FALSE
 
 	if(sire_blood)
-		to_chat(owner, span_notice(""))
+		to_chat(owner, span_notice("My sire's blood tastes like honey. The curse quiets, satisfied."))
 	else
-		to_chat(owner, span_notice(""))
+		to_chat(owner, span_notice("The vampire's blood quenches the hunger in my veins. The curse quiets, satisfied."))
 
 	if(withdrawal_active)
 		clear_pallid_withdrawal(owner)
@@ -270,7 +270,7 @@
 		return
 	owner.apply_damage(PALLID_WITHDRAWAL_TOX_DAMAGE, TOX, forced = TRUE)
 	apply_random_rot(PALLID_WITHDRAWAL_ROT_LIMBS)
-	to_chat(owner, span_userdanger(""))
+	to_chat(owner, span_userdanger("The lack of vampire blood poisons me and makes my flesh rot."))
 
 /datum/component/pallid_addiction/proc/on_drink_blood(mob/living/drinker, mob/living/victim)
 	SIGNAL_HANDLER
@@ -297,7 +297,7 @@
 		return TRUE
 
 	drinker.apply_status_effect(/datum/status_effect/debuff/pallid_blood_high)
-	to_chat(drinker, span_notice(""))
+	to_chat(drinker, span_notice("Another's blood doesn't sicken me. The curse turns it into a sweet haze, and my thoughts turn sluggish."))
 	return TRUE
 
 /datum/component/pallid_addiction/proc/on_death()
@@ -323,7 +323,7 @@
 		var/obj/item/bodypart/target_limb = pick(valid_limbs)
 		valid_limbs -= target_limb
 		target_limb.rotted = TRUE
-		to_chat(owner, span_userdanger(""))
+		to_chat(owner, span_userdanger("I feel rot spreading through my [target_limb.name]!"))
 
 	owner.update_body()
 
@@ -339,7 +339,7 @@
 
 	if(!withdrawal_active && !withdrawal_warning_sent && time_since_fed >= time_until_withdrawal - PALLID_WITHDRAWAL_WARNING_TIME)
 		withdrawal_warning_sent = TRUE
-		to_chat(owner, span_userdanger(""))
+		to_chat(owner, span_userdanger("I need to drink blood right now, or the curse will destroy my body."))
 
 	if(time_since_fed < time_until_withdrawal)
 		return
@@ -350,7 +350,7 @@
 			owner.remove_status_effect(buff_path)
 		owner.apply_status_effect(/datum/status_effect/debuff/pallid_withdrawal)
 		suspend_death_gifts(owner)
-		to_chat(owner, span_userdanger(""))
+		to_chat(owner, span_userdanger("My body is incredibly weak. It feels like any breeze could break it apart"))
 
 	if(world.time >= next_withdrawal_effect_time)
 		apply_withdrawal_effects(owner)

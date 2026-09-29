@@ -244,5 +244,5 @@
 		else
 			P.result = (P == winner) ? "Winner" : "Lost"
 	stage = CARD_TABLE_STAGE_FINISHED
-	var/winner_name = winner ? winner.name : ""
+	var/winner_name = winner ? winner.name : "Nobody"
 	message = "[winner_name]  ."

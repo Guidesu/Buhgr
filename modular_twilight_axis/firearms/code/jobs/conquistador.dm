@@ -1,5 +1,5 @@
 /datum/advclass/mercenary/twilight_conquistador
-	name = ""
+	name = "Conquistador Adelantado"
 	tutorial = "A fallen etruscan grandee and a hardened veteran of the Lirvas colonization. Tempered by the deadly wilds and terrors of the eastern jungles, he reclaims his lost glory through rapier and pistol, forging a path for the crown amidst gunpowder and cold steel."
 	allowed_sexes = list(MALE, FEMALE)
 	var/list/allowed_races = list(\
@@ -23,9 +23,9 @@
 	subclass_languages = list(/datum/language/etruscan)
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_NOBLE)
-	classes = list("Tercio" = "",
-					"Hidalgo" = "")
-	extra_context = ""
+	classes = list("Tercio" = "By fate's will your path lay in the vanguard, together with your trusty halberd.",
+					"Hidalgo" = "By fate's will your path is bound to powder and destreza.")
+	extra_context = "The class has no starting stats, since all of them are given after choosing a subclass. The Tercio subclass has Medium Armor and a halberd; the Hidalgo subclass has Dodge Expert and a pistol with a rapier."
 	subclass_skills = list(
 		/datum/skill/combat/swords = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/knives = SKILL_LEVEL_APPRENTICE,
@@ -56,7 +56,7 @@
 	switch(classchoice)
 		if("Tercio (Medium Armor & Halberd)")
 			H.set_blindness(0)
-			to_chat(H, span_warning(""))
+			to_chat(H, span_warning("By fate's will your path lay in the vanguard, together with your trusty halberd."))
 			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			H.change_stat(STATKEY_STR, 2)
@@ -82,7 +82,7 @@
 			backpack_contents = list(/obj/item/roguekey/mercenary = 1, /obj/item/rogueweapon/huntingknife/idagger/navaja = 1, /obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/clothing/head/roguetown/duelhat/etrusca = 1, /obj/item/lockpickring/mundane = 1)
 			H.set_blindness(0)
 		if("Hidalgo (Light Armor & Rapier + Pistol)")
-			to_chat(H, span_warning(""))
+			to_chat(H, span_warning("By fate's will your path is bound to powder and destreza."))
 			H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/twilight_firearms, 5, TRUE)
 			H.change_stat(STATKEY_SPD, 3)

@@ -649,11 +649,11 @@ drinksomeblood()
 		offer_reward_text = "[offer_reward_text], +[offer_maxbloodpool_reward] . "
 	if(drain_maxbloodpool_reward)
 		drain_reward_text = "[drain_reward_text], +[drain_maxbloodpool_reward] . "
-	var/force_price_text = ""
+	var/force_price_text = "FREE"
 	var/invite_choice = "  \n / [offer_reward_text]"
 	var/force_choice = " \n[force_price_text]"
 	var/drain_choice = " : \n  / [drain_reward_text]"
-	var/cancel_choice = ""
+	var/cancel_choice = "Cancel"
 
 	var/prompt_text = "    [victim]?"
 
@@ -796,7 +796,7 @@ drinksomeblood()
 	var/vampire_choice
 	var/ambition_forces_acceptance = ta_get_rockhill_conversion_ambition(sire, mind)
 	if(ambition_forces_acceptance)
-		vampire_choice = ""
+		vampire_choice = "YES"
 		to_chat(src, span_userdanger("     .      ."))
 		to_chat(sire, span_notice("[src]    ,   ."))
 	else
@@ -805,7 +805,7 @@ drinksomeblood()
 			src,
 			prompt_text,
 			" ",
-			list("", ""),
+			list("YES", "NO"),
 			VAMP_CONVERT_TIMEOUT,
 			strict_byond = use_byond_alert,
 			ui_state = GLOB.tgui_always_state
@@ -837,7 +837,7 @@ drinksomeblood()
 		vampire_conversion_prompt_active = FALSE
 		return
 
-	if(vampire_choice != "")
+	if(vampire_choice != "YES")
 		if(!vampire_choice)
 			vampire_conversion_prompt_active = FALSE
 			return

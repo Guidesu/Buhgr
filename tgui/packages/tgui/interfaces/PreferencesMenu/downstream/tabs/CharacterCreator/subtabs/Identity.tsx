@@ -85,9 +85,9 @@ const SubtabIdentityCardDreamValley = () => {
             Choose origin on the map
           </Button>
         </LabeledGridList.Item>
-        <LabeledGridList.Item label="TAT Build">
+        <LabeledGridList.Item label="Character Creation">
           <Button fluid icon="scroll" onClick={() => act('dv_open_tat')}>
-            Open TAT build
+            Stats, skills, traits, quirks and loadout
           </Button>
         </LabeledGridList.Item>
         <LabeledGridList.Item label="Scent">

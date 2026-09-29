@@ -28,7 +28,7 @@
 
 /obj/item/ball
 	name = "leather ball"
-	desc = ""
+	desc = "A stitched leather ball. You can throw it by hand or kick it."
 	icon = 'modular_twilight_axis/icons/obj/ball.dmi'
 	icon_state = "ball"
 
@@ -50,12 +50,12 @@
 
 /obj/item/ball/get_mechanics_examine(mob/user)
 	. = ..()
-	. += span_info("")
-	. += span_info("")
-	. += span_info("")
-	. += span_info("")
-	. += span_info("")
-	. += span_info("")
+	. += span_info("The ball behaves differently depending on your intent. Distance, speed and the cooldown after a kick all change.")
+	. += span_info("Kicking the ball with the Aimed or Swift intent does a normal kick of 3 tiles with a 1.5 second cooldown.")
+	. += span_info("Strong Kick hits the ball hardest: it flies 5 tiles with a 3 second cooldown.")
+	. += span_info("Weak Kick is a short, soft kick of 2 tiles with a 1 second cooldown.")
+	. += span_info("Feint Kick sends the ball diagonally forward toward your active hand for 3 tiles with a 1.5 second cooldown.")
+	. += span_info("Defend Kick moves the ball in a circle around you toward your active hand with a 0.5 second cooldown.")
 
 /obj/item/ball/onkick(mob/user)
 	if(!isliving(user))

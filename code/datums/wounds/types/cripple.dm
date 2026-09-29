@@ -28,7 +28,7 @@
 	. = ..()
 	if(attack_delay_mult != 1)
 		affected.next_move_modifier /= attack_delay_mult
-	if(crippled_zone && istype(affected, /mob/living/carbon/simple_animal))
+	if(crippled_zone && istype(affected, /mob/living/simple_animal))
 		var/mob/living/simple_animal/animal = affected
 		animal.clear_part_damage(crippled_zone)
 
@@ -65,7 +65,7 @@
 
 /datum/wound/cripple/maw/on_mob_gain(mob/living/affected)
 	. = ..()
-	if(istype(affected, /mob/living/carbon/simple_animal))
+	if(istype(affected, /mob/living/simple_animal))
 		var/mob/living/simple_animal/animal = affected
 		removed_lower = round(animal.melee_damage_lower * damage_penalty, 1)
 		removed_upper = round(animal.melee_damage_upper * damage_penalty, 1)
@@ -75,7 +75,7 @@
 
 /datum/wound/cripple/maw/on_mob_loss(mob/living/affected)
 	. = ..()
-	if(istype(affected, /mob/living/carbon/simple_animal))
+	if(istype(affected, /mob/living/simple_animal))
 		var/mob/living/simple_animal/animal = affected
 		animal.melee_damage_lower += removed_lower
 		animal.melee_damage_upper += removed_upper
@@ -96,7 +96,7 @@
 
 /datum/wound/cripple/arm/on_mob_gain(mob/living/affected)
 	. = ..()
-	if(istype(affected, /mob/living/carbon/simple_animal))
+	if(istype(affected, /mob/living/simple_animal))
 		var/mob/living/simple_animal/animal = affected
 		removed_lower = round(animal.melee_damage_lower * damage_penalty, 1)
 		removed_upper = round(animal.melee_damage_upper * damage_penalty, 1)
@@ -105,7 +105,7 @@
 
 /datum/wound/cripple/arm/on_mob_loss(mob/living/affected)
 	. = ..()
-	if(istype(affected, /mob/living/carbon/simple_animal))
+	if(istype(affected, /mob/living/simple_animal))
 		var/mob/living/simple_animal/animal = affected
 		animal.melee_damage_lower += removed_lower
 		animal.melee_damage_upper += removed_upper
@@ -177,7 +177,7 @@
 
 /datum/wound/cripple/fatal/on_mob_gain(mob/living/affected)
 	. = ..()
-	if(istype(affected, /mob/living/carbon/simple_animal))
+	if(istype(affected, /mob/living/simple_animal))
 		var/mob/living/simple_animal/animal = affected
 		animal.no_reanimate = TRUE
 	affected.visible_message(span_danger(kill_message(affected)))

@@ -282,7 +282,7 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame
 	tame = TRUE
 
-/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled/Initialize()
+/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled/Initialize(mapload)
 	. = ..()
 	var/obj/item/natural/saddle/S = new(src)
 	ssaddle = S

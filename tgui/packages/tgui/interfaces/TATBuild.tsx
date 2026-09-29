@@ -143,7 +143,33 @@ type SkillConversionDomainState = {
   take_text?: string;
 };
 
+type QuirkSlot = {
+  id: number;
+  slot_name: string;
+  greater: boolean;
+  path: string;
+  name: string;
+  spawn_error?: string | null;
+};
+
+type QuirkOption = {
+  path: string;
+  name: string;
+  desc?: string | null;
+  mechdesc?: string | null;
+  icon?: string | null;
+  greater: boolean;
+  unavailable?: string | null;
+};
+
+type QuirksData = {
+  slots: QuirkSlot[];
+  options: QuirkOption[];
+  open_slots: number;
+};
+
 type Data = {
+  quirks?: QuirksData;
   stats: Record<string, number>;
   skills: Record<string, SkillState>;
   traits: string[];
@@ -227,7 +253,14 @@ type Data = {
   dirty: boolean;
 };
 
-type TabKey = 'control' | 'stats' | 'skills' | 'traits' | 'items' | 'loadout';
+type TabKey =
+  | 'control'
+  | 'stats'
+  | 'skills'
+  | 'traits'
+  | 'quirks'
+  | 'items'
+  | 'loadout';
 
 const TAT_TAB_STORAGE_KEY = 'dreamvalley_tat_build_tab';
 const TAT_TAB_VALUES: TabKey[] = [
@@ -235,6 +268,7 @@ const TAT_TAB_VALUES: TabKey[] = [
   'stats',
   'skills',
   'traits',
+  'quirks',
   'items',
   'loadout',
 ];
@@ -1454,7 +1488,7 @@ const JsonExchangePanel = ({
         fluid
         height="180px"
         value={jsonDraft}
-        placeholder="Paste exported TAT build JSON here, or press Export current build."
+        placeholder="Paste an exported build JSON here, or press Export current build."
         onChange={(value) => setJsonDraft(String(value))}
       />
 
@@ -1610,7 +1644,7 @@ const SkillRow = ({
           category: entry.category,
           level: totalLevel,
           cap,
-          costText: `${nextCost} pts`,
+          costText: nextCost ? `${nextCost} pts` : undefined,
           bonus,
           invested,
           domainRemaining,
@@ -1632,7 +1666,8 @@ const SkillRow = ({
         <Stack.Item grow>
           <Box bold>{entry.name || skillPath}</Box>
           <Box style={{ opacity: 0.72, fontSize: '11px' }}>
-            Cost: {nextCost} | Type: {entry.category || 'unknown'} | Cap: {cap}
+            {nextCost ? `Cost: ${nextCost} | ` : ''}Type:{' '}
+            {entry.category || 'unknown'} | Cap: {cap}
             {bonus > 0 ? ` | Bonus: ${bonus}` : ''}
           </Box>
         </Stack.Item>
@@ -1977,6 +2012,7 @@ const TAB_ICONS: Record<string, string> = {
   stats: 'chart-simple',
   skills: 'book-open',
   traits: 'star',
+  quirks: 'masks-theater',
   items: 'boxes-stacked',
   loadout: 'shirt',
 };
@@ -2113,7 +2149,7 @@ const TraitNode = ({
       : entry.direction
         ? `${DIRECTION_LABELS[entry.direction] || entry.direction}`
         : 'Trait',
-    costText: `${cost} pts`,
+    costText: cost ? `${cost} pts` : undefined,
     total: amount,
     canAdd,
     leftHelp: canAdd
@@ -2163,10 +2199,12 @@ const TraitNode = ({
       <Box bold style={{ fontSize: '12px', lineHeight: 1.15 }}>
         {entry.name || traitId}
       </Box>
-      <Box mt={0.25} style={{ opacity: 0.78, fontSize: '10px' }}>
-        Cost {cost}
-        {entry.repeatable && amount > 0 ? ` x${amount}` : ''}
-      </Box>
+      {(!!cost || (entry.repeatable && amount > 0)) && (
+        <Box mt={0.25} style={{ opacity: 0.78, fontSize: '10px' }}>
+          {cost ? `Cost ${cost}` : ''}
+          {entry.repeatable && amount > 0 ? ` x${amount}` : ''}
+        </Box>
+      )}
       {!!entry.conflict_reason && !canAdd && (
         <Box
           mt={0.25}
@@ -3230,6 +3268,104 @@ const LoadoutTabInner = ({
 // cost applies here (paper doll + bag/stash rows both use onMouseEnter).
 const LoadoutTab = memo(LoadoutTabInner);
 
+const QuirksTab = ({
+  quirks,
+  act,
+  search,
+}: {
+  quirks?: QuirksData;
+  act: BackendAct;
+  search: string;
+}) => {
+  const [slotId, setSlotId] = useState(1);
+  if (!quirks) {
+    return (
+      <Section title="Quirks">
+        <NoticeBox>Quirks are unavailable.</NoticeBox>
+      </Section>
+    );
+  }
+  const slot = quirks.slots.find((entry) => entry.id === slotId);
+  const taken = quirks.slots
+    .filter((entry) => entry.id !== slotId)
+    .map((entry) => entry.path);
+  const query = search.trim().toLowerCase();
+  const isGreaterSlot = !!slot?.greater;
+  const options = quirks.options
+    .filter(
+      (option) =>
+        !query ||
+        option.name.toLowerCase().includes(query) ||
+        (option.desc || '').toLowerCase().includes(query),
+    )
+    .sort((a, b) => {
+      if (a.name === 'None') return -1;
+      if (b.name === 'None') return 1;
+      return a.name.localeCompare(b.name);
+    });
+
+  return (
+    <Section title="Quirks">
+      <Box mb={1} style={{ opacity: 0.8 }}>
+        Take up to four lesser quirks and two greater quirks. Greater quirks
+        only fit the greater slots.
+      </Box>
+      <Tabs>
+        {quirks.slots.map((entry) => (
+          <Tabs.Tab
+            key={entry.id}
+            selected={entry.id === slotId}
+            color={entry.spawn_error ? 'bad' : undefined}
+            onClick={() => setSlotId(entry.id)}
+          >
+            {entry.slot_name}: {entry.name}
+          </Tabs.Tab>
+        ))}
+      </Tabs>
+      {slot?.spawn_error && slot.name !== 'None' && (
+        <NoticeBox color="bad">{slot.spawn_error}</NoticeBox>
+      )}
+      <Stack vertical>
+        {options.map((option) => {
+          const selected = slot?.path === option.path;
+          let blocked = option.unavailable || null;
+          if (!blocked && option.greater && !isGreaterSlot) {
+            blocked = 'Can only be taken in the greater quirk slot.';
+          }
+          if (
+            !blocked &&
+            option.name !== 'None' &&
+            taken.includes(option.path)
+          ) {
+            blocked = 'Already taken in another slot.';
+          }
+          return (
+            <Stack.Item key={option.path}>
+              <Button
+                fluid
+                selected={selected}
+                disabled={!!blocked && !selected}
+                icon={option.icon || undefined}
+                tooltip={
+                  [option.desc, option.mechdesc, blocked]
+                    .filter(Boolean)
+                    .join(' — ') || undefined
+                }
+                onClick={() =>
+                  act('select_quirk', { id: slotId, quirk: option.path })
+                }
+              >
+                {option.name}
+                {option.greater ? ' (greater)' : ''}
+              </Button>
+            </Stack.Item>
+          );
+        })}
+      </Stack>
+    </Section>
+  );
+};
+
 export const TATBuild = () => {
   const { act, data } = useBackend<Data>();
   const [tab, setTabState] = useState<TabKey>(loadStoredTab);
@@ -3302,7 +3438,7 @@ export const TATBuild = () => {
     tab === 'control' ? 'Search legacy presets...' : `Search in ${tab}...`;
 
   return (
-    <Window title="TAT Build" width={1040} height={900}>
+    <Window title="Character Creation" width={1040} height={900}>
       <Window.Content scrollable>
         <Box className="TATBuild">
           <Stack vertical>
@@ -3387,6 +3523,13 @@ export const TATBuild = () => {
                   Traits
                 </Tabs.Tab>
                 <Tabs.Tab
+                  selected={tab === 'quirks'}
+                  onClick={() => setTab('quirks')}
+                >
+                  <Icon name={TAB_ICONS.quirks} mr={1} />
+                  Quirks
+                </Tabs.Tab>
+                <Tabs.Tab
                   selected={tab === 'items'}
                   onClick={() => setTab('items')}
                 >
@@ -3430,6 +3573,9 @@ export const TATBuild = () => {
                 search={search}
                 setHoveredItem={setHoveredItem}
               />
+            )}
+            {tab === 'quirks' && (
+              <QuirksTab quirks={data.quirks} act={act} search={search} />
             )}
             {tab === 'items' && (
               <ItemsTab

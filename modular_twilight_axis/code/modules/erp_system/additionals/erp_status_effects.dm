@@ -70,15 +70,15 @@
 	var/mob/living/H = owner
 	var/mob/living/T = get_target()
 	if(T)
-		to_chat(H, span_love(""))
+		to_chat(H, span_love("You feel an overwhelming pull toward [T]."))
 		update_alert()
 	else
-		to_chat(H, span_love(""))
+		to_chat(H, span_love("Your heart flutters strangely..."))
 
 /datum/status_effect/love_potion/on_remove()
 	_sync_relationship(FALSE)
 	if(owner)
-		to_chat(owner, span_notice(""))
+		to_chat(owner, span_notice("The love charm fades."))
 	return ..()
 
 /datum/status_effect/love_potion/proc/set_target(mob/living/new_target)
@@ -98,7 +98,7 @@
 	_sync_relationship(TRUE)
 
 	var/mob/living/H = owner
-	to_chat(H, span_love(""))
+	to_chat(H, span_love("Your heart reaches for [new_target]."))
 	update_alert()
 
 /datum/status_effect/love_potion/proc/update_alert()
@@ -107,11 +107,11 @@
 		return
 	var/atom/movable/screen/alert/status_effect/love_potion/A = linked_alert
 	if(A)
-		A.desc = ""
+		A.desc = "You feel an overwhelming pull toward [T]."
 
 /atom/movable/screen/alert/status_effect/love_potion
 	name = "love sickness"
-	desc = ""
+	desc = "An overwhelming pull toward the one you love."
 	icon = 'modular_twilight_axis/icons/roguetown/misc/screen_alert.dmi'
 	icon_state = "full_in"
 

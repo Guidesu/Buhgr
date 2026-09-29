@@ -264,7 +264,7 @@
 /// Returns translated target-zone text for UI/messages (UI helper).
 /datum/erp_actor/proc/get_target_zone_text_for(datum/erp_actor/target_actor)
 	var/datum/erp_actor_ui_helpers/U = SSerp.actor_ui_helpers
-	return U ? U.get_target_zone_text_for(src, target_actor) : ""
+	return U ? U.get_target_zone_text_for(src, target_actor) : "body"
 
 /// Builds a climax result payload (UI helper).
 /datum/erp_actor/proc/build_climax_result(datum/erp_sex_link/L)
