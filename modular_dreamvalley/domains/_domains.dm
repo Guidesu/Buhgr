@@ -1,0 +1,5 @@
+#include "domain.dm"
+#include "domain_list.dm"
+#include "custom_god.dm"
+#include "domain_prefs.dm"
+#include "domain_devotion.dm"
