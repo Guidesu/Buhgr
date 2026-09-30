@@ -1,6 +1,6 @@
 /obj/item/rogueweapon/sword/sabre/moonlight_sabre
 	name = "moonlight sabre"
-	desc = "A sabre woven from the light of Noc. It appears fragile but holds a fine edge. An ideal slashing weapon."
+	desc = "A sabre woven from the light of the Moon. It appears fragile but holds a fine edge. An ideal slashing weapon."
 	force = 25
 	wdefense = 6
 	icon_state = "moonlight_saber"
@@ -23,7 +23,7 @@
 
 /obj/item/rogueweapon/sword/rapier/moonlight_rapier
 	name = "moonlight rapier"
-	desc = "A rapier woven from the light of Noc. It appears fragile but holds a fine edge. An ideal fencing weapon."
+	desc = "A rapier woven from the light of the Moon. It appears fragile but holds a fine edge. An ideal fencing weapon."
 	icon_state = "moonlight_rapier"
 	icon = 'modular_twilight_axis/church_classes/icons/prismatic_weapons64.dmi'
 	sheathe_icon = "rapier"
@@ -44,7 +44,7 @@
 
 /obj/item/rogueweapon/spear/partizan/moonlight_spear
 	name = "moonlight spear"
-	desc = "A spear woven from the light of Noc. It appears fragile but holds a fine edge. An ideal weapon in tight spaces."
+	desc = "A spear woven from the light of the Moon. It appears fragile but holds a fine edge. An ideal weapon in tight spaces."
 	force = 25
 	force_wielded = 35
 	max_blade_int = 250
@@ -67,7 +67,7 @@
 
 /obj/item/rogueweapon/mace/maul/grand/moonlight_hammer
 	name = "moonlight hammer"
-	desc = "A hammer woven from the light of Noc. It appears heavy but feels light in hand. An ideal weapon of brute force."
+	desc = "A hammer woven from the light of the Moon. It appears heavy but feels light in hand. An ideal weapon of brute force."
 	icon_state = "moonlight_hammer"
 	icon = 'modular_twilight_axis/church_classes/icons/prismatic_weapons64.dmi'
 	force_wielded = 28 
@@ -82,7 +82,7 @@
 
 /obj/item/rogueweapon/shield/bronze/great/moonlight_shield
 	name = "moonlight shield"
-	desc = "A shield woven from the light of Noc. It appears heavy but feels light in hand. Its structure appears crystalline and likely fragile."
+	desc = "A shield woven from the light of the Moon. It appears heavy but feels light in hand. Its structure appears crystalline and likely fragile."
 	icon_state = "moonlight_shield"
 	icon = 'modular_twilight_axis/church_classes/icons/prismatic_weapons64.dmi'
 	max_integrity = 100 
@@ -124,31 +124,31 @@
 
 
 /obj/item/rogueweapon/shield/bronze/great/moonlight_shield/Destroy()
-	to_chat(owner, "[src] dissolves into the air. Noc takes the knowledge of it along with it.")
+	to_chat(owner, "[src] dissolves into the air. The Moon takes the knowledge of it along with it.")
 	owner.adjust_skillrank_down_to(associated_skill, 0, TRUE)
 	playsound(get_turf(owner), 'modular_twilight_axis/church_classes/sound/despell_sfx.ogg', 100, FALSE)
 	return ..()
 
 /obj/item/rogueweapon/mace/maul/grand/moonlight_hammer/Destroy()
-	to_chat(owner, "[src] dissolves into the air. Noc takes the knowledge of it along with it.")
+	to_chat(owner, "[src] dissolves into the air. The Moon takes the knowledge of it along with it.")
 	owner.adjust_skillrank_down_to(associated_skill, 0, TRUE)
 	playsound(get_turf(owner), 'modular_twilight_axis/church_classes/sound/despell_sfx.ogg', 100, FALSE)
 	return ..()
 
 /obj/item/rogueweapon/spear/partizan/moonlight_spear/Destroy()
-	to_chat(owner, "[src] dissolves into the air. Noc takes the knowledge of it along with it.")
+	to_chat(owner, "[src] dissolves into the air. The Moon takes the knowledge of it along with it.")
 	owner.adjust_skillrank_down_to(associated_skill, 0, TRUE)
 	playsound(get_turf(owner), 'modular_twilight_axis/church_classes/sound/despell_sfx.ogg', 100, FALSE)
 	return ..()
 	
 /obj/item/rogueweapon/sword/rapier/moonlight_rapier/Destroy()
-	to_chat(owner, "[src] dissolves into the air. Noc takes the knowledge of it along with it.")
+	to_chat(owner, "[src] dissolves into the air. The Moon takes the knowledge of it along with it.")
 	owner.adjust_skillrank_down_to(associated_skill, 0, TRUE)
 	playsound(get_turf(owner), 'modular_twilight_axis/church_classes/sound/despell_sfx.ogg', 100, FALSE)
 	return ..()
 
 /obj/item/rogueweapon/sword/sabre/moonlight_sabre/Destroy()
-	to_chat(owner, "[src] dissolves into the air. Noc takes the knowledge of it along with it.")
+	to_chat(owner, "[src] dissolves into the air. The Moon takes the knowledge of it along with it.")
 	owner.adjust_skillrank_down_to(associated_skill, 0, TRUE)
 	playsound(get_turf(owner), 'modular_twilight_axis/church_classes/sound/despell_sfx.ogg', 100, FALSE)
 	return ..()

@@ -287,7 +287,7 @@
 //Baotha's Blessings - T0, reverses overdose effect on a target + soothing moodlet. Useful to T0/Devotee because it allows them to stop an OD death, but puts them on the clock. (Medieval narcan..... #BanNarcan)
 
 /obj/effect/proc_holder/spell/invoked/TAbaothablessings
-	name = "Baotha's Blessings"
+	name = "The Forbidden's Blessings"
 	desc = "Gets the target drunk and stops them from overdosing for a time."
 	action_icon = 'modular_twilight_axis/icons/mob/actions/baothamiracles.dmi'
 	overlay_icon = 'modular_twilight_axis/icons/mob/actions/baothamiracles.dmi'
@@ -328,7 +328,7 @@
 /obj/effect/proc_holder/spell/targeted/touch/TAloversruin
 	name = "Lover's Ruin"
 	desc = "A toast to passion that ends in ash.\n \
-		Beseech Baotha to pour wine onto a container. Poisons the unfaithful, rewards Her blessed with healing."
+		Beseech the Forbidden to pour wine onto a container. Poisons the unfaithful, rewards Her blessed with healing."
 	action_icon = 'modular_twilight_axis/icons/mob/actions/baothamiracles.dmi'
 	overlay_icon = 'modular_twilight_axis/icons/mob/actions/baothamiracles.dmi'
 	overlay_state = "ruin"
@@ -345,7 +345,7 @@
 	recharge_time = 2 MINUTES
 
 /obj/item/melee/touch_attack/TAloversruin
-	name = "Baotha's Touch"
+	name = "The Forbidden's Touch"
 	catchphrase = null
 	possible_item_intents = list(/datum/intent/fill)
 	icon = 'icons/mob/roguehudgrabs.dmi'
@@ -458,7 +458,7 @@
 
 /obj/item/clothing/ring/TAgriefflower
 	name = "rosa ring"
-	desc = "Once a flower of love, now touched by Baotha's hand. Its petals whisper of desire, despair, and the kind of longing that never dies. Worn by those who cannot let go."
+	desc = "Once a flower of love, now touched by the Forbidden's hand. Its petals whisper of desire, despair, and the kind of longing that never dies. Worn by those who cannot let go."
 	icon_state = "peaceflower"
 	item_state = "peaceflower"
 	icon = 'icons/roguetown/items/produce.dmi'

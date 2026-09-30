@@ -196,8 +196,8 @@
 // Restored from ratwood-2.0/main during 2026-09 mainstream merge
 
 /datum/charflaw/addiction/baothamarked
-	name = "Baothan Marked"
-	desc = "I've been branded by a Baothan mark."
+	name = "Forbidden Marked"
+	desc = "I've been branded by a Forbidden mark."
 	time = 45 MINUTES
 	needsate_text = "My brand burns painfully."
 	sated_text = "The brand's glow lessens, relief washing over me..."
@@ -209,7 +209,7 @@
 	effectedstats = list(STATKEY_CON = -1, STATKEY_WIL = -1)
 
 /atom/movable/screen/alert/status_effect/debuff/addiction/baothamarked
-	name = "Baothan Mania"
+	name = "Forbidden Mania"
 	desc = "That accursed rune. It burns brightly across my flesh, searing my loins with a painful desire for release."
 	icon_state = "nymphomaniac"
 

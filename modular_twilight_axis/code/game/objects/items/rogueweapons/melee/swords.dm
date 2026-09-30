@@ -1,6 +1,6 @@
 /obj/item/rogueweapon/sword/rapier/psyrapier
 	name = "psydonian rapier"
-	desc = "An ornate rapier, plated in a ceremonial veneer of silver. The barbs pierce your palm, and - for just a moment - you see red. Never forget that you are why Psydon wept."
+	desc = "An ornate rapier, plated in a ceremonial veneer of silver. The barbs pierce your palm, and - for just a moment - you see red. Never forget that you are why the Absent God wept."
 	icon = 'modular_twilight_axis/icons/roguetown/weapons/64.dmi'
 	icon_state = "psyrapier"
 	item_state = "psyrapier"

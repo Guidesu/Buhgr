@@ -16,7 +16,7 @@
 #define SANITY_DAMAGE_VIEW(damage, wil, dist) ((damage) * SANITY_VIEW_DAMAGE_MOD * (1.2 - ((wil) - STAT_BASELINE) / (STAT_CEILING - STAT_BASELINE)) * (1 - (dist)/15))
 
 // Damage from body damage
-#define SANITY_DAMAGE_HURT(damage, wil) (min((damage) / 5 * SANITY_DAMAGE_MOD * (1.2 - ((wil) - STAT_BASELINE) / (STAT_CEILING - STAT_BASELINE)), 60))
+#define SANITY_DAMAGE_HURT(damage, wil) (min((damage) / 2 * SANITY_DAMAGE_MOD * (1.2 - ((wil) - STAT_BASELINE) / (STAT_CEILING - STAT_BASELINE)), 60))
 
 // Damage from shock/pain
 #define SANITY_DAMAGE_SHOCK(shock, wil) ((shock) / 50 * SANITY_DAMAGE_MOD * (1.2 - ((wil) - STAT_BASELINE) / (STAT_CEILING - STAT_BASELINE)))

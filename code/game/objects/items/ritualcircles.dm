@@ -79,7 +79,7 @@
 /obj/structure/ritualcircle/auxentius_sun
 	name = "Rune of the Sun" // defines name of the circle itself
 	icon_state = "astrata_chalky" // the icon state, so, the sprite the runes use on the floor. As of making, we have 6, each needs an active/inactive state.
-	desc = "A holy rune of <font color='ffbe00'>Auxentius.</font> </br> <i>Warmth irradiates from the rune.</i>" // description on examine
+	desc = "A holy rune of <font color='ffbe00'>The Sun.</font> </br> <i>Warmth irradiates from the rune.</i>" // description on examine
 	var/solarrites = list("Guiding Light") // This is important - This is the var which stores every ritual option available to a ritualist - Ideally, we'd have like, 3 for each God. Right now, just 1.
 
 /obj/structure/ritualcircle/auxentius_sun/attack_hand(mob/living/user)
@@ -106,7 +106,7 @@
 			if(!do_after(user, 5 SECONDS))
 				return
 			user.say("Place your gaze upon me, oh Radiant one!!")
-			to_chat(user,span_danger("You feel the eye of Auxentius turned upon you. His warmth dances upon your cheek. You feel yourself warming up...")) // A bunch of flavor stuff, slow incanting.
+			to_chat(user,span_danger("You feel the eye of the Sun turned upon you. His warmth dances upon your cheek. You feel yourself warming up...")) // A bunch of flavor stuff, slow incanting.
 			icon_state = "astrata_active"
 			if(!HAS_TRAIT(user, TRAIT_CHOSEN)) //Priests don't burst into flames.
 				loc.visible_message(span_warning("[user]'s bursts to flames! Embraced by His Warmth wholly!"))
@@ -125,14 +125,14 @@
 	var/ritualtargets = view(7, loc) // Range of 7 from the source, which is the rune
 	for(var/mob/living/carbon/human/target in ritualtargets) // defines the target as every human in this range
 		target.apply_status_effect(/datum/status_effect/buff/guidinglight) // applies the status effect
-		to_chat(target,span_cultsmall("Auxentius's light guides me forward, drawn to me by the Ritualist's pyre!"))
+		to_chat(target,span_cultsmall("The Sun's light guides me forward, drawn to me by the Ritualist's pyre!"))
 // If you want to review a more complicated one, Undermaiden's Bargain is probs the most complicated of the starting set. - Have fun! - Onutsio 🏳️‍⚧️
 
 
 /obj/structure/ritualcircle/noc
 	name = "Rune of the Moon"
 	icon_state = "noc_chalky"
-	desc = "A holy rune of <font color='bae6ed'>Noc.</font> </br> <i>Moonlight shines upon thee.</i>"
+	desc = "A holy rune of <font color='bae6ed'>The Moon.</font> </br> <i>Moonlight shines upon thee.</i>"
 	var/lunarrites = list("Moonlight Dance", "Moonlight Inspiration") // list for more to be added later
 
 /obj/structure/ritualcircle/noc/attack_hand(mob/living/user)
@@ -220,7 +220,7 @@
 			if(!do_after(user, 5 SECONDS))
 				return
 			user.say("--ON WITH THE SHOW!!") // i miss skipper
-			to_chat(user,span_cultsmall("Every play needs its stagehands. Xylix will quicken the slow, speed your sneaking, and quiet your footsteps... for a time."))
+			to_chat(user,span_cultsmall("Every play needs its stagehands. Trickery will quicken the slow, speed your sneaking, and quiet your footsteps... for a time."))
 			playsound(loc, 'sound/magic/mockery.ogg', 60, FALSE, -1)
 			stagehands_silence(src)
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
@@ -233,8 +233,8 @@
 /obj/structure/ritualcircle/auxentius_justice
 	name = "Rune of Justice"
 	icon_state = "ravox_chalky"
-	desc = "A holy rune of <font color='a50d47'>Auxentius.</font> </br> <i>You feel the command of a higher presence; to bring justice unto the wicked.</i>"
-	var/ravoxrites = list("Vow to Auxentius")
+	desc = "A holy rune of <font color='a50d47'>The Sun.</font> </br> <i>You feel the command of a higher presence; to bring justice unto the wicked.</i>"
+	var/ravoxrites = list("Vow to the Sun")
 
 /obj/structure/ritualcircle/auxentius_justice/attack_hand(mob/living/user)
 	if(!..())
@@ -250,7 +250,7 @@
 		return
 	var/riteselection = input(user, "Rituals of Justice", src) as null|anything in ravoxrites
 	switch(riteselection)
-		if("Vow to Auxentius") // Ideally stick to this style for rites. Early returns + negatives. Minimises the "pyramid" shape you can see in the Sun rune, which I've left untouched for now -- CODEATHON
+		if("Vow to the Sun") // Ideally stick to this style for rites. Early returns + negatives. Minimises the "pyramid" shape you can see in the Sun rune, which I've left untouched for now -- CODEATHON
 			var/target = user
 			if(!do_after(user, 5 SECONDS))
 				return
@@ -263,7 +263,7 @@
 			user.say("Let foes of justice face my might!")
 			if(!do_after(user, 3 SECONDS))
 				return
-			user.say("Auxentius, guide my hand in righteous fight!")
+			user.say("The Sun, guide my hand in righteous fight!")
 			playsound(loc, 'sound/magic/holyshield.ogg', 80, FALSE, -1)
 			ravoxvow(target)
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
@@ -273,7 +273,7 @@
 
 /obj/structure/ritualcircle/pestra
 	name = "Rune of Plague"
-	desc = "A holy rune of <font color='7fe01d'>Pestra.</font> </br> <i>A sickle to cleanse the weeds, and bring forth life.</i>"
+	desc = "A holy rune of <font color='7fe01d'>Healing.</font> </br> <i>A sickle to cleanse the weeds, and bring forth life.</i>"
 	icon_state = "pestra_chalky"
 	var/plaguerites = list("Flylord's Triage", "Vow of Aesculapius")
 
@@ -368,7 +368,7 @@
 /obj/structure/ritualcircle/ignatius
 	name = "Rune of Beasts"
 	icon_state = "dendor_chalky"
-	desc = "A holy rune of <font color='799c56'>Ignatius.</font> </br> <i>To become one with nature is to connect with one's true instinct.</i>"
+	desc = "A holy rune of <font color='799c56'>The Wilds.</font> </br> <i>To become one with nature is to connect with one's true instinct.</i>"
 	var/dendorrites = list ("Rite of the Lesser Volf")
 
 /obj/structure/ritualcircle/ignatius/attack_hand(mob/living/user)
@@ -418,7 +418,7 @@
 
 /obj/structure/ritualcircle/malum
 	name = "Rune of Forge"
-	desc = "A holy rune of <font color='ff9933'>Malum.</font> </br> <i>A hammer and heat, to fix any imperfections with.</i>"
+	desc = "A holy rune of <font color='ff9933'>The Craft.</font> </br> <i>A hammer and heat, to fix any imperfections with.</i>"
 	icon_state = "malum_chalky"
 	var/forgerites = list("Bestow Blessing")
 
@@ -460,22 +460,22 @@
 	var/ritualtargets = view(4, loc)
 	for(var/mob/living/carbon/human/target in ritualtargets)
 		target.apply_status_effect(/datum/status_effect/buff/malumritual)
-		to_chat(target,span_cultsmall("Malum's persistance guides me forward!"))
+		to_chat(target,span_cultsmall("The Craft's persistance guides me forward!"))
 
 /obj/structure/ritualcircle/abyssor
 	name = "Rune of Storms"
-	desc = "A holy rune of <font color='3769b8'>Abyssor.</font> </br> <i>You sense your mind getting pulled into the drawn spiral.</i>"
+	desc = "A holy rune of <font color='3769b8'>The Sea.</font> </br> <i>You sense your mind getting pulled into the drawn spiral.</i>"
 	icon_state = "abyssor_chalky"
 	var/stormrites = list("Rite of the Tides")
 
 /obj/structure/ritualcircle/abyssor_alt
 	name = "Rune of Stirring"
-	desc = "A holy rune of <font color='3769b8'>Abyssor.</font> </br> <i>This one seems different to the rest. Something observes.</i>"
+	desc = "A holy rune of <font color='3769b8'>The Sea.</font> </br> <i>This one seems different to the rest. Something observes.</i>"
 	icon_state = "abyssoralt_active"
 
 /obj/structure/ritualcircle/abyssor_alt_inactive
 	name = "Rune of Stirring"
-	desc = "A holy rune of <font color='3769b8'>Abyssor.</font> </br> <i>This one seems different to the rest. Something observes.</i>"
+	desc = "A holy rune of <font color='3769b8'>The Sea.</font> </br> <i>This one seems different to the rest. Something observes.</i>"
 	icon_state = "abyssoralt_chalky"
 	allow_dreamwalkers = TRUE
 	var/stirringrites = list("Rite of the Crystal Spire")
@@ -527,7 +527,7 @@
 					if(do_after(user, 50))
 						icon_state = "abyssoralt_active"
 						user.say("Let your tempest chase away the craven ones!")
-						to_chat(user, span_cultsmall("A crystalline shard forms at the center of the rune, humming with Abyssor's power."))
+						to_chat(user, span_cultsmall("A crystalline shard forms at the center of the rune, humming with the Sea's power."))
 						new /obj/item/abyssal_marker(loc)
 						user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 						spawn(240)
@@ -640,7 +640,7 @@
 					if(do_after(user, 50))
 						icon_state = "abyssor_active"
 						user.say("Let your waters swallow the land!")
-						to_chat(user, span_cultsmall("A crystalline shard forms at the center of the rune, humming with Abyssor's power."))
+						to_chat(user, span_cultsmall("A crystalline shard forms at the center of the rune, humming with the Sea's power."))
 						new /obj/item/abyssal_marker/tidal(loc)
 						user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 						spawn(240)
@@ -716,7 +716,7 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/c = user
 		if(c.patron.type != /datum/patron/concordat/wulfric && faith_locked)
-			to_chat(user, span_warning("My connection to Abyssor's dream is too weak to invoke his power with this crystal."))
+			to_chat(user, span_warning("My connection to the Sea's dream is too weak to invoke his power with this crystal."))
 			return ..()
 		//Heretics get FAR stronger spires!
 		if(HAS_TRAIT(user, TRAIT_HERESIARCH) && upgraded_rune_type)
@@ -886,7 +886,7 @@
 	for(var/obj/structure/active_abyssor_rune/R in range(1, src))
 		qdel(R)
 
-	src.visible_message(span_danger("The spire shatters with a painful ringing. In an instant the dream recedes back to Abyssor's realm, restoring the world as it was."))
+	src.visible_message(span_danger("The spire shatters with a painful ringing. In an instant the dream recedes back to the Sea's realm, restoring the world as it was."))
 	STOP_PROCESSING(SSobj, src)
 	playsound(src, 'sound/foley/glassbreak.ogg', 50, TRUE)
 	new /obj/effect/particle_effect/smoke(src.loc)
@@ -1033,7 +1033,7 @@
 
 /obj/structure/ritualcircle/necra
 	name = "Rune of Death"
-	desc = "A holy rune of <font color='425363'>Necra.</font> Quiet acceptance stirs within you."
+	desc = "A holy rune of <font color='425363'>Death.</font> Quiet acceptance stirs within you."
 	icon_state = "necra_chalky"
 	var/deathrites = list("Undermaiden's Bargain", "The Toll", "Shatter the Binds")
 	var/coinslot = 0
@@ -1130,7 +1130,7 @@
 								icon_state = "necra_chalky"
 		if("Shatter the Binds") // hehe do you get t. Do You Get Im So Fucking FUnny
 			to_chat(user, span_info("This rite allows for the breaking of a soul-trapping assassin's dagger. Doing so will allow the spirits \
-			to return to Necra or their corpses, potentially allowing for revival. Place the dagger upon the \
+			to return to Death or their corpses, potentially allowing for revival. Place the dagger upon the \
 			rune and chant the verse.\nBe patient, as this will take time. The assassin must be dead for this rite."))
 			var/turf/runeturf = get_turf(src)
 			var/obj/item/rogueweapon/huntingknife/idagger/steel/profane/pissdagger
@@ -1174,13 +1174,13 @@
 		to_chat(user, "This one is inert.")
 		return
 	if(!target.mind.active)
-		to_chat(user, "Necra is not done with [target], yet.")
+		to_chat(user, "Death is not done with [target], yet.")
 		return
 	if(HAS_TRAIT(target, TRAIT_DNR))
 		to_chat(user, span_danger("None of the divine have them. Their only chance is spent. Where did they go?"))
 		return
 	if(HAS_TRAIT(target, TRAIT_NECRAS_VOW))
-		to_chat(user, span_warning("This one has pledged themselves whole to Necra. They are Hers."))
+		to_chat(user, span_warning("This one has pledged themselves whole to Death. They are Hers."))
 		return
 	if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
 		if(alert(user, "[target]'s body rattles and seizes under the divine force. This will likely unmake them permanently. Continue?", "Divine Revival", "PURGE THE UNCLEAN!", "Stop") != "PURGE THE UNCLEAN!")
@@ -1322,7 +1322,7 @@
 
 /obj/structure/ritualcircle/eora
 	name = "Rune of Love"
-	desc = "A holy rune of <font color='ae4d93'>Eora.</font> </br> <i>A gentle warmth and joy spreads across your soul.</i>"
+	desc = "A holy rune of <font color='ae4d93'>Love.</font> </br> <i>A gentle warmth and joy spreads across your soul.</i>"
 	icon_state = "eora_chalky"
 	var/peacerites = list("Rite of Pacification", "Rite of the Open Hearth")
 
@@ -1437,7 +1437,7 @@ More uniquely, her rites always cut out the light in the room, then proc. 10 sec
 */
 /obj/structure/ritualcircle/zizo
 	name = "Rune of Progress"
-	desc = "A holy rune of <font color='ff0000'>Zizo.</font> </br> <i>Progress at any cost.</i>"
+	desc = "A holy rune of <font color='ff0000'>The Forbidden.</font> </br> <i>Progress at any cost.</i>"
 	icon_state = "zizo_chalky"
 	var/zizorites = list("Rite of Armaments","Chant of Insight","Progressive Trance")
 
@@ -1681,7 +1681,7 @@ More uniquely, her rites always cut out the light in the room, then proc. 10 sec
 
 /obj/structure/ritualcircle/matthios
 	name = "Rune of Transaction"
-	desc = "A holy rune of <font color='ffd700'>Matthios.</font> </br> <i>Everything has a price.</i>"
+	desc = "A holy rune of <font color='ffd700'>Trade.</font> </br> <i>Everything has a price.</i>"
 	icon_state = "matthios_chalky"
 	var/matthiosrites = list("Rite of Armaments", "Defenestration")
 
@@ -1745,7 +1745,7 @@ More uniquely, her rites always cut out the light in the room, then proc. 10 sec
 				return
 			icon_state = "matthios_active"
 			if(defenestration())
-				to_chat(user, span_cultsmall("The ritual is complete, and the noble gift of Auxentius has been taken!"))
+				to_chat(user, span_cultsmall("The ritual is complete, and the noble gift of the Sun has been taken!"))
 				user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			else
 				to_chat(user, span_cultsmall("The ritual fails. A noble must be in the center of the circle!"))
@@ -1836,7 +1836,7 @@ More uniquely, her rites always cut out the light in the room, then proc. 10 sec
 	REMOVE_TRAIT(victim, TRAIT_NOBLE, TRAIT_VIRTUE)
 	ADD_TRAIT(victim, TRAIT_DEFILED_NOBLE, TRAIT_GENERIC)
 	playsound(loc, 'sound/misc/evilevent.ogg', 100, FALSE, -1)
-	to_chat(victim, span_cult("You feel Auxentius's gift of nobility stripped from you, the inhumen feasting upon it!"))
+	to_chat(victim, span_cult("You feel the Sun's gift of nobility stripped from you, the inhumen feasting upon it!"))
 	return TRUE
 
 /datum/outfit/job/roguetown/gildedrite/pre_equip(mob/living/carbon/human/H)
@@ -1862,7 +1862,7 @@ More uniquely, her rites always cut out the light in the room, then proc. 10 sec
 
 /obj/structure/ritualcircle/graggar
 	name = "Rune of Violence"
-	desc = "A holy rune of <font color='969d7f'>Graggar.</font> </br> <i>Fate broken once, His gift is true freedom for all.</i>"
+	desc = "A holy rune of <font color='969d7f'>War.</font> </br> <i>Fate broken once, His gift is true freedom for all.</i>"
 	icon_state = "graggar_chalky"
 	var/graggarrites = list("Rite of Armaments", "War Ritual")
 
@@ -1943,7 +1943,7 @@ More uniquely, her rites always cut out the light in the room, then proc. 10 sec
 			if(perform_warritual())
 				user.apply_status_effect(/datum/status_effect/debuff/ritesexpended_heavy)
 			else
-				to_chat(user, span_warning("The ritual fails. A noble, a member of the Inquisition or a Tennite clergy member must be in the center of the circle!"))
+				to_chat(user, span_warning("The ritual fails. A noble, a member of the Inquisition or a Domain-faithful clergy member must be in the center of the circle!"))
 			spawn(120)
 				icon_state = "graggar_chalky"
 
@@ -2081,7 +2081,7 @@ More uniquely, her rites always cut out the light in the room, then proc. 10 sec
 
 /obj/structure/ritualcircle/baotha
 	name = "Rune of Hedonism"
-	desc = "A holy rune of <font color='bf64d0'>Baotha.</font> </br> <i>Relief for the broken hearted.</i>"
+	desc = "A holy rune of <font color='bf64d0'>The Forbidden.</font> </br> <i>Relief for the broken hearted.</i>"
 	icon_state = "baotha_chalky"
 	var/baotharites = list("Rite of Armaments", "Joybringer")
 
@@ -2145,7 +2145,7 @@ More uniquely, her rites always cut out the light in the room, then proc. 10 sec
 			user.say("Grant me the bliss, grant me the rush!")
 			if(!do_after(user, 3 SECONDS))
 				return FALSE
-			user.say("Baotha, fill my cup with endless mirth!")
+			user.say("The Forbidden, fill my cup with endless mirth!")
 			playsound(loc, 'sound/misc/evilevent.ogg', 100, FALSE, -1)
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			user.apply_status_effect(/datum/status_effect/joybringer)

@@ -80,9 +80,9 @@
 	)
 	category_tags = list(CTAG_TEMPLAR)
 	subclass_stashed_items = list(
-		"The Verses and Acts of the Ten" = /obj/item/book/rogue/bibble,
+		"The Verses and Acts of the Domains" = /obj/item/book/rogue/bibble,
 	)
-	extra_context = "This subclass can pick twin daggers, gaining Dual Wielder trait and increased speed, or ranged options, gaining increased perception and Mastery of their chosen weapon. Pathfinders of Eora can alternatively choose their signature rapier, the Heartstring."
+	extra_context = "This subclass can pick twin daggers, gaining Dual Wielder trait and increased speed, or ranged options, gaining increased perception and Mastery of their chosen weapon. Pathfinders of Love can alternatively choose their signature rapier, the Heartstring."
 
 /datum/outfit/job/roguetown/templar/pathfinder/pre_equip(mob/living/carbon/human/H)
 	..()

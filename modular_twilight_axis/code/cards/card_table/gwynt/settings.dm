@@ -562,9 +562,9 @@ GLOBAL_LIST_EMPTY(ccg_round_trade_loss_progress_awarded)
 		return FALSE
 	user.put_in_hands(booster)
 	if(premium)
-		to_chat(user, span_notice("Xylix rejoices in your triumphs and grants you a boon: a card pack for new heights."))
+		to_chat(user, span_notice("Trickery rejoices in your triumphs and grants you a boon: a card pack for new heights."))
 	else
-		to_chat(user, span_notice("Xylix rejoices in your misfortunes and grants you a boon: a card pack for new mockery."))
+		to_chat(user, span_notice("Trickery rejoices in your misfortunes and grants you a boon: a card pack for new mockery."))
 	return TRUE
 
 /datum/preferences/proc/ccg_award_progress(mob/living/user, progress_type)

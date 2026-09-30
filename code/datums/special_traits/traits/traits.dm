@@ -72,7 +72,7 @@
 
 /datum/special_trait/night_owl
 	name = "Night Owl"
-	greet_text = span_notice("I've always preferred Noc over his other half.")
+	greet_text = span_notice("I've always preferred the Moon over his other half.")
 	weight = 100
 
 /datum/special_trait/night_owl/on_apply(mob/living/carbon/human/character, silent)
@@ -194,9 +194,9 @@
 	character.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 6, TRUE)
 
 /datum/special_trait/praecursors_rider
-	name = "Praecursor's Drunkest Rider"
-	greet_text = span_notice("I ride! None of the laws shall stop me for that is Praecursor's divine will!")
-	req_text = "Worship Praecursor"
+	name = "The Absent God's Drunkest Rider"
+	greet_text = span_notice("I ride! None of the laws shall stop me for that is the Absent God's divine will!")
+	req_text = "Worship the Absent God"
 	allowed_patrons = list(/datum/patron/tribunal/praecursor)
 	weight = 100
 
@@ -314,8 +314,8 @@
 
 /datum/special_trait/lucky
 	name = "Fortune's Grace"
-	greet_text = span_notice("Xylix favor me, I am extremely lucky.")
-	req_text = "Have Xylix as your Patron"
+	greet_text = span_notice("Trickery favor me, I am extremely lucky.")
+	req_text = "Have Trickery as your Patron"
 	allowed_patrons = list(/datum/patron/concordat/viator)
 	weight = 7
 

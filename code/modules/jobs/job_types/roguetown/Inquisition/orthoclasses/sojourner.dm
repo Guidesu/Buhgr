@@ -1,7 +1,7 @@
 // Pontifex but inquisition. Same statblock - only differences being access to T1 miracles.
 /datum/advclass/sojourner
 	name = "Sojourner"
-	tutorial = "Vaeltite monks, trained in the Naledian discipline of Automagic - enhancement of one's own body through Arcyne Magick. \
+	tutorial = "Old Faith monks, trained in the Naledian discipline of Automagic - enhancement of one's own body through Arcyne Magick. \
 	Your fists and your will are the one thing that cannot be deprived from you, handy tools when the outpost is rife with monsters and heretics alike. \
 	Where your fists fall short, your wits prevail. Where your magyck falters, your fists answer. \
 	His will be done."

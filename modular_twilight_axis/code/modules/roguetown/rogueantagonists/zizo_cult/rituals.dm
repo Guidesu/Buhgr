@@ -254,11 +254,11 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		to_chat(user, span_danger("They're already my lackey!"))
 		return
 	if(target.mind.assigned_role == "Gnoll")
-		to_chat(user, span_danger("This is Graggar's spawn. It doesn't deserve to be my lackey..."))
+		to_chat(user, span_danger("This is War's spawn. It doesn't deserve to be my lackey..."))
 	if(HAS_TRAIT(target, TRAIT_SILVER_WEAK))
 		to_chat(user, span_danger("I only need the living..."))
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/skeleton))
-		to_chat(user, span_danger("The dead servants already belong to Zizo. They don't need converting."))
+		to_chat(user, span_danger("The dead servants already belong to the Forbidden. They don't need converting."))
 		return
 	if(istype(target.wear_neck, /obj/item/clothing/neck/roguetown/psicross/silver) || istype(target.wear_wrists, /obj/item/clothing/neck/roguetown/psicross/silver))
 		to_chat(user, span_danger("They wear a silver cross! It stops me from converting them..."))
@@ -273,12 +273,12 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	target.praise()
 	target.playsound_local(target, 'modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sounds/tesa.ogg', 25)
 	target.whisper("O'vena tesa...")
-	log_game("[key_name(target)] was converted to Zizoid Lackey by [key_name(PR.owner.current)]")
-	message_admins("[key_name(target)] was converted to Zizoid Lackey by [key_name(PR.owner.current)]")
+	log_game("[key_name(target)] was converted to Forbidden Lackey by [key_name(PR.owner.current)]")
+	message_admins("[key_name(target)] was converted to Forbidden Lackey by [key_name(PR.owner.current)]")
 
 /datum/ritual/servantry/zizofication
 	name = "Rite of Enlightenment"
-	desk = "A rite for common followers of Zizo who aren't cultists. Lets you convert someone to the faith of Zizo."
+	desk = "A rite for common followers of the Forbidden who aren't cultists. Lets you convert someone to the faith of the Forbidden."
 	center_requirement = /mob/living/carbon/human
 	center_book = "Victim"
 
@@ -297,10 +297,10 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		"Resist"
 	)
 	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/skeleton))
-		to_chat(user, span_danger("Zizo's will already shines in those empty sockets. They have no need of enlightenment."))
+		to_chat(user, span_danger("The Forbidden's will already shines in those empty sockets. They have no need of enlightenment."))
 		return
 	
-	var/chosen = tgui_input_list(target, "Do you yield to the darkness?", "You are shown the path of Zizo.", options)
+	var/chosen = tgui_input_list(target, "Do you yield to the darkness?", "You are shown the path of the Forbidden.", options)
 
 	if(!chosen)
 		convert_resist(target)
@@ -314,16 +314,16 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 /datum/ritual/servantry/zizofication/proc/convert_yield(mob/living/carbon/human/target)
 	target.Immobilize(3 SECONDS)
 	target.set_patron(/datum/patron/inhumen/zizo)
-	to_chat(target, span_notice("Zizo... She... She will show me the true path now..."))
+	to_chat(target, span_notice("The Forbidden... She... She will show me the true path now..."))
 	target.praise()
 	target.playsound_local(target, 'modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sounds/tesa.ogg', 25)
 	target.whisper("O'vena tesa...")
-	log_game("[key_name(target)] was converted to Zizoid by zizoid!")
-	message_admins("[key_name(target)] was converted to Zizoid by zizoid!]")
+	log_game("[key_name(target)] was converted to Forbidden by zizoid!")
+	message_admins("[key_name(target)] was converted to Forbidden by zizoid!]")
 
 /datum/ritual/servantry/zizofication/proc/convert_resist(mob/living/carbon/human/target)
 	target.Immobilize(3 SECONDS)
-	target.visible_message(span_danger("[target] shakes, renouncing Zizo!"))
+	target.visible_message(span_danger("[target] shakes, renouncing the Forbidden!"))
 	to_chat(target, span_reallybigredtext("Accept Her path! RIGHT NOW!"))
 	if(target.electrocute_act(10))
 		target.emote("painscream")
@@ -331,7 +331,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /datum/ritual/servantry/skeletaljaunt
 	name = "Skeletonization"
-	desk = "Turns the victim into a strong, special skeleton of Zizo! And if the body has no soul, another soul will take it. Doesn't accept cultists."
+	desk = "Turns the victim into a strong, special skeleton of the Forbidden! And if the body has no soul, another soul will take it. Doesn't accept cultists."
 	ritual_limit = 2
 	number_cultist_for_add_limit = 2
 	center_book = "Victim"
@@ -404,7 +404,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /datum/ritual/servantry/thecall
 	name = "Abduction"
-	desk = "Lets you abduct someone straight onto the rune, but not clergy or anyone under Astrata's protection."
+	desk = "Lets you abduct someone straight onto the rune, but not clergy or anyone under the Sun's protection."
 	ritual_limit = 2
 	number_cultist_for_add_limit = 2
 	center_requirement = /obj/item/bedsheet
@@ -529,13 +529,13 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		to_chat(user, span_danger("This is a skeleton. There's no soul shard left in it..."))
 		return
 	if(!target.mind)
-		to_chat(user, span_danger("Zizo rejects this body."))
+		to_chat(user, span_danger("The Forbidden rejects this body."))
 		return
 	if(is_zizocultist(target.mind) || is_zizolackey(target.mind))
-		to_chat(user, span_danger("Zizo can't give up a soul shard of her own follower..."))
+		to_chat(user, span_danger("The Forbidden can't give up a soul shard of her own follower..."))
 		return
 	if(target.patron.type == /datum/patron/inhumen/zizo)
-		to_chat(user, span_danger("Zizo can't give up a soul shard of her own follower..."))
+		to_chat(user, span_danger("The Forbidden can't give up a soul shard of her own follower..."))
 		return
 	if(target.has_status_effect(/datum/status_effect/debuff/ritualdefiled/cult))
 		to_chat(user, span_danger("Their soul is already defiled..."))
@@ -602,7 +602,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		to_chat(user, span_warning("There has been no answer to your call to the Dark Sun. It seems his servants are far from here..."))
 		return
 	ADD_TRAIT(target, TRAIT_ZIZOID_HUNTED, TRAIT_GENERIC) // Gives the victim a trait to track that they are wanted dead.
-	log_hunted("[key_name(target)] playing as [target] had the hunted flaw by Zizoid curse.")
+	log_hunted("[key_name(target)] playing as [target] had the hunted flaw by Forbidden curse.")
 	to_chat(target, span_danger("My hair stands on end. Has someone just said my name? I should watch my back."))
 	to_chat(user, span_warning("Your target has been marked, your profane call answered by the Dark Sun. [target.real_name] will surely perish!"))
 	qdel(D)
@@ -610,7 +610,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /datum/ritual/servantry/devotionretrv
 	name = "Replenish Enlightenment"
-	desk = "Restores Zizo's holy energy to clerics."
+	desk = "Restores the Forbidden's holy energy to clerics."
 	center_book = "Cleric"
 	center_requirement = /mob/living/carbon/human
 	n_req = /obj/item/natural/bone
@@ -646,8 +646,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	to_chat(user, span_notice("Now you know how to make another ritual..."))
 
 /datum/ritual/transmutation/criminalstool
-	name = "Summon Zizo's Soap"
-	desk = "Summons Zizo's soap."
+	name = "Summon the Forbidden's Soap"
+	desk = "Summons the Forbidden's soap."
 	center_requirement = /obj/item/natural/cloth
 
 /datum/ritual/transmutation/criminalstool/invoke(mob/living/user, turf/center)
@@ -850,10 +850,10 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /datum/ritual/fleshcrafting/nopain
 	name = "Painless Combat"
-	desk = "You stop feeling pain, drawing on your victim's strong faith in Psydon"
+	desk = "You stop feeling pain, drawing on your victim's strong faith in the Absent God"
 	center_requirement = /mob/living/carbon/human
 	center_book = "Cultist"
-	north_book = "A cleric who believes in Psydon"
+	north_book = "A cleric who believes in the Absent God"
 	center_requirement = /mob/living/carbon/human
 
 	n_req = /mob/living/carbon/human
@@ -866,7 +866,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 		to_chat(target, span_danger("Their soul is already defiled..."))
 		return
 	if(victim.patron.type != /datum/patron/old_god)
-		to_chat(target, span_danger("I need someone who believes in Psydon..."))
+		to_chat(target, span_danger("I need someone who believes in the Absent God..."))
 		return
 	if(victim.patron.type == /datum/patron/old_god)
 		ADD_TRAIT(target, TRAIT_NOPAIN, TRAIT_GENERIC)
@@ -1270,8 +1270,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	new /obj/item/ingot/steel/zizo(center)
 
 /datum/ritual/weaponary/cross
-	name = "Summon Zizo's Amulet"
-	desk = "Summons a special cross of Zizo that both protects you and grants Her favour."
+	name = "Summon the Forbidden's Amulet"
+	desk = "Summons a special cross of the Forbidden that both protects you and grants Her favour."
 	center_requirement = /obj/item/clothing/neck/roguetown/psicross
 
 	n_req = /obj/item/natural/bone
@@ -1282,11 +1282,11 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 /datum/ritual/weaponary/cross/invoke(mob/living/user, turf/center)
 	. = ..()
 	new /obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy/cult(center)
-	to_chat(user, span_notice("The psycross is transmuted into an amulet of Zizo."))
+	to_chat(user, span_notice("The holy cross is transmuted into an amulet of the Forbidden."))
 
 /datum/ritual/weaponary/repaircross
 	name = "Replenish the Amulet"
-	desk = "Replenishes Zizo's amulet, restoring its protection."
+	desk = "Replenishes the Forbidden's amulet, restoring its protection."
 	center_requirement = /obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy/cult
 
 	w_req = /obj/item/natural/bone
@@ -1304,8 +1304,8 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 	to_chat(user, span_notice("The cross can protect you again.."))
 
 /datum/ritual/weaponary/zdagger
-	name = "Creation of Zizo's Cursed Dagger"
-	desk = "Summons a dagger of Zizo that can hold poison."
+	name = "Creation of the Forbidden's Cursed Dagger"
+	desk = "Summons a dagger of the Forbidden that can hold poison."
 	center_requirement = /obj/item/rogueweapon/huntingknife/idagger
 
 	n_req = /obj/item/ingot/steel/zizo
@@ -1321,7 +1321,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /datum/ritual/weaponary/summonweapon
 	name = "Creation of a Longsword"
-	desk = "Summons a longsword of Zizo."
+	desk = "Summons a longsword of the Forbidden."
 	center_requirement = /obj/item/rogueweapon/sword/long
 	
 	e_req = /obj/item/ingot/steel/zizo
@@ -1382,7 +1382,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /datum/ritual/weaponary/summonmace
 	name = "Summon a Mace"
-	desk = "Summons a special mace of Zizo."
+	desk = "Summons a special mace of the Forbidden."
 	center_requirement = /obj/item/rogueweapon/mace
 
 	n_req = /obj/item/ingot/steel/zizo
@@ -1399,7 +1399,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /datum/ritual/weaponary/summonshield
 	name = "Creation of a Shield"
-	desk = "Summons a longsword of Zizo."
+	desk = "Summons a longsword of the Forbidden."
 	center_requirement = /obj/item/rogueweapon/shield/tower
 	
 	e_req = /obj/item/ingot/steel/zizo
@@ -1415,7 +1415,7 @@ GLOBAL_LIST_INIT(ritual_counters, list())
 
 /datum/ritual/weaponary/summonneant
 	name = "Summon a Scythe"
-	desk = "Summons a special scythe of Zizo."
+	desk = "Summons a special scythe of the Forbidden."
 	center_requirement = /obj/item/rogueweapon/scythe
 
 	w_req = /obj/item/ingot/steel/zizo

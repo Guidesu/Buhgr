@@ -6,7 +6,7 @@
 	ambientsounds = AMB_GENCAVE
 	ambientnight = AMB_GENCAVE
 	soundenv = 8
-	deathsight_message = "a dark cave where Abyssor's dream echoes"
+	deathsight_message = "a dark cave where the Sea's dream echoes"
 	detail_text = DETAIL_TEXT_UNDERCOAST
 	area_sniff_message = "You smell the sea and the damp, murky depths."
 
@@ -49,7 +49,7 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 	ceiling_protected = TRUE
-	deathsight_message = "a dark cave where Abyssor's dream echoes"
+	deathsight_message = "a dark cave where the Sea's dream echoes"
 	detail_text = DETAIL_TEXT_TEMPLE_SHATTERED_GOD
 
 /area/rogue/under/cave/orcdungeon
@@ -61,7 +61,7 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 	ceiling_protected = TRUE
-	deathsight_message = "a dark cave where Abyssor's dream echoes"
+	deathsight_message = "a dark cave where the Sea's dream echoes"
 	detail_text = DETAIL_TEXT_ORC_RUIN
 
 /area/rogue/under/cave/menageriedungeon

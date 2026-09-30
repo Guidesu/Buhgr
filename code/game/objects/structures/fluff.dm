@@ -1026,7 +1026,7 @@
 		to_chat(user, span_warning("Lacking \a [R.catalyst::name] to craft!"))
 		return FALSE
 	if (HAS_TRAIT(user, TRAIT_CURSE_MALUM))
-		to_chat(user, span_warning("Your cursed hands tremble and fail to craft... Malum forbids it."))
+		to_chat(user, span_warning("Your cursed hands tremble and fail to craft... The Craft forbids it."))
 		return
 	if(user.doing)
 		return
@@ -1362,26 +1362,26 @@
 
 /obj/structure/fluff/statue/astrata
 	name = "astrata statue"
-	desc = "A stone statue of the sun Goddess Auxentius. Bless."
+	desc = "A stone statue of the sun Goddess the Sun. Bless."
 	icon_state = "astrata"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 
 /obj/structure/fluff/statue/astrata/gold
 	name = "ornamental astrata statue"
-	desc = "An ornamental stone statue of the sun Goddess Auxentius, decorated with golden jewelry. Bless."
+	desc = "An ornamental stone statue of the sun Goddess the Sun, decorated with golden jewelry. Bless."
 	icon_state = "astrata_bling"
 
 //Why are all of these in one giant file.
 /obj/structure/fluff/statue/abyssor
 	name = "abyssor statue"
-	desc = "A slate statue of the ancient god Abyssor. One of many depictions drawn from a dream no doubt. This particular one is horrifying to look at."
+	desc = "A slate statue of the ancient god the Sea. One of many depictions drawn from a dream no doubt. This particular one is horrifying to look at."
 	icon_state = "abyssor"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 	pixel_x = -16
 
 /obj/structure/fluff/statue/abyssor/dolomite
 	name = "abyssor statue"
-	desc = "A rare dolomite statue of the ancient god Abyssor, the Dreamer, He Who Slumbers, \
+	desc = "A rare dolomite statue of the ancient god the Sea, the Dreamer, He Who Slumbers, \
 	patron of the seas and all those that travel by them. He is asleep, and his followers pray \
 	fervently that he remains so for a very long time yet."
 	icon_state = "abyssor_dolomite"
@@ -1536,7 +1536,7 @@
 
 /obj/structure/fluff/statue/evil
 	name = "idol"
-	desc = "A statue built to the robber-god, Matthios, who stole the gift of fire from the underworld. It is said that he grants the wishes of those pagan bandits (free folk) who feed him money and valuable metals."
+	desc = "A statue built to the robber-god, Trade, who stole the gift of fire from the underworld. It is said that he grants the wishes of those pagan bandits (free folk) who feed him money and valuable metals."
 	icon_state = "evilidol"
 	icon = 'icons/roguetown/misc/structure.dmi'
 // What items the idol will accept
@@ -1653,7 +1653,7 @@
 	if(user.mind.assigned_role == "Bishop")
 		. += span_info("As the Bishop, you can marry two people by having them both bite an apple, then offering it to the cross.")
 	else if(istype(living_user) && HAS_TRAIT(living_user, TRAIT_MARRIAGE_CAPABLE))
-		. += span_info("As an Eoran, you can marry two people by having them both bite an apple, then offering it to the cross.")
+		. += span_info("As a Love, you can marry two people by having them both bite an apple, then offering it to the cross.")
 
 /obj/structure/fluff/psycross/Initialize(mapload)
 	. = ..()
@@ -1714,7 +1714,7 @@
 
 /obj/structure/fluff/psycross/praecursorcrucifix/stone
 	name = "stone praecursory crucifix"
-	desc = "Formed of stone, this great Psycross symbolises that HE is forever ENDURING. Considered a rare sight upon the Peaks."
+	desc = "Formed of stone, this great Holy cross symbolises that HE is forever ENDURING. Considered a rare sight upon the Peaks."
 	icon_state = "cross_psy_r"
 	max_integrity = 120
 	chance2hear = 10
@@ -1730,21 +1730,21 @@
 /obj/structure/fluff/psycross/auxentius
 	name = "wooden auxentian cross"
 	icon_state = "cross_astrata"
-	desc = "A simple cross of carved wood, raised in quiet devotion to Auxentius."
+	desc = "A simple cross of carved wood, raised in quiet devotion to the Sun."
 	max_integrity = 100
 	chance2hear = 20
 
 /obj/structure/fluff/psycross/auxentius/stone
 	name = "stone auxentian cross"
 	icon_state = "cross_astrata_r"
-	desc = "A towering monument to Auxentius. Those who stand beneath it feel the warmth of his light."
+	desc = "A towering monument to the Sun. Those who stand beneath it feel the warmth of his light."
 	max_integrity = 140
 	chance2hear = 20
 
 /obj/structure/fluff/psycross/auxentius/golden
 	name = "golden auxentian cross"
 	icon_state = "cross_astrata_u"
-	desc = "A radiant monument of gold, devoted to Auxentius in his full glory. Its surface gleams with an almost blinding brilliance, catching even the faintest light and casting it forth as a warm, unwavering glow."
+	desc = "A radiant monument of gold, devoted to the Sun in his full glory. Its surface gleams with an almost blinding brilliance, catching even the faintest light and casting it forth as a warm, unwavering glow."
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 	max_integrity = 400
 	chance2hear = 20

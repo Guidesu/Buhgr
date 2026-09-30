@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(cmode_tracks_by_type, build_cmode_tracks())
 	musicpath = list('sound/music/combat_savior.ogg')
 
 /datum/combat_music/auxentius
-	name = "Auxentian Light"
+	name = "Sun Light"
 	desc = ""
 	shortname = "Auxentius"
 	credits = "T-87 SULFURHEAD - Heliotrix (https://www.youtube.com/@T87-Sulfurhead)"
@@ -229,7 +229,7 @@ GLOBAL_LIST_INIT(cmode_tracks_by_type, build_cmode_tracks())
 	musicpath = list('sound/music/combat_dwarf.ogg')
 
 /datum/combat_music/eora
-	name = "Eoran Clergy"
+	name = "Love Clergy"
 	desc = "Do not listen to this one after a breakup." // from the credits.txt lol
 	shortname = "Eora"
 	credits = "T-87 SULFURHEAD - Family Melts Away (https://www.youtube.com/@T87-Sulfurhead)"
@@ -249,42 +249,42 @@ GLOBAL_LIST_INIT(cmode_tracks_by_type, build_cmode_tracks())
 	musicpath = list('sound/music/combat_grenzelhoft.ogg')
 
 /datum/combat_music/heretic_zizo
-	name = "Heretic - Zizo (Lich)"
+	name = "Heretic - the Forbidden (Lich)"
 	desc = ""
 	shortname = "Zizo"
 	credits = "T87-Sulfurhead - DEMESNE (https://www.youtube.com/@T87-Sulfurhead)"
 	musicpath = list('sound/music/combat_heretic.ogg')
 
 /datum/combat_music/heretic_matthios
-	name = "Heretic - Matthios"
+	name = "Heretic - Trade"
 	desc = ""
 	shortname = "Matthios"
 	credits = "T87-Sulfurhead - Amontillado (https://www.youtube.com/@T87-Sulfurhead)"
 	musicpath = list('sound/music/combat_matthios.ogg')
 
 /datum/combat_music/heretic_graggar
-	name = "Heretic - Graggar"
+	name = "Heretic - War"
 	desc = ""
 	shortname = "Graggar"
 	credits = "T87-Sulfurhead - Black Powder (https://www.youtube.com/@T87-Sulfurhead)"
 	musicpath = list('sound/music/combat_graggar.ogg')
 
 /datum/combat_music/graggar_bloodrage
-	name = "Graggarite Psychosis"
+	name = "War Psychosis"
 	desc = "BLOOD AND FURY SPLITTING MY SKULL! LAMBS TO THE SLAUGHTER!"
 	shortname = "Bloodrage"
 	credits = "Ben_19M - THE WHOLE BODY IS BULLETPROOF (https://www.youtube.com/@Ben_19M)"
 	musicpath = list('sound/music/combat_bloodrage.ogg')
 
 /datum/combat_music/heretic_psydon
-	name = "Heretic - Psydon"
+	name = "Heretic - the Absent God"
 	desc = "THERE IS A TUMOR DIRECTLY BEHIND MY LEFT EYEBALL."
 	shortname = "Psy-Heretic"
 	credits = "corru.works - BSTRD (https://corruworks.bandcamp.com)"
 	musicpath = list('sound/music/cmode/antag/combat_adonai.ogg')
 
 /datum/combat_music/heretic_baotha
-	name = "Heretic - Baotha"
+	name = "Heretic - the Forbidden"
 	desc = ""
 	shortname = "Baotha"
 	credits = "T87-Sulfurhead - Love Within You (Rough Mix) (https://www.youtube.com/@T87-Sulfurhead)"
@@ -402,7 +402,7 @@ GLOBAL_LIST_INIT(cmode_tracks_by_type, build_cmode_tracks())
 	musicpath = list('sound/music/combat_holy.ogg')
 
 /datum/combat_music/necra
-	name = "Necran Clergy"
+	name = "Death Clergy"
 	desc = ""
 	shortname = "Necra"
 	credits = "T-87 SULFURHEAD - Formerly Known as Toulouse Lautrec (https://www.youtube.com/@T87-Sulfurhead)"

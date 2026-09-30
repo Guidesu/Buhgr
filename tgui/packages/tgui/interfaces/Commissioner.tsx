@@ -92,7 +92,7 @@ export const Commissioner = () => {
             >
               Orders {orderCount > 0 && `(${orderCount})`}
             </div>
-            {isGuildmaster && (
+            {!!isGuildmaster && (
               <div
                 style={tabStyle(activeTab === 'config')}
                 onClick={() => setTab('config')}

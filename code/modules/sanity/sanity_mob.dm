@@ -297,7 +297,7 @@
 	)
 	if(rest == "Meditate on an oddity")
 		var/oddity_found = FALSE
-		for(var/obj/item/oddity/O in owner.contents)
+		for(var/obj/item/oddity/O in owner.GetAllContents())
 			oddity_found = TRUE
 			use_oddity(O)
 			break

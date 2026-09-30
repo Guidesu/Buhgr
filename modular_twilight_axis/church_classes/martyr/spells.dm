@@ -8,7 +8,7 @@
 
 /obj/effect/proc_holder/spell/targeted/martyr_select_weapon
 	name = "Choose divine weapon"
-	desc = "Choose the weapon that the Ten will send down to you from the heavens when you offer your prayer."
+	desc = "Choose the weapon that the Domains will send down to you from the heavens when you offer your prayer."
 	clothes_req = FALSE
 	range = -1
 	include_user = TRUE
@@ -23,7 +23,7 @@
 	cost = 1
 
 	var/selected_weapon = /obj/item/rogueweapon/sword/long/martyr
-	var/list/selected_invocations = list("Astrata, place the sword of your judgment in my hand!")
+	var/list/selected_invocations = list("The Sun, place the sword of your judgment in my hand!")
 	var/obj/effect/proc_holder/spell/invoked/martyr_summon_weapon/summon_weapon
 
 /obj/effect/proc_holder/spell/targeted/martyr_select_weapon/proc/apply_manifest_sprite(obj/effect/martyr_weapon_manifest/manifest)
@@ -73,23 +73,23 @@
 	switch(chosen_weapon)
 		if("Divine Sword")
 			selected_weapon = /obj/item/rogueweapon/sword/long/martyr
-			selected_invocations = list("Astrata, place the sword of your judgment in my hand!")
+			selected_invocations = list("The Sun, place the sword of your judgment in my hand!")
 
 		if("Divine Axe")
 			selected_weapon = /obj/item/rogueweapon/greataxe/steel/doublehead/martyr
-			selected_invocations = list("Ravox, bless me with a weapon of strength!")
+			selected_invocations = list("Law, bless me with a weapon of strength!")
 
 		if("Divine Mace")
 			selected_weapon = /obj/item/rogueweapon/mace/goden/martyr
-			selected_invocations = list("Malum, forge me a mace of unyielding will!")
+			selected_invocations = list("The Craft, forge me a mace of unyielding will!")
 
 		if("Divine Trident")
 			selected_weapon = /obj/item/rogueweapon/spear/partizan/martyr
-			selected_invocations = list("Abyssor, grant me a trident from the depths of the abyss!")
+			selected_invocations = list("The Sea, grant me a trident from the depths of the abyss!")
 
 		if("Divine Scythe")
 			selected_weapon = /obj/item/rogueweapon/halberd/bardiche/scythe/martyr
-			selected_invocations = list("From roots and vine, Dendor, weave me a weapon!")
+			selected_invocations = list("From roots and vine, the Wilds, weave me a weapon!")
 
 	if(summon_weapon)
 		summon_weapon.invocations = selected_invocations
@@ -127,7 +127,7 @@
 	overlay_state = "martyrsword"
 	overlay_alpha = 255
 
-	invocations = list("Astrata, place the sword of your judgment in my hand!")
+	invocations = list("The Sun, place the sword of your judgment in my hand!")
 	invocation_type = "shout"
 	spell_tier = 2
 	cost = 10
@@ -175,7 +175,7 @@
 		return
 
 	if(user.real_name in GLOB.excommunicated_players)
-		to_chat(user, span_warning("The Ten have turned away from me. The relic will not answer me."))
+		to_chat(user, span_warning("The Domains have turned away from me. The relic will not answer me."))
 		return
 
 	if(!weapon_select || !weapon_select.selected_weapon)
@@ -203,7 +203,7 @@
 
 	user.visible_message(
 		span_warning("[user] raises a hand to the heavens, and lightning strikes down upon them!"),
-		span_warning("I raise my hand to the heavens and call upon the relic of the Ten!")
+		span_warning("I raise my hand to the heavens and call upon the relic of the Domains!")
 	)
 
 	lightning_summon_fx(user)

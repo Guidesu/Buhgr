@@ -4,7 +4,7 @@
 	The Vaeltic Calendar's 28-day month maps perfectly to a lunar cycle:
 	Day 1  = New Moon
 	Day 7  = First Quarter
-	Day 14 = Full Moon
+	Days 13-15 = Full Moon
 	Day 21 = Last Quarter
 	Day 28 = New Moon (cycle repeats)
 
@@ -33,11 +33,11 @@ GLOBAL_VAR_INIT(full_moon_count, 0) // Tracks how many full moons have occurred 
 			return MOON_PHASE_WAXING_CRESCENT
 		if(7)
 			return MOON_PHASE_FIRST_QUARTER
-		if(8 to 13)
+		if(8 to 12)
 			return MOON_PHASE_WAXING_GIBBOUS
-		if(14)
+		if(13 to 15)
 			return MOON_PHASE_FULL
-		if(15 to 20)
+		if(16 to 20)
 			return MOON_PHASE_WANING_GIBBOUS
 		if(21)
 			return MOON_PHASE_LAST_QUARTER

@@ -47,6 +47,14 @@
 			dreamvalley_open_tat(user)
 			return CHARACTER_ACT_DATA_UPDATE
 
+		if("dv_open_prayer_presets")
+			INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(dreamvalley_edit_prayer_presets), user, src)
+			return CHARACTER_ACT_DATA_UPDATE
+
+		if("dv_open_incantations")
+			INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(dreamvalley_edit_prayer_presets), user, src, "incantation")
+			return CHARACTER_ACT_DATA_UPDATE
+
 		if("dv_open_origin_map")
 			dreamvalley_open_origin_map_ui(user)
 			return CHARACTER_ACT_DATA_UPDATE

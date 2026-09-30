@@ -35,6 +35,7 @@ type Recipe = {
   craftingdifficulty: string;
   sellprice: number;
   has_item_quality: number;
+  icon_class?: string | null;
 };
 
 type Craftability = [string, number][];
@@ -131,6 +132,16 @@ const CraftingRecipe = (props: {
           <span style={{ color: INK_SOFT, marginRight: '6px' }}>
             {open ? '▼' : '▶'}
           </span>
+          {!!recipe.icon_class && (
+            <span
+              className={recipe.icon_class}
+              style={{
+                display: 'inline-block',
+                verticalAlign: 'middle',
+                marginRight: '6px',
+              }}
+            />
+          )}
           {recipe.name}
           {!craftable && (
             <span style={{ color: INK_FAINT, fontSize: FONT_SMALL }}>
@@ -140,23 +151,23 @@ const CraftingRecipe = (props: {
           )}
         </button>
       </div>
-      {open && (
+      {!!open && (
         <div
           style={{
             padding: '2px 4px 8px 8px',
           }}
         >
-          {recipe.aliases && (
+          {!!recipe.aliases && (
             <RecipeDetail label="Also known as">{recipe.aliases}</RecipeDetail>
           )}
           <RecipeDetail label="Ingredients">{recipe.req_text}</RecipeDetail>
           <RecipeDetail label="Difficulty">
             {recipe.craftingdifficulty}
           </RecipeDetail>
-          {recipe.tool_text && (
+          {!!recipe.tool_text && (
             <RecipeDetail label="Tool">{recipe.tool_text}</RecipeDetail>
           )}
-          {recipe.catalyst_text && (
+          {!!recipe.catalyst_text && (
             <RecipeDetail label="Catalyst">{recipe.catalyst_text}</RecipeDetail>
           )}
           <RecipeDetail label="Sell price">
@@ -255,7 +266,7 @@ const CraftingCategory = (props: {
           ({visible.length})
         </span>
       </button>
-      {open && (
+      {!!open && (
         <div style={{ padding: '2px 4px 4px 4px' }}>
           {visible.map((recipe) => (
             <CraftingRecipe

@@ -147,7 +147,12 @@
 	var/list/out = list()
 
 	if(!controller || !controller.owner || !controller.active_partner)
+		log_world("ERP_DEBUG: empty action list - controller=[!!controller] owner=[!!controller?.owner] active_partner=[!!controller?.active_partner]")
 		return out
+	. = out
+	var/list/_debug_all = get_all_actions_for_ui(controller.owner, controller.active_partner)
+	if(!length(_debug_all))
+		log_world("ERP_DEBUG: no actions for this scope - registered=[length(SSerp.actions)] self=[controller.owner == controller.active_partner] owner_organs=[length(controller.owner.get_organs_ref())]")
 
 	var/normalized_actor_type = normalize_organ_type(actor_type)
 	var/normalized_partner_type = normalize_organ_type(partner_type)
@@ -224,6 +229,8 @@
 			"is_custom" = (Act in controller.owner.custom_actions)
 		))
 
+	if(!length(out))
+		log_world("ERP_DEBUG: all [length(_debug_all)] candidate actions filtered out - actor_filter=[actor_type] partner_filter=[partner_type] free_init_organs=[length(pick_first_by_type(controller.owner, TRUE)["by"])]")
 	return out
 
 /// Checks if action can start.

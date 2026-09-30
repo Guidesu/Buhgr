@@ -73,8 +73,8 @@
 		message_admins("[key_name_admin(src)] enabled permanent chastity binding.")
 	else
 		// Disabling requires the humiliation prayer
-		to_chat(src, span_notice("To disable permanent binding, you must recite the Prayer of Foolish Repentance to Miluše."))
-		var/sacred_prayer = "Dear Miluše, I embraced this binding in foolish haste because I'm a dullard and I'm sorry, so so so sorry for being such a stupid stupid stupid person and I'm begging you please please please free my loins."
+		to_chat(src, span_notice("To disable permanent binding, you must recite the Prayer of Foolish Repentance to the Moon."))
+		var/sacred_prayer = "Dear the Moon, I embraced this binding in foolish haste because I'm a dullard and I'm sorry, so so so sorry for being such a stupid stupid stupid person and I'm begging you please please please free my loins."
 		var/encoded_sacred_prayer = html_encode(sacred_prayer)
 		var/prayer_prompt = "Recite the Prayer of Foolish Repentance EXACTLY as written:\n\n\"[sacred_prayer]\"\n\n(You must type this yourself - copying is forbidden by divine law)"
 		// multiline=TRUE so the wrapping textarea is readable; bigmodal=TRUE for a large window that shows the full prompt.
@@ -82,12 +82,12 @@
 		var/prayer_attempt = tgui_input_text(src, prayer_prompt, "Prayer of Foolish Repentance", default = "", max_length = length(encoded_sacred_prayer), multiline = TRUE, encode = TRUE, ui_state = GLOB.tgui_always_state, bigmodal = TRUE)
 
 		if(!prayer_attempt)
-			to_chat(src, span_warning("Miluše does not hear your silence."))
+			to_chat(src, span_warning("The Moon does not hear your silence."))
 			return
 
 		// tgui_input_text() html-encodes player input, so compare against the prayer normalized the same way.
 		if(prayer_attempt != encoded_sacred_prayer)
-			to_chat(src, span_warning("Miluše rejects your imperfect prayer. You must recite it EXACTLY as written."))
+			to_chat(src, span_warning("The Moon rejects your imperfect prayer. You must recite it EXACTLY as written."))
 			to_chat(src, span_notice("You wrote: \"[prayer_attempt]\""))
 			to_chat(src, span_notice("Required: \"[sacred_prayer]\""))
 			log_game("[key_name(src)] failed the humiliation prayer (incorrect text).")
@@ -99,7 +99,7 @@
 		if(ishuman(mob))
 			var/mob/living/carbon/human/H = mob
 			H.chastity_device?.sync_generated_key_metadata(H)
-		to_chat(src, span_boldnotice("Miluše hears your pathetic plea and takes pity upon you. The permanent binding is lifted."))
+		to_chat(src, span_boldnotice("The Moon hears your pathetic plea and takes pity upon you. The permanent binding is lifted."))
 		to_chat(src, span_notice("You have revoked the permanent binding. Mortal means may now test the lock once more."))
 		log_game("[key_name(src)] disabled permanent chastity binding via humiliation prayer.")
 		message_admins("[key_name_admin(src)] disabled permanent chastity binding by reciting the humiliation prayer.")

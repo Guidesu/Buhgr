@@ -382,7 +382,7 @@
 
 /datum/stressevent/syoncalamity
 	stressadd = 15
-	desc = span_boldred("By Praecursor, the great comet's shard is no more! What will we do now!?")
+	desc = span_boldred("By the Absent God, the great comet's shard is no more! What will we do now!?")
 	timer = 15 MINUTES
 
 /datum/stressevent/hithead
@@ -397,7 +397,7 @@
 
 /datum/stressevent/excommunicated
 	stressadd = 5
-	desc = span_boldred("The Ten have forsaken me!")
+	desc = span_boldred("The Domains have forsaken me!")
 	timer = 999 MINUTES
 
 /datum/stressevent/apostasy
@@ -495,7 +495,7 @@
 /datum/stressevent/xylixian_pity
 	timer = 5 MINUTES
 	stressadd = 1
-	desc = span_red("Xylix took pity upon me and saved me from the consequences of bad luck. I must do better!")
+	desc = span_red("Trickery took pity upon me and saved me from the consequences of bad luck. I must do better!")
 
 /datum/stressevent/debt
 	timer = 25 MINUTES
@@ -533,7 +533,7 @@
 /datum/stressevent/terrible_dreams
 	timer = 10 MINUTES
 	stressadd = 3
-	desc = span_boldred("I had terrible nightmares... there's a lingering buzzing in my mind.") + span_gamedeadsay("\nIn gi rum imus Noc te et con sumi...")
+	desc = span_boldred("I had terrible nightmares... there's a lingering buzzing in my mind.") + span_gamedeadsay("\nIn gi rum imus the Moon te et con sumi...")
 
 /datum/stressevent/shitstew
 	timer = 3 MINUTES
@@ -563,7 +563,7 @@
 /datum/stressevent/lesser_sun_sensitivity
 	timer = 2 MINUTES
 	stressadd = 1
-	desc = span_red("I'm shielded from the the sunlight, but still! It's too bright outside!") // always a hater, aren't ya?! shame on u, auxentius shames u
+	desc = span_red("I'm shielded from the sunlight, but still! It's too bright outside!") // always a hater, aren't ya?! shame on u, auxentius shames u
 
 /datum/stressevent/inq_trauma
 	timer = 3 MINUTES

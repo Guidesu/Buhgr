@@ -162,12 +162,12 @@
 	l_sleeve_status = SLEEVE_NORMAL
 
 /obj/item/clothing/suit/roguetown/shirt/robe/necromancer/get_examine_highlight_status()
-	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_ALARMING, "The robes of Zizo's foul deadite-raisers")
+	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_ALARMING, "The robes of the Forbidden's foul deadite-raisers")
 
 /obj/item/clothing/suit/roguetown/shirt/robe/ignatius
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT|ITEM_SLOT_CLOAK
 	name = "briar robe"
-	desc = "A coarse, rough robe worn often by devout worshippers of Ignatius, the Mad God, lord of all \
+	desc = "A coarse, rough robe worn often by devout worshippers of the Wilds, the Mad God, lord of all \
 	the wild places of the world. It's quite terribly itchy."
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS|VITALS
 	icon_state = "dendorrobe"
@@ -344,7 +344,7 @@
 /obj/item/clothing/suit/roguetown/shirt/robe/eora
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT|ITEM_SLOT_CLOAK
 	name = "eoran robe"
-	desc = "Holy robes, intended for use by followers of Eora"
+	desc = "Holy robes, intended for use by followers of Love"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS|VITALS
 	icon_state = "eorarobes"
 	item_state = "eorarobes"
@@ -360,7 +360,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/robe/eora/alt
 	name = "open eoran robe"
-	desc = "Used by more radical followers of the Eoran Church"
+	desc = "Used by more radical followers of the Love Church"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
 	body_parts_covered = null // Keyhole should show boob size and the outfit is too open to get in the way of sex
 	icon_state = "eorastraps"
@@ -372,7 +372,7 @@
 	switch(fanatic_wear)
 		if(FALSE)
 			name = "open eoran robe"
-			desc = "Used by more radical followers of the Eoran Church"
+			desc = "Used by more radical followers of the Love Church"
 			body_parts_covered = null
 			icon_state = "eorastraps"
 			item_state = "eorastraps"
@@ -381,7 +381,7 @@
 			to_chat(usr, span_warning("Now wearing radically!"))
 		if(TRUE)
 			name = "eoran robe"
-			desc = "Holy robes, intended for use by followers of Eora"
+			desc = "Holy robes, intended for use by followers of Love"
 			body_parts_covered = CHEST|GROIN|ARMS|LEGS|VITALS
 			icon_state = "eorarobes"
 			item_state = "eorarobes"
@@ -545,7 +545,7 @@
 /obj/item/clothing/suit/roguetown/shirt/robe/lunar
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	name = "moonlit robe"
-	desc = "A moon-silver robe that catches the glint of Noc's light."
+	desc = "A moon-silver robe that catches the glint of the Moon's light."
 	icon_state = "lunarrobe"
 	item_state = "lunarrobe"
 	icon = 'icons/roguetown/clothing/armor.dmi'

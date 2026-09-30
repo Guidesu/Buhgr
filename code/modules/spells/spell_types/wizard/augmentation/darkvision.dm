@@ -2,7 +2,7 @@
 	button_icon = 'icons/mob/actions/mage_augmentation.dmi'
 	name = "Darkvision"
 	desc = "Enhance the night vision of yourself and everyone around you for 15 minutes."
-	fluff_desc = "When the first men walked the world, they were not gifted with sight at night. They were preys to monsters and animals in the dark. Noc, in his infinite wisdom, bestowed upon humenity the gift of noc vision. And soon, the Magi followed suit and replicated it with bending, as is His vision."
+	fluff_desc = "When the first men walked the world, they were not gifted with sight at night. They were preys to monsters and animals in the dark. The Moon, in his infinite wisdom, bestowed upon humenity the gift of noc vision. And soon, the Magi followed suit and replicated it with magyck, as is His vision."
 	button_icon_state = "darkvision"
 	sound = 'sound/magic/haste.ogg'
 	spell_color = GLOW_COLOR_BUFF
@@ -49,7 +49,7 @@
 /datum/action/cooldown/spell/darkvision/undivided
 	name = "Nitesight"
 	background_icon = 'icons/mob/actions/undividedmiracles.dmi'
-	invocations = list("Noc, grant me clarity.") //Nachtsicht. Night Sight
+	invocations = list("The Moon, grant me clarity.") //Nachtsicht. Night Sight
 	button_icon_state = "darkvision"
 	point_cost = 0
 	spell_tier = 0

@@ -1,6 +1,6 @@
 /obj/item/soap
 	name = "soap"
-	desc = "One of Pestra's more humble and unassuming gifts. Take care not to slip!"
+	desc = "One of Healing's more humble and unassuming gifts. Take care not to slip!"
 	gender = PLURAL
 	icon = 'icons/roguetown/items/soaps.dmi'
 	icon_state = "soap_plain"
@@ -129,7 +129,7 @@
 	name = "rosa soap"
 	uses = 100
 	cleanspeed = 50
-	desc = "One of Pestra's more humble and unassuming gifts. This bar has a pleasant rosa aroma. It has a cute heart stamped into the center."
+	desc = "One of Healing's more humble and unassuming gifts. This bar has a pleasant rosa aroma. It has a cute heart stamped into the center."
 	icon_state = "soap_rosa"
 	fragrance_type = /datum/pollutant/fragrance/rose
 
@@ -137,7 +137,7 @@
 	name = "vanilla soap"
 	uses = 100
 	cleanspeed = 50
-	desc = "One of Pestra's more humble and unassuming gifts. This bar has a pleasant vanilla aroma."
+	desc = "One of Healing's more humble and unassuming gifts. This bar has a pleasant vanilla aroma."
 	icon_state = "soap_vanilla"
 	fragrance_type = /datum/pollutant/fragrance/vanilla
 
@@ -145,7 +145,7 @@
 	name = "calendula soap"
 	uses = 100
 	cleanspeed = 50
-	desc = "One of Pestra's more humble and unassuming gifts. This bar carries minor healing properties when used in bathwaters."
+	desc = "One of Healing's more humble and unassuming gifts. This bar carries minor healing properties when used in bathwaters."
 	icon_state = "soap_calendula"
 	fragrance_type = /datum/pollutant/fragrance/floral
 	medicine_type = /datum/reagent/medicine/healthpot
@@ -154,7 +154,7 @@
 	name = "mana soap"
 	uses = 100
 	cleanspeed = 50
-	desc = "One of Pestra's more humble and unassuming gifts. This bar carries minor restorative properties when used in bathwaters."
+	desc = "One of Healing's more humble and unassuming gifts. This bar carries minor restorative properties when used in bathwaters."
 	icon_state = "soap_mana"
 	fragrance_type = /datum/pollutant/fragrance/floral
 	medicine_type = /datum/reagent/medicine/manapot
@@ -163,7 +163,7 @@
 	name = "citrus soap"
 	uses = 100
 	cleanspeed = 50
-	desc = "One of Pestra's more humble and unassuming gifts. This bar has a pleasant citrus aroma."
+	desc = "One of Healing's more humble and unassuming gifts. This bar has a pleasant citrus aroma."
 	icon_state = "soap_citrus"
 	fragrance_type = /datum/pollutant/fragrance/citrus
 
@@ -171,7 +171,7 @@
 	name = "tea-leaf soap"
 	uses = 100
 	cleanspeed = 50
-	desc = "One of Pestra's more humble and unassuming gifts. This bar has a pleasant tea aroma."
+	desc = "One of Healing's more humble and unassuming gifts. This bar has a pleasant tea aroma."
 	icon_state = "soap_tea"
 	fragrance_type = /datum/pollutant/fragrance/tea
 
@@ -179,7 +179,7 @@
 	name = "coffee soap"
 	uses = 100
 	cleanspeed = 50
-	desc = "One of Pestra's more humble and unassuming gifts. This bar has a pleasant coffee aroma."
+	desc = "One of Healing's more humble and unassuming gifts. This bar has a pleasant coffee aroma."
 	icon_state = "soap_coffee"
 	fragrance_type = /datum/pollutant/fragrance/coffee
 
@@ -187,6 +187,6 @@
 	name = "jackberry soap"
 	uses = 100
 	cleanspeed = 50
-	desc = "One of Pestra's more humble and unassuming gifts. This bar has a pleasant jackberry aroma."
+	desc = "One of Healing's more humble and unassuming gifts. This bar has a pleasant jackberry aroma."
 	icon_state = "soap_jackberry"
 	fragrance_type = /datum/pollutant/fragrance/Jackberry

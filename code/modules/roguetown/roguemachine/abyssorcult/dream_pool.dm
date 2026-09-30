@@ -205,7 +205,7 @@
 
 	var/list/invocations = R.invocation_phases
 	if(!length(invocations))
-		invocations = list("Abyssor, hwja'ajaba!")
+		invocations = list("The Sea, hwja'ajaba!")
 	var/phases = invocations.len
 	var/phase_time = duration / phases
 
@@ -224,7 +224,7 @@
 			collapse_ritual()
 			return
 
-		var/phase_invocation = invocations[phase] || "Abyssor, hwja'ajaba!"
+		var/phase_invocation = invocations[phase] || "The Sea, hwja'ajaba!"
 		for(var/mob/living/P in active_channelers)
 			P.say(phase_invocation, language = /datum/language/abyssal, ignore_spam = TRUE)
 

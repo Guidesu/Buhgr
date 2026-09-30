@@ -18,7 +18,7 @@
 		return
 
 	if(target.job == "Towner" || istype(target.mind?.assigned_role, /datum/job/roguetown/villager))
-		to_chat(owner.current, span_greentext("You've hugged a local, completing Eora's objective!"))
+		to_chat(owner.current, span_greentext("You've hugged a local, completing Love's objective!"))
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
 		adjust_storyteller_influence("Eora", 10)
@@ -26,4 +26,4 @@
 		UnregisterSignal(owner.current, COMSIG_MOB_HUGGED)
 
 /datum/objective/hug_beggar/update_explanation_text()
-	explanation_text = "Everyone deserves love! Hug a towner to please Eora!"
+	explanation_text = "Everyone deserves love! Hug a towner to please Love!"

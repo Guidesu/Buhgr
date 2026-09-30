@@ -99,7 +99,7 @@
 	)
 	invocation_phases = list(
 		"#The depths heal the ripples of a broken surface.",
-		"#Abyssor's embrace mends bone and sinew.",
+		"#the Sea's embrace mends bone and sinew.",
 		"#Mend us, oh calm current of the abyss."
 	)
 
@@ -148,8 +148,8 @@
 		/obj/item/dream_material/parchment_raw = 3
 	)
 	invocation_phases	= list(
-		"Abyssor, hwja'ajaba!",
-		"Iä! Iä! Abyssor fhtagn!"
+		"The Sea, hwja'ajaba!",
+		"Iä! Iä! The Sea fhtagn!"
 	)
 
 /datum/abyssal_ritual/imagine_parchment/on_success(obj/structure/roguemachine/dream_pool/P, mob/living/leader, list/mob/living/channelers)
@@ -191,7 +191,7 @@
 
 /datum/abyssal_ritual/imagine_parchment/dream
 	name = "Imagine Dreamy Parchment"
-	desc = "The pinnacle of abyssal calligraphy. Studded with Sylveric, the metal of dreams. It can contain primal dreams from Abyssor's core thoughts."
+	desc = "The pinnacle of abyssal calligraphy. Studded with Sylveric, the metal of dreams. It can contain primal dreams from the Sea's core thoughts."
 	base_channel_time = 150
 	required_ingredients = list(
 		/obj/item/dream_material/parchment_gold = 1,
@@ -201,8 +201,8 @@
 		/obj/item/dream_material/parchment_dream = 1
 	)
 	invocation_phases	= list(
-		"Abyssor, hwja'ajaba!",
-		"Iä! Iä! Abyssor fhtagn!",
+		"The Sea, hwja'ajaba!",
+		"Iä! Iä! The Sea fhtagn!",
 		"The deep rises to my call!",
 		"By the salt and the tide, awaken!"
 	)
@@ -222,7 +222,7 @@
 	invocation_phases	= list(
 		"Paints swirl and swell.",
 		"Robes to paint anew three.",
-		"Abyssor brings new dreads upon the sands."
+		"The Sea brings new dreads upon the sands."
 	)
 
 /datum/abyssal_ritual/robes/rain
@@ -369,7 +369,7 @@
 
 /datum/abyssal_ritual/dream_knife
 	name = "Create Dream Knife"
-	desc = "Drags the sharped edges of Abyssor's dream into that of a knife's blade."
+	desc = "Drags the sharped edges of the Sea's dream into that of a knife's blade."
 	base_channel_time = 50
 
 	required_ingredients = list(
@@ -411,7 +411,7 @@
 		/obj/item/rogueweapon/woodstaff/quarterstaff/steel/paint_heal = 1
 	)
 	invocation_phases = list(
-		"#Abyssor's touch brings salvation.",
+		"#the Sea's touch brings salvation.",
 		"#By the tide, let pain recede.",
 		"#Heal the broken, strengthen the faithful."
 	)

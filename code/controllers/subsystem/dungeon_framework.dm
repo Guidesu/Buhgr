@@ -129,6 +129,124 @@
 	name = "tomb interior"
 	icon_state = "tomb_i"
 
+// Sub-areas used by the room .dmm templates in _maps/dungeon_generator.
+/area/rogue/under/tomb/indoors/church
+	name = "abandoned chapel"
+
+/area/rogue/under/tomb/indoors/royal
+	name = "forgotten royal hall"
+
+/area/rogue/under/tomb/cave/lava
+	name = "burning caverns"
+
+/area/rogue/under/tomb/cave/wet
+	name = "dripping caverns"
+
+/area/rogue/under/tomb/wilds
+	name = "overgrown depths"
+	icon_state = "cave"
+
+// ============================================================================
+// Getting in and out of the tomb
+// ============================================================================
+
+GLOBAL_LIST_EMPTY(dungeon_entrances)
+
+/// A collapsed tomb mouth on the surface. Leads down to the tomb's center.
+/obj/structure/dungeon_entry
+	name = "collapsed tomb entrance"
+	desc = "Worn steps lead down into the dark, into the Tomb of Alotheos. The air from below is cold and old."
+	icon = 'icons/roguetown/misc/structure.dmi'
+	icon_state = "ladderearth"
+	anchored = TRUE
+	density = FALSE
+	var/dungeon_id = "center"
+
+/obj/structure/dungeon_entry/Initialize(mapload)
+	. = ..()
+	GLOB.dungeon_entrances += src
+
+/obj/structure/dungeon_entry/Destroy()
+	GLOB.dungeon_entrances -= src
+	return ..()
+
+/obj/structure/dungeon_entry/attack_hand(mob/living/user)
+	. = ..()
+	if(.)
+		return
+	var/obj/structure/dungeon_exit/exit = locate_exit()
+	if(!exit)
+		to_chat(user, span_warning("The way down is choked with rubble."))
+		return
+	user.visible_message(span_notice("[user] starts down into the tomb."), span_notice("I start down the worn steps."))
+	if(!do_after(user, 3 SECONDS, target = src))
+		return
+	user.forceMove(get_turf(exit))
+
+/obj/structure/dungeon_entry/proc/locate_exit()
+	for(var/obj/structure/dungeon_exit/exit in GLOB.dungeon_exits)
+		if(exit.dungeon_id == dungeon_id)
+			return exit
+
+GLOBAL_LIST_EMPTY(dungeon_exits)
+
+/// The way back up, placed at the tomb's center.
+/obj/structure/dungeon_exit
+	name = "tomb stairs"
+	desc = "Steps climbing back toward daylight."
+	icon = 'icons/roguetown/misc/structure.dmi'
+	icon_state = "ladder11"
+	anchored = TRUE
+	density = FALSE
+	var/dungeon_id = "center"
+
+/obj/structure/dungeon_exit/Initialize(mapload)
+	. = ..()
+	GLOB.dungeon_exits += src
+
+/obj/structure/dungeon_exit/Destroy()
+	GLOB.dungeon_exits -= src
+	return ..()
+
+/obj/structure/dungeon_exit/attack_hand(mob/living/user)
+	. = ..()
+	if(.)
+		return
+	var/obj/structure/dungeon_entry/entry
+	for(var/obj/structure/dungeon_entry/E in GLOB.dungeon_entrances)
+		if(E.dungeon_id == dungeon_id)
+			entry = E
+			break
+	if(!entry)
+		to_chat(user, span_warning("The way up has collapsed."))
+		return
+	user.visible_message(span_notice("[user] starts climbing out of the tomb."), span_notice("I start the long climb up."))
+	if(!do_after(user, 3 SECONDS, target = src))
+		return
+	user.forceMove(get_turf(entry))
+
+/// If the surface map has no entrance, open one in a cave so the tomb is reachable.
+/proc/ensure_dungeon_entrance()
+	if(length(GLOB.dungeon_entrances) || !length(GLOB.dungeon_exits))
+		return
+	for(var/attempt in 1 to 400)
+		var/turf/T = locate(rand(1, world.maxx), rand(1, world.maxy), rand(2, world.maxz))
+		if(!isfloorturf(T) || T.density)
+			continue
+		var/area/A = get_area(T)
+		if(!istype(A, /area/rogue/under/cave) || istype(A, /area/rogue/under/tomb))
+			continue
+		var/blocked = FALSE
+		for(var/atom/movable/AM in T)
+			if(AM.density)
+				blocked = TRUE
+				break
+		if(blocked)
+			continue
+		new /obj/structure/dungeon_entry(T)
+		log_world("Tomb of Alotheos entrance placed at [T.x],[T.y],[T.z].")
+		return
+
 // ============================================================================
 // Multi-biome area definitions
 // ============================================================================

@@ -532,7 +532,7 @@ export const MigrantPanel = () => {
               now={now}
               act={act}
             />
-            {formingEvent && (
+            {!!formingEvent && (
               <FormingCard
                 label="Event"
                 color={SEAL_RED}

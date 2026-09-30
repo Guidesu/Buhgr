@@ -1,5 +1,5 @@
 /area/rogue/outdoors/rtfield/miluse
-	name = "Miluše's Shrine"
+	name = "The Moon's Shrine"
 	icon_state = "eora"
 	soundenv = 19
 	ambush_times = list("night")
@@ -60,7 +60,7 @@
 	deathsight_message = "somewhere above a swamp, where cherry blossoms bloom and spiders chitter"
 
 /area/rogue/outdoors/rtfield/eora/grim
-	name = "Eoran Shrine"
+	name = "Love Shrine"
 	icon_state = "eora"
 	soundenv = 19
 	first_time_text = "EORAN SHRINE"

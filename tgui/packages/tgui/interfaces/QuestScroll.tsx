@@ -73,7 +73,7 @@ const MarginaliaSection = (props: MarginaliaSectionProps) => {
     props;
   return (
     <Marginalia>
-      {hasWhisper && (
+      {!!hasWhisper && (
         <WhisperLine
           compass={data.compass_direction || ''}
           zHint={data.z_hint}
@@ -95,13 +95,13 @@ const MarginaliaSection = (props: MarginaliaSectionProps) => {
             noun={data.faction_progress_noun || 'foes'}
           />
         ))}
-      {hasBlockadeTimer && (
+      {!!hasBlockadeTimer && (
         <BlockadeTimer
           label={data.blockade_timer_label || ''}
           seconds={data.blockade_timer_seconds ?? 0}
         />
       )}
-      {hasHuntTimer && (
+      {!!hasHuntTimer && (
         <BlockadeTimer
           label={data.hunt_timer_label || ''}
           seconds={data.hunt_timer_seconds ?? 0}
@@ -345,7 +345,7 @@ export const QuestScroll = () => {
     <Window title="Contract Scroll" width={520} height={680} theme="parchment">
       <Window.Content scrollable>
         <div style={parchment}>
-          {data.title && <div style={titleHint}>{data.title}</div>}
+          {!!data.title && <div style={titleHint}>{data.title}</div>}
 
           {!!bearer && (
             <BountyHeader
@@ -372,7 +372,7 @@ export const QuestScroll = () => {
             />
           </div>
 
-          {hasMarginalia && (
+          {!!hasMarginalia && (
             <MarginaliaSection
               data={data}
               showProgress={showProgress}
@@ -426,7 +426,7 @@ export const QuestScroll = () => {
             </>
           )}
 
-          {hasSealBanners && (
+          {!!hasSealBanners && (
             <div
               style={{
                 display: 'flex',

@@ -211,7 +211,7 @@ const ReserveHeader = (props: {
               }
             />
           )}
-          {data.allows_voyeur && (
+          {!!data.allows_voyeur && (
             <HeaderStat
               label="Scrying fund"
               value={
@@ -558,7 +558,7 @@ const SendPanel = (props: {
                 : '3 zads: bulky parcel, large container, or a great weapon.'}
           </div>
         </div>
-        {bombsAvailable && (
+        {!!bombsAvailable && (
           <div>
             <div style={captionStyle}>Bottlebombs</div>
             <SegmentedPicker
@@ -606,7 +606,7 @@ const SendPanel = (props: {
         >
           Send
         </button>
-        {refusedReason && (
+        {!!refusedReason && (
           <span style={{ color: SEAL_RED, fontSize: FONT_BODY }}>
             {refusedReason}
           </span>
@@ -713,7 +713,7 @@ const SlotRow = (props: {
           >
             {expanded ? 'Hide' : 'Send'}
           </button>
-          {data.allows_voyeur && (
+          {!!data.allows_voyeur && (
             <button
               type="button"
               style={inkButtonStyle({ disabled: !canVoyeur })}
@@ -927,7 +927,7 @@ const MailColumn = (props: {
                   }}
                 >
                   #{entry.slot} {entry.sender}
-                  {hasMessage && (
+                  {!!hasMessage && (
                     <span style={{ color: INK_FAINT, marginLeft: '4px' }}>
                       {expanded ? '▾' : '▸'}
                     </span>

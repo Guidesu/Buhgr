@@ -48,7 +48,7 @@
 			if(isvampire)
 				vamp_prob -= 59
 			if(prob(vamp_prob))
-				L.visible_message("<span class='warning'>[L] has been churned by Necra's grip!", "<span class='danger'>I've been churned by Necra's grip!")
+				L.visible_message("<span class='warning'>[L] has been churned by Death's grip!", "<span class='danger'>I've been churned by Death's grip!")
 				explosion(get_turf(L), light_impact_range = 1, flame_range = 1, smoke = FALSE)
 				L.Stun(50)
 			else
@@ -64,7 +64,7 @@
 
 /obj/effect/proc_holder/spell/invoked/deaths_door
 	name = "Death's Door"
-	desc = "Opens a one-way portal into a realm on the edge of death, People can be dragged into the portal to prevent their decay. Undead with be set aflame. Those whom enter the domain will find their Will to continue heavily weaken. <br>Necras domain can be left through a portal within to a shrine, or a grave/psycross marked with necra's sight."
+	desc = "Opens a one-way portal into a realm on the edge of death, People can be dragged into the portal to prevent their decay. Undead with be set aflame. Those whom enter the domain will find their Will to continue heavily weaken. <br>Necras domain can be left through a portal within to a shrine, or a grave/holy cross marked with necra's sight."
 	range = 6
 	no_early_release = TRUE
 	chargedrain = 0
@@ -76,7 +76,7 @@
 	recharge_time = 30 SECONDS
 	antimagic_allowed = TRUE
 	sound = 'sound/misc/deadbell.ogg'
-	invocations = list("Necra, show me my destination!")
+	invocations = list("Death, show me my destination!")
 	invocation_type = "shout"
 	miracle = TRUE
 	devotion_cost = 30
@@ -98,7 +98,7 @@
 	// Ensure the caster has Necra's Sight so they can mark graves/psycrosses
 	if(user && user.mind && !user.mind?.has_spell(/obj/effect/proc_holder/spell/invoked/necras_sight))
 		user.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/necras_sight)
-		to_chat(user, span_notice("A cold clarity fills your vision as Necra opens your sight."))
+		to_chat(user, span_notice("A cold clarity fills your vision as Death opens your sight."))
 
 	new /obj/structure/deaths_door_portal(T, user)
 	return TRUE

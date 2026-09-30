@@ -35,25 +35,25 @@
 	icon_loadout = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/aristocratic
 
 /obj/item/enchantingkit/ravoxhelm_oldrw
-	name = "'Plumed Ravox Helmet' morphing elixer'"
+	name = "'Plumed Law Helmet' morphing elixer'"
 	desc = "A small container of special morphing dust, perfect to make a specifc item. Required: Heavy Helmet"
 	target_items = list(/obj/item/clothing/head/roguetown/helmet/heavy)
 	result_item = /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm/oldrw
 
 /obj/item/enchantingkit/necranhelm_oldrw
-	name = "'Hooded Necra Helmet' morphing elixer'"
+	name = "'Hooded Death Helmet' morphing elixer'"
 	desc = "A small container of special morphing dust, perfect to make a specifc item. Required: Heavy Helmet"
 	target_items = list(/obj/item/clothing/head/roguetown/helmet/heavy)
 	result_item = /obj/item/clothing/head/roguetown/helmet/heavy/necran/oldrw
 
 /obj/item/enchantingkit/astratanhelm_oldrw
-	name = "'Plumed Astrata Helmet' morphing elixer'"
+	name = "'Plumed Sun Helmet' morphing elixer'"
 	desc = "A small container of special morphing dust, perfect to make a specifc item. Required: Heavy Helmet"
 	target_items = list(/obj/item/clothing/head/roguetown/helmet/heavy)
 	result_item = /obj/item/clothing/head/roguetown/helmet/heavy/astratan/oldrw
 
 /obj/item/enchantingkit/eoran_helm_resprite
-	name = "'Flower Eora Helmet' morphing elixer'"
+	name = "'Flower Love Helmet' morphing elixer'"
 	desc = "A small container of special morphing dust, perfect to make a specifc item. Required: Heavy Helmet"
 	target_items = list(/obj/item/clothing/head/roguetown/helmet/heavy)
 	result_item = /obj/item/clothing/head/roguetown/helmet/heavy/eoran/resprite

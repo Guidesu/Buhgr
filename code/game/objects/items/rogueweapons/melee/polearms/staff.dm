@@ -74,7 +74,7 @@
 
 /obj/item/rogueweapon/woodstaff/aries/icarus // more boisterous with aura
 	name = "staff of the guide"
-	desc = "A radiant staff crowned by a lavish, pure gold-forged sun whose rays stretch in every direction. It embodies the sacred duty to bring light where darkness lingers, offering wisdom to the faithful and hope to the despairing. More than a mark of rank, it stands as a beacon that calls others to walk the righteous path beneath the ever-watchful eyes of the Ten."
+	desc = "A radiant staff crowned by a lavish, pure gold-forged sun whose rays stretch in every direction. It embodies the sacred duty to bring light where darkness lingers, offering wisdom to the faithful and hope to the despairing. More than a mark of rank, it stands as a beacon that calls others to walk the righteous path beneath the ever-watchful eyes of the Domains."
 	icon_state = "icarus"
 	aura_color = "#ffed9f"
 
@@ -104,13 +104,13 @@
 			return
 
 		if(H.patron?.type in ALL_INHUMEN_PATRONS)
-			to_chat(H, span_boldred("You feel the Ten's blessings weigh upon your soul."))
+			to_chat(H, span_boldred("You feel the Domains's blessings weigh upon your soul."))
 			H.add_stress(/datum/stressevent/blessed_evil)
 		else if(H.patron?.type in OLD_GOD_PATRON)
-			to_chat(H, span_hypnophrase("You feel the Ten's blessings reluctantly settle upon your soul."))
+			to_chat(H, span_hypnophrase("You feel the Domains's blessings reluctantly settle upon your soul."))
 			H.add_stress(/datum/stressevent/blessed_neutral)
 		else
-			to_chat(H, span_hypnophrase("You feel the Ten's blessings settle upon your soul."))
+			to_chat(H, span_hypnophrase("You feel the Domains's blessings settle upon your soul."))
 			H.apply_status_effect(/datum/status_effect/buff/blessed)
 			H.add_stress(/datum/stressevent/blessed)
 
@@ -139,7 +139,7 @@
 			return
 
 		if(!(CP.silver_type & SILVER_TENNITE))
-			to_chat(user, span_info("\The [I] cannot receive Tennite blessings."))
+			to_chat(user, span_info("\The [I] cannot receive Domain-faithful blessings."))
 			return
 
 		playsound(user, 'sound/magic/censercharging.ogg', 100)
@@ -200,8 +200,8 @@
 
 
 /obj/item/churcharticles/litany
-	name = "litany of the Ten"
-	desc = "A finely illuminated parchment of litany bearing the sacred verses of the Holy See. Penned upon blessed parchment and sealed with crimson wax, it contains the Rite of Endorsement, a solemn invocation entrusted only to ordained bishops. Once the final verse is spoken, the parchment burns to ash, and one of the Ten's sacred croziers is called forth. Don't lose it."
+	name = "litany of the Domains"
+	desc = "A finely illuminated parchment of litany bearing the sacred verses of the Holy See. Penned upon blessed parchment and sealed with crimson wax, it contains the Rite of Endorsement, a solemn invocation entrusted only to ordained bishops. Once the final verse is spoken, the parchment burns to ash, and one of the Domains's sacred croziers is called forth. Don't lose it."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "litany"
 	item_state = "litany"
@@ -241,7 +241,7 @@
 		in_use = FALSE
 		return
 	user.say(",g Should I yet prove worthy in Your sight, grant unto me a sacred staff, wrought by the grace of the Holy Ten, that I may bear it as the symbol of the authority entrusted to me.")
-	var/choice = tgui_alert(user, "Which of the Ten's staves do you invoke?", "RITE OF THE TEN", list("Staff of the Shepherd", "Staff of the Guide", "Cancel"))
+	var/choice = tgui_alert(user, "Which of the Domains's staves do you invoke?", "RITE OF THE TEN", list("Staff of the Shepherd", "Staff of the Guide", "Cancel"))
 	if(!choice || choice == "Cancel")
 		in_use = FALSE
 		return
@@ -301,20 +301,20 @@
 
 /obj/item/rogueweapon/woodstaff/quarterstaff/steel/holysee
 	name = "see quarterstaff"
-	desc = "A decorated quarterstaff reinforced with metal with enough heft behind it to send deadites back into Necra's realm. \
+	desc = "A decorated quarterstaff reinforced with metal with enough heft behind it to send deadites back into Death's realm. \
 	Exceedingly durable and capable it is favorite of many orders that forgo cladding themselves in steel."
 	icon_state = "quarterstaff_see"
 	max_integrity = 230
 
 /obj/item/rogueweapon/woodstaff/quarterstaff/steel/astrata
 	name = "solar scepter"
-	desc = "A quarterstaff bearing the symbol of Astrata, Her rule given form in a scepter atop a reinforced shaft."
+	desc = "A quarterstaff bearing the symbol of the Sun, Her rule given form in a scepter atop a reinforced shaft."
 	icon_state = "quarterstaff_astrata"
 	max_integrity = 230
 
 /obj/item/rogueweapon/woodstaff/quarterstaff/steel/noc
 	name = "lunar crescent"
-	desc = "A quarterstaff bearing the symbol of Noc, His moonlight taken form atop a reinforced shaft."
+	desc = "A quarterstaff bearing the symbol of the Moon, His moonlight taken form atop a reinforced shaft."
 	icon_state = "quarterstaff_noc"
 	max_integrity = 230
 

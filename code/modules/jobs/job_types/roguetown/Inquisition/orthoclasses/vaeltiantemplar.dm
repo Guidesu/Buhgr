@@ -1,6 +1,6 @@
 /datum/advclass/vaeltiantemplar // A templar, but for the Inquisition
 	name = "Adjudicator"
-	tutorial = "Vaeltite knights, clad in fluted chainmaille and blessed with the capacity to invoke lesser \
+	tutorial = "Old Faith knights, clad in fluted chainmaille and blessed with the capacity to invoke lesser \
 	miracles. In lieu of greater miracles and rituals, they compensate through martial discipline and blessed weaponry."
 	allowed_sexes = list(MALE, FEMALE)
 	

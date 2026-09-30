@@ -57,7 +57,7 @@
 		/datum/skill/magic/holy = SKILL_LEVEL_MASTER,
 	)
 	subclass_stashed_items = list(
-		"The Verses and Acts of the Ten" = /obj/item/book/rogue/bibble,
+		"The Verses and Acts of the Domains" = /obj/item/book/rogue/bibble,
 	)
 	tempo_capable = FALSE
 
@@ -221,7 +221,6 @@
 	// -- End of section for god specific bonuses --
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.
-	grant_miracle_stance(H)
 	if(H.mind)
 		SStreasury.grant_savings(ECONOMIC_LOWER_MIDDLE_CLASS, H)
 

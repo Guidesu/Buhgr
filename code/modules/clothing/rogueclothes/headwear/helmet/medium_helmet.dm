@@ -108,7 +108,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/kettle/paalloy
 	name = "ancient kettle helmet"
-	desc = "A polished gilbranze helmet which protects the top and sides of the head. Zizo's glare musn't be interceded, when matters of unholy war are at hand. Undead ballistaemen practice a curious method of tying dyed cloth around its rim; can they, too, think and associate?"
+	desc = "A polished gilbranze helmet which protects the top and sides of the head. The Forbidden's glare musn't be interceded, when matters of unholy war are at hand. Undead ballistaemen practice a curious method of tying dyed cloth around its rim; can they, too, think and associate?"
 	icon_state = "ancientkettle"
 	smeltresult = /obj/item/ingot/aaslag
 	body_parts_covered = HEAD|HAIR|EARS
@@ -122,7 +122,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/kettle/wide
 	name = "wide kettle helmet"
-	desc = "A wider variant of the humble 'kettle helmet', for those who prefer to keep Auxentius's glare from blighting their eyes."
+	desc = "A wider variant of the humble 'kettle helmet', for those who prefer to keep the Sun's glare from blighting their eyes."
 	icon_state = "kettlewide"
 
 /obj/item/clothing/head/roguetown/helmet/kettle/attackby(obj/item/W, mob/living/user, params)
@@ -632,7 +632,7 @@
 //............... Eora Helmet ............... //
 /obj/item/clothing/head/roguetown/helmet/sallet/eoran
 	name = "eora helmet"
-	desc = "A simple yet protective helmet forged in the style typical of Eoran worshippers. Upon it lays several laurels of flowers and other colorful ornaments followed by symbols noting the accomplishments and punishments of the owner's chapter."
+	desc = "A simple yet protective helmet forged in the style typical of Love worshippers. Upon it lays several laurels of flowers and other colorful ornaments followed by symbols noting the accomplishments and punishments of the owner's chapter."
 	icon_state = "eorahelmsallet"
 	item_state = "eorahelmsallet"
 
@@ -747,7 +747,7 @@
 	name = "bronze murmillo"
 	desc = "A bronze helmet that veils the wearer's face behind a perforated visor; a distant ancestor to both the sallet and sayovard, \
 	providing excellent coverage while ensuring one doesn't suffocate on their own adrenal huffs. </br>Out of all actorial labors, none surpass \
-	the reenactment of Auxentius's duel against Graggar atop Ur-Syon's ruins - mythologized not as a tentacled star, but as a towering doppelganger-champion; \
+	the reenactment of the Sun's duel against War atop Ur-Syon's ruins - mythologized not as a tentacled star, but as a towering doppelganger-champion; \
 	sculpted by the Archdevil to be the inverse to all who stood for justice and chivalry."
 	armor = ARMOR_BRONZE
 	max_integrity = ARMOR_INT_HELMET_HEAVY_BRONZE - 100

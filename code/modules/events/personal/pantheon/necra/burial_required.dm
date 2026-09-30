@@ -50,7 +50,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Necra demands proper rites for the departed! Give enough corpses a proper burial to earn Necra's favor!"))
+	to_chat(chosen_one, span_notice("Death demands proper rites for the departed! Give enough corpses a proper burial to earn Death's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

@@ -16,7 +16,7 @@
 
 /datum/particle_weather/fog/necra
 	weather_duration_upper = 5 HOURS
-	name = "Necra Fog"
+	name = "Death Fog"
 	particleEffectType = /particles/weather/fog/necra
 
 /particles/weather/fog/necra

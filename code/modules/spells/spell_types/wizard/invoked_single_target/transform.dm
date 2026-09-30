@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/targeted/shapeshift/ignatiusmole
 	name = "Borrowed Power"
-	desc = "Greater power bestowed upon you, use it to shape into Ignatius's special beest."
+	desc = "Greater power bestowed upon you, use it to shape into the Wilds's special beest."
 	invocations = list("Blood shall feed the flowers!")
 	invocation_type = "shout"
 	overlay_state = "tamebeast"
@@ -33,7 +33,7 @@
 
 /obj/effect/proc_holder/spell/targeted/shapeshift/mireboi
 	name = "Crawler Form"
-	desc = "Rare power bestowed by Druids from the manic depths of Ignatius's domain, used to take the form of an agile arachnoid critter."
+	desc = "Rare power bestowed by Druids from the manic depths of the Wilds's domain, used to take the form of an agile arachnoid critter."
 	invocations = list("Spin and Skitter!")
 	invocation_type = "shout"
 	overlay_state = "tamebeast"

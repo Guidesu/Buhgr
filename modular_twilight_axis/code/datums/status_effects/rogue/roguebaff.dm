@@ -11,7 +11,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/clergybuff
 	name = "Decem Dii Vult"
-	desc = "I am a member of this temple, sworn to defend the House of the Ten until my very dying breath."
+	desc = "I am a member of this temple, sworn to defend the House of the Domains until my very dying breath."
 	icon = 'modular_twilight_axis/icons/mob/screen_alert.dmi'
 	icon_state = "tenbless"
 
@@ -228,8 +228,8 @@
 	alert_type = /atom/movable/screen/alert/status_effect/buff/baothablessing
 
 /atom/movable/screen/alert/status_effect/buff/baothablessing
-	name = "Baothan Blessing"
-	desc = "Baotha has blessed you with immunity to overdose. Rejoice!"
+	name = "Forbidden Blessing"
+	desc = "The Forbidden has blessed you with immunity to overdose. Rejoice!"
 	icon_state = "acid"
 
 /datum/status_effect/buff/druqks/baotha/on_apply()

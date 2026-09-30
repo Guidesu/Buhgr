@@ -43,7 +43,8 @@
 /// Hook into apply_damage to trigger sanity loss from injuries
 /mob/living/carbon/human/apply_damage(damage = 0, damagetype = BRUTE, def_zone = null, blocked = 0, forced = FALSE, spread_damage = FALSE)
 	. = ..()
-	if(. && sanity && damage > 5)
+	// Any real hit shakes the mind, whether or not armour soaked the damage.
+	if(sanity && damage >= 3 && stat != DEAD)
 		sanity.onHurt(damage)
 
 /// Hook into death to trigger witness sanity damage for nearby humans

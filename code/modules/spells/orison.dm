@@ -6,9 +6,9 @@
 	name = "Orison"
 	desc = "The fundamental teachings of theology return to you:\n \
 	<b>Light</b>: Issue a prayer for illumination, causing you or another living creature to begin glowing with light for five minutes - this stacks each time you cast it, with no upper limit. Using thaumaturgy on a person will remove this blessing from them, and MMB on your praying hand will remove any light blessings from yourself.\n \
-	<b>Fill</b>: Beseech your Divine to create a small quantity of water in a container that you touch for some devotion. Pestrans create foul-tasting medicine. Baothans create sweet, soothing wine. \n \
+	<b>Fill</b>: Beseech your Divine to create a small quantity of water in a container that you touch for some devotion. Healing faithful create foul-tasting medicine. Forbidden faithful create sweet, soothing wine. \n \
 	<b>Voice</b>: Direct a sliver of divine thaumaturgy into your being, causing your voice to become LOUD when you next speak. Known to sometimes scare the rats inside the SCOMlines. Can be used on light sources at range, and it will cause them flicker.\n \
-	<b>Bless</b>: Utter a prayer for redemption to your Divine to bring a repentant soul into their flock. The close bonds of the Ten uniquely allow an initiate to choose whichever they feel closest to. THIS IS ONLY TO BE USED AFTER A CONVERSION IN ROLEPLAY. DO NOT USE THIS WITHOUT A ROLEPLAY BASIS OR THERE WILL BE DIRE CONSEQUENCES."
+	<b>Bless</b>: Utter a prayer for redemption to your Divine to bring a repentant soul into their flock. The close bonds of the Domains uniquely allow an initiate to choose whichever they feel closest to. THIS IS ONLY TO BE USED AFTER A CONVERSION IN ROLEPLAY. DO NOT USE THIS WITHOUT A ROLEPLAY BASIS OR THERE WILL BE DIRE CONSEQUENCES."
 
 	background_icon = 'icons/mob/actions/genericmiracles.dmi'
 	button_icon = 'icons/mob/actions/genericmiracles.dmi'
@@ -347,7 +347,7 @@
 		M.stamina_add(0.5	* REAGENTS_EFFECT_MULTIPLIER)
 
 /datum/reagent/water/medicine
-	name = "Pestran Medicine"
+	name = "Healing Medicine"
 	description = "A gift of devotion from the Patron of Healing and Medicine, stronger than blessed water but taste horrible!"
 	color = "#428b42"
 	taste_description = "nauseatingly bitter"
@@ -419,9 +419,9 @@
 			var/list/water_contents = list(/datum/reagent/water/cursed = water_qty)
 			if(caster.patron.undead_hater == TRUE)
 				water_contents = list(/datum/reagent/water/blessed = water_qty)
-			if(caster.patron.name == "Pestra")
+			if(istype(caster.patron, /datum/patron/divine/pestra))
 				water_contents = list(/datum/reagent/water/medicine = water_qty)
-			if(caster.patron.name == "Baotha")
+			if(istype(caster.patron, /datum/patron/inhumen/baotha))
 				water_contents = list(/datum/reagent/consumable/ethanol/loversruin = water_qty)
 			var/datum/reagents/reagents_to_add = new()
 			reagents_to_add.add_reagent_list(water_contents)
@@ -533,7 +533,7 @@ GLOBAL_LIST_INIT(convert_incantations, list(
 	if(istype(caster.patron, /datum/patron/tribunal/praecursor))
 		convert_message = "[caster.real_name] is trying to guide you onto PSYDON's path. Will you embrace Him, and forswear any lesser 'gods'?"
 	else if(is_tennite)
-		convert_message = "[caster.real_name] is trying to bring you into the Ten's embrace. Will you bask in Their light?"
+		convert_message = "[caster.real_name] is trying to bring you into the Domains's embrace. Will you bask in Their light?"
 	else
 		switch(caster.patron.type)
 			if(/datum/patron/unveiled/aurelian)
@@ -541,9 +541,9 @@ GLOBAL_LIST_INIT(convert_incantations, list(
 			if(/datum/patron/oldkin/hausvette)
 				convert_message = "[caster.real_name] is offering you membership of the free men. Will you join?"
 			if(/datum/patron/oldkin/klokner)
-				convert_message = "[caster.real_name] is offering you Graggar's anointment. Will you break free?"
+				convert_message = "[caster.real_name] is offering you War's anointment. Will you break free?"
 			if(/datum/patron/oldkin/hausvette)
-				convert_message = "[caster.real_name] is trying to offer you Baotha's mercy. Will you indulge?"
+				convert_message = "[caster.real_name] is trying to offer you the Forbidden's mercy. Will you indulge?"
 			else // this should not happen but if people add more gods and don't update this it's good to have a fallback
 				convert_message = "[caster.real_name] is trying to convert you to [get_god_name(caster.patron)]. Will you accept?"
 	convert_message += " THIS WILL CHANGE YOUR PATRON."
@@ -575,7 +575,7 @@ GLOBAL_LIST_INIT(convert_incantations, list(
 			if(istype(patron, old_patron.type))
 				continue // no converting astratans to astrata
 			patrons_named[patron.name] = patron.type
-		new_patron = patrons_named[input(new_convert, "Which of the Ten calls to you most?", "THE GODS SMILE") as anything in patrons_named]
+		new_patron = patrons_named[input(new_convert, "Which of the Domains calls to you most?", "THE GODS SMILE") as anything in patrons_named]
 
 	if(ispath(new_patron, /datum/patron/concordat/viator))
 		caster.say(pick_assoc(GLOB.convert_incantations)) // just like torturing a xylixian has random lines from all the other gods, converting someone TO xylix will troll you as well
@@ -615,13 +615,13 @@ GLOBAL_LIST_INIT(convert_incantations, list(
 			new_convert.mind.RemoveSpell(/datum/action/cooldown/spell/gravemark)
 			new_convert.mind.RemoveSpell(/datum/action/cooldown/spell/minion_order)
 
-		if(new_convert.mind.has_spell(/obj/effect/proc_holder/spell/invoked/projectile/divineblast))
+		if(new_convert.mind.has_spell(/datum/action/cooldown/spell/projectile/divine_blast))
 			had_blast = TRUE
-			new_convert.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/projectile/divineblast)
+			new_convert.mind.RemoveSpell(/datum/action/cooldown/spell/projectile/divine_blast)
 
-		if(new_convert.mind.has_spell(/obj/effect/proc_holder/spell/invoked/projectile/unholyblast))
+		if(new_convert.mind.has_spell(/datum/action/cooldown/spell/projectile/unholy_blast))
 			had_blast = TRUE
-			new_convert.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/projectile/unholyblast)
+			new_convert.mind.RemoveSpell(/datum/action/cooldown/spell/projectile/unholy_blast)
 
 		// cleric traits are removed here
 		new_convert.devotion.Destroy()
@@ -638,7 +638,7 @@ GLOBAL_LIST_INIT(convert_incantations, list(
 		new_convert.devotion = new_devotion
 		new_devotion.grant_miracles(new_convert, saved_level, saved_devotion_gain, saved_max_progression)
 		if(had_blast)
-			var/blast_to_grant = (istype(new_convert.patron, /datum/patron/inhumen) ? /obj/effect/proc_holder/spell/invoked/projectile/unholyblast : /obj/effect/proc_holder/spell/invoked/projectile/divineblast)
+			var/blast_to_grant = (istype(new_convert.patron, /datum/patron/inhumen) ? /datum/action/cooldown/spell/projectile/unholy_blast : /datum/action/cooldown/spell/projectile/divine_blast)
 			new_convert.mind.AddSpell(new blast_to_grant)
 		// why are you like this
 		if(saved_level >= 3 && istype(new_convert.patron, /datum/patron/unveiled/aurelian) && !new_convert.mind.has_spell(/datum/action/cooldown/spell/gravemark))

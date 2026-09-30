@@ -7,7 +7,7 @@
 	icon = 'modular_twilight_axis/icons/roguetown/weapons/polearms64.dmi'
 	item_state = "martyrscyth"
 	name = "divine scythe"
-	desc = "A relic from the Holy See's own vaults; a blessed silver scythe, marked with the ten-pointed sigil of Astrata's undivided might. </br>It simmers with godly energies, and will only yield to the hands of those who have taken the Oath."
+	desc = "A relic from the Holy See's own vaults; a blessed silver scythe, marked with the ten-pointed sigil of the Sun's undivided might. </br>It simmers with godly energies, and will only yield to the hands of those who have taken the Oath."
 	max_blade_int = 250
 	max_integrity = 9999
 	bigboy = 1

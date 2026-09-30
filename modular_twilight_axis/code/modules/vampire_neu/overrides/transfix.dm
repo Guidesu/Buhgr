@@ -25,7 +25,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/transfix_paste_int
 	name = "Sorcerous Overreach"
-	desc = "    .       ."
+	desc = "I overreached my magic. My mind is punished for speaking unnaturally fast."
 	icon_state = "debuff"
 
 /obj/effect/proc_holder/spell/targeted/TA_transfix_neu/choose_targets(mob/user = usr)
@@ -47,7 +47,7 @@
 
 /obj/effect/proc_holder/spell/targeted/TA_transfix_neu/cast(list/targets, mob/user = usr)
 	if(!length(targets))
-		to_chat(user, span_warning("  ..."))
+		to_chat(user, span_warning("There are no mortals nearby..."))
 		revert_cast(user)
 		return
 
@@ -56,11 +56,11 @@
 
 
 	if(!user.can_speak())
-		to_chat(user, span_warning("   !"))
+		to_chat(user, span_warning("You can't speak!"))
 		revert_cast(user)
 		return
 	var/transfix_input_started_at = world.time
-	transfix_msg = tgui_input_text(user, "  .   [TA_TRANSFIX_MIN_MSG_LENGTH] ;  .", "", max_length = MAX_MESSAGE_LEN, encode = FALSE)
+	transfix_msg = tgui_input_text(user, "Speak the phrase aloud. At least [TA_TRANSFIX_MIN_MSG_LENGTH] characters are needed; the counter is below.", "Transfix", max_length = MAX_MESSAGE_LEN, encode = FALSE)
 
 	if(QDELETED(user))
 		return
@@ -70,7 +70,7 @@
 		return
 
 	if(!user.can_speak())
-		to_chat(user, span_warning("   !"))
+		to_chat(user, span_warning("You can't speak!"))
 		revert_cast(user)
 		return
 
@@ -82,12 +82,12 @@
 		return
 
 	if(transfix_msg_length < TA_TRANSFIX_MIN_MSG_LENGTH)
-		to_chat(user, span_userdanger("   ([transfix_msg_length]/[TA_TRANSFIX_MIN_MSG_LENGTH]) —    !"))
+		to_chat(user, span_userdanger("The phrase is too short ([transfix_msg_length]/[TA_TRANSFIX_MIN_MSG_LENGTH]) - the victim's mind won't yield!"))
 		revert_cast(user)
 		return
 
 	if(!powerful)
-		var/mob/selected = input(user, "   .", "") as null|anything in targets
+		var/mob/selected = input(user, "Choose a target to bewitch.", "Transfix") as null|anything in targets
 		if(QDELETED(src) || QDELETED(user) || QDELETED(selected))
 			if(!QDELETED(user))
 				revert_cast(user)
@@ -98,7 +98,7 @@
 	var/bloodroll = roll(bloodskill, blood_dice)
 	user.say(transfix_msg, forced = "spell ([name])")
 	if(powerful)
-		user.visible_message(span_danger(" [user]    !"))
+		user.visible_message(span_danger("[user]'s eyes flare with an eerie red light!"))
 
 	for(var/mob/living/carbon/human/target as anything in targets)
 		if(QDELETED(target) || target.stat != CONSCIOUS)
@@ -121,26 +121,26 @@
 				if(istype(H.wear_neck, /obj/item/clothing/neck/roguetown/psicross/silver) || istype(H.wear_wrists, /obj/item/clothing/neck/roguetown/psicross/silver) || istype(H.wear_ring, /obj/item/clothing/neck/roguetown/psicross/silver))
 					var/extra = "!"
 					if(knowledgable)
-						extra = ", ,   [user]!"
-					to_chat(target, span_notice("        [extra]"))
-					to_chat(user, span_userdanger(" [target]  !     !"))
+						extra = ", I think it was [user]!"
+					to_chat(target, span_notice("The silver cross shines and shields me from unholy magic[extra]"))
+					to_chat(user, span_userdanger("[target] carries my BANE! I can't ensnare their mind!"))
 					continue
 
 		if(target_bloodroll >= willroll)
 			target.drowsyness = min(target.drowsyness + get_drowsyness_gain(target, user), 150)
 			switch(target.drowsyness)
 				if(0 to 50)
-					to_chat(target, span_warning("    ..."))
-					to_chat(user, span_notice(" [target]  ."))
+					to_chat(target, span_warning("My mind feels veiled..."))
+					to_chat(user, span_notice("[target]'s mind yields slightly."))
 					target.Slowdown(20)
 				if(51 to 90)
-					to_chat(target, span_warning(" ,    ."))
-					to_chat(user, span_notice("[target]   ."))
+					to_chat(target, span_warning("My eyelids droop, and a leaden weariness fills my body."))
+					to_chat(user, span_notice("[target] won't hold out for long."))
 					force_close_eyes(target)
 					target.Slowdown(50)
 				if(91 to INFINITY)
-					to_chat(target, span_userdanger("  ...  ,  ."))
-					to_chat(user, span_boldnotice("[target]  ."))
+					to_chat(target, span_userdanger("I can't go on... My legs give way, the world drifts off."))
+					to_chat(user, span_boldnotice("[target] is mine now."))
 					force_close_eyes(target)
 					target.Slowdown(50)
 					addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living, Sleeping), 1 MINUTES), 5 SECONDS)
@@ -151,10 +151,10 @@
 			var/magicpower = round(target.get_skill_level(/datum/skill/magic/arcane) * 0.6, 1)
 			var/counterroll = roll(1 + holypower + magicpower, 5)
 			if(counterroll > target_bloodroll)
-				to_chat(target, span_warning(" ... ,    [user]."))
+				to_chat(target, span_warning("Unholy magic... It seems to be coming from [user]."))
 
-		to_chat(user, span_userdanger("     [target]!"))
-		to_chat(target, span_userdanger("-     .  ,     !"))
+		to_chat(user, span_userdanger("I failed to ensnare [target]'s mind!"))
+		to_chat(target, span_userdanger("Something is wrong with this place. I feel my life is in danger!"))
 
 /obj/effect/proc_holder/spell/targeted/TA_transfix_neu/proc/force_close_eyes(mob/living/carbon/human/target)
 	target.eyesclosed = TRUE
@@ -193,19 +193,19 @@
 
 	var/mob/living/carbon/human/H = user
 	var/elapsed_seconds = max(round(transfix_input_elapsed / (1 SECONDS), 0.1), 0.1)
-	message_admins("[ADMIN_LOOKUPFLW(H)] triggered transfix speed guard: [transfix_msg_length] chars in [elapsed_seconds]s.   - .")
-	log_admin("[key_name(H)] triggered transfix speed guard: [transfix_msg_length] chars in [elapsed_seconds]s.   - .")
+	message_admins("[ADMIN_LOOKUPFLW(H)] triggered transfix speed guard: [transfix_msg_length] chars in [elapsed_seconds]s. MOST LIKELY copy-paste.")
+	log_admin("[key_name(H)] triggered transfix speed guard: [transfix_msg_length] chars in [elapsed_seconds]s. MOST LIKELY copy-paste.")
 
 	H.apply_status_effect(/datum/status_effect/debuff/transfix_paste_int)
 	H.apply_status_effect(/datum/status_effect/incapacitating/stun, TA_TRANSFIX_PASTE_STUN_TIME)
 	H.apply_status_effect(/datum/status_effect/incapacitating/knockdown, TA_TRANSFIX_PASTE_STUN_TIME)
 	break_transfix_disguise(H)
-	H.visible_message(span_danger("[H]     !"), span_userdanger("     !"))
+	H.visible_message(span_danger("[H] overreached the limits of their mighty magic!"), span_userdanger("I overreached the limits of my mighty magic!"))
 
 	if(H.STAINT >= TA_TRANSFIX_PASTE_DEATH_INT)
 		return
 
-	H.visible_message(span_danger("[H]   ,      !"), span_userdanger("  ,      !"))
+	H.visible_message(span_danger("[H] overreached their limits and is torn apart by dark power!"), span_userdanger("Overreached their limits and was torn apart by dark power!"))
 	ADD_TRAIT(H, TRAIT_DUSTABLE, "transfix_paste")
 	if(!QDELETED(H) && H.stat != DEAD)
 		H.death()
@@ -229,7 +229,7 @@
 		return FALSE
 
 	AddSpell(new /obj/effect/proc_holder/spell/targeted/TA_transfix_neu)
-	to_chat(src, span_notice("    ,      ."))
+	to_chat(src, span_notice("Love's embrace grows ever tighter, and I learn to bewitch mortal minds."))
 	return TRUE
 
 /datum/coven_power/eora/beautys_restoration/post_gain()

@@ -48,7 +48,7 @@ export const MeisterPanel = () => {
             >
               Personal
             </div>
-            {accessibleInstitutional && (
+            {!!accessibleInstitutional && (
               <div
                 style={tabStyle(tab === 'institutional')}
                 onClick={() => setTab('institutional')}
@@ -56,7 +56,7 @@ export const MeisterPanel = () => {
                 Institutional
               </div>
             )}
-            {accessiblePatronage && (
+            {!!accessiblePatronage && (
               <div
                 style={tabStyle(tab === 'patronage')}
                 onClick={() => setTab('patronage')}

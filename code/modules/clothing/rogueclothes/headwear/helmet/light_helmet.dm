@@ -213,7 +213,7 @@
 //................ Briar Thorns ............... //	- Ignatius Briar
 /obj/item/clothing/head/roguetown/briarthorns
 	name = "briar thorns"
-	desc = "A circlet of thorns often worn by devout followers of Ignatius. Designed to dig \
+	desc = "A circlet of thorns often worn by devout followers of the Wilds. Designed to dig \
 	into the flesh just enough to ground the wearer's sanity."
 	icon_state = "briarthorns"
 	max_integrity = 150

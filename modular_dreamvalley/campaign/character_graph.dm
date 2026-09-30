@@ -21,11 +21,25 @@
 			result[variable_name] = "[value]"
 	return result
 
+/// Engine bookkeeping that must never be written back from a save: signal and
+/// component wiring, traits, timers and object identity. Restoring any of these
+/// leaves a live object pointing at things that no longer exist.
+GLOBAL_LIST_INIT(dreamvalley_unrestorable_vars, list(
+	"comp_lookup", "signal_procs", "datum_components", "_datum_components", "_listen_lookup", "_signal_procs",
+	"status_traits", "_status_traits", "gc_destroyed", "weak_reference", "active_timers", "cooldowns",
+	"filter_data", "filters", "overlays", "underlays", "vis_contents", "vis_locs", "contents", "loc", "locs",
+	"type", "parent_type", "tag", "verbs", "vars", "appearance", "client", "key", "ckey", "mind",
+	"ai_controller", "hud_used", "managed_overlays", "managed_vis_overlays", "hud_list", "action_buttons_hidden",
+	"actions", "spell_list", "mob_spell_list", "component_parent", "parent", "owner", "holder", "reagents",
+))
+
 /proc/dreamvalley_apply_scalar_vars(datum/target, list/state, list/exclude)
 	if(!target || !islist(state))
 		return
 	for(var/variable_name in state)
 		if(islist(exclude) && (variable_name in exclude))
+			continue
+		if(variable_name in GLOB.dreamvalley_unrestorable_vars)
 			continue
 		if(variable_name in target.vars)
 			target.vars[variable_name] = state[variable_name]
@@ -658,6 +672,8 @@
 				for(var/var_name in owned_var_names)
 					owned_refs[var_name] = dreamvalley_capture_owned_reference(action_spell.vars[var_name], character, item_ids, issues, "spell/[spell_index]/[var_name]")
 				for(var/var_name in graph_ref_var_names)
+					if(!(var_name in action_spell.vars))
+						continue
 					owned_refs[var_name] = dreamvalley_capture_owned_reference(action_spell.vars[var_name], character, item_ids, issues, "spell/[spell_index]/[var_name]")
 				state["owned_refs"] = owned_refs
 			if(action_spell.currently_charging || action_spell.fully_charged || action_spell.charged)
@@ -719,7 +735,7 @@
 					"custom_mask_version",
 				)),
 				"colormasks" = dreamvalley_capture_json_value(
-					feature.vars["colormasks"],
+					("colormasks" in feature.vars) ? feature.vars["colormasks"] : null,
 					issues,
 					"bodypart/[bodypart.body_zone]/feature/[feature.type]/colormasks",
 				),
@@ -811,6 +827,9 @@
 			for(var/var_name in owned_var_names)
 				owned_refs[var_name] = dreamvalley_capture_owned_reference(effect.vars[var_name], character, item_ids, issues, "status_effect/[effect.type]/[var_name]")
 			for(var/var_name in graph_ref_var_names)
+				// Only some effects define carbon_owner, climber and so on.
+				if(!(var_name in effect.vars))
+					continue
 				owned_refs[var_name] = dreamvalley_capture_owned_reference(effect.vars[var_name], character, item_ids, issues, "status_effect/[effect.type]/[var_name]")
 			effect_state["owned_refs"] = owned_refs
 		result += list(effect_state)
@@ -820,30 +839,75 @@
 	if(!character || !islist(core))
 		return FALSE
 	restoring_snapshot = TRUE
-	restore_character_identity(character, core["identity"])
-	restore_character_bodyparts(character, core["bodyparts"])
-	restore_character_organs(character, core["organs"])
-	dreamvalley_restore_taur(character, core["taur"])
+	// Each step is isolated: a runtime in one (a bad saved field, a changed type)
+	// is logged and skipped rather than aborting everything after it, which is
+	// how a character used to come back with no skills, spells or languages.
+	var/list/failed = list()
+	try
+		restore_character_identity(character, core["identity"])
+	catch(var/exception/e1)
+		failed += "identity ([e1])"
+	try
+		restore_character_bodyparts(character, core["bodyparts"])
+	catch(var/exception/e2)
+		failed += "bodyparts ([e2])"
+	try
+		restore_character_organs(character, core["organs"])
+	catch(var/exception/e3)
+		failed += "organs ([e3])"
+	try
+		dreamvalley_restore_taur(character, core["taur"])
+	catch(var/exception/e4)
+		failed += "taur ([e4])"
 	// Items are restored before mind/status effects so a bound-weapon graph
 	// reference (an arcyne conduit, a ferramancy bind) can resolve to the
 	// exact restored item instance instead of a placeholder.
 	var/list/restored_items = list()
-	var/list/item_restore_issues = restore_character_items(character, core["items"], restored_items)
-	if(length(item_restore_issues))
-		log_world("DreamValley: [character.real_name] restored with [length(item_restore_issues)] item problem(s): [item_restore_issues.Join(", ")]")
-	restore_character_mind(character, core["mind"], restored_items)
-	restore_character_traits(character, core["traits"])
-	restore_character_status_effects(character, core["status_effects"], restored_items)
-	restore_character_stats(character, core["stats"])
-	restore_character_skills(character, core["skills"])
-	restore_reagents(character, core["reagents"])
-	dreamvalley_apply_scalar_vars(character, core["vitals"])
-	character.update_body()
-	character.update_hair()
-	character.update_body_parts(TRUE)
-	character.updatehealth()
-	character.update_mobility()
+	try
+		var/list/item_restore_issues = restore_character_items(character, core["items"], restored_items)
+		if(length(item_restore_issues))
+			log_world("DreamValley: [character.real_name] restored with [length(item_restore_issues)] item problem(s): [item_restore_issues.Join(", ")]")
+	catch(var/exception/e5)
+		failed += "items ([e5])"
+	try
+		restore_character_mind(character, core["mind"], restored_items)
+	catch(var/exception/e6)
+		failed += "mind ([e6])"
+	try
+		restore_character_traits(character, core["traits"])
+	catch(var/exception/e7)
+		failed += "traits ([e7])"
+	try
+		restore_character_status_effects(character, core["status_effects"], restored_items)
+	catch(var/exception/e8)
+		failed += "status effects ([e8])"
+	try
+		restore_character_stats(character, core["stats"])
+	catch(var/exception/e9)
+		failed += "stats ([e9])"
+	try
+		restore_character_skills(character, core["skills"])
+	catch(var/exception/e10)
+		failed += "skills ([e10])"
+	try
+		restore_reagents(character, core["reagents"])
+	catch(var/exception/e11)
+		failed += "reagents ([e11])"
+	try
+		dreamvalley_apply_scalar_vars(character, core["vitals"])
+	catch(var/exception/e12)
+		failed += "vitals ([e12])"
+	try
+		character.update_body()
+		character.update_hair()
+		character.update_body_parts(TRUE)
+		character.updatehealth()
+		character.update_mobility()
+	catch(var/exception/e13)
+		failed += "appearance ([e13])"
 	restoring_snapshot = FALSE
+	if(length(failed))
+		log_world("DreamValley: restoring [character.real_name] hit errors in: [failed.Join("; ")]")
 	return TRUE
 
 /datum/dreamvalley_campaign_manager/proc/restore_character_items(mob/living/carbon/human/character, list/state, list/restored_items)
@@ -945,7 +1009,9 @@
 	if(istext(state["vocal_bark_id"]))
 		character.set_bark(state["vocal_bark_id"])
 	if(character.dna && islist(dna_state))
-		dreamvalley_apply_scalar_vars(character.dna, dna_state)
+		// Sub-structures are restored by hand below; copying them raw would put saved
+		// data where live objects belong.
+		dreamvalley_apply_scalar_vars(character.dna, dna_state, list("organ_dna", "features", "body_markings", "species_type"))
 		var/list/features = dna_state["features"]
 		var/list/body_markings = dna_state["body_markings"]
 		if(islist(features))
@@ -954,12 +1020,18 @@
 			character.dna.body_markings = deepCopyList(body_markings)
 		var/list/organ_dna_states = dna_state["organ_dna"]
 		if(islist(organ_dna_states))
-			for(var/datum/organ_dna/old_organ_dna as anything in character.dna.organ_dna)
-				qdel(old_organ_dna)
+			for(var/old_slot in character.dna.organ_dna)
+				var/datum/old_organ_dna = character.dna.organ_dna[old_slot]
+				if(istype(old_organ_dna))
+					qdel(old_organ_dna)
 			character.dna.organ_dna = list()
 			for(var/organ_slot in organ_dna_states)
+				if(!istext(organ_slot))
+					continue
 				var/list/organ_dna_state = organ_dna_states[organ_slot]
-				var/organ_dna_path = text2path(organ_dna_state["type"])
+				if(!islist(organ_dna_state) || !("type" in organ_dna_state))
+					continue
+				var/organ_dna_path = text2path("[organ_dna_state["type"]]")
 				if(!ispath(organ_dna_path, /datum/organ_dna))
 					continue
 				var/datum/organ_dna/restored_organ_dna = new organ_dna_path()

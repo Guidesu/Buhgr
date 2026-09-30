@@ -61,7 +61,7 @@
 
 /obj/item/clothing/head/roguetown/necramask
 	name = "death mask"
-	desc = "A hood with a decorated jaw bone at the chin, normally worn by some followers of Necra as a form of devotion."
+	desc = "A hood with a decorated jaw bone at the chin, normally worn by some followers of Death as a form of devotion."
 	color = null
 	icon_state = "deathface"
 	item_state = "deathface"
@@ -80,7 +80,7 @@
 
 /obj/item/clothing/head/roguetown/dendormask
 	name = "briarmask"
-	desc = "A mask of wood and thorns worn by druids in service to Ignatius."
+	desc = "A mask of wood and thorns worn by druids in service to the Wilds."
 	color = null
 	icon_state = "dendormask"
 	item_state = "dendormask"

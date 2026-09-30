@@ -121,7 +121,7 @@
 	if(!visualsOnly && H.real_name && !H.ai_controller)
 		H.faction |= "[H.real_name]_faction"
 	var/datum/patron/old_patron = H.patron
-	if(length(allowed_patrons) && (!old_patron || !(old_patron.type in allowed_patrons)))
+	if(length(allowed_patrons) && (!old_patron || !dreamvalley_mob_patron_permitted(H, allowed_patrons)))
 		var/list/datum/patron/possiblegods = list()
 		var/list/datum/patron/preferredgods = list()
 		for(var/god in GLOB.patronlist)

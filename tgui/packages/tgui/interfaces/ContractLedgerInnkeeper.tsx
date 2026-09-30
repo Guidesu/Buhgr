@@ -287,7 +287,7 @@ const ComposeView = () => {
           );
         })()}
 
-      {needsDestination && (
+      {!!needsDestination && (
         <FormRow label="Rumored Shipment">
           <Select
             value={destination}

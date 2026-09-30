@@ -23,3 +23,4 @@
 #include "tat_integration.dm"
 #include "alt_form_trait.dm"
 #include "tat_quirks.dm"
+#include "opposites.dm"

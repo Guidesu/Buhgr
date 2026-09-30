@@ -2,7 +2,7 @@
 	name = "Monk"
 	tutorial = "You are a wandering acolyte, versed in both miracles and martial arts. You forego the hauberk that paladins wear in favor of humbling your foes through bloodless strikes. Your satchel hangs heavy, too, with ample provisions for the pilgrimage you're upon."
 	allowed_sexes = list(MALE, FEMALE)
-
+	
 	vampcompat = FALSE
 	outfit = /datum/outfit/job/roguetown/adventurer/cleric
 	category_tags = list(CTAG_ADVENTURER, CTAG_COURTAGENT)
@@ -29,7 +29,7 @@
 	// One of you is gonna look at me and act like I am stupid. It is a form of disguise.
 	// Also because the alternative is not very clean codewise.
 	subclass_stashed_items = list(
-		"The Verses and Acts of the Ten" = /obj/item/book/rogue/bibble,
+		"The Verses and Acts of the Domains" = /obj/item/book/rogue/bibble,
 		"The Book" = /obj/item/book/rogue/bibble/psy
 	)
 	extra_context = "This subclass can choose from multiple disciplines. The further your chosen discipline strays from unarmed combat, however, the greater your skills in fistfighting and wrestling will atrophy. Taking a Quarterstaff provides a minor bonus to Perception, but removes the 'Dodge Expert' trait."
@@ -43,7 +43,7 @@
 	// Add druidic skill for Ignatius followers
 	if(istype(H.patron, /datum/patron/severance/ignatius))
 		H.adjust_skillrank(/datum/skill/magic/druidic, SKILL_LEVEL_JOURNEYMAN, TRUE)
-		to_chat(H, span_notice("As a follower of Ignatius, you have innate knowledge of druidic magic."))
+		to_chat(H, span_notice("As a follower of the Wilds, you have innate knowledge of druidic magic."))
 
 	to_chat(H, span_warning("You are a wandering acolyte, versed in both miracles and martial arts. You forego the hauberk that paladins wear in favor of humbling your foes through bloodless strikes. Your satchel hangs heavy, too, with ample provisions for the pilgrimage you're upon."))
 	head = /obj/item/clothing/head/roguetown/headband/monk
@@ -63,7 +63,6 @@
 		)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_MINOR, devotion_limit = CLERIC_REQ_1)	//Capped to T1 miracles. Better passive regeneration.
-	grant_miracle_stance(H)
 	if(H.mind)
 		var/weapons = list("Penance - Unarmored","Discipline - Unarmed","Katar","Knuckledusters","Quarterstaff")
 		var/weapon_choice = input(H, "Choose your weapon.", "TAKE UP ARMS") as anything in weapons
@@ -196,7 +195,7 @@
 
 /datum/advclass/cleric/paladin
 	name = "Paladin"
-	tutorial = "You are a holy knight, clad in maille and armed with steel. Where others of the clergy may have spent their free time studying scriptures, you devoted yourself towards fighting Vaeltis's evils - a longsword in one hand, and a clenched psycross in the other."
+	tutorial = "You are a holy knight, clad in maille and armed with steel. Where others of the clergy may have spent their free time studying scriptures, you devoted yourself towards fighting Vaeltis's evils - a longsword in one hand, and a clenched holy cross in the other."
 	outfit = /datum/outfit/job/roguetown/adventurer/paladin
 	traits_applied = list(TRAIT_MEDIUMARMOR)
 	subclass_stats = list(
@@ -220,7 +219,7 @@
 		/datum/skill/magic/holy = SKILL_LEVEL_APPRENTICE,
 	)
 	subclass_stashed_items = list(
-		"The Verses and Acts of the Ten" = /obj/item/book/rogue/bibble,
+		"The Verses and Acts of the Domains" = /obj/item/book/rogue/bibble,
 		"The Book" = /obj/item/book/rogue/bibble/psy
 	)
 	extra_context = "This subclass can choose to take one of two holy items to take along: a potion of lifeblood and Novice skills in Medicine, or a silver longsword that gives Journeyman skills in Swordsmanship."
@@ -249,7 +248,7 @@
 		"None"
 	)
 
-	to_chat(H, span_warning("You are a holy knight, clad in maille and armed with steel. Where others of the clergy may have spent their free time studying scriptures, you devoted yourself towards fighting Vaeltis's evils - a longsword in one hand, and a clenched psycross in the other."))
+	to_chat(H, span_warning("You are a holy knight, clad in maille and armed with steel. Where others of the clergy may have spent their free time studying scriptures, you devoted yourself towards fighting Vaeltis's evils - a longsword in one hand, and a clenched holy cross in the other."))
 	belt = /obj/item/storage/belt/rogue/leather
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/shield/iron
@@ -258,7 +257,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	gloves = /obj/item/clothing/gloves/roguetown/chain
 	backpack_contents = list(
-		/obj/item/flashlight/flare/torch/metal = 1,
+		/obj/item/flashlight/flare/torch/metal = 1, 
 		/obj/item/recipe_book/survival = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		)
@@ -293,7 +292,7 @@
 		if(/datum/patron/concordat/auxentius)
 			cloak = /obj/item/clothing/cloak/tabard/devotee/auxentius
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
-			helmets += list("Old Auxentian Helm" = /obj/item/clothing/head/roguetown/helmet/heavy/auxentiushelm)
+			helmets += list("Old Sun Helm" = /obj/item/clothing/head/roguetown/helmet/heavy/auxentiushelm)
 		if(/datum/patron/concordat/miluse)
 			cloak = /obj/item/clothing/cloak/tabard/devotee/noc
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
@@ -306,13 +305,13 @@
 		if(/datum/patron/concordat/morwenna)
 			cloak = /obj/item/clothing/cloak/tabard/devotee/necra
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
-			helmets += list("Old Necran Helm" = /obj/item/clothing/head/roguetown/helmet/heavy/necrahelm)
+			helmets += list("Old Death Helm" = /obj/item/clothing/head/roguetown/helmet/heavy/necrahelm)
 		if (/datum/patron/concordat/handwerra)
 			cloak = /obj/item/clothing/cloak/tabard/devotee/malum
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
 		if (/datum/patron/concordat/miluse)
 			cloak = /obj/item/clothing/cloak/tabard/devotee/eora
-			helmets += list("Old Eoran Sallet" = /obj/item/clothing/head/roguetown/helmet/sallet/eoran)
+			helmets += list("Old Love Sallet" = /obj/item/clothing/head/roguetown/helmet/sallet/eoran)
 		if (/datum/patron/concordat/auxentius)
 			cloak = /obj/item/clothing/cloak/tabard/devotee/auxentius/battle
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
@@ -384,7 +383,7 @@
 				l_hand = /obj/item/needle/thorn/cleric //Unique to the Cleric. Far worse than a traditional iron needle, but better than a regular thorn needle - with 10 uses, instead of 5 (or 20, in the former's case).
 				beltl = /obj/item/reagent_containers/glass/bottle/rogue/healthpot //No cloth, but a basic potion of lifeblood - similar to the Sorcerer's manna potion. Take the 'Physician's Apprentice' virtue for that, uncapped skills, and more.
 			if("Crusader - Unique Longsword + Surcoat")
-				H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_JOURNEYMAN, TRUE)
+				H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_JOURNEYMAN, TRUE) 
 				beltl = /obj/item/rogueweapon/sword/long/cleric //Essentially, a silver longsword without the ability to sunder antagonists. Should it deal lesser sunder to mindless unholy foes, later? Perhaps.
 				switch(H.patron?.type)
 					if(/datum/patron/tribunal/praecursor)
@@ -467,7 +466,7 @@
 		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN,
 	)
 	subclass_stashed_items = list(
-		"The Verses and Acts of the Ten" = /obj/item/book/rogue/bibble,
+		"The Verses and Acts of the Domains" = /obj/item/book/rogue/bibble,
 		"The Book" = /obj/item/book/rogue/bibble/psy
 	)
 	extra_context = "This subclass has two choice: You can choose T2 miracles or Bardic Inspirations. Taking songs lower your miracles to T1."
@@ -643,7 +642,7 @@
 		/datum/skill/craft/cooking = SKILL_LEVEL_APPRENTICE,
 	)
 	subclass_stashed_items = list(
-		"The Verses and Acts of the Ten" = /obj/item/book/rogue/bibble,
+		"The Verses and Acts of the Domains" = /obj/item/book/rogue/bibble,
 		"The Book" = /obj/item/book/rogue/bibble/psy
 	)
 	extra_context = "This subclass regenerates Devotion far quicker, but only has access to lesser miracles."
@@ -817,7 +816,7 @@
 			H.adjust_skillrank(/datum/skill/misc/athletics, SKILL_LEVEL_JOURNEYMAN, TRUE)
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 		if(/datum/patron/unveiled/aurelian)
-			cloak = /obj/item/clothing/suit/roguetown/shirt/robe
+			cloak = /obj/item/clothing/suit/roguetown/shirt/robe 
 			head = /obj/item/clothing/head/roguetown/roguehood
 			H.mind?.AddSpell(new /datum/action/cooldown/spell/minion_order)
 			H.mind?.AddSpell(new /datum/action/cooldown/spell/gravemark)
@@ -856,9 +855,9 @@
 				r_hand = /obj/item/rogueweapon/woodstaff/quarterstaff/iron
 				backr = /obj/item/rogueweapon/scabbard/gwstrap
 	if(istype(H.patron, /datum/patron/concordat))
-		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/divineblast)
+		H.mind?.AddSpell(new /datum/action/cooldown/spell/projectile/divine_blast)
 	if(istype(H.patron, /datum/patron/unveiled))
-		H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/unholyblast)
+		H.mind?.AddSpell(new /datum/action/cooldown/spell/projectile/unholy_blast)
 	if(istype(H.patron, /datum/patron/tribunal/praecursor))
 		H.mind?.AddSpell(new /datum/action/cooldown/spell/praecursor/enduring_blast) //99% rock chance, 1% boulder, hilarious.
 	switch(H.patron?.type)

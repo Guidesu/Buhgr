@@ -106,8 +106,8 @@
 
 /datum/advclass/sexton/gravetender
 	name = "Gravetender"
-	tutorial = "You are the gravetender for the local church, and are responsible for taking care of the graves north of town and for the retrieval of the truly dead back into Necra's grasp. \
-	Only the devout of Necra may take up the gravetender's mantle."
+	tutorial = "You are the gravetender for the local church, and are responsible for taking care of the graves north of town and for the retrieval of the truly dead back into Death's grasp. \
+	Only the devout of Death may take up the gravetender's mantle."
 	outfit = /datum/outfit/job/roguetown/sexton/gravetender
 	cmode_music = 'sound/music/combat_holy.ogg'
 	maximum_possible_slots = 1 //No combat role stacking, please?

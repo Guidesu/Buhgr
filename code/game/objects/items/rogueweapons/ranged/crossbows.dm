@@ -287,7 +287,7 @@
 	desc = "A deadly weapon from another tyme, which shoots a bolt with terrific power. Unlike the common bow, it \
 	uses a sophisticated mechanism to renock - and retain - its half-length bolts; a matter that relies more on raw \
 	strength than dexterity to master. </br>Once, these mechanical delights bristled the arms of Zaelorian's ancient \
-	empire; now, it shudders in the grasp of Zizo's deathless crusade."
+	empire; now, it shudders in the grasp of the Forbidden's deathless crusade."
 	icon = 'icons/roguetown/weapons/ranged32.dmi'
 	icon_state = "ancientcrossbow0"
 	item_state = "ancientcrossbow"

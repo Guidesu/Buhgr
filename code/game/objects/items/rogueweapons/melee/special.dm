@@ -356,7 +356,7 @@
 
 /obj/item/rogueweapon/katar/punchdagger
 	name = "punch dagger"
-	desc = "A weapon that combines the ergonomics of the Ranesheni katar with the capabilities of the Western Psydonian \"knight-killers\". It can be tied around the wrist."
+	desc = "A weapon that combines the ergonomics of the Ranesheni katar with the capabilities of the Western Old Faith \"knight-killers\". It can be tied around the wrist."
 	slot_flags = ITEM_SLOT_WRISTS|ITEM_SLOT_HIP
 	max_integrity = 120		//Steel dagger -30
 	force = 15		//Steel dagger -5
@@ -408,7 +408,7 @@
 
 /obj/item/rogueweapon/katar/silver
 	name = "silver katar"
-	desc = "An exotic weapon that was born from frugality and scarcity, strongly associated with Saint Abenjunne of Astrata. As the folktale goes, this humble preacher belonged to an old village, whose \
+	desc = "An exotic weapon that was born from frugality and scarcity, strongly associated with Saint Abenjunne of the Sun. As the folktale goes, this humble preacher belonged to an old village, whose \
 	lyvestock would be hunted every nite by a ferocious verebeaste. Though no weapon of steel-nor-iron could hope to rupture its hide, they had little silver to call upon; save for the abbey's lone \
 	psicrucifix. After praying for guidence, the preacher was said to've been guided by a ray of daelight to the silvered steeple - and through divine heat, melted it into a hand-dagger that would soon \
 	rip the verebeaste apart."
@@ -431,7 +431,7 @@
 
 /obj/item/rogueweapon/handclaw/steel/graggaredged
 	name = "vicious sickleclaw"
-	desc = "A tainted mimicry of Ravox's falx, forever stained with the blood of the one they both cherished above all else. The fury of God, for \
+	desc = "A tainted mimicry of Law's falx, forever stained with the blood of the one they both cherished above all else. The fury of God, for \
 	just a moment, wilted before the sorrow of Man; before the wounded champion lept forth and drove His blade straight into the Sinistar's eye."
 	icon_state = "graggarpatasickle"
 	icon = 'icons/roguetown/weapons/unarmed32.dmi'
@@ -453,7 +453,7 @@
 
 /obj/item/rogueweapon/handclaw/steel/graggarblunt
 	name = "vicious mantlebreaker"
-	desc = "A tainted mimicry of Astrata's staff, studded with the remains of divine bone and gristle. By His command, the Apotheosis rose; and with His \
+	desc = "A tainted mimicry of the Sun's staff, studded with the remains of divine bone and gristle. By His command, the Apotheosis rose; and with His \
 	final heartbeat, the Sinistar fell. How little He could've known, that it would ultimately be a tragedy without purpose - a war without reason."
 	icon_state = "graggarpataclub"
 	icon = 'icons/roguetown/weapons/unarmed32.dmi'
@@ -559,7 +559,7 @@
 
 /obj/item/rogueweapon/greataxe/militia/silver
 	name = "silver militia shovelaxe"
-	desc = "'Do you think Psydon stays in Heaven because He too lives in fear of what He's created?' </br>A silver shovel, improvised - perhaps, by the hands of a particularly desperate gravedigger - to fill a polearm's duty."
+	desc = "'Do you think the Absent God stays in Heaven because He too lives in fear of what He's created?' </br>A silver shovel, improvised - perhaps, by the hands of a particularly desperate gravedigger - to fill a polearm's duty."
 	icon_state = "silvershovelwaraxe"
 	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(/datum/intent/rend/reach, /datum/intent/axe/chop/long, SPEAR_BASH)
@@ -1188,7 +1188,7 @@
 
 /obj/item/rogueweapon/knuckledusters/psy
 	name = "psydonic knuckledusters"
-	desc = "A simple piece of harm molded in a holy mixture of steel and silver, finished with three stumps - Psydon's crown - to crush the heretics' garments and armor into smithereens."
+	desc = "A simple piece of harm molded in a holy mixture of steel and silver, finished with three stumps - the Absent God's crown - to crush the heretics' garments and armor into smithereens."
 	icon_state = "psyknuckledusters"
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silverblessed

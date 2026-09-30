@@ -55,7 +55,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Matthios demands you prove your cunning! Pickpocket fools to earn Matthios' favor!"))
+	to_chat(chosen_one, span_notice("Trade demands you prove your cunning! Pickpocket fools to earn Trade' favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/items/matidol2.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

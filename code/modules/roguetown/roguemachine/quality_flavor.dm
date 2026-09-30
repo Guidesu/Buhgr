@@ -24,7 +24,7 @@
 		return pick(
 			"THIS WASN'T WORTH LIFTING THE BALLOON FOR!",
 			"THIS BESMIRCHES THE HONOR OF THE COMPANY!",
-			"May Malum prevent who-ever made this from crafting again.",
+			"May the Craft prevent who-ever made this from crafting again.",
 			"...not even worth it's WEIGHT IN GOLD.",
 			"FACTOR! WHAT IS THIS?!",
 			"DID YOU PULL THIS FROM A GOBLIN'S RIBCAGE?",
@@ -37,7 +37,7 @@
 	if(quality > ITEM_QUALITY_STANDARD)
 		return pick(
 			"Mermaids are leaping out of the water for this cargo!",
-			"Surely, Praecursor will return to observe the quality of your cargo.",
+			"Surely, the Absent God will return to observe the quality of your cargo.",
 			"The Captain is most pleased.",
 			"Tis was worth the trip to the outpost.",
 			"The Company appreciates your efforts.",

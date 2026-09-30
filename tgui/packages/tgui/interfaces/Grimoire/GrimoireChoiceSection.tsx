@@ -132,7 +132,7 @@ export const GrimoireChoiceSection = ({
                 {isSelected ? '✓' : '–'}
               </span>
               <span className="AspectPicker__spell-name">{display.name}</span>
-              {isSwapped && (
+              {!!isSwapped && (
                 <span
                   style={{
                     fontSize: '10px',
@@ -143,7 +143,7 @@ export const GrimoireChoiceSection = ({
                   - tradition
                 </span>
               )}
-              {spell.mastery_only && (
+              {!!spell.mastery_only && (
                 <span
                   style={{
                     fontSize: '10px',
@@ -155,7 +155,7 @@ export const GrimoireChoiceSection = ({
                   - mastery
                 </span>
               )}
-              {isLiveChosen && (
+              {!!isLiveChosen && (
                 <span
                   style={{
                     fontSize: '10px',
@@ -189,7 +189,7 @@ export const GrimoireChoiceSection = ({
                 </span>
               )}
             </div>
-            {selectedElsewhere && (
+            {!!selectedElsewhere && (
               <span
                 className="AspectPicker__spell-desc"
                 style={{ marginLeft: '18px' }}
@@ -197,7 +197,7 @@ export const GrimoireChoiceSection = ({
                 already inscribed
               </span>
             )}
-            {conflictsElsewhere && (
+            {!!conflictsElsewhere && (
               <span
                 className="AspectPicker__spell-desc"
                 style={{ marginLeft: '18px' }}
@@ -205,7 +205,7 @@ export const GrimoireChoiceSection = ({
                 conflicts with a chosen spell
               </span>
             )}
-            {cantAffordSwap && (
+            {!!cantAffordSwap && (
               <span
                 className="AspectPicker__spell-desc"
                 style={{ marginLeft: '18px' }}
@@ -213,7 +213,7 @@ export const GrimoireChoiceSection = ({
                 needs {swapCost} reshaping
               </span>
             )}
-            {display.desc && (
+            {!!display.desc && (
               <div
                 className="AspectPicker__spell-desc"
                 style={{ marginLeft: '18px' }}

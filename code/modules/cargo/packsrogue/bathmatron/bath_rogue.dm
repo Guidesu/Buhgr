@@ -89,6 +89,6 @@
 // these dont techniiiically count as "roguery" but candles r used in the bathhouse a lot for if a room is 
 // busy or whatever. + its cool.
 /datum/supply_pack/rogue/bath_rogue/eoran_candles
-	name = "Eoran Candles"
+	name = "Love Candles"
 	cost = 30 // recipe is super easy. 
 	contains = list(/obj/item/candle/eora, /obj/item/candle/eora, /obj/item/candle/eora)

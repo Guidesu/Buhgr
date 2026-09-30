@@ -53,6 +53,7 @@
 	character.vampire_hair = vampire_hair
 	character.vampire_ears = vampire_ears
 	character.set_patron(selected_patron)
+	dreamvalley_apply_domain(character)
 
 	// done in two loops just in case it matters
 	character.charflaws.Cut()

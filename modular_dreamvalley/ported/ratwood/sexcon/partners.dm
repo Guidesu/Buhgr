@@ -19,8 +19,8 @@ var/global/list/EORA_ID_NAME = list()
 					return TRUE
 
 /obj/item/miluse_heart
-	name = "Miluše's Heart"
-	desc = "A velvet heart dedicated to Miluše. It remembers the names of bonds formed."
+	name = "The Moon's Heart"
+	desc = "A velvet heart dedicated to the Moon. It remembers the names of bonds formed."
 	icon = 'icons/roguetown/items/artefactsten.dmi'
 	icon_state = "eoraartefact"
 	w_class = WEIGHT_CLASS_TINY
@@ -78,10 +78,10 @@ var/global/list/EORA_ID_NAME = list()
 		to_chat(user, span_warning("The heart is quiet. Give it a moment."))
 		return
 
-	var/consent = alert(H, "[user.name] wants to use Miluše's Heart on you and see your sex partners this week. Allow it?", "Miluše's Heart", "Allow", "Deny")
+	var/consent = alert(H, "[user.name] wants to use the Moon's Heart on you and see your sex partners this week. Allow it?", "The Moon's Heart", "Allow", "Deny")
 	if(consent != "Allow")
 		to_chat(user, span_warning("[H.name] refuses to answer the heart."))
-		to_chat(H, span_notice("You refuse Miluše's Heart."))
+		to_chat(H, span_notice("You refuse the Moon's Heart."))
 		return
 
 	if(!src || !user || !H)
@@ -103,7 +103,7 @@ var/global/list/EORA_ID_NAME = list()
 	else
 		to_chat(user, "<span class='info'>No names to show.</span>")
 
-	to_chat(H, span_notice("Miluše's Heart answers [user.name]."))
+	to_chat(H, span_notice("The Moon's Heart answers [user.name]."))
 
 	playsound(user, 'sound/magic/whiteflame.ogg', 50, FALSE)
 

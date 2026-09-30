@@ -15,7 +15,7 @@
 	without bindings. In extremely rare cases, Aasimar may be created from a divine blessing placed upon a mortal. \
 	Aasimar vary wildly in appearance, being made of anything from starstone to metal, flesh, clay, or wood. Some are made of beauty and love incarnate, \
 	others cold and pale but living flesh. Some bear the pointed ears of Elves, from heritage. Some may also be born with wings, though \
-	a number of these Aasimar purposefully remove their own wings, particularly those among the Psydonic, for they believe removing them \
+	a number of these Aasimar purposefully remove their own wings, particularly those among the Old Faith, for they believe removing them \
 	brings them closer to Humenity and in some cases that they are undeserving of something that brings them closer to angels."
 
 	max_age = "???"

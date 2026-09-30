@@ -45,7 +45,7 @@
 	"...darkness surrounds you. You smash, again and again against the walls, the ominous thuds ringing through your skull with each strike. The wall trembles and with a final earth-shaking smash, light breaks through and you emerge into freedom...",
 	"...'I am ineffable. I am unpierceable.' The wicked white guardian says. And so, you shatter its skull in a single blow with your mace, for it was not unbludgeonable...",
 	"...the air trembles with each of your mighty blows, each strike echoing like the final toll of a bell. This is your symphony. Revel in its brutal beauty, its crushing simplicity...",
-	"...'This blade is a masterwork of Malum's craftsmanship,' the elf declared. Moments later his head was abruptly transformed into pavement decor under the crushing weight of your brutish tool..."
+	"...'This blade is a masterwork of the Craft's craftsmanship,' the elf declared. Moments later his head was abruptly transformed into pavement decor under the crushing weight of your brutish tool..."
 	)
 	expert_name = "Macer"
 
@@ -112,7 +112,7 @@
 	desc = "Increases your chance to bypass your opponent's parry by 20% with shields, and your chance to bypass dodge by 10%."
 	dreams = list(
 	"...a terrible lizard unleashes a torrent of fire upon you. Yet, you stand firm, a living bastion, unyielding and stalwart...",
-	"...the half-moon crest upon your shield shines even in the bright of Auxentius's day. You catch a gleam on it, and reflexively pull it upwards. An arrow bounces off..."
+	"...the half-moon crest upon your shield shines even in the bright of the Sun's day. You catch a gleam on it, and reflexively pull it upwards. An arrow bounces off..."
 	)
 	expert_name = "Shieldbearer"
 

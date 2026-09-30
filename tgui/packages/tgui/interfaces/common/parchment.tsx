@@ -275,7 +275,7 @@ export const PriceTag = (props: {
       }}
       title={title}
     >
-      {hasStrike && (
+      {!!hasStrike && (
         <span
           style={{
             color: INK_FAINT,
@@ -288,7 +288,7 @@ export const PriceTag = (props: {
         </span>
       )}
       <span style={{ color: hasStrike ? SEAL_GREEN : 'inherit' }}>{price}</span>
-      {hasTariff && (
+      {!!hasTariff && (
         <span
           style={{
             color: SEAL_AMBER,

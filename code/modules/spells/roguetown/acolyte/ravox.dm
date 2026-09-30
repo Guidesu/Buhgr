@@ -42,7 +42,7 @@
 	secondary_resource_cost = SPELLCOST_CANTRIP
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("By Ravox, face judgement!")
+	invocations = list("By Law, face judgement!")
 
 	charge_required = FALSE
 	cooldown_time = 1 MINUTES
@@ -277,7 +277,7 @@
 
 /datum/action/cooldown/spell/ravox/provocation
 	name = "Provocation"
-	desc = "Declare the measure by which Ravox will weigh me against my foes. Choose between the Trial of Glory (brawn) or the Trial of Wits (mind). This choice is made once and cannot be unmade."
+	desc = "Declare the measure by which Law will weigh me against my foes. Choose between the Trial of Glory (brawn) or the Trial of Wits (mind). This choice is made once and cannot be unmade."
 	fluff_desc = "No duel pleases Him where one side was never in danger. Before He grants His judgement, He asks only which scale you would be set upon."
 	button_icon_state = "provocation"
 
@@ -306,7 +306,7 @@
 		return FALSE
 
 	choosingspell = TRUE
-	var/choice = tgui_alert(owner, "By which measure shall Ravox weigh you?", "DECLARE THE TRIAL", list("Trial of Glory", "Trial of Wits", "Cancel"))
+	var/choice = tgui_alert(owner, "By which measure shall Law weigh you?", "DECLARE THE TRIAL", list("Trial of Glory", "Trial of Wits", "Cancel"))
 	choosingspell = FALSE
 
 	switch(choice)
@@ -365,7 +365,7 @@
 		return TRUE
 
 	if(user.has_status_effect(/datum/status_effect/buff/ravox_provocation))
-		to_chat(user, span_warning("Ravox has already weighed me."))
+		to_chat(user, span_warning("Law has already weighed me."))
 		return FALSE
 	if(target.has_status_effect(/datum/status_effect/buff/ravox_provocation))
 		to_chat(user, span_warning("[target] has already been weighed!"))
@@ -391,35 +391,35 @@
 			target_shifts[stat_key] = shift
 
 	if(!anything_shifted)
-		user.visible_message(span_info("The scales between [user] and [target] do not budge."), span_notice("Ravox finds us already evenly matched."))
+		user.visible_message(span_info("The scales between [user] and [target] do not budge."), span_notice("Law finds us already evenly matched."))
 		return TRUE
 
 	user.apply_status_effect(/datum/status_effect/buff/ravox_provocation, user_shifts)
 	target.apply_status_effect(/datum/status_effect/buff/ravox_provocation, target_shifts)
 
-	user.visible_message(span_boldwarning("[user] calls Ravox to weigh them against [target]!"), span_notice("Ravox sets us both upon His scales."))
-	to_chat(target, span_userdanger("Ravox has weighed you against [user]!"))
+	user.visible_message(span_boldwarning("[user] calls Law to weigh them against [target]!"), span_notice("Law sets us both upon His scales."))
+	to_chat(target, span_userdanger("Law has weighed you against [user]!"))
 	return TRUE
 
 /datum/action/cooldown/spell/ravox/trial/glory
 	name = "Trial of Glory"
-	desc = "Set myself and my foe upon Ravox's scales and level our brawn. The stronger of us is brought down and the weaker brought up, in strength and constitution alike. Lasts 20 seconds. Both of us must be ready to fight.."
+	desc = "Set myself and my foe upon Law's scales and level our brawn. The stronger of us is brought down and the weaker brought up, in strength and constitution alike. Lasts 20 seconds. Both of us must be ready to fight.."
 	fluff_desc = "There is no glory in felling a man who could never have felled you."
 	button_icon_state = "provocation"
-	invocations = list("By Ravox, stand and face me!")
+	invocations = list("By Law, stand and face me!")
 	weighed_stats = list(STATKEY_STR, STATKEY_CON)
 
 /datum/action/cooldown/spell/ravox/trial/wits
 	name = "Trial of Wits"
-	desc = "Set myself and my foe upon Ravox's scales and level our minds. The sharper of us is dulled and the duller sharpened, in intelligence and perception alike. Lasts 20 seconds. Both of us must be ready to fight.."
+	desc = "Set myself and my foe upon Law's scales and level our minds. The sharper of us is dulled and the duller sharpened, in intelligence and perception alike. Lasts 20 seconds. Both of us must be ready to fight.."
 	fluff_desc = "A justicar who wins only because his foe was a fool has proven nothing at all."
 	button_icon_state = "provocation"
-	invocations = list("By Ravox, match me in wit!")
+	invocations = list("By Law, match me in wit!")
 	weighed_stats = list(STATKEY_INT, STATKEY_PER)
 
 /atom/movable/screen/alert/status_effect/buff/ravox_provocation
-	name = "Weighed by Ravox"
-	desc = "Ravox has set me upon His scales against my foe. We have been brought toward parity."
+	name = "Weighed by Law"
+	desc = "Law has set me upon His scales against my foe. We have been brought toward parity."
 	icon_state = "provocation"
 
 /datum/status_effect/buff/ravox_provocation
@@ -453,7 +453,7 @@
 	secondary_resource_cost = SPELLCOST_CANTRIP
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("I stand, by Ravox!")
+	invocations = list("I stand, by Law!")
 
 	charge_required = FALSE
 	cooldown_time = 1 MINUTES
@@ -485,7 +485,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/withstand
 	name = "Withstand"
-	desc = "I hold fast for Ravox."
+	desc = "I hold fast for Law."
 	icon_state = "withstand"
 
 /datum/status_effect/withstand
@@ -513,7 +513,7 @@
 	secondary_resource_cost = SPELLCOST_UTILITY_BUFF
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("Ravox deems your persistence worthy!")
+	invocations = list("Law deems your persistence worthy!")
 
 	charge_required = FALSE
 	cooldown_time = 30 SECONDS
@@ -532,7 +532,7 @@
 		var/mob/living/target = cast_on
 		if(target.mob_biotypes & MOB_UNDEAD)
 			if(spell_guard_check(target, TRUE))
-				target.visible_message(span_warning("[target] resists Ravox's judgment!"))
+				target.visible_message(span_warning("[target] resists Law's judgment!"))
 				return TRUE
 			if(ishuman(target)) //BLEED AND PAIN
 				var/mob/living/carbon/human/human_target = target
@@ -540,7 +540,7 @@
 				phy.bleed_mod *= 1.5
 				phy.pain_mod *= 1.5
 				addtimer(CALLBACK(src, PROC_REF(restore_modifiers), phy), 19 SECONDS)
-				human_target.visible_message(span_danger("[target]'s wounds become inflamed as their vitality is sapped away!"), span_userdanger("Ravox inflames my wounds and weakens my body!"))
+				human_target.visible_message(span_danger("[target]'s wounds become inflamed as their vitality is sapped away!"), span_userdanger("Law inflames my wounds and weakens my body!"))
 				return TRUE
 			return FALSE
 
@@ -549,7 +549,7 @@
 		for(var/obj/effect/decal/cleanable/blood/O in oview(5, target))
 			situational_bonus = min(situational_bonus + 0.015, 1)
 		if(situational_bonus > 0.25)
-			to_chat(owner, "Channeling Ravox's power is easier in these conditions!")
+			to_chat(owner, "Channeling Law's power is easier in these conditions!")
 
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
@@ -583,7 +583,7 @@
 /datum/action/cooldown/spell/ravox/battlecry
 	name = "Call to Arms"
 	desc = "Grants you and all allies nearby a buff to their strength, willpower, and constitution while taking away willpower and constitution from ascendant worshippers."
-	fluff_desc = "A yell rings out across the battlefield! Your sergeant bellows a final order before they're claimed by Necra's grasp - leave none standing before the might of Ravox! So long as you draw breath, there shall be no defeat."
+	fluff_desc = "A yell rings out across the battlefield! Your sergeant bellows a final order before they're claimed by Death's grasp - leave none standing before the might of Law! So long as you draw breath, there shall be no defeat."
 	button_icon_state = "call_to_arms"
 	sound = 'sound/magic/battle_cry.ogg'
 
@@ -595,7 +595,7 @@
 	secondary_resource_cost = SPELLCOST_UTILITY_BUFF
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("By Ravox, stand and fight!")
+	invocations = list("By Law, stand and fight!")
 
 	charge_required = FALSE
 	cooldown_time = 5 MINUTES
@@ -643,7 +643,7 @@
 	duration = 3 MINUTES
 
 /atom/movable/screen/alert/status_effect/debuff/call_to_arms
-	name = "Ravox's Call to Arms"
+	name = "Law's Call to Arms"
 	desc = "His voice keeps ringing in your ears, rocking your soul.."
 	icon_state = "call_to_arms_negative"
 
@@ -653,7 +653,7 @@
 
 /datum/action/cooldown/spell/ravox/challenge
 	name = "Challenge"
-	desc = "Bring an opponent with you to Ravoxian Trial. Engage in 3 minute combat. Both of us must be ready to fight.."
+	desc = "Bring an opponent with you to Law Trial. Engage in 3 minute combat. Both of us must be ready to fight.."
 	button_icon_state = "ravoxchallenge"
 	sound = 'sound/magic/battletrance.ogg'
 
@@ -666,7 +666,7 @@
 	secondary_resource_cost = SPELLCOST_UTILITY_BUFF
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("By Ravox, I challenge you!!")
+	invocations = list("By Law, I challenge you!!")
 
 	charge_required = TRUE
 	charge_time = 3 SECONDS
@@ -734,7 +734,7 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 	do_teleport(target, challengedspawnpoint)
 	GLOB.arenafolks += user
 	GLOB.arenafolks += target
-	storedchallengerturf.visible_message((span_cult("[user] calls upon the Ravoxian rite of Trial! [target] and [user] are brought to Trial!")))
+	storedchallengerturf.visible_message((span_cult("[user] calls upon the Law rite of Trial! [target] and [user] are brought to Trial!")))
 
 	new /obj/structure/fluff/ravox/challenger/recall(storedchallengerturf)
 	new /obj/structure/fluff/ravox/challenged/recall(storedchallengedturf)
@@ -798,13 +798,13 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 				var/mob/living/M = AM
 				M.Paralyze(10)
 				M.adjustBruteLoss(20)
-				to_chat(M, "<span class='danger'>You're slammed into the floor by Ravox's strength!!</span>")
+				to_chat(M, "<span class='danger'>You're slammed into the floor by Law's strength!!</span>")
 		else
 			new sparkle_path(get_turf(AM), get_dir(src, AM)) //created sparkles will disappear on their own
 			if(isliving(AM))
 				var/mob/living/M = AM
 				M.Paralyze(5)
-				to_chat(M, "<span class='danger'>You're thrown back by Ravox's strength!!</span>")
+				to_chat(M, "<span class='danger'>You're thrown back by Law's strength!!</span>")
 			AM.safe_throw_at(throwtarget, ((CLAMP((maxthrow - (CLAMP(distfromflag - 2, 0, distfromflag))), 3, maxthrow))), 1,null, force = repulse_force)
 
 

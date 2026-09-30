@@ -41,7 +41,7 @@
 	)
 
 /datum/round_event_control/antagonist/solo/zizo_cult
-	name = "Zizo cult"
+	name = "The Forbidden cult"
 	tags = list(
 		TAG_COMBAT,
 		TAG_HAUNTED,

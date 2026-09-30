@@ -521,7 +521,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/padagger
 	name = "ancient dagger"
-	desc = "A short blade, forged from polished gilbranze. It is violence that shepherds progress, and it is progress that will free this world from mortality's chains. Zizo, Zizo, Zizo - I call upon thee; bring forth the undying, so that your works may yet be done!"
+	desc = "A short blade, forged from polished gilbranze. It is violence that shepherds progress, and it is progress that will free this world from mortality's chains. The Forbidden, the Forbidden, the Forbidden - I call upon thee; bring forth the undying, so that your works may yet be done!"
 	icon_state = "adagger"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -822,7 +822,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/fire
 	name = "fire dagger"
-	desc = "A dagger enchanted with lost arcyne arts to render it as Auxentius's wrath, but only for a short duration."
+	desc = "A dagger enchanted with lost arcyne arts to render it as the Sun's wrath, but only for a short duration."
 	icon_state = "fdagger"
 	sheathe_icon = "fdagger"
 	smeltresult = null
@@ -1203,7 +1203,7 @@
 
 /obj/item/rogueweapon/huntingknife/throwingknife/steel/palloy
 	name = "ancient alloy tossblade"
-	desc = "A sliver of polished gilbranze, delicately carved into a throwing dagger. A favorite amongst Zizo's undying cabal, and especially amongst Her assassins; what better-a-tool to slip through another's neck? </br>This dagger can be stowed away inside a pair of boots, permitting it to be quickly drawn when needed."
+	desc = "A sliver of polished gilbranze, delicately carved into a throwing dagger. A favorite amongst the Forbidden's undying cabal, and especially amongst Her assassins; what better-a-tool to slip through another's neck? </br>This dagger can be stowed away inside a pair of boots, permitting it to be quickly drawn when needed."
 	icon_state = "throw_knifea"
 
 /obj/item/rogueweapon/huntingknife/throwingknife/silver

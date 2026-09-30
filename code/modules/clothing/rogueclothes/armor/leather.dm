@@ -88,7 +88,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/studded/warden/upgraded
 	name = "forester's brigandine"
-	desc = "A hardened leather harness with a large pauldron worn over a tasseted brigandine, imbued with Ignatius's essence."
+	desc = "A hardened leather harness with a large pauldron worn over a tasseted brigandine, imbued with the Wilds's essence."
 	icon_state = "forestbrig"
 	armor = ARMOR_BRIGANDINE//is actually a brigandine now
 	max_integrity = ARMOR_INT_CHEST_LIGHT_ELITE
@@ -163,7 +163,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/confessor
 	name = "confessional coat"
-	desc = "A sturdy raincoat draped atop of a tightly-fastened boiled leather cuirass. Saint Auxentian youths often fashion little pieces of memorabilia and stitch it on the inner pockets of the coat to remind the confessors that their cause is virtuous, and that they mustn't lose sight of what matters."
+	desc = "A sturdy raincoat draped atop of a tightly-fastened boiled leather cuirass. Saint Sun youths often fashion little pieces of memorabilia and stitch it on the inner pockets of the coat to remind the confessors that their cause is virtuous, and that they mustn't lose sight of what matters."
 	icon_state = "confessorcoat"
 	item_state = "confessorcoat"
 	body_parts_covered = COVERAGE_ALL_BUT_HANDFEET
@@ -174,7 +174,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/raneshen
 	name = "megarmach scale coat"
-	desc = "A set of lightweight armor fashioned from the scales of the Ranesheni \"megarmach\", an armored reptilian creacher that ambushes prey by the riverside, and drags them deep into Abyssor's domain."
+	desc = "A set of lightweight armor fashioned from the scales of the Ranesheni \"megarmach\", an armored reptilian creacher that ambushes prey by the riverside, and drags them deep into the Sea's domain."
 	icon_state = "pangolin"
 	item_state = "pangolin"
 	color = null
@@ -224,7 +224,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/gravecoat
 	name = "gravetender's coat"
-	desc = "A padded coat bearing the same hues one would find on a Necran. Small steel braces adorn the wrists, a symbol of Necra's grasp on those who serve her."
+	desc = "A padded coat bearing the same hues one would find on a Death. Small steel braces adorn the wrists, a symbol of Death's grasp on those who serve her."
 	icon_state = "gravecoat"
 	item_state = "gravecoat"
 	max_integrity = ARMOR_INT_CHEST_LIGHT_BASE
@@ -454,7 +454,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/tailcoat
 	name = "tailcoat"
-	desc = "A finely-sewn tailcoat often worn by those on the brink of the upper echelons of Auxentian caste."
+	desc = "A finely-sewn tailcoat often worn by those on the brink of the upper echelons of Sun caste."
 	icon_state = "butlercoat"
 	item_state = "butlercoat"
 	detail_tag = "_detail"

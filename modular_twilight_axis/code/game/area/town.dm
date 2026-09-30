@@ -28,7 +28,7 @@
 
 /area/rogue/indoors/town/manor/rockhill
 	first_time_text = "Rockhill Keep"
-	deathsight_message = "those sequestered amongst Astrata's favor"
+	deathsight_message = "those sequestered amongst the Sun's favor"
 
 /area/rogue/indoors/town/warden
 	name = "Warden Fort"

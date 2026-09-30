@@ -64,7 +64,7 @@
 
 /obj/item/rogueweapon/greatsword/zwei/inverserun/steel
 	name = "Votive Thorns"
-	desc = "Promises hurt, but so does plucking rosa. Hoping hurts, but so does looking at the beauty of Astrata's light. Pick yourself back up. Remember your promise, despite the thorns."
+	desc = "Promises hurt, but so does plucking rosa. Hoping hurts, but so does looking at the beauty of the Sun's light. Pick yourself back up. Remember your promise, despite the thorns."
 	icon_state = "inverse"
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 	max_blade_int = 240
@@ -106,7 +106,7 @@
 //Imony donator item - zybantian acolyte robes
 /obj/item/clothing/suit/roguetown/shirt/robe/noc/stargazer
 	name = "stargazer robe"
-	desc = "A robe, traitionally worn both in Raneshi and Naledi by monks, who serve Noc."
+	desc = "A robe, traitionally worn both in Raneshi and Naledi by monks, who serve the Moon."
 	icon_state = "stargazer"
 	item_state = "stargazer"
 	sleevetype = "stargazer"
@@ -278,7 +278,7 @@
 
 /obj/item/clothing/head/roguetown/tiara
 	name = "ornate golden tiara"
-	desc = "A delicate tiara, made of gold. It seems to be a symbol of nobility, but also of beauty. It is said that the one who wears it will be blessed by Astrata's light."
+	desc = "A delicate tiara, made of gold. It seems to be a symbol of nobility, but also of beauty. It is said that the one who wears it will be blessed by the Sun's light."
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP|ITEM_SLOT_MASK
 	icon_state = "tiara"
 	item_state = "tiara"

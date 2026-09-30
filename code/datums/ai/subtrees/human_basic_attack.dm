@@ -13,6 +13,8 @@
 
 #define HUMAN_NPC_RMB_ATTEMPT_CHANCE			25
 #define HUMAN_NPC_MIN_INT_FOR_TACTICS        8
+#define HUMAN_NPC_KICK_CHANCE                12
+#define HUMAN_NPC_KICK_COOLDOWN              (12 SECONDS)
 
 #define HUMAN_NPC_FEINT_COOLDOWN             (30 SECONDS)
 #define HUMAN_NPC_FEINT_RECOVERY_MULT        1.6
@@ -121,6 +123,16 @@
 		if(attacks_done >= 2 && _try_weapon_special(controller))
 			return AI_BEHAVIOR_DELAY
 
+	// Kick an adjacent, standing target now and then to knock them off balance.
+	if(pawn.STAINT >= HUMAN_NPC_MIN_INT_FOR_TACTICS && isliving(target) && pawn.Adjacent(target) && !pawn.buckled \
+		&& world.time >= (controller.blackboard["npc_kick_cd"] || 0) && AI_INT_SCALE_PROB(pawn, HUMAN_NPC_KICK_CHANCE))
+		var/mob/living/living_target = target
+		if(living_target.mobility_flags & MOBILITY_STAND)
+			controller.set_blackboard_key("npc_kick_cd", world.time + HUMAN_NPC_KICK_COOLDOWN)
+			AI_THINK(pawn, "KICK: kicking [target]")
+			pawn.try_kick(target)
+			return AI_BEHAVIOR_DELAY
+
 	_update_combat_intent(controller, pawn, target)
 	var/list/modifiers = list()
 	if(pawn.STAINT >= HUMAN_NPC_MIN_INT_FOR_TACTICS && AI_INT_SCALE_PROB(pawn, HUMAN_NPC_RMB_ATTEMPT_CHANCE))
@@ -136,6 +148,11 @@
 			controller.set_blackboard_key(BB_HUMAN_NPC_FEINT_COOLDOWN, world.time + feint_cd)
 			controller.set_blackboard_key(BB_HUMAN_NPC_TECHNIQUE_CD, world.time + 3 SECONDS)
 			propagate_technique_cd(pawn, target, BB_HUMAN_NPC_FEINT_COOLDOWN, world.time + feint_cd)
+		else if(technique_ready && istype(pawn.rmb_intent, /datum/rmb_intent/aimed))
+			// Bait: offer a limb; if it matches where they're aiming, they're thrown off balance.
+			AI_THINK(pawn, "BAIT: baiting [target]")
+			modifiers = list(RIGHT_CLICK = TRUE)
+			controller.set_blackboard_key(BB_HUMAN_NPC_TECHNIQUE_CD, world.time + 8 SECONDS)
 		#ifdef NPC_THINK_DEBUG
 		else if(istype(pawn.rmb_intent, /datum/rmb_intent/feint) && !feint_ready)
 			AI_THINK(pawn, "FEINT: on cooldown ([controller.blackboard[BB_HUMAN_NPC_FEINT_COOLDOWN] - world.time]ds remaining)")
@@ -180,20 +197,28 @@
 
 	var/skill_level = pawn.get_wskill(pawn.get_active_held_item())
 
+	// NPCs can also raise their guard (players' move list is left as it is).
+	if(!pawn.client && !(/datum/rmb_intent/guard in pawn.possible_rmb_intents))
+		pawn.possible_rmb_intents = pawn.possible_rmb_intents.Copy() + /datum/rmb_intent/guard
+
 	var/list/weighted = list()
-	for(var/datum/rmb_intent/available in pawn.possible_rmb_intents)
-		if(istype(available, /datum/rmb_intent/feint))
-			weighted[available.type] = 15
-		else if(istype(available, /datum/rmb_intent/strong))
-			weighted[available.type] = 30
-		else if(istype(available, /datum/rmb_intent/swift))
-			weighted[available.type] = 15
-		else if(istype(available, /datum/rmb_intent/aimed))
-			weighted[available.type] = 5
-		else if(istype(available, /datum/rmb_intent/weak))
-			weighted[available.type] = 20
-		else if(istype(available, /datum/rmb_intent/riposte))
-			weighted[available.type] = 0
+	// possible_rmb_intents holds type paths, not datums.
+	for(var/available in pawn.possible_rmb_intents)
+		if(ispath(available, /datum/rmb_intent/feint))
+			weighted[available] = 15
+		else if(ispath(available, /datum/rmb_intent/strong))
+			weighted[available] = 30
+		else if(ispath(available, /datum/rmb_intent/swift))
+			weighted[available] = 15
+		else if(ispath(available, /datum/rmb_intent/aimed))
+			weighted[available] = 12
+		else if(ispath(available, /datum/rmb_intent/weak))
+			weighted[available] = 20
+		else if(ispath(available, /datum/rmb_intent/riposte))
+			weighted[available] = 5
+		else if(ispath(available, /datum/rmb_intent/guard))
+			// Turtle up when hurt.
+			weighted[available] = (pawn.health < pawn.maxHealth * 0.5) ? 25 : 5
 
 	if(!length(weighted))
 		return
@@ -220,10 +245,9 @@
 				weighted[/datum/rmb_intent/feint] += 30
 
 	var/chosen_type = pickweight(weighted)
-	var/datum/rmb_intent/chosen = locate(chosen_type) in pawn.possible_rmb_intents
-	if(chosen)
-		pawn.rmb_intent = chosen
-		AI_THINK(pawn, "INTENT: picked [chosen.type]")
+	if(chosen_type && !istype(pawn.rmb_intent, chosen_type))
+		pawn.swap_rmb_intent(chosen_type)
+		AI_THINK(pawn, "INTENT: picked [chosen_type]")
 
 	controller.set_blackboard_key(BB_HUMAN_NPC_CURRENT_INTENT_ATTACKS_LEFT, rand(3, 6))
 
@@ -572,6 +596,8 @@ GLOBAL_LIST_INIT(npc_weakpoint_zone_weights, list(
 #undef HUMAN_NPC_INTENT_SWITCH_CHANCE
 #undef HUMAN_NPC_RMB_ATTEMPT_CHANCE
 #undef HUMAN_NPC_MIN_INT_FOR_TACTICS
+#undef HUMAN_NPC_KICK_CHANCE
+#undef HUMAN_NPC_KICK_COOLDOWN
 #undef HUMAN_NPC_FEINT_COOLDOWN
 #undef HUMAN_NPC_CLICK_RECOVERY_JITTER_MIN
 #undef HUMAN_NPC_CLICK_RECOVERY_JITTER_MAX

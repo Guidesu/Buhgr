@@ -74,7 +74,7 @@
 	"The wax of one seal is warmer in colour and shines as if recently remelted.",\
 	"The ink in the middle of a line has a bluish halo, as if thinned with different water.",\
 	"One stroke in the date is crossed out too neatly for a clerk's hand.",\
-	"A stranger's note shows between the lines: 'Zizo keeps the whisper, Graggar awaits blood, Matthios will weigh the debt.'",\
+	"A stranger's note shows between the lines: 'the Forbidden keeps the whisper, War awaits blood, Trade will weigh the debt.'",\
 )
 
 #define MANUSCRIPT_MIN_FOUND_DEFECT_COUNT 3
@@ -174,7 +174,7 @@
 	return "Duke"
 
 /obj/item/book/granter/residentcardvirtue/proc/is_noble_manuscript_status()
-	return owner_status_label == "By Astrata's grace"
+	return owner_status_label == "By the Sun's grace"
 
 /obj/item/book/granter/residentcardvirtue/proc/should_initially_include_duke_seal()
 	return is_noble_manuscript_status()
@@ -318,7 +318,7 @@
 
 /obj/item/book/granter/residentcardvirtue/proc/status_label_for(mob/living/carbon/human/target)
 	if(HAS_TRAIT(target, TRAIT_NOBLE))
-		return "By Astrata's grace"
+		return "By the Sun's grace"
 	return "Unknown"
 
 /obj/item/book/granter/residentcardvirtue/ui_state(mob/user)
@@ -451,8 +451,8 @@
 	if(!isnull(value))
 		text_value = "[value]"
 	switch(text_value)
-		if("By Astrata's grace")
-			return "By Astrata's grace"
+		if("By the Sun's grace")
+			return "By the Sun's grace"
 	return "Unknown"
 
 /obj/item/book/granter/residentcardvirtue/proc/save_fake_manuscript(mob/living/carbon/human/user, list/params)

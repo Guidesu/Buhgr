@@ -67,7 +67,7 @@ export const PackRow = (props: Props) => {
             contraband
           </span>
         )}
-        {showCategory && (
+        {!!showCategory && (
           <span
             style={{
               fontSize: FONT_SMALL,

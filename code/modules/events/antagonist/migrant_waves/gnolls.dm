@@ -29,4 +29,4 @@
 			if(!player.client)
 				continue
 
-			to_chat(player, span_danger("Graggar demands blood, gnolls flock to the outpost."))
+			to_chat(player, span_danger("War demands blood, gnolls flock to the outpost."))

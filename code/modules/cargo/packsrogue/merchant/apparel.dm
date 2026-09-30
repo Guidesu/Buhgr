@@ -18,62 +18,62 @@
 	contains = list(/obj/item/clothing/neck/roguetown/psicross/silver)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonastrata
-	name = "Auxentian Amulet"
+	name = "Sun Amulet"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/auxentius,
 				)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonmalum
-	name = "Malumite Amulet"
+	name = "Craft Amulet"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/handwerra,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheoneora
-	name = "Eoran Amulet"
+	name = "Love Amulet"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/miluse,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonravox
-	name = "Auxentius Amulet"
+	name = "Sun Amulet"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/auxentius,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonpestra
-	name = "Pestran Amulet"
+	name = "Healing Amulet"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/handwerra,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonnecra
-	name = "Necran Amulet"
+	name = "Death Amulet"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/morwenna,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheondendor
-	name = "Ignatius Amulet"
+	name = "Wilds Amulet"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/ignatius,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonabyssor
-	name = "Abyssor Amulet"
+	name = "Sea Amulet"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/wulfric,)
 
 /datum/supply_pack/rogue/apparel/crosses/divinepantheonnoc
-	name = "Noc Amulet"
+	name = "Moon Amulet"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/miluse,)
 
 /datum/supply_pack/rogue/apparel/crosses/xylix
-	name = "Xylix Amulet"
+	name = "Trickery Amulet"
 	cost = 10
 	contains = list(
 					/obj/item/clothing/neck/roguetown/psicross/viator,)

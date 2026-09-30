@@ -42,7 +42,7 @@
 	..()
 	H.set_blindness(0)
 	if(!(istype(H.patron, /datum/patron/inhumen)))
-		to_chat(H, span_warning("I reject the false prophets, Matthios embraces my fyre as His own."))
+		to_chat(H, span_warning("I reject the false prophets, Trade embraces my fyre as His own."))
 		H.set_patron(/datum/patron/inhumen/matthios)//If you are not an ascendant get put up as Matthiosite
 	if(H.mind)
 		var/weapons = list("Arming Sword", "Battle Axe", "Warhammer", "Flail")

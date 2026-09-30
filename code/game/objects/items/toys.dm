@@ -441,7 +441,7 @@
 
 /obj/item/toy/cards/deck/tarot
 	name = "tarot deck"
-	desc = "The Mouthpiece of Xylix, given to mortals long ago. See fate. Never bend a corner."
+	desc = "The Mouthpiece of Trickery, given to mortals long ago. See fate. Never bend a corner."
 	icon_state = "deck_tarot_full"
 	deckstyle = "tarot"
 

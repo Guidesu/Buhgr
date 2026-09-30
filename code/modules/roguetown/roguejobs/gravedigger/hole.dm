@@ -158,16 +158,16 @@
 
 	// --- prayer (once) ---
 	var/list/necra_prayers = list(
-		"#Rest thy soul for all aeon within Necra's embrace!",
+		"#Rest thy soul for all aeon within Death's embrace!",
 		"#May the Undermaiden cradle thee beyond the veil.",
-		"#Let thy weary spirit find stillness in Necra's grasp.",
+		"#Let thy weary spirit find stillness in Death's grasp.",
 		"#From flesh to silence, may she guide thee gently.",
 		"#Sleep now, for the Undermaiden has come.",
 		"#Thy wandering ends; be gathered into her quiet.",
 		"#May thy sins and sorrows fade in her shadow.",
 		"#Be unburdened, child of ash, and pass on.",
 		"#The veil parts for thee—walk without fear.",
-		"#Necra calls, and thou shalt answer in peace.",
+		"#Death calls, and thou shalt answer in peace.",
 		"#Lay down thy struggle; her hand awaits thee.",
 		"#From dust thou came, to her thou return.",
 		"#Let silence take thee, and be made whole.",
@@ -178,7 +178,7 @@
 		"#Be freed from pain, and carried beyond.",
 		"#The Undermaiden weeps thee into slumber.",
 		"#All things end—may thine end be gentle.",
-		"#Cast off thy burden; Necra gathers thee.",
+		"#Cast off thy burden; Death gathers thee.",
 		"#Drift now into the hush beyond breath.",
 		"#Thy final step is guided by her hand.",
 		"#Be still, and know the end of suffering.",

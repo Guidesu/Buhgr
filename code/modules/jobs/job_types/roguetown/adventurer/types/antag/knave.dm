@@ -1,6 +1,6 @@
 /datum/advclass/knave //sneaky bastards - ranged classes of two flavors archers and rogues
 	name = "Knave"
-	tutorial = "Not all followers of Matthios take by force. Thieves, poachers, and ne'er-do-wells of all forms steal from others from the shadows, long gone before their marks realize their misfortune."
+	tutorial = "Not all followers of Trade take by force. Thieves, poachers, and ne'er-do-wells of all forms steal from others from the shadows, long gone before their marks realize their misfortune."
 	allowed_sexes = list(MALE, FEMALE)
 
 	outfit = /datum/outfit/job/roguetown/bandit/knave
@@ -44,7 +44,7 @@
 /datum/outfit/job/roguetown/bandit/knave/pre_equip(mob/living/carbon/human/H)
 	..()
 	if (!(istype(H.patron, /datum/patron/concordat/morwenna)))	//This is the only class that forces Matthios. Needed for miracles + limited slot.
-		to_chat(H, span_warning("Matthios embraces me.. I must uphold his creed. I am his light in the darkness."))
+		to_chat(H, span_warning("Trade embraces me.. I must uphold his creed. I am his light in the darkness."))
 		H.set_patron(/datum/patron/concordat/morwenna)
 	belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/steel
 	pants = /obj/item/clothing/under/roguetown/trou/leather

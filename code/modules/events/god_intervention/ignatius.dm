@@ -1,6 +1,6 @@
 // Direct rename of the old Ignatius vines/fertility/ire intervention events (now Ignatius's).
 /datum/round_event_control/ignatius_vines_malus
-	name = "Ignatius's Vines (Malus)"
+	name = "The Wilds's Vines (Malus)"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/ignatius_vines
 	weight = 8
@@ -32,7 +32,7 @@
 
 
 /datum/round_event_control/ignatius_vines_boon
-	name = "Ignatius's Vines (Boon)"
+	name = "The Wilds's Vines (Boon)"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/ignatius_vines_good
 	earliest_start = 10 MINUTES
@@ -64,7 +64,7 @@
 
 
 /datum/round_event_control/ignatius_fertility
-	name = "Ignatius's Blessing"
+	name = "The Wilds's Blessing"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/ignatius_fertility
 	weight = 4
@@ -77,7 +77,7 @@
 	SSmapping.add_world_trait(/datum/world_trait/ignatius_fertility, 20 MINUTES)
 
 /datum/round_event_control/ignatius_ire
-	name = "Ignatius's Ire"
+	name = "The Wilds's Ire"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/ignatius_ire
 	weight = 4

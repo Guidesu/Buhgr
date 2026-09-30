@@ -196,7 +196,7 @@ const FoodEntry = ({ data }: { data: FoodEntryData }) => {
         </>
       )}
 
-      {result && (
+      {!!result && (
         <p>
           <b>Produces:</b>{' '}
           <span

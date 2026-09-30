@@ -216,7 +216,7 @@ const OrderCard = (props: {
             >
               Release Claim
             </button>
-            {hasProgress && (
+            {!!hasProgress && (
               <button
                 type="button"
                 style={inkButtonStyle({ color: SEAL_AMBER })}
@@ -258,7 +258,7 @@ const OrderCard = (props: {
             Force Release
           </button>
         )}
-        {canReject && (
+        {!!canReject && (
           <button
             type="button"
             style={inkButtonStyle({ color: SEAL_RED })}

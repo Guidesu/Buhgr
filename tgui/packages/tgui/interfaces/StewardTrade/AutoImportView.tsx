@@ -182,7 +182,7 @@ export const AutoImportView = (props: { data: Data }) => {
               </div>
             ))}
           </div>
-          {activeGroup && (
+          {!!activeGroup && (
             <div>
               {activeGroup.rows.map((row) => (
                 <ToggleRow

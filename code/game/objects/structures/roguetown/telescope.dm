@@ -83,7 +83,7 @@
 			switch(what_do_see)
 				if(0) // hey jimmy, get me a pizza wit nothin. nothin?
 					var/star_audio = pick(star_sounds)
-					picked_message = span_info("NOC is performing his final rotations... Auxentius is rising, a GLORIOUS MORNING...") // https://www.youtube.com/watch?v=7T_YtklLyyo
+					picked_message = span_info("NOC is performing his final rotations... The Sun is rising, a GLORIOUS MORNING...") // https://www.youtube.com/watch?v=7T_YtklLyyo
 					H.playsound_local(H, star_audio, 40, TRUE)
 				if(1) // good luck! kytheria!
 					picked_message = span_rose("Kytheria's golden clouds swirl with blessed strife...")
@@ -127,13 +127,13 @@
 					status_effect = /datum/status_effect/buff/nocblessing
 					H.playsound_local(H, 'sound/magic/message.ogg', 40, TRUE)
 					var/list/wonders_of_the_stars = list(
-						span_blue("Noc's silvered glare soothes your mind..."),
+						span_blue("The Moon's silvered glare soothes your mind..."),
 						span_blue("You see NOC spinning in the skyline!")
 					)
 					picked_message = pick(wonders_of_the_stars)
 				if(3) // HERMES
 					H.apply_status_effect(/datum/status_effect/buff/hermes_trismegistus)
-					picked_message = span_info("Hermes' swift orbit graces a shadow between Auxentius and Noc...")
+					picked_message = span_info("Hermes' swift orbit graces a shadow between the Sun and the Moon...")
 					H.playsound_local('sound/items/write.ogg', 40, TRUE)
 				if(4) // NEPOLX OR NEOPLX or NEOPETS
 					picked_message = span_info("Nepolx's saffiric glow wounds the heart with a sense of sudden somberness...")
@@ -150,7 +150,7 @@
 							picked_message += span_warning("Jove used to represent justice, before it turned blue.") // pim turns green
 						if(/datum/patron/oldkin/volkovoi)
 							stress_event = /datum/stressevent/see_zuranus/graggarite
-							picked_message += span_warning("The Goresworn often speak of Graggar's dominance over Jove! They say he ate it whole-- turned it blue!")
+							picked_message += span_warning("The Goresworn often speak of War's dominance over Jove! They say he ate it whole-- turned it blue!")
 		// give out our message
 		to_chat(H, picked_message)
 		// apply extra effects

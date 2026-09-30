@@ -104,7 +104,7 @@
 		return
 	device.remove_chastity(human_mob)
 	device.forceMove(get_turf(human_mob))
-	human_mob.visible_message(span_notice("[human_mob]'s spiked chastity device falls away as the divine hand of Eora rejects the cruel ironwork."))
+	human_mob.visible_message(span_notice("[human_mob]'s spiked chastity device falls away as the divine hand of Love rejects the cruel ironwork."))
 
 /client/proc/modular_handle_chastity_toggle_disable()
 	if(!ishuman(mob))
@@ -114,4 +114,4 @@
 	if(device)
 		device.remove_chastity(human_mob)
 		device.forceMove(get_turf(human_mob))
-		human_mob.visible_message(span_notice("the divine hand of Eora slipped [device] free from [human_mob]'s loins!"))
+		human_mob.visible_message(span_notice("the divine hand of Love slipped [device] free from [human_mob]'s loins!"))

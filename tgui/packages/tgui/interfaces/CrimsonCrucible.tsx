@@ -601,7 +601,7 @@ const ActiveProjectCard = (props: ActiveProjectCardProps) => {
             t={t}
           />
         </Stack.Item>
-        {isLord && (
+        {!!isLord && (
           <Stack.Item width="128px">
             <Button
               fluid
@@ -633,7 +633,7 @@ const ActiveProjectCard = (props: ActiveProjectCardProps) => {
       <Box color="#563f37" mt={0.5} fontSize={0.9}>
         {t('contributors')} {project.contributorsText}
       </Box>
-      {project.canContribute && (
+      {!!project.canContribute && (
         <Box color="#563f37" mt={0.3} fontSize={0.9}>
           {project.contributionText}
         </Box>

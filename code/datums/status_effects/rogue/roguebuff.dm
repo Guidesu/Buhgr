@@ -47,7 +47,7 @@
 	icon_state = "drunk"
 
 /atom/movable/screen/alert/status_effect/buff/drunknoc
-	name = "Noc-Shine Strength"
+	name = "Moonshine Strength"
 	desc = ""
 	icon_state = "drunk"
 
@@ -1188,7 +1188,7 @@
 #define BLESSINGOFSUN_FILTER "sun_glow"
 /atom/movable/screen/alert/status_effect/buff/guidinglight
 	name = "Guiding Light"
-	desc = "Astrata's gaze follows me, lighting the path!"
+	desc = "The Sun's gaze follows me, lighting the path!"
 	icon_state = "stressvg"
 
 /datum/status_effect/buff/guidinglight // Hey did u follow us from ritualcircles? Cool, okay this stuff is pretty simple yeah? Most ritual circles use some sort of status effects to get their effects ez.
@@ -1246,7 +1246,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/moonlightdance
 	name = "Moonlight Dance"
-	desc = "Noc's stony touch lays upon my mind, bringing me wisdom."
+	desc = "The Moon's stony touch lays upon my mind, bringing me wisdom."
 
 
 /datum/status_effect/buff/moonlightdance/on_apply()
@@ -1257,7 +1257,7 @@
 
 /datum/status_effect/buff/moonlightdance/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("Noc's silver leaves my eyes."))
+	to_chat(owner, span_warning("The Moon's silver leaves my eyes."))
 	REMOVE_TRAIT(owner, TRAIT_DARKVISION, MAGIC_TRAIT)
 
 
@@ -1269,15 +1269,15 @@
 
 /atom/movable/screen/alert/status_effect/buff/knowledgerituos
 	name = "Insightful Chant"
-	desc = "Zizo's mandate and her absolute truth reshapes my mynd, bringing me clarity from ignorance."
+	desc = "The Forbidden's absolute truth reshapes my mynd, bringing me clarity from ignorance."
 	icon_state = "rituos_exchange"
 
 /datum/status_effect/buff/knowledgerituos/on_apply()
 	. = ..()
 	if(HAS_TRAIT(owner, TRAIT_NOMOOD))
-		to_chat(owner, span_warning("I see through Zizo's vision. No truth can hide from me."))
+		to_chat(owner, span_warning("I see through the Forbidden's vision. No truth can hide from me."))
 	else
-		to_chat(owner, span_warning("I see through Zizo's vision. No truth can hide from me; I feel a strange hollowness in my chest as my emotions fade away."))
+		to_chat(owner, span_warning("I see through the Forbidden's vision. No truth can hide from me; I feel a strange hollowness in my chest as my emotions fade away."))
 	//Now we add traits after our flavor check.
 	ADD_TRAIT(owner, TRAIT_NITEVISION, MAGIC_TRAIT) //better night vision than Noc... but...
 	ADD_TRAIT(owner, TRAIT_NOMOOD, MAGIC_TRAIT)
@@ -1289,9 +1289,9 @@
 	REMOVE_TRAIT(owner, TRAIT_NOMOOD, MAGIC_TRAIT)
 	//we now check for our removal message.
 	if(HAS_TRAIT(owner, TRAIT_NOMOOD))
-		to_chat(owner, span_warning("Zizo's vision leaves my mynd, the pain from the light receeds."))
+		to_chat(owner, span_warning("The Forbidden's vision leaves my mynd, the pain from the light receeds."))
 	else
-		to_chat(owner, span_warning("Zizo's vision leaves my mynd, the pain from the light receeds and I feel that vibrant feeling of emotion again."))
+		to_chat(owner, span_warning("The Forbidden's vision leaves my mynd, the pain from the light receeds and I feel that vibrant feeling of emotion again."))
 
 
 /datum/status_effect/buff/utilityrituos
@@ -1302,25 +1302,25 @@
 
 /atom/movable/screen/alert/status_effect/buff/utilityrituos
 	name = "Progressive Trance"
-	desc = "Zizo's mandate and her absolute truth reshapes my mynd, I learn unnaturally fast and my hands work wrydly fast."
+	desc = "The Forbidden's absolute truth reshapes my mynd, I learn unnaturally fast and my hands work wrydly fast."
 	icon_state = "rituos_exchange"
 
 
 /datum/status_effect/buff/utilityrituos/on_apply()
 	. = ..()
-	to_chat(owner, span_warning("My mynd and talent bends to Zizo's will, I learn unnaturally fast."))
+	to_chat(owner, span_warning("My mynd and talent bends to the Forbidden's will, I learn unnaturally fast."))
 	ADD_TRAIT(owner, TRAIT_JACKOFALLTRADES, MAGIC_TRAIT)
 
 
 /datum/status_effect/buff/utilityrituos/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("Zizo's will loosens upon my mynd and everything slows back to normal."))
+	to_chat(owner, span_warning("The Forbidden's will loosens upon my mynd and everything slows back to normal."))
 	REMOVE_TRAIT(owner, TRAIT_JACKOFALLTRADES, MAGIC_TRAIT)
 
 
 /atom/movable/screen/alert/status_effect/buff/flylordstriage
 	name = "Flylord's Triage"
-	desc = "Pestra's servants crawl through my pores and wounds!"
+	desc = "The servants of Healing crawl through my pores and wounds!"
 	icon_state = "buff"
 
 /datum/status_effect/buff/flylordstriage
@@ -1407,7 +1407,7 @@
 
 /datum/status_effect/buff/undermaidenbargainheal/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("The Bargain struck in my name has been fulfilled... I am thrown from Necra's embrace, another in my place..."))
+	to_chat(owner, span_warning("The Bargain struck in my name has been fulfilled... I am thrown from Death's embrace, another in my place..."))
 	playsound(owner, 'sound/misc/deadbell.ogg', 100, FALSE, -1)
 	REMOVE_TRAIT(owner, TRAIT_NODEATH, id)
 
@@ -1456,12 +1456,12 @@
 
 /datum/status_effect/buff/lesserwolf/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("I feel Dendor's blessing leave my body..."))
+	to_chat(owner, span_warning("I feel the Wilds's blessing leave my body..."))
 	REMOVE_TRAIT(owner, TRAIT_LONGSTRIDER, id)
 	REMOVE_TRAIT(owner, TRAIT_STRONGBITE, id)
 
 /atom/movable/screen/alert/status_effect/buff/malumritual
-	name = "Blessing of Malum"
+	name = "Blessing of the Craft"
 	desc = "Tiredness and failure is not an option I must finish my work..."
 	icon_state = "buff"
 
@@ -1472,16 +1472,16 @@
 
 /datum/status_effect/buff/malumritual/on_apply()
 	. = ..()
-	to_chat(owner, span_warning("I feel Malum's persistance envelop me..."))
+	to_chat(owner, span_warning("I feel the Craft's persistance envelop me..."))
 	ADD_TRAIT(owner, TRAIT_MALUMCHOSEN , id)
 
 /datum/status_effect/buff/malumritual/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("I feel Malum's blessing fade away..."))
+	to_chat(owner, span_warning("I feel the Craft's blessing fade away..."))
 	REMOVE_TRAIT(owner, TRAIT_MALUMCHOSEN , id)
 
 /atom/movable/screen/alert/status_effect/buff/pacify
-	name = "Blessing of Eora"
+	name = "Blessing of Love"
 	desc = "I feel my heart as light as feathers. All my worries have washed away."
 	icon_state = "buff"
 
@@ -1515,7 +1515,7 @@
 
 //A lesser variant of Eoran blessing meant for peacecake consumption.
 /atom/movable/screen/alert/status_effect/buff/peacecake
-	name = "Lesser blessing of Eora"
+	name = "Lesser blessing of Love"
 	desc = "I feel my heart lighten. All my worries ease away."
 	icon_state = "buff"
 
@@ -2023,7 +2023,7 @@
 	REMOVE_TRAIT(owner, TRAIT_HEAVYARMOR, REF(src))
 
 /atom/movable/screen/alert/status_effect/buff/psydonic_endurance
-	name = "Psydonic Vitality"
+	name = "Unbroken Vitality"
 	desc = "I feel blessed, underneath this holy armor!"
 	icon_state = "stressvg"
 
@@ -2126,8 +2126,8 @@
 	duration = 30 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/nocblessing
-	name = "Noc's blessing"
-	desc = "Gazing Noc helps me think."
+	name = "Blessing of the Moon"
+	desc = "Gazing at the Moon helps me think."
 	icon_state = "buff"
 
 /datum/status_effect/buff/massage
@@ -2304,8 +2304,8 @@
 	UnregisterSignal(owner, list(COMSIG_MOB_ITEM_AFTERATTACK, COMSIG_HUMAN_MELEE_UNARMED_ATTACK, COMSIG_LIVING_LIFE))
 
 /atom/movable/screen/alert/status_effect/buff/ravox_vow
-	name = "Ravox vow"
-	desc = "I vowed to Ravox. I shall bring justice to Psydonia."
+	name = "Vow of Law"
+	desc = "I made a vow to Law. I shall bring justice to this land."
 
 #define JOYBRINGER_FILTER "joybringer"
 
@@ -2314,7 +2314,7 @@
 	var/outline_colour = "#a529e8"
 	duration = 20 MINUTES
 	tick_interval = -1
-	examine_text = span_love("SUBJECTPRONOUN is bathed in Baotha's blessings!")
+	examine_text = span_love("SUBJECTPRONOUN is bathed in the Forbidden's blessings!")
 	alert_type = null
 
 /datum/status_effect/joybringer/on_apply()
@@ -2637,7 +2637,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/windup
 	name = "Drill Windup"
-	desc = "Malum's own drill has wound me up. I am faster, now."
+	desc = "The Craft's own drill has wound me up. I am faster, now."
 	icon_state = "buff"
 
 /datum/status_effect/buff/tuneup
@@ -2648,7 +2648,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/tuneup
 	name = "Wrench Tuneup"
-	desc = "Malum's own wrench powers me. I can withstand more damage, now."
+	desc = "The Craft's own wrench powers me. I can withstand more damage, now."
 	icon_state = "buff"
 
 #define PLAGUEBRINGER_FILTER "plaguebringer"
@@ -2775,7 +2775,7 @@
 
 
 /atom/movable/screen/alert/status_effect/buff/necra_consecrate
-	name = "Necra's Blessed Consecration"
+	name = "Death's Blessed Consecration"
 	desc = "Upon this ground, I hold firm. Upon this ground, Her will guides me true. Upon this ground, I will send them back to Her waiting grasp."
 	icon_state = "buff"
 
@@ -2791,13 +2791,13 @@
 	var/outline_colour = "#EEBBBB"
 	duration = 20 MINUTES
 	tick_interval = -1
-	examine_text = span_good("SUBJECTPRONOUN is bathed in Eora's Light!")
+	examine_text = span_good("SUBJECTPRONOUN is bathed in Love's Light!")
 	alert_type = null
 
 /datum/status_effect/eoranaura/on_apply()
 	. = ..()
 
-	owner.visible_message(span_userdanger("A tide of Eoran light surges from [owner], it fills you with peace and hope!"))
+	owner.visible_message(span_userdanger("A tide of Love light surges from [owner], it fills you with peace and hope!"))
 
 	var/filter = owner.get_filter(EORANAURA_FILTER)
 	if(!filter)
@@ -2976,6 +2976,6 @@
 	. = ..()
 
 /atom/movable/screen/alert/status_effect/buff/baothablessing
-	name = "Baothan Blessing"
-	desc = "Baotha has blessed you with immunity to overdose. Rejoice!"
+	name = "Forbidden Blessing"
+	desc = "The Forbidden has blessed you with immunity to overdose. Rejoice!"
 	icon_state = "acid"

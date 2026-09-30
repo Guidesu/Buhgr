@@ -81,7 +81,7 @@ export const ExaminePanel = () => {
     >
       <Window.Content>
         <Stack vertical fill>
-          {hasAnyGalleryImages && (
+          {!!hasAnyGalleryImages && (
             <Stack style={{ marginBottom: '4px' }}>
               <Stack.Item grow>
                 <PageButton
@@ -103,7 +103,7 @@ export const ExaminePanel = () => {
               </Stack.Item>
             </Stack>
           )}
-          {hasAnyGalleryImages && <Stack.Divider />}
+          {!!hasAnyGalleryImages && <Stack.Divider />}
           <Stack.Item
             grow
             position="relative"

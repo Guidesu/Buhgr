@@ -304,7 +304,7 @@ export const MarketView = ({
         >
           {headerLabel ?? 'State of the Markets'}
         </div>
-        {market.theme_dispatch && (
+        {!!market.theme_dispatch && (
           <div
             style={{
               color: SEAL_AMBER,
@@ -317,7 +317,7 @@ export const MarketView = ({
             {market.theme_dispatch}
           </div>
         )}
-        {headerNote && (
+        {!!headerNote && (
           <div
             style={{
               color: INK_SOFT,
@@ -353,13 +353,13 @@ export const MarketView = ({
             ? '[ hide realms demand matrix ]'
             : '[ show realms demand matrix ]'}
         </div>
-        {matrixOpen && (
+        {!!matrixOpen && (
           <RealmDemandMatrix
             realms={market.realm_demand_matrix ?? []}
             allBuckets={market.all_buckets ?? []}
           />
         )}
-        {loreOpen && (
+        {!!loreOpen && (
           <div style={{ ...dashedFrameStyle, marginTop: 8 }}>
             <p style={{ margin: '0 0 6px 0' }}>
               Wares lifted from the Navigator pass into the warehouses of{' '}

@@ -867,14 +867,14 @@ A LITTLE MORE CONSISTENT IN HERE. PLEASE DO YOUR BEST. THANKS.
 				)
 
 /datum/supply_pack/rogue/wardrobe/caparison/caparison_auxentius
-	name = "Auxentian Caparison"
+	name = "Sun Caparison"
 	cost = 25
 	contains = list(
 					/obj/item/caparison/auxentius,
 				)
 
 /datum/supply_pack/rogue/wardrobe/caparison/caparison_eora
-	name = "Eoran Caparison"
+	name = "Love Caparison"
 	cost = 25
 	contains = list(
 					/obj/item/caparison/eora

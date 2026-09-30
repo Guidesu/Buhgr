@@ -96,7 +96,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(list(/area/rogue/indoors
 	droning_sound = 'sound/music/area/morosewaters.ogg'
 
 /area/rogue/indoors/auxentiusarena
-	name = "Auxentius's Arena"
+	name = "The Sun's Arena"
 	deathsight_message = "an arena of justice"
 
 /area/rogue/indoors/auxentiusarena/can_craft_here()

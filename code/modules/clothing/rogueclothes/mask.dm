@@ -82,7 +82,7 @@
 /obj/item/clothing/mask/rogue/spectacles/inq
 	name = "otavan nocshade lens-pair"
 	icon_state = "bglasses"
-	desc = "Made to both ENDURE and incite debate within those few Noc-Sainted within Otava. Noc-lit walks, yae or nae? The lenses look like they can be brushed aside with a carefully guided right-pointer finger led motion."
+	desc = "Made to both ENDURE and incite debate within those few the Moon-Sainted within Otava. The Moon-lit walks, yae or nae? The lenses look like they can be brushed aside with a carefully guided right-pointer finger led motion."
 	max_integrity = 300
 	var/lensmoved = FALSE
 
@@ -246,7 +246,7 @@
 
 /obj/item/clothing/mask/rogue/sack/psy
 	name = "vaeltic sack mask"
-	desc = "An ordinary brown sack. This one has eyeholes cut into it, bearing a crude chalk drawing of Praecursor's cross upon its visage. Unsettling for most."
+	desc = "An ordinary brown sack. This one has eyeholes cut into it, bearing a crude chalk drawing of the Absent God's cross upon its visage. Unsettling for most."
 	icon_state = "sackmask_psy"
 
 /obj/item/clothing/mask/rogue/facemask
@@ -352,7 +352,7 @@
 
 /obj/item/clothing/mask/rogue/wildguard
 	name = "wild guard"
-	desc = "A mask shaped after the snarling beasts of Ignatius."
+	desc = "A mask shaped after the snarling beasts of the Wilds."
 	icon_state = "wildguard"
 	blocksound = PLATEHIT
 	break_sound = 'sound/foley/breaksound.ogg'
@@ -424,7 +424,7 @@
 
 /obj/item/clothing/mask/rogue/facemask/praecursormask
 	name = "vaeltic mask"
-	desc = "A silver mask, forever locked in a rigor of uncontestable joy. The Order of Saint Xylix can't decide on whether it's meant to represent Praecursor's 'mirthfulness,' 'theatricality,' or the unpredictable melding of both."
+	desc = "A silver mask, forever locked in a rigor of uncontestable joy. The Order of Saint Trickery can't decide on whether it's meant to represent the Absent God's 'mirthfulness,' 'theatricality,' or the unpredictable melding of both."
 	icon_state = "psydonmask"
 	item_state = "psydonmask"
 
@@ -603,13 +603,13 @@
 
 /obj/item/clothing/mask/rogue/lordmask/naledi/lesser
 	name = "naledian runed mask"
-	desc = "Runes and wards, meant for daemons; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Naledian psycross. Lightly armored to protect the wearer's face."
+	desc = "Runes and wards, meant for daemons; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Naledian holy cross. Lightly armored to protect the wearer's face."
 
 /obj/item/clothing/mask/rogue/lordmask/naledi
 	name = "war scholar's mask"
 	item_state = "naledimask"
 	icon_state = "naledimask"
-	desc = "Runes and wards, meant for daemons; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Naledian psycross. Armored to protect the wearer's face."
+	desc = "Runes and wards, meant for daemons; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Naledian holy cross. Armored to protect the wearer's face."
 	max_integrity = ARMOR_INT_MASK_IRON
 	armor = ARMOR_PLATE
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
@@ -769,7 +769,7 @@
 	name = "weathered mask"
 	item_state = "xylix_weathered"
 	icon_state = "xylix_weathered"
-	desc = "An ancient ceramic face. It looks weathered, the sort molded by Xylixian worshippers of many yils past. Even when cast aside, it feels like the hardened clay has never left your hands. As if it always finds a way back into your palms."
+	desc = "An ancient ceramic face. It looks weathered, the sort molded by Trickery worshippers of many yils past. Even when cast aside, it feels like the hardened clay has never left your hands. As if it always finds a way back into your palms."
 	// No armor anyways
 	max_integrity = 200
 	// Not messing with jester mask, but again, it has no armor. many other masks also don't block vision.
@@ -945,4 +945,4 @@
 /obj/item/clothing/mask/rogue/facemask/steel/visor/cleric
 	name = "clerical helmetless visor"
 	desc = "A thin visor of flimsy iron and a thin-silver coating with faint runic-wards and etchings into the material in strange runic wards and sigils, \
-	while this flimsy mask offers barely any protection, the many Noccite cults of Psydonia aclaim the gaps make it easier for Noc's silvered light to enighten the mind."
+	while this flimsy mask offers barely any protection, the many Moon cults of Psydonia aclaim the gaps make it easier for the Moon's silvered light to enighten the mind."

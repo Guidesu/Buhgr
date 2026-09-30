@@ -36,13 +36,13 @@ GLOBAL_LIST_EMPTY(volkovoi_cullings)
 		remove_verb(winner, /mob/living/carbon/human/proc/remember_culling)
 		winner.add_stress(/datum/stressevent/graggar_culling_finished)
 		winner.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/extract_heart)
-		to_chat(winner, span_notice("Your rival's heart has been DESTROYED! While not the glorious consumption Volkovoi desired, he acknowledges you as not weak."))
+		to_chat(winner, span_notice("Your rival's heart has been DESTROYED! While not the glorious consumption War desired, he acknowledges you as not weak."))
 		winner.adjust_triumphs(1)
 	if(loser)
 		loser.remove_stress(/datum/stressevent/graggar_culling_unfinished)
 		remove_verb(loser, /mob/living/carbon/human/proc/remember_culling)
 		loser.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/extract_heart)
-		to_chat(loser, span_red("You have FAILED Volkovoi, weakling!"))
+		to_chat(loser, span_red("You have FAILED War, weakling!"))
 		loser.change_stat(STATKEY_STR, -1)
 		loser.change_stat(STATKEY_CON, -1)
 		loser.change_stat(STATKEY_WIL, -1)
@@ -68,20 +68,20 @@ GLOBAL_LIST_EMPTY(volkovoi_cullings)
 	if(loser)
 		loser.remove_stress(/datum/stressevent/graggar_culling_unfinished)
 		remove_verb(loser, /mob/living/carbon/human/proc/remember_culling)
-		to_chat(loser, span_boldred("You have FAILED Volkovoi for the LAST TIME!"))
+		to_chat(loser, span_boldred("You have FAILED War for the LAST TIME!"))
 
 	qdel(src)
 
 /// Verb for Volkovoi's culling contestants to remember their targets
 /mob/living/carbon/human/proc/remember_culling()
-	set name = "Volkovoi's Culling"
-	set category = "RoleUnique.Volkovoi"
+	set name = "War's Culling"
+	set category = "RoleUnique.War"
 	if(!mind)
 		return
 	mind.recall_culling(src)
 
 /datum/round_event_control/volkovoi_culling
-	name = "Volkovoi's Culling"
+	name = "War's Culling"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/volkovoi_culling
 	weight = 8
@@ -137,10 +137,10 @@ GLOBAL_LIST_EMPTY(volkovoi_cullings)
 		first_chosen.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/extract_heart)
 		add_verb(first_chosen, /mob/living/carbon/human/proc/remember_culling)
 		to_chat(first_chosen, span_userdanger("YOU ARE VOLKOVOI'S CHOSEN!"))
-		to_chat(first_chosen, span_red("Weak should feed the strong, that is Volkovoi's will. Prove that you are not weak by eating the heart of [span_notice(second_chosen.real_name)], the [second_chosen.job] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
+		to_chat(first_chosen, span_red("Weak should feed the strong, that is War's will. Prove that you are not weak by eating the heart of [span_notice(second_chosen.real_name)], the [second_chosen.job] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
 		to_chat(first_chosen, span_red("[span_notice("[second_chosen.real_name]")], the [second_chosen.job] is somewhere in [span_notice("[second_chosen_location]")]. Eat their heart before they eat yours!"))
 		if(grand_culling)
-			to_chat(first_chosen, span_notice("Volkovoi has decreed a GRAND CULLING! Many hearts will feed the strong todae!"))
+			to_chat(first_chosen, span_notice("War has decreed a GRAND CULLING! Many hearts will feed the strong todae!"))
 		first_chosen.playsound_local(first_chosen, 'sound/magic/marked.ogg', 100)
 
 		// Notify second chosen
@@ -148,8 +148,8 @@ GLOBAL_LIST_EMPTY(volkovoi_cullings)
 		second_chosen.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/extract_heart)
 		add_verb(second_chosen, /mob/living/carbon/human/proc/remember_culling)
 		to_chat(second_chosen, span_userdanger("YOU ARE VOLKOVOI'S CHOSEN!"))
-		to_chat(second_chosen, span_red("Weak should feed the strong, that is Volkovoi's will. Prove that you are not weak by eating the heart of [span_notice(first_chosen.real_name)], the [first_chosen.job] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
+		to_chat(second_chosen, span_red("Weak should feed the strong, that is War's will. Prove that you are not weak by eating the heart of [span_notice(first_chosen.real_name)], the [first_chosen.job] and gain unimaginable power in turn. Fail, and you will be the one eaten."))
 		to_chat(second_chosen, span_red("[span_notice("[first_chosen.real_name]")], the [first_chosen.job] is somewhere in [span_notice("[first_chosen_location]")]. Eat their heart before they eat yours!"))
 		if(grand_culling)
-			to_chat(second_chosen, span_notice("Volkovoi has decreed a GRAND CULLING! Many hearts will feed the strong todae!"))
+			to_chat(second_chosen, span_notice("War has decreed a GRAND CULLING! Many hearts will feed the strong todae!"))
 		second_chosen.playsound_local(second_chosen, 'sound/magic/marked.ogg', 100)

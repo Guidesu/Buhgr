@@ -2252,7 +2252,7 @@ GLOBAL_LIST_INIT(body_builds, init_body_builds())
 
 	//ATMO/TURF/TEMPERATURE
 	var/turf/cur_turf = get_turf(H)
-	var/loc_temp = cur_turf.temperature
+	var/loc_temp = cur_turf.get_ambient_temperature()
 
 	//Body temperature is adjusted in two parts: first there my body tries to naturally preserve homeostasis (shivering/sweating), then it reacts to the surrounding environment
 	//Thermal protection (insulation) has mixed benefits in two situations (hot in hot places, cold in hot places)

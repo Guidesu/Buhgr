@@ -34,7 +34,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/raneshen/new_coat
 	name = "ranesheni scale coat"
-	desc = "A lightweight armor made from the scales of the Ranesheni \"megarmach\", an armored reptilian creacher that ambushes prey by the riverside, and drags them deep into Abyssor's domain."
+	desc = "A lightweight armor made from the scales of the Ranesheni \"megarmach\", an armored reptilian creacher that ambushes prey by the riverside, and drags them deep into the Sea's domain."
 	icon = 'modular_twilight_axis/icons/roguetown/clothing/armor.dmi'
 	icon_state = "light_armour"
 	item_state = "light_armour"

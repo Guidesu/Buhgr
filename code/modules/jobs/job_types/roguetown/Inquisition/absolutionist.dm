@@ -7,7 +7,7 @@
 	spawn_positions = 1
 	forbidden_races = list(RACES_OOZE)
 	allowed_patrons = list(/datum/patron/tribunal/praecursor) //Requires the character to be a practicing Vaeltite.
-	tutorial = "Once, you were alone in this monastery; a chapel of stone, protecting a shard of Praecursor's divinity. Now, you've a whole sect to shepherd - and their propensity for violence oft-clashes with your own vows of pacifism. Temper the floch with your wisdom, siphon away their wounds with your blessings, and guide the wayard towards absolution."
+	tutorial = "Once, you were alone in this monastery; a chapel of stone, protecting a shard of the Absent God's divinity. Now, you've a whole sect to shepherd - and their propensity for violence oft-clashes with your own vows of pacifism. Temper the floch with your wisdom, siphon away their wounds with your blessings, and guide the wayard towards absolution."
 	selection_color = JCOLOR_INQUISITION
 	outfit = /datum/outfit/job/roguetown/absolver
 	display_order = JDO_ABSOLVER
@@ -38,7 +38,7 @@
 
 /datum/advclass/absolver
 	name = "Absolver"
-	tutorial = "Once, you were alone in this monastery; a chapel of stone, protecting a shard of Praecursor's divinity. Now, you've a whole sect to shepherd - and their propensity for violence oft-clashes with your own vows of pacifism. Temper the floch with your wisdom, siphon away their wounds with your blessings, and guide the wayard towards absolution."
+	tutorial = "Once, you were alone in this monastery; a chapel of stone, protecting a shard of the Absent God's divinity. Now, you've a whole sect to shepherd - and their propensity for violence oft-clashes with your own vows of pacifism. Temper the floch with your wisdom, siphon away their wounds with your blessings, and guide the wayard towards absolution."
 	outfit = /datum/outfit/job/roguetown/absolver/basic
 	subclass_languages = list(/datum/language/medullan)
 	category_tags = list(CTAG_ABSOLVER)
@@ -120,7 +120,7 @@
 
 /obj/effect/proc_holder/spell/invoked/convert_praecursor
 	name = "REDEEM"
-	desc = "Absolve the wayward and lost of their sins, bringing them back into His fold.  </br>‎  </br>Offers a chance for the target to willingly renounce their faith and allegiance, in favor of becoming a worshipper of Praecursor. In the right circumstance, this can save a heretic or apostate from a far less peaceful end."
+	desc = "Absolve the wayward and lost of their sins, bringing them back into His fold.  </br>‎  </br>Offers a chance for the target to willingly renounce their faith and allegiance, in favor of becoming a worshipper of the Absent God. In the right circumstance, this can save a heretic or apostate from a far less peaceful end."
 	invocations = list("Allfather, accept your wayward child once more.")
 	invocation_type = "whisper"
 	sound = 'sound/magic/bless.ogg'
@@ -142,7 +142,7 @@
 		return FALSE
 
 	if(istype(target.patron, /datum/patron/tribunal/praecursor))
-		to_chat(user, span_warning("[target] is already faithful to Praecursor!"))
+		to_chat(user, span_warning("[target] is already faithful to the Absent God!"))
 		revert_cast()
 		return FALSE
 
@@ -177,8 +177,8 @@
 			target.mind.RemoveSpell(S)
 
 		target.devotion.Destroy()
-		target.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/projectile/divineblast)
-		target.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/projectile/unholyblast)
+		target.mind.RemoveSpell(/datum/action/cooldown/spell/projectile/divine_blast)
+		target.mind.RemoveSpell(/datum/action/cooldown/spell/projectile/unholy_blast)
 
 	// Convert to PRAECURSOR
 	target.patron = new user.patron.type()

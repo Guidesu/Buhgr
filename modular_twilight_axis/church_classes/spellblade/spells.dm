@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/self/noctite_fortify
 	name = "Arcane Armor"
-	desc = "Bearing the light of Noc within, it protects you. You grow stronger under moonlight, but Astrata hinders you, so you cannot use this under her light."
+	desc = "Bearing the light of the Moon within, it protects you. You grow stronger under moonlight, but the Sun hinders you, so you cannot use this under her light."
 	recharge_time = 10 MINUTES
 	action_icon_state = "summons"
 	action_icon = 'icons/mob/actions/roguespells.dmi'
@@ -36,8 +36,8 @@
 
 
 /atom/movable/screen/alert/status_effect/buff/noctite_fortify
-	name = "Noc's Light Fortification"
-	desc = "Noc has blessed you, granting you protection"
+	name = "The Moon's Light Fortification"
+	desc = "The Moon has blessed you, granting you protection"
 	icon_state = "status"
 
 /datum/status_effect/noctite_fortify
@@ -80,14 +80,14 @@
 
 /obj/effect/proc_holder/spell/invoked/spellblade_summon_weapon
 	name = "Summon moonlight weapon"
-	desc = "The light of Noc pierces reality, taking a solid but unstable form, shaping the chosen weapon. Astrata opposes this, so it is best to cast it under Noc's light."
+	desc = "The light of the Moon pierces reality, taking a solid but unstable form, shaping the chosen weapon. The Sun opposes this, so it is best to cast it under the Moon's light."
 	clothes_req = FALSE
 	recharge_time = 2 SECONDS
 	chargedloop = /datum/looping_sound/invokegen
 	action_icon_state = "summon"
 	overlay_state = "moonlight_saber"
 	overlay_icon = 'modular_twilight_axis/church_classes/icons/prismatic_weapons64.dmi'
-	invocations = list("Noc, bestow upon me a weapon", "Light of Noc, forge me a weapon")
+	invocations = list("The Moon, bestow upon me a weapon", "Light of the Moon, forge me a weapon")
 	invocation_type = "shout"
 	spell_tier = 2 
 	cost = 10 
@@ -106,11 +106,11 @@
 	sleep(0.75 SECONDS)
 	if(user.put_in_hands(spawned_weapon, del_on_fail = TRUE))
 		if(GLOB.tod == "day")
-			to_chat(usr, span_warningbig("I have forged the weapon and Noc has granted me knowledge of it. The light of Astrata opposes this, so the weapon and my skills are weaker."))
+			to_chat(usr, span_warningbig("I have forged the weapon and the Moon has granted me knowledge of it. The light of the Sun opposes this, so the weapon and my skills are weaker."))
 			user.adjust_skillrank(weapon_select.selected_weapon.associated_skill, SKILL_LEVEL_APPRENTICE, TRUE)
 			spawned_weapon.force /= 2
 		else 
-			to_chat(usr, span_warning("I have forged the weapon and Noc has granted me knowledge of it."))
+			to_chat(usr, span_warning("I have forged the weapon and the Moon has granted me knowledge of it."))
 			user.adjust_skillrank(weapon_select.selected_weapon.associated_skill, SKILL_LEVEL_EXPERT, TRUE)
 		spawned_weapon.set_light(4, 2, 1.5, l_color ="#78a3c9")
 		QDEL_IN_CLIENT_TIME(spawned_weapon, 3 MINUTES)

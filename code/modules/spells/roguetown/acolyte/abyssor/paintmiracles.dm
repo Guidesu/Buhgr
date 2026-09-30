@@ -102,7 +102,7 @@
 		return TRUE
 
 	if(target.stat == DEAD)
-		to_chat(user, span_warning("The dead cannot hold the pigment of Abyssor."))
+		to_chat(user, span_warning("The dead cannot hold the pigment of the Sea."))
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_INK_AFFINITY))
 		to_chat(user, span_warning("[target] is already attuned to holy paints."))

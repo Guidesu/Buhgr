@@ -24,10 +24,10 @@
 		/datum/migrant_role/dark_itinerant_knight = 1,
 		/datum/migrant_role/dark_itinerant_squire = 1,
 	)
-	greet_text = "These lands have insulted once more Zizo, you are here to remind them of her prowess."
+	greet_text = "These lands have insulted once more the Forbidden, you are here to remind them of her prowess."
 
 /datum/migrant_role/dark_itinerant_knight
-	name = "Zizite Knight"
+	name = "Forbidden Knight"
 	greet_text = "You are an evil itinerant Knight, you have embarked alongside your squire on a voyage to engulf chaos within these lands."
 	antag_datum = /datum/antagonist/zizo_knight
 	grant_lit_torch = TRUE

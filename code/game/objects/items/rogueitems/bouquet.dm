@@ -37,7 +37,7 @@
 /obj/item/flowercrown
 	name = "flowercrown"
 	desc = "A carefully woven crown of fresh flowers, yet to wilt. Headwear beloved \
-	by Eorans and all pining romantics."
+	by Love faithful and all pining romantics."
 	icon = 'icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
 	alternate_worn_layer = 8.9 //On top of helmet
@@ -119,7 +119,7 @@
 
 /obj/item/flowercrown/briar
 	name = "crown of briar thorns"
-	desc = "A circlet of thorns often worn by devout followers of Ignatius. Designed to dig \
+	desc = "A circlet of thorns often worn by devout followers of the Wilds. Designed to dig \
 	into the flesh just enough to ground the wearer's sanity."
 	item_state = "briar_crown"
 	icon_state = "briar_crown"

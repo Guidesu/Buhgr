@@ -46,7 +46,7 @@ export const ColorPickerModal = () => {
       <Window.Content className="ColorPicker">
         <Stack fill vertical>
           {!!autofocus && <Autofocus />}
-          {message && (
+          {!!message && (
             <Stack.Item>
               <Section fill>
                 <Box color="label" overflow="hidden">

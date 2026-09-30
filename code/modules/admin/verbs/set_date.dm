@@ -22,7 +22,7 @@
 			"1 - Praecurse (March)",
 			"2 - Miluvane (April)",
 			"3 - Ignis (May)",
-			"4 - Auxentian (June)",
+			"4 - Sun (June)",
 			"5 - Viatis (July)",
 			"6 - Handwerran (August)",
 			"7 - Syonsfall (September)",

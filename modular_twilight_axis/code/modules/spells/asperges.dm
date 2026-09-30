@@ -1,15 +1,15 @@
 /datum/action/cooldown/spell/touch/asperges
 	name = "ASPERGES"
-	desc = "A solemn rite of the Grand Architect. Beseech Psydon to condense a small measure of sacred, structural moisture within a touched vessel.\n \
-	<b>Fill</b>: Beseech Psydon to condense holy moisture. Fills containers with water, dampens soil, cloth, or raw ingredients.\n \
-	<b>Clean</b>: Form a righteous prayer to purge chaotic grime. Scours blood, filth, and mundane stains from people, items, or the ground, restoring order through the absolute will of Psydon.\n \
+	desc = "A solemn rite of the Grand Architect. Beseech the Absent God to condense a small measure of sacred, structural moisture within a touched vessel.\n \
+	<b>Fill</b>: Beseech the Absent God to condense holy moisture. Fills containers with water, dampens soil, cloth, or raw ingredients.\n \
+	<b>Clean</b>: Form a righteous prayer to purge chaotic grime. Scours blood, filth, and mundane stains from people, items, or the ground, restoring order through the absolute will of the Absent God.\n \
 	<b>Bless</b>: Administer a solemn baptismal rite to the Grand Architect, washing away a repentant soul's chaotic past and cementing their place within His rigid design. THIS IS ONLY TO BE USED AFTER A CONVERSION IN ROLEPLAY. DO NOT USE THIS WITHOUT A ROLEPLAY BASIS OR THERE WILL BE DIRE CONSEQUENCES."
 
 	background_icon = 'icons/mob/actions/psydonmiracles.dmi'
 	button_icon = 'modular_twilight_axis/icons/mob/actions/psydonmiracles.dmi'
 	button_icon_state = "asperges"
 
-	draw_message = span_notice("I steady my breathing, aligning my thoughts with the unyielding order of Psydon.")
+	draw_message = span_notice("I steady my breathing, aligning my thoughts with the unyielding order of the Absent God.")
 	drop_message = span_notice("I release my focus from the divine domain.")
 
 	hand_path = /obj/item/melee/new_touch_attack/asperges
@@ -96,7 +96,7 @@
 			to_chat(caster, span_warning("[victim] is already filled to its capacity."))
 			return FALSE
 
-		caster.visible_message(span_info("[caster] closes [caster.p_their()] eyes in orthodox prayer, extending a hand over [victim] as pure, blessed moisture condenses..."), span_notice("I beseech Psydon for succour, commanding reality to yield to His divine order above [victim]..."))
+		caster.visible_message(span_info("[caster] closes [caster.p_their()] eyes in orthodox prayer, extending a hand over [victim] as pure, blessed moisture condenses..."), span_notice("I beseech the Absent God for succour, commanding reality to yield to His divine order above [victim]..."))
 
 		var/drip_speed = 1.5 SECONDS
 		var/water_qty = 5
@@ -124,7 +124,7 @@
 			to_chat(caster, span_warning("This cloth is already perfectly dampened by divine providence."))
 			return FALSE
 		the_cloth.wet = holy_skill * 5
-		caster.visible_message(span_info("[caster] lowers [caster.p_their()] head, beads of sacred moisture coalescing into [the_cloth] by righteous will."), span_notice("I command moisture into [the_cloth] in the name of Psydon."))
+		caster.visible_message(span_info("[caster] lowers [caster.p_their()] head, beads of sacred moisture coalescing into [the_cloth] by righteous will."), span_notice("I command moisture into [the_cloth] in the name of the Absent God."))
 		caster.devotion?.update_devotion(-spell.water_moisten)
 		spell.StartCooldown()
 		return TRUE
@@ -146,7 +146,7 @@
 		return TRUE
 
 	if (istype(victim, /obj/structure/soil))
-		caster.visible_message(span_info("[caster] conjures a righteous drizzle over the soil."), span_notice("I offer a brief liturgy to Psydon, restoring order and moisture to the soil."))
+		caster.visible_message(span_info("[caster] conjures a righteous drizzle over the soil."), span_notice("I offer a brief liturgy to the Absent God, restoring order and moisture to the soil."))
 		spell.StartCooldown()
 		return TRUE
 
@@ -164,7 +164,7 @@
 
 	if(istype(target, /obj/effect/decal/cleanable))
 		if(!should_clean_rune(target))
-			user.visible_message(span_notice("[user] gestures at \the [target.name]... but the active rune's power rebukes the ritual!"), span_notice("I attempt to purge \the [target.name], but the active ritual stands stubborn against Psydon's authority."))
+			user.visible_message(span_notice("[user] gestures at \the [target.name]... but the active rune's power rebukes the ritual!"), span_notice("I attempt to purge \the [target.name], but the active ritual stands stubborn against the Absent God's authority."))
 			return FALSE
 
 		user.visible_message(span_notice("[user] begins a sweeping gesture above \the [target.name]..."), span_notice("I begin to cleanse \the [target.name] from this space..."))

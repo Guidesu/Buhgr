@@ -125,24 +125,24 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	id = CRIME_PETTY_PROPOSAL_SCORN
 	tier = CRIME_TIER_PETTY
 	phrasings = list(
-		"the spurning, with undue insult, of one who proposed in good faith, a violation of Eora's love",
-		"the public mockery of a suitor who came in earnest, against Eora's binding",
+		"the spurning, with undue insult, of one who proposed in good faith, a violation of Love's love",
+		"the public mockery of a suitor who came in earnest, against Love's binding",
 	)
 
 /datum/quest_crime/petty_barren_mock
 	id = CRIME_PETTY_BARREN_MOCK
 	tier = CRIME_TIER_PETTY
 	phrasings = list(
-		"the mocking of a barren matron in the marketplace, against Eora's blessing",
-		"the public taunting of one who has lost a child, scorn unto Eora's gift",
+		"the mocking of a barren matron in the marketplace, against Love's blessing",
+		"the public taunting of one who has lost a child, scorn unto Love's gift",
 	)
 
 /datum/quest_crime/petty_guest_wine
 	id = CRIME_PETTY_GUEST_WINE
 	tier = CRIME_TIER_PETTY
 	phrasings = list(
-		"the spitting in wine ere it was poured for a guest, against Eora's hospitality",
-		"the souring of bread set out for a guest, an insult unto Eora's table",
+		"the spitting in wine ere it was poured for a guest, against Love's hospitality",
+		"the souring of bread set out for a guest, an insult unto Love's table",
 	)
 
 /datum/quest_crime/petty_tombstone_insult
@@ -185,7 +185,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 		"murder by stealth and ambush",
 		"the slaying of free folk by hidden hand",
 		"slaughter wrought in the dark, that no man might cry hue",
-		"the slaying of free folk by hidden hand, a slaughter that Auxentius's law abhors",
+		"the slaying of free folk by hidden hand, a slaughter that the Sun's law abhors",
 	)
 
 /datum/quest_crime/murder_watch
@@ -202,7 +202,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"the slaying of a herald bearing a sealed writ",
 		"the breaking of safe conduct, and bloodshed upon a messenger of the Duke",
-		"the breaking of safe conduct sworn under Auxentius's hilt, and bloodshed upon a messenger of the Duke",
+		"the breaking of safe conduct sworn under the Sun's hilt, and bloodshed upon a messenger of the Duke",
 	)
 
 /datum/quest_crime/arson_night
@@ -211,7 +211,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"arson of a steading by night",
 		"the kindling of fire upon a sleeping household's roof",
-		"the kindling of fire upon a sleeping household, that the day peace of Auxentius be torn into Noc's hours",
+		"the kindling of fire upon a sleeping household, that the day peace of the Sun be torn into the Moon's hours",
 	)
 
 /datum/quest_crime/granary_burning
@@ -220,7 +220,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"the burning of a granary in time of want",
 		"setting torch to common stores, that hunger fall upon the folk",
-		"the burning of a granary in time of want, that Auxentius's grain burns into ash before hungry mouths",
+		"the burning of a granary in time of want, that the Sun's grain burns into ash before hungry mouths",
 	)
 
 /datum/quest_crime/burglary
@@ -237,7 +237,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"cattle lifting, and the driving off of beasts from common pasture",
 		"the reiving of kine from honest holders",
-		"the reiving of kine from honest holders, a robbery of Ignatius's bounty unto a thieving keeping",
+		"the reiving of kine from honest holders, a robbery of the Wilds's bounty unto a thieving keeping",
 	)
 
 /datum/quest_crime/horse_theft
@@ -292,7 +292,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	id = CRIME_POACHING_LAND
 	tier = CRIME_TIER_COMMON
 	phrasings = list(
-		"the slaying of beasts in excess of need, leaving carcasses to rot, a crime against Ignatius's bounty",
+		"the slaying of beasts in excess of need, leaving carcasses to rot, a crime against the Wilds's bounty",
 		"the hunting of wood and field beyond reasonable want, that good meat was left for crows",
 	)
 
@@ -300,15 +300,15 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	id = CRIME_POACHING_FISH
 	tier = CRIME_TIER_COMMON
 	phrasings = list(
-		"the netting of fish in excess of need, leaving the catch to spoil upon the strand, a crime against Abyssor's bounty",
-		"the casting of nets beyond what mouths could fill, that Abyssor's tide was robbed for waste",
+		"the netting of fish in excess of need, leaving the catch to spoil upon the strand, a crime against the Sea's bounty",
+		"the casting of nets beyond what mouths could fill, that the Sea's tide was robbed for waste",
 	)
 
 /datum/quest_crime/false_relics
 	id = CRIME_FALSE_RELICS
 	tier = CRIME_TIER_COMMON
 	phrasings = list(
-		"the selling of false relics, peddling Auxentius's name for mammon",
+		"the selling of false relics, peddling the Sun's name for mammon",
 		"the hawking of forged bones and chains, that the holy were named upon trinkets",
 	)
 
@@ -319,15 +319,15 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"treason against the lord to whom they had sworn faith",
 		"the betrayal of those whose bread they had eaten",
-		"treason against the lord to whom they had sworn faith before Auxentius's altar",
+		"treason against the lord to whom they had sworn faith before the Sun's altar",
 	)
 
 /datum/quest_crime/oath_breaking
 	id = CRIME_OATH_BREAKING
 	tier = CRIME_TIER_OATH
 	phrasings = list(
-		"the breaking of the oath sworn before Auxentius upon hilt and altar",
-		"forswearing of vow taken in the hearing of Auxentius",
+		"the breaking of the oath sworn before the Sun upon hilt and altar",
+		"forswearing of vow taken in the hearing of the Sun",
 	)
 
 /datum/quest_crime/desertion
@@ -336,7 +336,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"desertion from the Duke's levy in time of war",
 		"the casting down of arms while the foe yet stood",
-		"desertion from the Duke's levy, casting down arms in the hour Auxentius would have them stand",
+		"desertion from the Duke's levy, casting down arms in the hour the Sun would have them stand",
 	)
 
 /datum/quest_crime/foreign_pay
@@ -361,7 +361,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"compassing the death of a sworn officer of the Duke",
 		"the imagining and counsel of murder against the Duke's own men",
-		"compassing the death of a sworn officer of the Duke, an evil Auxentius knows by its scent",
+		"compassing the death of a sworn officer of the Duke, an evil the Sun knows by its scent",
 	)
 
 /datum/quest_crime/adhering_enemies
@@ -376,16 +376,16 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	id = CRIME_OATH_BETRAYAL
 	tier = CRIME_TIER_OATH
 	phrasings = list(
-		"the betrayal of an oathed companion in the hour of need, that Auxentius's sworn faith was made coin",
-		"the abandonment of one whose hand had been clasped in oath, against Auxentius's measure",
+		"the betrayal of an oathed companion in the hour of need, that the Sun's sworn faith was made coin",
+		"the abandonment of one whose hand had been clasped in oath, against the Sun's measure",
 	)
 
 /datum/quest_crime/marriage_vow_broken
 	id = CRIME_MARRIAGE_VOW_BROKEN
 	tier = CRIME_TIER_OATH
 	phrasings = list(
-		"the breaking of marriage vow sworn before Eora, that the bond fell into Necra's hands ere its time",
-		"the forsaking of a wedded spouse against the binding made under Eora's eye",
+		"the breaking of marriage vow sworn before Love, that the bond fell into Death's hands ere its time",
+		"the forsaking of a wedded spouse against the binding made under Love's eye",
 	)
 
 /datum/quest_crime/sacrilege_temple
@@ -402,7 +402,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"the slaying of a priest before their own altar",
 		"shedding of holy blood within the precinct of the Tens",
-		"the slaying of a priest before their own altar, the blood of Auxentius's servant cried out from the stones",
+		"the slaying of a priest before their own altar, the blood of the Sun's servant cried out from the stones",
 	)
 
 /datum/quest_crime/shrine_robbery
@@ -419,7 +419,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"the defiling of consecrated ground",
 		"the working of unclean act upon earth blessed unto the Tens",
-		"the defiling of consecrated ground, an unclean act upon earth Ignatius blessed",
+		"the defiling of consecrated ground, an unclean act upon earth the Wilds blessed",
 	)
 
 /datum/quest_crime/sanctuary_breaking
@@ -444,7 +444,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"the desecration of a tomb of the honoured dead",
 		"the breaking of barrow and crypt, that the dead lie ill at rest",
-		"the desecration of a tomb of the honoured dead, defiance against Necra's veil",
+		"the desecration of a tomb of the honoured dead, defiance against Death's veil",
 	)
 
 /datum/quest_crime/relic_theft
@@ -493,23 +493,23 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"the poisoning of a holy well",
 		"the fouling of waters held sacred unto the Tens",
-		"the poisoning of a holy well, fouling at once Pestra's healing arts and Abyssor's gift of water",
+		"the poisoning of a holy well, fouling at once Healing's healing arts and the Sea's gift of water",
 	)
 
 /datum/quest_crime/eoran_tree_felled
 	id = CRIME_EORAN_TREE_FELLED
 	tier = CRIME_TIER_SACRAL
 	phrasings = list(
-		"the felling of an Eoran shrine tree, that lovers' troths bound unto its branches were undone",
-		"the cutting of a sacred tree of Eora, that the bonds tied upon it were severed at root",
+		"the felling of a Love shrine tree, that lovers' troths bound unto its branches were undone",
+		"the cutting of a sacred tree of Love, that the bonds tied upon it were severed at root",
 	)
 
 /datum/quest_crime/necran_procession_broken
 	id = CRIME_NECRAN_PROCESSION_BROKEN
 	tier = CRIME_TIER_SACRAL
 	phrasings = list(
-		"the disturbance of a Necran funeral procession, that the dead's last journey was broken",
-		"the violent halting of mourners bearing the dead unto Necra's keeping",
+		"the disturbance of a Death funeral procession, that the dead's last journey was broken",
+		"the violent halting of mourners bearing the dead unto Death's keeping",
 	)
 
 
@@ -574,7 +574,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	tier = CRIME_TIER_HERESY
 	phrasings = list(
 		"necromancy, and the rousing of the unquiet dead",
-		"the binding of corpse and bone to walk again, against the Necra' own peace",
+		"the binding of corpse and bone to walk again, against the Death' own peace",
 	)
 
 /datum/quest_crime/blasphemy
@@ -591,7 +591,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	phrasings = list(
 		"the breaking of consecrated bread, and casting of it to dogs",
 		"the despoiling of holy offering, that the Tens be made mock",
-		"the breaking of consecrated bread, casting of Eora's gift to dogs",
+		"the breaking of consecrated bread, casting of Love's gift to dogs",
 	)
 
 /datum/quest_crime/priestly_blood
@@ -607,14 +607,14 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	tier = CRIME_TIER_HERESY
 	phrasings = list(
 		"the casting of captives, bound and gagged, into the deep, seeking to rouse the Dreamer from his blissful sleep",
-		"the offering of bound flesh unto the deep, that Abyssor's slumber be broken by mortal hand",
+		"the offering of bound flesh unto the deep, that the Sea's slumber be broken by mortal hand",
 	)
 
 /datum/quest_crime/inhumen_invocation
 	id = CRIME_INHUMEN_INVOCATION
 	tier = CRIME_TIER_HERESY
 	phrasings = list(
-		"the calling upon the false names of the Inhumen, of Graggar's eight, of Zizo's six, of the Devourer below",
+		"the calling upon the false names of the Forbidden, of War's eight, of the Forbidden's six, of the Devourer below",
 		"the speaking aloud of the unholy names that the Holy See hath bound to silence",
 	)
 
@@ -664,7 +664,7 @@ GLOBAL_LIST_EMPTY(quest_crimes)
 	tier = CRIME_TIER_PIRACY
 	phrasings = list(
 		"the burning of a temple ship at sea, that the holy bones aboard sank without rite",
-		"the firing of a sacred vessel upon Abyssor's tide, that pilgrims and priests were drowned in their hour of rest",
+		"the firing of a sacred vessel upon the Sea's tide, that pilgrims and priests were drowned in their hour of rest",
 	)
 
 

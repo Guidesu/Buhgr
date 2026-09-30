@@ -125,7 +125,7 @@
 	sort_category = "Cloaks"
 
 /datum/loadout_item/traditionaltabard
-	name = "Traditional Tabard, Psydonic"
+	name = "Traditional Tabard, Old Faith"
 	path = /obj/item/clothing/cloak/tabard/psydontabard/white
 	sort_category = "Cloaks"
 
@@ -170,12 +170,12 @@
 	sort_category = "Cloaks"
 
 /datum/loadout_item/surcoatgoldenorderast
-	name = "Surcoat, Golden Order, Auxentian"
+	name = "Surcoat, Golden Order, Sun"
 	path = /obj/item/clothing/cloak/tabard/stabard/crusader/auxentius
 	sort_category = "Cloaks"
 
 /datum/loadout_item/surcoatsilverorderast
-	name = "Surcoat, Silver Order, Auxentian"
+	name = "Surcoat, Silver Order, Sun"
 	path = /obj/item/clothing/cloak/tabard/stabard/crusader/t/auxentius
 	sort_category = "Cloaks"
 

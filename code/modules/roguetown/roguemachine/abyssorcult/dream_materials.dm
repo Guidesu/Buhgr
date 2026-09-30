@@ -75,21 +75,21 @@
 	desc = "A piece of parchment treated with a quicksilver like paint. The paint binds visions, or so they say."
 	icon_state = "tier1_open"
 	is_parchment = TRUE
-	examine_blurb = "Can be used near or on a dream ritual rune by the dream pool to receive a vision. Only works for those who follow Abyssor, or are attuned to Abyssorite paints by an Abyssorite."
+	examine_blurb = "Can be used near or on a dream ritual rune by the dream pool to receive a vision. Only works for those who follow the Sea, or are attuned to Sea paints by a Sea."
 
 /obj/item/dream_material/parchment_gold
 	name = "auric parchment"
 	desc = "A piece of parchment treated with a flakey, gold-like substance. Said to hold greater visions without warping the words."
 	icon_state = "tier2_open"
 	is_parchment = TRUE
-	examine_blurb = "Can be used near or on a dream ritual rune by the dream pool to receive a vision. Only works for those who follow Abyssor, or are attuned to Abyssorite paints by an Abyssorite."
+	examine_blurb = "Can be used near or on a dream ritual rune by the dream pool to receive a vision. Only works for those who follow the Sea, or are attuned to Sea paints by a Sea."
 
 /obj/item/dream_material/parchment_dream
 	name = "sylveric parchment"
 	desc = "A piece of parchment treated with sylveric based paint. The stuff of dreams. Said to muddy present, past and future, so that it may appear to us... In a dream."
 	icon_state = "tier3_open"
 	is_parchment = TRUE
-	examine_blurb = "Can be used near or on a dream ritual rune by the dream pool to receive a vision. Only works for those who follow Abyssor, or are attuned to Abyssorite paints by an Abyssorite."
+	examine_blurb = "Can be used near or on a dream ritual rune by the dream pool to receive a vision. Only works for those who follow the Sea, or are attuned to Sea paints by a Sea."
 
 /obj/item/dream_material/dream_seed
 	name = "seed of intelligence"

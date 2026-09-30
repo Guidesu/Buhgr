@@ -3,7 +3,7 @@
 /obj/item/natural/hide
 	name = "hide"
 	icon_state = "hide"
-	desc = "Hide from one of Ignatius's creachers."
+	desc = "Hide from one of the Wilds's creachers."
 	force = 0
 	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
@@ -37,7 +37,7 @@
 /obj/item/natural/fur
 	name = "fur"
 	icon_state = "wool1"
-	desc = "Fur from one of Ignatius's creachers."
+	desc = "Fur from one of the Wilds's creachers."
 	force = 0
 	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
@@ -79,7 +79,7 @@
 	color = null
 
 /obj/item/natural/fur/direbear
-	desc = "Fur from one of Ignatius's mightiest creachers."
+	desc = "Fur from one of the Wilds's mightiest creachers."
 	icon_state = "pelt_direbear"
 	color = "#33302b"
 	sellprice = 28
@@ -212,7 +212,7 @@
 /obj/item/natural/cured/essence
 	name = "essence of wilderness"
 	icon_state = "wessence"
-	desc = "A large drop of mystical sap said to contain Ignatius's own energies, \
+	desc = "A large drop of mystical sap said to contain the Wilds's own energies, \
 	often carried by hunters and other wildsmen as a token of luck. A skilled \
 	tailor can imbue it into certain clothing or leather to provide protection."
 	resistance_flags = FLAMMABLE

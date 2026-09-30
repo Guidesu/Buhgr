@@ -567,7 +567,7 @@
 
 				data += "</div>"
 			else
-				data += "<div style='text-align: center; color: #999; font-style: italic;'>Praecursor was the last hero to live</div>"
+				data += "<div style='text-align: center; color: #999; font-style: italic;'>The Absent God was the last hero to live</div>"
 
 		if("Villains")
 			data += "<div style='text-align: center; color: #d4b4b4; font-size: 1.2em; margin-bottom: 15px;'>VILLAINS OF THE REALM</div>"
@@ -903,10 +903,10 @@
 
 	data += "<div style='flex: 1; padding-right: 10px;'>"
 	data += "Number of followers: [psydon_followers] ([get_colored_influence_value(psydon_followers * 20)])<br>"
-	data += "People wearing psycross: [GLOB.round_stats[STATS_PSYCROSS_USERS]] ([get_colored_influence_value(GLOB.round_stats[STATS_PSYCROSS_USERS] * 10)])<br>"
+	data += "People wearing holy cross: [GLOB.round_stats[STATS_PSYCROSS_USERS]] ([get_colored_influence_value(GLOB.round_stats[STATS_PSYCROSS_USERS] * 10)])<br>"
 	data += "Number of confessions: [GLOB.confessors.len] ([get_colored_influence_value(GLOB.confessors.len * 20)])<br>"
 	data += "Largest faith: [largest_religion ? "YES" : "NO"] ([get_colored_influence_value(largest_religion ? 500 : -250)])<br>"
-	data += "Vaeltite monarch: [vaeltite_monarch ? "YES" : "NO"] ([get_colored_influence_value((vaeltite_monarch ? (vaeltite_monarch * 500) : -250))])<br>"
+	data += "Old Faith monarch: [vaeltite_monarch ? "YES" : "NO"] ([get_colored_influence_value((vaeltite_monarch ? (vaeltite_monarch * 500) : -250))])<br>"
 	data += "</div>"
 
 	data += "<div style='flex: 1; padding-left: 60px;'>"

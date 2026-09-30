@@ -18,7 +18,7 @@
 
 /obj/item/inqarticles/garrote // Do not give this item out freely to other classes. Do not subtype this item for other classes. This is intended purely as the Confessor's identifying sidegrade, and as a bonus for the Inspector INQ. I will be very sad if you disregard this comment. Thank you. - Yische.
 	name = "\proper seizing garrote" // It's nonlethal. It's so silly and fun.
-	desc = "A macabre instrument favored by the more clandestine of the Psydonian Silver Order; A length of thick leather inquiry cordage that has been dipped in both holy water and dye before being consecrated and spell-laced, held and threaded between two iron links. Perfect for apprehension."
+	desc = "A macabre instrument favored by the more clandestine of the Old Faith Silver Order; A length of thick leather inquiry cordage that has been dipped in both holy water and dye before being consecrated and spell-laced, held and threaded between two iron links. Perfect for apprehension."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "garrote"
 	item_state = "garrote"
@@ -301,7 +301,7 @@
 		/datum/skill/craft/crafting = SKILL_LEVEL_NOVICE
 	)
 	subclass_stashed_items = list(
-		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy
+		"Tome of the Absent God" = /obj/item/book/rogue/bibble/psy
 	)
 	extra_context = "This subclass can choose between light or medium armor. The Legionnaire wields powerful blackpowder weapons and gains either Dodge Expert or Maille Training."
 
@@ -399,7 +399,7 @@
 
 	)
 	subclass_stashed_items = list(
-		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy
+		"Tome of the Absent God" = /obj/item/book/rogue/bibble/psy
 	)
 	extra_context = "The Otavan Volf is a silent killer of the Inquisition, using stealth, rune magyck and a silenced firearm. Choose between psydonic claws or a silver dagger."
 

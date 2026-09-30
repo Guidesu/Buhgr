@@ -63,7 +63,7 @@ export const PostingsTab = ({ data, act }: TabProps) => {
         )}
       </div>
 
-      {showForm && (
+      {!!showForm && (
         <PostingForm data={data} act={act} onClose={() => setShowForm(false)} />
       )}
 
@@ -146,7 +146,7 @@ const PostingCard = ({
         </div>
       </div>
 
-      {isListing && (
+      {!!isListing && (
         <div
           style={{
             color: SEAL_AMBER,
@@ -342,7 +342,7 @@ const PostingForm = ({
         optional
       />
 
-      {willReplaceNotice && (
+      {!!willReplaceNotice && (
         <div
           style={{
             color: SEAL_AMBER,
@@ -353,7 +353,7 @@ const PostingForm = ({
           You have a Notice already posted. Pinning this will take it down.
         </div>
       )}
-      {willReplaceListing && (
+      {!!willReplaceListing && (
         <div
           style={{
             color: SEAL_AMBER,
@@ -416,7 +416,7 @@ const FormField = ({
       <div style={{ display: 'flex', alignItems: 'baseline' }}>
         <div style={{ ...fieldLabel, flex: 1 }}>
           {label}
-          {optional && (
+          {!!optional && (
             <span style={{ color: INK_FAINT, marginLeft: 4 }}>(optional)</span>
           )}
         </div>

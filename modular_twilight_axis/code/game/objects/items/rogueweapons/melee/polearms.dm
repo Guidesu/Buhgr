@@ -1,6 +1,6 @@
 /obj/item/rogueweapon/halberd/bardiche/twilight_necrascythe
 	name = "equipoise"
-	desc = "Often wielded by the Necran Immortals, this silver scythe is claimed to be capable of bypassing all protection, striking directly at the enemy's soul."
+	desc = "Often wielded by the Death Immortals, this silver scythe is claimed to be capable of bypassing all protection, striking directly at the enemy's soul."
 	icon = 'modular_twilight_axis/icons/roguetown/weapons/64.dmi'
 	icon_state = "necrascythe"
 	possible_item_intents = list(/datum/intent/spear/cut/oneh, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs

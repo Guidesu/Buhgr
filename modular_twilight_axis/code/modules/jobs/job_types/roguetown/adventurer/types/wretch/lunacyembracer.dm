@@ -1,7 +1,7 @@
 /datum/advclass/wretch/lunacyembracer
 	name = "Lunacy Embracer"
 	tutorial = "You have rejected and terrorized civilization in the name of nature. \
-	You run wild under the moon, a terror to the townsfolk and a champion of Dendor's wild domain. \
+	You run wild under the moon, a terror to the townsfolk and a champion of the Wilds's wild domain. \
 	Clergy of Azuria assume you are a radical dendorite and rejected you, your connection with Treefather is weaken but you will serve him whatever it takes."
 	allowed_sexes = list(MALE, FEMALE)
 	forbidden_races = list(RACES_CONSTRUCT)

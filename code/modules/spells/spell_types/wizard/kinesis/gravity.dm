@@ -127,7 +127,7 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "hierophant_blast"
 	dir = NORTH
-	name = "rippling chi energy"
+	name = "rippling arcyne energy"
 	desc = "Get out of the way!"
 	randomdir = FALSE
 	duration = 5 SECONDS

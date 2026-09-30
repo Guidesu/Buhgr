@@ -11,7 +11,7 @@
 
 	advclass_cat_rolls = list(CTAG_NSKELETON = 20)
 
-	tutorial = "You are a resurrected skeleton, summoned by the cult of Zizo itself. Obey the cultists and Her believers without question."
+	tutorial = "You are a resurrected skeleton, summoned by the cult of the Forbidden itself. Obey the cultists and Her believers without question."
 
 	outfit = /datum/outfit/job/roguetown/cult/skeleton/zizoid
 	show_in_credits = FALSE
@@ -63,7 +63,7 @@ NECRO SKELETONS
 
 /datum/advclass/cult/skeleton/zizoid/raider
 	name = "Cult skeleton raider"
-	tutorial = "You are a resurrected skeleton, summoned by the cult of Zizo itself. Obey the cultists and Her believers without question."
+	tutorial = "You are a resurrected skeleton, summoned by the cult of the Forbidden itself. Obey the cultists and Her believers without question."
 	outfit = /datum/outfit/job/roguetown/cult/skeleton/zizoid/raider
 
 	category_tags = list(CTAG_NSKELETON)

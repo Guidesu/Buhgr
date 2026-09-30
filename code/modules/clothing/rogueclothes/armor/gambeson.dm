@@ -429,7 +429,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/baotha
 	name = "saccharine vestments"
-	desc = "A gemmed chalice, Eora's own, swilled with Vaeltis's most noxious venoms - and but a simple sip was enough to bring Her to death's door.."
+	desc = "A gemmed chalice, Love's own, swilled with Vaeltis's most noxious venoms - and but a simple sip was enough to bring Her to death's door.."
 	icon_state = "baothagamb"
 	armor_class = ARMOR_CLASS_LIGHT
 	armor = ARMOR_PADDED

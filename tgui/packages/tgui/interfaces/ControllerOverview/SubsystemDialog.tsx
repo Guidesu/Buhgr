@@ -56,7 +56,7 @@ export function SubsystemDialog(props: Props) {
           <LabeledList.Item label="Tick Overrun">
             {overtime.toFixed(2)}%
           </LabeledList.Item>
-          {initialization_failure_message && (
+          {!!initialization_failure_message && (
             <LabeledList.Item color="bad">
               {initialization_failure_message}
             </LabeledList.Item>

@@ -76,7 +76,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/saiga_ribs_z/cooked
 	name = "putrid venison ribs"
-	desc = "Brittle bones, good flesh. A pestran monk is never opposed to indulging in the flesh blessed by Pestra."
+	desc = "Brittle bones, good flesh. A pestran monk is never opposed to indulging in the flesh blessed by Healing."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_meat_saiga.dmi'
 	icon_state = "ribs_z"
 	eat_effect = /datum/status_effect/debuff/rotfood
@@ -169,7 +169,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/saiga_prime_w/cooked
 	name = "royal venison prime steak"
-	desc = "Kin has slain kin, just for a chance to gain the Stag's power. Tear into it, claim its mythical strength. Those that do not smell still experience the scent. To look, is to catch a hint of the taste. The sacred flesh of one of Ignatius's angels does not care for the state of your frame, the very flesh itself speaks of legends."
+	desc = "Kin has slain kin, just for a chance to gain the Stag's power. Tear into it, claim its mythical strength. Those that do not smell still experience the scent. To look, is to catch a hint of the taste. The sacred flesh of one of the Wilds's angels does not care for the state of your frame, the very flesh itself speaks of legends."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_meat_saiga.dmi'
 	icon_state = "ossobuco_w"
 	eat_effect = /datum/status_effect/buff/greatmealbuff

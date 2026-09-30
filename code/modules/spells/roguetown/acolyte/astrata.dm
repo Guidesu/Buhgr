@@ -38,9 +38,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/action/cooldown/spell/astrata/astrata_gaze
-	name = "Astratan Gaze"
+	name = "Sun Gaze"
 	desc = "Removes the limit on your vision, letting you see behind you for a time, lasts longer during the dae and gives a perception bonus to those skilled and holy arts."
-	fluff_desc = "The second gift to men, Her ability to discern evyl hiding in plain sight. Astrata's tireless gaze - a true boon in hands of mortals as well Her misbegotten children."
+	fluff_desc = "The second gift to men, Her ability to discern evyl hiding in plain sight. The Sun's tireless gaze - a true boon in hands of mortals as well Her misbegotten children."
 	button_icon_state = "gaze"
 	sound = 'sound/magic/astrata_choir.ogg'
 	glow_intensity = 0
@@ -51,7 +51,7 @@
 
 	secondary_resource_cost = SPELLCOST_UTILITY_BUFF
 
-	invocations = list("Astrata show me true.")
+	invocations = list("The Sun show me true.")
 	invocation_type = INVOCATION_WHISPER
 
 	charge_required = FALSE
@@ -67,7 +67,7 @@
 	return TRUE
 
 /atom/movable/screen/alert/status_effect/buff/astrata_gaze
-	name = "Astratan's Gaze"
+	name = "Sun's Gaze"
 	desc = "She shines through me, illuminating all injustice."
 	icon_state = "astrata_gaze"
 
@@ -128,7 +128,7 @@
 	name = "Sacred Flame"
 	desc = "Emit a bolt of holy fire that sunders a target, setting them on fire and slowing them down for 6 seconds. \
 	The CC effects cannot be reapplied to the same target within 15 seconds."
-	fluff_desc = "The fourth gift to men, sliver of Astrata's fury against the horrors of Psydonia, bringing evyl to its knees at hands of Her devoted."
+	fluff_desc = "The fourth gift to men, sliver of the Sun's fury against the horrors of Psydonia, bringing evyl to its knees at hands of Her devoted."
 	background_icon = 'icons/mob/actions/astratamiracles.dmi'
 	button_icon = 'icons/mob/actions/astratamiracles.dmi'
 	button_icon_state = "bolt"
@@ -226,7 +226,7 @@
 
 /datum/action/cooldown/spell/astrata/miracle_pyre
 	name = "Solar Pyre"
-	desc = "Creates a pyre dedicated to Astrata, lasts 30 minutes."
+	desc = "Creates a pyre dedicated to the Sun, lasts 30 minutes."
 	button_icon_state = "pyre"
 	sound = 'sound/magic/astrata_choir.ogg'
 	spell_color = GLOW_COLOR_ASTRATA
@@ -575,7 +575,7 @@
 // =====================
 /obj/effect/proc_holder/spell/invoked/immolation
 	name = "Immolation"
-	desc = "Ignite a target in holy flames, burning those that surround them. The fire burns brighter within devout Astratans."
+	desc = "Ignite a target in holy flames, burning those that surround them. The fire burns brighter within devout Sun faithful."
 	action_icon = 'icons/mob/actions/astratamiracles.dmi'
 	overlay_icon = 'icons/mob/actions/astratamiracles.dmi'
 	overlay_state = "immolation"
@@ -608,7 +608,7 @@
 	// Channeling requirement
 	user.visible_message(span_danger("[user] begins lighting [target] ablaze with strange, divine fire!"))
 	if(!do_after(user, 1 SECONDS, target = target))
-		to_chat(user, span_warning("Astratan might requires unwavering focus to channel!"))
+		to_chat(user, span_warning("Sun might requires unwavering focus to channel!"))
 		revert_cast()
 		return FALSE
 

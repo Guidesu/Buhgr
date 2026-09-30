@@ -37,7 +37,7 @@
 //
 
 /datum/anvil_recipe/valuables/silver_psycross
-	name = "Silver Psycross (+1 Psycross)"
+	name = "Silver Holy cross (+1 Holy cross)"
 	category = "Silver"
 	req_bar = /obj/item/ingot/silver
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross)
@@ -46,7 +46,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/silver_amulet_ten
-	name = "Silver Amulet of Ten (+1 Any Tennite Amulet)"
+	name = "Silver Amulet of Ten (+1 Any Domain-faithful Amulet)"
 	category = "Silver"
 	req_bar = /obj/item/ingot/silver
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross) // bandaid until someone makes proper silver amulet sprites for the other Ten
@@ -55,7 +55,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/silver_amulet_noc
-	name = "Silver Amulet of Noc (+1 Amulet of Noc)"
+	name = "Silver Amulet of the Moon (+1 Amulet of the Moon)"
 	category = "Silver"
 	req_bar = /obj/item/ingot/silver
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/miluse)
@@ -64,7 +64,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/silver_amulet_astrata
-	name = "Silver Amulet of Auxentius (+1 Amulet of Auxentius)"
+	name = "Silver Amulet of the Sun (+1 Amulet of the Sun)"
 	category = "Silver"
 	req_bar = /obj/item/ingot/silver
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross)
@@ -73,7 +73,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/silver_amulet_necra
-	name = "Silver Amulet of Necra (+1 Amulet of Necra)"
+	name = "Silver Amulet of Death (+1 Amulet of Death)"
 	category = "Silver"
 	req_bar = /obj/item/ingot/silver
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/morwenna)
@@ -82,7 +82,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_reformcross
-	name = "Golden Reformist Psycross (+1 Reformist Cross)"
+	name = "Golden Reformist Holy cross (+1 Reformist Cross)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/reform)
@@ -91,7 +91,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_psycross
-	name = "Golden Psycross (+1 Psycross)"
+	name = "Golden Holy cross (+1 Holy cross)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross)
@@ -100,7 +100,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_zcross
-	name = "Golden Inverted Psycross (+1 Inverted Psycross)"
+	name = "Golden Inverted Holy cross (+1 Inverted Holy cross)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/aurelian)
@@ -109,7 +109,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_astrata
-	name = "Golden Amulet of Auxentius (+1 Auxentian Amulet)"
+	name = "Golden Amulet of the Sun (+1 Sun Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/auxentius)
@@ -118,7 +118,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_noc
-	name = "Golden Amulet of Noc (+1 Noccian Amulet)"
+	name = "Golden Amulet of the Moon (+1 Noccian Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/miluse)
@@ -127,7 +127,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_abyssor
-	name = "Golden Amulet of Abyssor (+1 Abyssorian Amulet)"
+	name = "Golden Amulet of the Sea (+1 Abyssorian Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/wulfric)
@@ -136,7 +136,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_dendor
-	name = "Golden Amulet of Ignatius (+1 Ignatian Amulet)"
+	name = "Golden Amulet of the Wilds (+1 Ignatian Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/ignatius)
@@ -145,7 +145,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_necra
-	name = "Golden Amulet of Necra (+1 Necrian Amulet)"
+	name = "Golden Amulet of Death (+1 Necrian Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/morwenna)
@@ -154,7 +154,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_pestra
-	name = "Golden Amulet of Pestra (+1 Pestran Amulet)"
+	name = "Golden Amulet of Healing (+1 Healing Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/handwerra)
@@ -163,7 +163,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_ravox
-	name = "Golden Amulet of Auxentius (+1 Auxentian Amulet)"
+	name = "Golden Amulet of the Sun (+1 Sun Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/auxentius)
@@ -172,7 +172,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_malum
-	name = "Golden Amulet of Malum (+1 Malumite Amulet)"
+	name = "Golden Amulet of the Craft (+1 Craft Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/handwerra)
@@ -181,7 +181,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_eora
-	name = "Golden Amulet of Eora (+1 Eoran Amulet)"
+	name = "Golden Amulet of Love (+1 Love Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/miluse)
@@ -190,7 +190,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_xylix
-	name = "Golden Amulet of Xylix (+1 Xylixian Amulet)"
+	name = "Golden Amulet of Trickery (+1 Trickery Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/viator)
@@ -199,7 +199,7 @@
 	display_category = ITEM_CAT_VALUABLES_HOLY
 
 /datum/anvil_recipe/valuables/gold_cross_graggar
-	name = "Golden Amulet of Graggar (+1 Graggarite Amulet)"
+	name = "Golden Amulet of War (+1 War Amulet)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/clothing/neck/roguetown/psicross/volkovoi)
@@ -280,7 +280,7 @@
 	display_category = ITEM_CAT_DECORATION
 
 /datum/anvil_recipe/valuables/zcross_iron
-	name = "Inverted Psycross"
+	name = "Inverted Holy cross"
 	category = "Iron"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/neck/roguetown/psicross/aurelian/iron
@@ -288,7 +288,7 @@
 	craftdiff = 1
 
 /datum/anvil_recipe/valuables/matthios
-	name = "Amulets of Matthios (x2)"
+	name = "Amulets of Trade (x2)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	created_item = /obj/item/clothing/neck/roguetown/psicross/morwenna/matthios
@@ -297,7 +297,7 @@
 	createditem_num = 2
 
 /datum/anvil_recipe/valuables/gold_cross_matthios
-	name = "Golden Amulet of Matthios"
+	name = "Golden Amulet of Trade"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	created_item = /obj/item/clothing/neck/roguetown/psicross/morwenna/matthios/g
@@ -305,7 +305,7 @@
 	craftdiff = 4
 
 /datum/anvil_recipe/valuables/baotha
-	name = "Amulets of Baotha (x2)"
+	name = "Amulets of the Forbidden (x2)"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	created_item = /obj/item/clothing/neck/roguetown/psicross/hausvette
@@ -314,7 +314,7 @@
 	createditem_num = 2
 
 /datum/anvil_recipe/valuables/gold_cross_baotha
-	name = "Golden Amulet of Baotha"
+	name = "Golden Amulet of the Forbidden"
 	category = "Gold"
 	req_bar = /obj/item/ingot/gold
 	created_item = /obj/item/clothing/neck/roguetown/psicross/hausvette/g
@@ -322,7 +322,7 @@
 	craftdiff = 4
 
 /datum/anvil_recipe/valuables/graggar
-	name = "Amulet of Graggar"
+	name = "Amulet of War"
 	category = "Iron"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/neck/roguetown/psicross/volkovoi

@@ -165,7 +165,7 @@
 
 /obj/item/clothing/neck/roguetown/chaincoif/paalloy
 	name = "ancient coif"
-	desc = "Polished gilbranze rings, linked together to form a billowing hood. Let it not be a crown of thorns that saves this dying world, but a crown of progress; of fettered metal and stained bone, rejuvenated by Zizo's will to herald Her greatest works yet."
+	desc = "Polished gilbranze rings, linked together to form a billowing hood. Let it not be a crown of thorns that saves this dying world, but a crown of progress; of fettered metal and stained bone, rejuvenated by the Forbidden's will to herald Her greatest works yet."
 	icon_state = "achaincoif"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -516,7 +516,7 @@
 
 /obj/item/clothing/neck/roguetown/psicross
 	obj_flags = CAN_BE_HIT | UNIQUE_RENAME
-	name = "psycross"
+	name = "holy cross"
 	desc = "'With every broken bone, I swore I lived!'"
 	icon_state = "psycross"
 	//dropshrink = 0.75
@@ -577,13 +577,13 @@
 	. += span_info("Adjusting an amulet while wearing it in the ring slot allows you to visibly layer it over most sleeves and clothing.")
 
 /obj/item/clothing/neck/roguetown/psicross/reform
-	name = "reformist psycross"
+	name = "reformist holy cross"
 	desc = "'It occured to me that our God had left us, but not our ability to endure hardship. We shall make something out of this world, I said, before we pass onto the next.'"
 	sellprice = 0	//Heresy of the highest order. Unless...
 	icon_state = "reformistcross"
 
 /obj/item/clothing/neck/roguetown/psicross/reform/wood
-	name = "wooden reformist psycross"
+	name = "wooden reformist holy cross"
 	desc = "'No matter if God is dead or not, it is clear that He had gifted us lyfe for a reason. Who are we, if we do not work to fufill His last wish?'"
 	icon_state = "reformistcross_w"
 	item_state = "reformistcross_w"
@@ -592,7 +592,7 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/reform/g
-	name = "golden reformist psycross"
+	name = "golden reformist holy cross"
 	desc = "'Tell me; in the end, will I stand up?'"
 	icon_state = "reformistcross_g"
 	item_state = "reformistcross_g"
@@ -600,7 +600,7 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/g
-	name = "golden psycross"
+	name = "golden holy cross"
 	desc = "'Purity afloat, for paradise awaits!'"
 	icon_state = "psycross_g"
 	item_state = "psycross_g"
@@ -608,8 +608,8 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/silver/auxentia
-	name = "golden psycross"
-	desc = "'Purity afloat, for paradise awaits!' </br>The surface is meticulously lined with Auxentian glyphs, said to ward off the possessive allure of djinns."
+	name = "golden holy cross"
+	desc = "'Purity afloat, for paradise awaits!' </br>The surface is meticulously lined with Sun glyphs, said to ward off the possessive allure of djinns."
 	icon_state = "psycross_g"
 	item_state = "psycross_g"
 	//dropshrink = 0.75
@@ -617,7 +617,7 @@
 	sellprice = 100
 
 /obj/item/clothing/neck/roguetown/psicross/aalloy
-	name = "decrepit psycross"
+	name = "decrepit holy cross"
 	desc = "'A comet capable of rending all the enemies of humanity apart; oh, how graceful His power was! And His sacrifice, ever so noble! Yet now He slumbers, unaware of the fruits His efforts came to give. And He sighs. And He weeps.'"
 	icon_state = "psycross_a"
 	color = "#bb9696"
@@ -625,14 +625,14 @@
 	material_category = ARMOR_MAT_PLATE
 
 /obj/item/clothing/neck/roguetown/psicross/paalloy
-	name = "ancient psycross"
+	name = "ancient holy cross"
 	desc = "'A comet capable of rending all the enemies of humanity apart; oh, how graceful His power was! And His sacrifice, ever so noble! Yet now He slumbers, unaware of the fruits His efforts came to give. And He sighs. And He weeps.'"
 	icon_state = "psycross_a"
 	chunkcolor = "#532e25"
 	material_category = ARMOR_MAT_PLATE
 
 /obj/item/clothing/neck/roguetown/psicross/aurelian/aalloy
-	name = "decrepit zcross"
+	name = "decrepit forbidden cross"
 	desc = "A symbol of progress from an era that had reason to believe in it."
 	icon_state = "zcross_a"
 	color = "#bb9696"
@@ -644,7 +644,7 @@
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_SUSPICIOUS, HERESYDESC_ZIZO_ICON)
 
 /obj/item/clothing/neck/roguetown/psicross/aurelian/paalloy
-	name = "ancient zcross"
+	name = "ancient forbidden cross"
 	desc = "'Progress. Ascension. Destiny. A mandate, commanded by God, to be fufilled by Man. She called us forth from the edge of reality - and with Her dying breath, rasped out the final truth; the fire is gone, and the world will soon follow.'"
 	icon_state = "zcross_a"
 	chunkcolor = "#532e25"
@@ -655,7 +655,7 @@
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_SUSPICIOUS, HERESYDESC_ZIZO_ICON)
 
 /obj/item/clothing/neck/roguetown/psicross/aurelian/wood
-	name = "wooden inverted psycross"
+	name = "wooden inverted holy cross"
 	desc = "'The greatest lie ever told is that our fates are set in stone.'"
 	icon_state = "zcross_w"
 	item_state = "zcross_w"
@@ -667,7 +667,7 @@
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_SUSPICIOUS, HERESYDESC_ZIZO_ICON)
 
 /obj/item/clothing/neck/roguetown/psicross/aurelian/iron
-	name = "inverted psycross"
+	name = "inverted holy cross"
 	desc = "'Progress commands sacrifice!'"
 	icon_state = "zcross_iron"
 	resistance_flags = FIRE_PROOF
@@ -676,7 +676,7 @@
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_SUSPICIOUS, HERESYDESC_ZIZO_ICON)
 
 /obj/item/clothing/neck/roguetown/psicross/aurelian/bronze
-	name = "bronze inverted psycross"
+	name = "bronze inverted holy cross"
 	desc = "'Look upon mine works, thee-mighty, and despair!'"
 	icon_state = "zcross_b"
 	resistance_flags = FIRE_PROOF
@@ -685,7 +685,7 @@
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_SUSPICIOUS, HERESYDESC_ZIZO_ICON)
 
 /obj/item/clothing/neck/roguetown/psicross/aurelian/g
-	name = "golden inverted psycross"
+	name = "golden inverted holy cross"
 	desc = "'Doth thee wish to live deliciously? Mortality is but a shackle; and if you wish to break free from its steely grasp, all you need to do.. is put thine faith in me.'"
 	icon_state = "zcross_g"
 	resistance_flags = FIRE_PROOF
@@ -694,7 +694,7 @@
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_SUSPICIOUS, HERESYDESC_ZIZO_ICON)
 
 /obj/item/clothing/neck/roguetown/psicross/morwenna/matthios
-	name = "amulet of Matthios"
+	name = "amulet of Trade"
 	desc = "He was but one flame in the dark. Together, His flock shall outblaze the Tyrant-Sun."
 	icon_state = "matthios"
 	resistance_flags = FIRE_PROOF
@@ -704,7 +704,7 @@
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_SUSPICIOUS, HERESYDESC_MATTHIOS_ICON)
 
 /obj/item/clothing/neck/roguetown/psicross/morwenna/matthios/wood
-	name = "wooden amulet of Matthios"
+	name = "wooden amulet of Trade"
 	desc = "Is a man not entitled to the sweat of their brow?"
 	icon_state = "matthios_w"
 	item_state = "matthios_w"
@@ -713,12 +713,12 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/morwenna/matthios/g
-	name = "golden amulet of Matthios"
+	name = "golden amulet of Trade"
 	desc = "He was but one flame in the dark. Together, His flock shall outblaze the Tyrant-Sun, and shall live deliciously atop the highest throne."
 	icon_state = "matthios"
 
 /obj/item/clothing/neck/roguetown/psicross/volkovoi
-	name = "amulet of Graggar"
+	name = "amulet of War"
 	desc = "Blood leads only to glory, and violence begets divinity. Nothing less. Conquest is simply another name for victory."
 	icon_state = "graggar"
 	resistance_flags = FIRE_PROOF
@@ -728,12 +728,12 @@
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_SUSPICIOUS, HERESYDESC_GRAGGAR_ICON)
 
 /obj/item/clothing/neck/roguetown/psicross/volkovoi/g
-	name = "golden amulet of Graggar"
+	name = "golden amulet of War"
 	desc = "Might makes right."
 	icon_state = "graggar_g"
 
 /obj/item/clothing/neck/roguetown/psicross/volkovoi/wood
-	name = "wooden amulet of Graggar"
+	name = "wooden amulet of War"
 	desc = "When all you have is a hammer, every problem tends to look like a nail."
 	icon_state = "graggar_w"
 	item_state = "graggar_w"
@@ -742,7 +742,7 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/hausvette
-	name = "amulet of Baotha"
+	name = "amulet of the Forbidden"
 	desc = "A hollow promise rendered in gold. It weighs heavy with the memory of sweet wine turned to poison, and the comfort of a sorrow that refuses to fade."
 	icon_state = "baotha"
 	resistance_flags = FIRE_PROOF
@@ -752,12 +752,12 @@
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_SUSPICIOUS, HERESYDESC_BAOTHA_ICON)
 
 /obj/item/clothing/neck/roguetown/psicross/hausvette/g
-	name = "golden amulet of Baotha"
+	name = "golden amulet of the Forbidden"
 	desc = "A hollow promise, rendered in gold and glistening with value. It weighs heavy with the memory of sweet wine turned to poison, and the comfort of a sorrow that refuses to fade."
 	icon_state = "baotha"
 
 /obj/item/clothing/neck/roguetown/psicross/hausvette/wood
-	name = "wooden amulet of Baotha"
+	name = "wooden amulet of the Forbidden"
 	desc = "Drown in the past, live in the present, and forget the future."
 	icon_state = "baotha_w"
 	item_state = "baotha_w"
@@ -766,22 +766,22 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/custodius
-	name = "amulet of Ten"
-	desc = "The Ten eternal, strength in unity. Stalwart for centuries against the darkness."
+	name = "amulet of the Domains"
+	desc = "The Domains eternal, strength in unity. Stalwart for centuries against the darkness."
 	icon_state = "undivided"
 
 /obj/item/clothing/neck/roguetown/psicross/silver/custodius
-	name = "silver amulet of Ten"
-	desc = "Ward of silver, sigil of eternity; by the Ten, I command thee back to Hell!"
+	name = "silver amulet of the Domains"
+	desc = "Ward of silver, sigil of eternity; by the Domains, I command thee back to Hell!"
 	icon_state = "undivided_s"
 
 /obj/item/clothing/neck/roguetown/psicross/custodius/g
-	name = "golden amulet of Ten"
-	desc = "The Ten eternal, unified in strength. For centuries, their glistening light has remained stalwart against the darkness."
+	name = "golden amulet of the Domains"
+	desc = "The Domains eternal, unified in strength. For centuries, their glistening light has remained stalwart against the darkness."
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/custodius/wood
-	name = "wooden amulet of Ten"
+	name = "wooden amulet of the Domains"
 	desc = "A talisman of the faithful, hewn from sticks and fibers."
 	icon_state = "undivided_w"
 	item_state = "undivided_w"
@@ -790,22 +790,22 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius
-	name = "amulet of Auxentius"
+	name = "amulet of the Sun"
 	desc = "As sure as the sun rises, tomorrow will come."
 	icon_state = "astrata"
 
 /obj/item/clothing/neck/roguetown/psicross/silver/auxentius
-	name = "silver amulet of Auxentius"
+	name = "silver amulet of the Sun"
 	desc = "Let no monster hold comfort in the shadows His law does not reach."
 	icon_state = "astrata_s"
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius/g
-	name = "golden amulet of Auxentius"
+	name = "golden amulet of the Sun"
 	desc = "The sun's blinding glare, adorning the faithful and scorning the faithless."
 	icon_state = "astrata_g"
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius/wood
-	name = "wooden amulet of Auxentius"
+	name = "wooden amulet of the Sun"
 	desc = "Hope needs only the smallest ember to kindle."
 	icon_state = "astrata_w"
 	item_state = "astrata_w"
@@ -814,22 +814,22 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/miluse
-	name = "amulet of Miluše"
+	name = "amulet of the Moon"
 	desc = "There is always more to know, more to learn, more to be."
 	icon_state = "noc"
 
 /obj/item/clothing/neck/roguetown/psicross/silver/miluse
-	name = "blessed amulet of Miluše"
+	name = "blessed amulet of the Moon"
 	desc = "Within the Beyond, where dreams and daemons coalesce, lies the secret to all knowledge; both arcyne and aeternal. Under my ward, I shall guide thee forth to this pedestal."
 	icon_state = "noc"
 
 /obj/item/clothing/neck/roguetown/psicross/miluse/bronze
-	name = "bronze amulet of Noc"
+	name = "bronze amulet of the Moon"
 	desc = "Knowledge predates lyfe and death itself. Who art thou, to assume the quill's works are no holier than a sword or masterwork?"
 	icon_state = "noc_b"
 
 /obj/item/clothing/neck/roguetown/psicross/miluse/wood
-	name = "wooden amulet of Noc"
+	name = "wooden amulet of the Moon"
 	desc = "They say that such a talisman was the first to be carved by mankind, once the first thought-of-beyond struck their minds."
 	icon_state = "noc_w"
 	item_state = "noc_w"
@@ -838,13 +838,13 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/miluse/g
-	name = "golden amulet of Noc"
+	name = "golden amulet of the Moon"
 	desc = "His sister's radiance would mean nothing without comparison - or more importantly, the capacity to compare at all."
 	icon_state = "noc_g"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/miluse/aalloy
-	name = "decrepit amulet of Noc"
+	name = "decrepit amulet of the Moon"
 	desc = "The ultimate answer to the ultimate question is not a parable, but a pair of numbers; 'four' and 'two'. Thou may not understand it, yet, but I assure thee; it shall all make sense in due tyme."
 	icon_state = "noc_a"
 	color = "#bb9696"
@@ -853,7 +853,7 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/miluse/paalloy
-	name = "ancient amulet of Noc"
+	name = "ancient amulet of the Moon"
 	desc = "The ultimate answer to the ultimate question is not a parable, but a pair of numbers; 'four' and 'two'. Thou may not understand it, yet, but I assure thee; it shall all make sense in due tyme."
 	icon_state = "noc_a"
 	chunkcolor = "#532e25"
@@ -861,14 +861,14 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/wulfric
-	name = "amulet of Abyssor"
+	name = "amulet of the Sea"
 	desc = "To fear the unknown is to turn away from the greatest mysteries of all."
 	icon_state = "abyssor"
 	salvage_result = /obj/item/pearl/blue
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/wulfric/wood
-	name = "wooden amulet of Abyssor"
+	name = "wooden amulet of the Sea"
 	desc = "Don't tell me you aren't fond o' me lobster.."
 	icon_state = "abyssor_w"
 	item_state = "abyssor_w"
@@ -877,19 +877,19 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/wulfric/g
-	name = "golden amulet of Abyssor"
+	name = "golden amulet of the Sea"
 	desc = "Fortune favors the bold."
 	icon_state = "abyssor_g"
 	item_state = "abyssor_g"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/ignatius
-	name = "amulet of Ignatius"
+	name = "amulet of the Wilds"
 	desc = "If you need something to worship, then worship life. Every last crawling bit of it."
 	icon_state = "dendor"
 
 /obj/item/clothing/neck/roguetown/psicross/ignatius/wood
-	name = "wooden amulet of Ignatius"
+	name = "wooden amulet of the Wilds"
 	desc = "The primordial life force thrumbs through your hands."
 	icon_state = "dendor_w"
 	item_state = "dendor_w"
@@ -898,19 +898,19 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/ignatius/g
-	name = "golden amulet of Ignatius"
+	name = "golden amulet of the Wilds"
 	desc = "Nature provides in all avenues, as long as one has the faith to dig it out."
 	icon_state = "dendor_g"
 	item_state = "dendor_g"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/morwenna
-	name = "amulet of Necra"
+	name = "amulet of Death"
 	desc = "The certainty of death is a reminder to enjoy the time you have."
 	icon_state = "necra"
 
 /obj/item/clothing/neck/roguetown/psicross/morwenna/wood
-	name = "wooden amulet of Necra"
+	name = "wooden amulet of Death"
 	desc = "From dust, we came; and to dust, we will return."
 	icon_state = "necra_w"
 	item_state = "necra_w"
@@ -919,24 +919,24 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/morwenna/g
-	name = "golden amulet of Necra"
+	name = "golden amulet of Death"
 	desc = "No matter if you're a king or a sweeper, all will prance - in due tyme - with the blessed reaper."
 	icon_state = "necra_g"
 	item_state = "necra_g"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/silver/morwenna
-	name = "silver amulet of Necra"
+	name = "silver amulet of Death"
 	desc = "Guide the lost, the forgotten, and the damned to their final resting place."
 	icon_state = "necra_s"
 
 /obj/item/clothing/neck/roguetown/psicross/handwerra
-	name = "amulet of Handwerra"
+	name = "amulet of the Craft"
 	desc = "The healthy wear a crown only the sick can see."
 	icon_state = "pestra"
 
 /obj/item/clothing/neck/roguetown/psicross/handwerra/wood
-	name = "wooden amulet of Handwerra"
+	name = "wooden amulet of the Craft"
 	desc = "Faithlessness is no different from a malaise; gift it the right care, and it will heal into something greater before long."
 	icon_state = "pestra_w"
 	item_state = "pestra_w"
@@ -945,19 +945,19 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/handwerra/g
-	name = "golden amulet of Handwerra"
+	name = "golden amulet of the Craft"
 	desc = "My elixirs are far too strong for you, adventurer; they would stagger a hero, much less a vagabond like thineself."
 	icon_state = "pestra_g"
 	item_state = "pestra_g"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius/ravox
-	name = "amulet of Auxentius"
+	name = "amulet of the Sun"
 	desc = "What are you fighting for?"
 	icon_state = "ravox"
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius/ravox/wood
-	name = "wooden amulet of Auxentius"
+	name = "wooden amulet of the Sun"
 	desc = "There is no justice in murder."
 	icon_state = "ravox_w"
 	item_state = "ravox_w"
@@ -966,42 +966,42 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius/ravox/g
-	name = "golden amulet of Auxentius"
+	name = "golden amulet of the Sun"
 	desc = "No man, whether they be anointed or royal, is above the rite of arbitration."
 	icon_state = "ravox_g"
 	item_state = "ravox_g"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius/ravox/bronze
-	name = "bronze amulet of Auxentius"
+	name = "bronze amulet of the Sun"
 	desc = "'YOU FIGHT WELL, SOLDIER OF UR-SYON. YOUR CLEMENCY HATH BEEN EARNED. SURRENDER NOW, AND VOLKOVOI SHALL-'</br>‎  </br>'No.' </br>‎  </br>'-WHAT? YOU'RE GOING TO THROW AWAY YOUR LYFE FOR A GOD THAT HAS NO LOVE FOR YOU?' </br>‎  </br>'One of us will.'"
 	icon_state = "ravox_b"
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius/bronze
-	name = "bronze amulet of Auxentius"
+	name = "bronze amulet of the Sun"
 	desc = "'We are His soldiers, the Legion of light.' </br>'We are the center, the depth of the Sun.' </br>'Fire and flame - we are one.'"
 	icon_state = "astrata_b"
 	item_state = "astrata_b"
 
 /obj/item/clothing/neck/roguetown/psicross/handwerra/malum/bronze
-	name = "bronze amulet of Handwerra"
+	name = "bronze amulet of the Craft"
 	desc = "Stone to steel, bone to bronze, mulched to masterworked."
 	icon_state = "malum_b"
 	item_state = "malum_b"
 
 /obj/item/clothing/neck/roguetown/psicross/volkovoi/bronze
-	name = "bronze amulet of Volkovoi"
+	name = "bronze amulet of War"
 	desc = "'EVERYTHING - AND EVERYONE YOU LOVE - WILL BE GONE! WHAT WILL YOU HAVE, AFTER THE LAST FIRE'S BEEN SMOTHERED OUT?!' </br>‎  </br>'..You. I'd still have you.'"
 	icon_state = "graggar_b"
 	item_state = "graggar_b"
 
 /obj/item/clothing/neck/roguetown/psicross/handwerra/malum
-	name = "amulet of Handwerra"
+	name = "amulet of the Craft"
 	desc = "From the ashes, creation."
 	icon_state = "malum"
 
 /obj/item/clothing/neck/roguetown/psicross/handwerra/malum/wood
-	name = "wooden amulet of Handwerra"
+	name = "wooden amulet of the Craft"
 	desc = "Losing is fun; not because of what you once had, but because of the chance to start again."
 	icon_state = "malum_w"
 	item_state = "malum_w"
@@ -1010,19 +1010,19 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/handwerra/malum/g
-	name = "golden amulet of Handwerra"
+	name = "golden amulet of the Craft"
 	desc = "This is a ☼golden amulet☼. All craftsmanship is of the highest quality. It menaces with spikes of gold."
 	icon_state = "malum_g"
 	item_state = "malum_g"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/miluse/eora
-	name = "amulet of Miluše"
+	name = "amulet of the Moon"
 	desc = "In a world full of horror and hardship, all we have is each other."
 	icon_state = "eora"
 
 /obj/item/clothing/neck/roguetown/psicross/miluse/eora/wood
-	name = "wooden amulet of Miluše"
+	name = "wooden amulet of the Moon"
 	desc = "Like the wind, you're going somewhere.. so let a smile be your companion.."
 	icon_state = "eora_w"
 	item_state = "eora_w"
@@ -1031,21 +1031,21 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/miluse/eora/g
-	name = "golden amulet of Miluše"
+	name = "golden amulet of the Moon"
 	desc = "Love wins."
 	icon_state = "eora_g"
 	item_state = "eora_g"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/viator
-	name = "amulet of Xylix"
+	name = "amulet of Trickery"
 	desc = "In lyfe a smile is sharper than any blade."
 	icon_state = "xylix"
 	toggle_icon_state = FALSE
 	var/disguised_type = null
 
 /obj/item/clothing/neck/roguetown/psicross/viator/wood
-	name = "wooden amulet of Xylix"
+	name = "wooden amulet of Trickery"
 	desc = "I can do anything!"
 	icon_state = "xylix_w"
 	item_state = "xylix_w"
@@ -1054,7 +1054,7 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/viator/g
-	name = "golden amulet of Xylix"
+	name = "golden amulet of Trickery"
 	desc = "That's all, folks!"
 	icon_state = "xylix_g"
 	item_state = "xylix_g"
@@ -1068,7 +1068,7 @@
 
 	var/mob/living/carbon/human/human = user
 	if(human.patron == GLOB.patronlist[/datum/patron/concordat/viator])
-		. += span_notice("This is an amulet of Xylix! By shift-right clicking it, I can alter its shape to whatever befits my whim.")
+		. += span_notice("This is an amulet of Trickery! By shift-right clicking it, I can alter its shape to whatever befits my whim.")
 
 
 /obj/item/clothing/neck/roguetown/psicross/viator/get_examine_highlight_status()
@@ -1104,7 +1104,7 @@
 		var/obj/item/clothing/neck/roguetown/psicross/cross = type
 		choices[initial(cross.name)] = type
 
-	var/selected_cross = tgui_input_list(user, "Choose the Psycross you would like to disguise this one as.", "Psycross Selection", choices)
+	var/selected_cross = tgui_input_list(user, "Choose the Holy cross you would like to disguise this one as.", "Holy cross Selection", choices)
 	if(!selected_cross)
 		return
 
@@ -1119,7 +1119,7 @@
 	human.regenerate_clothes()
 
 /obj/item/clothing/neck/roguetown/psicross/wood
-	name = "wooden psycross"
+	name = "wooden holy cross"
 	desc = "'A man with nothing can still have faith!'"
 	icon_state = "psycross_w"
 	item_state = "psycross_w"
@@ -1128,13 +1128,13 @@
 	salvage_amount = 1
 
 /obj/item/clothing/neck/roguetown/psicross/bronze
-	name = "bronze psycross"
+	name = "bronze holy cross"
 	desc = "'Until my heart ceases beating, and until my vigil ends - I will bring you down with me!'"
 	icon_state = "psycross_b"
 	item_state = "psycross_b"
 
 /obj/item/clothing/neck/roguetown/psicross/silver
-	name = "silver psycross"
+	name = "silver holy cross"
 	desc = "'The horrors persist, but so do I!'"
 	icon_state = "psycross_s"
 	item_state = "psycross_s"
@@ -1155,7 +1155,7 @@
 /obj/item/clothing/neck/roguetown/psicross/bpearl
 	name = "blue pearl amulet"
 	icon_state = "bpearlcross"
-	desc = "An amulet made of rare blue pearls, usually worn by priests and worshippers of Abyssor, or as lucky charms for captains of ships."
+	desc = "An amulet made of rare blue pearls, usually worn by priests and worshippers of the Sea, or as lucky charms for captains of ships."
 	sellprice = 220
 	salvage_result = /obj/item/pearl/blue
 	salvage_amount = 3 // Pearls are easy to cut off from an amulet
@@ -1163,7 +1163,7 @@
 /obj/item/clothing/neck/roguetown/psicross/shell
 	name = "oyster shell necklace"
 	icon_state = "oyster_necklace"
-	desc = "A necklace of strung-up sea shells, the calming noise they make when they clack together is reminiscent of a shellfish's claws. They remind you that while men no longer live in water, Abyssor will always remember our origins."
+	desc = "A necklace of strung-up sea shells, the calming noise they make when they clack together is reminiscent of a shellfish's claws. They remind you that while men no longer live in water, the Sea will always remember our origins."
 	sellprice = 25
 	salvage_result = /obj/item/oystershell
 	salvage_amount = 5
@@ -1171,7 +1171,7 @@
 /obj/item/clothing/neck/roguetown/psicross/shell/bracelet
 	name = "shell bracelet"
 	icon_state = "oyster_bracelet"
-	desc = "A beaded bracelet made from sea shells, their rough exterior and glossy interior reminding you that Abyssor's children hide the best gifts at the deepest spots beneath the waves."
+	desc = "A beaded bracelet made from sea shells, their rough exterior and glossy interior reminding you that the Sea's children hide the best gifts at the deepest spots beneath the waves."
 	sellprice = 15
 	slot_flags = ITEM_SLOT_WRISTS
 	salvage_result = /obj/item/oystershell
@@ -1264,7 +1264,7 @@
 
 /obj/item/clothing/neck/roguetown/psicross/auxentia
 	name = "auxentian psy-bracelet"
-	desc = "A peculiar icon of worship from a foreign land. Forming the three-pronged Vaeltite cross in a circular ring, this bracelet embodies the Auxentian belief of Praecursor's eternity."
+	desc = "A peculiar icon of worship from a foreign land. Forming the three-pronged Old Faith cross in a circular ring, this bracelet embodies the Sun belief of the Absent God's eternity."
 	icon_state = "psybracelet"
 	item_state = null
 
@@ -1453,7 +1453,7 @@
 
 /obj/item/clothing/neck/roguetown/coif/baotha
 	name = "saccharine veil"
-	desc = "Their methods differed; Eora's love and warmth promised comfort. But love was not enough to save the lepers. If it was, the priestess' beloved would have lived forever."
+	desc = "Their methods differed; Love's love and warmth promised comfort. But love was not enough to save the lepers. If it was, the priestess' beloved would have lived forever."
 	icon_state = "baothacoif"
 	item_state = "baothacoif"
 	armor = ARMOR_PADDED
@@ -1532,8 +1532,8 @@
 //
 
 /obj/item/clothing/neck/roguetown/psicross/weeping
-	name = "weeping psicross"
-	desc = "'Let His name be naught but forgot'n.' </br>The alloy is familiar, but unmentionable. Blood oozes from cracks within the psicross; ensnared in a perpetual state of half-coagulation. A deathly chill tugs your neck, and your cheeks feel wet - are those tears?"
+	name = "weeping holy cross"
+	desc = "'Let His name be naught but forgot'n.' </br>The alloy is familiar, but unmentionable. Blood oozes from cracks within the holy cross; ensnared in a perpetual state of half-coagulation. A deathly chill tugs your neck, and your cheeks feel wet - are those tears?"
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_WRISTS
 	icon_state = "psicrossblood"
 	max_integrity = 666
@@ -1560,7 +1560,7 @@
 			to_chat(user, span_warning("The [src] feels heavy around my neck. But it's no albatross of mine. It does nothing to me."))
 			return
 		active_item = TRUE
-		to_chat(user, span_red("As you don the psicross, the chains tighten like a vice around your neck!  </br>  </br>You're overcome with a sense of terrible anguish - all of humenity's suffering, thrust upon your very spirit!  </br>  </br>Your chest grows cold, yet your blood boils hotter than magma! Vaeltis's villains may be brutal and merciless, but you will be WORSE!  </br>  </br>You've gone BERSERK!"))
+		to_chat(user, span_red("As you don the holy cross, the chains tighten like a vice around your neck!  </br>  </br>You're overcome with a sense of terrible anguish - all of humenity's suffering, thrust upon your very spirit!  </br>  </br>Your chest grows cold, yet your blood boils hotter than magma! Vaeltis's villains may be brutal and merciless, but you will be WORSE!  </br>  </br>You've gone BERSERK!"))
 		user.change_stat(STATKEY_STR, 3)
 		user.change_stat(STATKEY_CON, 3)
 		user.change_stat(STATKEY_WIL, 3)
@@ -1833,13 +1833,13 @@
 
 /obj/item/clothing/neck/roguetown/psicross/liefdonator
 	name = "Aurum's Amulets"
-	desc = "A long gold chain that was double woven for strength. At regular intervals, a gold loop just barely big enough to have something attached to it. Two of the loops had charms dangling from them. Each gold still. One in the shape of a Xylixian mask, the other in the shape of Dendor's claws."
+	desc = "A long gold chain that was double woven for strength. At regular intervals, a gold loop just barely big enough to have something attached to it. Two of the loops had charms dangling from them. Each gold still. One in the shape of a Trickery mask, the other in the shape of the Wilds's claws."
 	icon_state = "lief_amulet"
 
 // Restored from origin/main during 2026-09 mainstream merge
 
 /obj/item/clothing/neck/roguetown/psicross/noc/aalloy
-	name = "decrepit amulet of Noc"
+	name = "decrepit amulet of the Moon"
 	desc = "The ultimate answer to the ultimate question is not a parable, but a pair of numbers; 'four' and 'two'. Thou may not understand it, yet, but I assure thee; it shall all make sense in due tyme."
 	icon_state = "noc_a"
 	color = "#bb9696"
@@ -1848,26 +1848,26 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/abyssor/g
-	name = "golden amulet of Abyssor"
+	name = "golden amulet of the Sea"
 	desc = "Fortune favors the bold."
 	icon_state = "abyssor_g"
 	item_state = "abyssor_g"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/pestra/g
-	name = "golden amulet of Pestra"
+	name = "golden amulet of Healing"
 	desc = "My elixirs are far too strong for you, adventurer; they would stagger a hero, much less a vagabond like thineself."
 	icon_state = "pestra_g"
 	item_state = "pestra_g"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/neck/roguetown/psicross/ravox/bronze
-	name = "bronze amulet of Ravox"
+	name = "bronze amulet of Law"
 	desc = "'YOU FIGHT WELL, RAVOX OF UR-SYON. YOUR CLEMENCY HATH BEEN EARNED. SURRENDER NOW, AND GRAGGAR SHALL-'</br>‎	</br>'No.' </br>‎	</br>'-WHAT? YOU'RE GOING TO THROW AWAY YOUR LYFE FOR A GOD THAT HAS NO LOVE FOR YOU?' </br>‎	</br>'One of us will.'"
 	icon_state = "ravox_b"
 
 /obj/item/clothing/neck/roguetown/psicross/xylix/g
-	name = "golden amulet of Xylix"
+	name = "golden amulet of Trickery"
 	desc = "That's all, folks!"
 	icon_state = "xylix_g"
 	item_state = "xylix_g"
@@ -1875,6 +1875,6 @@
 
 /obj/item/clothing/neck/roguetown/psicross/naledi
 	name = "naledian psy-bracelet"
-	desc = "A peculiar icon of worship from a foreign land. Forming the three-pronged Psydonite cross in a circular ring, this bracelet embodies the Naledian belief of Psydon's eternity."
+	desc = "A peculiar icon of worship from a foreign land. Forming the three-pronged Old Faith cross in a circular ring, this bracelet embodies the Naledian belief of the Absent God's eternity."
 	icon_state = "psybracelet"
 	item_state = null

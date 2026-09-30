@@ -1369,14 +1369,20 @@ const ArousalPanel: React.FC<{
     <Stack vertical>
       <Stack.Item>
         <Box style={{ fontSize: 11 }}>
-          Charge: <Box as="span" bold>{charge}</Box>/{chargeMax} ({charge_for_climax} to climax)
+          Stamina:{' '}
+          <Box as="span" bold>
+            {charge >= charge_for_climax
+              ? `enough for ${Math.floor(charge / Math.max(1, charge_for_climax))} more climax${Math.floor(charge / Math.max(1, charge_for_climax)) === 1 ? '' : 'es'}`
+              : 'spent - needs rest'}
+          </Box>{' '}
+          ({charge}/{chargeMax})
         </Box>
         <Box style={{ fontSize: 11 }}>
-          Condition:{' '}
+          Satisfaction:{' '}
           <Box as="span" bold>
             {spTierText || 'fine'}
           </Box>
-          {overloadActive && (
+          {!!overloadActive && (
             <Box color="bad" bold style={{ fontSize: 11 }}>
               OVERSTIMULATED
             </Box>
@@ -1957,7 +1963,7 @@ const EditorTab: React.FC<{
                   </Button>
                 </Box>
 
-                {isDirty && (
+                {!!isDirty && (
                   <Box mt={0.5} color="label" style={{ fontSize: 10 }}>
                     Your edits are kept until you save or pick something else.
                   </Box>
@@ -2200,7 +2206,7 @@ export const EroticRolePlayPanel: React.FC = () => {
           </Stack.Item>
         </Stack>
       </Window.Content>
-      {editContext && (
+      {!!editContext && (
         <Modal>
           <Section title={editContext.kind === 'arousal' ? 'Set arousal (0-100)' : 'Sensitivity (e.g. 0-2)'}>
             <Input autoFocus value={editValue} onChange={(v) => setEditValue(v)} />

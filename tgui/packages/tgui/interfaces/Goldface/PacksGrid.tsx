@@ -80,7 +80,7 @@ export const PacksGrid = (props: Props) => {
           </div>
         ))}
       </div>
-      {overflowed && (
+      {!!overflowed && (
         <div
           style={{
             marginTop: '8px',

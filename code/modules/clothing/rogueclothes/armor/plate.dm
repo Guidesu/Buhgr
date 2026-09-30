@@ -294,7 +294,7 @@
 // Heretic Graggar Plate
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/graggar
 	name = "vicious half-plate"
-	desc = "A fluted vessel of Graggar's hatred, stirring with the same violence that drives our world. Such an inner motive leaves \
+	desc = "A fluted vessel of War's hatred, stirring with the same violence that drives our world. Such an inner motive leaves \
 	the steel unchained from flesh - enslaved, no more!"
 	armor_class = ARMOR_CLASS_MEDIUM
 	max_integrity = ARMOR_INT_CHEST_PLATE_STEEL // We are probably one of the best medium armor sets. At higher integ than most(heavy armor levels, pretty much. But worse resistances, we get the bonus over the other sets of being medium and being unequippable.)
@@ -338,7 +338,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate
 	name = "vaeltic half-plate"
-	desc = "A beautiful steel cuirass, fitted with tassets and pauldrons for additional coverage. Lesser clerics of Praecursor \
+	desc = "A beautiful steel cuirass, fitted with tassets and pauldrons for additional coverage. Lesser clerics of the Absent God \
 	oft-decorate these sets with dyed cloths, so that those who're wounded can still find salvation in the madness of \
 	battle."
 	icon_state = "ornatehalfplate"
@@ -353,7 +353,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate/get_mechanics_examine(mob/user)
 	. = ..()
 	. += span_info("With more blessed silver and an armorsmith's hammer, this armor can be further upgraded.")
-	. += span_info("If a character has the 'Maille Training' trait and has Praecursor as their selected patron, they can comfortably wear Vaeltic plate armor without suffering any downsides.")
+	. += span_info("If a character has the 'Maille Training' trait and has the Absent God as their selected patron, they can comfortably wear Vaeltic plate armor without suffering any downsides.")
 	. += span_hypnophrase("'..the thrumbing of madness, to think that your suffering was all-for-naught to Adonai's sacrifical lamb..'")
 
 // HEAVY
@@ -447,7 +447,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate
 	name = "vaeltic plate armor"
 	desc = "A suit of beautiful plate armor, meticulously fluted with blessed silver. This design's origins lay in \
-	the hands of a legendary armorsmith, who sought to mimic the heavenly maille that Praecursor's angels once \
+	the hands of a legendary armorsmith, who sought to mimic the heavenly maille that the Absent God's angels once \
 	wore."
 	icon_state = "ornateplate"
 	smeltresult = /obj/item/ingot/silverblessed
@@ -465,7 +465,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/get_mechanics_examine(mob/user)
 	. = ..()
 	. += span_info("With more blessed silver and an armorsmith's hammer, this armor can be further upgraded.")
-	. += span_info("If a character has the 'Maille Training' trait and has Praecursor as their selected patron, they can comfortably wear Vaeltic plate armor without suffering any downsides.")
+	. += span_info("If a character has the 'Maille Training' trait and has the Absent God as their selected patron, they can comfortably wear Vaeltic plate armor without suffering any downsides.")
 	. += span_hypnophrase("'..the refusal of despair, and the resolve to defend Vaeltis in its darkest hour..'")
 
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/shadowplate
@@ -571,7 +571,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/baotha
 	name = "saccharine plate armor"
-	desc = "Is it not obvious what Auxentius would've chosen? Yet upon the dae of His choice, She refused to gift any chance to Her sister.."
+	desc = "Is it not obvious what the Sun would've chosen? Yet upon the dae of His choice, She refused to gift any chance to Her sister.."
 	icon_state = "baothaplate"
 	item_state = "baothaplate"
 	max_integrity = ARMOR_INT_CHEST_PLATE_ANTAG - 350 //Halved durability, compared to traditional Ascendant-tier armor.
@@ -814,9 +814,9 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/holysee
 	name = "holy see cuirass"
-	desc = "A blessed steel cuirass, fitted with tassets for additional coverage. Noc's holy silver, and Auxentian gold are woven into the fluting. \
+	desc = "A blessed steel cuirass, fitted with tassets for additional coverage. The Moon's holy silver, and Sun gold are woven into the fluting. \
 			When the world was ending, and hunger of the nite ravenous, Templars one and all remember the radiance of the blessed metals, \
-			and the warmth of home. Then and forever, the Ten have not forgotten their faithful."
+			and the warmth of home. Then and forever, the Domains have not forgotten their faithful."
 	icon_state = "seecuirass"
 	item_state = "seecuirass"
 
@@ -853,14 +853,14 @@
 	icon_state = "ornatecuirass"
 	desc = "A beautiful steel cuirass, fitted with tassets for additional coverage. Strips of blessed silver have been meticulously \
 	incorporated into the fluting; a laborous decoration that denotes it as originating from the Order of the Silver \
-	Psycross."
+	Holy cross."
 	smeltresult = /obj/item/ingot/silverblessed
 	smelt_bar_num = 1
 
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/get_mechanics_examine(mob/user)
 	. = ..()
 	. += span_info("With more blessed silver and an armorsmith's hammer, this armor can be further upgraded.")
-	. += span_info("If a character has the 'Maille Training' trait and has Praecursor as their selected patron, they can comfortably wear Vaeltic plate armor without suffering any downsides.")
+	. += span_info("If a character has the 'Maille Training' trait and has the Absent God as their selected patron, they can comfortably wear Vaeltic plate armor without suffering any downsides.")
 	. += span_hypnophrase("'..the feeling of Aeon's grasp upon your shoulders, imparting the world's burden unto flesh and bone..'")
 
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/iron
@@ -887,8 +887,8 @@
 /obj/item/clothing/suit/roguetown/armor/plate/silver
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "templar's half-plate"
-	desc = "Noc's holy silver, one fifth. Steel, three fifths. Chosen Material, one fifth. The armor of the Templar, protector and \
-	warrior of the Ten's Faithful."
+	desc = "The Moon's holy silver, one fifth. Steel, three fifths. Chosen Material, one fifth. The armor of the Templar, protector and \
+	warrior of the Domains's Faithful."
 	body_parts_covered = COVERAGE_TORSO
 	icon_state = "silverhalfplate"
 	item_state = "silverhalfplate"
@@ -1065,7 +1065,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat/armored/heavy
 	name = "plated inquisitorial duster"
-	desc = "A heavy longcoat that's fitted atop a set of blessed plate armor, donned by the Holy Psydonic Inquisition's finest. As expected from \
+	desc = "A heavy longcoat that's fitted atop a set of blessed plate armor, donned by the Holy Old Faith Inquisition's finest. As expected from \
 	such a doursome country, this style is quite popular in Otava - where the skies are always overcast, and where sanctioned Ordinators often have \
 	to roam in the downpour. </br>At least, that's what the Holy See would probably say. What would <i>they</i> know about fashion, however?"
 	icon_state = "ordinatorplatecoat"

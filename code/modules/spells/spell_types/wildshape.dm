@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/self/wildshape
 	name = "Beast Form"
-	desc = "Take on the form of one of Ignatius's sacred beasts."
+	desc = "Take on the form of one of the Wilds's sacred beasts."
 	overlay_state = "tamebeast"
 	clothes_req = FALSE
 	human_req = FALSE

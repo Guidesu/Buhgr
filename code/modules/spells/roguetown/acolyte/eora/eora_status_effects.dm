@@ -44,7 +44,7 @@
 			linked_alert.icon_state = "pom_regret"
 		if(-5)
 			linked_alert.name = "Arillean Husk"
-			linked_alert.desc = "Much of your body has deteriorated into ash. It is not through Miluše's mercy if you are still alive somehow."
+			linked_alert.desc = "Much of your body has deteriorated into ash. It is not through the Moon's mercy if you are still alive somehow."
 			linked_alert.icon_state = "pom_regret"
 
 /datum/status_effect/buff/ashen_aril/on_apply()
@@ -185,7 +185,7 @@
 		M.Jitter(100)
 		record_round_statistic(STATS_LUX_REVIVALS)
 		M.update_body()
-		M.visible_message(span_notice("[M] is dragged back from Morwenna's hold!"), span_green("I awake from the void."))
+		M.visible_message(span_notice("[M] is dragged back from Death's hold!"), span_green("I awake from the void."))
 		M.mind.remove_antag_datum(/datum/antagonist/zombie)
 		M.remove_status_effect(/datum/status_effect/debuff/rotted_zombie)
 		M.apply_status_effect(/datum/status_effect/debuff/revived)
@@ -283,7 +283,7 @@
 		owner.blood_volume = max(10, owner.blood_volume - 10)
 
 /atom/movable/screen/alert/status_effect/pomegranate_aura
-	name = "Miluše's Blessing"
+	name = "The Moon's Blessing"
 	desc = "You feel a sense of peace near this sacred tree."
 	icon_state = "pom_peace"
 
@@ -326,7 +326,7 @@
 		return
 
 /atom/movable/screen/alert/status_effect/pomegranate_beauty
-	name = "Miluše's Beauty"
+	name = "The Moon's Beauty"
 	desc = "As long as you linger by the sacred tree, your body will harbor its divine beauty - and all the strain it commands."
 	icon_state = "pom_peace"
 

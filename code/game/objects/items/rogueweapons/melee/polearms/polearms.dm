@@ -432,7 +432,7 @@
 /obj/item/rogueweapon/spear/psyspear
 	name = "psydonic spear"
 	desc = "An ornate spear, plated in a ceremonial veneer of silver. The barbs pierce your palm, and - for just a moment - you see red. Never \
-	forget that you are why Psydon wept."
+	forget that you are why the Absent God wept."
 	icon_state = "psyspear"
 	force = 15
 	force_wielded = 25
@@ -966,7 +966,7 @@
 
 /obj/item/rogueweapon/halberd/psyhalberd/relic
 	name = "\"Stigmata\""
-	desc = "Christened in the Siege of Lirvas, these silver-tipped poleaxes - wielded by a lonesome contingent of Saint Eora's \
+	desc = "Christened in the Siege of Lirvas, these silver-tipped poleaxes - wielded by a lonesome contingent of Saint Love's \
 	paladins - kept the horrors at bay for forty daes-and-nites. Long-since-recovered from the rubble, this relic now serve as \
 	a bulwark for the defenseless."
 	icon_state = "psyhalberd"
@@ -1077,7 +1077,7 @@
 
 /obj/item/rogueweapon/halberd/pestran
 	name = "\"Lance of Boils\""
-	desc = "For when a scalpel is too short, and you still need to perform Pestra's holy work."
+	desc = "For when a scalpel is too short, and you still need to perform Healing's holy work."
 	icon_state = "pestranhalberd"
 
 /obj/item/rogueweapon/halberd/bone
@@ -1314,8 +1314,8 @@
 	gripped_intents = list(/datum/intent/spear/thrust/pike, /datum/intent/spear/thrust/pike/skewer)
 
 /obj/item/rogueweapon/spear/boar/frei/pike/reformist
-	name = "banner of Psydonic Reformism"
-	desc = "A steel pike with an altered Psydonic cross representing the order of Primo Reformatio, crossed by a black \
+	name = "banner of Old Faith Reformism"
+	desc = "A steel pike with an altered Old Faith cross representing the order of Primo Reformatio, crossed by a black \
 	stripe that symbolizes mourning. Mammukhus sum, qui castellum onere fero. Numquam genua flecto aut gradum amitto."
 	icon_state = "reformistbanner"
 

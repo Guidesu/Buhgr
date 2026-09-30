@@ -64,7 +64,7 @@
 	. = ..()
 
 /datum/antagonist/prebel/greet()
-	to_chat(owner, span_danger("It was coming for a while. The taxes grew tighter, and the imports grew duller. O' Lady Astrata, you've done it now, haven't you."))
+	to_chat(owner, span_danger("It was coming for a while. The taxes grew tighter, and the imports grew duller. O' Lady the Sun, you've done it now, haven't you."))
 	to_chat(owner, span_notice("I blend in with my daily work for now. When the time is right, I may DECLARE UPRISING to cast off my disguise, arm myself, and fight openly. Until then, the presence of nobility and their court cows me."))
 	owner.current?.playsound_local(get_turf(owner.current), 'sound/music/freemen-rebellion.ogg', 60, FALSE, pressure_affected = FALSE)
 	if(rev_team)
@@ -654,7 +654,7 @@
 		T.discarded |= M.mind
 	budget2change(payout, H)
 	H.visible_message(span_danger("[H] strips [M] of their upper-class trappings!"), span_boldnotice("I strip [M.real_name] of their pretensions. [payout] mammon for the freemen's coffers!"))
-	to_chat(M, span_userdanger("My lady Astrata - save me!"))
+	to_chat(M, span_userdanger("My lady the Sun - save me!"))
 	H.add_stress(/datum/stressevent/rebel_discard)
 	M.add_stress(/datum/stressevent/rebel_discarded)
 

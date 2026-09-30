@@ -4,7 +4,7 @@
 	anatomy_type = /datum/anatomy/quadruped/trash
 	attack_aim = MOB_AIM_GROUND
 	name = "mudcrab"
-	desc = "A large species of crab populous in both marine and freshwater habitats across the world. It is said that untold millions lurk in the depths, where no crabber could ever reach them! None but Abyssor himself may do more than guess at the contents of the abyss - but they are quite tasty once fried."
+	desc = "A large species of crab populous in both marine and freshwater habitats across the world. It is said that untold millions lurk in the depths, where no crabber could ever reach them! None but the Sea himself may do more than guess at the contents of the abyss - but they are quite tasty once fried."
 	icon_state = "mudcrab"
 	icon_living = "mudcrab"
 	icon_dead = "mudcrab_dead"

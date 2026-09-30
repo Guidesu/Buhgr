@@ -134,7 +134,7 @@
 
 /obj/item/carvedgem/rose/rawrose
 	name = "rosestone"
-	desc = "Pink and lustrous, these pearls produced by fossilized clams are valued by Eorans; and are usually gifted to expecting mothers and newlyweds."
+	desc = "Pink and lustrous, these pearls produced by fossilized clams are valued by Love faithful; and are usually gifted to expecting mothers and newlyweds."
 	icon_state = "raw_rose"
 	grid_height = 32
 	grid_width = 32
@@ -225,7 +225,7 @@
 
 /obj/item/carvedgem/rose/flower
 	name = "rosestone flower carving"
-	desc = " A carving of a beautiful flower made out of rosestone. Eora would be proud of such artistry."
+	desc = " A carving of a beautiful flower made out of rosestone. Love would be proud of such artistry."
 	icon_state = "flower_rose"
 	dropshrink = 0.8
 	grid_height = 64
@@ -233,14 +233,14 @@
 
 /obj/item/carvedgem/rose/carp
 	name = "rosestone carp statue"
-	desc = "A medium-sized carving of a carp made out of rosestone. The fish have been selectively bred by Eorans to bring out beautiful patterns in their scales, but have become invasive in some regions due to carelessness."
+	desc = "A medium-sized carving of a carp made out of rosestone. The fish have been selectively bred by Love faithful to bring out beautiful patterns in their scales, but have become invasive in some regions due to carelessness."
 	icon_state = "carp_rose"
 	grid_height = 64
 	grid_width = 64
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/rondel/rose
 	name = "rosestone dagger"
-	desc = "A pristine dagger carved out of rosestone, intended for ceremonies over combat. Such a blade is famous amongst both Eorans and Baothans; the \
+	desc = "A pristine dagger carved out of rosestone, intended for ceremonies over combat. Such a blade is famous amongst both Love faithful and Forbidden faithful; the \
 	former cherishes it as a ceremonial means of ending one's suffering - the latter, a twisted representation of the sin that brought about their patron's fall from grace."
 	icon = 'icons/roguetown/gems/gem_rose.dmi'
 	icon_state = "misericorde_rose"
@@ -569,7 +569,7 @@
 
 /obj/item/carvedgem/turq/ka
 	name = "cerulite ka statue"
-	desc = "A large carving of a ka spirit from Lakkarian myth. Believed to help guide the recently parted to Necra's domain."
+	desc = "A large carving of a ka spirit from Lakkarian myth. Believed to help guide the recently parted to Death's domain."
 	icon_state = "ka_turq"
 	grid_height = 64
 	grid_width = 32
@@ -695,7 +695,7 @@
 
 /obj/item/carvedgem/coral/shark
 	name = "heartstone shark statue"
-	desc = "A statue of a shark carved out of heartstone. Some sailors believe them to be agents of Abyssor."
+	desc = "A statue of a shark carved out of heartstone. Some sailors believe them to be agents of the Sea."
 	icon_state = "shark_coral"
 	grid_height = 64
 	grid_width = 64
@@ -703,7 +703,7 @@
 /obj/item/rogueweapon/stoneaxe/battle/coral
 	name = "heartstone nsapo"
 	desc = "An ornate nsapo carved out of heartstone, intended for ceremonies over combat. As gemstoned items were - and still are - seen as talismans that \
-	can invoke divine attention, it's only fitting that these hatchets serve a pivotal part in settling ancient feuds; through the rite of Auxentius."
+	can invoke divine attention, it's only fitting that these hatchets serve a pivotal part in settling ancient feuds; through the rite of the Sun."
 	icon = 'icons/roguetown/gems/gem_coral.dmi'
 	icon_state = "nsapo_coral"
 	max_integrity = 75
@@ -824,7 +824,7 @@
 /obj/item/rogueweapon/sword/amber
 	name = "amber kaskara"
 	desc = "A resplendant kaskara carved out of amber, intended for ceremonies over combat. It's believed that each piece of amber contains \
-	a sliver of Auxentius's divine warmth; something that once made it invaluable to decorating the reigns of Vaeltis's earliest kings."
+	a sliver of the Sun's divine warmth; something that once made it invaluable to decorating the reigns of Vaeltis's earliest kings."
 	icon = 'icons/roguetown/gems/gem_amber.dmi'
 	icon_state = "kaskara_amber"
 	max_integrity = 75

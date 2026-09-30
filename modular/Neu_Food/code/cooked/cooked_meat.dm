@@ -272,7 +272,7 @@
 	eat_effect = null
 	slices_num = 0
 	name = "fried salmon"
-	desc = "A filet of flaky salmon, prized by Dendorites for its ability to dance upon river, sea, and your plate alike."
+	desc = "A filet of flaky salmon, prized by Wilds faithful for its ability to dance upon river, sea, and your plate alike."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_meat.dmi'
 	icon_state = "salmon_cooked"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THIRD_MEAL)
@@ -287,7 +287,7 @@
 	eat_effect = null
 	slices_num = 0
 	name = "smoked salmon"
-	desc = "A filet of smoked salmon, prized by Dendorites for its ability to dance upon river, sea, smoke, and your plate alike."
+	desc = "A filet of smoked salmon, prized by Wilds faithful for its ability to dance upon river, sea, smoke, and your plate alike."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_meat.dmi'
 	icon_state = "salmon_smoked"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = NUTRITION_THIRD_MEAL)

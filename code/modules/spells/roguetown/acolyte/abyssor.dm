@@ -136,7 +136,7 @@
 //	to_chat(user, "Initial delay: [delay]")
 
 	to_chat(user, span_blue("<i>[user] makes a beckoning gesture at [T] as a white fog swirls momentarily!</i>"))
-	user.say(pick("The Dreamer commands you, splash forth.","By Abyssor's will, spring forth.","Splash forth.","Come hither, abyssals.","Leap in Abyssor's name.","I call to you, denizens of the depths."), language = /datum/language/common)
+	user.say(pick("The Dreamer commands you, splash forth.","By the Sea's will, spring forth.","Splash forth.","Come hither, abyssals.","Leap in the Sea's name.","I call to you, denizens of the depths."), language = /datum/language/common)
 
 	// === FIRST INSTANT PULL ===
 	if(!H.devotion || H.devotion.devotion < devotion_cost)
@@ -201,7 +201,7 @@
 
 		if(!do_after(user, delay SECONDS, target = user))
 //			to_chat(user, "BREAK: do_after failed (movement/interruption)")
-			to_chat(user, span_warning("Your focus breaks, and Abyssor's pull fades."))
+			to_chat(user, span_warning("Your focus breaks, and the Sea's pull fades."))
 			break
 
 //		to_chat(user, "do_after success")
@@ -295,7 +295,7 @@
 
 /obj/effect/proc_holder/spell/invoked/abyssor_bends
 	name = "Depth Bends"
-	desc = "Drains the targets stamina, unless they worship Abyssor. Also makes them dizzy and blurs their screen."
+	desc = "Drains the targets stamina, unless they worship the Sea. Also makes them dizzy and blurs their screen."
 	overlay_icon = 'icons/mob/actions/abyssormiracles.dmi'
 	action_icon = 'icons/mob/actions/abyssormiracles.dmi'
 	overlay_state = "bends"
@@ -442,11 +442,11 @@
 		if (situational_bonus > 0)
 			slickness = max_slickness
 			conditional_buff = TRUE
-			to_chat(user, "Calling upon Abyssor's power is easier in these conditions!")
+			to_chat(user, "Calling upon the Sea's power is easier in these conditions!")
 
 		// Warning messages
 		if((slickness / max_slickness) <= 0.5)
-			to_chat(user, span_warning("Your connection to Abyssor is weakening. Cast near water to renew it."))
+			to_chat(user, span_warning("Your connection to the Sea is weakening. Cast near water to renew it."))
 
 		// Calculate healing based on slickness and situational bonus
 		var/healing = max(base_healing * (slickness / max_slickness) + situational_bonus, 3)
@@ -629,7 +629,7 @@
 		return FALSE
 
 	if(target.mind.has_spell(/obj/effect/proc_holder/spell/invoked/abyssal_strength))
-		to_chat(user, span_warning("[target] is already blessed with Abyssor's strength."))
+		to_chat(user, span_warning("[target] is already blessed with the Sea's strength."))
 		revert_cast()
 		return FALSE
 

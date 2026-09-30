@@ -1,8 +1,8 @@
 /obj/structure/ritualcircle/malum_TA
 	name = "Rune of Forge"
-	desc = "A Holy Rune of Malum. A hammer and heat, to fix any imperfections with."
+	desc = "A Holy Rune of the Craft. A hammer and heat, to fix any imperfections with."
 	icon_state = "malum_chalky"
-	var/forgerites = list("Ritual of Blessed Reforgance", "Malum Forge")
+	var/forgerites = list("Ritual of Blessed Reforgance", "Craft Forge")
 
 /obj/structure/ritualcircle/malum_TA/attack_hand(mob/living/user)
 	if(!..())
@@ -39,7 +39,7 @@
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			spawn(120)
 				icon_state = "malum_chalky"
-		if("Malum Forge")
+		if("Craft Forge")
 			if(!do_after(user, 5 SECONDS))
 				return
 			user.say("God of craft and heat of the forge!!")
@@ -99,7 +99,7 @@
 
 /obj/structure/ritualcircle/baotha_TA
 	name = "Rune of Hedonism"
-	desc = "A Holy Rune of Baotha. Relief for the broken hearted."
+	desc = "A Holy Rune of the Forbidden. Relief for the broken hearted."
 	icon_state = "baotha_chalky"
 	var/baothists = list("Rite of Armaments", "Rite of Joy", "Expancy", "Masquarade")
 
@@ -163,7 +163,7 @@
 			user.say("Grant me the bliss, grant me the rush!")
 			if(!do_after(user, 3 SECONDS))
 				return FALSE
-			user.say("Baotha, fill my cup with endless mirth!")
+			user.say("The Forbidden, fill my cup with endless mirth!")
 			playsound(loc, 'sound/misc/evilevent.ogg', 100, FALSE, -1)
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			user.apply_status_effect(/datum/status_effect/joybringer)
@@ -182,7 +182,7 @@
 			user.say("Grant me the bliss, grant me the rush!")
 			if(!do_after(user, 3 SECONDS))
 				return FALSE
-			user.say("Baotha, fill my cup with endless mirth!")
+			user.say("The Forbidden, fill my cup with endless mirth!")
 			playsound(loc, 'sound/misc/evilevent.ogg', 100, FALSE, -1)
 			var/ritual_type = list("Ozium x3", "Moon Dust x3", "Purified Moondust x2", "Star shugar x2", "Spice x2", "Herozium x2", "Smartium x3", "Grave Powder x3", "Corps Dust x3", "Inferrum x3", "Grenzelhoft Sour x3", "Otavan Red x3", "Otavan White x3", "Elven Red x3", "Valmora Blue x2", "Aged Spiced Wine x2", "Delectable Spiced Wine x2")
 			var/chooselection = input(user, "Rituals of Gedonism", src) as null|anything in ritual_type
@@ -251,7 +251,7 @@
 			user.say("Grant me the bliss, grant me the rush!")
 			if(!do_after(user, 3 SECONDS))
 				return FALSE
-			user.say("Baotha, fill my cup with endless mirth!")
+			user.say("The Forbidden, fill my cup with endless mirth!")
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			playsound(loc, 'sound/misc/evilevent.ogg', 100, FALSE, -1)
 			new /obj/item/clothing/ring/baotha (get_turf(src))

@@ -58,7 +58,7 @@
 
 /obj/structure/fluff/psycross/psycrucifix/stone
 	name = "stone vaeltic crucifix"
-	desc = "Formed of stone, this great Psycross symbolises that HE is forever ENDURING. Considered a rare sight upon the vale."
+	desc = "Formed of stone, this great Holy cross symbolises that HE is forever ENDURING. Considered a rare sight upon the vale."
 	icon_state = "psycruci_r"
 	max_integrity = 120
 	chance2hear = 10

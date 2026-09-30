@@ -524,6 +524,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		quirkgreater = new quirkgreater_type
 
 	dreamvalley_load_extra_quirks(S)
+	dreamvalley_load_domain(S)
+	dreamvalley_load_prayer_presets(S)
+	dreamvalley_migrate_origin()
 
 /datum/preferences/proc/_load_gear_list(savefile/S)
 	S["gear_list"] >> gear_list
@@ -1003,6 +1006,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["quirklesser"] , quirklesser.type)
 	WRITE_FILE(S["quirkgreater"] , quirkgreater.type)
 	dreamvalley_save_extra_quirks(S)
+	dreamvalley_save_domain(S)
+	dreamvalley_save_prayer_presets(S)
 	WRITE_FILE(S["race_bonus"], race_bonus)
 	WRITE_FILE(S["combat_music"], combat_music.type)
 	WRITE_FILE(S["body_size"] , features["body_size"])

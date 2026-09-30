@@ -203,7 +203,7 @@ const FellowshipView = () => {
           </Table>
         </Section>
       </Stack.Item>
-      {isLeader && (
+      {!!isLeader && (
         <Stack.Item>
           <Section
             title="Invitations"

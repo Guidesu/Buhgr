@@ -16,7 +16,7 @@
 /datum/clan/nosferatu
 	name = "Nosferatu"
 	desc = "The Nosferatu wear their curse on the outside. Their bodies horribly twisted and deformed through the Embrace, they lurk on the fringes of most cities, acting as spies and brokers of information. Using animals and their own supernatural capacity to hide, nothing escapes the eyes of the so-called Sewer Rats."
-	curse = "Horrific appearance, weaker guise against Astrata's scorn."
+	curse = "Horrific appearance, weaker guise against the Sun's scorn."
 	clanicon = "melpominee"
 	leader = /datum/clan_leader/nosferatu
 	clane_covens = list(

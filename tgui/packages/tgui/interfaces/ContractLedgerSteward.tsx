@@ -443,7 +443,7 @@ const ComposeView = () => {
           );
         })()}
 
-      {needsDestination && (
+      {!!needsDestination && (
         <FormRow label="Shipment Destination">
           <Select
             value={destination}
@@ -534,7 +534,7 @@ const ComposeView = () => {
         </div>
       )}
 
-      {bonusPayEligible && (
+      {!!bonusPayEligible && (
         <FormRow label="Bonus Pay">
           <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
             <BonusPayOption
@@ -607,7 +607,7 @@ const ComposeView = () => {
         </div>
       )}
 
-      {regionHasActiveWrit && (
+      {!!regionHasActiveWrit && (
         <div className="ContractLedger__InnkeeperFlavor">
           A writ is already in circulation for {region}. It can be withdrawn
           from the Issued tab.

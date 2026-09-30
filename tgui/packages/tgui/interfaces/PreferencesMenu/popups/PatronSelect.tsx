@@ -1,53 +1,70 @@
-import { groupBy, sortBy } from 'es-toolkit';
-import { LabeledGridList, PrefPopupGuard, TabCollapsible } from 'pm/components';
-import {
-  type ConstantData,
-  type ConstantFaith,
-  type ConstantPatron,
-  useConstantPrefs,
-} from 'pm/constant_data';
-import type { Path } from 'pm/data';
+import { PrefPopupGuard } from 'pm/components';
 import {
   type PopupData,
   registerPopup,
   useKeyscrollEffect,
   usePopupBackend,
 } from 'pm/popups';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Button,
   Icon,
+  Input,
   Section,
   Stack,
   Tabs,
-  Tooltip,
+  TextArea,
 } from 'tgui-core/components';
-import { classes } from 'tgui-core/react';
+
+type DomainGod = {
+  type: string;
+  name: string;
+  domain: string;
+  desc: string;
+  worshippers: string;
+};
+
+type Domain = {
+  type: string;
+  name: string;
+  desc: string;
+  icon: string;
+  pray_hint: string;
+  gods: DomainGod[];
+  miracles: string[];
+};
 
 export type PopupPatronSelectData = {
-  selected_patron: Path;
+  domains: Domain[];
+  selected_domain: string;
+  selected_patron: string;
+  custom: boolean;
+  custom_name: string;
+  custom_titles: string;
+  custom_desc: string;
+  name_max: number;
+  titles_max: number;
+  desc_max: number;
 } & PopupData;
 
 const PopupPatronSelect = () => {
-  const [constantData] = useConstantPrefs();
   const { data } = usePopupBackend<PopupPatronSelectData>();
   const { popup_data_ready } = data;
 
   return (
     <PrefPopupGuard
-      title="Selecting Patron"
-      loadingScreenText="Patrons Loading..."
+      title="Domain & God"
+      loadingScreenText="Domains Loading..."
       width="80vw"
       height="80vh"
-      dependencies={[constantData, popup_data_ready]}
+      dependencies={[popup_data_ready]}
     >
-      <PopupPatronSelectInner constantData={constantData!} />
+      <PopupPatronSelectInner />
     </PrefPopupGuard>
   );
 };
 
-// Register it
 declare module 'pm/popups' {
   interface PopupRegistry {
     PatronSelect: 'patron_select';
@@ -55,253 +72,213 @@ declare module 'pm/popups' {
 }
 registerPopup('PatronSelect', 'patron_select', PopupPatronSelect);
 
-type EnhancedPatron = ConstantPatron & {
-  type: Path;
-};
-
-type EnhancedFaith = ConstantFaith & {
-  type: Path;
-};
-
-const getGodheadIcon = (patron: ConstantPatron) => {
-  switch (patron.name) {
-    case 'Psydon':
-      return '\u16C9';
-    case 'Astrata':
-      return '\u16BC';
-    case 'Zizo':
-      return '\u16E3';
-    default:
-      return '?';
-  }
-};
-
-const PopupPatronSelectInner = (props: { constantData: ConstantData }) => {
-  const { constantData } = props;
+const PopupPatronSelectInner = () => {
   const { data } = usePopupBackend<PopupPatronSelectData>();
-  const { faiths, patrons } = constantData;
-  const { selected_patron } = data;
-  const [viewing, setViewing] = useState(selected_patron);
-
-  // Transform { [type]: ConstantPatron } to { type: [type], ...ConstantPatron }
-  const enhancedPatrons: EnhancedPatron[] = Object.entries(patrons).map(
-    ([k, v]) => ({
-      type: k,
-      ...v,
-    }),
-  );
-  // Transform { associated_faith: Path, ...enhancedPatron }[] to { [associated_faith]: ...enhancedPatron[] }
-  const patronsByFaith = Object.fromEntries(
-    Object.entries(groupBy(enhancedPatrons, (p) => p.associated_faith)).map(
-      ([f, v]) => [
-        f,
-        sortBy(v, [
-          // If they're the head of this faith, they go at the top
-          (vS) => (faiths[f].godhead === vS.type ? 0 : 1),
-          // otherwise sort alphabetically
-          'name',
-        ]),
-      ],
-    ),
-  );
-  // Transform { [associated_faith]: ...enhancedPatron } into [{ type: associated_faith, ...faiths[associated_faith] }, ...]
-  const enhancedFaiths: EnhancedFaith[] = Object.keys(patronsByFaith).map(
-    (f) => ({
-      type: f,
-      ...faiths[f],
-    }),
-  );
-  // Finally, just for keyboard scrolling, get a flat list of patrons in the vertical layout order
-  const flatPatronList = enhancedFaiths.flatMap((f) =>
-    patronsByFaith[f.type].map((v) => v.type),
-  );
+  const domains = data.domains || [];
+  const [viewing, setViewing] = useState(data.selected_domain);
+  const domainTypes = domains.map((d) => d.type);
 
   useKeyscrollEffect({
-    list: flatPatronList,
-    currentIndex: flatPatronList.indexOf(viewing),
+    list: domainTypes,
+    currentIndex: domainTypes.indexOf(viewing),
     setter: (v) => setViewing(v),
   });
 
-  useEffect(() => {
-    document
-      .getElementById(`PreferencesMenuPopupPatronSelectorTab_${viewing}`)
-      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, [viewing]);
+  const domain = domains.find((d) => d.type === viewing) || domains[0];
 
   return (
     <Stack fill>
-      <Stack.Item basis="25%">
-        <Section fill scrollable>
+      <Stack.Item basis="22%">
+        <Section fill scrollable title="Domains">
           <Tabs vertical>
-            {enhancedFaiths.map((faith) => (
-              <TabCollapsible
-                key={faith.type}
-                title={faith.name}
-                className={classes([
-                  'PreferencesMenu__PatronSelection',
-                  faith.name,
-                ])}
-                forceOpen={
-                  patronsByFaith[faith.type].find((p) => p.type === viewing)
-                    ? true
-                    : undefined
-                }
-                startOpen={
-                  // this is just polish, it makes it so that you can see
-                  // the tab that opens by default
-                  !!patronsByFaith[faith.type].find(
-                    (p) => p.type === selected_patron,
-                  )
+            {domains.map((d) => (
+              <Tabs.Tab
+                key={d.type}
+                icon={d.icon}
+                selected={d.type === domain?.type}
+                onClick={() => setViewing(d.type)}
+                rightSlot={
+                  d.type === data.selected_domain ? (
+                    <Icon name="check" />
+                  ) : undefined
                 }
               >
-                {patronsByFaith[faith.type].map((patron) => (
-                  <Tabs.Tab
-                    key={patron.name}
-                    ml={2}
-                    className={classes([
-                      'PreferencesMenu__PatronSelection',
-                      faith.name,
-                    ])}
-                    id={`PreferencesMenuPopupPatronSelectorTab_${patron.type}`}
-                    leftSlot={
-                      <Stack align="center" justify="center">
-                        {faith.godhead === patron.type ? (
-                          <Tooltip content="This patron is considered the head of their faith.">
-                            <Stack.Item fontSize={1.2}>
-                              {getGodheadIcon(patron)}
-                            </Stack.Item>
-                          </Tooltip>
-                        ) : null}
-                      </Stack>
-                    }
-                    rightSlot={
-                      <Stack align="center" justify="center">
-                        {selected_patron === patron.type ? (
-                          <Stack.Item>
-                            <Icon name="check" />
-                          </Stack.Item>
-                        ) : undefined}
-                      </Stack>
-                    }
-                    selected={patron.type === viewing}
-                    onClick={() => setViewing(patron.type)}
-                  >
-                    {patron.name}
-                  </Tabs.Tab>
-                ))}
-              </TabCollapsible>
+                {d.name}
+              </Tabs.Tab>
             ))}
           </Tabs>
         </Section>
       </Stack.Item>
       <Stack.Item grow>
-        <RightPane
-          faiths={enhancedFaiths}
-          patrons={enhancedPatrons}
-          selected_patron={selected_patron}
-          viewing={viewing}
-        />
+        {domain ? <DomainPane domain={domain} /> : null}
       </Stack.Item>
     </Stack>
   );
 };
 
-const RightPane = (props: {
-  faiths: EnhancedFaith[];
-  patrons: EnhancedPatron[];
-  selected_patron: Path;
-  viewing: Path;
-}) => {
-  const { faiths, patrons, selected_patron, viewing } = props;
-  const { act } = usePopupBackend();
-  const patron = patrons.find((p) => p.type === viewing);
-  if (!patron) {
-    return (
-      <Stack fill vertical justify="stretch">
-        Invalid patron: {viewing}
-      </Stack>
-    );
-  }
-  const faith = faiths.find((f) => f.type === patron.associated_faith);
-  if (!faith) {
-    return (
-      <Stack fill vertical justify="stretch">
-        Invalid patron (no associated faith): {viewing}
-      </Stack>
-    );
-  }
-  const godhead = patrons.find((p) => p.type === faith.godhead);
+const DomainPane = (props: { domain: Domain }) => {
+  const { domain } = props;
+  const { data, act } = usePopupBackend<PopupPatronSelectData>();
+  const isSelected = data.selected_domain === domain.type;
 
   return (
-    <Stack fill vertical justify="stretch">
-      <Stack.Item maxHeight="40%">
+    <Stack fill vertical>
+      <Stack.Item>
         <Section
-          scrollable
-          title={faith.name}
-          className={classes([
-            'PreferencesMenu__Section',
-            'PreferencesMenu__Section__MaxHeight',
-            'PreferencesMenu__PatronSelection',
-            faith.name,
-          ])}
+          title={
+            <>
+              <Icon name={domain.icon} mr={1} />
+              {domain.name}
+            </>
+          }
+          buttons={
+            <Button
+              disabled={isSelected}
+              icon={isSelected ? 'check' : undefined}
+              onClick={() => act('set_domain', { domain: domain.type })}
+            >
+              {isSelected ? 'My domain' : 'Serve this domain'}
+            </Button>
+          }
         >
-          <LabeledGridList>
-            <LabeledGridList.Item label="Head Patron">
-              {godhead?.name || 'None'}
-            </LabeledGridList.Item>
-            <LabeledGridList.Item label="Likely Worshippers">
-              {faith.worshippers}
-            </LabeledGridList.Item>
-            <LabeledGridList.Item>
-              <Box dangerouslySetInnerHTML={{ __html: faith.desc }} />
-            </LabeledGridList.Item>
-          </LabeledGridList>
+          <Box mb={1}>{domain.desc}</Box>
+          <Box color="label" mb={1}>
+            <Icon name="hands-praying" mr={1} />
+            Pray at {domain.pray_hint}.
+          </Box>
+          <Box>
+            {domain.miracles.map((m) => (
+              <Box
+                key={m}
+                inline
+                px={1}
+                mr={0.5}
+                mb={0.5}
+                style={{
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  borderRadius: '3px',
+                  fontSize: '11px',
+                }}
+              >
+                {m}
+              </Box>
+            ))}
+          </Box>
         </Section>
       </Stack.Item>
       <Stack.Item grow>
-        <Section
-          fill
-          scrollable
-          className={classes(['PreferencesMenu__PatronSelection', faith.name])}
-          title={
-            <Stack align="center">
-              {faith.godhead === patron.type ? (
-                <Tooltip content="This patron is considered the head of their faith.">
-                  <Stack.Item fontSize={1.2}>
-                    {getGodheadIcon(patron)}
-                  </Stack.Item>
-                </Tooltip>
-              ) : undefined}
-              <Stack.Item>{patron.name}</Stack.Item>
-            </Stack>
-          }
-          buttons={
-            <Stack>
-              <Stack.Divider />
-              <Stack.Item>
-                <Button
-                  disabled={selected_patron === patron.type}
-                  onClick={() => act('set_patron', { patron: patron.type })}
-                >
-                  {selected_patron === patron.type ? 'Selected!' : 'Select'}
-                </Button>
-              </Stack.Item>
-            </Stack>
-          }
-        >
-          <LabeledGridList>
-            <LabeledGridList.Item label="Domain">
-              {patron.domain}
-            </LabeledGridList.Item>
-            <LabeledGridList.Item label="Likely Worshippers">
-              {patron.worshippers}
-            </LabeledGridList.Item>
-            <LabeledGridList.Item>
-              <Box dangerouslySetInnerHTML={{ __html: patron.desc }} />
-            </LabeledGridList.Item>
-          </LabeledGridList>
+        <Section fill scrollable title="Gods of this domain">
+          {!isSelected && (
+            <Box color="label" italic mb={1}>
+              Serve this domain to choose one of its gods.
+            </Box>
+          )}
+          {domain.gods.map((god) => (
+            <GodCard key={god.type} god={god} enabled={isSelected} />
+          ))}
+          <CustomGodCard enabled={isSelected} />
         </Section>
       </Stack.Item>
     </Stack>
+  );
+};
+
+const GodCard = (props: { god: DomainGod; enabled: boolean }) => {
+  const { god, enabled } = props;
+  const { data, act } = usePopupBackend<PopupPatronSelectData>();
+  const chosen = enabled && !data.custom && data.selected_patron === god.type;
+
+  return (
+    <Section
+      title={god.name}
+      buttons={
+        <Button
+          disabled={!enabled || chosen}
+          icon={chosen ? 'check' : undefined}
+          onClick={() => act('set_patron', { patron: god.type })}
+        >
+          {chosen ? 'Worshipped' : 'Worship'}
+        </Button>
+      }
+    >
+      <Box color="label" mb={0.5}>
+        {god.domain}
+      </Box>
+      <Box mb={0.5} dangerouslySetInnerHTML={{ __html: god.desc }} />
+      {!!god.worshippers && (
+        <Box color="label" italic>
+          Worshipped by {god.worshippers}
+        </Box>
+      )}
+    </Section>
+  );
+};
+
+const CustomGodCard = (props: { enabled: boolean }) => {
+  const { enabled } = props;
+  const { data, act } = usePopupBackend<PopupPatronSelectData>();
+  const chosen = enabled && data.custom;
+
+  return (
+    <Section
+      title="A god of my own"
+      buttons={
+        <Button
+          disabled={!enabled || chosen}
+          icon={chosen ? 'check' : 'feather'}
+          onClick={() => act('use_custom')}
+        >
+          {chosen ? 'Worshipped' : 'Write my own'}
+        </Button>
+      }
+    >
+      <Box color="label" mb={1}>
+        On Palimpseste, belief makes a god. Name yours and it will hear you.
+        Prayers that speak its name or one of its titles please it most.
+      </Box>
+      {chosen && (
+        <Stack vertical>
+          <Stack.Item>
+            <Box bold mb={0.5}>
+              Name
+            </Box>
+            <Input
+              fluid
+              maxLength={data.name_max}
+              value={data.custom_name}
+              placeholder="The god's name"
+              onBlur={(v) => act('set_custom_name', { value: v })}
+              onEnter={(v) => act('set_custom_name', { value: v })}
+            />
+          </Stack.Item>
+          <Stack.Item>
+            <Box bold mb={0.5}>
+              Titles <Box inline color="label">(comma separated)</Box>
+            </Box>
+            <Input
+              fluid
+              maxLength={data.titles_max}
+              value={data.custom_titles}
+              placeholder="The Harrow-Mother, She Who Waits"
+              onBlur={(v) => act('set_custom_titles', { value: v })}
+              onEnter={(v) => act('set_custom_titles', { value: v })}
+            />
+          </Stack.Item>
+          <Stack.Item>
+            <Box bold mb={0.5}>
+              Description
+            </Box>
+            <TextArea
+              fluid
+              height="6em"
+              maxLength={data.desc_max}
+              value={data.custom_desc}
+              placeholder="Who is this god, and what do they ask of their faithful?"
+              onBlur={(v) => act('set_custom_desc', { value: v })}
+            />
+          </Stack.Item>
+        </Stack>
+      )}
+    </Section>
   );
 };

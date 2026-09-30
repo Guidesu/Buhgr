@@ -16,7 +16,7 @@
 /obj/structure/guillotine
 	name = "guillotine"
 	desc = "A rising alternative to the Executioner's Sword, commanding neither effort nor skill to successfully \
-	ferry the condemned to Necra's door. Drag someone into its integrated stockcade, gift them their last rites, and \
+	ferry the condemned to Death's door. Drag someone into its integrated stockcade, gift them their last rites, and \
 	pull the rightmost lever to see heads roll."
 	icon = 'icons/obj/guillotine.dmi'
 	icon_state = "guillotine_raised"

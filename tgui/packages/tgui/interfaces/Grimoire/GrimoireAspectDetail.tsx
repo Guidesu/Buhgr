@@ -60,7 +60,7 @@ export const GrimoireAspectDetail = ({
           >
             {aspect.name}
           </span>
-          {isPendingUnbind && (
+          {!!isPendingUnbind && (
             <span
               style={{
                 fontSize: '11px',
@@ -73,7 +73,7 @@ export const GrimoireAspectDetail = ({
           )}
         </div>
 
-        {aspect.latin_name && (
+        {!!aspect.latin_name && (
           <div
             style={{
               fontStyle: 'italic',
@@ -94,7 +94,7 @@ export const GrimoireAspectDetail = ({
           />
         )}
 
-        {aspect.attuned_name && (
+        {!!aspect.attuned_name && (
           <div className="AspectPicker__attunement">
             Implement attunement: &ldquo;{aspect.attuned_name}&rdquo;
           </div>

@@ -223,7 +223,7 @@ GLOBAL_LIST_INIT(event_day_ordinals, list(
 		if(5)
 			return "Feast's Dae" // Hausvette, hearth-luck and the harvest owed to one's neighbors
 		if(6)
-			return "Praecursor's Dae" // The Word that fell silent but may yet still speak again
+			return "The Absent God's Dae" // The Word that fell silent but may yet still speak again
 		if(7)
 			return "Sun's Dae" // Auxentius, the Sun's Law made flesh
 	return "Unknown Dae"

@@ -86,7 +86,7 @@
 
 /obj/structure/closet/crate/coffin/royal/keylock/praecursor
 	name = "divine casket"
-	desc = "A coffin made of fine wood and gilded metals that depict a psycross. It emits a strange aura.."
+	desc = "A coffin made of fine wood and gilded metals that depict a holy cross. It emits a strange aura.."
 	locked = 1
 	keylock = 1
 	max_integrity = 9999

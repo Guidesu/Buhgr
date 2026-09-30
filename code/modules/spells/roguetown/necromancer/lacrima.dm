@@ -3,7 +3,7 @@
 /datum/action/cooldown/spell/lacrima
 	name = "Lacrima"
 	desc = "Requires an aggressive grab on a prone and living target. Begin a dark ritual that fractures their ribcage and, directly but violently, extracts their Lux."
-	fluff_desc = "A method devised by the Cabal to require minimal ritual and effort. A method of extraction that is brutish, inelegant, yet undeniably effective. Zizo does not scorn efficiency, though resorting to something so lacking in flair can feel embarrassingly unceremonious. It may score a giggle or two from Her, especially against the ones who deserve it."
+	fluff_desc = "A method devised by the Cabal to require minimal ritual and effort. A method of extraction that is brutish, inelegant, yet undeniably effective. The Forbidden does not scorn efficiency, though resorting to something so lacking in flair can feel embarrassingly unceremonious. It may score a giggle or two from Her, especially against the ones who deserve it."
 	button_icon = 'icons/mob/actions/zizomiracles.dmi'
 	button_icon_state = "zizograsp"
 	charge_required = FALSE

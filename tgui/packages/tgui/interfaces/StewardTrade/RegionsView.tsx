@@ -81,9 +81,9 @@ const RegionCard = (props: { region: RegionRow; data: Data }) => {
           {producesCount} produces &middot; {demandsCount} demands
         </span>
       </div>
-      {expanded && (
+      {!!expanded && (
         <>
-          {description && (
+          {!!description && (
             <div
               style={{
                 color: INK_SOFT,

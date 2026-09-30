@@ -298,7 +298,7 @@
 
 /mob/living/simple_animal/pet/cat/rogue/black/witch_shifted
 	name = "voidblack cat"
-	desc = "Supposedly sacred to Necra, and just as interested in rats as their lesser counterparts. This one has a strange intelligence behind its dark, wide eyes..."
+	desc = "Supposedly sacred to Death, and just as interested in rats as their lesser counterparts. This one has a strange intelligence behind its dark, wide eyes..."
 	defprob = 90
 	STASPD = 18
 	STASTR = 1
@@ -321,7 +321,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/smallrat/witch_shifted
 	name = "small rous"
-	desc = "Supposedly sacred to Pestra, these small and occasionally pestilent creachurs are commonly found in pantries and ships. This one seems to be a bit more smarter than the others..."
+	desc = "Supposedly sacred to Healing, these small and occasionally pestilent creachurs are commonly found in pantries and ships. This one seems to be a bit more smarter than the others..."
 	defprob = 90
 	STASPD = 18
 	STASTR = 1
@@ -332,7 +332,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/mudcrab/cabbit/witch_shifted
 	name = "lesser cabbit"
-	desc = "Seeing one of these quick beasts is said to bring Xylix's fortune, along with their feet. It looks weak and innocent, and incredibly adorable."
+	desc = "Seeing one of these quick beasts is said to bring Trickery's fortune, along with their feet. It looks weak and innocent, and incredibly adorable."
 	defprob = 90
 	STASPD = 20
 	STASTR = 1

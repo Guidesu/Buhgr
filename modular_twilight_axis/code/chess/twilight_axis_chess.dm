@@ -127,7 +127,7 @@
 	if(!target_turf)
 		return
 	new /obj/structure/chessboard(target_turf)
-	user.visible_message(span_notice("[user]   ."), span_notice("   ."))
+	user.visible_message(span_notice("[user] lays out a chessboard."), span_notice("You lay out a chessboard."))
 	qdel(src)
 
 /obj/structure/chessboard
@@ -196,7 +196,7 @@
 	if(!selected && my_side && my_side == match.turn && match.game_mode == BOARD_MODE_CHECKERS && match.forced_capture_from)
 		selected = match.forced_capture_from
 
-	data["board_title"] = " "
+	data["board_title"] = "Chessboard"
 	data["white_player_name"] = match.white_player_name ? match.white_player_name : "Open"
 	data["black_player_name"] = match.black_player_name ? match.black_player_name : "Open"
 	data["my_side"] = my_side ? chess_side_name(my_side) : "Spectator"
@@ -249,7 +249,7 @@
 			var/color = params["color"]
 			if(match.claim_side(color, user))
 				clear_all_selections()
-				last_ui_message = "[chess_display_name(user)]   [chess_side_name(color)]."
+				last_ui_message = "[chess_display_name(user)] takes the [chess_side_name(color)] seat."
 				queue_ui_update()
 				return TRUE
 			return FALSE
@@ -259,7 +259,7 @@
 			var/release_color = params["color"]
 			if(match.release_side(release_color, user))
 				clear_all_selections()
-				last_ui_message = "[chess_display_name(user)]   [chess_side_name(release_color)]."
+				last_ui_message = "[chess_display_name(user)] gives up the [chess_side_name(release_color)] seat."
 				queue_ui_update()
 				return TRUE
 			return FALSE
@@ -268,7 +268,7 @@
 			play_notify_sound()
 			if(match.pause_game(user))
 				clear_all_selections()
-				last_ui_message = "   ."
+				last_ui_message = "The match is paused."
 				queue_ui_update()
 				return TRUE
 			return FALSE
@@ -276,7 +276,7 @@
 		if("resume_game")
 			play_notify_sound()
 			if(match.resume_game(user))
-				last_ui_message = " ."
+				last_ui_message = "The match resumes."
 				queue_ui_update()
 				return TRUE
 			return FALSE
@@ -312,7 +312,7 @@
 				if(match.pending_mode)
 					last_ui_message = match.get_mode_switch_text()
 				else
-					last_ui_message = "   [match.get_game_mode_label()]."
+					last_ui_message = "Mode switched to [match.get_game_mode_label()]."
 				queue_ui_update()
 				return TRUE
 			return FALSE
@@ -321,7 +321,7 @@
 			play_notify_sound()
 			if(match.confirm_mode_switch(user))
 				clear_all_selections()
-				last_ui_message = "   [match.get_game_mode_label()]."
+				last_ui_message = "Mode switched to [match.get_game_mode_label()]."
 				queue_ui_update()
 				return TRUE
 			return FALSE
@@ -329,7 +329,7 @@
 		if("cancel_mode_switch")
 			play_notify_sound()
 			if(match.cancel_mode_switch(user))
-				last_ui_message = "    ."
+				last_ui_message = "The mode change request was cancelled."
 				queue_ui_update()
 				return TRUE
 			return FALSE
@@ -337,18 +337,18 @@
 		if("pack_board")
 			play_notify_sound()
 			if(!match.can_pack_up())
-				to_chat(user, span_warning("        ."))
+				to_chat(user, span_warning("The board can only be packed up when no match is in progress."))
 				return FALSE
-			notify_seated_players("[chess_display_name(user)]  .", user.ckey)
-			user.visible_message(span_notice("[user]   ."), span_notice("   ."))
+			notify_seated_players("[chess_display_name(user)] packs up the board.", user.ckey)
+			user.visible_message(span_notice("[user] starts packing up the board."), span_notice("You start packing up the board."))
 			if(!do_after(user, CHESS_PACK_BOARD_TIME, target = src))
-				to_chat(user, span_warning("   ."))
+				to_chat(user, span_warning("You stop packing up the board."))
 				return FALSE
 			if(QDELETED(src) || !match || !match.can_pack_up())
 				return FALSE
 			playsound(src, CHESS_SOUND_PICKUP, 70, FALSE)
 			new /obj/item/chessboard_folded(get_turf(src))
-			user.visible_message(span_notice("[user]     ."), span_notice("     ."))
+			user.visible_message(span_notice("[user] folds the board up for travel."), span_notice("You fold the board up for travel."))
 			qdel(src)
 			return TRUE
 
@@ -420,7 +420,7 @@
 	rotation_degrees = (rotation_degrees + 90) % 360
 	update_board_art()
 	if(user)
-		to_chat(user, span_notice("  ."))
+		to_chat(user, span_notice("You turn the board around."))
 
 /obj/structure/chessboard/proc/update_board_transform()
 	transform = turn(matrix(), rotation_degrees)
@@ -490,19 +490,19 @@
 	if(user_side)
 		if(match.should_require_player_reset_confirmation(src, user))
 			if(match.request_reset_confirmation(user))
-				notify_seated_players("[chess_display_name(user)]   .    .", user.ckey)
+				notify_seated_players("[chess_display_name(user)] asks to reset the board. The other side must confirm.", user.ckey)
 				last_ui_message = match.get_reset_request_text()
 				return TRUE
 			return FALSE
 		if(match.reset_game(user))
 			clear_all_selections()
-			last_ui_message = "    ,    ."
+			last_ui_message = "The board is reset to its starting position and the player seats are cleared."
 			playsound(src, CHESS_SOUND_RESET, 70, FALSE)
 			return TRUE
 		return FALSE
 
 	if(match.begin_observer_reset(user))
-		notify_seated_players("[chess_display_name(user)]   .  20       ,    .", user.ckey)
+		notify_seated_players("[chess_display_name(user)] requests a board reset. In 20 seconds the match and seats will be reset unless the request is cancelled.", user.ckey)
 		last_ui_message = match.get_reset_request_text()
 		return TRUE
 	return FALSE
@@ -510,25 +510,25 @@
 /obj/structure/chessboard/proc/handle_confirm_reset_request(mob/user)
 	if(match.confirm_reset_request(user))
 		clear_all_selections()
-		last_ui_message = "    ,    ."
+		last_ui_message = "The board is reset to its starting position and the player seats are cleared."
 		playsound(src, CHESS_SOUND_RESET, 70, FALSE)
 		return TRUE
 	return FALSE
 
 /obj/structure/chessboard/proc/handle_cancel_reset_request(mob/user)
 	if(match.cancel_reset_request(user))
-		last_ui_message = "    ."
+		last_ui_message = "The board reset request was cancelled."
 		return TRUE
 	return FALSE
 
 /obj/structure/chessboard/proc/handle_flip_board(mob/user)
 	if(!match.can_flip_board())
-		to_chat(user, span_warning("   ."))
+		to_chat(user, span_warning("The board can't be flipped right now."))
 		return FALSE
-	notify_seated_players("[chess_display_name(user)]   .", user.ckey)
-	user.visible_message(span_warning("[user]   ,   ."), span_warning("   ."))
+	notify_seated_players("[chess_display_name(user)] is about to flip the board.", user.ckey)
+	user.visible_message(span_warning("[user] grabs the board, about to flip it."), span_warning("You grab the board."))
 	if(!do_after(user, CHESS_FLIP_BOARD_TIME, target = src))
-		to_chat(user, span_warning("   ."))
+		to_chat(user, span_warning("You decide not to flip the board."))
 		return FALSE
 	if(QDELETED(src) || !match || !match.can_flip_board())
 		return FALSE
@@ -642,21 +642,21 @@
 	if(square < 1 || square > 64)
 		return FALSE
 	if(match.paused)
-		to_chat(user, span_warning("   ."))
+		to_chat(user, span_warning("The match is paused."))
 		return FALSE
 	if(match.overturned)
-		to_chat(user, span_warning(" .   ."))
+		to_chat(user, span_warning("The board has been flipped. Reset it first."))
 		return FALSE
 	if(match.result_text)
-		to_chat(user, span_warning("  ."))
+		to_chat(user, span_warning("The match is already over."))
 		return FALSE
 
 	var/color = match.side_for_user(user)
 	if(!color)
-		to_chat(user, span_warning("     ."))
+		to_chat(user, span_warning("You aren't seated at this board."))
 		return FALSE
 	if(color != match.turn)
-		to_chat(user, span_warning("   ."))
+		to_chat(user, span_warning("It isn't your turn."))
 		return FALSE
 
 	var/selected = get_selection(user)
@@ -667,7 +667,7 @@
 			if(match.can_select_piece(square, color))
 				set_selection(user, square)
 			else
-				to_chat(user, span_warning("     ."))
+				to_chat(user, span_warning("Right now you may only move a different piece."))
 			return TRUE
 		return FALSE
 
@@ -679,7 +679,7 @@
 		if(match.can_select_piece(square, color))
 			set_selection(user, square)
 		else
-			to_chat(user, span_warning("     ."))
+			to_chat(user, span_warning("Right now you may only move a different piece."))
 		return TRUE
 
 	return FALSE
@@ -806,7 +806,7 @@
 
 /datum/chess_match/proc/get_mode_label(mode)
 	if(mode == BOARD_MODE_NONE)
-		return " "
+		return "Not chosen"
 	if(mode == BOARD_MODE_CHESS)
 		return "Chess"
 	if(mode == BOARD_MODE_CHECKERS)
@@ -817,9 +817,9 @@
 
 /datum/chess_match/proc/get_mode_label_with_rules(mode, use_checkers_flying_kings = checkers_flying_kings, use_nards_long_rules = nards_long_rules)
 	if(mode == BOARD_MODE_CHECKERS)
-		return use_checkers_flying_kings ? " ( )" : " ( )"
+		return use_checkers_flying_kings ? "Checkers (flying kings)" : "Checkers (short kings)"
 	if(mode == BOARD_MODE_NARDS)
-		return use_nards_long_rules ? " ()" : " ()"
+		return use_nards_long_rules ? "Backgammon (long)" : "Backgammon (short)"
 	return get_mode_label(mode)
 
 /datum/chess_match/proc/get_game_mode_label()
@@ -827,9 +827,9 @@
 
 /datum/chess_match/proc/get_current_rules_text()
 	if(game_mode == BOARD_MODE_CHECKERS)
-		return checkers_flying_kings ? "    ." : "     ."
+		return checkers_flying_kings ? "Kings move the full length of a diagonal." : "Kings move only one square."
 	if(game_mode == BOARD_MODE_NARDS)
-		return nards_long_rules ? "   ." : "   ."
+		return nards_long_rules ? "Long backgammon rules are in use." : "Short backgammon rules are in use."
 	return null
 
 /datum/chess_match/proc/other_mode()
@@ -864,12 +864,12 @@
 
 /datum/chess_match/proc/get_reset_request_text()
 	if(pending_reset_requester_ckey)
-		var/requester = pending_reset_requester_name ? pending_reset_requester_name : "  "
-		return "[requester]   .     ."
+		var/requester = pending_reset_requester_name ? pending_reset_requester_name : "One of the players"
+		return "[requester] asks to reset the board. The other player must confirm the reset."
 	if(pending_observer_reset_ckey && pending_observer_reset_at > world.time)
 		var/requester2 = pending_observer_reset_name ? pending_observer_reset_name : "Spectator"
 		var/seconds_left = max(1, round((pending_observer_reset_at - world.time) / 10))
-		return "[requester2]   .    [seconds_left] .   ."
+		return "[requester2] started a board reset. [seconds_left] seconds until the reset. The request can be cancelled."
 	return null
 
 /datum/chess_match/proc/can_confirm_reset_request(mob/user)
@@ -904,7 +904,7 @@
 		return FALSE
 	if(pending_reset_requester_ckey)
 		if(pending_reset_requester_ckey == user.ckey)
-			to_chat(user, span_warning("    ."))
+			to_chat(user, span_warning("A reset request has already been sent."))
 		return FALSE
 	clear_reset_requests()
 	pending_reset_requester_ckey = user.ckey
@@ -922,7 +922,7 @@
 	if(!can_cancel_reset_request(user))
 		return FALSE
 	clear_reset_requests()
-	last_action_message = "    ."
+	last_action_message = "The board reset request was cancelled."
 	return TRUE
 
 /datum/chess_match/proc/begin_observer_reset(mob/user)
@@ -931,7 +931,7 @@
 	if(side_for_user(user))
 		return FALSE
 	if(pending_reset_requester_ckey || (pending_observer_reset_ckey && pending_observer_reset_at > world.time))
-		to_chat(user, span_warning("  ."))
+		to_chat(user, span_warning("A reset has already been requested."))
 		return FALSE
 	pending_observer_reset_ckey = user.ckey
 	pending_observer_reset_name = chess_display_name(user)
@@ -947,7 +947,7 @@
 		var/requester_name = pending_observer_reset_name
 		reset_game(null)
 		owner.clear_all_selections()
-		owner.last_ui_message = " [requester_name]  .     ."
+		owner.last_ui_message = "Spectator [requester_name] resets the board. The match and seats are cleared."
 		playsound(owner, CHESS_SOUND_RESET, 70, FALSE)
 		clear_reset_requests()
 		owner.queue_ui_update()
@@ -1003,7 +1003,7 @@
 
 /datum/chess_match/proc/overturn_board(mob/user)
 	if(overturned)
-		to_chat(user, span_warning("  ."))
+		to_chat(user, span_warning("The board has already been flipped."))
 		return FALSE
 
 	if(game_mode == BOARD_MODE_NARDS)
@@ -1043,16 +1043,16 @@
 
 	overturned = TRUE
 	paused = TRUE
-	result_text = " .  ,     ."
+	result_text = "The board has been flipped. Reset it to put the pieces back."
 	forced_capture_from = 0
 	pending_turn_notation = null
 	clear_mode_switch_request()
 	clear_reset_requests()
 	last_from = 0
 	last_to = 0
-	last_action_message = "[chess_display_name(user)]  .     ."
+	last_action_message = "[chess_display_name(user)] flips the board. Pieces scatter everywhere."
 	if(owner)
-		owner.visible_message(span_warning("[user]  !     ."), span_warning("  !     ."))
+		owner.visible_message(span_warning("[user] flips the board! Pieces scatter everywhere."), span_warning("You flip the board! Pieces scatter everywhere."))
 	return TRUE
 
 /datum/chess_match/proc/build_nards_scatter()
@@ -1113,8 +1113,8 @@
 /datum/chess_match/proc/get_mode_switch_text()
 	if(!pending_mode)
 		return null
-	var/requester = pending_mode_requester_name ? pending_mode_requester_name : "  "
-	return "[requester]     «[get_mode_label_with_rules(pending_mode, pending_checkers_flying_kings, pending_nards_long_rules)]».      ."
+	var/requester = pending_mode_requester_name ? pending_mode_requester_name : "One of the players"
+	return "[requester] proposes switching the mode to \"[get_mode_label_with_rules(pending_mode, pending_checkers_flying_kings, pending_nards_long_rules)]\". The other player must confirm."
 
 /datum/chess_match/proc/active_game_in_progress()
 	if(game_mode == BOARD_MODE_NONE)
@@ -1143,29 +1143,29 @@
 
 /datum/chess_match/proc/request_mode_switch(target_mode, mob/user, requested_checkers_flying_kings = checkers_flying_kings, requested_nards_long_rules = nards_long_rules)
 	if(overturned)
-		to_chat(user, span_warning("    ."))
+		to_chat(user, span_warning("Reset the board after flipping it first."))
 		return FALSE
 	if(target_mode != BOARD_MODE_CHESS && target_mode != BOARD_MODE_CHECKERS && target_mode != BOARD_MODE_NARDS)
 		return FALSE
 	requested_checkers_flying_kings = !!requested_checkers_flying_kings
 	requested_nards_long_rules = !!requested_nards_long_rules
 	if(target_mode == game_mode && requested_checkers_flying_kings == checkers_flying_kings && requested_nards_long_rules == nards_long_rules)
-		to_chat(user, span_warning("      ."))
+		to_chat(user, span_warning("That mode and those rules are already selected."))
 		return FALSE
 
 	if(active_game_in_progress())
 		if(!paused)
-			to_chat(user, span_warning("     ."))
+			to_chat(user, span_warning("Pause the current match first."))
 			return FALSE
 		if(!white_player_ckey || !black_player_ckey)
-			to_chat(user, span_warning("          ."))
+			to_chat(user, span_warning("Both seats must be taken to change the mode mid-match."))
 			return FALSE
 		if(!side_for_user(user))
-			to_chat(user, span_warning("       ."))
+			to_chat(user, span_warning("Only the players at the board can agree to change the mode."))
 			return FALSE
 		if(pending_mode == target_mode && pending_checkers_flying_kings == requested_checkers_flying_kings && pending_nards_long_rules == requested_nards_long_rules)
 			if(pending_mode_requester_ckey == user.ckey)
-				to_chat(user, span_warning("     ."))
+				to_chat(user, span_warning("A mode change request has already been sent."))
 				return FALSE
 			return confirm_mode_switch(user)
 
@@ -1178,21 +1178,21 @@
 		return TRUE
 
 	switch_game_mode(target_mode, requested_checkers_flying_kings, requested_nards_long_rules)
-	last_action_message = "   [get_game_mode_label()]."
+	last_action_message = "Mode switched to [get_game_mode_label()]."
 	return TRUE
 
 /datum/chess_match/proc/confirm_mode_switch(mob/user)
 	if(!can_confirm_mode_switch(user))
 		return FALSE
 	switch_game_mode(pending_mode, pending_checkers_flying_kings, pending_nards_long_rules)
-	last_action_message = "   [get_game_mode_label()]."
+	last_action_message = "Mode switched to [get_game_mode_label()]."
 	return TRUE
 
 /datum/chess_match/proc/cancel_mode_switch(mob/user)
 	if(!can_cancel_mode_switch(user))
 		return FALSE
 	clear_mode_switch_request()
-	last_action_message = "    ."
+	last_action_message = "The mode change request was cancelled."
 	return TRUE
 
 /datum/chess_match/proc/switch_game_mode(new_mode, new_checkers_flying_kings = checkers_flying_kings, new_nards_long_rules = nards_long_rules)
@@ -1371,13 +1371,13 @@
 	if(color != CHESS_WHITE && color != CHESS_BLACK)
 		return FALSE
 	if(!paused && move_history.len)
-		to_chat(user, span_warning("    ,   ."))
+		to_chat(user, span_warning("Pause the match first to swap seats."))
 		return FALSE
 	if(color == CHESS_WHITE && black_player_ckey == user.ckey)
-		to_chat(user, span_warning("      ."))
+		to_chat(user, span_warning("You can't take both seats at once."))
 		return FALSE
 	if(color == CHESS_BLACK && white_player_ckey == user.ckey)
-		to_chat(user, span_warning("      ."))
+		to_chat(user, span_warning("You can't take both seats at once."))
 		return FALSE
 
 	var/display_name = chess_display_name(user)
@@ -1397,7 +1397,7 @@
 	if(color != CHESS_WHITE && color != CHESS_BLACK)
 		return FALSE
 	if(!paused && move_history.len)
-		to_chat(user, span_warning("    ,   ."))
+		to_chat(user, span_warning("Pause the match first to change players."))
 		return FALSE
 
 	if(color == CHESS_WHITE)
@@ -1418,10 +1418,10 @@
 
 /datum/chess_match/proc/resume_game(mob/user)
 	if(result_text)
-		to_chat(user, span_warning("  .   ."))
+		to_chat(user, span_warning("The match is already over. Reset the board first."))
 		return FALSE
 	if(!white_player_ckey || !black_player_ckey)
-		to_chat(user, span_warning("      ."))
+		to_chat(user, span_warning("Both seats must be taken before continuing."))
 		return FALSE
 	paused = FALSE
 	return TRUE
@@ -1459,17 +1459,17 @@
 
 /datum/chess_match/proc/get_status_text()
 	var/list/parts = list()
-	parts += ": [get_game_mode_label()]."
+	parts += "Mode: [get_game_mode_label()]."
 	var/current_rules_text = get_current_rules_text()
 	if(current_rules_text)
 		parts += "[current_rules_text]"
 
 	if(game_mode == BOARD_MODE_NONE)
-		parts += "     ."
+		parts += "Choose a game with the mode button."
 		return jointext(parts, " ")
 
 	if(overturned)
-		parts += " .  ,     ."
+		parts += "The board has been flipped. Reset it to put the pieces back."
 		return jointext(parts, " ")
 
 	if(result_text)
@@ -1477,23 +1477,23 @@
 		return jointext(parts, " ")
 
 	if(paused)
-		parts += "  ."
+		parts += "The match is paused."
 	else
-		parts += " [chess_side_name(turn)]."
+		parts += "[chess_side_name(turn)] to move."
 
 	if(game_mode == BOARD_MODE_CHESS)
 		if(!result_text && !paused && is_in_check(turn))
-			parts += "."
+			parts += "Check."
 	else if(game_mode == BOARD_MODE_CHECKERS)
 		if(!result_text && !paused && forced_capture_from)
-			parts += "[chess_side_name(turn)]    [chess_square_name(forced_capture_from)]."
+			parts += "[chess_side_name(turn)] continue capturing from [chess_square_name(forced_capture_from)]."
 	else if(game_mode == BOARD_MODE_NARDS)
 		if(nards_available_rolls && nards_available_rolls.len)
-			parts += " : [jointext(nards_available_rolls, ", ")]."
+			parts += "Available dice: [jointext(nards_available_rolls,", ")]."
 		else if(nards_die_one && nards_die_two)
-			parts += " : [nards_die_one]  [nards_die_two]."
+			parts += "Last roll: [nards_die_one] and [nards_die_two]."
 		else
-			parts += " ,   ."
+			parts += "Roll the dice to start your turn."
 
 	return jointext(parts, " ")
 
@@ -1537,12 +1537,12 @@
 
 /datum/chess_match/proc/try_chess_move(from_idx, to_idx, mob/user, promotion_choice)
 	if(overturned)
-		to_chat(user, span_warning(" .   ."))
+		to_chat(user, span_warning("The board has been flipped. Reset it first."))
 		return FALSE
 	if(paused || result_text)
 		return FALSE
 	if(!is_chess_legal_move(from_idx, to_idx, promotion_choice))
-		to_chat(user, span_warning("  ."))
+		to_chat(user, span_warning("That move isn't allowed."))
 		return FALSE
 
 	var/list/move_info = apply_chess_move(from_idx, to_idx, promotion_choice)
@@ -1558,7 +1558,7 @@
 		playsound(owner, CHESS_SOUND_CAPTURE, 60, FALSE)
 	else
 		playsound(owner, CHESS_SOUND_MOVE, 55, FALSE)
-	last_action_message = "  [move_info["notation"]]."
+	last_action_message = "Move made: [move_info["notation"]]."
 	return TRUE
 
 /datum/chess_match/proc/resolve_chess_end_state(list/move_info)
@@ -1568,9 +1568,9 @@
 
 	if(no_moves)
 		if(gives_check)
-			result_text = ".  [chess_side_name(opposite(enemy))]."
+			result_text = "Checkmate. [chess_side_name(opposite(enemy))] win."
 		else
-			result_text = " ."
+			result_text = "Draw by stalemate."
 			paused = TRUE
 
 
@@ -1578,7 +1578,7 @@
 		var/key = position_key()
 		var/current_count = chess_assoc_get(repetition_counts, key, 0)
 		if(current_count >= 3)
-			result_text = "   ."
+			result_text = "Draw by threefold repetition."
 			paused = TRUE
 
 	var/notation = move_info["notation"]
@@ -2187,12 +2187,12 @@
 
 /datum/chess_match/proc/try_checkers_move(from_idx, to_idx, mob/user)
 	if(overturned)
-		to_chat(user, span_warning(" .   ."))
+		to_chat(user, span_warning("The board has been flipped. Reset it first."))
 		return FALSE
 	if(paused || result_text)
 		return FALSE
 	if(!is_checkers_legal_move(from_idx, to_idx))
-		to_chat(user, span_warning("  ."))
+		to_chat(user, span_warning("That move isn't allowed."))
 		return FALSE
 
 	var/list/move_info = apply_checkers_move(from_idx, to_idx)
@@ -2215,7 +2215,7 @@
 
 	if(continue_capture)
 		forced_capture_from = to_idx
-		last_action_message = "      [chess_square_name(to_idx)]."
+		last_action_message = "The capture continues with the same piece from [chess_square_name(to_idx)]."
 		return TRUE
 
 	forced_capture_from = 0
@@ -2231,7 +2231,7 @@
 	if(result_text)
 		last_action_message = result_text
 	else
-		last_action_message = " ."
+		last_action_message = "Turn over."
 	return TRUE
 
 /datum/chess_match/proc/apply_checkers_move(from_idx, to_idx)
@@ -2278,9 +2278,9 @@
 /datum/chess_match/proc/resolve_checkers_end_state()
 	var/enemy = turn
 	if(count_pieces(enemy) <= 0)
-		result_text = " .  [chess_side_name(opposite(enemy))]."
+		result_text = "The match is over. [chess_side_name(opposite(enemy))] win."
 	else if(!has_any_checkers_legal_move(enemy))
-		result_text = " [chess_side_name(enemy)]   .  [chess_side_name(opposite(enemy))]."
+		result_text = "[chess_side_name(enemy)] have no moves left. [chess_side_name(opposite(enemy))] win."
 
 	if(result_text)
 		paused = TRUE
@@ -2301,7 +2301,7 @@
 /datum/chess_match/proc/roll_nards_dice(mob/user)
 	if(!can_roll_nards_dice(user))
 		if(user)
-			to_chat(user, span_warning("   ."))
+			to_chat(user, span_warning("You can't roll the dice right now."))
 		return FALSE
 	nards_die_one = rand(1, 6)
 	nards_die_two = rand(1, 6)
@@ -2316,9 +2316,9 @@
 		nards_available_rolls += nards_die_two
 	nards_selected_point = 0
 	nards_selected_from_bar = FALSE
-	last_action_message = "[chess_display_name(user)]  : [nards_die_one]  [nards_die_two]."
+	last_action_message = "[chess_display_name(user)] rolls the dice: [nards_die_one] and [nards_die_two]."
 	if(!nards_has_any_legal_move(turn))
-		last_action_message += "  ,   ."
+		last_action_message += " No moves possible; the turn passes to the opponent."
 		nards_end_turn()
 	return TRUE
 
@@ -2545,16 +2545,16 @@
 	if(point < 1 || point > 24)
 		return FALSE
 	if(!nards_long_rules && nards_bar_count(color) > 0)
-		to_chat(user, span_warning("    ."))
+		to_chat(user, span_warning("Bring a piece in from the bar first."))
 		return FALSE
 	if(nards_long_rules && point == nards_head_point(color) && nards_head_moves_this_turn >= 1)
-		to_chat(user, span_warning("           ."))
+		to_chat(user, span_warning("In long backgammon only one piece may leave the head per turn."))
 		return FALSE
 	if(nards_point_color(point) != color || nards_point_count(point) <= 0)
 		return FALSE
 	nards_selected_point = point
 	nards_selected_from_bar = FALSE
-	last_action_message = "  [point]."
+	last_action_message = "Point [point] selected."
 	return TRUE
 
 /datum/chess_match/proc/select_nards_bar(mob/user)
@@ -2569,7 +2569,7 @@
 		return FALSE
 	nards_selected_from_bar = TRUE
 	nards_selected_point = 0
-	last_action_message = " ."
+	last_action_message = "The bar is selected."
 	return TRUE
 
 /datum/chess_match/proc/move_nards_checker(mob/user, to_point, to_off = FALSE)
@@ -2585,16 +2585,16 @@
 			return FALSE
 		from_point = 0
 	else if(from_point < 1 || from_point > 24)
-		to_chat(user, span_warning("  ."))
+		to_chat(user, span_warning("Select a piece first."))
 		return FALSE
 	var/list/legal = get_nards_legal_targets(color, from_point, from_bar)
 	var/desired = to_off ? 0 : to_point
 	if(!(desired in legal))
-		to_chat(user, span_warning("  ."))
+		to_chat(user, span_warning("That move isn't allowed."))
 		return FALSE
 	var/die = nards_find_die_for_move(color, from_point, to_point, from_bar, to_off)
 	if(die <= 0)
-		to_chat(user, span_warning("      ."))
+		to_chat(user, span_warning("Couldn't work out which die this move uses."))
 		return FALSE
 	if(from_bar)
 		nards_set_bar_count(color, nards_bar_count(color) - 1)
@@ -2613,18 +2613,18 @@
 		nards_set_point(to_point, color, nards_point_count(to_point) + 1)
 	else
 		nards_set_off_count(color, (color == CHESS_WHITE ? nards_off_white : nards_off_black) + 1)
-	var/source_name = from_bar ? "" : " [from_point]"
-	var/dest_name = to_off ? "" : " [to_point]"
-	last_action_message = "[chess_display_name(user)]    [source_name]  [dest_name]."
+	var/source_name = from_bar ? "the bar" : "point [from_point]"
+	var/dest_name = to_off ? "home" : "point [to_point]"
+	last_action_message = "[chess_display_name(user)] moves a piece from [source_name] to [dest_name]."
 	nards_consume_die(die)
 	if(nards_off_white >= 15)
-		result_text = " .  ."
+		result_text = "The match is over. White wins."
 		paused = TRUE
 		nards_clear_selection()
 		owner.play_win_loss_sounds(CHESS_WHITE)
 		return TRUE
 	if(nards_off_black >= 15)
-		result_text = " .  ."
+		result_text = "The match is over. Black wins."
 		paused = TRUE
 		nards_clear_selection()
 		owner.play_win_loss_sounds(CHESS_BLACK)

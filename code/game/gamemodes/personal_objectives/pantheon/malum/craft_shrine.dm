@@ -33,7 +33,7 @@
 		to_chat(owner.current, span_notice("You have built [current_count] out of [target_count] sacred crosses."))
 		return
 
-	to_chat(owner.current, span_greentext("You have built all the required sacred crosses, completing Malum's objective!"))
+	to_chat(owner.current, span_greentext("You have built all the required sacred crosses, completing the Craft's objective!"))
 	owner.current.adjust_triumphs(2)
 	completed = TRUE
 	adjust_storyteller_influence("Malum", 10)
@@ -41,4 +41,4 @@
 	UnregisterSignal(owner.current, COMSIG_ITEM_CRAFTED)
 
 /datum/objective/craft_shrine/update_explanation_text()
-	explanation_text = "Build [target_count] wooden pantheon cross[target_count > 1 ? "es" : ""] to demonstrate your devotion to Malum."
+	explanation_text = "Build [target_count] wooden pantheon cross[target_count > 1 ? "es" : ""] to demonstrate your devotion to the Craft."

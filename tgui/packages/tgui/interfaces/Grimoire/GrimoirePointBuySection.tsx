@@ -62,7 +62,7 @@ export const GrimoirePointBuySection = ({
             }
           >
             {spell.name} ({spell.cost}pts)
-            {selectedElsewhere && (
+            {!!selectedElsewhere && (
               <span
                 className="AspectPicker__spell-desc"
                 style={{ marginLeft: '6px' }}
@@ -70,7 +70,7 @@ export const GrimoirePointBuySection = ({
                 already inscribed
               </span>
             )}
-            {conflictsElsewhere && (
+            {!!conflictsElsewhere && (
               <span
                 className="AspectPicker__spell-desc"
                 style={{ marginLeft: '6px' }}

@@ -138,6 +138,8 @@ SUBSYSTEM_DEF(wildlife)
 	)
 
 /datum/controller/subsystem/wildlife/Initialize(start_timeofday)
+	// Set tonight's moon right away instead of waiting for the first dawn.
+	update_moon_phase()
 	return ..()
 
 /datum/controller/subsystem/wildlife/fire(resumed)

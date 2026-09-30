@@ -133,7 +133,7 @@
 
 /obj/item/rogueweapon/whip/antique
 	name = "\"Repenta En\""
-	desc = "A multi-tailed whip that's extremely well-maintained. The gilded handle first burdens the hand with its inordinate weight, and then the mind with an unsettling realization; this is not a tool of honor. </br>'Auxentius stands for justice, not murder.'"
+	desc = "A multi-tailed whip that's extremely well-maintained. The gilded handle first burdens the hand with its inordinate weight, and then the mind with an unsettling realization; this is not a tool of honor. </br>'the Sun stands for justice, not murder.'"
 	force = 25
 	minstr = 11
 	icon_state = "gwhip"
@@ -159,7 +159,7 @@
 
 /obj/item/rogueweapon/whip/antique/psywhip
 	name = "Daybreak"
-	desc = "A chain-linked whip, meticulously assembled from a hundred pieces of blessed silver. Its origins are steeped in mythos: most believe it to originate from an ancient bloodline of vampyre-killers, which once saved Vaeltis from a powerful lyckerlorde. Whether it was happenstance or fate itself that eventually led it into your grasp, however, is better left unspoken. </br>'There, upon the Cathedral's ceiling, was painted a scene-most-beautiful: of a robed Praecursor standing before the Archdevil, parting the nite's sky with a crack from His fiery whip. Just as He had done prior, so too must you bring daelight to the darkness.'"
+	desc = "A chain-linked whip, meticulously assembled from a hundred pieces of blessed silver. Its origins are steeped in mythos: most believe it to originate from an ancient bloodline of vampyre-killers, which once saved Vaeltis from a powerful lyckerlorde. Whether it was happenstance or fate itself that eventually led it into your grasp, however, is better left unspoken. </br>'There, upon the Cathedral's ceiling, was painted a scene-most-beautiful: of a robed the Absent God standing before the Archdevil, parting the nite's sky with a crack from His fiery whip. Just as He had done prior, so too must you bring daelight to the darkness.'"
 	icon_state = "psywhip"
 	is_silver = TRUE
 	force = 25

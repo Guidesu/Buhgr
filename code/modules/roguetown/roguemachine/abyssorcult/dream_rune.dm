@@ -15,7 +15,7 @@
 
 /obj/structure/roguemachine/ritual_rune/get_mechanics_examine(mob/user)
 	. = ..()
-	. += span_info("Abyssorites with miracle skill can start rituals here.")
+	. += span_info("Sea faithful with miracle skill can start rituals here.")
 	. += span_info("Anyone with paint affinity, or abyssorites with miracle skill can receive visions here. Requires silver, gold, or dream parchment to do so.")
 	. += span_info("Visions yield materials that are used to channel rituals.")
 	. += span_info("In order to complete a vision, a specific phrase must be said whilst very close to the vision target.")
@@ -83,7 +83,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!(H.patron?.type == /datum/patron/divine/abyssor) && !HAS_TRAIT(H, TRAIT_INK_AFFINITY))
-			to_chat(user, span_warning("You must have some connection to Abyssor or His paints to call forth visions."))
+			to_chat(user, span_warning("You must have some connection to the Sea or His paints to call forth visions."))
 			return FALSE
 
 	return TRUE

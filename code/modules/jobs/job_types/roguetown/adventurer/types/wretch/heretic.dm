@@ -175,7 +175,7 @@
 			H.change_stat(STATKEY_STR, 1)
 			ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_SOUL_EXAMINE, TRAIT_GENERIC)
-			helmets += list("Old Necran Helm" = /obj/item/clothing/head/roguetown/helmet/heavy/necrahelm)
+			helmets += list("Old Death Helm" = /obj/item/clothing/head/roguetown/helmet/heavy/necrahelm)
 		if(/datum/patron/oldkin/hausvette)
 			H.cmode_music = 'sound/music/combat_baotha.ogg'
 			H.equip_to_slot_or_del(new /obj/item/clothing/neck/roguetown/psicross/hausvette, SLOT_RING, TRUE)
@@ -193,7 +193,7 @@
 			H.change_stat(STATKEY_PER, 2)
 			H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-			helmets += list("Old Auxentian Helm" = /obj/item/clothing/head/roguetown/helmet/heavy/auxentiushelm)
+			helmets += list("Old Sun Helm" = /obj/item/clothing/head/roguetown/helmet/heavy/auxentiushelm)
 		if(/datum/patron/concordat/wulfric)
 			H.change_stat(STATKEY_INT, 2)
 			H.change_stat(STATKEY_PER, 2)
@@ -236,7 +236,7 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/cloak/templar/eoran, SLOT_CLOAK, TRUE)
 			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
-			helmets += list("Old Eoran Sallet" = /obj/item/clothing/head/roguetown/helmet/sallet/eoran)
+			helmets += list("Old Love Sallet" = /obj/item/clothing/head/roguetown/helmet/sallet/eoran)
 		if(/datum/patron/divine/noc)
 			H.change_stat(STATKEY_INT, 2)
 			H.change_stat(STATKEY_PER, 2)
@@ -253,7 +253,7 @@
 			H.equip_to_slot_or_del(new /obj/item/clothing/neck/roguetown/psicross/ravox, SLOT_RING, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
-			helmets += list("Ravox Helmet" = /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm/cleric)
+			helmets += list("Law Helmet" = /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm/cleric)
 			if(H.mind)
 				var/cloaks = list("Tabard", "Cloak")
 				var/cloakchoice = input(H,"Choose your covering", "TAKE UP FASHION") as anything in cloaks
@@ -280,7 +280,7 @@
 			ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_ALCHEMY_EXPERT, TRAIT_GENERIC)
-			helmets += list("Old Eoran Sallet" = /obj/item/clothing/head/roguetown/helmet/sallet/eoran)
+			helmets += list("Old Love Sallet" = /obj/item/clothing/head/roguetown/helmet/sallet/eoran)
 			H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE) // Really good at reading... does this really do anything? No. BUT it's soulful.
 			H.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
@@ -571,7 +571,7 @@
 		to_chat(src, span_warning ("My victim needs to be restrained in order to do this!"))
 		return
 	if(!istype(S, /obj/item/clothing/neck/roguetown/psicross/aurelian/aalloy))
-		to_chat(src, span_warning("I need to be holding a zcross to extract this divination!"))
+		to_chat(src, span_warning("I need to be holding a forbidden cross to extract this divination!"))
 		return
 	for(var/obj/structure/fluff/psycross/aurelian/N in oview(5, src))
 		found = N
@@ -585,7 +585,7 @@
 			"ARE YOU FAITHFUL!?",
 			"WHO IS YOUR SHEPHERD!?",
 		)
-		src.visible_message(span_warning("[src] shoves the decrepit zcross into [H]'s lux!"))
+		src.visible_message(span_warning("[src] shoves the decrepit forbidden cross into [H]'s lux!"))
 		say(pick(faith_lines), spans = list("torture"))
 		H.emote("agony", forced = TRUE)
 		if(!(do_mob(src, H, 10 SECONDS)))

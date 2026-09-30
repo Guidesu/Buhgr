@@ -51,7 +51,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Pestra demands the essence of life! Extract lux from a living being to earn Pestra's favor!"))
+	to_chat(chosen_one, span_notice("Healing demands the essence of life! Extract lux from a living being to earn Healing's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/magic/cosmic_expansion.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

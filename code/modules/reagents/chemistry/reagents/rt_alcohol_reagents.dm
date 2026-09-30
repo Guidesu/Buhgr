@@ -699,7 +699,7 @@
 
 /datum/reagent/consumable/ethanol/nocshine // wait, no, NOCSHINE
 	drink_type = DRINKTYPE_SPIRIT
-	name = "Noc's Shine"
+	name = "The Moon's Shine"
 	boozepwr = 70	// YEEEEEHAAAWWWWWW
 	taste_description = "what might be my throat melting and nose hair burning"
 	color = "#d8fbfd63"
@@ -719,8 +719,8 @@
 	M.remove_status_effect(/datum/status_effect/buff/nocshine)
 
 /datum/reagent/consumable/ethanol/nocmash
-	name = "Noc Mash"
-	description = "A raw, grain-fortified distillate. Must be distilled with swampweed before it becomes the notorious Noc's Shine."
+	name = "Moon Mash"
+	description = "A raw, grain-fortified distillate. Must be distilled with swampweed before it becomes the notorious the Moon's Shine."
 	boozepwr = 55
 	taste_description = "undiluted alcohol with a faint hint of wheat"
 	color = "#b8d4d6"

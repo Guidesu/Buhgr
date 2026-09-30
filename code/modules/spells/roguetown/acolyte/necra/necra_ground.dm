@@ -1,6 +1,6 @@
 /datum/action/cooldown/spell/miracle/necra_consecrate
 	name = "Consecrate Ground"
-	desc = "Channel holy energy to conjure an ethereal Necran cross upon a site made holy. All devout Necrans within it will receive boons, depending on the caster's holy skill. Those made unrevivable will receive greater effects."
+	desc = "Channel holy energy to conjure an ethereal Death cross upon a site made holy. All devout Death faithful within it will receive boons, depending on the caster's holy skill. Those made unrevivable will receive greater effects."
 	invocations = list("In the name of Her this ground is made SACROSANCT!")
 	invocation_type = INVOCATION_SHOUT
 	sound = 'sound/effects/necracon_create.ogg'

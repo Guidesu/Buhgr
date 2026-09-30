@@ -103,7 +103,7 @@
 		shroud_modes_by_choice[deadite_choice] = TRANQUILITY_SHROUD_MODE_DEADITE
 	if(applied_shroud_tier >= CLERIC_T3)
 		options += vampire_choice
-		descriptions[vampire_choice] = "T3: the body takes on a pale tint and vampires don't sense an outsider; in exchange, Astrata's light burns the flesh."
+		descriptions[vampire_choice] = "T3: the body takes on a pale tint and vampires don't sense an outsider; in exchange, the Sun's light burns the flesh."
 		shroud_modes_by_choice[vampire_choice] = TRANQUILITY_SHROUD_MODE_VAMPIRE
 
 	var/choice = tgui_input_list(caster, "Which mist do I pass to [living_target]?", "Shroud of Oblivion", options, options[1], descriptions = descriptions)

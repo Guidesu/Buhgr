@@ -32,7 +32,7 @@
 	levels_gained += level_diff
 
 	if(levels_gained >= required_levels)
-		to_chat(owner.current, span_greentext("You've improved your combat skills enough to satisfy Auxentius!"))
+		to_chat(owner.current, span_greentext("You've improved your combat skills enough to satisfy the Sun!"))
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
 		adjust_storyteller_influence("Auxentius", 15)
@@ -40,7 +40,7 @@
 		UnregisterSignal(owner.current, COMSIG_SKILL_RANK_INCREASED)
 	else
 		var/remaining = required_levels - levels_gained
-		to_chat(owner.current, span_notice("Combat skill improved! [remaining] more level[remaining == 1 ? "" : "s"] needed to fulfill Auxentius's task!"))
+		to_chat(owner.current, span_notice("Combat skill improved! [remaining] more level[remaining == 1 ? "" : "s"] needed to fulfill the Sun's task!"))
 
 /datum/objective/improve_combat/update_explanation_text()
-	explanation_text = "Improve your combat skills by gaining [required_levels] new skill levels through practice or dreams. For Auxentius!"
+	explanation_text = "Improve your combat skills by gaining [required_levels] new skill levels through practice or dreams. For the Sun!"

@@ -517,7 +517,7 @@ a.choose-btn:hover {
 		if("zizite")
 			return "Hone the knowledge of your patron! With her ascension, the ignorant cling to the old way, your goddess lies imprisoned. Her teachings are all that remains. Her followers — corrupted, seeking undeath and bones, forgetting that she, too, is the mistress of progress. With your very blade, you shall cut open the wound of the world, cauterize it, and let her light shine through! You are her herald."
 		if("noccite")
-			return "Hone the wisdom of your patron! With his gift, you have glimpsed the truth of the world. The old city is gone, his teachings are not. Noc has granted you the power to seize destiny into your own hands - miracles to heal the wounded, sight to see the unseen, and magicks to strike down your foes. With your blade, you shall carve a new path forward, and let his light guide the way! You are his chosen."
+			return "Hone the wisdom of your patron! With his gift, you have glimpsed the truth of the world. The old city is gone, his teachings are not. The Moon has granted you the power to seize destiny into your own hands - miracles to heal the wounded, sight to see the unseen, and magicks to strike down your foes. With your blade, you shall carve a new path forward, and let his light guide the way! You are his chosen."
 		if("almah")
 			return "Hone the art of your people! Show the locals the fearsome reputation of the Almah. Wield your blade for coins or mastery. The end goals need not matter, only that you enjoy every bit of your dance and your foes lay dead in the end."
 		if("undead")

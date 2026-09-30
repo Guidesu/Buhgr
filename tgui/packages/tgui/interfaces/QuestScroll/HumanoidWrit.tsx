@@ -265,7 +265,7 @@ export const HumanoidWrit = (props: {
       realm={props.realm}
     />
     <IndictmentList crimes={props.crimes} />
-    {props.sacralInvoked && <SacralPlea rulerTitle={props.rulerTitle} />}
+    {!!props.sacralInvoked && <SacralPlea rulerTitle={props.rulerTitle} />}
     <CondemnationDeclaration
       variant={props.condemnation}
       named={props.named}
@@ -279,8 +279,8 @@ export const HumanoidWrit = (props: {
       levyExempt={props.levyExempt}
       guildCutRate={props.guildCutRate}
     />
-    {props.oathBreach && <CorruptionOfBloodClause />}
-    {props.hasRecoveryAddendum && (
+    {!!props.oathBreach && <CorruptionOfBloodClause />}
+    {!!props.hasRecoveryAddendum && (
       <RecoveryAddendum
         shipment={props.recoveryShipment}
         destination={props.recoveryDestination}

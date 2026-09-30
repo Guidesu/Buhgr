@@ -153,7 +153,7 @@ const ObligationsColumn = (props: { t: TreasurySnapshot }) => {
           Bandit hoards: {t.banditry_hoard} awaiting recovery
         </Breakdown>
       )}
-      {showDebtRow && (
+      {!!showDebtRow && (
         <table style={twoColTable}>
           <tbody>
             <Row label={debtLabel} value={debtValue} color={debtColor} />
@@ -167,7 +167,7 @@ const ObligationsColumn = (props: { t: TreasurySnapshot }) => {
           {t.treasury_debt_owed > 0 && `${t.treasury_debt_owed} still owed`}
         </Breakdown>
       )}
-      {showForfeiture && (
+      {!!showForfeiture && (
         <>
           <table style={twoColTable}>
             <tbody>
@@ -253,7 +253,7 @@ export const TreasurySection = (props: Props) => {
         </div>
         <NotCollectedColumn t={t} />
       </div>
-      {hasObligations && <ObligationsColumn t={t} />}
+      {!!hasObligations && <ObligationsColumn t={t} />}
     </div>
   );
 };

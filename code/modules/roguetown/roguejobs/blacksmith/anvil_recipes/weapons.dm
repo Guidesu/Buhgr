@@ -2091,7 +2091,7 @@
 	i_type = "Weapons"
 
 /datum/anvil_recipe/weapons/holysteel/malum_sword
-	name = "Malumite Flamberge (+2 Holy Steel, +1 Amulet of Malum)"
+	name = "Craft Flamberge (+2 Holy Steel, +1 Amulet of the Craft)"
 	category = "Holy Steel"
 	req_bar = /obj/item/ingot/steelholy
 	additional_items = list(/obj/item/ingot/steelholy, /obj/item/ingot/steelholy, /obj/item/clothing/neck/roguetown/psicross/handwerra)

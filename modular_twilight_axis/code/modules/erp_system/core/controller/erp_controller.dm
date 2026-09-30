@@ -615,11 +615,11 @@
 
 /// Builds tick effects bundle.
 /datum/erp_controller/proc/build_tick_effect_bundle(list/active_links, datum/erp_sex_link/best, dt)
-	return vfx_d ? vfx_d.build_tick_effect_bundle(active_links, best, dt) : list()
+	return vfx_d ? vfx_d.build_tick_effect_bundle(active_links, dt) : list()
 
 /// Plays tick visuals and sounds.
 /datum/erp_controller/proc/play_tick_effects(list/active_links, datum/erp_sex_link/best, dt)
-	vfx_d?.play_tick_effects(active_links, best, dt)
+	vfx_d?.play_tick_effects(active_links, dt)
 
 /// Performs thrust bump animation.
 /datum/erp_controller/proc/erp_do_thrust_bump(datum/erp_sex_link/best)

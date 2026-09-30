@@ -406,7 +406,7 @@
 
 /obj/item/clothing/head/roguetown/inqhat/gravehat
 	name = "gravetender's hat"
-	desc = "A fine leather slouch fitted with a hidden steel skull cap. It serves as a reminder that Necra's grasp is never too far."
+	desc = "A fine leather slouch fitted with a hidden steel skull cap. It serves as a reminder that Death's grasp is never too far."
 	icon_state = "gravehat"
 	item_state = "gravehat"
 
@@ -682,7 +682,7 @@
 
 /obj/item/clothing/head/roguetown/veiled
 	name = "nurse's veil"
-	desc = "A chirurgeon's bonnet, veiled with petal-stuffed linen. The stitchwork is often donned by the likes of wandering plague doctors and clerics; especially, those who're beholden to Pestra and Praecursor."
+	desc = "A chirurgeon's bonnet, veiled with petal-stuffed linen. The stitchwork is often donned by the likes of wandering plague doctors and clerics; especially, those who're beholden to Healing and the Absent God."
 	icon_state = "veil"
 	item_state = "veil"
 	detail_tag = "_detail"

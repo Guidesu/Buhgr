@@ -457,7 +457,7 @@ GLOBAL_LIST_INIT(averse_factions, list(
 
 /datum/charflaw/targeted
 	name = "Targeted"
-	desc = "Someone, somewhere, has offered up my name to the Bloodsworn of Graggar. \
+	desc = "Someone, somewhere, has offered up my name to the Bloodsworn of War. \
 	Assassins may seek my skin-and-soul to steal-and-bind." + span_artery("\nHaving this vice will add you to a list of targets hunted by a powerful \
 	class. If they are successful in killing you, you may be round-removed for a time, though you will be recoverable if the assassin is slain and \
 	their dagger is broken.") + span_danger("\nAssassins DO-NOT NEED to ESCALATE against you if you have this vice. To reiterate: please expect \

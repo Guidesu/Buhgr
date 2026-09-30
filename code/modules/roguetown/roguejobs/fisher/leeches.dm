@@ -259,7 +259,7 @@
 
 /obj/item/natural/worms/leech/cheele
 	name = "cheele"
-	desc = "A beautiful, blood-infusing altruistic organism made by Pestra herself."
+	desc = "A beautiful, blood-infusing altruistic organism made by Healing herself."
 	icon_state = "cheele"
 	color = null
 	consistent = TRUE
@@ -301,7 +301,7 @@
 
 /obj/item/natural/worms/leech/abyssoid
 	name = "abyssoid leech"
-	desc = "A holy leech sent by Abyssor himself."
+	desc = "A holy leech sent by the Sea himself."
 	icon_state = "leech"
 	drainage = 0
 	blood_sucking = 0

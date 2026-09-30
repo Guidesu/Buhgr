@@ -12,6 +12,8 @@
 		// Skip familiar origins + other unselectables
 		if(istype(V, /datum/virtue/origin/unselectable))
 			continue
+		if(V.type in GLOB.dreamvalley_retired_origins)
+			continue
 		// Restricted uses races as a blacklist
 		if(V.restricted == TRUE)
 			if(pref_species.type in V.races)

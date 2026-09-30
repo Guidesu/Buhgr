@@ -392,7 +392,7 @@ GLOBAL_DATUM_INIT(html_tags, /regex, regex(@"<.*?>", "g"))
 
 /obj/item/rogueweapon/greataxe/steel/doublehead/zizo
 	name = "cursed greataxe"
-	desc = "An doublehead axe, which made for kills for Zizo-queen."
+	desc = "An doublehead axe, which made for kills for the Forbidden-queen."
 	icon = 'modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sprites/zizo_weapone_twoh.dmi'
 	icon_state = "Ztaxe"
 	special = /datum/special_intent/vicious_swipe
@@ -574,8 +574,8 @@ GLOBAL_DATUM_INIT(html_tags, /regex, regex(@"<.*?>", "g"))
 
 
 /obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy/cult
-	name = "Reverted psycross of ascension's"
-	desc = "This cursed zcross will give something good por followers of Zizo.."
+	name = "Reverted holy cross of ascension's"
+	desc = "This cursed forbidden cross will give something good por followers of the Forbidden.."
 	mob_overlay_icon = 'modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sprites/clothes/on_mob/zcross.dmi'
 	icon = 'modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sprites/clothes/zcross.dmi'
 	icon_state = "zcross"

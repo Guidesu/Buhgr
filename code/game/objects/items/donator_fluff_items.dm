@@ -1129,7 +1129,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/shadedhat
 	name = "shaded hat"
-	desc = "A friend to travelers across antique and distant lands; the sort where Astrata's light is bright enough to blind the unprepared, specifically."
+	desc = "A friend to travelers across antique and distant lands; the sort where the Sun's light is bright enough to blind the unprepared, specifically."
 	color = null
 	icon_state = "shadedhat"
 	item_state = "shadedhat"
@@ -1635,7 +1635,7 @@
 //Ryebread's donator item - estoc
 /obj/item/rogueweapon/estoc/worttrager
 	name = "Wortträger"
-	desc = "An imported Grenzelhoftian panzerstecher, a superbly crafted implement devoid of armory marks- merely bearing a maker's mark and the Zenitstadt seal. This one has a grip of walnut wood, and a pale saffira set within the crossguard. The ricasso is engraved with Auxentian scripture."
+	desc = "An imported Grenzelhoftian panzerstecher, a superbly crafted implement devoid of armory marks- merely bearing a maker's mark and the Zenitstadt seal. This one has a grip of walnut wood, and a pale saffira set within the crossguard. The ricasso is engraved with Sun scripture."
 	icon_state = "mansa"
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 
@@ -1857,7 +1857,7 @@
 // ZoeTheOrc
 /obj/item/clothing/cloak/raincloak/feather_cloak
 	name = "Shroud of the Undermaiden"
-	desc = "A fine cloak made from the feathers of Necra's servants, each gifted to a favoured child of the Lady of Veils. While it offers no physical protection, perhaps it ensures that the Undermaiden's gaze is never far from its wearer..."
+	desc = "A fine cloak made from the feathers of Death's servants, each gifted to a favoured child of the Lady of Veils. While it offers no physical protection, perhaps it ensures that the Undermaiden's gaze is never far from its wearer..."
 	icon_state = "feather_cloak"
 	item_state = "feather_cloak"
 	icon = 'icons/clothing/donor_clothes.dmi'
@@ -1914,7 +1914,7 @@
 	name = "archaic ceremonial valkyrhelm"
 	desc = "A winged and angular helm of archaic design, tracing its lineage back to the Celestial Empire's fall. \
 		House Timbermere makes sole use of its design in these parts, claiming it as their heritage right. \
-		This one has been gilded by Auxentius's own colors, with a hand-woven plume atop to bear heraldic colors."
+		This one has been gilded by the Sun's own colors, with a hand-woven plume atop to bear heraldic colors."
 	icon_state = "valkyrhelm"
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
@@ -1934,8 +1934,8 @@
 		H.update_inv_head()
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius/dasfox
-	name = "defiled Auxentian periapt"
-	desc = "This golden-lashed eye atop a blade was once a periapt of Auxentius, \
+	name = "defiled Sun periapt"
+	desc = "This golden-lashed eye atop a blade was once a periapt of the Sun, \
 	used in prayer and reverence of Her Tyrannical Light. This one has been damaged heavily, \
 	and near-shattered- and is bound together by cloth and silver wires. \
 	In lieu of its former nature, it now serves as amulet or attachment to armor due to the braided wire to be \
@@ -1948,7 +1948,7 @@
 	name = "archaic ceremonial cuirass"
 	desc = "A cuirass and tasset set of archaic design, tracing its lineage back to the Celestial Empire's fall. \
 		House Timbermere makes sole use of its design in these parts, claiming it as their heritage right. \
-		This one has been gilded by Auxentius's own colors atop a sleeved surcoat to bear heraldic colors."
+		This one has been gilded by the Sun's own colors atop a sleeved surcoat to bear heraldic colors."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "archaiccuirass"
@@ -1988,7 +1988,7 @@
 /obj/item/rogueweapon/scabbard/sword/tyesca
 	name = "reliquary montante scabbard"
 	desc = "A scabbard designed in equal parts to match the sword it was crafted for. Catches and loops sit for prayer beads and drapes of silk to hang down \
-	the bronze-and-pewter decorated length. The throat and locket are forged to make the bottom of a Psycross when held upright, allowing the sword when \
+	the bronze-and-pewter decorated length. The throat and locket are forged to make the bottom of a Holy cross when held upright, allowing the sword when \
 	sheathed to complete the piece as a mark of faith when placed away from the world. Down the length, it preaches; 'There Is No World To Lyve In Which A \
 	Sword Is The Answer.'"
 	icon_state = "reliquaryscabbard"
@@ -2086,7 +2086,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/praecursorhelm/ryan
 	name = "maimed vaeltic helm"
-	desc = "Disavowed lamb, suicidal hero, cursed idiot - Praecursor is dead. Will you follow Him to the grave, as a beacon of dying hope, or surrender to temptation?"
+	desc = "Disavowed lamb, suicidal hero, cursed idiot - the Absent God is dead. Will you follow Him to the grave, as a beacon of dying hope, or surrender to temptation?"
 	icon_state = "ryan_maimedhelm"
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes64.dmi'
@@ -2281,7 +2281,7 @@ As Excaliber."
 
 //SHUDDERFLY
 /obj/item/rogueweapon/huntingknife/idagger/steel/shudderfly
-	name = "\improper Eoran Spike"
+	name = "\improper Love Spike"
 	desc = "An ornately decorated steel dagger with the initials M.D. engraved on one side and the word Amor on the other. \
 	Around its crossguard is bound a rosa that never seems to wilt, the weapon is obviously cared for, but has seen many fights. \
 	You can’t help but shake the feeling that the weapon itself resists being used."
@@ -2571,8 +2571,8 @@ As Excaliber."
 
 //MAGI1138
 /obj/item/clothing/cloak/magi1138
-	name = "reappropriated Xylixian Cloak"
-	desc = "A Xylixian Cloak, without all the bells and whistles."
+	name = "reappropriated Trickery Cloak"
+	desc = "A Trickery Cloak, without all the bells and whistles."
 	icon_state = "magi_xylix"
 	item_state = "magi_xylix"
 	alternate_worn_layer = TABARD_LAYER
@@ -2656,9 +2656,9 @@ As Excaliber."
 	desc = "This is a strange weapon, a mix of Elven steel, and obvious Otavan silversmithing. \
 	The blade glints with the light of reflected stars. \
 	Inscribed on the leaf patterned staff is a single word in Elvish. \
-	Amdir- Look Up. Along one of the braces is a psycross, dangling, jangling \
+	Amdir- Look Up. Along one of the braces is a holy cross, dangling, jangling \
 	and shining with a defiant light.\n\n\
-	\"Look up. Do you not hope to see the stars? Auxentius's light? Noc's gaze? Look up. \
+	\"Look up. Do you not hope to see the stars? The Sun's light? The Moon's gaze? Look up. \
 	To do that, is to hope.\""
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 	icon_state = "amdir"
@@ -2919,17 +2919,17 @@ As Excaliber."
 /obj/item/rogueweapon/sword/long/cobb
 	name = "\improper Conviction"
 	desc = "This longsword appears at first glance to be a replica of the silver-alloyed Vaeltic Longsword of the Orthodoxy's many soldiers, though it is clearly made of steel and by a foreign smith imitating the design. \
-	The cross-guard is gilded in gold, and etched with tiny, abstract emblems to resemble the Ten; what passes to resembling a sun, a flower, a moon and so on. \
+	The cross-guard is gilded in gold, and etched with tiny, abstract emblems to resemble the Domains; what passes to resembling a sun, a flower, a moon and so on. \
 	The hilt, wrapped in a blackened leather strap, was fashioned out of chestnut and whittled for a central waistline. \
 	The pommel itself, a steel disc, was embedded with a large blue gem, faceted such that on a close look, one could be able to just see through it.<br><br>\
-	Perhaps most notably about this sword is that it was never bereft of the silver psycross that was wrapped around the base of the blade and hilt both, tightly woven like an imprisoning chain."
+	Perhaps most notably about this sword is that it was never bereft of the silver holy cross that was wrapped around the base of the blade and hilt both, tightly woven like an imprisoning chain."
 	icon_state = "jehanpsysword"
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 
 // ATHENA14
 /obj/item/rogueweapon/sword/rapier/athena
 	name = "Solace"
-	desc = "A rapier bearing a glimmer of which only Psydonic silver can give, though it differs immensely from the standards seen within the Otavan Orthodoxy. \
+	desc = "A rapier bearing a glimmer of which only Old Faith silver can give, though it differs immensely from the standards seen within the Otavan Orthodoxy. \
 	Following a much older design from the daes of Elder Rock's oldest silver smiths, or simply in imitation of their ancient and revered crafts. \
 	Its crossguards are absent with its profile greatly decreased, favoring a much slimmer design in exchange for protection. \
 	Strangely the silver appears to have dulled, whether from time or an unknown circumstance. \
@@ -2942,7 +2942,7 @@ As Excaliber."
 /obj/item/rogueweapon/greatsword/falling_star
 	name = "Falling Star"
 	desc = "A curved executioner's blade designated as suicidal because of its ridiculously unwieldy nature. \
-	Its niche gained popularity among Graggarite warlords for its sheer raw force and homage to the Darkstar, a descending omen of devastation and war. \
+	Its niche gained popularity among War warlords for its sheer raw force and homage to the Darkstar, a descending omen of devastation and war. \
 	The curved blade design makes it suitable for swings and chops, but poor for stabbing victims."
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 	icon_state = "fallingstar"
@@ -2965,7 +2965,7 @@ As Excaliber."
 /obj/item/rogueweapon/sword/long/aasimar
 	name = "solar longsword"
 	desc = "A long blade of polished gilbranze, unfettered by Aeon's grasp. Solar motifs decorate the crossguard, denoting it as a weapon of \
-	Astrata's earliest legionnaires. The only imperfections along its edge are crusty smudges of crimson; the last remnants from a war known \
+	the Sun's earliest legionnaires. The only imperfections along its edge are crusty smudges of crimson; the last remnants from a war known \
 	only through scripture."
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 	icon_state = "chiv_alongblade"
@@ -2981,7 +2981,7 @@ As Excaliber."
 
 /obj/item/rogueweapon/spear/boar/aasimar
 	name = "solar spear"
-	desc = "Once believed to've been a standard of Astrata's ancient legions, the fabric has long-rotten off the shaft. Even so, the polished \
+	desc = "Once believed to've been a standard of the Sun's ancient legions, the fabric has long-rotten off the shaft. Even so, the polished \
 	gilbranze underneath still looks as tough as the dae it was first forged."
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 	icon_state = "chiv_aspear"
@@ -2989,7 +2989,7 @@ As Excaliber."
 
 /obj/item/rogueweapon/spear/partizan/aasimar
 	name = "solar spear"
-	desc = "Once believed to've been a standard of Astrata's ancient legions, the fabric has long-rotten off the shaft. Even so, the polished \
+	desc = "Once believed to've been a standard of the Sun's ancient legions, the fabric has long-rotten off the shaft. Even so, the polished \
 	gilbranze underneath still looks as tough as the dae it was first forged."
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 	icon_state = "chiv_aspear"
@@ -3025,7 +3025,7 @@ As Excaliber."
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/aasimar
 	name = "aasimari cuirass"
 	desc = "A cuirass of polished gilbranze, tasseted and pauldroned. It has been meticulously sculpted to only fitthe physique of its wearer; \
-	one of Astrata's divine legionnaires."
+	one of the Sun's divine legionnaires."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_acuirass"
@@ -3036,7 +3036,7 @@ As Excaliber."
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/aasimar
 	name = "aasimari cuirass"
 	desc = "A cuirass of polished gilbranze, tasseted and pauldroned. It has been meticulously sculpted to only fitthe physique of its wearer; \
-	one of Astrata's divine legionnaires."
+	one of the Sun's divine legionnaires."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_acuirass"
@@ -3047,7 +3047,7 @@ As Excaliber."
 /obj/item/clothing/under/roguetown/platelegs/aasimar
 	name = "aasimari plated chausses"
 	desc = "Plated chausses of polished gilbranze, unfettered by Aeon's grasp. It has been meticulously sculpted to only fit the physique of its wearer; \
-	one of Astrata's divine legionnaires."
+	one of the Sun's divine legionnaires."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_achaussus"
@@ -3058,7 +3058,7 @@ As Excaliber."
 /obj/item/clothing/shoes/roguetown/boots/armor/aasimar
 	name = "aasimari plated boots"
 	desc = "Boots of polished gilbranze, kept clean from mud and blood. It has been meticulously sculpted to only fit the physique of its wearer; \
-	one of Astrata's divine legionnaires."
+	one of the Sun's divine legionnaires."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_aboots"
@@ -3069,7 +3069,7 @@ As Excaliber."
 /obj/item/clothing/gloves/roguetown/plate/aasimar
 	name = "aasimari plated gauntlets"
 	desc = "Gauntlets of polished gilbranze, grooved to ensure bloodied grips don't slip. It has been meticulously sculpted to only fit the physique of its wearer; \
-	one of Astrata's divine legionnaires."
+	one of the Sun's divine legionnaires."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_agauntlets"
@@ -3080,7 +3080,7 @@ As Excaliber."
 /obj/item/clothing/wrists/roguetown/bracers/aasimar
 	name = "aasimari bracers"
 	desc = "Bracers of polished gilbranze, fluted with arterial designs. It has been meticulously sculpted to only fit the physique of its wearer; \
-	one of Astrata's divine legionnaires."
+	one of the Sun's divine legionnaires."
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 	icon_state = "chiv_abracers"
@@ -3151,7 +3151,7 @@ As Excaliber."
 //Truill
 /obj/item/rogueweapon/sword/long/oldpsysword/donator_truill
 	name = "beflowered longsword"
-	desc = "A longsword belonging to the Order of Saint Eora, wrapped in thorny vines that prickle the hand-that-grasps. Rosas, calendulas, and \
+	desc = "A longsword belonging to the Order of Saint Love, wrapped in thorny vines that prickle the hand-that-grasps. Rosas, calendulas, and \
 	matricarias decorate the blade like a steel-edged bouquet; a colorful reminder that evil can never hope to tarnish Psydonia's beauty."
 	icon_state = "truill_flowerblade"
 	sheathe_icon = "truill_flowerblade"
@@ -3165,7 +3165,7 @@ As Excaliber."
 
 /obj/item/rogueweapon/sword/long/cleric/donator_truill
 	name = "beflowered longsword"
-	desc = "A longsword belonging to the Order of Saint Eora, wrapped in thorny vines that prickle the hand-that-grasps. Rosas, calendulas, and \
+	desc = "A longsword belonging to the Order of Saint Love, wrapped in thorny vines that prickle the hand-that-grasps. Rosas, calendulas, and \
 	matricarias decorate the blade like a steel-edged bouquet; a colorful reminder that evil can never hope to tarnish Psydonia's beauty."
 	icon_state = "truill_flowerblade"
 	sheathe_icon = "truill_flowerblade"
@@ -3179,7 +3179,7 @@ As Excaliber."
 
 /obj/item/rogueweapon/sword/long/psysword/donator_truill
 	name = "beflowered silver longsword"
-	desc = "A longsword belonging to the Order of Saint Eora, wrapped in thorny vines that prickle the hand-that-grasps. Rosas, calendulas, and \
+	desc = "A longsword belonging to the Order of Saint Love, wrapped in thorny vines that prickle the hand-that-grasps. Rosas, calendulas, and \
 	matricarias decorate the blade like a silver-edged bouquet; a colorful reminder that evil can never hope to tarnish Psydonia's beauty."
 	icon_state = "truill_flowerbladesil"
 	sheathe_icon = "truill_flowerbladesil"
@@ -3562,7 +3562,7 @@ As Excaliber."
 
 /obj/item/clothing/head/roguetown/helmet/bascinet/apostle_winged
 	name = "\improper Knight-Apostle's winged burgonet"
-	desc = "O' Psydon, see of Your servant. For I walk only where You have bid of me to. </br> \
+	desc = "O' the Absent God, see of Your servant. For I walk only where You have bid of me to. </br> \
 	Stand only within the places that You have blessed of me to. </br> \
 	And sing only the hymn and word You have gifted me to."
 	item_state = "wingedburgeonet"
@@ -3738,7 +3738,7 @@ As Excaliber."
 /obj/item/clothing/mask/rogue/facemask/steel/maille/birdmask
 	name = "beaked mask"
 	desc = "A plated steel mask made to resemble a bird's beak.<br> \
-	While similar to the long masks of Pestra's faithful, this is designed to protect against far less insidious dangers. Namely, bladed weapons.<br> \
+	While similar to the long masks of Healing's faithful, this is designed to protect against far less insidious dangers. Namely, bladed weapons.<br> \
 	<font color='3399FF'>'The magpie's song, a fleeting flight, guides the heart through the encroaching night.'</font>"
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
@@ -4226,7 +4226,7 @@ As Excaliber."
 
 /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/donator_stalkerino
 	name = "skikudic savoyard"
-	desc = "A helmet forged in the great Underdark, no doubt a Duergar had a hand in making this. The material has started to lose its color under Astrata's gaze, yet one feature stands above all - a combination \
+	desc = "A helmet forged in the great Underdark, no doubt a Duergar had a hand in making this. The material has started to lose its color under the Sun's gaze, yet one feature stands above all - a combination \
 	of a visor and gold that inspires happiness, or tries to. Lighten up, will you?"
 	icon_state = "stalkerino_smilehelm"
 	item_state = "stalkerino_smilehelm"
@@ -4591,23 +4591,23 @@ As Excaliber."
 
 /obj/item/clothing/cloak/templar/ravoxcleric/koruu
 	name = "Sefirot's Cloak"
-	desc = "A tattered red tabard dyed in the bold colors of Ravox. Its striking crimson fabric stands out on the frontlines, signaling unyielding judgment. For a thousand yils, our ancestors have defied the darkness. May their descendents defy the darkness for a thousand more."
+	desc = "A tattered red tabard dyed in the bold colors of Law. Its striking crimson fabric stands out on the frontlines, signaling unyielding judgment. For a thousand yils, our ancestors have defied the darkness. May their descendents defy the darkness for a thousand more."
 	armor = ARMOR_CLOTHING
 
 /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm/cleric/koruu
 	name = "Gebura"
-	desc = "Adorned with powerful ox horns and a seamless blindfold, this helm embodies the steadfast resolve of Ravox. Blind, is our justice. Ever-defying, is our tenacity."
+	desc = "Adorned with powerful ox horns and a seamless blindfold, this helm embodies the steadfast resolve of Law. Blind, is our justice. Ever-defying, is our tenacity."
 	icon_state = "ravoxclerichelmet"
 	item_state = "ravoxclerichelmet"
 
 /obj/item/clothing/cloak/templar/astratancleric/koruu
 	name = "Cloak of the Order of the Sun"
-	desc = "A golden-colored cloak with frayed edges, bearing the radiant hues of Astrata. It marks the wearer as a beacon of light amidst the chaos of battle."
+	desc = "A golden-colored cloak with frayed edges, bearing the radiant hues of the Sun. It marks the wearer as a beacon of light amidst the chaos of battle."
 	armor = ARMOR_CLOTHING
 
 /obj/item/clothing/head/roguetown/helmet/heavy/astratahelm/cleric/koruu
 	name = "Lux In Tenebris"
-	desc = "Topped with a magnificent plume, this helmet turns the wearer into a walking beacon of Astrata's wrath. Designed to cut a striking silhouette, it strikes terror into the hearts of nonbelievers from afar."
+	desc = "Topped with a magnificent plume, this helmet turns the wearer into a walking beacon of the Sun's wrath. Designed to cut a striking silhouette, it strikes terror into the hearts of nonbelievers from afar."
 	icon_state = "astrataclerichelm"
 	item_state = "astrataclerichelm"
 
@@ -4679,7 +4679,7 @@ As Excaliber."
 /obj/item/rogueweapon/sword/sabre/donator_rezathedwarf
 	name = "The Enclave Blade"
 	desc = "A decorated saber of gold and steel, with added gems to show wealth and majesty, heavily reinforced with blacksteel to \
-	keep its integrity and stopping power. Looted from the last living noble of an Astratan-blessed family. Taken after dueling the \
+	keep its integrity and stopping power. Looted from the last living noble of a Sun-blessed family. Taken after dueling the \
 	founder of the house in his days as a slave. On its handle reads, originally read, \"The Chosen Have Nothing to Fear,\" but a new \
 	line was added across the other side of the handle. \"Except the Conqueror.\""
 	icon_state = "rezasword"
@@ -4709,7 +4709,7 @@ As Excaliber."
 // Mystogen
 /obj/item/clothing/mask/rogue/facemask/goldmask/radiant
 	name = "radiant gold mask"
-	desc = "A ceremonial mask that mimics Astrata's solar might. Relics like these were once commonplace across the Holy See's plains, as \
+	desc = "A ceremonial mask that mimics the Sun's solar might. Relics like these were once commonplace across the Holy See's plains, as \
 	garments to be worn by village-acolytes during the summer solstice's many festivals. Nowadaes, they're a rare sight to see - at least, \
 	beyond the hands of wandering zealots and priests."
 	icon_state = "radiantgoldmask"
@@ -4798,11 +4798,11 @@ As Excaliber."
 
 /obj/item/rogueweapon/sword/long/aticius
 	name = "For Love's Sake"
-	desc = "An oversized cleaver, fashioned out of polished gilbranze. A psycruciform starguard fits at the hilt, where a strip of cloth has been tied, dyed in Eoran pink.<br>\
+	desc = "An oversized cleaver, fashioned out of polished gilbranze. A psycruciform starguard fits at the hilt, where a strip of cloth has been tied, dyed in Love pink.<br>\
 	The metal is not alive. Perhaps it never will be. Perhaps that is the point. A blade for a tyme that is not now, and may never be - yet it is here, and undeniable.<br>\
 	'Liebe. Do you know how long forever is?'<br>\
 	'Liebe. This is a promise to remember. From me, to you.'<br>\
-	'I promise that, 'til the sands are amaranthine and Noc wanders darkly...'<br>\
+	'I promise that, 'til the sands are amaranthine and the Moon wanders darkly...'<br>\
 	'That I will be here with you. For love's sake.'"
 	icon_state = "fls"
 	sheathe_icon = "fls"
@@ -4890,8 +4890,8 @@ As Excaliber."
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/neck/roguetown/psicross/astrata/dasfox
-	name = "defiled Astratan periapt"
-	desc = "This golden-lashed eye atop a blade was once a periapt of Astrata, \
+	name = "defiled Sun periapt"
+	desc = "This golden-lashed eye atop a blade was once a periapt of the Sun, \
 	used in prayer and reverence of Her Tyrannical Light. This one has been damaged heavily, \
 	and near-shattered- and is bound together by cloth and silver wires. \
 	In lieu of its former nature, it now serves as amulet or attachment to armor due to the braided wire to be \
@@ -4902,7 +4902,7 @@ As Excaliber."
 
 /obj/item/clothing/head/roguetown/helmet/heavy/psydonhelm/ryan
 	name = "maimed psydonic helm"
-	desc = "Disavowed lamb, suicidal hero, cursed idiot - Psydon is dead. Will you follow Him to the grave, as a beacon of dying hope, or surrender to temptation?"
+	desc = "Disavowed lamb, suicidal hero, cursed idiot - the Absent God is dead. Will you follow Him to the grave, as a beacon of dying hope, or surrender to temptation?"
 	icon_state = "ryan_maimedhelm"
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes64.dmi'

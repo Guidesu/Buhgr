@@ -187,9 +187,9 @@
 /obj/item/rogueweapon/sword/church
 	name = "see arming sword"
 	desc = "A blessed arming sword, wielded by the Holy See's templars in their stalwart defense against evil. Originating in the wake of the Celestial Empire's \
-	collapse, legends say that it is the grandfather to longswords all across Psydonia: the triumph of an ancient Malumite priest, stricken with divine \
+	collapse, legends say that it is the grandfather to longswords all across Psydonia: the triumph of an ancient Craft priest, stricken with divine \
 	inspiration in humenity's darkest hour. Centuries later, it still remains the ideal choice for skewering infidels and monsters alike. </br>'I am the \
-	holder of light, in the dark abyss..' </br>'..I am the holder of order and ward against vileness..' </br>'..let the Gods guide my hand, and let the Inhumen cower before me.'"
+	holder of light, in the dark abyss..' </br>'..I am the holder of order and ward against vileness..' </br>'..let the Gods guide my hand, and let the Forbidden cower before me.'"
 	icon_state = "see_sword"
 	max_integrity = 180
 
@@ -491,9 +491,9 @@
 /obj/item/rogueweapon/sword/long/church
 	name = "see longsword"
 	desc = "A blessed longsword, wielded by the Holy See's templars in their stalwart defense against evil. Originating in the wake of the Celestial Empire's \
-	collapse, legends say that it is the grandfather to longswords all across Vaeltis: the triumph of an ancient Malumite priest, stricken with divine \
+	collapse, legends say that it is the grandfather to longswords all across Vaeltis: the triumph of an ancient Craft priest, stricken with divine \
 	inspiration in humenity's darkest hour. Centuries later, it still remains the ideal choice for skewering infidels and monsters alike. </br>'I am the \
-	holder of light, in the dark abyss..' </br>'..I am the holder of order and ward against vileness..' </br>'..let the Gods guide my hand, and let the Inhumen cower before me.'"
+	holder of light, in the dark abyss..' </br>'..I am the holder of order and ward against vileness..' </br>'..let the Gods guide my hand, and let the Forbidden cower before me.'"
 	icon_state = "churchsword"
 	max_integrity = 180
 
@@ -510,7 +510,7 @@
 
 /obj/item/rogueweapon/sword/long/ravox_spirit
 	name = "\"Adjudicator\""
-	desc = "A blessed longsword of Auxentius, held by the devout crusaders in service to the Divine Ten against the encroaching darkness. The crossguard \
+	desc = "A blessed longsword of the Sun, held by the devout crusaders in service to the Divine Ten against the encroaching darkness. The crossguard \
 	bears motif of the Justicar, and psalms from the Pantheon's holy tome have been meticulously carved along the blade's edge. </br>'...And upon the \
 	Lands came the DIVINE. In PRAECURSOR's absence, so came the TRUE GODS from their rest. So were THEIR gifts spread across the breadth of the \
 	world.' </br>'...It was the Justicar's hand that stayed the blade, for He objected to the execution, and demanded that Justice overcome where \
@@ -976,7 +976,7 @@
 
 /obj/item/rogueweapon/sword/long/psysword
 	name = "vaeltic longsword"
-	desc = "A finely made longsword, plated in a ceremonial veneer of ornate silver - made for felling men and monsters alike. </br>'Praecursor will \
+	desc = "A finely made longsword, plated in a ceremonial veneer of ornate silver - made for felling men and monsters alike. </br>'the Absent God will \
 	deliver those who were mindful of Him to their place of ultimate triumph. No evil will touch them, nor will they grieve.'"
 	icon_state = "psysword"
 	sheathe_icon = "psysword"
@@ -1014,7 +1014,7 @@
 	name = "silver longsword"
 	desc = "A longsword with a blade of pure silver. The weight doesn't just burden your hand, but your very soul as well; an unspoken oath, to stand \
 	against the horrors that lurk within the nite. </br>'Swing with precision and purpose, levyman o' the Gods. The nite is long and many-an-evil cur \
-	would engineer civilization's destruction, while Auxentius's gaze leers elsewhere. So long as you wield this sword, you have a duty that beckons.'"
+	would engineer civilization's destruction, while the Sun's gaze leers elsewhere. So long as you wield this sword, you have a duty that beckons.'"
 	icon_state = "silverlongsword"
 	sheathe_icon = "silverlongsword"
 	force = 20
@@ -1235,7 +1235,7 @@
 
 /obj/item/rogueweapon/sword/short/gladius/decorated
 	name = "decorated gladius"
-	desc = "A beautiful depiction of justice, beflowered and besilked. The crimson engravings along its blade pay tribute to the ancient epics of Auxentius's \
+	desc = "A beautiful depiction of justice, beflowered and besilked. The crimson engravings along its blade pay tribute to the ancient epics of the Sun's \
 	ascent to godlihood; for it was His wounding of the Sinistar's tentacled heart that forced the Archdevil to pause - first in disbelief, then in fascination."
 	icon_state = "gladiusdec"
 	sheathe_icon = "decgladius"
@@ -1269,7 +1269,7 @@
 
 /obj/item/rogueweapon/sword/short/gladius/pagladius
 	name = "ancient gladius"
-	desc = "A polished shortsword, forged from gilbranze. Favored by Zizo's undying legionnaires, this antiquated tool serves a simple purpose; \
+	desc = "A polished shortsword, forged from gilbranze. Favored by the Forbidden's undying legionnaires, this antiquated tool serves a simple purpose; \
 	to spill the innards of unenlightened fools."
 	icon_state = "agladius"
 	smeltresult = /obj/item/ingot/aaslag
@@ -1904,7 +1904,7 @@
 
 /obj/item/rogueweapon/sword/rapier/psy/relic
 	name = "\"Eucharist\""
-	desc = "Etruscan shape falling prey to Otavan craftsmanship. Saint Malum's smiths created an uniquely thin blade, capable of swiftly \
+	desc = "Etruscan shape falling prey to Otavan craftsmanship. Saint the Craft's smiths created an uniquely thin blade, capable of swiftly \
 	skewering the unholy and the miscreants through gaps that most claim to have never existed in the first place. <b>Silver-dipped steel \
 	crowned upon a basket hilt that keeps righteous hands safe from harm.</b>"
 	icon_state = "psyrapier"
@@ -1943,7 +1943,7 @@
 
 /obj/item/rogueweapon/sword/rapier/eora
 	name = "\"Heartstring\""
-	desc = "A specialty-made bilbo hilt rapier made in service to Lady Eora. For the time when soft words can no longer be spoken, and hearts are to be pierced."
+	desc = "A specialty-made bilbo hilt rapier made in service to Lady Love. For the time when soft words can no longer be spoken, and hearts are to be pierced."
 	icon = 'icons/roguetown/weapons/swords32.dmi'
 	icon_state = "eorarapier"
 	sheathe_icon = "eorarapier"
@@ -2304,7 +2304,7 @@
 
 /obj/item/rogueweapon/sword/long/undivided/absolutio
 	name = "absolutio"
-	desc = "This sword remains a testament to Auxentius's all-encompassing radiance, rumor has it these blades are often ritualistically \
+	desc = "This sword remains a testament to the Sun's all-encompassing radiance, rumor has it these blades are often ritualistically \
 			burned in a funeral pyre with their former wielder. If the blade's metal survives the pyre then it is by her divine decree; \
 			\"worthy to serve yet again\"."
 	icon_state = "astratalongsword"
@@ -2323,7 +2323,7 @@
 
 /obj/item/rogueweapon/sword/long/kriegmesser/noc
 	name = "moonlight kriegmesser"
-	desc = "A unique styled Kriegmesser originally conceived by Noccite Spellblades taking inspiration from Grenzelhoftian and Otavan blade designs. \
+	desc = "A unique styled Kriegmesser originally conceived by Moon Spellblades taking inspiration from Grenzelhoftian and Otavan blade designs. \
 	The unique colour of the blade is due to a forging technique combining Manablooms with the steel, giving the weapon better attunement with the Acryne."
 	icon_state = "mkriegmesser"
 	smeltresult = /obj/item/ingot/steel

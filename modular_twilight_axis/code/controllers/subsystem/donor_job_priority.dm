@@ -131,7 +131,7 @@ GLOBAL_VAR_INIT(donor_job_boost_round_index_loaded, FALSE)
 	var/datum/preferences/char_prefs = player.client.prefs.get_job_prefs(job.title)
 	if(!job.validate_prefs_for_job(char_prefs))
 		return FALSE
-	if(length(job.allowed_patrons) && !(player.client.prefs.selected_patron?.type in job.allowed_patrons))
+	if(length(job.allowed_patrons) && !dreamvalley_prefs_patron_permitted(player.client.prefs, job.allowed_patrons))
 		return FALSE
 	if(length(job.virtue_restrictions) && ((player.client.prefs.virtue?.type in job.virtue_restrictions) || (player.client.prefs.virtuetwo?.type in job.virtue_restrictions) || (player.client.prefs.virtue_origin?.type in job.virtue_restrictions)))
 		return FALSE

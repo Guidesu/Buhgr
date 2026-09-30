@@ -269,7 +269,7 @@
 	UnregisterSignal(boss, COMSIG_LIVING_DEATH)
 	clear_hunter_marks()
 	clear_boss_marker()
-	to_chat(boss, span_warning("You spirit slips free. Watch the last of the hunt, or move to Necra's embrace and dream of a new lyfe."))
+	to_chat(boss, span_warning("You spirit slips free. Watch the last of the hunt, or move to Death's embrace and dream of a new lyfe."))
 	message_admins("[key_name_admin(boss)] was released from notorious bounty '[boss_name]' after dying to the hunting party")
 	boss.ghostize(FALSE)
 	ADD_TRAIT(boss, TRAIT_NPC_EXAMINE, TRAIT_GENERIC)
@@ -374,7 +374,7 @@
 			continue
 		if(M.stat == DEAD)
 			M.revive(full_heal = TRUE, admin_revive = TRUE)
-			to_chat(M, span_boldnotice("The writ spends the last of its magicka dragging you back from Necra's door. You draw breath again."))
+			to_chat(M, span_boldnotice("The writ spends the last of its magicka dragging you back from Death's door. You draw breath again."))
 			continue
 		M.fully_heal()
 		to_chat(M, span_boldnotice("The writ spends the last of its magicka keeping you breathing. You come to."))

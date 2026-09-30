@@ -23,7 +23,7 @@
 		return FALSE
 
 	if(istype(target, /obj/item/natural/worms/leech/abyssoid))
-		to_chat(user, span_warning("This leech is already blessed by Abyssor!"))
+		to_chat(user, span_warning("This leech is already blessed by the Sea!"))
 		return FALSE
 
 	if(user.blood_volume < BLOOD_VOLUME_BAD)
@@ -31,7 +31,7 @@
 		return FALSE
 
 	user.visible_message(span_warning("[user] begins stragely murmuring over [target]..."), \
-						span_notice("You begin the transformation ritual, offering your blood to Abyssor."))
+						span_notice("You begin the transformation ritual, offering your blood to the Sea."))
 
 	if(!do_after(user, 10 SECONDS, target = user))
 		to_chat(user, span_warning("The ritual was interrupted!"))

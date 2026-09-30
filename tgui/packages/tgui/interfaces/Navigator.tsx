@@ -132,7 +132,7 @@ export const Navigator = () => {
                 <div style={fieldLabelStyle}>Crown export duty</div>
                 <div style={fieldValueStyle}>
                   <span style={{ fontWeight: 'bold' }}>{dutyRatePct}</span>
-                  {isProprietor && (
+                  {!!isProprietor && (
                     <span
                       style={{
                         marginLeft: 10,
@@ -143,7 +143,7 @@ export const Navigator = () => {
                       {data.pay_taxes ? '(PAYING)' : '(DODGING)'}
                     </span>
                   )}
-                  {isProprietor && (
+                  {!!isProprietor && (
                     <button
                       type="button"
                       style={{ ...inkButtonStyle(), marginLeft: 12 }}
@@ -158,7 +158,7 @@ export const Navigator = () => {
                 <div style={fieldLabelStyle}>Merchant&apos;s levy</div>
                 <div style={fieldValueStyle}>
                   <span style={{ fontWeight: 'bold' }}>{data.levy_rate}%</span>
-                  {isProprietor && (
+                  {!!isProprietor && (
                     <span
                       style={{
                         marginLeft: 10,
@@ -171,7 +171,7 @@ export const Navigator = () => {
                       {data.pay_merchant_share ? '(COLLECTING)' : '(WAIVED)'}
                     </span>
                   )}
-                  {isProprietor && (
+                  {!!isProprietor && (
                     <button
                       type="button"
                       style={{ ...inkButtonStyle(), marginLeft: 12 }}
@@ -182,7 +182,7 @@ export const Navigator = () => {
                   )}
                 </div>
               </div>
-              {isProprietor && (
+              {!!isProprietor && (
                 <div style={fieldRowStyle}>
                   <div style={fieldLabelStyle}>Tally</div>
                   <div style={fieldValueStyle}>

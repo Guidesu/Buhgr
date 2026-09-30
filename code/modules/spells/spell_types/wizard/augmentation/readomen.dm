@@ -41,24 +41,6 @@
 		list("name" = "Orb of Wisdom", "tag" = "ORB", "icon" = "readomen", "invocation" = "Feri Fulmine Hostem!"),
 	)
 
-	var/list/reign_messages = list(
-		/datum/faith/divine = list(
-			/datum/faith/divine = "The Leylines feel still, and ready to be molded.",
-			/datum/faith/inhumen = "They Leylines feel controlled, like it's potential is being suppressed.",
-			/datum/faith/old_god = "They Leylines feel average, they could always be more controlled.",
-		),
-		/datum/faith/inhumen = list(
-			/datum/faith/inhumen = "The Leylines feel ripe for change, excitement fills your Lux as you behold it.",
-			/datum/faith/divine = "The Leylines feel unstable, something is causing the mana in them to fluxuate.",
-			/datum/faith/old_god = "The Leylines are being leeched, something is manipulating Psydonia.",
-		),
-		/datum/faith/old_god = list(
-			/datum/faith/divine = "The Leylines feel dull, perhaps they are healing.",
-			/datum/faith/inhumen = "The Leylines power is being dulled, an insult to the Arcyne.",
-			/datum/faith/old_god = "The Leylines are as they should be, a perfect balance of calm.",
-		)
-	)
-
 	var/obj/item/rogueweapon/conjured_orb = null
 
 /datum/action/cooldown/spell/readomen/Grant(mob/grant_to)
@@ -104,7 +86,6 @@
 	return TRUE
 
 /datum/action/cooldown/spell/readomen/proc/cast_omen(mob/living/user)
-	var/dominant_faith = GLOB.dominant_faith_tracker.dominant_faith
 	user.visible_message(span_info("The eyes of [user] roll back into their head for a moment!"), span_info("Your eyes roll into the back of your head!"))
 	if(!istype(user) || !user.patron || ispath(user.patron.associated_faith, /datum/faith/godless))
 		to_chat(user, "<span class='warning'>For some reason, I cannot get a good grasp of the Leylines.</span>")
@@ -112,12 +93,13 @@
 	if(ispath(user.patron.associated_faith, /datum/faith/accelerationism))
 		to_chat(user, "<span class='warningbig'>FUCK THE LEYLINES, THEY ARE A TOOL, I DON'T CARE HOW THEY FEEL. I'LL BLOW THEM THE FUCK UP TOO WHEN I'M DONE.</span>")
 		return FALSE
-	if(ispath(dominant_faith, /datum/faith/old_god))
-		to_chat(user, span_blue(replacetext(reign_messages[user.patron.associated_faith][dominant_faith], "$patron", get_god_name(user.patron))))
-	else if(ispath(user.patron.associated_faith, dominant_faith))
-		to_chat(user, span_boldgreen(replacetext(reign_messages[user.patron.associated_faith][dominant_faith], "$patron", get_god_name(user.patron))))
+	var/datum/domain/D = get_divine_domain(GLOB.dominant_faith_tracker.dominant_domain)
+	if(!D)
+		to_chat(user, span_blue("The Leylines lie level and calm. No one domain pulls at them."))
+	else if(GLOB.dominant_faith_tracker.favour_for(user) > 0)
+		to_chat(user, span_boldgreen("The Leylines lean towards the [D.name], and my own faith rides them. They feel ready to be molded."))
 	else
-		to_chat(user, span_warningbig(replacetext(reign_messages[user.patron.associated_faith][dominant_faith], "$patron", get_god_name(user.patron))))
+		to_chat(user, span_warningbig("The Leylines lean hard towards the [D.name]. Something is pulling the mana in them its way."))
 
 
 

@@ -223,7 +223,7 @@ export const MarketView = (props: { data: Data; onTrade: OnTrade }) => {
               </div>
             ))}
           </div>
-          {activeGroup && (
+          {!!activeGroup && (
             <div style={{ marginTop: '6px', minHeight: '650px' }}>
               <div
                 style={{
@@ -493,7 +493,7 @@ export const MarketView = (props: { data: Data; onTrade: OnTrade }) => {
                   <div key={row.good_id} style={cardStyle}>
                     <div style={{ marginBottom: '4px' }}>
                       <span style={{ fontWeight: 'bold' }}>{name}</span>
-                      {eventColor && (
+                      {!!eventColor && (
                         <span style={badgeStyle(eventColor)}>
                           {row.event_tag}
                         </span>
@@ -682,7 +682,7 @@ const RegionRow = (props: {
       {!!region.is_blockaded && (
         <span style={badgeStyle(SEAL_RED)}>BLOCKADED</span>
       )}
-      {saturated && (
+      {!!saturated && (
         <span
           style={badgeStyle(INK_FAINT)}
           title="No remaining capacity today - oversupply decay applies."

@@ -136,7 +136,7 @@
 
 /atom/movable/screen/alert/status_effect/churned
 	name = "Churning Essence"
-	desc = "The bendings that bind me into being are being disrupted! I should get away from the source as soon as I can!"
+	desc = "The magicks that bind me into being are being disrupted! I should get away from the source as soon as I can!"
 	icon_state = "stressvb"
 
 /datum/status_effect/churned
@@ -535,7 +535,7 @@ GLOBAL_DATUM_INIT(_corpse_sort_ref, /mob, null)
 		return
 
 	if(src.stat == UNCONSCIOUS)
-		to_chat(src, span_purple("<i>As you lose consciousness, your connection to Necra's guidance abruptly breaks!</i>"))
+		to_chat(src, span_purple("<i>As you lose consciousness, your connection to Death's guidance abruptly breaks!</i>"))
 		src.necra_tracked_corpse = null
 		STOP_PROCESSING(SSprocessing, src)
 		return
@@ -820,8 +820,8 @@ GLOBAL_DATUM_INIT(_corpse_sort_ref, /mob, null)
 #undef NECRA_APPROVES
 
 /obj/effect/proc_holder/spell/invoked/necra_vow
-	name = "Vow to Necra"
-	desc = "Make a vow to Necra. Your chances of revival or recovery of limb will be greatly reduced. You will harm undeath and heal yourself at a slow rate."
+	name = "Vow to Death"
+	desc = "Make a vow to Death. Your chances of revival or recovery of limb will be greatly reduced. You will harm undeath and heal yourself at a slow rate."
 	range = 1
 	overlay_state = "necra"
 	releasedrain = 30
@@ -841,7 +841,7 @@ GLOBAL_DATUM_INIT(_corpse_sort_ref, /mob, null)
 	if(ishuman(targets[1]))
 		var/mob/living/carbon/human/H = targets[1]
 		if(HAS_TRAIT(H, TRAIT_ROTMAN) || HAS_TRAIT(H, TRAIT_NOBREATH) || H.mob_biotypes & MOB_UNDEAD)	//No Undead, no Rotcured, no Deathless
-			to_chat(user, span_warning("Necra cares not for the vows of the corrupted."))
+			to_chat(user, span_warning("Death cares not for the vows of the corrupted."))
 			revert_cast()
 			return FALSE
 		if(H.has_status_effect(/datum/status_effect/buff/necras_vow) || H.patron?.type != /datum/patron/concordat/morwenna)
@@ -858,8 +858,8 @@ GLOBAL_DATUM_INIT(_corpse_sort_ref, /mob, null)
 		H.apply_status_effect(/datum/status_effect/buff/healing/necras_vow)
 
 /atom/movable/screen/alert/status_effect/buff/necras_vow
-	name = "Vow to Necra"
-	desc = "I have pledged a promise to Necra. Undeath shall be harmed or lit aflame if they strike me. Rot will not claim me. Lost limbs can only be restored if they are myne."
+	name = "Vow to Death"
+	desc = "I have pledged a promise to Death. Undeath shall be harmed or lit aflame if they strike me. Rot will not claim me. Lost limbs can only be restored if they are myne."
 	icon_state = "necravow"
 
 #define NECRAVOW_FILTER "necravow_glow"
@@ -888,8 +888,8 @@ GLOBAL_DATUM_INIT(_corpse_sort_ref, /mob, null)
 #undef NECRAVOW_FILTER
 
 /obj/effect/proc_holder/spell/invoked/necras_sight
-	name = "Necra's Sight"
-	desc = "Mark a psycross or a grave marker, and peer through them."
+	name = "Death's Sight"
+	desc = "Mark a holy cross or a grave marker, and peer through them."
 	releasedrain = 30
 	chargetime = 0 SECONDS
 	recharge_time = 10 SECONDS

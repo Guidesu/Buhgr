@@ -63,7 +63,7 @@
 /datum/sprite_accessory/pubes/cross
 	icon_state = "pubes_cross"
 	preview_states = list("pubes_cross_h_m")
-	name = "Psycross"
+	name = "Holy cross"
 
 
 /datum/sprite_accessory/pits

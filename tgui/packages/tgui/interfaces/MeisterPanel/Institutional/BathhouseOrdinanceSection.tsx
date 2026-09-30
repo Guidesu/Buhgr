@@ -74,7 +74,7 @@ export const BathhouseOrdinanceSection = ({
         >
           {expanded ? 'Hide the Ordinance ▴' : 'Read the Ordinance ▾'}
         </button>
-        {expanded && (
+        {!!expanded && (
           <div
             style={{
               color: SEAL_AMBER,
@@ -133,7 +133,7 @@ export const BathhouseOrdinanceSection = ({
           </div>
         )}
       </div>
-      {onCooldown && (
+      {!!onCooldown && (
         <div
           style={{
             color: INK_FAINT,
@@ -154,7 +154,7 @@ export const BathhouseOrdinanceSection = ({
           gap: 6,
         }}
       >
-        {confirming && (
+        {!!confirming && (
           <button
             type="button"
             style={inkButtonStyle({})}

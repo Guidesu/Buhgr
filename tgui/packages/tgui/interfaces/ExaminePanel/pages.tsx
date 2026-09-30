@@ -136,7 +136,7 @@ export const FlavorTextPage = () => {
           {flavorTextIndex === 'SFW' && (
             <>
               <Box dangerouslySetInnerHTML={flavorHTML} />
-              {ooc_extra_image && (
+              {!!ooc_extra_image && (
                 <Box mt={1} textAlign="center">
                   <Image maxWidth="100%" src={resolveAsset(ooc_extra_image)} />
                 </Box>

@@ -69,7 +69,7 @@ const ZoneCard = ({ row, act }: { row: ZoneRow; act: BackendAct }) => (
     {row.markings.map((marking) => (
       <MarkingLine key={marking.name} zone={row.zone} row={marking} act={act} />
     ))}
-    {row.can_add && (
+    {!!row.can_add && (
       <Button icon="plus" onClick={() => act('add_marking', { zone: row.zone })}>
         Add Marking
       </Button>
@@ -89,7 +89,7 @@ export const CharacterMarkings = () => {
             <Stack.Item>
               <Section>
                 <Stack>
-                  {data.has_presets && (
+                  {!!data.has_presets && (
                     <Stack.Item grow>
                       <Button fluid icon="magic" onClick={() => act('use_preset')}>
                         Use a Preset

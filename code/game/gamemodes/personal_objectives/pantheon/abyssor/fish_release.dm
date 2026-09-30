@@ -27,7 +27,7 @@
 		complete_objective()
 
 /datum/objective/release_fish/proc/complete_objective()
-	to_chat(owner.current, span_greentext("A rare fish has been returned to the depths, pleasing Abyssor!"))
+	to_chat(owner.current, span_greentext("A rare fish has been returned to the depths, pleasing the Sea!"))
 	owner.current.adjust_triumphs(2)
 	completed = TRUE
 	adjust_storyteller_influence("Abyssor", 15)
@@ -35,4 +35,4 @@
 	UnregisterSignal(SSdcs, COMSIG_GLOBAL_FISH_RELEASED)
 
 /datum/objective/release_fish/update_explanation_text()
-	explanation_text = "Have any rare or better fish returned to the water to honor Abyssor."
+	explanation_text = "Have any rare or better fish returned to the water to honor the Sea."

@@ -206,7 +206,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/fish/salmon
 	name = "salmon filet"
-	desc = "A filet of salmon, prized by Dendorites for its ability to dance upon river, sea, and your plate alike."
+	desc = "A filet of salmon, prized by Wilds faithful for its ability to dance upon river, sea, and your plate alike."
 	icon_state = "salmon"
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/fish/salmon/fried
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/fish/salmon/fried

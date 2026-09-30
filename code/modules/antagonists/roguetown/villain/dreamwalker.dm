@@ -53,7 +53,7 @@
 	return ..()
 
 /datum/antagonist/dreamwalker/greet()
-	to_chat(owner.current, span_notice("I feel a rare ability awaken within me. I am someone coveted as a champion by most gods. A dreamwalker. Not merely touched by Abyssor's dream, but able to pull materia and power from his realm effortlessly. I shall bring glory to my patron. My mind frays under the influence of dream entities, but surely my resolve is stronger than theirs."))
+	to_chat(owner.current, span_notice("I feel a rare ability awaken within me. I am someone coveted as a champion by most gods. A dreamwalker. Not merely touched by the Sea's dream, but able to pull materia and power from his realm effortlessly. I shall bring glory to my patron. My mind frays under the influence of dream entities, but surely my resolve is stronger than theirs."))
 	to_chat(owner.current, span_notice("I manifest a piece of ritual chalk... It seems potent. I shall forge a great weapon, one with such power it shall dwarf all others. I must find a target to begin... It should be easy enough if I focus."))
 	owner.announce_objectives()
 	..()

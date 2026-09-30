@@ -238,7 +238,7 @@
 	desc = "A blessed mace, wielded by the Holy See's templars to drive the fiends in the dark back. \
 			Many within the See find the shedding of blood regrettable, thus did an ancient artificer be struck by divine inspiration. \
 			A holy bludgeon that would draw far less blood than its sharper cousins, but still capable of crushing steel, heretic and \
-			deadite both in righteous fury. When evil is at thy doorstep, grasp the Ten's gift in hand and be ever mindful. \
+			deadite both in righteous fury. When evil is at thy doorstep, grasp the Domains's gift in hand and be ever mindful. \
 			It's not what's in front of you that's important, it's what's behind you."
 	icon_state = "churchmace"
 	wdefense = 5
@@ -246,8 +246,8 @@
 /obj/item/rogueweapon/mace/steel/holyseemace/sunburst
 	name = "sunburst"
 	desc = "A luminous steeled mace with a lengthened handle, adorned with vibrant golden trimmings along a faintly silvered polished metal edge, \
-			the spikes that protrude from its heavy edge radiate with Auxentius's glow upon the points. Often issued as a heavy-reminder of divine \
-			judgement to crash against the ever-growing legions of monsters that would dare stand against the weight of Auxentius's fury and judgement."
+			the spikes that protrude from its heavy edge radiate with the Sun's glow upon the points. Often issued as a heavy-reminder of divine \
+			judgement to crash against the ever-growing legions of monsters that would dare stand against the weight of the Sun's fury and judgement."
 	icon = 'icons/roguetown/weapons/blunt32.dmi'
 	icon_state = "astratamace"
 	force_wielded = 35
@@ -754,7 +754,7 @@
 
 /obj/item/rogueweapon/mace/goden/steel/ravox
 	name = "duel settler"
-	desc = "The tenets of Auxentian duels are enscribed upon the head of this maul."
+	desc = "The tenets of Sun duels are enscribed upon the head of this maul."
 	icon_state = "ravoxhammer"
 	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/effect/daze, /datum/intent/mace/bash/ranged) // It loses the Goden stab so I give it daze
 	max_integrity = 400 // I am reluctant to give a steel goden more force as it breaks weapon so durability it is.
@@ -800,7 +800,7 @@
 /obj/item/rogueweapon/mace/steel/morningstar
 	name = "morning star"
 	icon_state = "morningstar"
-	desc = "Royalty. </br>An uncommon derivative of the mace, studded with spikes and seated upon a serpentine shaft. When raised aloft, the macehead mimics a stylized imitation of Auxentius's glare; ergo, 'morning star'."
+	desc = "Royalty. </br>An uncommon derivative of the mace, studded with spikes and seated upon a serpentine shaft. When raised aloft, the macehead mimics a stylized imitation of the Sun's glare; ergo, 'morning star'."
 	wdefense = 5
 
 /obj/item/rogueweapon/mace/warhammer
@@ -819,7 +819,7 @@
 	force = 25
 	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/sword/cut, /datum/intent/mace/warhammer/pick, /datum/intent/mace/smash/lesser)
 	name = "bronze warclub"
-	desc = "The warhammer's ancestral link, carved from a weightsome log and studded with bronze. Elven natureguards carry it to both honor their forefathers, and as a way to sunder those who'd ravage Ignatius's bounties without thought-or-restraint; a toss from afar turns into a sundering hurlbat."
+	desc = "The warhammer's ancestral link, carved from a weightsome log and studded with bronze. Elven natureguards carry it to both honor their forefathers, and as a way to sunder those who'd ravage the Wilds's bounties without thought-or-restraint; a toss from afar turns into a sundering hurlbat."
 	icon_state = "bronzeclub"
 	max_blade_int = 150
 	wbalance = WBALANCE_HEAVY
@@ -833,7 +833,7 @@
 /obj/item/rogueweapon/mace/warhammer/bronze/iron
 	force = 20 //just a tad weaker than the bronze to balance it out, this weapon has some versatile intents and i dont want it to be TOO strong.
 	name = "iron warclub"
-	desc = "The warhammer's ancestral link, carved from a weightsome log and studded with iron. Elven natureguards carry it to both honor their forefathers, and as a way to sunder those who'd ravage Dendor's bounties without thought-or-restraint; a toss from afar turns into a sundering hurlbat."
+	desc = "The warhammer's ancestral link, carved from a weightsome log and studded with iron. Elven natureguards carry it to both honor their forefathers, and as a way to sunder those who'd ravage the Wilds's bounties without thought-or-restraint; a toss from afar turns into a sundering hurlbat."
 	icon_state = "iclub"
 	max_blade_int = 100
 	throwforce = 20 // still hurts, just less
@@ -844,7 +844,7 @@
 /obj/item/rogueweapon/mace/warhammer/bronze/steel
 	force = 28 //just a little better than the bronze club but barely
 	name = "steel warclub"
-	desc = "The warhammer's ancestral link, carved from a weightsome log and studded with steel. Elven natureguards carry it to both honor their forefathers, and as a way to sunder those who'd ravage Dendor's bounties without thought-or-restraint; a toss from afar turns into a sundering hurlbat."
+	desc = "The warhammer's ancestral link, carved from a weightsome log and studded with steel. Elven natureguards carry it to both honor their forefathers, and as a way to sunder those who'd ravage the Wilds's bounties without thought-or-restraint; a toss from afar turns into a sundering hurlbat."
 	icon_state = "steelclub"
 	max_blade_int = 175
 	throwforce = 25
@@ -854,7 +854,7 @@
 
 /obj/item/rogueweapon/mace/warhammer/bronze/silver
 	name = "silver warclub"
-	desc = "The warhammer's ancestral link, carved from a weightsome log and studded with silver. Elven natureguards carry it to both honor their forefathers, and as a way to sunder those who'd ravage Dendor's bounties without thought-or-restraint; a toss from afar turns into a sundering hurlbat."
+	desc = "The warhammer's ancestral link, carved from a weightsome log and studded with silver. Elven natureguards carry it to both honor their forefathers, and as a way to sunder those who'd ravage the Wilds's bounties without thought-or-restraint; a toss from afar turns into a sundering hurlbat."
 	icon_state = "clubsilver"
 	throwforce = 30
 	smeltresult = /obj/item/ingot/silver

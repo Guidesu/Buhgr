@@ -3,7 +3,7 @@ GLOBAL_VAR(deaths_door_exit)//turf at necra's shrine on each map
 
 /obj/structure/deaths_door_shrine
 	name = "A Way Out"
-	desc = "An end to the calm cold of the precipice, spirits without paid passage flock around it, gaining fleeting glances of Vaeltis. Necrans who can peer through graves may be able to make sense of the twisting mists through them." 
+	desc = "An end to the calm cold of the precipice, spirits without paid passage flock around it, gaining fleeting glances of Vaeltis. Death faithful who can peer through graves may be able to make sense of the twisting mists through them." 
 	icon = 'icons/roguetown/misc/foliagetall.dmi'
 	icon_state = "doorway"
 	opacity = FALSE
@@ -42,7 +42,7 @@ GLOBAL_VAR(deaths_door_exit)//turf at necra's shrine on each map
 	exit_deaths_door(user, target)
 
 	user.visible_message(
-		span_notice("[user] guides [target] through Necra's shrine.")
+		span_notice("[user] guides [target] through Death's shrine.")
 	)
 
 /obj/structure/deaths_door_shrine/proc/exit_deaths_door(mob/living/user, mob/living/target = null)
@@ -57,11 +57,11 @@ GLOBAL_VAR(deaths_door_exit)//turf at necra's shrine on each map
 
 	// Always allow shrine exit
 	if(GLOB.deaths_door_exit)
-		dests[GLOB.deaths_door_exit] = "Necra's Shrine"
+		dests[GLOB.deaths_door_exit] = "Death's Shrine"
 	// Warn Necra followers without sight
 	if(!user.mind?.has_spell(/obj/effect/proc_holder/spell/invoked/necras_sight))
 		if(user.patron == /datum/patron/concordat/morwenna)
-			to_chat(user, span_warning("Necra's paths blur before you. You lack the sight to choose."))
+			to_chat(user, span_warning("Death's paths blur before you. You lack the sight to choose."))
 
 	if(!length(dests))
 		message_admins("Death's Door Shrine: No exit destinations! Inform a mapper!")	//You're missing /obj/effect/landmark/deaths_door/exit from the map
@@ -89,7 +89,7 @@ GLOBAL_VAR(deaths_door_exit)//turf at necra's shrine on each map
 			label = "[get_area(T)]"
 		named[label] = T
 
-	var/choice = input(user, "Choose a path from Death's Edge:", "Necra's Way") \
+	var/choice = input(user, "Choose a path from Death's Edge:", "Death's Way") \
 		as null|anything in named
 	if(!choice)
 		return null
@@ -125,7 +125,7 @@ GLOBAL_VAR(deaths_door_exit)//turf at necra's shrine on each map
 
 /obj/structure/deaths_door_portal
 	name = "death's door"
-	desc = "A misty passageway, vague shapes move beyond the veil, lit by what might be a blue lighthouse. There is no coming back if you step in here. Undead beware, you are not welcome in Necra's Precipice."
+	desc = "A misty passageway, vague shapes move beyond the veil, lit by what might be a blue lighthouse. There is no coming back if you step in here. Undead beware, you are not welcome in Death's Precipice."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "underworldportal"
 	anchored = TRUE
@@ -235,7 +235,7 @@ GLOBAL_VAR_INIT(underworld_strands, 0)
 		return
 
 	visible_message(
-		span_danger("[src] collapses as Necra's grasp tightens."),
+		span_danger("[src] collapses as Death's grasp tightens."),
 		span_cult("Your body is sapped entirely of energy, slumping to the ground the desperate spirits attempt to steal your body, draining your essence. The Ferryman casts you out before they completely rip you from your vessel!")
 	)
 

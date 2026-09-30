@@ -71,7 +71,7 @@
 	sort_category = "Accessories"
 
 /datum/loadout_item/eorahood
-	name = "Opera Mask - Eoran Hood"
+	name = "Opera Mask - Love Hood"
 	path = /obj/item/clothing/head/roguetown/roguehood/eorahood
 	sort_category = "Accessories"
 
@@ -227,7 +227,7 @@
 	sort_category = "Accessories"
 
 /datum/loadout_item/weatheredmask
-	name = "Weathered Xylixian Mask"
+	name = "Weathered Trickery Mask"
 	path = /obj/item/clothing/mask/rogue/xylixmask/weathered
 	sort_category = "Accessories"
 

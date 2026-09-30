@@ -1,9 +1,9 @@
 /datum/advclass/psydonianwarscholar
 	name = "Warscholar"
 	tutorial = "You are a Warscholar of the Golden Cross Order, reluctantly attached to the Otavan Inquisition. \
-	Grounded in the unique Naledian Psydonite faith, you blend unwavering devotion with esoteric arts that orthodox Inquisitors view with profound suspicion. \
+	Grounded in the unique Naledian Old Faith faith, you blend unwavering devotion with esoteric arts that orthodox Inquisitors view with profound suspicion. \
 	Your expertise lies in the Arcana of Reversed Decay—manipulating the very fabric of time to mend catastrophic wounds and purge demonic blights—alongside powerful protective wards designed to cast out ifrits and djinn. \
-	Though the Inquisition questions your methods and your dual veneration of the Psydon and Noc, they cannot deny your indispensability."
+	Though the Inquisition questions your methods and your dual veneration of the Absent God and the Moon, they cannot deny your indispensability."
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/roguetown/psydonianwarscholar
 	subclass_languages = list(/datum/language/otavan, /datum/language/raneshi)
@@ -42,8 +42,8 @@
 		/datum/skill/craft/sewing = SKILL_LEVEL_APPRENTICE,
 	)
 	subclass_stashed_items = list(
-		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy,
-		"Psydon Gift" = /obj/item/hourglass/temporal
+		"Tome of the Absent God" = /obj/item/book/rogue/bibble/psy,
+		"Absent God Gift" = /obj/item/hourglass/temporal
 	)
 
 	extra_context = "As one of the best magicians, you managed to take your favorite watch with you."
@@ -80,7 +80,7 @@
 	base_implement_name = "naledian greater staff"
 	name = "naledian greater staff"
 	icon = 'modular_twilight_axis/icons/roguetown/weapons/polearms64.dmi'
-	desc = "A grand staff issued to the Warscholars of the Golden Cross. Instead of the traditional crescent moon, its crown features a gleaming golden psycross."
+	desc = "A grand staff issued to the Warscholars of the Golden Cross. Instead of the traditional crescent moon, its crown features a gleaming golden holy cross."
 	icon_state = "naledistaffalt"
 
 /obj/item/clothing/under/roguetown/trou/leather/pontifex/warscholar

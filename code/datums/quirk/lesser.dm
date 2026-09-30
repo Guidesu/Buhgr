@@ -64,7 +64,7 @@
 
 /datum/quirk/nistean
 	name = "Nistean"
-	desc = "For religious or digestive reasons, I've sworn off meat. Abyssor's gifts, however, are fair game."
+	desc = "For religious or digestive reasons, I've sworn off meat. The Sea's gifts, however, are fair game."
 	added_traits = list(TRAIT_NISTEAN)
 	ui_fa_icon = "fish-fins"
 

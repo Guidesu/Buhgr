@@ -46,7 +46,7 @@ export const GrimoireChapterList = ({
           >
             {aspect.name}
           </span>
-          {isLocked && (
+          {!!isLocked && (
             <span
               className="AspectPicker__spell-desc"
               style={{ marginLeft: '6px' }}
@@ -62,7 +62,7 @@ export const GrimoireChapterList = ({
               attuned
             </span>
           )}
-          {isPendingUnbind && (
+          {!!isPendingUnbind && (
             <span
               className="AspectPicker__spell-desc"
               style={{ marginLeft: '6px', color: 'rgba(200,100,100,0.8)' }}

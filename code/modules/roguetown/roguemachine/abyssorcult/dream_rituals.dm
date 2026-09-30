@@ -14,8 +14,8 @@
 	var/base_channel_time = 150
 	var/list/required_ingredients = list()
 	var/list/invocation_phases	= list(
-		"Abyssor, hwja'ajaba!",
-		"Iä! Iä! Abyssor fhtagn!",
+		"The Sea, hwja'ajaba!",
+		"Iä! Iä! The Sea fhtagn!",
 		"The deep rises to my call!",
 		"By the salt and the tide, awaken!"
 	)

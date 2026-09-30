@@ -207,7 +207,7 @@
 /obj/item/enchantingkit/gothicsteelarmor
 	name = "'Gothic Steel Armor' morphing elixir"
 	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of a Steel Chestplate, a Steel Cuirass, a set of Steel Halfplate, or a set of Steel Plate Armor, alongside \
-	its Fluted and Psydonic variants."
+	its Fluted and Old Faith variants."
 	target_items = list(
 		/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate		= /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/donator_gothic,
 		/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate		= /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/donator_gothic,
@@ -239,8 +239,8 @@
 	custom_name = TRUE
 
 /obj/item/enchantingkit/gothicpsydoniccuirass
-	name = "'Gothic Psydonic Cuirass' morphing elixir"
-	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to make a Psydonic Cuirass appear like a Gothic Fluted Cuirass, instead of the more ornate design present in \
+	name = "'Gothic Old Faith Cuirass' morphing elixir"
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to make an Old Faith Cuirass appear like a Gothic Fluted Cuirass, instead of the more ornate design present in \
 	the 'Gothic Steel Armor' morphing elixir."
 	target_items = list(/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate)
 	result_item = /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/donator_gothic
@@ -608,7 +608,7 @@
 	result_item = /obj/item/clothing/cloak/tabard/stabard/surcoat/sofiavest
 
 /obj/item/enchantingkit/strudel2
-	name = "'Xylixian Fasching Leotard' morphing elixir"
+	name = "'Trickery Fasching Leotard' morphing elixir"
 	target_items = list(/obj/item/clothing/cloak/templar/xylixian/)
 	result_item = /obj/item/clothing/cloak/templar/xylixian/faux
 
@@ -853,7 +853,7 @@
 
 //Shudderfly - Steel Dagger
 /obj/item/enchantingkit/shudderfly_dagger
-	name = "'Eoran Spike' morphing elixir"
+	name = "'Love Spike' morphing elixir"
 	target_items = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel
 	)
@@ -931,7 +931,7 @@
 
 /obj/item/enchantingkit/donator_rivercadaver_tabis
 	name = "'Tabis' morphing elixir"
-	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of some Leather Boots, Psydonic \
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of some Leather Boots, Old Faith \
 	Leather Boots, or Inquisitorial Boots."
 	target_items = list(
 	/obj/item/clothing/shoes/roguetown/boots/otavan/inqboots		= /obj/item/clothing/shoes/roguetown/boots/tabi/otavan/inqboots,
@@ -1063,7 +1063,7 @@
 
 //SpartanBobby
 /obj/item/enchantingkit/bobby_helm
-	name = "'Holy Auxentian Bascinet' morphing elixir"
+	name = "'Holy Sun Bascinet' morphing elixir"
 	target_items = list(
 		/obj/item/clothing/head/roguetown/helmet/heavy/astratan,
 		/obj/item/clothing/head/roguetown/helmet/bascinet/pigface/hounskull,
@@ -1237,7 +1237,7 @@
 //Truill
 /obj/item/enchantingkit/truill_flowerblade
 	name = "'Beflowered Longsword' morphing elixir"
-	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of an Enduring Longsword, a Psydonic Longsword, or an Anointed Longsword."
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of an Enduring Longsword, an Old Faith Longsword, or an Anointed Longsword."
 	target_items = list(
 		/obj/item/rogueweapon/sword/long/oldpsysword	= /obj/item/rogueweapon/sword/long/oldpsysword/donator_truill,
 		/obj/item/rogueweapon/sword/long/psysword		= /obj/item/rogueweapon/sword/long/psysword/donator_truill,
@@ -1453,7 +1453,7 @@
 // RosySaturniidae - Rosestone Clasped Collar
 /obj/item/enchantingkit/rosy/rosecollar
 	name = "'Rosestone Clasped Collar' morphing elixir"
-	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of an Amulet of Eora."
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of an Amulet of Love."
 	target_items = list(
 		/obj/item/clothing/neck/roguetown/psicross/eora
 	)
@@ -1650,7 +1650,7 @@
 
 /obj/item/enchantingkit/donator_koruu_astrataclerichelm
 	name = "'Lux In Tenebris' morphing elixir"
-	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of an Astratan Helmet."
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of a Sun Helmet."
 	target_items = list(
 		/obj/item/clothing/head/roguetown/helmet/heavy/astratan		= /obj/item/clothing/head/roguetown/helmet/heavy/astratahelm/cleric/koruu,
 	)

@@ -38,21 +38,21 @@
 	timer = 60 MINUTES
 	stressadd = -2
 	desc = list(
-		span_blue("I feel a soothing presence. I can feel the Ten's favor upon me. I have been blessed."),
-		span_blue("I feel a soothing presence. The Ten have smiled upon me. I know I walk beneath their grace."),
+		span_blue("I feel a soothing presence. I can feel the Domains's favor upon me. I have been blessed."),
+		span_blue("I feel a soothing presence. The Domains have smiled upon me. I know I walk beneath their grace."),
 		span_blue("I feel a soothing presence. Their blessing feels so close... surely they have not forgotten me."),
-		span_blue("I feel a soothing presence. The Ten have guided my steps. I am exactly where I am meant to be."),
+		span_blue("I feel a soothing presence. The Domains have guided my steps. I am exactly where I am meant to be."),
 		span_blue("I feel a soothing presence. I can feel their kindness surrounding me. Their favor gives me strength."),
-		span_blue("I feel a soothing presence. The Ten Eternal have chosen to watch over me, and I am humbled by it."),
-		span_blue("I feel a soothing presence. Every hardship feels lighter knowing the Ten walk beside me."),
+		span_blue("I feel a soothing presence. The Domains Eternal have chosen to watch over me, and I am humbled by it."),
+		span_blue("I feel a soothing presence. Every hardship feels lighter knowing the Domains walk beside me."),
 		span_blue("I feel a soothing presence. Their warmth reaches me even now. I must be blessed beyond measure."),
-		span_blue("I feel a soothing presence. The Ten have heard me. I know their gaze rests upon me."),
+		span_blue("I feel a soothing presence. The Domains have heard me. I know their gaze rests upon me."),
 		span_blue("I feel a soothing presence. Their favor is with me, and my heart cannot contain the joy of it."),
 		span_blue("I feel a soothing presence. I have spent so long seeking their guidance... and now I feel their answer."),
-		span_blue("I feel a soothing presence. The Ten have given me another chance to serve their purpose."),
+		span_blue("I feel a soothing presence. The Domains have given me another chance to serve their purpose."),
 		span_blue("I feel a soothing presence. I am not alone. The Eternal walk with me."),
 		span_blue("I feel a soothing presence. Their blessing fills me with a certainty I have never known before."),
-		span_blue("I feel a soothing presence. I feel seen. I feel valued. The Ten remember me.")
+		span_blue("I feel a soothing presence. I feel seen. I feel valued. The Domains remember me.")
 	)
 
 /datum/stressevent/triumph
@@ -239,8 +239,8 @@
 
 /datum/stressevent/puzzle_impossible
 	stressadd = -4
-	desc = span_boldgreen("I solved an extremely difficult puzzle. Xylix is smiling at me, and surely even \
-		Noc must find it impressive.")
+	desc = span_boldgreen("I solved an extremely difficult puzzle. Trickery is smiling at me, and surely even \
+		the Moon must find it impressive.")
 	timer = 15 MINUTES
 
 /datum/stressevent/noble_fine_food
@@ -296,7 +296,7 @@
 /datum/stressevent/alchsoap
 	timer = 20 MINUTES
 	stressadd = -1
-	desc = span_blue("Eora's love lingers with me and brightens my mood.")
+	desc = span_blue("Love's love lingers with me and brightens my mood.")
 
 /datum/stressevent/alchsoap/baotha
 	desc = span_blue("A nostalgic longing returns to me. Her touch reminds me of a simpler time...")
@@ -327,7 +327,7 @@
 /datum/stressevent/auxentius_grandeur
 	timer = 30 MINUTES
 	stressadd = -2
-	desc = span_green("Auxentius's light shines brightly through me. I must not let others ever forget that.")
+	desc = span_green("The Sun's light shines brightly through me. I must not let others ever forget that.")
 
 /datum/stressevent/graggar_culling_finished
 	stressadd = -1
@@ -336,12 +336,12 @@
 
 /datum/stressevent/eoran_blessing
 	stressadd = -1
-	desc = span_info("An Eoran shone their brightness upon me.")
+	desc = span_info("An Love shone their brightness upon me.")
 	timer = 5 MINUTES
 
 /datum/stressevent/eoran_blessing_greater
 	stressadd = -2
-	desc = span_info("A Devout Eoran shone their brightness upon me!")
+	desc = span_info("A Devout Love shone their brightness upon me!")
 	timer = 10 MINUTES
 
 /datum/stressevent/sermon
@@ -377,14 +377,14 @@
 
 /datum/stressevent/vampiric_nostalgia
 	stressadd = -2
-	desc = span_green("Auxentius and her gaze may burn you now, but you distantly remember when it was pleasant \
+	desc = span_green("The Sun and her gaze may burn you now, but you distantly remember when it was pleasant \
 	to your skin.")
 	timer = 20 SECONDS
 
 /datum/stressevent/xylixian_fate
 	timer = 10 MINUTES
 	stressadd = -2
-	desc = span_green("Xylix spun the thread of fate in my favour! Truly, I am blessed!")
+	desc = span_green("Trickery spun the thread of fate in my favour! Truly, I am blessed!")
 
 /datum/stressevent/parasol_rain
 	timer = 1 MINUTES
@@ -586,4 +586,4 @@
 /datum/stressevent/blessed_neutral
 	timer = 15 MINUTES
 	stressadd = -2
-	desc = span_green("I feel a presence scarcely watching over me. Ah, blessed be the Ten Saints and their guidance! They too will me to ENDURE!")
+	desc = span_green("I feel a presence scarcely watching over me. Ah, blessed be the Domains Saints and their guidance! They too will me to ENDURE!")

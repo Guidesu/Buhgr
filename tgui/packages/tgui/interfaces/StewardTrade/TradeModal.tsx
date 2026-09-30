@@ -324,7 +324,7 @@ export const TradeModal = (props: TradeModalProps) => {
           }}
         >
           {isImport ? 'from' : 'to'} {quote?.region_name ?? request.regionId}
-          {blockaded && <span style={badgeStyle(SEAL_RED)}>BLOCKADED</span>}
+          {!!blockaded && <span style={badgeStyle(SEAL_RED)}>BLOCKADED</span>}
         </div>
         <div
           style={{
@@ -583,7 +583,7 @@ export const TradeModal = (props: TradeModalProps) => {
         </div>
 
         <div style={{ minHeight: '34px', marginTop: '6px' }}>
-          {blockaded && (
+          {!!blockaded && (
             <div style={{ ...warningStyle, color: SEAL_RED }}>
               This route is blockaded.{' '}
               {isImport ? 'Cost is doubled.' : 'Revenue is halved.'}

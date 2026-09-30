@@ -63,7 +63,7 @@
 
 /obj/effect/temp_visual/dream_shard/malum
 	name = "malum shard"
-	desc = "Malum's glory shines through these shards. Hold the line, soldier."
+	desc = "The Craft's glory shines through these shards. Hold the line, soldier."
 	icon_state = "malum_shards"
 	dream_check = FALSE
 	effect_color = "#330000"
@@ -75,13 +75,13 @@
 	needs_processing = FALSE
 
 /atom/movable/screen/alert/status_effect/buff/malum_reinforcement
-	name = "Malum's Resonance"
-	desc = "My armor resonates with Malum's dilligence. Shards fly off when damaged, I can collect them to regain some integrity."
+	name = "The Craft's Resonance"
+	desc = "My armor resonates with the Craft's dilligence. Shards fly off when damaged, I can collect them to regain some integrity."
 	icon_state = "buff"
 
 /datum/action/cooldown/spell/apply_malum
-	name = "Invoke Malum Reinforcement"
-	desc = "Call upon the Malum energy gifted to you to reinforce your armor."
+	name = "Invoke Craft Reinforcement"
+	desc = "Call upon the Craft energy gifted to you to reinforce your armor."
 	background_icon = 'icons/mob/actions/malummiracles.dmi'
 	button_icon = 'icons/mob/actions/malummiracles.dmi'
 	button_icon_state = "invoke_malum"
@@ -114,8 +114,8 @@
 		L.mind.RemoveSpell(src)
 
 /datum/action/cooldown/spell/malum_blessing
-	name = "Gift of Malum"
-	desc = "Grant a target the ability to invoke Malum armor reinforcement. \
+	name = "Gift of the Craft"
+	desc = "Grant a target the ability to invoke the Craft armor reinforcement. \
 	Armor reinforcements causes pickuppable armor repair shards to be dropped when the target's armor is damaged."
 	background_icon = 'icons/mob/actions/malummiracles.dmi'
 	button_icon = 'icons/mob/actions/malummiracles.dmi'
@@ -134,7 +134,7 @@
 	cooldown_time = 10 MINUTES
 	charge_time = 0.1 SECONDS
 
-	invocations = list("Malum's hand will heed you from harm!")
+	invocations = list("The Craft's hand will heed you from harm!")
 	invocation_type = INVOCATION_SHOUT
 	cast_range = SPELL_RANGE_GROUND
 	associated_stat = null
@@ -152,12 +152,12 @@
 	var/mob/living/target = cast_on
 
 	if(target.mind?.has_spell(/datum/action/cooldown/spell/apply_malum))
-		to_chat(owner, span_warning("[target] already holds a fragment of Malum's blessings."))
+		to_chat(owner, span_warning("[target] already holds a fragment of the Craft's blessings."))
 		return FALSE
 
 	var/datum/action/cooldown/spell/apply_malum/SP = new /datum/action/cooldown/spell/apply_malum
 	target.mind?.AddSpell(SP, target)
 	target.visible_message(span_warning("A shadow settles over [target], promising protection."))
-	to_chat(target, span_notice("You have been gifted a fragment of Malum. Use the new ability to reinforce your armor."))
+	to_chat(target, span_notice("You have been gifted a fragment of the Craft. Use the new ability to reinforce your armor."))
 
 	return TRUE

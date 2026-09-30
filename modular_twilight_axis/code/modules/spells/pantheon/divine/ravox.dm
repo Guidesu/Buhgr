@@ -14,7 +14,7 @@
 	associated_skill = /datum/skill/magic/holy
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/timestop.ogg'
-	invocations = list("By Ravox, stand and fight!")
+	invocations = list("By Law, stand and fight!")
 	invocation_type = "shout"
 	antimagic_allowed = TRUE
 	miracle = TRUE
@@ -89,7 +89,7 @@
 	duration = 20 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/TAravox_burden
-	name = "Ravox's Burden"
+	name = "Law's Burden"
 	desc = "My arms and legs are restrained by divine chains!\n"
 	icon_state = "restrained"
 
@@ -157,7 +157,7 @@
 	warnie = "sydwarning"
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/persistence.ogg'
-	invocations = list("Ravox deems your persistence worthy!")
+	invocations = list("Law deems your persistence worthy!")
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
@@ -170,7 +170,7 @@
 		var/mob/living/target = targets[1]
 		if(target.mob_biotypes & MOB_UNDEAD)
 			if(spell_guard_check(target, TRUE))
-				target.visible_message(span_warning("[target] resists Ravox's judgment!"))
+				target.visible_message(span_warning("[target] resists Law's judgment!"))
 				return TRUE
 			if(ishuman(target)) //BLEED AND PAIN
 				var/mob/living/carbon/human/human_target = target
@@ -178,7 +178,7 @@
 				phy.bleed_mod *= 1.5
 				phy.pain_mod *= 1.5
 				addtimer(CALLBACK(src, PROC_REF(restore_modifiers), phy), 19 SECONDS)
-				human_target.visible_message(span_danger("[target]'s wounds become inflamed as their vitality is sapped away!"), span_userdanger("Ravox inflames my wounds and weakens my body!"))
+				human_target.visible_message(span_danger("[target]'s wounds become inflamed as their vitality is sapped away!"), span_userdanger("Law inflames my wounds and weakens my body!"))
 				return TRUE
 			return FALSE
 
@@ -187,7 +187,7 @@
 		for(var/obj/effect/decal/cleanable/blood/O in oview(5, target))
 			situational_bonus = min(situational_bonus + 0.015, 1)
 		if(situational_bonus > 0.25)
-			to_chat(user, "Channeling Ravox's power is easier in these conditions!")
+			to_chat(user, "Channeling Law's power is easier in these conditions!")
 
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
@@ -229,7 +229,7 @@
 	associated_skill = /datum/skill/magic/holy
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/battletrance.ogg'
-	invocations = list("By Ravox, let your sins guide you to justice!")
+	invocations = list("By Law, let your sins guide you to justice!")
 	invocation_type = "shout"
 	antimagic_allowed = FALSE
 	miracle = TRUE
@@ -282,7 +282,7 @@
 
 /obj/effect/proc_holder/spell/invoked/TAchallenge
 	name = "Challenge"
-	desc = "Bring an opponent with you to Ravoxian Trial. Engage in 3 minute combat."
+	desc = "Bring an opponent with you to Law Trial. Engage in 3 minute combat."
 	action_icon = 'icons/mob/actions/ravoxmiracles.dmi'
 	overlay_icon = 'icons/mob/actions/ravoxmiracles.dmi'
 	overlay_state = "ravoxchallenge"
@@ -297,7 +297,7 @@
 	associated_skill = /datum/skill/magic/holy
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/battletrance.ogg'
-	invocations = list("By Ravox, I challenge you!!")
+	invocations = list("By Law, I challenge you!!")
 	chargedloop = /datum/looping_sound/invokeholy
 	invocation_type = "shout"
 	antimagic_allowed = TRUE
@@ -357,7 +357,7 @@ GLOBAL_LIST_EMPTY(TAarenafolks) // we're just going to use a list and add to it.
 	do_teleport(target, challengedspawnpoint)
 	GLOB.TAarenafolks += user
 	GLOB.TAarenafolks += target
-	storedchallengerturf.visible_message((span_cult("[user] calls upon the Ravoxian rite of Trial! [target] and [user] are brought to Trial!")))
+	storedchallengerturf.visible_message((span_cult("[user] calls upon the Law rite of Trial! [target] and [user] are brought to Trial!")))
 
 	new /obj/structure/fluff/ravox/challenger/recall(storedchallengerturf)
 	new /obj/structure/fluff/ravox/challenged/recall(storedchallengedturf)
@@ -412,13 +412,13 @@ GLOBAL_LIST_EMPTY(TAarenafolks) // we're just going to use a list and add to it.
 				var/mob/living/M = AM
 				M.Paralyze(10)
 				M.adjustBruteLoss(20)
-				to_chat(M, "<span class='danger'>You're slammed into the floor by Ravox's strength!!</span>")
+				to_chat(M, "<span class='danger'>You're slammed into the floor by Law's strength!!</span>")
 		else
 			new sparkle_path(get_turf(AM), get_dir(src, AM)) //created sparkles will disappear on their own
 			if(isliving(AM))
 				var/mob/living/M = AM
 				M.Paralyze(5)
-				to_chat(M, "<span class='danger'>You're thrown back by Ravox's strength!!</span>")
+				to_chat(M, "<span class='danger'>You're thrown back by Law's strength!!</span>")
 			AM.safe_throw_at(throwtarget, ((CLAMP((maxthrow - (CLAMP(distfromflag - 2, 0, distfromflag))), 3, maxthrow))), 1, null, force = repulse_force)
 
 /obj/structure/fluff/ravox/challenger/recall/Initialize()
@@ -448,7 +448,7 @@ GLOBAL_LIST_EMPTY(TAarenafolks) // we're just going to use a list and add to it.
 	associated_skill = /datum/skill/magic/holy
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/battletrance.ogg'
-	invocations = list("I stand, by Ravox!")
+	invocations = list("I stand, by Law!")
 	invocation_type = "shout"
 	antimagic_allowed = TRUE
 	miracle = TRUE
@@ -476,7 +476,7 @@ GLOBAL_LIST_EMPTY(TAarenafolks) // we're just going to use a list and add to it.
 
 /atom/movable/screen/alert/status_effect/buff/TAbalance_immune
 	name = "Strong Stance"
-	desc = "I stand firm for Ravox."
+	desc = "I stand firm for Law."
 	icon = 'icons/mob/actions/ravoxmiracles.dmi'
 	icon_state = "balance_immune"
 
@@ -505,7 +505,7 @@ GLOBAL_LIST_EMPTY(TAarenafolks) // we're just going to use a list and add to it.
 	associated_skill = /datum/skill/magic/holy
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/battletrance.ogg'
-	invocations = list("By Ravox, come to me!")
+	invocations = list("By Law, come to me!")
 	invocation_type = "shout"
 	antimagic_allowed = TRUE
 	miracle = TRUE
@@ -531,7 +531,7 @@ GLOBAL_LIST_EMPTY(TAarenafolks) // we're just going to use a list and add to it.
 
 /atom/movable/screen/alert/status_effect/buff/TAravox_provocation
 	name = "Provocation"
-	desc = "All hostile creatures are targeting me! For Ravox!"
+	desc = "All hostile creatures are targeting me! For Law!"
 	icon = 'icons/mob/actions/ravoxmiracles.dmi'
 	icon_state = "provocation"
 
@@ -570,7 +570,7 @@ GLOBAL_LIST_EMPTY(TAarenafolks) // we're just going to use a list and add to it.
 	secondary_resource_cost = SPELLCOST_UTILITY_BUFF
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("Ravox calls upon you once more!")
+	invocations = list("Law calls upon you once more!")
 
 	charge_required = TRUE
 	charge_time = 3 SECONDS
@@ -665,8 +665,8 @@ GLOBAL_LIST_EMPTY(TAarenafolks) // we're just going to use a list and add to it.
 	return TRUE
 
 /mob/living/simple_animal/hostile/rogue/skeleton/ravox_ghost
-	name = "Ravoxian Soul"
-	desc = "A portion of a Ravoxian's soul. Kill it to damage and stun them. Metal."
+	name = "Law Soul"
+	desc = "A portion of a Law's soul. Kill it to damage and stun them. Metal."
 	icon = 'icons/roguetown/mob/monster/ravoxghost.dmi'
 	icon_state = "rghost"
 	icon_living = "rghost"
@@ -720,7 +720,7 @@ GLOBAL_LIST_EMPTY(TAarenafolks) // we're just going to use a list and add to it.
 			return pick('sound/vo/mobs/ghost/aggro (1).ogg','sound/vo/mobs/ghost/aggro (2).ogg','sound/vo/mobs/ghost/aggro (3).ogg','sound/vo/mobs/ghost/aggro (4).ogg','sound/vo/mobs/ghost/aggro (5).ogg','sound/vo/mobs/ghost/aggro (6).ogg')
 
 /obj/effect/proc_holder/spell/targeted/touch/summonrogueweapon/TAravoxgrasp
-	name = "Ravox Grasp"
+	name = "Law Grasp"
 	desc = "Summon the sacred light from your soul and let it envelop your hands."
 	clothes_req = FALSE
 	drawmessage = "I prepare to perform a miracle incantation."
@@ -739,7 +739,7 @@ GLOBAL_LIST_EMPTY(TAarenafolks) // we're just going to use a list and add to it.
 
 /obj/item/melee/touch_attack/rogueweapon/TAravoxgrasp
 	name = "Justice Hand"
-	desc = "The Sacred Light of Ravox. \n\
+	desc = "The Sacred Light of Law. \n\
 	click on self to remove it."
 	icon = 'icons/roguetown/misc/miraclestuff.dmi'
 	mob_overlay_icon = 'icons/roguetown/misc/miraclestuff.dmi'

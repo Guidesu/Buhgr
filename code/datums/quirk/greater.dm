@@ -5,7 +5,7 @@
 
 /datum/quirk/noble
 	name = "Unlanded Noble"
-	desc = "By birth or deeds, I've a high place in Astrata's order. My holdings, however, are too small or too far away to grant much benefit beyond a title."
+	desc = "By birth or deeds, I've a high place in the Sun's order. My holdings, however, are too small or too far away to grant much benefit beyond a title."
 	mechdesc = "Grants the noble trait, but no other benefits. You will also need to behave more strictly 'noble' than those in noble roles; for example, sleeping outdoors or on a poor-quality bed, using scavenged or poorly forged equipment, and similar will debuff your mood."
 	added_traits = list(TRAIT_NOBLE, TRAIT_NOBLE_UNLANDED)
 	greater = TRUE
@@ -14,7 +14,7 @@
 
 /datum/quirk/wyldeater // not quite as good as inhumen digestion but maybe slightly less likely to get you flagged as a graggarite?
 	name = "Wyld Metabolism"
-	desc = "Dendor's touch lies heavier upon me than most. I can eat things most would fail to stomach."
+	desc = "The Wilds's touch lies heavier upon me than most. I can eat things most would fail to stomach."
 	added_traits = list(TRAIT_WILD_EATER)
 	allowed_species = list(/datum/species/anthromorph, /datum/species/anthromorphsmall, /datum/species/lupian, /datum/species/tabaxi, /datum/species/akula, /datum/species/vulpkanin)
 	greater = TRUE
@@ -23,7 +23,7 @@
 /datum/quirk/linguist // if this is too much, it can be changed to make it ONLY the 'patron language for clerics' thing, but... it's one extra language. we have so many unused languages
 	name = "Linguist"
 	desc = "I like to read more than most, and keep my horizons broad."
-	mechdesc = "Grants your choice of one additional language. If you have access to miracles, your patron's language - Abyssal for Abyssor, Beastish for Dendor, and the Chant for Zizo - may be selected."
+	mechdesc = "Grants your choice of one additional language. If you have access to miracles, your patron's language - Abyssal for the Sea, Beastish for the Wilds, and the Chant for the Forbidden - may be selected."
 	greater = TRUE
 	ui_fa_icon = "person-chalkboard"
 	var/list/allowed_languages = list( // same as intellectual virtue, i.e. only commonly-available languages

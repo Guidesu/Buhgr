@@ -882,7 +882,7 @@
 			if(!HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))	//Guarded virtue protects from this
 				if(issunelf(src) || patron?.type == /datum/patron/concordat/auxentius)
 					astratan_symbol = icon2html('icons/misc/language.dmi', world, "celestial")
-					astratan_tooltip = SPAN_TOOLTIP("One of Auxentius's [issunelf(src) ? "chosen" : "followers"]", astratan_symbol)
+					astratan_tooltip = SPAN_TOOLTIP("One of the Sun's [issunelf(src) ? "chosen" : "followers"]", astratan_symbol)
 		. += span_info("[pronoun] [wording] [origin]. [astratan_tooltip]")	//"He hails from [X / Nowhere]" || "His [word] originates from [X]" || "His [word] is implacable..."
 
 		if(HAS_TRAIT(src, TRAIT_WITCH))
@@ -1145,7 +1145,7 @@
 			// deathsight always works even on the living.
 			else if(HAS_TRAIT(user, TRAIT_DEATHSIGHT))
 				if(HAS_TRAIT_FROM_ONLY(src, TRAIT_DNR, GRAGGAR_ASSASSINATED))
-					. += span_cult("Their soul is screaming! It's been stolen by an Assassin of Graggar! Find and destroy the dagger that contains it to bring them back!")
+					. += span_cult("Their soul is screaming! It's been stolen by an Assassin of War! Find and destroy the dagger that contains it to bring them back!")
 				else
 					. += span_danger("They extrude a pale aura. Their soul [stat == DEAD ? "was not" : "is not"] clean. This [stat == DEAD ? "was" : "is"] their only chance at lyfe.")
 
@@ -1239,17 +1239,17 @@
 			heretic_text += "Fellow Free Man!"
 	else if((HAS_TRAIT(src, TRAIT_CABAL)))
 		if(seer)
-			heretic_text += "A member of Zizo's cabal."
+			heretic_text += "A member of the Forbidden's cabal."
 			if(HAS_TRAIT(examiner, TRAIT_CABAL))
 				heretic_text += " May their ambitions not interfere with mine."
 	else if((HAS_TRAIT(src, TRAIT_HORDE)))
 		if(seer)
-			heretic_text += "Hardened by Graggar's Rituals."
+			heretic_text += "Hardened by War's Rituals."
 			if(HAS_TRAIT(examiner, TRAIT_HORDE))
 				heretic_text += " Mine were a glorious memory."
 	else if((HAS_TRAIT(src, TRAIT_DEPRAVED)))
 		if(seer)
-			heretic_text += "Baotha's Touched."
+			heretic_text += "The Forbidden's Touched."
 			if(HAS_TRAIT(examiner, TRAIT_DEPRAVED))
 				heretic_text += " She leads us to the greatest ends."
 
@@ -1300,13 +1300,13 @@
 	if(!HAS_TRAIT(examiner, TRAIT_CLERGY)) //If the person doing the examining doesn't have the trait, we don't need to do the other four ifs
 		return null
 	if(HAS_TRAIT(src, TRAIT_CLERGY) && HAS_TRAIT(examiner, TRAIT_CLERGY))
-		clergy_text = "A fellow member of the local Church of the Ten."
+		clergy_text = "A fellow member of the local Church of the Domains."
 	if(HAS_TRAIT(src, TRAIT_CHOSEN) && HAS_TRAIT(examiner, TRAIT_CLERGY))
-		clergy_text = "The Bishop, the leader of my Church and Chosen of the Ten."
+		clergy_text = "The Bishop, the leader of my Church and Chosen of the Domains."
 	if(HAS_TRAIT(src, TRAIT_CLERGY) && HAS_TRAIT(examiner, TRAIT_CHOSEN))
-		clergy_text = "A member of the clergy under my leadership, as willed by the Ten."
+		clergy_text = "A member of the clergy under my leadership, as willed by the Domains."
 	if(HAS_TRAIT(src, TRAIT_CHOSEN) && HAS_TRAIT(examiner, TRAIT_CHOSEN))
-		clergy_text = "Myself. I am the Bishop of the outpost, voice of the Ten in these lands."
+		clergy_text = "Myself. I am the Bishop of the outpost, voice of the Domains in these lands."
 
 	return clergy_text
 

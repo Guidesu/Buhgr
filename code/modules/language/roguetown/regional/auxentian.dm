@@ -1,5 +1,5 @@
 /datum/language/auxentian
-	name = "Old Auxentian"
+	name = "Old Sun"
 	desc = "The olden tongue of Auxentia's heartland, still remembered by most natives and the independent groups living in the outskirts of the lands. It is marked by elongated syllables, as if the speaker is reminiscing of a time that has passed."
 	speech_verb = "remarks"
 	ask_verb = "inquires"

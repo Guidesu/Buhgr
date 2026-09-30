@@ -422,7 +422,7 @@
 /obj/item/roguekey/keeper_inner
 	name = "beast inner sanctum key"
 	desc = "This key should open and close the inner gates of the heartbeast's sanctum within the \
-	Sanctum of Pestra, permitting or frustrating access to the creature housed within."
+	Sanctum of Healing, permitting or frustrating access to the creature housed within."
 	icon_state = "beastkey2"
 	lockid = "keeper2"
 

@@ -1,5 +1,5 @@
 /obj/item/reagent_containers/glass/cup/golden/psydon
-	name = "Psydon's Chalice"
+	name = "The Absent God's Chalice"
 	icon = 'modular_twilight_axis/icons/modular/Neu_Food/icons/cookware/cup.dmi'
 	icon_state = "psydon_golden"
 	sellprice = 200

@@ -17,61 +17,61 @@
 
 // -1 TRI
 /datum/loadout_item/psicross/miluse/bronze
-	name = "Bronze Amulet of Noc"
+	name = "Bronze Amulet of the Moon"
 	path = /obj/item/clothing/neck/roguetown/psicross/miluse/bronze
 	triumph_cost = 1
 	sort_category = "Triumphs"
 
 /datum/loadout_item/psicross/auxentius/ravox/bronze
-	name = "Bronze Amulet of Auxentius"
+	name = "Bronze Amulet of the Sun"
 	path = /obj/item/clothing/neck/roguetown/psicross/auxentius/ravox/bronze
 	triumph_cost = 1
 	sort_category = "Triumphs"
 
 /datum/loadout_item/psicross/auxentius/bronze
-	name = "Bronze Amulet of Auxentius"
+	name = "Bronze Amulet of the Sun"
 	path = /obj/item/clothing/neck/roguetown/psicross/auxentius/bronze
 	triumph_cost = 1
 	sort_category = "Triumphs"
 
 /datum/loadout_item/psicross/handwerra/malum/bronze
-	name = "Bronze Amulet of Malum"
+	name = "Bronze Amulet of the Craft"
 	path = /obj/item/clothing/neck/roguetown/psicross/handwerra/malum/bronze
 	triumph_cost = 1
 	sort_category = "Triumphs"
 
 /datum/loadout_item/psicross/volkovoi/bronze
-	name = "Bronze Amulet of Graggar"
+	name = "Bronze Amulet of War"
 	path = /obj/item/clothing/neck/roguetown/psicross/volkovoi/bronze
 	triumph_cost = 1
 	sort_category = "Triumphs"
 
 /datum/loadout_item/psicross/bronze
-	name = "Bronze Psycross"
+	name = "Bronze Holy cross"
 	path = /obj/item/clothing/neck/roguetown/psicross/bronze
 	triumph_cost = 1
 	sort_category = "Triumphs"
 
 /datum/loadout_item/psicross/aurelian/bronze
-	name = "Bronze Inverted Psycross"
+	name = "Bronze Inverted Holy cross"
 	path = /obj/item/clothing/neck/roguetown/psicross/aurelian/bronze
 	triumph_cost = 1
 	sort_category = "Triumphs"
 
 /datum/loadout_item/psicross/paalloy
-	name = "Ancient Psycross"
+	name = "Ancient Holy cross"
 	path = /obj/item/clothing/neck/roguetown/psicross/paalloy
 	triumph_cost = 1
 	sort_category = "Triumphs"
 
 /datum/loadout_item/psicross/aurelian/paalloy
-	name = "Ancient Inverted Psycross"
+	name = "Ancient Inverted Holy cross"
 	path = /obj/item/clothing/neck/roguetown/psicross/aurelian/paalloy
 	triumph_cost = 1
 	sort_category = "Triumphs"
 
 /datum/loadout_item/psicross/miluse/paalloy
-	name = "Ancient Amulet of Noc"
+	name = "Ancient Amulet of the Moon"
 	path = /obj/item/clothing/neck/roguetown/psicross/miluse/paalloy
 	triumph_cost = 1
 	sort_category = "Triumphs"
@@ -187,7 +187,7 @@
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_psycross
-	name = "Golden Psycross, Ornate"
+	name = "Golden Holy cross, Ornate"
 	path = /obj/item/clothing/neck/roguetown/psicross/g/triumph
 	triumph_cost = 5
 	sort_category = "Triumphs"
@@ -199,13 +199,13 @@
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_astcross
-	name = "Golden Auxentian Amulet, Ornate"
+	name = "Golden Sun Amulet, Ornate"
 	path = /obj/item/clothing/neck/roguetown/psicross/auxentius/g/triumph
 	triumph_cost = 5
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_reformpsycross
-	name = "Golden Reformist Psycross, Ornate"
+	name = "Golden Reformist Holy cross, Ornate"
 	path = /obj/item/clothing/neck/roguetown/psicross/reform/g/triumph
 	triumph_cost = 5
 	sort_category = "Triumphs"
@@ -229,43 +229,43 @@
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_necracross
-	name = "Golden Necran Amulet, Ornate"
+	name = "Golden Death Amulet, Ornate"
 	path = /obj/item/clothing/neck/roguetown/psicross/morwenna/g/triumph
 	triumph_cost = 5
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_pestracross
-	name = "Golden Pestran Amulet, Ornate"
+	name = "Golden Healing Amulet, Ornate"
 	path = /obj/item/clothing/neck/roguetown/psicross/handwerra/g/triumph
 	triumph_cost = 5
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_ravoxcross
-	name = "Golden Auxentian Amulet, Ornate"
+	name = "Golden Sun Amulet, Ornate"
 	path = /obj/item/clothing/neck/roguetown/psicross/auxentius/ravox/g/triumph
 	triumph_cost = 5
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_malumcross
-	name = "Golden Malum Amulet, Ornate"
+	name = "Golden Craft Amulet, Ornate"
 	path = /obj/item/clothing/neck/roguetown/psicross/handwerra/malum/g/triumph
 	triumph_cost = 5
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_eoracross
-	name = "Golden Eoran Amulet, Ornate"
+	name = "Golden Love Amulet, Ornate"
 	path = /obj/item/clothing/neck/roguetown/psicross/miluse/eora/g/triumph
 	triumph_cost = 5
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_xylixcross
-	name = "Golden Xylixian Amulet, Ornate"
+	name = "Golden Trickery Amulet, Ornate"
 	path = /obj/item/clothing/neck/roguetown/psicross/viator/g/triumph
 	triumph_cost = 5
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_graggarcross
-	name = "Golden Graggarite Amulet, Ornate"
+	name = "Golden War Amulet, Ornate"
 	path = /obj/item/clothing/neck/roguetown/psicross/volkovoi/g/triumph
 	triumph_cost = 5
 	sort_category = "Triumphs"
@@ -589,7 +589,7 @@
 	sort_category = "Triumphs"
 
 /datum/loadout_item/triumph_weaponkit_psyswords
-	name = "Triumph Kit - Slimguarded Psydonic Longsword"
+	name = "Triumph Kit - Slimguarded Old Faith Longsword"
 	path = /obj/item/enchantingkit/triumph_weaponkit_psyswords
 	triumph_cost = 3
 	sort_category = "Triumphs"

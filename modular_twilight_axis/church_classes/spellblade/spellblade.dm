@@ -1,11 +1,11 @@
 /datum/advclass/noctite_spellblade
 	name = "Newmoon Spellblade"
-	tutorial = "Newmoon Spellblades are known in radical Nocite circles as the most devoted monks of Noc, most often hailing from Zibantia. \
-		For some reason you have left your monastery and arrived here. Is it a pilgrimage or a mission to spread the word of Noc?... \
-		Only you can say for certain. Though you are a rather fanatical Nocite, you came here in peace and are therefore quite tolerant of the other gods and the established Order,\
-		perhaps harboring distrust toward Astrata according to the radical teachings of Noc... \
-		Despite the teachings of the local clergy of the Ten, you know and are firmly convinced that Noc does not require worship — she has gifted you with something more unique:\
-		for your faithful service and mastery of the arcane, you have gained access to arcane weaponry. Miracles are beyond your reach, but in exchange you have gained access to the arcane, and no matter what weapon the light of Noc forges for you, you are an expert in its use."
+	tutorial = "Newmoon Spellblades are known in radical Moon circles as the most devoted monks of the Moon, most often hailing from Zibantia. \
+		For some reason you have left your monastery and arrived here. Is it a pilgrimage or a mission to spread the word of the Moon?... \
+		Only you can say for certain. Though you are a rather fanatical Moon, you came here in peace and are therefore quite tolerant of the other gods and the established Order,\
+		perhaps harboring distrust toward the Sun according to the radical teachings of the Moon... \
+		Despite the teachings of the local clergy of the Domains, you know and are firmly convinced that the Moon does not require worship — she has gifted you with something more unique:\
+		for your faithful service and mastery of the arcane, you have gained access to arcane weaponry. Miracles are beyond your reach, but in exchange you have gained access to the arcane, and no matter what weapon the light of the Moon forges for you, you are an expert in its use."
 	outfit = /datum/outfit/job/roguetown/spellblade
 	category_tags = list(CTAG_TEMPLAR)
 	subclass_languages = list(/datum/language/raneshi)

@@ -41,8 +41,8 @@
 #define TRAIT_NUDIST "Nudist" //you can't wear most clothes
 #define TRAIT_CYCLOPS_LEFT "Cyclops (Left)" //poked left eye
 #define TRAIT_CYCLOPS_RIGHT "Cyclops (Right)" //poked right eye
-#define TRAIT_INHUMEN_ANATOMY "Inhumen Anatomy" //can't wear hats and shoes
-#define TRAIT_NASTY_EATER "Inhumen Digestion" //can eat rotten/raw/burned food, organs, and drink murky water. Does NOT protect against actual poisons.
+#define TRAIT_INHUMEN_ANATOMY "Forbidden Anatomy" //can't wear hats and shoes
+#define TRAIT_NASTY_EATER "Forbidden Digestion" //can eat rotten/raw/burned food, organs, and drink murky water. Does NOT protect against actual poisons.
 #define TRAIT_WILD_EATER "Beastly Digestion" //can eat raw and rotten food and drink murky water
 #define TRAIT_NISTEAN "Nistean" //mood debuff whewn eating meat
 #define TRAIT_VEGAN "Végétal" // ditto, but for meat, seafood, dairy, etc
@@ -64,24 +64,17 @@
 #define TRAIT_RITUALIST "Ritualist"	// Allows use of ritual chalk
 #define TRAIT_MARRIAGE_CAPABLE "Marriage Capable"
 #define TRAIT_INQUISITION "Otavan Adherent"
-#define TRAIT_CLERGY "Clergy of the Concordat"
+#define TRAIT_CLERGY "Clergy of the Domains"
 #define TRAIT_GOODTRAINER "Good Trainer"
 #define TRAIT_BADTRAINER "Bad Trainer"
 #define TRAIT_OUTDOORSMAN "Outdoorsman"
+/// DISABLED: an elemental-bending combat system (Fire/Water/Earth/Air) was scaffolded here but was
+/// out-of-scope, unrequested content added during an unrelated porting pass, and has been removed
+/// (the files under modular_dreamvalley/bending/ were deleted before ever being committed - not
+/// recoverable from git history). This trait define is left in place, unused, in case the system
+/// is deliberately rebuilt later; it currently has no granters and no effect.
+#define TRAIT_BENDER "Bender"
 #define TRAIT_SEA_DRINKER "Denizen of the Deep"
-/// Bending stance traits — granted by /datum/action/cooldown/spell/bending_stance
-#define TRAIT_STANCE_AGGRESSIVE "stance_aggressive"
-#define TRAIT_STANCE_FLOWING "stance_flowing"
-#define TRAIT_STANCE_ROOTED "stance_rooted"
-#define TRAIT_STANCE_EVASIVE "stance_evasive"
-#define TRAIT_STANCE_NEUTRAL "stance_neutral"
-/// Divine stance traits — granted by /datum/action/cooldown/spell/miracle_stance
-#define TRAIT_STANCE_DEVOUT "stance_devout"
-#define TRAIT_STANCE_ZEALOUS "stance_zealous"
-#define TRAIT_STANCE_MERCIFUL "stance_merciful"
-#define TRAIT_STANCE_JUDGEMENT "stance_judgement"
-#define TRAIT_STANCE_MARTYR "stance_martyr"
-#define TRAIT_STANCE_TEMPO "stance_tempo"
 #define TRAIT_STUDENT		"Student"
 #define TRAIT_INTELLECTUAL "Intellectual"
 #define TRAIT_GOODCRAFTER "Dextrous"
@@ -204,7 +197,7 @@
 
 //Hearthstone port (Tracking)
 #define TRAIT_PERFECT_TRACKER "Huntmaster" //Will always find any tracks and analyzes them perfectly.
-#define TRAIT_ZIZOSIGHT "Blessing of Aurelian" // I can see just a bit more clearly in darkness.
+#define TRAIT_ZIZOSIGHT "Forbidden Sight" // I can see just a bit more clearly in darkness.
 #define TRAIT_DEATHSIGHT "Veiled Whispers" // Is notified when a player character dies, but not told exactly where or how.
 //Hearthstone end.
 
@@ -214,43 +207,43 @@
 #define TRAIT_WATERBREATHING "Water Breathing"
 
 // PATRON GOD TRAITS
-#define TRAIT_ROT_EATER "Blessing of Handwerra" //can eat rotten food
-#define TRAIT_ORGAN_EATER "Blessing of Volkovoi" //can eat organs
-#define TRAIT_KNEESTINGER_IMMUNITY "Blessing of Ignatius"
-#define TRAIT_SOUL_EXAMINE "Blessing of Morwenna" //can check bodies to see if they have departed
-#define TRAIT_CRACKHEAD "Blessing of Hausvette" //will never overdose
-#define TRAIT_CHOSEN "Auxentius's Chosen"
-#define TRAIT_ABYSSOR_SWIM "Blessing of Wulfric" //less base fatigue drain when swimming
-#define TRAIT_XYLIX "Blessing of Viator" // secret thieves cant language
-#define TRAIT_XYLIX_DEVOTEE "Viatoran Fateweaver" // fate-weaving and luck-based bonuses
-#define TRAIT_FORGEBLESSED "Blessing of Handwerra" //Reduces the fatigue cost of smithing a bit.
-#define TRAIT_MALUMCHOSEN "Chosen of Handwerra" //Massively increase chance to craft items.
+#define TRAIT_ROT_EATER "Blessing of the Harvest" //can eat rotten food
+#define TRAIT_ORGAN_EATER "Blessing of War" //can eat organs
+#define TRAIT_KNEESTINGER_IMMUNITY "Blessing of the Wilds"
+#define TRAIT_SOUL_EXAMINE "Blessing of Death" //can check bodies to see if they have departed
+#define TRAIT_CRACKHEAD "Blessing of the Forbidden" //will never overdose
+#define TRAIT_CHOSEN "Chosen of the Sun"
+#define TRAIT_ABYSSOR_SWIM "Blessing of the Sea" //less base fatigue drain when swimming
+#define TRAIT_XYLIX "Blessing of Trickery" // secret thieves cant language
+#define TRAIT_XYLIX_DEVOTEE "Fateweaver of Trickery" // fate-weaving and luck-based bonuses
+#define TRAIT_FORGEBLESSED "Blessing of the Craft" //Reduces the fatigue cost of smithing a bit.
+#define TRAIT_MALUMCHOSEN "Chosen of the Craft" //Massively increase chance to craft items.
 #define TRAIT_APRICITY	"Apricity" //Decreased stamina regen time during "day" and less so during night
 #define TRAIT_SHARPER_BLADES "Sharper Blades" //Weapons lose less blade integrity
 #define TRAIT_BATTLEMASTER "Battlemaster" //You can use weapon specials no matter what
-#define TRAIT_JUSTICARSIGHT "Blessing of Auxentius" //Allows seeing bounties and crimes when examining outlaws.
+#define TRAIT_JUSTICARSIGHT "Blessing of Law" //Allows seeing bounties and crimes when examining outlaws.
 #define TRAIT_EXTEROCEPTION	"Exteroception" //See others' hunger and thirst; pairs well with empath.
 #define TRAIT_BLACKLEG	"Blackleg" //Rig coin, dice, cards in your favor - UNUSED FOR NOW
 #define TRAIT_BETTER_SLEEP	"Better Sleep" //Recover more energy (blue bar) when sleeping
 #define TRAIT_LEECHIMMUNE "Unleechable" //leeches wont attach in bog squares + ignatius boon.
 #define TRAIT_LEECHRESIST "Leech Awareness" //leeches have a chance to be avoided
-#define TRAIT_AUXENTIAN_AFFINITY "Auxentian Affinity" //Telling who's an Auxentian on examine
+#define TRAIT_AUXENTIAN_AFFINITY "Law Affinity" //Telling who's an Auxentian on examine
 #define TRAIT_LONGSTRIDER "Longstrider"
-#define TRAIT_UNDIVIDED "The Tribunal Undivided"
-#define TRAIT_VAELTIAN_GRIT "Praecursory Willpower" // Willpower-scaling boost to pain resistance. From X to XV, every point of WIL increases the chance of ignoring a paincrit check.
-#define TRAIT_VAELTITE "Praecursory Devotion" // Passively heals wounds at a slow rate, but doesn't restore lost blood. Negates the effects of all non-Praecursor miracles, save for Anastasis and Cure Rot.
+#define TRAIT_UNDIVIDED "Of All Domains"
+#define TRAIT_VAELTIAN_GRIT "Unbowed Willpower" // Willpower-scaling boost to pain resistance. From X to XV, every point of WIL increases the chance of ignoring a paincrit check.
+#define TRAIT_VAELTITE "Ancient Devotion" // Passively heals wounds at a slow rate, but doesn't restore lost blood. Negates the effects of all non-Praecursor miracles, save for Anastasis and Cure Rot.
 #define TRAIT_BLACKBAGGER "Skilled Apprehender" // Allows the effective usage of garrotes and blackbags.
 #define TRAIT_LYCANRESILENCE "Werewolf Resilence"
 #define TRAIT_UNFORGIVABLE "Unforgivable" //Handles Klokner-touched gibbing, miracle backfires, confession/conversion killing, etc.
-#define TRAIT_ASTRATAN_AFFINITY "Astratan Affinity" //Telling who's an Astratan on examine
+#define TRAIT_ASTRATAN_AFFINITY "Sun Affinity" //Telling who's an Astratan on examine
 #define TRAIT_NIGHT_OWL "Night Owl" //mood buff at night + inverted sleepcycle during day
-#define TRAIT_EORAN_CALM "Eoran Calm"
-#define TRAIT_EORAN_SERENE "Eoran Serenity"
+#define TRAIT_EORAN_CALM "Calm of Love"
+#define TRAIT_EORAN_SERENE "Serenity of Love"
 #define TRAIT_WARLOCK "Warlock" // Cancels out weapon w/ casting penalities, exclusive to rituos
-#define TRAIT_BAOTHAN_CALM "Baothan Calm" //no freakout! :3
-#define TRAIT_MATTHIOS_EYES	"Eyes of Matthios" //Examine to see the most expensive item someone has (Replaces shitty-appraisal)
-#define TRAIT_PSYDONIAN_GRIT "Psydonic Willpower" // Willpower-scaling boost to pain resistance. From X to XV, every point of WIL increases the chance of ignoring a paincrit check.
-#define TRAIT_PSYDONITE "Psydonic Devotion" // Passively heals wounds at a slow rate, but doesn't restore lost blood. Negates the effects of all non-Psydonian miracles, save for Anastasis and Cure Rot.
+#define TRAIT_BAOTHAN_CALM "Forbidden Calm" //no freakout! :3
+#define TRAIT_MATTHIOS_EYES	"Eyes of Trade" //Examine to see the most expensive item someone has (Replaces shitty-appraisal)
+#define TRAIT_PSYDONIAN_GRIT "Unbroken Willpower" // Willpower-scaling boost to pain resistance. From X to XV, every point of WIL increases the chance of ignoring a paincrit check.
+#define TRAIT_PSYDONITE "Devotion of the Absent God" // Passively heals wounds at a slow rate, but doesn't restore lost blood. Negates the effects of all non-Psydonian miracles, save for Anastasis and Cure Rot.
 
 //Bishop robes/picking Eora things/louder prayers to admins/don't burn to doing Astrata's light
 
@@ -315,45 +308,45 @@
 // Sight Related
 #define TRAIT_DARKVISION "Darksight"
 #define TRAIT_NITEVISION "Nitevision"
-#define TRAIT_NOCSHADES "Nocshaded"
+#define TRAIT_NOCSHADES "Moonshaded"
 
 // PATRON GOD CURSES
 
 #define TRAIT_CURSE "Curse" //source
 // CONCORDAT CURSES - Auxentius+Auxentius merged into Auxentius; Noc+Eora merged into Miluse; Malum+Pestra merged into Handwerra.
-#define TRAIT_CURSE_AUXENTIUS "Curse of Auxentius" //Cannot sleep, burn up in sunlight, effect same as -2 (-40% parry -40% dodge -40% accuracy) to all weapon skills
-#define TRAIT_CURSE_MILUSE "Curse of Miluse" //Cannot use magic, burn up in moonlight, world is ugly
-#define TRAIT_CURSE_IGNATIUS "Curse of Ignatius"//It will do something once I decide what that will be
-#define TRAIT_CURSE_WULFRIC "Curse of Wulfric" //fears the water and cannot open sleep menu
-#define TRAIT_CURSE_MORWENNA "Curse of Morwenna" //critical weakness, CON nuke, and lck nuke and clumsy
-#define TRAIT_CURSE_VIATOR "Curse of Viator" //no fortune
-#define TRAIT_CURSE_HANDWERRA "Curse of Handwerra" //less stamina, cannot run, missing nose, cannot craft or use smith hammer or level skills in sleep menu
+#define TRAIT_CURSE_AUXENTIUS "Curse of the Sun" //Cannot sleep, burn up in sunlight, effect same as -2 (-40% parry -40% dodge -40% accuracy) to all weapon skills
+#define TRAIT_CURSE_MILUSE "Curse of the Moon" //Cannot use magic, burn up in moonlight, world is ugly
+#define TRAIT_CURSE_IGNATIUS "Curse of the Wilds"//It will do something once I decide what that will be
+#define TRAIT_CURSE_WULFRIC "Curse of the Sea" //fears the water and cannot open sleep menu
+#define TRAIT_CURSE_MORWENNA "Curse of Death" //critical weakness, CON nuke, and lck nuke and clumsy
+#define TRAIT_CURSE_VIATOR "Curse of Trickery" //no fortune
+#define TRAIT_CURSE_HANDWERRA "Curse of the Craft" //less stamina, cannot run, missing nose, cannot craft or use smith hammer or level skills in sleep menu
 #define TRAIT_CURSE_RESIST "Curse Resistance" //Some folk with a tendency to get cursed are resistant
 
 // UNVEILED/OLD KIN CULTIST TRAITS (all of them recognize each other)
-#define TRAIT_FREEMAN "Blessing of Morwenna" //recognized by bandits as an ally
+#define TRAIT_FREEMAN "Freeman of Death" //recognized by bandits as an ally
 #define TRAIT_CABAL "Of the Cabal" //Aurelian cultists recognize each other too
 #define TRAIT_HORDE "Anointed" //Volkovoi followers also recognize each other
 #define TRAIT_DEPRAVED "Fallen" //Hausvette followers also recognize each other
 #define TRAIT_DUSTRUNNER "Dust Runner" //Dust runners recognize each other, and are known to bathhouse workers and Hausvette followers
 
 //UNVEILED/OLD KIN GOD CURSES
-#define TRAIT_CURSE_ASTRATA "Curse of Astrata" //Cannot sleep and burn up in sunlight
-#define TRAIT_CURSE_NOC "Curse of Noc" //Cannot use magic and burn up in moonlight
-#define TRAIT_CURSE_DENDOR "Curse of Dendor"//It will do something once I decide what that will be
-#define TRAIT_CURSE_ABYSSOR "Curse of Abyssor" //fears the water and cannot open sleep menu
-#define TRAIT_CURSE_RAVOX "Curse of Ravox" // effect same as -2 (-40% parry -40% dodge -40% accuracy) to all weapon skills
-#define TRAIT_CURSE_NECRA "Curse of Necra" //critical weakness and CON nuke
-#define TRAIT_CURSE_XYLIX "Curse of Xylix" //no fortune
-#define TRAIT_CURSE_PESTRA "Curse of Pestra" //less stamina, cannot run and missing nose
-#define TRAIT_CURSE_MALUM "Curse of Malum" //cannot craft or use smith hammer or level skills in sleep menu
-#define TRAIT_CURSE_EORA "Curse of Eora" //world is ugly
+#define TRAIT_CURSE_ASTRATA "Sun-Forsaken" //Cannot sleep and burn up in sunlight
+#define TRAIT_CURSE_NOC "Moon-Forsaken" //Cannot use magic and burn up in moonlight
+#define TRAIT_CURSE_DENDOR "Wilds-Forsaken"//It will do something once I decide what that will be
+#define TRAIT_CURSE_ABYSSOR "Sea-Forsaken" //fears the water and cannot open sleep menu
+#define TRAIT_CURSE_RAVOX "Law-Forsaken" // effect same as -2 (-40% parry -40% dodge -40% accuracy) to all weapon skills
+#define TRAIT_CURSE_NECRA "Death-Forsaken" //critical weakness and CON nuke
+#define TRAIT_CURSE_XYLIX "Trickery-Forsaken" //no fortune
+#define TRAIT_CURSE_PESTRA "Healing-Forsaken" //less stamina, cannot run and missing nose
+#define TRAIT_CURSE_MALUM "Craft-Forsaken" //cannot craft or use smith hammer or level skills in sleep menu
+#define TRAIT_CURSE_EORA "Love-Forsaken" //world is ugly
 #define TRAIT_CLAIMED_BY_DARKSTAR "Claimed by the Dark Star" // applied to targeted users that get dagger'd
 #define TRAIT_ASSASSIN	"Assassin" // needed by assassin to use dagger
 
-#define TRAIT_CURSE_AURELIAN "Curse of Aurelian" //int nuke and no magic
-#define TRAIT_CURSE_VOLKOVOI "Curse of Volkovoi" //str nuke, inhumen anatomy and disfigurment
-#define TRAIT_CURSE_HAUSVETTE "Curse of Hausvette" //nudist
+#define TRAIT_CURSE_AURELIAN "Curse of the Forbidden" //int nuke and no magic
+#define TRAIT_CURSE_VOLKOVOI "Curse of War" //str nuke, inhumen anatomy and disfigurment
+#define TRAIT_CURSE_HAUSVETTE "Curse of Love" //nudist
 
 //Travel Zone Traits
 #define TRAIT_BANDITCAMP "banditcamp" //Access to the bandit camp on the wretchcoast Z level
@@ -402,8 +395,8 @@
 #define TRAIT_NOHUNGER	"Foodless"
 #define TRAIT_LIGHT_STEP	"Light Step"
 #define TRAIT_STRENGTH_UNCAPPED "Strength Unbound"	//ignores the STR softcap.
-#define TRAIT_NECRAS_VOW "Necra's Vow"
-#define TRAIT_PESTRAS_BLESSING "Pestra's blessing"
+#define TRAIT_NECRAS_VOW "Vow of Death"
+#define TRAIT_PESTRAS_BLESSING "Blessing of Healing"
 #define TRAIT_COMBAT_AWARE	"Combat Aware"
 #define TRAIT_EQUESTRIAN "Equestrian"
 #define TRAIT_REGROW_LIMBS "Regrow Limbs"
@@ -434,7 +427,7 @@
 #define TRAIT_FOOD_STIPEND "Royal Subsidy"
 #define TRAIT_NATIVEBORN "Native Born"
 #define TRAIT_SLEUTH	"Sleuth"
-#define TRAIT_NOC_LIGHT_BLESSING "Miluse's Light" // Newmoon Spellblade — flags access to Miluse's moonlight-weapon conjuring
+#define TRAIT_NOC_LIGHT_BLESSING "Light of the Moon" // Newmoon Spellblade — flags access to Miluse's moonlight-weapon conjuring
 // ARMOR / CLOTHING GIVEN TRAITS (GIVEN BY WEARING CLOTHES/ARMOR PIECES)
 
 // Economic Roles Traits
@@ -474,7 +467,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_ALDERMAN_CENSURED = span_warning("The Assembly has censured my name. No seat, no warrant shall be mine until the week ends."),
 	TRAIT_TECHNOPHOBE = span_info("I've principles against using some forms of artificed machinery, or perhaps I'm incapable of using them."),
 	TRAIT_LEPROSY = span_necrosis("I'm a disgusting leper..."),
-	TRAIT_UNDIVIDED = span_info("I have seen past petty squabbles, and am a true follower of Custodius's Tribunal. I feel most comfortable around churchmen."),
+	TRAIT_UNDIVIDED = span_info("I have seen past petty squabbles between the domains and honour them all. I feel most comfortable around churchmen."),
 	TRAIT_TAVERN_FIGHTER = span_info("I am vigilant in my duties. The Tavern is my home, none shall dare oppose me or skip out on payment."),
 	TRAIT_GUARDSMAN = span_info("I am vigilant in my duties. In the streets of the outpost, my abilities are sharper due to my routine and familiarity."),
 	TRAIT_GUARDSMAN_DISGRACED = span_warning("I have betrayed my oath. My vigilance falters in the town. I must beg forgiveness to restore my honor, or see my betrayal through to the end."),
@@ -482,11 +475,11 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_ANTHRAXI = span_info("I am the deadliest being in the underdark. No beast or foe can ever hope to match me in the caves."),
 	TRAIT_DEATHBARGAIN = span_info("A horrible deal has been prepared in your name. May you never see it fulfilled..."),
 	TRAIT_RITUALIST = span_info("I am skilled in the holy arts. Using ritual chalk, I can more deftly channel my God's powers via runes."),
-	TRAIT_MARRIAGE_CAPABLE = span_info("By the favor of Miluše or the authority of Auxentius, I can perform the rite of marriage."),
+	TRAIT_MARRIAGE_CAPABLE = span_info("By the favour of Love or the authority of Law, I can perform the rite of marriage."),
 	TRAIT_INSPIRING_MUSICIAN = span_info("The flow of battle dances to my song!"),
-	TRAIT_INQUISITION = span_info("I serve the Tribunal's Inquisition. From a passing glance, I can recognize all other adherents within the local sect."),
-	TRAIT_CLERGY = span_info("I serve the Church of the Concordat. From a passing glance, I can recognize all other clergy of this Church."),
-	TRAIT_CHOSEN = "Auxentius chose you to represent his glory.",
+	TRAIT_INQUISITION = span_info("I serve the Inquisition. From a passing glance, I can recognize all other adherents within the local sect."),
+	TRAIT_CLERGY = span_info("I serve the Church of the Domains. From a passing glance, I can recognize all other clergy of this Church."),
+	TRAIT_CHOSEN = "The Sun chose you to carry its light.",
 	TRAIT_WEBWALK = "I can move freely between webs.",
 	TRAIT_NOSTINK = span_dead("My nose is numb to the smell of decay."),
 	TRAIT_ZJUMP = "Time to reach a new high.",
@@ -577,7 +570,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_LIMPDICK = span_crit("My soldier refuses to rise to attention! Curses!"),
 	TRAIT_SEEDKNOW = span_info("I know which seeds grow which crops."),
 	TRAIT_PERFECT_TRACKER = span_info("I am a master at pursuing those I hunt. I can discern every last detail within a spotted track, and any attempts to hide said-tracks will fail to deceive me."),//Hearthstone port.
-	TRAIT_ZIZOSIGHT = span_info("Aurelian blesses my eyes to be unburdened by the night. I can also somewhat judge if a corpse can be reanimated or not."), //Hearthstone change.
+	TRAIT_ZIZOSIGHT = span_info("The Forbidden unburdens my eyes of the night. I can also somewhat judge if a corpse can be reanimated or not."),
 	TRAIT_CIVILIZEDBARBARIAN = span_info("My rigorous training in the martial arts has turned me into a living weapon. No limb is out of reach for my fists and feet, and my unarmed strikes are now stronger (+4 Unarmed Damage). My parrying with bracers, knuckles, or bandages is significantly more effective."),
 	TRAIT_COMICSANS = span_sans("I am cursed with a odd voice."),
 	TRAIT_SQUIRE_REPAIR = span_info("Trained at my Master's side, I can restore any kind of gears with time and polish them until they gleam like new."),
@@ -591,8 +584,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_FORGEBLESSED = span_info("Countless long nights spent forging metal have honed my endurance, allowing me to work an anvil far longer than most without tiring."),
 	TRAIT_MALUMCHOSEN = span_info("He guides my hands in my crafts, allowing for feats I'd normally not be able to achieve."),
 	TRAIT_XYLIX = span_info("I know how to speak in code that only fellow tricksters can understand."),
-	TRAIT_XYLIX_DEVOTEE = span_info("Viator smiles upon me. When there's a juncture in fate, I will be pulled toward the better outcome."),
-	TRAIT_APRICITY = span_info("Auxentius's light blesses and rejuvenates me, allowing me to regain my stamina quicker."),
+	TRAIT_XYLIX_DEVOTEE = span_info("Trickery smiles upon me. When there's a juncture in fate, I will be pulled toward the better outcome."),
+	TRAIT_APRICITY = span_info("The Sun's light blesses and rejuvenates me, allowing me to regain my stamina quicker."),
 	TRAIT_SHARPER_BLADES = span_info("My blades go dull slower, ensuring they stay sharp longer."),
 	TRAIT_BATTLEMASTER = span_info("I can use special attacks of any weapon without needing to be trained in it."),
 	TRAIT_CABAL = span_info("In secret, I have studied the ways of Her ascension."),
@@ -600,7 +593,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_VAELTITE = span_info("I can gradually recover from most injuries, so long as I am not bled dry. Divine spite towards my faith leaves me unable to receive most miracles."),
 	TRAIT_VAELTIAN_GRIT = span_info("While I still stand, there is yet hope for mankind. The stronger my willpower is, the better I can struggle through crippling wounds."),
 	TRAIT_BLACKBAGGER = span_info("I've been trained to properly abduct individuals through the use of seizing garrotes and blackbags."),
-	TRAIT_LYCANRESILENCE = span_info("Ignatius's fury flows through my veins, my wounds regenerate over time..."),
+	TRAIT_LYCANRESILENCE = span_info("The fury of the Wilds flows through my veins, my wounds regenerate over time..."),
 	TRAIT_FORTITUDE = span_info("The typical drain I feel from day to day life is lessened, my athleticism greater."),
 	TRAIT_DEPRAVED = span_info("The languid scent of Her debauchery is known to me."),
 	TRAIT_SILVER_BLESSED = span_info("I have been baptized in fire. Blessed silverdust flows through my blood, protecting me from both vampyrism and lycanthropy."),
@@ -616,12 +609,12 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_GOODCRAFTER = span_info("My hands are deft; I can craft things quicker than most."),
 	TRAIT_COUNTERCOUNTERSPELL = span_info("I automatically know when to counter Counterspells, and can do so without even thinking about it."),
 	TRAIT_UNSEEMLY = span_info("My face is ugly and makes everyone who looks at me miserable."),
-	TRAIT_HERETIC_SEER = span_info("I can tell other Unveiled followers without sharing their faith."),
+	TRAIT_HERETIC_SEER = span_info("I can tell other followers of the Forbidden without sharing their faith."),
 	TRAIT_DUALWIELDER = span_info("While wielding two one-hand weapons with at least Journeyman skill on each, I alternate attacks between them. After 4 strikes, I'll attack with both at once. My parry and dodge are reduced by 5% while holding two weapons."),
 	TRAIT_SENTINELOFWITS = span_info("My Intelligence aids in my defense. Every 2 points above 10 INT become an additional 10% chance to dodge or parry. Does not count positive buffs from potions or substances."),
 	TRAIT_KEENEARS = span_info("I've a good pair of ears, and can tell who is speaking, even when they're out of sight. I can also hear whispers from further away."),
 	TRAIT_SCREENSHAKE = span_suicide("I don't feel very steady anymore..."),
-	TRAIT_GRAVEROBBER = span_info("My experience with 'post-mortem artifact recovery' has allowed me to resist Morwenna's curse placed upon those who disturb resting places."),
+	TRAIT_GRAVEROBBER = span_info("My experience with 'post-mortem artifact recovery' has allowed me to resist the curse Death lays upon those who disturb resting places."),
 	TRAIT_PURITAN = span_info("I am an emissary of the Holy Otavan Inquisition, and the one who shepherds the local sect. With a silver psycross, I can force restrained heathens to kneel before a crucifix and proclaim their true allegiance."),
 	TRAIT_PURITAN_ADVENTURER = span_info("With a silver psycross, I can force the restrained to kneel before a crucifix and proclaim their true allegiance."),
 	TRAIT_HEARTFELT = span_info("I serve the interests of the Lord of Heartfelt."),
@@ -637,7 +630,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_NOPAIN = span_info("I feel no pain. I can endure more burns before collapsing."),
 	TRAIT_NOPAINSTUN = span_info("Pain does not impair me. I can endure more burns before collapsing."),
 	TRAIT_NOBREATH = span_info("I do not breathe."),
-	TRAIT_DEATHLESS = span_info("Even without my lyfesblood, I will not be taken by Morwenna so easily."),
+	TRAIT_DEATHLESS = span_info("Even without my lyfesblood, I will not be taken by Death so easily."),
 	TRAIT_TOXIMMUNE = span_info("Poisons do nothing to me."),
 	TRAIT_ZOMBIE_IMMUNE = span_info("Deadite bites cannot infect me."),
 	TRAIT_NOHUNGER = span_info("I do not hunger, or thirst."),
@@ -653,7 +646,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DEBTOR_BATHHOUSE = span_danger("My defaulted debt is owed to the Bathhouse. The bathmasters keep the tally."),
 	TRAIT_AGENT_MERCHANT = span_info("I am a chartered agent of the Stewardry. I keep its tally and ledger."),
 	TRAIT_AGENT_BATHHOUSE = span_info("I am an agent of the Bathhouse. I keep its tally and ledger."),
-	TRAIT_AGENT_CHURCH = span_info("I am a Benefactor of the Church of the Concordat. The faithful know my name."),
+	TRAIT_AGENT_CHURCH = span_info("I am a Benefactor of the Church of the Domains. The faithful know my name."),
 	TRAIT_ARREARS = span_smallred("I am behind on my poll tax. The Stewardry keeps the tally; the garrison may mark my destitution."),
 	TRAIT_LIGHT_STEP = span_info("My steps are light and swift. I make less noise while sneaking and wearing armor, and can sneak much quicker."),
 	TRAIT_HARDSOLE = span_info("My steps are tempered by countless trials. Stepping on glass or sharp objects won't impair me."),
@@ -672,47 +665,47 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_PERMAMUTE = span_notice("I am a mute. I cannot speak."),
 	TRAIT_STRENGTH_UNCAPPED = span_warning("MY STRENGTH IS UNBOUND!"),
 	TRAIT_MONK_ROBE = span_notice("I feel closer to the gods in my meager robes.. I feel vigorous, empowered by their light!"),
-	TRAIT_EORAN_CALM = span_notice("Miluše has touched me, granting me some calm. She protects me from the peaks of my stress."),
-	TRAIT_EORAN_SERENE = span_greentext("Miluše has blessed me with all-encompassing serenity. I feel no more stress."),
-	TRAIT_NECRAS_VOW = span_warning("I've pledged myself to Morwenna. If I fall, I am Hers."),
-	TRAIT_PESTRAS_BLESSING = span_infection("The sacred black rot of Handwerra burns within me. Should intelligent foes try to harm me, they will feel her greatest plague."),
-	TRAIT_HERESIARCH = span_warning("I've been touched by the truth of the Unveiled. Lyfe as we understand cannot persist under the Concordat's Seats or the Tribunal's Word. Something must change."),
-	TRAIT_ZURCH = span_warning("I know of sacred sites of worship where followers of the Unveiled convene, and the path to the nearest conclave is etched into my memory."),
+	TRAIT_EORAN_CALM = span_notice("Love has touched me, granting me some calm. It protects me from the peaks of my stress."),
+	TRAIT_EORAN_SERENE = span_greentext("Love has blessed me with all-encompassing serenity. I feel no more stress."),
+	TRAIT_NECRAS_VOW = span_warning("I've pledged myself to Death. If I fall, I am its own."),
+	TRAIT_PESTRAS_BLESSING = span_infection("The sacred black rot of the Healing domain burns within me. Should intelligent foes try to harm me, they will feel its greatest plague."),
+	TRAIT_HERESIARCH = span_warning("I've been touched by the truth of the Forbidden. Lyfe as we understand it cannot persist under the other domains. Something must change."),
+	TRAIT_ZURCH = span_warning("I know of sacred sites where followers of the Forbidden convene, and the path to the nearest conclave is etched into my memory."),
 	TRAIT_CAVEDWELLER = span_info("The mountains are my home. I prefer to live beneath the surface away from the sun's gaze and know the caves of this land like the back of my hand."),
-	TRAIT_CURSE_AUXENTIUS = span_warning("I am forsaken by the Sun. I will find no rest under His unwavering gaze, and my blade-arm has grown clumsy."),
-	TRAIT_CURSE_MILUSE = span_warning("I am forsaken by the Moon. I will find no salvation in Her grace, and the world has lost its beauty."),
-	TRAIT_CURSE_IGNATIUS = span_warning("I am forsaken by the Kindler. Reason and common sense abandon me."),
-	TRAIT_CURSE_WULFRIC = span_warning("I am forsaken by the Warder. His hearth will surely become my grave."),
-	TRAIT_CURSE_MORWENNA = span_warning("I am forsaken by the Ledger-Keeper. Even the lightest strike could send me into Her embrace."),
-	TRAIT_CURSE_VIATOR = span_warning("I am forsaken by the Wayward God. Misfortune follows me on every step."),
-	TRAIT_CURSE_HANDWERRA = span_warning("I am forsaken by the Maker. My hands tremble, fog overwhelms my mind, and sickness renders even the simplest of tasks into a challenge."),
+	TRAIT_CURSE_AUXENTIUS = span_warning("I am forsaken by the Sun. I will find no rest under its unwavering gaze, and my blade-arm has grown clumsy."),
+	TRAIT_CURSE_MILUSE = span_warning("I am forsaken by the Moon. I will find no salvation in its grace, and the world has lost its beauty."),
+	TRAIT_CURSE_IGNATIUS = span_warning("I am forsaken by the Wilds. Reason and common sense abandon me."),
+	TRAIT_CURSE_WULFRIC = span_warning("I am forsaken by the Sea. Its waters will surely become my grave."),
+	TRAIT_CURSE_MORWENNA = span_warning("I am forsaken by Death. Even the lightest strike could send me into its embrace."),
+	TRAIT_CURSE_VIATOR = span_warning("I am forsaken by Trickery. Misfortune follows me on every step."),
+	TRAIT_CURSE_HANDWERRA = span_warning("I am forsaken by the Craft. My hands tremble, fog overwhelms my mind, and sickness renders even the simplest of tasks into a challenge."),
 	TRAIT_EXCOMMUNICATED = span_warning("I have been excommunicated."),
-	TRAIT_CURSE_AURELIAN = span_warning("I am forsaken by the Unveiled Edge. Her grasp reaches for my heart."),
-	TRAIT_CURSE_VOLKOVOI = span_warning("I am forsaken by the Winter-Father. Bloodlust is only thing I know for real."),
-	TRAIT_CURSE_HAUSVETTE = span_warning("I am forsaken by the Hearth-Keeper. I am drowning in her promises."),
+	TRAIT_CURSE_AURELIAN = span_warning("I am forsaken by the Forbidden. Its grasp reaches for my heart."),
+	TRAIT_CURSE_VOLKOVOI = span_warning("I am forsaken by War. Bloodlust is the only thing I know for real."),
+	TRAIT_CURSE_HAUSVETTE = span_warning("I am forsaken by Love. I am drowning in its promises."),
 	// Upstream trait descriptions (for traits added as aliases above)
 	TRAIT_PSYDONIAN_GRIT = span_info("While I still stand, there is yet hope for mankind. The stronger my willpower is, the better I can struggle through crippling wounds."),
-	TRAIT_NOWW = span_info("Dendor's madness shall find no hold in me."),
+	TRAIT_NOWW = span_info("The madness of the Wilds shall find no hold in me."),
 	TRAIT_AZURENATIVE = span_info("I've grown up and lived all my lyfe in these lands. I can only trigger ambushes if I sprint through them."),
-	TRAIT_CURSE_ASTRATA = span_warning("I am forsaken by the Sun. I will find no rest under Her unwavering gaze."),
-	TRAIT_CURSE_NOC = span_warning("I am forsaken by the Moon. I will find no salvation in His grace."),
-	TRAIT_CURSE_DENDOR = span_warning("I am forsaken by the Treefather. Reason and common sense abandon me."),
-	TRAIT_CURSE_ABYSSOR = span_warning("I am forsaken by the Dreamer. His domain will surely become my grave."),
-	TRAIT_CURSE_RAVOX = span_warning("I am forsaken by the Justicar. My opponents will show me no clemency."),
-	TRAIT_CURSE_NECRA = span_warning("I am forsaken by the Undermaiden. Even the lightest strike could send me into Her embrace."),
-	TRAIT_CURSE_XYLIX = span_warning("I am forsaken by the Trickster. Misfortune follows me on every step."),
-	TRAIT_CURSE_PESTRA = span_warning("I am forsaken by the Plaguemother. Sickness overwhelms my body rendering even simplest of tasks into a challenge."),
-	TRAIT_CURSE_MALUM = span_warning("I am forsaken by the Maker. My hands tremble and fog overwhelms my mind."),
-	TRAIT_CURSE_EORA = span_warning("I am forsaken by the Lover. There is no beauty to be found for me in this world."),
-	TRAIT_CURSE_ZIZO = span_warning("I am forsaken by the Architect. Her grasp reaches for my heart."),
-	TRAIT_CURSE_GRAGGAR = span_warning("I am forsaken by the Warlord. Bloodlust is only thing I know for real."),
-	TRAIT_CURSE_MATTHIOS = span_warning("I am forsaken by the Dragon. Greed will be my only salvation."),
-	TRAIT_CURSE_BAOTHA = span_warning("I am forsaken by the Heartbreaker. I am drowning in her promises."),
-	TRAIT_ASTRATAN_AFFINITY = span_bone("My bond with Astrata is strong. I can tell who worships her from up close."),
+	TRAIT_CURSE_ASTRATA = span_warning("I am forsaken by the Sun. I will find no rest under its unwavering gaze."),
+	TRAIT_CURSE_NOC = span_warning("I am forsaken by the Moon. I will find no salvation in its grace."),
+	TRAIT_CURSE_DENDOR = span_warning("I am forsaken by the Wilds. Reason and common sense abandon me."),
+	TRAIT_CURSE_ABYSSOR = span_warning("I am forsaken by the Sea. Its depths will surely become my grave."),
+	TRAIT_CURSE_RAVOX = span_warning("I am forsaken by Law. My opponents will show me no clemency."),
+	TRAIT_CURSE_NECRA = span_warning("I am forsaken by Death. Even the lightest strike could send me into its embrace."),
+	TRAIT_CURSE_XYLIX = span_warning("I am forsaken by Trickery. Misfortune follows me on every step."),
+	TRAIT_CURSE_PESTRA = span_warning("I am forsaken by Healing. Sickness overwhelms my body, rendering even the simplest of tasks into a challenge."),
+	TRAIT_CURSE_MALUM = span_warning("I am forsaken by the Craft. My hands tremble and fog overwhelms my mind."),
+	TRAIT_CURSE_EORA = span_warning("I am forsaken by Love. There is no beauty to be found for me in this world."),
+	TRAIT_CURSE_ZIZO = span_warning("I am forsaken by the Forbidden. Its grasp reaches for my heart."),
+	TRAIT_CURSE_GRAGGAR = span_warning("I am forsaken by War. Bloodlust is the only thing I know for real."),
+	TRAIT_CURSE_MATTHIOS = span_warning("I am forsaken by Trade. Greed will be my only salvation."),
+	TRAIT_CURSE_BAOTHA = span_warning("I am forsaken by the pleasures of the Forbidden. I am drowning in their promises."),
+	TRAIT_ASTRATAN_AFFINITY = span_bone("My bond with the Sun is strong. I can tell who worships it from up close."),
 	TRAIT_INK_AFFINITY = span_info("I can thread sacred abyssorite paint splotches safely, and benefit from them."),
 	TRAIT_JACKOFALLTRADES = span_notice("Skills cost half as much for me to raise."),
 	TRAIT_BLOODLOSS_IMMUNE = span_notice("While I may bleed, I will feel nothing from it."),
-	TRAIT_AUXENTIAN_AFFINITY = span_bone("My bond with Auxentius is strong. I can tell who worships him from up close."),
+	TRAIT_AUXENTIAN_AFFINITY = span_bone("My bond with Law is strong. I can tell who worships it from up close."),
 	TRAIT_ADRENALINE_RUSH = span_notice("I'm invigorated in the midst of battle! I don't feel my wounds!"),
 	TRAIT_MEDICINE_EXPERT = span_greentext("I've deep, intricate knowledge of the medicinal arts. This skill can progress to Master and Legendary levels."),
 	TRAIT_ALCHEMY_EXPERT = span_greentext("I've deep, intricate knowledge of the alchemical arts. This skill can progress to Legendary levels."),
@@ -753,7 +746,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_VAMPIRE_SPAWN_PROTECTION = span_notice("The sun's wrath cannot touch me... for now."),
 	TRAIT_ROYAL_SUBSIDY = span_notice("I am recognized under a Crown subsidy. I hold privileged access to the Stockpile without cost, and any goods returned to it are considered service rendered to the realm. My taxes are waived where applicable."),
 	TRAIT_STANDARD_BEARER = span_info("The banner is my lifeline. Just as I am to it. The retinue know to rally around me, so long as I keep it safe."),
-	TRAIT_FOG_WARDED = span_info("I am protected from Morwenna's deadly fog. The revenants won't find me... for now."),
+	TRAIT_FOG_WARDED = span_info("I am protected from Death's deadly fog. The revenants won't find me... for now."),
 	TRAIT_ANCIENT_HAG = span_info("I know of secrets in alchemy and magyck no one else is aware of, for none are more ancient, more engrossed with the finer details of this land."),
 	TRAIT_WYRD_LABOURER = span_info("Strange power causes my swings to cut through trees and rocks with ease."),
 	TRAIT_CURSE_SCAR = span_info("That foul wench cursed me! I'll have my revenge... Those strange fog wards in the bog, what if?..."),
@@ -1092,10 +1085,10 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 // These traits come from upstream Azure-Peak code that references original god names.
 // Our codebase uses renamed gods, but upstream code needs these defines to compile.
 // They map to the same string values as upstream so trait checks work correctly.
-#define TRAIT_CURSE_ZIZO "Curse of Zizo"
-#define TRAIT_CURSE_GRAGGAR "Curse of Graggar"
-#define TRAIT_CURSE_MATTHIOS "Curse of Matthios"
-#define TRAIT_CURSE_BAOTHA "Curse of Baotha"
+#define TRAIT_CURSE_ZIZO "Forbidden-Forsaken"
+#define TRAIT_CURSE_GRAGGAR "War-Forsaken"
+#define TRAIT_CURSE_MATTHIOS "Trade-Forsaken"
+#define TRAIT_CURSE_BAOTHA "Pleasure-Forsaken"
 
 #define TRAIT_I_AM_INVISIBLE_ON_A_BOAT "invisible_on_tram"
 

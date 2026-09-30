@@ -15,10 +15,10 @@
 	target_description = "unknown"
 	summary = "I am dreaming too deep."
 	vision_text = "I stand upon the precipice of the church. \
-	It's a dae like any other. The rays of Astrata bathe the steps. \
+	It's a dae like any other. The rays of the Sun bathe the steps. \
 	Merely another humble servant of the Deepfather, that's who you are, ready to feed the congegation with his bounty yet again. \
 	But it's not just a regular day. Something feels... Off. \
-	Like the hues of gold in Astrata's banners are more vibrant, singing your eyes. \
+	Like the hues of gold in the Sun's banners are more vibrant, singing your eyes. \
 	The murmurs within the crowd grow loud and obnoxious, echoing in your skull. \
 	Yet, you persist. One of the faithful isn't so easily swayed by a little bit of nausea. \
 	Perhaps it was that morning's porridge. It wouldn't be the first time the rot of the land afflicted the golden grains. \
@@ -57,7 +57,7 @@
 	and the waters close above their heads like an impending curtain. \
 	But one among them hesitates. A young acolyte, their hand clasped around a coral pendant. \
 	They turn, and for a moment, their gaze meets mine across the span of dream and waking. \
-	'It's not Abyssor,' they whisper. 'Something else wears His voice. \
+	'It's not the Sea,' they whisper. 'Something else wears His voice. \
 	Something that learned His songs from the echoes.' \
 	The sea erupts. A shape rises. Not the Deepfather, but a mockery of Him. A creature of borrowed flesh \
 	and stolen divinity, its form a grotesque patchwork of the faithful it has claimed. \
@@ -79,16 +79,16 @@
 	return TRUE
 
 /datum/vision_quest/tier_2/orthodoxist_salvation
-	name = "Psydonic Vision"
-	description = "A psydonite stands in Abyssor's gaze. You are the prophet, you will deliver his missive."
+	name = "Old Faith Vision"
+	description = "A psydonite stands in the Sea's gaze. You are the prophet, you will deliver his missive."
 	target_description = "an Orthodoxist"
 	summary = "A psydonite's faith in the light of a true vision."
 	vision_text = "The mists part to reveal someone clad in tattered, heretical rags, their broken icons cast aside. \
 	You see them mocking the faithful, their voice loud with false certainty. But beneath the arrogance, you smell their fear. \
 	Confront them, and let them feel the truth of the waves in the flesh. \
-	\n\nSuddenly, you find yourself deep beneath the earth. A grand chamber hollowed out in rock by Malum, like a sunlit cathedral. \
+	\n\nSuddenly, you find yourself deep beneath the earth. A grand chamber hollowed out in rock by the Craft, like a sunlit cathedral. \
 	A large, elderly figure rests peacefully in a bed of gigantic, golden lilies. Soft petals embrace the skin, soothing old scars. \
-	Wounds knit closed. The life-giving sap of Psydonia rising into strong roots, carrying Dendor's vitality far and wide. \
+	Wounds knit closed. The life-giving sap of Psydonia rising into strong roots, carrying the Wilds's vitality far and wide. \
 	The old god stirs... And you must bear witness, your calloused hands gently scaling a gigantic palm. \
 	It is effortless, a journey which feels like mere moments... gliding up bits of smooth skin like a grand staircase. \
 	As if the flesh wants to be scaled, even just the thought of turning back now feels wrong. \
@@ -96,11 +96,11 @@
 	Then the jaws, parted slightly like the gate to a new dawn. With the apex in sight, the heavy air recedes, replaced by a soothing warmth. \
 	The silence you anticipate is shattered by a low, thundering breath, then the thumping heartbeat of a titan. \
 	Massive eyelids twitch, revealing a sliver of blinding radiance, basking you in His caring gaze. \
-	O Psydon, you are returning to us!"
+	O the Absent God, you are returning to us!"
 	possible_phrases = list(
-		"Psydon is alive",
-		"Dendor cares for Him",
-		"Psydon stirs"
+		"The Absent God is alive",
+		"The Wilds cares for Him",
+		"The Absent God stirs"
 	)
 	valid_roles = list("Orthodoxist","Inquisitor","Absolver")
 
@@ -213,7 +213,7 @@
 	description = "It reaches for the skies."
 	target_description = "unknown"
 	summary = "We would all benefit from a slice of His realm."
-	vision_text = "A tiny seed, Dendorites wish their were as magnificent. \
+	vision_text = "A tiny seed, Wilds faithful wish their were as magnificent. \
 	It breaches the soil, though not by spreading its roots, but by singing like The Siren. \
 	Forth comes the waters from all the seas, lapping at reality's doorstep. \
 	Staring upon unreflective waters with such longing. \
@@ -222,7 +222,7 @@
 	Crystal branches like coral. \
 	Murky reeds grow across barren rock as if grasping upon a fertile garden. \
 	Given time, even the stranger structures of one realm leak into another. \
-	Little shimmering stars. Far closer than anything Noc has divised. Trailing with tendrils. \
+	Little shimmering stars. Far closer than anything the Moon has divised. Trailing with tendrils. \
 	Budding, floating as they extend into jellies, treating the very air like it's underwater. \
 	Black ice extends into the space into massive, solid pillars. \
 	Mirrored in the structure are glimpses of the essence of the dream. \
@@ -246,7 +246,7 @@
 	description = "Lightning strikes without a sound, but the damage is reality."
 	target_description = "unknown"
 	summary = "Absolute silence turns deadly under the sky of Thunder's Dae."
-	vision_text = "The storm clouds roll over Astrata in silence. She is blind to tragedy. \
+	vision_text = "The storm clouds roll over the Sun in silence. She is blind to tragedy. \
 	You open your mouth to scream, but no sound escapes an aching throat. \
 	A lightning bolt strikes the great watchtower, there is no crack of thunder, only the silent disintegration of stone. \
 	Men fall to their knees, clutching bleeding ears in a world stripped of voice. \

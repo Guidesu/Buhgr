@@ -5,7 +5,7 @@
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/decrepit
-	name = "Decrepit Psycross"
+	name = "Decrepit Holy cross"
 	path = /obj/item/clothing/neck/roguetown/psicross/aalloy
 
 /datum/loadout_item/psicross/reform
@@ -13,56 +13,56 @@
 	path = /obj/item/clothing/neck/roguetown/psicross/reform
 
 /datum/loadout_item/psicross/auxentia
-	name = "Auxentian Psy-Bracelet"
+	name = "Sun Psy-Bracelet"
 	path = /obj/item/clothing/neck/roguetown/psicross/auxentia
 
 /datum/loadout_item/psicross/auxentius
-	name = "Amulet of Auxentius"
+	name = "Amulet of the Sun"
 	path = /obj/item/clothing/neck/roguetown/psicross/auxentius
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/noc
-	name = "Amulet of Noc"
+	name = "Amulet of the Moon"
 	path = /obj/item/clothing/neck/roguetown/psicross/miluse
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/abyssor
-	name = "Amulet of Abyssor"
+	name = "Amulet of the Sea"
 	path = /obj/item/clothing/neck/roguetown/psicross/wulfric
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/xylix
-	name = "Amulet of Xylix"
+	name = "Amulet of Trickery"
 	path = /obj/item/clothing/neck/roguetown/psicross/viator
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/ignatius
-	name = "Amulet of Ignatius"
+	name = "Amulet of the Wilds"
 	path = /obj/item/clothing/neck/roguetown/psicross/ignatius
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/necra
-	name = "Amulet of Necra"
+	name = "Amulet of Death"
 	path = /obj/item/clothing/neck/roguetown/psicross/morwenna
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/pestra
-	name = "Amulet of Pestra"
+	name = "Amulet of Healing"
 	path = /obj/item/clothing/neck/roguetown/psicross/handwerra
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/auxentius/battle
-	name = "Amulet of Auxentius, Battle"
+	name = "Amulet of the Sun, Battle"
 	path = /obj/item/clothing/neck/roguetown/psicross/auxentius
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/handwerra/malum
-	name = "Amulet of Malum"
+	name = "Amulet of the Craft"
 	path = /obj/item/clothing/neck/roguetown/psicross/handwerra
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/eora
-	name = "Amulet of Eora"
+	name = "Amulet of Love"
 	path = /obj/item/clothing/neck/roguetown/psicross/miluse
 	sort_category = "Jewelry"
 
@@ -82,17 +82,17 @@
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/matthios
-	name = "Amulet of Matthios"
+	name = "Amulet of Trade"
 	path = /obj/item/clothing/neck/roguetown/psicross/morwenna/matthios
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/graggar
-	name = "Amulet of Graggar"
+	name = "Amulet of War"
 	path = /obj/item/clothing/neck/roguetown/psicross/volkovoi
 	sort_category = "Jewelry"
 
 /datum/loadout_item/psicross/baotha
-	name = "Amulet of Baotha"
+	name = "Amulet of the Forbidden"
 	path = /obj/item/clothing/neck/roguetown/psicross/hausvette
 	sort_category = "Jewelry"
 

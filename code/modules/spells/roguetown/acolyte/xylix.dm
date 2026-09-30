@@ -64,7 +64,7 @@
 	return TRUE
 
 /mob/living/simple_animal/hostile/rogue/xylixdouble
-	name = "Xylixian Double - You shouldnt be seeing this."
+	name = "Trickery Double - You shouldnt be seeing this."
 	desc = ""
 	gender = NEUTER
 	mob_biotypes = MOB_HUMANOID
@@ -89,7 +89,7 @@
 
 
 /obj/effect/proc_holder/spell/self/xylixslip
-	name = "Xylixian Slip"
+	name = "Trickery Slip"
 	desc = "Jumps you up to 3 tiles away."
 	overlay_icon = 'icons/mob/actions/xylixmiracles.dmi'
 	action_icon = 'icons/mob/actions/xylixmiracles.dmi'
@@ -604,7 +604,7 @@
 	var/booneffect
 
 /atom/movable/screen/alert/status_effect/boon
-	name = "Xylix's Boon"
+	name = "Trickery's Boon"
 	desc = "The scales feel tipped in my favor! How lucky. (You can cheat in coinflips/dice by holding a coin/dice in your offhand, and then right clicking the coin/dice while an empty hand is active!)"
 	icon_state = "asleep"
 
@@ -627,7 +627,7 @@
 	var/woeeffect
 
 /atom/movable/screen/alert/status_effect/woe
-	name = "Xylix's Woe"
+	name = "Trickery's Woe"
 	desc = "That damned fool has tipped the scales out of my favor, this day cannot get any worse..."
 	icon_state = "asleep"
 

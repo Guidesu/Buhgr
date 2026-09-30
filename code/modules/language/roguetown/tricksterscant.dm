@@ -1,6 +1,6 @@
 /datum/language/tricksterscant
 	name = "Trickster's Cant"
-	desc = "A gift from Xylix to mortals in His service, often used by slaves to organize rebellions against their masters right under their noses."
+	desc = "A gift from Trickery to mortals in His service, often used by slaves to organize rebellions against their masters right under their noses."
 	speech_verb = "says"
 	ask_verb = "asks"
 	exclaim_verb = "yells"

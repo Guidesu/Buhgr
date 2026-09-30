@@ -635,7 +635,7 @@ const ControlRack = ({ controlsLocked }: ControlRackProps) => {
           </Stack.Item>
         </Stack>
       </Stack.Item>
-      {isLocked && (
+      {!!isLocked && (
         <Stack.Item>
           <Box color="label" textAlign="center" mt={1}>
             Stand next to the auto anvil to use its controls.

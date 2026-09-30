@@ -28,7 +28,7 @@
 	)
 
 /datum/round_event_control/antagonist/solo/zizo_cult/lackey
-	name = "Zizo Cult lackey"
+	name = "Forbidden Cult lackey"
 	tags = list(
 		TAG_COMBAT,
 		TAG_HAUNTED,

@@ -33,7 +33,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/ravox
 	name = "echo of triumph"
-	desc = "It is said that when Auxentius killed Graggar, thousands of swords were broken into pieces,\
+	desc = "It is said that when the Sun killed War, thousands of swords were broken into pieces,\
 	and the Warrior-God himself reforged them into smaller blades to be wielded by his most honorable followers.\
 	This dagger is reforged in the same manner - reforged from the blade of a broken greatsword, and then tempered with holy steel\n\n\
 	Broken, Reforged, Tempered."
@@ -43,7 +43,7 @@
 /obj/item/rogueweapon/huntingknife/idagger/steel/malum
 	name = "embertongue"
 	desc = "A wavy dagger forged with an unnatural curve. Such curve is hard to maintain and keep right on a dagger -\
-	a true sign of the mastery of the smith. Surely, Malum looks favorably upon such a blade."
+	a true sign of the mastery of the smith. Surely, the Craft looks favorably upon such a blade."
 	icon = 'icons/roguetown/weapons/templar_daggers32.dmi'
 	icon_state = "malum_dagger"
 
@@ -72,20 +72,20 @@
 /obj/item/rogueweapon/huntingknife/idagger/steel/noc_twilight
 	name = "twilight fang"
 	desc = "A large blade with the profile of a rondel dagger. A rondel is not oft thrown, but this blade is unnaturally light when hurled, yet heavy and stiff when wielded.\
-	Noc's faithful find it suits them well."
+	the Moon's faithful find it suits them well."
 	icon = 'icons/roguetown/weapons/templar_daggers32.dmi'
 	icon_state = "noc_dagger"
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/eora_misericorde
 	name = "misericorde"
 	desc = "A parrying dagger created to be used in the free hand and deliver mercy to the foes you've bested.\
-	Eora's love protects; her grace absolves."
+	Love's love protects; her grace absolves."
 	icon = 'icons/roguetown/weapons/templar_daggers32.dmi'
 	icon_state = "eora_dagger"
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/devilsknife
 	name = "devilsknife"
-	desc = "More a sickle than a knife. It is said that Xylix once won these in a game of chance against an archdevil.\
+	desc = "More a sickle than a knife. It is said that Trickery once won these in a game of chance against an archdevil.\
 	These are simple reproductions, with jingling bells attached to the blades."
 	icon = 'icons/roguetown/weapons/templar_daggers32.dmi'
 	icon_state = "devilsknife"

@@ -111,13 +111,13 @@ export const CategoryViewer = (props: CategoryViewerProps) => {
                         <p font-family="Courier">{entry.message}</p>
                       </Stack.Item>
                       <Stack.Item>
-                        {entry.semver && (
+                        {!!entry.semver && (
                           <Stack.Item>
                             <JsonViewer data={entry.semver} title="Semver" />
                           </Stack.Item>
                         )}
                       </Stack.Item>
-                      {entry.data && (
+                      {!!entry.data && (
                         <Stack.Item>
                           <JsonViewer data={entry.data} title="Data" />
                         </Stack.Item>

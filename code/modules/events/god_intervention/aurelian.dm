@@ -1,6 +1,6 @@
 // Direct rename of the old Zizo's Defilement / Pet Cementery intervention events.
 /datum/round_event_control/aurelian_defilement
-	name = "Aurelian's Defilement"
+	name = "The Forbidden's Defilement"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/aurelian_defilement
 	weight = 4
@@ -13,7 +13,7 @@
 	SSmapping.add_world_trait(/datum/world_trait/aurelian_defilement, 15 MINUTES)
 
 /datum/round_event_control/aurelian_pet_cementery
-	name = "Aurelian's Pet Cementery"
+	name = "The Forbidden's Pet Cementery"
 	typepath = /datum/round_event/aurelian_pet_cementery
 	weight = 6
 	earliest_start = 25 MINUTES

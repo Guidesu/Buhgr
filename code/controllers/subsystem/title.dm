@@ -43,8 +43,23 @@ SUBSYSTEM_DEF(title)
 
 	if(splash_turf)
 		splash_turf.icon = icon
+		fit_splash(splash_turf)
 
 	return ..()
+
+/// Title art larger than the 480px lobby view is shrunk to fit, so the client
+/// has extra detail to draw from when it scales the view up.
+/datum/controller/subsystem/title/proc/fit_splash(turf/T)
+	if(!T || !icon)
+		return
+	var/w = icon.Width()
+	var/h = icon.Height()
+	if(w <= 480 && h <= 480)
+		T.transform = null
+		return
+	var/s = 480 / max(w, h)
+	// Transforms scale around the icon's centre; shift it back to the corner.
+	T.transform = matrix(s, 0, -(w - 480) / 2, 0, s, -(h - 480) / 2)
 
 /datum/controller/subsystem/title/vv_edit_var(var_name, var_value)
 	. = ..()

@@ -456,7 +456,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/robe/eora/resprite
 	name = "eoran robe"
-	desc = "Holy robes, intended for use by followers of Eora"
+	desc = "Holy robes, intended for use by followers of Love"
 	icon_state = "robe_blue"
 	icon = 'modular_twilight_axis/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/icons/roguetown/clothing/onmob/shirts.dmi'
@@ -466,7 +466,7 @@
 	switch(fanatic_wear)
 		if(FALSE)
 			name = "open eoran robe"
-			desc = "Used by more radical followers of the Eoran Church"
+			desc = "Used by more radical followers of the Love Church"
 			body_parts_covered = null
 			icon_state = "straps_blue"
 			fanatic_wear = TRUE
@@ -474,7 +474,7 @@
 			to_chat(usr, span_warning("Now wearing radically!"))
 		if(TRUE)
 			name = "eoran robe"
-			desc = "Holy robes, intended for use by followers of Eora"
+			desc = "Holy robes, intended for use by followers of Love"
 			body_parts_covered = CHEST|GROIN|ARMS|LEGS|VITALS
 			icon_state = "robe_blue"
 			fanatic_wear = FALSE
@@ -487,7 +487,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/robe/eora/resprite/pink
 	name = "eoran robe"
-	desc = "Holy robes, intended for use by followers of Eora"
+	desc = "Holy robes, intended for use by followers of Love"
 	icon_state = "robe_pink"
 	icon = 'modular_twilight_axis/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/icons/roguetown/clothing/onmob/shirts.dmi'
@@ -497,7 +497,7 @@
 	switch(fanatic_wear)
 		if(FALSE)
 			name = "open eoran robe"
-			desc = "Used by more radical followers of the Eoran Church"
+			desc = "Used by more radical followers of the Love Church"
 			body_parts_covered = null
 			icon_state = "straps_pink"
 			fanatic_wear = TRUE
@@ -505,7 +505,7 @@
 			to_chat(usr, span_warning("Now wearing radically!"))
 		if(TRUE)
 			name = "eoran robe"
-			desc = "Holy robes, intended for use by followers of Eora"
+			desc = "Holy robes, intended for use by followers of Love"
 			body_parts_covered = CHEST|GROIN|ARMS|LEGS|VITALS
 			icon_state = "robe_pink"
 			fanatic_wear = FALSE

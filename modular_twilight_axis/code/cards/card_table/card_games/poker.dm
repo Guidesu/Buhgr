@@ -11,7 +11,7 @@
 	if(new_card)
 		player.hand += list(new_card)
 	player.draws_used = 1
-	message = "[player.name]  ."
+	message = "[player.name] swaps a card."
 	return TRUE
 
 /datum/card_table_session/proc/poker_ready(mob/user)
@@ -19,7 +19,7 @@
 	if(stage != CARD_TABLE_STAGE_PLAYING || game_type != CARD_TABLE_GAME_POKER || !player)
 		return FALSE
 	player.ready = TRUE
-	message = "[player.name] ."
+	message = "[player.name] is ready."
 	for(var/datum/card_table_player/P in players)
 		if(P.left)
 			continue
@@ -78,7 +78,7 @@
 			break
 		community_cards += list(new_card)
 		if(poker_reset_betting_round())
-			message = "   [community_cards.len]/5.   ."
+			message = "A community card is revealed [community_cards.len]/5. New betting round."
 			return
 	poker_finish()
 
@@ -113,7 +113,7 @@
 	player.poker_total_bet += delta
 	player.poker_bet = poker_current_bet
 	player.ready = TRUE
-	message = poker_current_bet ? "[player.name]  ." : "[player.name]  ."
+	message = poker_current_bet ? "[player.name] calls." : "[player.name] checks."
 	poker_next_turn()
 	return TRUE
 
@@ -133,7 +133,7 @@
 			other.ready = FALSE
 	player.poker_bet = poker_current_bet
 	player.ready = TRUE
-	message = "[player.name]  [amount]."
+	message = "[player.name] bets [amount]."
 	poker_next_turn()
 	return TRUE
 
@@ -144,7 +144,7 @@
 	var/success = poker_bet(user, max(poker_current_bet + 100, player.poker_bet + 100))
 	if(success)
 		player.poker_all_in = TRUE
-		message = "[player.name]  -."
+		message = "[player.name] goes all in."
 	return success
 
 /datum/card_table_session/proc/poker_fold(mob/user)
@@ -154,7 +154,7 @@
 	player.poker_folded = TRUE
 	player.ready = TRUE
 	player.result = "Fold"
-	message = "[player.name]   ."
+	message = "[player.name] folds."
 	poker_next_turn()
 	return TRUE
 
@@ -171,7 +171,7 @@
 			player.hand += list(new_card)
 		player.draws_used = 1
 	player.ready = TRUE
-	message = "[player.name]  ."
+	message = "[player.name] ends their turn."
 	for(var/datum/card_table_player/P in players)
 		if(P.left)
 			continue
@@ -245,4 +245,4 @@
 			P.result = (P == winner) ? "Winner" : "Lost"
 	stage = CARD_TABLE_STAGE_FINISHED
 	var/winner_name = winner ? winner.name : "Nobody"
-	message = "[winner_name]  ."
+	message = "[winner_name] wins the hand."

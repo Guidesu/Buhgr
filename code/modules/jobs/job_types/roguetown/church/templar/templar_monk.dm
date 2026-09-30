@@ -26,7 +26,7 @@
 		/datum/skill/magic/holy = SKILL_LEVEL_JOURNEYMAN,
 	)
 	subclass_stashed_items = list(
-		"The Verses and Acts of the Ten" = /obj/item/book/rogue/bibble,
+		"The Verses and Acts of the Domains" = /obj/item/book/rogue/bibble,
 	)
 	extra_context = "This subclass can choose from multiple disciplines. The further your chosen discipline strays from unarmed combat, however, the greater your skills in fistfighting and wrestling will atrophy. Taking a Quarterstaff provides a minor bonus to Perception, but removes the 'Dodge Expert' trait."
 

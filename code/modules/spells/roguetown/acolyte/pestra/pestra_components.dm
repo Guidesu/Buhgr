@@ -73,7 +73,7 @@
 
 	var/obj/effect/proc_holder/spell/invoked/divine_rebirth/new_spell = new()
 	parent_mob.mind.AddSpell(new_spell)
-	to_chat(parent_mob, span_notice("As the infestation of Pestra festers within me, I feel new power well into my core! [new_spell.name] is now available."))
+	to_chat(parent_mob, span_notice("As the infestation of Healing festers within me, I feel new power well into my core! [new_spell.name] is now available."))
 
 /datum/component/infestation_charges/proc/remove_divine_rebirth()
 	if(!parent_mob?.mind)
@@ -202,7 +202,7 @@
 	else
 		remove_visuals()
 		parent_mob.remove_status_effect(/datum/status_effect/buff/black_rot_carrier)
-		to_chat(parent_mob, span_warning("You suppress your connection to Pestra, hiding its presence."))
+		to_chat(parent_mob, span_warning("You suppress your connection to Healing, hiding its presence."))
 		ADD_TRAIT(parent_mob, TRAIT_SPELLCOCKBLOCK, INNATE_TRAIT)
 
 /datum/component/infestation_black_rot/proc/on_attack_success(mob/living/user, mob/living/target)

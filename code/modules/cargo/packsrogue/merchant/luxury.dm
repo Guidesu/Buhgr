@@ -32,12 +32,12 @@
 	/obj/item/reagent_containers/glass/cup/ceramic/fancy)
 
 /datum/supply_pack/rogue/luxury/silverpsicross
-	name = "Silver Psycross"
+	name = "Silver Holy cross"
 	cost = 250
 	contains = list(/obj/item/clothing/neck/roguetown/psicross/silver)
 
 /datum/supply_pack/rogue/luxury/silverastcross
-	name = "Silver Amulet of Auxentius"
+	name = "Silver Amulet of the Sun"
 	cost = 250
 	contains = list(/obj/item/clothing/neck/roguetown/psicross/silver/auxentius)
 
@@ -47,12 +47,12 @@
 	contains = list(/obj/item/clothing/neck/roguetown/psicross/silver/custodius)
 
 /datum/supply_pack/rogue/luxury/silvernecracross
-	name = "Silver Amulet of Necra"
+	name = "Silver Amulet of Death"
 	cost = 250
 	contains = list(/obj/item/clothing/neck/roguetown/psicross/silver/morwenna)
 
 /datum/supply_pack/rogue/luxury/silvernoccross
-	name = "Blessed Amulet of Noc"
+	name = "Blessed Amulet of the Moon"
 	cost = 250
 	contains = list(/obj/item/clothing/neck/roguetown/psicross/silver/miluse)
 

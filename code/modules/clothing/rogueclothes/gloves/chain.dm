@@ -31,7 +31,7 @@
 
 /obj/item/clothing/gloves/roguetown/chain/paalloy
 	name = "ancient chain gauntlets"
-	desc = "Polished gilbranze rings, delicately daisy-chained together into mittens. The filament is ruptured, and it will never heal; Zizo's ascension made sure of that. By the hands of Her disciples, the final obstacle preventing this world's salvation shall be dismantled - lyfe."
+	desc = "Polished gilbranze rings, delicately daisy-chained together into mittens. The filament is ruptured, and it will never heal; the Forbidden's ascension made sure of that. By the hands of Her disciples, the final obstacle preventing this world's salvation shall be dismantled - lyfe."
 	icon_state = "acgloves"
 	smeltresult = /obj/item/ingot/aaslag
 

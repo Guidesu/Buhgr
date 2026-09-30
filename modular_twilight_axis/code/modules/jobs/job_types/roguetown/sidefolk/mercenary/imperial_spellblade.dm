@@ -1,12 +1,12 @@
 /datum/advclass/mercenary/imperial_spellblade
 	name = "Imperial Spellblade"
-	tutorial = "Zybantian warriors of blade and arcana long ago attracted the attention of Grenzelhoft, and you, imitating and parodying their style, honed your skills with blade and arcana at the Imperial Academy of Arcana in accordance with the teachings of the Zybantian Orders of Noc, after which you set out on the road to earn your living through the use of your extraordinary abilities."
+	tutorial = "Zybantian warriors of blade and arcana long ago attracted the attention of Grenzelhoft, and you, imitating and parodying their style, honed your skills with blade and arcana at the Imperial Academy of Arcana in accordance with the teachings of the Zybantian Orders of the Moon, after which you set out on the road to earn your living through the use of your extraordinary abilities."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_patrons = list(/datum/patron/inhumen/zizo, /datum/patron/divine/noc)
 	outfit = /datum/outfit/job/roguetown/mercenary/imperial_spellblade
 	maximum_possible_slots = 1 
 	class_select_category = CLASS_CAT_GRENZELHOFT
-	extra_context = "This class requires the patron Noc or Zizo. This mercenary class has a choice between two playstyles: light armor with Dodge Expert or medium armor with Maille Training."
+	extra_context = "This class requires the patron the Moon or the Forbidden. This mercenary class has a choice between two playstyles: light armor with Dodge Expert or medium armor with Maille Training."
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_ARCYNE)
 	subclass_stats = list(

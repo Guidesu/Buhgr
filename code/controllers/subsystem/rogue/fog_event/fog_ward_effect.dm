@@ -107,8 +107,8 @@
 
 /obj/effect/proc_holder/spell/invoked/fog_ward
 	name = "Ward of the Undermaiden"
-	desc = "Call upon Necra to manifest a holy mist that dispels fog phantoms and prevents ambushes. Allies must stay close to you to maintain protection."
-	invocations = list("Necra, clear the path!", "Be gone, shades of the mist!")
+	desc = "Call upon Death to manifest a holy mist that dispels fog phantoms and prevents ambushes. Allies must stay close to you to maintain protection."
+	invocations = list("Death, clear the path!", "Be gone, shades of the mist!")
 	devotion_cost = 150
 	recharge_time = 3 MINUTES
 	chargetime = 2 SECONDS

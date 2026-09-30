@@ -202,15 +202,15 @@ const DecreeCard = (props: DecreeCardProps) => {
           {buttonLabel}
         </button>
       </div>
-      {decree.mechanical && (
+      {!!decree.mechanical && (
         <div style={mechanicalStyle}>{decree.mechanical}</div>
       )}
-      {onCooldown && (
+      {!!onCooldown && (
         <div style={{ fontSize: FONT_BODY, color: SEAL_AMBER }}>
           Cooldown: {formatCooldown(cooldownLeft)}
         </div>
       )}
-      {decree.flavor && (
+      {!!decree.flavor && (
         <>
           <span
             style={flavorToggleStyle}
@@ -218,7 +218,7 @@ const DecreeCard = (props: DecreeCardProps) => {
           >
             {expanded ? '▼ Hide charter text' : '▶ Read charter text'}
           </span>
-          {expanded && <div style={flavorBodyStyle}>{decree.flavor}</div>}
+          {!!expanded && <div style={flavorBodyStyle}>{decree.flavor}</div>}
         </>
       )}
     </div>

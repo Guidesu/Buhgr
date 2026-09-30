@@ -5,7 +5,7 @@
 /datum/action/cooldown/spell/conjure_arcyne_ward
 	source_aspect = /datum/magic_aspect/pseudo/wards
 	name = "Conjure Arcyne Ward"
-	desc = "Conjure an invisible chi ward that covers your entire body. Cast again to dismiss it. \
+	desc = "Conjure an invisible arcyne ward that covers your entire body. Cast again to dismiss it. \
 	The ward withdraws from areas where you wear real armor, leaving those to your equipment instead - \
 	a helmet replaces head coverage, a mask replaces face coverage, gauntlets replace hand coverage, \
 	arm armor replaces arm coverage, leg armor replaces leg coverage, and boots replace foot coverage. \
@@ -109,7 +109,7 @@
 	if(conjured_ward && !QDELETED(conjured_ward))
 		var/integrity_ratio = conjured_ward.obj_integrity / conjured_ward.max_integrity
 		H.say(dismiss_invocation, forced = "spell", language = /datum/language/common)
-		to_chat(owner, span_notice("I dismiss my chi ward."))
+		to_chat(owner, span_notice("I dismiss my arcyne ward."))
 		conjured_ward.dismissed = TRUE
 		qdel(conjured_ward)
 		// Cooldown scales inversely with remaining integrity - full HP = no cooldown, 0 HP = full cooldown
@@ -127,7 +127,7 @@
 			return FALSE
 
 	// Toggle on - conjure ward, no cooldown (button stays available for dismiss)
-	owner.visible_message(span_notice("An chi ward shimmers into existence around [owner]!"))
+	owner.visible_message(span_notice("An arcyne ward shimmers into existence around [owner]!"))
 	conjured_ward = new ward_type(H)
 	H.skin_armor = conjured_ward
 	conjured_ward.setup_ward(H)
@@ -139,16 +139,16 @@
 
 /datum/action/cooldown/spell/conjure_arcyne_ward/Destroy()
 	if(conjured_ward && !QDELETED(conjured_ward))
-		conjured_ward.visible_message(span_warning("The chi ward flickers and fades!"))
+		conjured_ward.visible_message(span_warning("The arcyne ward flickers and fades!"))
 		qdel(conjured_ward)
 	QDEL_NULL(regen_action)
 	return ..()
 
 /datum/action/cooldown/spell/conjure_arcyne_ward/dragonhide
 	name = "Conjure Dragonhide Ward"
-	desc = "Conjure a dragonhide ward - an upgraded chi ward hardened with draconic scales. \
+	desc = "Conjure a dragonhide ward - an upgraded arcyne ward hardened with draconic scales. \
 	Grants fire resistance, halving fire damage and causing flames to burn out faster and bolsters constitution. 300 integrity. \
-	Otherwise functions as a standard chi ward - yields coverage to real armor, does not regenerate. \
+	Otherwise functions as a standard arcyne ward - yields coverage to real armor, does not regenerate. \
 	Cast again to dismiss. Cooldown begins when dismissed or destroyed."
 	button_icon_state = "conjure_dragonhide"
 	spell_color = GLOW_COLOR_METAL
@@ -162,9 +162,9 @@
 
 /datum/action/cooldown/spell/conjure_arcyne_ward/crystalhide
 	name = "Conjure Crystalhide Ward"
-	desc = "Conjure a crystalhide ward - an upgraded chi ward crystallized with spirit line energy. \
+	desc = "Conjure a crystalhide ward - an upgraded arcyne ward crystallized with leyline energy. \
 	Grants brigandine-tier protection and bolsters intelligence. Shatters violently when broken, knocking back nearby foes. 300 integrity. \
-	Otherwise functions as a standard chi ward - yields coverage to real armor, does not regenerate. \
+	Otherwise functions as a standard arcyne ward - yields coverage to real armor, does not regenerate. \
 	Cast again to dismiss. Cooldown begins when dismissed or destroyed."
 	button_icon_state = "conjure_dragonhide"
 	spell_color = GLOW_COLOR_ARCANE
@@ -318,8 +318,8 @@
 // --- The Ward Item ---
 
 /obj/item/clothing/suit/roguetown/armor/manual/arcyne_ward
-	name = "chi ward"
-	desc = "An invisible barrier of chi energy protecting the wearer."
+	name = "arcyne ward"
+	desc = "An invisible barrier of arcyne energy protecting the wearer."
 	icon_state = null
 	break_sound = 'sound/magic/magic_nulled.ogg'
 
@@ -451,7 +451,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/manual/arcyne_ward/dragonhide
 	name = "dragonhide ward"
-	desc = "An chi ward hardened with draconic scales. Resistant to flame."
+	desc = "An arcyne ward hardened with draconic scales. Resistant to flame."
 	armor = ARMOR_DRAGONHIDE
 	max_integrity = UPGRADE_ARCYNE_INTEGRITY
 	ward_color = GLOW_COLOR_FIRE
@@ -470,7 +470,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/manual/arcyne_ward/crystalhide
 	name = "crystalhide ward"
-	desc = "An chi ward crystallized with spirit line energy. Tough against blunt force but less rigid than plate. Shatters violently when broken."
+	desc = "An arcyne ward crystallized with leyline energy. Tough against blunt force but less rigid than plate. Shatters violently when broken."
 	armor = ARMOR_BRIGANDINE
 	max_integrity = UPGRADE_ARCYNE_INTEGRITY
 	ward_color = GLOW_COLOR_KINESIS

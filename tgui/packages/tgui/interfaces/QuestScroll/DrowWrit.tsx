@@ -111,7 +111,7 @@ export const DrowWrit = (props: {
         />{' '}
         be paid.
       </p>
-      {hasRecoveryAddendum && (
+      {!!hasRecoveryAddendum && (
         <RecoveryAddendum
           shipment={recoveryShipment}
           destination={recoveryDestination}

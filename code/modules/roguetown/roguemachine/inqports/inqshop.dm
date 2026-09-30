@@ -482,12 +482,12 @@
 	detail_color = "#99b2b1"
 
 /datum/inqports/wardrobe/psycross
-	name = "1 Psycross"
+	name = "1 Holy cross"
 	item_type = /obj/item/clothing/neck/roguetown/psicross
 	marquescost = 2
 
 /datum/inqports/wardrobe/psycrosssilver
-	name = "1 Silver Psycross"
+	name = "1 Silver Holy cross"
 	item_type = /obj/item/clothing/neck/roguetown/psicross/silver
 	marquescost = 12
 
@@ -527,7 +527,7 @@
 	marquescost = 6
 
 /datum/inqports/wardrobe/praecursorhelms
-	name = "The 'Greathelms of Praecursor' Crate"
+	name = "The 'Greathelms of the Absent God' Crate"
 	item_type = /obj/structure/closet/crate/chest/inqcrate/equipment/praecursorhelms
 	marquescost = 12
 	maximum = 1

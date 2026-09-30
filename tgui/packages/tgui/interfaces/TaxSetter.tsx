@@ -74,7 +74,7 @@ export const TaxSetter = (props: any, context: any) => {
             Tax rates may only be changed once per day - choose wisely.
           </div>
 
-          {onCooldown && (
+          {!!onCooldown && (
             <div
               style={{
                 background: 'rgba(140,60,30,0.12)',

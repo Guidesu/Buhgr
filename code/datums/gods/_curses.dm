@@ -70,38 +70,38 @@
 // Necra+Matthios merged into Morwenna (see Old Kin / Tribunal sections below for the rest).
 
 /datum/curse/auxentius
-	name = "Curse of Auxentius"
-	description = "I am forsaken by the Sun and His Law. I will find no rest under His unwavering gaze, and my opponents will show me no clemency."
+	name = "Curse of the Sun"
+	description = "I am forsaken by the Sun and by Law. I will find no rest under their unwavering gaze, and my opponents will show me no clemency."
 	trait = TRAIT_CURSE_AUXENTIUS
 
 /datum/curse/miluse
-	name = "Curse of Miluše"
-	description = "I am forsaken by the Moon. I will find no salvation in Her grace, and no beauty in this world."
+	name = "Curse of the Moon"
+	description = "I am forsaken by the Moon. I will find no salvation in its grace, and no beauty in this world."
 	trait = TRAIT_CURSE_MILUSE
 
 /datum/curse/ignatius
-	name = "Curse of Ignatius"
-	description = "I am forsaken by the Restless One. Reason and common sense abandon me."
+	name = "Curse of the Wilds"
+	description = "I am forsaken by the Wilds. Reason and common sense abandon me."
 	trait = TRAIT_CURSE_IGNATIUS //Needs something unique but come up with it later:tm:
 
 /datum/curse/wulfric
-	name = "Curse of Wulfric"
-	description = "I am forsaken by the Hearth-Warden. His domain will surely become my grave."
+	name = "Curse of the Sea"
+	description = "I am forsaken by the Sea. Its waters will surely become my grave."
 	trait = TRAIT_CURSE_WULFRIC
 
 /datum/curse/morwenna
-	name = "Curse of Morwenna"
-	description = "I am forsaken by the Undermaiden. Even the lightest strike could send me into Her embrace, and greed will be my only salvation."
+	name = "Curse of Death"
+	description = "I am forsaken by Death. Even the lightest strike could send me into its embrace, and greed will be my only salvation."
 	trait = TRAIT_CURSE_MORWENNA //Should be crit weakness still just flavour:tm:
 
 /datum/curse/viator
-	name = "Curse of Viator"
-	description = "I am forsaken by the Wayfarer. Misfortune follows me on every step."
+	name = "Curse of Trickery"
+	description = "I am forsaken by Trickery. Misfortune follows me on every step."
 	trait = TRAIT_CURSE_VIATOR
 
 /datum/curse/handwerra
-	name = "Curse of Handwerra"
-	description = "I am forsaken by the Maker. My hands tremble, fog overwhelms my mind, and sickness renders even the simplest of tasks a challenge."
+	name = "Curse of the Craft"
+	description = "I am forsaken by the Craft. My hands tremble, fog overwhelms my mind, and sickness renders even the simplest of tasks a challenge."
 	trait = TRAIT_CURSE_HANDWERRA
 
 //////////////////////////
@@ -109,18 +109,18 @@
 //////////////////////////
 
 /datum/curse/aurelian
-	name = "Curse of Aurelian"
-	description = "I am forsaken by the Unveiled Edge. Her grasp reaches for my heart."
+	name = "Curse of the Forbidden"
+	description = "I am forsaken by the Forbidden. Its grasp reaches for my heart."
 	trait = TRAIT_CURSE_AURELIAN
 
 /datum/curse/volkovoi
-	name = "Curse of Volkovoi"
-	description = "I am forsaken by the Winter-Father. Bloodlust is only thing I know for real."
+	name = "Curse of War"
+	description = "I am forsaken by War. Bloodlust is the only thing I know for real."
 	trait = TRAIT_CURSE_VOLKOVOI
 
 /datum/curse/hausvette
-	name = "Curse of Hausvette"
-	description = "I am forsaken by the Hearth-Keeper. I am drowning in her promises."
+	name = "Curse of Love"
+	description = "I am forsaken by Love. I am drowning in its promises."
 	trait = TRAIT_CURSE_HAUSVETTE
 
 //////////////////////

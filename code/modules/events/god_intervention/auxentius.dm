@@ -1,6 +1,6 @@
 // Merge of the old Auxentius (auxentius_grandeur) and Auxentius (auxentius_resolve) intervention events.
 /datum/round_event_control/auxentius_grandeur
-	name = "Auxentius's Grandeur"
+	name = "The Sun's Grandeur"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/auxentius_grandeur
 	weight = 8
@@ -31,11 +31,11 @@
 
 		human_mob.add_stress(/datum/stressevent/auxentius_grandeur)
 
-		to_chat(human_mob, span_notice("Auxentius shines brightly todae - and just as he sits first among the Six Seats, so must you guide others with a firm hand. The Sun Lord demands no less from those who bask in his glory."))
+		to_chat(human_mob, span_notice("The Sun shines brightly todae - and just as he sits first among the Six Seats, so must you guide others with a firm hand. The Sun Lord demands no less from those who bask in his glory."))
 		human_mob.playsound_local(human_mob, 'sound/magic/bless.ogg', 100)
 
 /datum/round_event_control/auxentius_resolve
-	name = "Auxentius's Resolve"
+	name = "The Sun's Resolve"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/auxentius_resolve
 	weight = 8
@@ -77,5 +77,5 @@
 	weakest.change_stat(STATKEY_STR, 1)
 	weakest.change_stat(STATKEY_WIL, 1)
 	weakest.change_stat(STATKEY_CON, 1)
-	to_chat(weakest, span_green("You may be weak compared to your fellow warriors of justice, but still you persevere. Auxentius honors those who fight even when victory seems impossible. Let his gift of strength be your whetstone — now strike!"))
+	to_chat(weakest, span_green("You may be weak compared to your fellow warriors of justice, but still you persevere. The Sun honors those who fight even when victory seems impossible. Let his gift of strength be your whetstone — now strike!"))
 	weakest.playsound_local(weakest, 'sound/vo/male/knight/rage (6).ogg', 70)

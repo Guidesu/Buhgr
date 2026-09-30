@@ -151,7 +151,7 @@
 
 /datum/action/cooldown/spell/ravox/provocation
 	name = "Provocation"
-	desc = "Declare the measure by which Ravox will weigh me against my foes. Choose between the Trial of Glory (brawn) or the Trial of Wits (mind). This choice is made once and cannot be unmade."
+	desc = "Declare the measure by which Law will weigh me against my foes. Choose between the Trial of Glory (brawn) or the Trial of Wits (mind). This choice is made once and cannot be unmade."
 	fluff_desc = "No duel pleases Him where one side was never in danger. Before He grants His judgement, He asks only which scale you would be set upon."
 	button_icon_state = "provocation"
 
@@ -180,7 +180,7 @@
 		return FALSE
 
 	choosingspell = TRUE
-	var/choice = tgui_alert(owner, "By which measure shall Ravox weigh you?", "DECLARE THE TRIAL", list("Trial of Glory", "Trial of Wits", "Cancel"))
+	var/choice = tgui_alert(owner, "By which measure shall Law weigh you?", "DECLARE THE TRIAL", list("Trial of Glory", "Trial of Wits", "Cancel"))
 	choosingspell = FALSE
 
 	switch(choice)
@@ -292,7 +292,7 @@
 	secondary_resource_cost = SPELLCOST_CANTRIP
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("By Auxentius, stand and face me!")
+	invocations = list("By the Sun, stand and face me!")
 
 	charge_required = TRUE
 	charge_time = 1 SECONDS
@@ -326,7 +326,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/auxentius_provocation
 	name = "Provocation"
-	desc = "All hostile creatures are targeting me! For Auxentius!"
+	desc = "All hostile creatures are targeting me! For the Sun!"
 	icon_state = "provocation"
 
 /datum/status_effect/buff/auxentius_provocation
@@ -347,7 +347,7 @@
 	. = ..()
 
 /datum/status_effect/buff/auxentius_prv/on_apply(assocskill)
-	to_chat(owner, span_info("For Auxentius!"))
+	to_chat(owner, span_info("For the Sun!"))
 	. = ..()
 
 
@@ -358,7 +358,7 @@
 /datum/action/cooldown/spell/auxentius/battle/strikeoraegis
 	name = "Tools of Justice"
 	desc = "Choose between Justicar's Judgement (Divine Strike) or Justicar's Aegis (Shield)."
-	fluff_desc = "The first gift to men, a sliver of His radiance at fingertips of those devoted to His wae of lyfe. Some sae it was Morwenna who forced Auxentius's hand in relinquishing such force to lowly mortals."
+	fluff_desc = "The first gift to men, a sliver of His radiance at fingertips of those devoted to His wae of lyfe. Some sae it was Death who forced the Sun's hand in relinquishing such force to lowly mortals."
 	button_icon_state = "judgement_aegis"
 
 	click_to_activate = FALSE
@@ -422,7 +422,7 @@
 	secondary_resource_cost = SPELLCOST_CANTRIP
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("By Auxentius, face judgement!")
+	invocations = list("By the Sun, face judgement!")
 
 	charge_required = FALSE
 	cooldown_time = 1 MINUTES
@@ -493,7 +493,7 @@
 	qdel(src)
 
 /atom/movable/screen/alert/status_effect/debuff/judgement
-	name = "Auxentius's Burden"
+	name = "The Sun's Burden"
 	desc = "My arms and legs are restrained by divine chains!"
 	icon_state = "restrained"
 
@@ -535,7 +535,7 @@
 
 	secondary_resource_cost = SPELLCOST_CONJURE
 
-	invocations = list("Auxentius, grant me your bulwark!")
+	invocations = list("The Sun, grant me your bulwark!")
 	invocation_type = INVOCATION_SHOUT
 
 	charge_required = TRUE
@@ -575,13 +575,13 @@
 	S.AddComponent(/datum/component/conjured_item, null, TRUE, H, src)
 	H.put_in_hands(S)
 	conjured_shield = S
-	H.visible_message("[H] conjures a shimmering shield of chi energy!")
+	H.visible_message("[H] conjures a shimmering shield of arcyne energy!")
 	return TRUE
 
 // The conjured shield item
 /obj/item/rogueweapon/shield/auxentius_aegis
 	name = "justicar's aegis"
-	desc = "A rare hunk of chi energy projected in front of the caster. Slower and more deliberate movement by blades and melee weapons easily pierce through to the squishy Magi behind."
+	desc = "A rare hunk of arcyne energy projected in front of the caster. Slower and more deliberate movement by blades and melee weapons easily pierce through to the squishy Magi behind."
 	icon_state = "ravox_aegis"
 	wdefense = 7
 	coverage = 70
@@ -629,7 +629,7 @@
 	secondary_resource_cost = SPELLCOST_CANTRIP
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("I stand, by Auxentius!")
+	invocations = list("I stand, by the Sun!")
 
 	charge_required = FALSE
 	cooldown_time = 1 MINUTES
@@ -661,7 +661,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/withstand
 	name = "Withstand"
-	desc = "I hold fast for Auxentius."
+	desc = "I hold fast for the Sun."
 	icon_state = "withstand"
 
 /datum/status_effect/withstand
@@ -676,7 +676,7 @@
 
 /datum/action/cooldown/spell/auxentius/battle/challenge
 	name = "Challenge"
-	desc = "Bring an opponent with you to Auxentian Trial. Engage in 3 minute combat."
+	desc = "Bring an opponent with you to Sun Trial. Engage in 3 minute combat."
 	button_icon_state = "ravoxchallenge"
 	sound = 'sound/magic/battletrance.ogg'
 
@@ -690,7 +690,7 @@
 	secondary_resource_cost = SPELLCOST_UTILITY_BUFF
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("By Auxentius, I challenge you!!")
+	invocations = list("By the Sun, I challenge you!!")
 
 	charge_required = TRUE
 	charge_time = 3 SECONDS
@@ -758,7 +758,7 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 	do_teleport(target, challengedspawnpoint)
 	GLOB.arenafolks += user
 	GLOB.arenafolks += target
-	storedchallengerturf.visible_message((span_cult("[user] calls upon the Auxentian rite of Trial! [target] and [user] are brought to Trial!")))
+	storedchallengerturf.visible_message((span_cult("[user] calls upon the Sun rite of Trial! [target] and [user] are brought to Trial!")))
 
 	new /obj/structure/fluff/auxentius/challenger/recall(storedchallengerturf)
 	new /obj/structure/fluff/auxentius/challenged/recall(storedchallengedturf)
@@ -822,13 +822,13 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 				var/mob/living/M = AM
 				M.Paralyze(10)
 				M.adjustBruteLoss(20)
-				to_chat(M, "<span class='danger'>You're slammed into the floor by Auxentius's strength!!</span>")
+				to_chat(M, "<span class='danger'>You're slammed into the floor by the Sun's strength!!</span>")
 		else
 			new sparkle_path(get_turf(AM), get_dir(src, AM)) //created sparkles will disappear on their own
 			if(isliving(AM))
 				var/mob/living/M = AM
 				M.Paralyze(5)
-				to_chat(M, "<span class='danger'>You're thrown back by Auxentius's strength!!</span>")
+				to_chat(M, "<span class='danger'>You're thrown back by the Sun's strength!!</span>")
 			AM.safe_throw_at(throwtarget, ((CLAMP((maxthrow - (CLAMP(distfromflag - 2, 0, distfromflag))), 3, maxthrow))), 1,null, force = repulse_force)
 
 
@@ -873,7 +873,7 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 	secondary_resource_cost = SPELLCOST_UTILITY_BUFF
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("Auxentius deems your persistence worthy!")
+	invocations = list("The Sun deems your persistence worthy!")
 
 	charge_required = FALSE
 	cooldown_time = 30 SECONDS
@@ -892,7 +892,7 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 		var/mob/living/target = cast_on
 		if(target.mob_biotypes & MOB_UNDEAD)
 			if(spell_guard_check(target, TRUE))
-				target.visible_message(span_warning("[target] resists Auxentius's judgment!"))
+				target.visible_message(span_warning("[target] resists the Sun's judgment!"))
 				return TRUE
 			if(ishuman(target)) //BLEED AND PAIN
 				var/mob/living/carbon/human/human_target = target
@@ -900,7 +900,7 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 				phy.bleed_mod *= 1.5
 				phy.pain_mod *= 1.5
 				addtimer(CALLBACK(src, PROC_REF(restore_modifiers), phy), 19 SECONDS)
-				human_target.visible_message(span_danger("[target]'s wounds become inflamed as their vitality is sapped away!"), span_userdanger("Auxentius inflames my wounds and weakens my body!"))
+				human_target.visible_message(span_danger("[target]'s wounds become inflamed as their vitality is sapped away!"), span_userdanger("The Sun inflames my wounds and weakens my body!"))
 				return TRUE
 			return FALSE
 
@@ -909,7 +909,7 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 		for(var/obj/effect/decal/cleanable/blood/O in oview(5, target))
 			situational_bonus = min(situational_bonus + 0.015, 1)
 		if(situational_bonus > 0.25)
-			to_chat(owner, "Channeling Auxentius's power is easier in these conditions!")
+			to_chat(owner, "Channeling the Sun's power is easier in these conditions!")
 
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
@@ -943,7 +943,7 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 /datum/action/cooldown/spell/auxentius/battle/battlecry
 	name = "Call to Arms"
 	desc = "Grants you and all allies nearby a buff to their strength, willpower, and constitution while taking away willpower and constitution from ascendant worshippers."
-	fluff_desc = "A yell rings out across the battlefield! Your sergeant bellows a final order before they're claimed by Morwenna's grasp - leave none standing before the might of Auxentius! So long as you draw breath, there shall be no defeat."
+	fluff_desc = "A yell rings out across the battlefield! Your sergeant bellows a final order before they're claimed by Death's grasp - leave none standing before the might of the Sun! So long as you draw breath, there shall be no defeat."
 	button_icon_state = "call_to_arms"
 	sound = 'sound/magic/battle_cry.ogg'
 
@@ -956,7 +956,7 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 	secondary_resource_cost = SPELLCOST_UTILITY_BUFF
 
 	invocation_type = INVOCATION_SHOUT
-	invocations = list("By Auxentius, stand and fight!")
+	invocations = list("By the Sun, stand and fight!")
 
 	charge_required = FALSE
 	cooldown_time = 5 MINUTES
@@ -1004,6 +1004,6 @@ GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. S
 	duration = 3 MINUTES
 
 /atom/movable/screen/alert/status_effect/debuff/call_to_arms
-	name = "Auxentius's Call to Arms"
+	name = "The Sun's Call to Arms"
 	desc = "His voice keeps ringing in your ears, rocking your soul.."
 	icon_state = "call_to_arms_negative"

@@ -3,7 +3,7 @@
 //==============================================================================
 
 /atom/movable/screen/alert/status_effect/buff/ignatius_vigil
-	name = "Ignatius's Vigil"
+	name = "The Wilds's Vigil"
 	desc = "The Treefather's blessing quickens my steps and wards me against natural obstacles."
 	icon_state = "buff"
 
@@ -358,7 +358,7 @@
 
 /obj/structure/flora/roguetree/wise/sanctified/proc/get_ritual_display_name(category)
 	switch(category)
-		if("cat1") return "Ignatius's Harvest"
+		if("cat1") return "Harvest of the Wilds"
 		if("cat2") return "Fungal Vigil"
 		if("cat3") return "Fey Weaving"
 		if("cat12") return "Timber's Tithe"
@@ -437,7 +437,7 @@
 		if("vital_item") return "Sinew, viscera, bonemeal, or skull"
 		if("ash") return "Ash"
 		if("compost") return "Compost"
-		if("zizobane") return "Zizo's bane mushroom"
+		if("zizobane") return "forbidden bane mushroom"
 		if("runed_artifact") return "Runed artifact"
 		if("druid_armor") return "Druid armor"
 		if("volf_head") return "Volf head"
@@ -449,7 +449,7 @@
 		if("lux") return "Lux"
 		if("leechtick") return "Bloated leech tick"
 		if("bones") return "Bones"
-		if("wedding_flower") return "Eoran peace flower"
+		if("wedding_flower") return "Love's peace flower"
 		if("boulder_only") return "A large boulder"
 		if("magic_stone_or_essence") return "An enchanted stone (magic power 5+), essence of wilderness, or essence of lumber"
 		if("blessed_powder") return "Blessed seed powder"
@@ -832,7 +832,7 @@
 		/obj/item/seeds/treesap        = 85
 	))
 	new tree_type(T)
-	to_chat(user, span_green("Seeds tumble from the roots — Ignatius's harvest is generous."))
+	to_chat(user, span_green("Seeds tumble from the roots — the Wilds's harvest is generous."))
 
 /// Cat 2 — Fungal Vigil: kneestinger ring + 30-min vigil buff to nearby mobs (repeatable).
 /// Offerings: 10 mana blooms OR crystalized mana.
@@ -912,7 +912,7 @@
 		return
 	tree_data.wedding_active = TRUE
 	tree_data.wedding_officiant_ckey = user.ckey
-	visible_message(span_green("A peace flower drifts to the roots of [src.name] — the blessings of Ignatius and Eora are invoked. Two souls may now offer their bitten apple to be wed beneath this tree."))
+	visible_message(span_green("A peace flower drifts to the roots of [src.name] — the blessings of the Wilds and Love are invoked. Two souls may now offer their bitten apple to be wed beneath this tree."))
 	to_chat(user, span_notice("The ceremony has begun. Both partners should bite the same apple once each, then hand it to the tree to be wed. The one handing the apple over will decide the surname."))
 
 /// Cat 9 — Harvest Bloomstone: a 20-use blessed seed powder stone (once per tree).
@@ -1276,7 +1276,7 @@
 	thegroom.adjust_triumphs(1)
 	thebride.adjust_triumphs(1)
 
-	visible_message(span_green("The [src.name] blazes with golden light — Ignatius and Eora both bless this union!"))
+	visible_message(span_green("The [src.name] blazes with golden light — the Wilds and Love both bless this union!"))
 	playsound(get_turf(src), 'sound/misc/bell.ogg', 80, FALSE)
 	qdel(A)
 	tree_data.wedding_active = FALSE
@@ -1296,14 +1296,14 @@
 	. += span_info("[src] draws strength from [tree_count] nearby living tree\s, granting [integrity_bonus] bonus integrity.")
 	. += span_info("Integrity: [round(obj_integrity)]/[max_integrity]")
 	if(show_ritual_hints)
-		. += span_info("Open the ritual menu with the Ignatius amulet to begin any druidic ritual, or start the 'Nature's Union' wedding ceremony; the betrothed must each bite the same apple once and offer it to the tree to seal the pact.")
+		. += span_info("Open the ritual menu with the Wilds amulet to begin any druidic ritual, or start the 'Nature's Union' wedding ceremony; the betrothed must each bite the same apple once and offer it to the tree to seal the pact.")
 	if(!istype(user, /mob/living/carbon/human))
 		return
 	var/mob/living/carbon/human/H = user
 	if(H.patron?.type != /datum/patron/severance/ignatius)
 		return
 	if(show_ritual_hints)
-		. += span_notice("Hold the Ignatius amulet against this tree to start or cancel a Treefather bounty.")
+		. += span_notice("Hold the Wilds amulet against this tree to start or cancel a Treefather bounty.")
 		. += span_notice("Alternatively, touch-intent with an empty hand while wearing the amulet opens the ritual menu.")
 		. += span_notice("To offer while a bounty is active, click the tree with the required item in-hand.")
 	if(show_ritual_hints && tree_data?.active_ritual)
@@ -1336,7 +1336,7 @@
 									istype(H.get_item_by_slot(SLOT_GLOVES), /obj/item/clothing/neck/roguetown/psicross/ignatius)
 			if(has_ignatius_amulet)
 				if(H.patron?.type != /datum/patron/severance/ignatius)
-					to_chat(H, span_warning("Only a follower of Ignatius may commune with this sacred tree."))
+					to_chat(H, span_warning("Only a follower of the Wilds may commune with this sacred tree."))
 					return
 				open_ritual_menu(H)
 				return
@@ -1358,7 +1358,7 @@
 			return
 		var/mob/living/carbon/human/H = user
 		if(H.patron?.type != /datum/patron/severance/ignatius)
-			to_chat(user, span_warning("Only a follower of Ignatius may commune with this sacred tree."))
+			to_chat(user, span_warning("Only a follower of the Wilds may commune with this sacred tree."))
 			return
 		open_ritual_menu(user)
 		return

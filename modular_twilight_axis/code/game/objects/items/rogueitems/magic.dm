@@ -8,7 +8,7 @@ Necra's Censer
 */
 
 /obj/item/necra_censer
-	name = "Necra's censer"
+	name = "Death's censer"
 	desc = "A small bronze censer that expels an otherworldly mist."
 	icon = 'modular_twilight_axis/icons/roguetown/items/misc.dmi'
 	icon_state ="necra_censer"

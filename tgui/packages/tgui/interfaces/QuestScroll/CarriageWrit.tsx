@@ -45,7 +45,7 @@ export const CarriageWrit = (props: {
         this writ holds safe passage upon the Duke&apos;s Road for the duration
         of the carriage.
       </p>
-      {circumstance && <p style={writParagraph}>{circumstance}</p>}
+      {!!circumstance && <p style={writParagraph}>{circumstance}</p>}
       <p style={writParagraph}>
         Deliver the parcel and return this writ unto the Contract Ledger; the
         bounty of{' '}

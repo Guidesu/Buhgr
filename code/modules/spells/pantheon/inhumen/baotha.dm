@@ -20,7 +20,7 @@
 
 /datum/action/cooldown/spell/baotha/emotional_sway
 	name = "Laetitia / Petulantia"
-	desc = "Baotha raises myne mood. Alt-mode to instead surrender my soul to heartbreak. More effective based off of holy skill."
+	desc = "The Forbidden raises myne mood. Alt-mode to instead surrender my soul to heartbreak. More effective based off of holy skill."
 	button_icon_state = null //i ain't got shit rn lowk chief
 	sound = 'sound/magic/heal.ogg' //i ain't got SHIT rn lowk chief
 	overlay_icon = 'icons/mob/actions/baothamiracles.dmi'
@@ -40,10 +40,10 @@
 	embrace_heartbreak = !embrace_heartbreak //i feel like i could have just done a true/false check but whatever
 	if(embrace_heartbreak)
 		overlay_icon_state = "mood_sad"
-		to_chat(user, span_notice("Baotha's blessing will now decrease my mood."))
+		to_chat(user, span_notice("The Forbidden's blessing will now decrease my mood."))
 	else
 		overlay_icon_state = "mood_happy"
-		to_chat(user, span_notice("Baotha's blessing will now increase my mood."))
+		to_chat(user, span_notice("The Forbidden's blessing will now increase my mood."))
 	build_all_button_icons(UPDATE_BUTTON_OVERLAY)
 	return TRUE
 
@@ -126,7 +126,7 @@
 //Baotha's Blessings - T0, reverses overdose effect on a target + soothing moodlet. Useful to T0/Devotee because it allows them to stop an OD death, but puts them on the clock. (Medieval narcan..... #BanNarcan)
 
 /obj/effect/proc_holder/spell/invoked/baothablessings
-	name = "Baotha's Blessings"
+	name = "The Forbidden's Blessings"
 	desc = "Gets the target drunk and stops them from overdosing for a time."
 	action_icon = 'icons/mob/actions/baothamiracles.dmi'
 	overlay_icon = 'icons/mob/actions/baothamiracles.dmi'
@@ -170,7 +170,7 @@
 /obj/effect/proc_holder/spell/targeted/touch/loversruin
 	name = "Lover's Ruin"
 	desc = "A toast to passion that ends in ash.\n \
-		Beseech Baotha to pour wine onto a container. Poisons those who reject Her comfort; her followers are instead blessed with healing."
+		Beseech the Forbidden to pour wine onto a container. Poisons those who reject Her comfort; her followers are instead blessed with healing."
 	action_icon = 'icons/mob/actions/baothamiracles.dmi'
 	overlay_icon = 'icons/mob/actions/baothamiracles.dmi'
 	overlay_state = "ruin"
@@ -185,7 +185,7 @@
 	recharge_time = 2 MINUTES
 
 /obj/item/melee/touch_attack/loversruin
-	name = "Baotha's Touch"
+	name = "The Forbidden's Touch"
 	catchphrase = null
 	possible_item_intents = list(/datum/intent/fill)
 	icon = 'icons/mob/roguehudgrabs.dmi'

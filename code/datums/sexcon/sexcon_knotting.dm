@@ -136,7 +136,7 @@
 			else
 				to_chat(btm, span_userdanger("You have been triple-knotted!"))
 		if(we_got_baothad)
-			to_chat(btm, span_userdanger("Baothan magick infuses within, you can't think straight!"))
+			to_chat(btm, span_userdanger("Forbidden magick infuses within, you can't think straight!"))
 	if(!btm.has_status_effect(/datum/status_effect/knot_tied)) // only apply status if we don't have it already
 		btm.apply_status_effect(/datum/status_effect/knot_tied)
 	if(!user.has_status_effect(/datum/status_effect/knotted)) // only apply status if we don't have it already

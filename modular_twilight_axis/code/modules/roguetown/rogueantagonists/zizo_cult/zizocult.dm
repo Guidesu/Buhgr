@@ -1,7 +1,7 @@
 /datum/antagonist/zizocultist
-	name = "Zizoid Lackey"
-	roundend_category = "Zizoid Cultists"
-	antagpanel_category = "Zizoid Cult"
+	name = "Forbidden Lackey"
+	roundend_category = "Forbidden Cultists"
+	antagpanel_category = "Forbidden Cult"
 	job_rank = ROLE_ZIZOIDCULTIST
 	antag_hud_type = ANTAG_HUD_ZIZOID
 	rogue_enabled = TRUE
@@ -31,10 +31,10 @@
 	)
 /datum/antagonist/zizocultist/zizo_knight
 	change_stats = FALSE
-	name = "Zizoid's knight"
+	name = "Forbidden's knight"
 
 /datum/antagonist/zizocultist/leader
-	name = "Zizoid Cultist"
+	name = "Forbidden Cultist"
 	antag_hud_type = ANTAG_HUD_ZIZOID
 	antag_hud_name = "zizoid"
 	islesser = FALSE
@@ -55,7 +55,7 @@
 	SSmapping.retainer.cultist_number += 1
 	to_chat(H, span_userdanger("I'm a member of Ascension cult of zizo."))
 	owner.announce_objectives()
-	owner.special_role = "Zizoid Lackey"
+	owner.special_role = "Forbidden Lackey"
 	H.cmode_music = 'sound/music/combat_cult.ogg'
 	H.playsound_local(get_turf(H), 'sound/music/maniac.ogg', 80, FALSE, pressure_affected = FALSE)
 	add_verb(H, /mob/living/carbon/human/proc/communicate)
@@ -207,7 +207,7 @@
 	if(stat >= UNCONSCIOUS || !can_speak_vocal())
 		return
 	record_round_statistic(STATS_ZIZO_PRAISED)
-	audible_message("\The [src] praises <span class='bold'>Zizo</span>!")
+	audible_message("\The [src] praises <span class='bold'>The Forbidden</span>!")
 	playsound(src.loc, pick('modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sounds/zizo1.ogg', 'modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sounds/zizo2.ogg','modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sounds/zizo3.ogg','modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sounds/zizo4.ogg','modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sounds/zizo5.ogg','modular_twilight_axis/code/modules/roguetown/rogueantagonists/zizo_cult/sounds/zizo6.ogg'), 100)
 	log_say("[key_name(src)] has praised zizo! (zizo cultist verb) [loc_name(src)]")
 
@@ -559,7 +559,7 @@
 
 	var/list/mob/living/carbon/human/possible = list()
 	for(var/datum/mind/V in SSmapping.retainer.cultists)
-		if(V.special_role == "Zizoid Lackey")
+		if(V.special_role == "Forbidden Lackey")
 			possible |= V.current
 
 	var/mob/living/carbon/human/choice = input(src, "Whom do you no longer have use for?", "TWILIGHT AXIS") as null|anything in possible

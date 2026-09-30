@@ -613,7 +613,7 @@ const CursedChastityControls = (props: {
         </Button>
       </Stack.Item>
 
-      {showPenisControls && (
+      {!!showPenisControls && (
         <Stack.Item>
           <Button
             fluid
@@ -627,7 +627,7 @@ const CursedChastityControls = (props: {
         </Stack.Item>
       )}
 
-      {showVaginaControls && (
+      {!!showVaginaControls && (
         <Stack.Item>
           <Button
             fluid
@@ -671,7 +671,7 @@ const CursedChastityControls = (props: {
         </Button>
       </Stack.Item>
 
-      {showPenisControls && (
+      {!!showPenisControls && (
         <Stack.Item>
           <Button
             fluid

@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/assassin_track
 	name = "Blood Veil"
-	desc = "I pierce the veil of mortality and sense those marked by Graggar for death. Cast on self to attune to a new target, cast again to feel their direction."
+	desc = "I pierce the veil of mortality and sense those marked by War for death. Cast on self to attune to a new target, cast again to feel their direction."
 	recharge_time = 0.5 SECONDS
 	chargetime = 0.1 SECONDS
 	overlay_icon = 'icons/mob/actions/gnollmiracles.dmi'
@@ -25,7 +25,7 @@
 
 	if(is_valid_target(target) && target != user)
 		tracked_target = target
-		to_chat(user, span_notice("The mark of Graggar burns upon [target.real_name]. Their soul calls to my blade."))
+		to_chat(user, span_notice("The mark of War burns upon [target.real_name]. Their soul calls to my blade."))
 		return TRUE
 
 	return TRUE
@@ -45,17 +45,17 @@
 		possible_targets[entry_name] = L
 
 	if(!length(possible_targets))
-		to_chat(user, span_warning("The veil is silent... no souls marked for Graggar remain."))
+		to_chat(user, span_warning("The veil is silent... no souls marked for War remain."))
 		return
 
-	var/selection = tgui_input_list(user, "Whose soul bears the mark of Graggar?", "Blood Veil", sort_list(possible_targets))
+	var/selection = tgui_input_list(user, "Whose soul bears the mark of War?", "Blood Veil", sort_list(possible_targets))
 	if(!selection)
 		return
 
 	tracked_target = possible_targets[selection]
 
 	if(!shown_disclaimer)
-		to_chat(user, span_boldnotice("A soul has been marked. Only those chosen by Graggar matter."))
+		to_chat(user, span_boldnotice("A soul has been marked. Only those chosen by War matter."))
 		shown_disclaimer = TRUE
 
 	to_chat(user, span_notice("I have bound my will to [tracked_target.real_name]. Their fate is sealed."))

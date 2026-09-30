@@ -64,7 +64,7 @@ export const PetitionView = (props: { data: Data }) => {
 
       <PetitionStatusStrip data={props.data} />
 
-      {cannotAct && (
+      {!!cannotAct && (
         <div
           style={{
             ...cardStyle,

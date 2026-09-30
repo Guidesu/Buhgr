@@ -230,9 +230,9 @@
 	var/msg
 	if(now_active)
 		if(H.job == "Bishop")
-			msg = "By Eora's grace, the Bishop, [H.real_name], hath set anew the seal upon the Ordinance of the Baths. The See extends its sanction over the stews once more, and the tithe shall render unto the Church."
+			msg = "By Love's grace, the Bishop, [H.real_name], hath set anew the seal upon the Ordinance of the Baths. The See extends its sanction over the stews once more, and the tithe shall render unto the Church."
 		else
-			msg = "By Eora's grace, the Bathmaster, [H.real_name], hath knelt beneath the Ordinance of the Baths. The stews accept the Church's sanction anew, and the tithe shall render unto the Church."
+			msg = "By Love's grace, the Bathmaster, [H.real_name], hath knelt beneath the Ordinance of the Baths. The stews accept the Church's sanction anew, and the tithe shall render unto the Church."
 	else
 		if(H.job == "Bishop")
 			msg = "The Bishop, [H.real_name], hath broken the seal upon the Ordinance of the Baths. The See renounces its sanction; the stews fall again beneath the Crown's tariff."

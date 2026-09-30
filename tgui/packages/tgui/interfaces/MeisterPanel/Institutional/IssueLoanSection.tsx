@@ -49,7 +49,7 @@ export const IssueLoanSection = ({
   return (
     <>
       <div style={sectionHeaderStyle}>Draft a Loan</div>
-      {pastWindow && (
+      {!!pastWindow && (
         <div style={{ color: INK_FAINT, marginBottom: 8 }}>
           New loans may not be drawn after day {data.max_issuance_day}.
         </div>

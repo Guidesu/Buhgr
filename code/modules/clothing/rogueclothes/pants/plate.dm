@@ -47,7 +47,7 @@
 
 /obj/item/clothing/under/roguetown/platelegs/paalloy
 	name = "ancient plate chausses"
-	desc = "Polished gilbranze plates, layered atop silken chausses. Only the few who had embraced undeath were spared from Zizo's ascension; now, they command the undying \
+	desc = "Polished gilbranze plates, layered atop silken chausses. Only the few who had embraced undeath were spared from the Forbidden's ascension; now, they command the undying \
 	legionnaires who march forth to sunder creation in Her name."
 	icon_state = "ancientpants"
 	smeltresult = /obj/item/ingot/aaslag
@@ -97,7 +97,7 @@
 	name = "avantyne vestments"
 	desc = "The fossilization of a memory, damned to be forgotten by all but the divine - Her lux, crystallized into a veil impenetratable by all but the sharpest \
 	blades. If the legends are to be believed, She had worn these very garments long ago during Vaeltis's darkest hour; when the Ascendants were but-two, when the \
-	Sinistar blotted out Auxentius's glare, and when the ashes of Her empire were still smoldering. </br>..and to think, it was all a war without reason."
+	Sinistar blotted out the Sun's glare, and when the ashes of Her empire were still smoldering. </br>..and to think, it was all a war without reason."
 	icon_state = "zizoplatelegs_med"
 	max_integrity = ARMOR_INT_LEG_STEEL_PLATE
 	armor = ARMOR_PLATE_BSTEEL

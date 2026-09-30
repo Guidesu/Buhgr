@@ -71,7 +71,7 @@
 
 /obj/item/clothing/under/roguetown/brayette
 	name = "brayette"
-	desc = "Maille groin protection ideal for answering Ignatius's call without removing your plate armor."
+	desc = "Maille groin protection ideal for answering the Wilds's call without removing your plate armor."
 	gender = PLURAL
 	icon_state = "chain_bootyshorts"
 	item_state = "chain_bootyshorts"
@@ -233,7 +233,7 @@
 
 /obj/item/clothing/under/roguetown/chainlegs/kilt/paalloy
 	name = "ancient chain kilt"
-	desc = "Polished gilbranze rings, linked together with bindings of silk to form a waist's vestment. These undying legionnaires once marched for Vheslyn, and again for Zizo; but now, they are utterly beholden to the whims of their resurrector."
+	desc = "Polished gilbranze rings, linked together with bindings of silk to form a waist's vestment. These undying legionnaires once marched for Vheslyn, and again for the Forbidden; but now, they are utterly beholden to the whims of their resurrector."
 	icon_state = "achainkilt"
 	smeltresult = /obj/item/ingot/aaslag
 

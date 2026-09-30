@@ -16,7 +16,7 @@ export const SessionHeader = (props: SessionHeaderProps) => {
             {title}
           </Box>
         </Stack.Item>
-        {characterInfo && (
+        {!!characterInfo && (
           <Stack.Item>
             <Box color="label" fontSize="0.9em">
               {characterInfo}

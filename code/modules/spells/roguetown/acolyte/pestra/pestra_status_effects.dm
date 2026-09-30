@@ -10,12 +10,12 @@
 	return ..()
 
 /datum/status_effect/divine_exhaustion/on_remove()
-	to_chat(owner, span_notice("I feel my connection to Pestra's divine power slowly returning."))
+	to_chat(owner, span_notice("I feel my connection to Healing's divine power slowly returning."))
 	return ..()
 
 /atom/movable/screen/alert/status_effect/divine_exhaustion
 	name = "Divine Exhaustion"
-	desc = "I have channeled too much of Pestra's power, and cannot harbor much of her divine infestation."
+	desc = "I have channeled too much of the Healing domain's power, and cannot harbor much more of its divine infestation."
 	icon_state = "divine_exhaustion"
 
 // The healing of this is equivalent 3x pestra's heal, or 2x fortified pestra's heal. It wanes but lasts a long time.
@@ -146,7 +146,7 @@
 	owner.adjustCloneLoss(-healing_strength, 0)
 
 /atom/movable/screen/alert/status_effect/buff/pestra_care
-	name = "Pestra's embrace"
+	name = "Embrace of Healing"
 	desc = "It's like something is wriggling around inside of me, but it's making me feel better..."
 	icon_state = "buff"
 
@@ -208,8 +208,8 @@
 	examine_text = "SUBJECTPRONOUN is surrounded by an ominous aura of disease."
 
 /atom/movable/screen/alert/status_effect/black_rot_carrier
-	name = "Pestra's blessing"
-	desc = "I carry Pestra's blessing, people should avoid my touch."
+	name = "Blessing of Healing"
+	desc = "I carry the blessing of Healing, people should avoid my touch."
 
 /datum/status_effect/black_rot_debility
 	id = "black_rot_debility"
@@ -231,5 +231,5 @@
 
 /atom/movable/screen/alert/status_effect/black_rot_debility
 	name = "Rot-Weakened"
-	desc = "Pestra's skittering ethereal bugs are still knitting my ravaged flesh together. At least I should be immune for a little bit..."
+	desc = "The skittering ethereal bugs of Healing are still knitting my ravaged flesh together. At least I should be immune for a little bit..."
 	icon_state = "debuff"

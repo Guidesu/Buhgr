@@ -13,7 +13,7 @@
 /datum/clan/abyss
 	name = "Children of the Abyss"
 	desc = "The Children of the Abyss are a bloodline of infernal-harmonised vampires rumored to originate from a long-bygone experiment gone wrong by an ancient cult in the north. Because of their affinity with the unholy and daemonic, they are extremely vulnerable to the Divine."
-	curse = "Spurned by the Ten, lack of emotion."
+	curse = "Spurned by the Domains, lack of emotion."
 	clanicon = "daimonion"
 	clane_covens = list(
 		/datum/coven/obfuscate,
@@ -48,4 +48,4 @@
 	H.AddComponent(/datum/component/sunlight_vulnerability, damage = 7, drain = 7) //Mid-way towards more harsher burning
 
 /datum/clan/abyss/get_downside_string()
-	return "burn in sunlight harsher than others, and in the presence of the Ten."
+	return "burn in sunlight harsher than others, and in the presence of the Domains."

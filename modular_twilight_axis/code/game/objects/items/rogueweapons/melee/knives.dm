@@ -21,7 +21,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/devilsknife
 	name ="devilsknife"
-	desc = "More a sickle than a knife. It is said that Xylix once won these in a game of chance against an archdevil. These are simple reproductions, with jingling bells attached to the blades."
+	desc = "More a sickle than a knife. It is said that Trickery once won these in a game of chance against an archdevil. These are simple reproductions, with jingling bells attached to the blades."
 	icon_state = "devilsknife"
 	icon = 'modular_twilight_axis/icons/roguetown/weapons/32.dmi'
 	force = 22 // 10% - This is a 8 clickCD weapon
@@ -29,7 +29,7 @@
 
 /obj/item/rogueweapon/huntingknife/throwingknife/steel/noc
 	name = "twilight fang"
-	desc = "Large tossblade meant for both fighting and throwing. Perfect for striking from the shadows of Noc."
+	desc = "Large tossblade meant for both fighting and throwing. Perfect for striking from the shadows of the Moon."
 	item_state = "bone_dagger"
 	possible_item_intents = list(/datum/intent/dagger/thrust, /datum/intent/dagger/cut, /datum/intent/dagger/thrust/pick, /datum/intent/dagger/sucker_punch)
 	force = 21
@@ -43,7 +43,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/astrata
 	name ="dawnbringer"
-	desc = "A blade forged in the name of Astrata herself. It glistens under the light reminding your foes what is coming."
+	desc = "A blade forged in the name of the Sun herself. It glistens under the light reminding your foes what is coming."
 	icon_state = "astrata_dagger"
 	icon = 'modular_twilight_axis/icons/roguetown/weapons/32.dmi'
 	force = 22
@@ -62,7 +62,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/ravox
 	name ="echo of triumph"
-	desc = "Once, it was a greatsword wielded by the chosen of Ravox. After centuries of battles, the blade finally broke. However, the remaining pieces were reforged into a dagger that reminds battles of the past."
+	desc = "Once, it was a greatsword wielded by the chosen of Law. After centuries of battles, the blade finally broke. However, the remaining pieces were reforged into a dagger that reminds battles of the past."
 	icon_state = "ravox_dagger"
 	icon = 'modular_twilight_axis/icons/roguetown/weapons/32.dmi'
 	force = 22
@@ -88,7 +88,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/malum
 	name ="embertongue"
-	desc = "Wavy flamelike blade forged in the name of Malum himself."
+	desc = "Wavy flamelike blade forged in the name of the Craft himself."
 	icon_state = "malum_dagger"
 	icon = 'modular_twilight_axis/icons/roguetown/weapons/32.dmi'
 	possible_item_intents = list(/datum/intent/dagger/thrust/malum, /datum/intent/dagger/cut, /datum/intent/dagger/thrust/pick, /datum/intent/dagger/sucker_punch)

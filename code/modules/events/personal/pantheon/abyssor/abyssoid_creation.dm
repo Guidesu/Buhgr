@@ -50,9 +50,9 @@
 	chosen_one.mind.AddSpell(abyssoid_spell)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_blue("Abyssor wants everyone to remember him! Create an army of holy abyssoid leeches and distribute them among the ingrates!"))
+	to_chat(chosen_one, span_blue("The Sea wants everyone to remember him! Create an army of holy abyssoid leeches and distribute them among the ingrates!"))
 	chosen_one.playsound_local(chosen_one, 'sound/items/bucket_transfer (2).ogg', 100)
 
-	to_chat(chosen_one, span_notice("Abyssor grants you a power to create abyssoids from the common leeches! You will just need to pay a small blood price..."))
+	to_chat(chosen_one, span_notice("The Sea grants you a power to create abyssoids from the common leeches! You will just need to pay a small blood price..."))
 
 	chosen_one.mind.announce_personal_objectives()

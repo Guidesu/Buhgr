@@ -40,16 +40,38 @@
 /// not a place you pick off a map.
 /datum/character_origin_map_ui/proc/build_region_list(datum/preferences/P)
 	var/static/list/region_order = list(
-		/datum/virtue/origin/auxentia,
-		/datum/virtue/origin/vergenmark,
-		/datum/virtue/origin/ognica,
-		/datum/virtue/origin/kamenrad,
-		/datum/virtue/origin/viamedulla,
-		/datum/virtue/origin/ostrovia,
+		/datum/virtue/origin/palimpseste/seamvale,
+		/datum/virtue/origin/palimpseste/skarnheim,
+		/datum/virtue/origin/palimpseste/vyrlands,
+		/datum/virtue/origin/palimpseste/conjunct,
+		/datum/virtue/origin/palimpseste/tir_aenna,
+		/datum/virtue/origin/palimpseste/faerhen,
+		/datum/virtue/origin/palimpseste/thessadra,
+		/datum/virtue/origin/palimpseste/golaren,
+		/datum/virtue/origin/palimpseste/laurentine,
+		/datum/virtue/origin/palimpseste/achaeon,
+		/datum/virtue/origin/palimpseste/khemet,
+		/datum/virtue/origin/palimpseste/athrae,
+		/datum/virtue/origin/palimpseste/ashurim,
+		/datum/virtue/origin/palimpseste/ile_orun,
+		/datum/virtue/origin/palimpseste/hinomura,
+		/datum/virtue/origin/palimpseste/turtles_back,
+		/datum/virtue/origin/palimpseste/dunmoor,
+		/datum/virtue/origin/palimpseste/yharrow,
+		/datum/virtue/origin/palimpseste/varovia,
+		/datum/virtue/origin/palimpseste/hinge,
+		/datum/virtue/origin/palimpseste/psydonia,
 		/datum/virtue/origin/unknown,
 	)
+	var/list/order = region_order.Copy()
+	// Species origins (Underdweller and the like) have no spot on the map;
+	// the window lists them under it.
+	for(var/path in GLOB.virtues)
+		var/datum/virtue/origin/racial/R = GLOB.virtues[path]
+		if(istype(R) && R.name && (P.pref_species.type in R.races))
+			order += path
 	var/list/result = list()
-	for(var/path in region_order)
+	for(var/path in order)
 		var/datum/virtue/origin/V = GLOB.virtues[path]
 		if(!V)
 			continue

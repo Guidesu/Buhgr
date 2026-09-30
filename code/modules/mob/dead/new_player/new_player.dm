@@ -301,7 +301,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 		return JOB_UNAVAILABLE_SEX
 	if(length(job.allowed_ages) && !(client.prefs.age in job.allowed_ages))
 		return JOB_UNAVAILABLE_AGE
-	if(length(job.allowed_patrons) && !(client.prefs.selected_patron.type in job.allowed_patrons))
+	if(length(job.allowed_patrons) && !dreamvalley_prefs_patron_permitted(client.prefs, job.allowed_patrons))
 		return JOB_UNAVAILABLE_PATRON
 	// Check if the player is on cooldown for the hiv+ role
 	if((job.same_job_respawn_delay) && (ckey in GLOB.job_respawn_delays))

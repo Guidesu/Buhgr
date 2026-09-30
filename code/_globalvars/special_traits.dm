@@ -139,16 +139,13 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 	if (!player.prefs)
 		return
 
-	var/list/slot_names = player.prefs.get_quirk_slot_names()
-	var/index = 0
 	for(var/datum/quirk/Q as anything in player.prefs.get_all_quirks())
-		index++
 		if(!Q || istype(Q, /datum/quirk/none))
 			continue
 		if(quirk_check(Q, player.prefs))
 			apply_quirk(character, Q)
 		else
-			to_chat(character, "Incorrect [slot_names[index]] parameters! It will not be applied.")
+			to_chat(character, "My quirk [Q.name] doesn't suit this character, so it won't apply.")
 
 /proc/origin_check(datum/virtue/V, datum/species/species)
 	if(!species || !V)
@@ -301,7 +298,7 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 		return FALSE
 	if(!isnull(special.allowed_ages) && !(character.age in special.allowed_ages))
 		return FALSE
-	if(!isnull(special.allowed_patrons) && !(character.patron.type in special.allowed_patrons))
+	if(!isnull(special.allowed_patrons) && !dreamvalley_mob_patron_permitted(character, special.allowed_patrons))
 		return FALSE
 	if(!isnull(special.restricted_traits))
 		var/has_trait

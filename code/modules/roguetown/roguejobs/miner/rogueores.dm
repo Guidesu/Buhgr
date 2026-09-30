@@ -404,7 +404,7 @@
 //Anomalous Smeltings
 /obj/item/ingot/weeping
 	name = "enduring ingot"
-	desc = "A slab of metal, aged and bare. You finally know what it is, yet no word can be sired to describe it. </br>'..none will ever know the greatest truths; of Aeon's grasp, of Adonai's presence, of Praecursor's fate..' </br>'..but, perhaps, that's for the better. The malaise is gone, but the evils of this world are still very real..' </br>'..find a way to give the remains a new lyfe; a new vessel that may yet make the Archdevil weep..'"
+	desc = "A slab of metal, aged and bare. You finally know what it is, yet no word can be sired to describe it. </br>'..none will ever know the greatest truths; of Aeon's grasp, of Adonai's presence, of the Absent God's fate..' </br>'..but, perhaps, that's for the better. The malaise is gone, but the evils of this world are still very real..' </br>'..find a way to give the remains a new lyfe; a new vessel that may yet make the Archdevil weep..'"
 	icon_state = "ingotenduring"
 	smeltresult = /obj/item/ingot/weeping
 	sellprice = 222
@@ -454,7 +454,7 @@
 
 /obj/item/ingot/vampire
 	name = "ancient ceremonial alloy"
-	desc = "An ingot of enchanted gilbranze, radiating with ceremonial authority. Chiseled into the surface is an intricate golden matrix; forbidden knowledge, long lost in the wake of Zizo's ascension."
+	desc = "An ingot of enchanted gilbranze, radiating with ceremonial authority. Chiseled into the surface is an intricate golden matrix; forbidden knowledge, long lost in the wake of the Forbidden's ascension."
 	icon_state = "ingotvampire"
 	smeltresult = /obj/item/ingot/purifiedaalloy
 	sellprice = 256
@@ -466,7 +466,7 @@
 
 /obj/item/ingot/avantyne
 	name = "avantyne wafer"
-	desc = "This ingot, though born of unholy circumstance, rumbles with otherworldly potential. Chiseled onto the darksteel is a forbidden iteration of the psycross; a foreboding sign for those who bow to lesser gods."
+	desc = "This ingot, though born of unholy circumstance, rumbles with otherworldly potential. Chiseled onto the darksteel is a forbidden iteration of the holy cross; a foreboding sign for those who bow to lesser gods."
 	icon_state = "ingotavantyne"
 	smeltresult = null
 	sellprice = 130

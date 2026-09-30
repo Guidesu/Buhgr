@@ -17,7 +17,7 @@
 		if(/datum/patron/oldkin/volkovoi)
 			ritechoices+="Rune of Violence"
 		if(/datum/patron/unveiled/aurelian)
-			ritechoices+="Rune of Zizo" 
+			ritechoices+="Rune of the Forbidden" 
 		if(/datum/patron/concordat/morwenna)
 			ritechoices+="Rune of Transaction"
 		if(/datum/patron/oldkin/hausvette)
@@ -46,7 +46,7 @@
 			ritechoices+="Rune of Storms"
 			ritechoices+="Rune of Stirring"
 		if(/datum/patron/tribunal/praecursor)
-			ritechoices+="Rune of Praecursor"
+			ritechoices+="Rune of the Absent God"
 
 	if(HAS_TRAIT(user, TRAIT_DREAMWALKER) && !("Rune of Stirring" in ritechoices))
 		ritechoices+="Rune of Stirring"
@@ -109,7 +109,7 @@
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
 				new /obj/structure/ritualcircle/abyssor_alt_inactive(step_turf)
-		if("Rune of Zizo")
+		if("Rune of the Forbidden")
 			to_chat(user,span_cultsmall("I begin inscribing the rune of Her Knowledge..."))
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
@@ -129,7 +129,7 @@
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
 				new /obj/structure/ritualcircle/baotha(step_turf)
-		if("Rune of Praecursor")
+		if("Rune of the Absent God")
 			to_chat(user,span_cultsmall("I begin inscribing the rune of His presence..."))
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)

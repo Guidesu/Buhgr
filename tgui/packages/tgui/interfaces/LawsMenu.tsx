@@ -220,7 +220,7 @@ const LawsDisplay = () => {
               <Box inline color="label" fontSize={0.85}>
                 {nonEmptyLaws.length} law
                 {nonEmptyLaws.length !== 1 && 's'} drafted
-                {hasChanges && (
+                {!!hasChanges && (
                   <Box inline color="average" ml={1}>
                     (unsaved changes)
                   </Box>

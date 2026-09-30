@@ -15,7 +15,7 @@
 
 /obj/effect/proc_holder/spell/invoked/gnoll_sniff
 	name = "Track"
-	desc = "Graggar has some worthy folks for you, hunt them down! Cast on self to set target, cast to track target, cast on a person to remember their scent temporarily. Does not break stealth on use."
+	desc = "War has some worthy folks for you, hunt them down! Cast on self to set target, cast to track target, cast on a person to remember their scent temporarily. Does not break stealth on use."
 	recharge_time = 0.5 SECONDS
 	chargetime = 0
 	overlay_icon = 'icons/mob/actions/gnollmiracles.dmi'
@@ -86,7 +86,7 @@
 		return
 
 	if(!shown_hunt_disclaimer)
-		to_chat(user, span_boldnotice("You have chosen your first prey. Remember to judge whether or not your target is a worthy foe. Graggar does not reward spilling the blood of the meek when you have this much to prove."))
+		to_chat(user, span_boldnotice("You have chosen your first prey. Remember to judge whether or not your target is a worthy foe. War does not reward spilling the blood of the meek when you have this much to prove."))
 		to_chat(user, span_boldwarning("(Escalation is still required. You can always still do other gnoll things if targets are too difficult.)"))
 		shown_hunt_disclaimer = TRUE
 
@@ -330,7 +330,7 @@
 /datum/action/cooldown/spell/gnoll/consume
 	name = "Consume"
 	desc = "Feast on flesh, bones, or bodies to recover from battle. Cast on yourself to consume items in hand, or on a corpse to begin to consume it. More effective on animal corpses. Can heal others when targeting them."
-	fluff_desc = "The hunger for flesh is eternal in Gnolls. They hunt to sate this desire, endlessly, for they are Graggar's chosen."
+	fluff_desc = "The hunger for flesh is eternal in Gnolls. They hunt to sate this desire, endlessly, for they are War's chosen."
 	button_icon = 'icons/mob/actions/gnollmiracles.dmi'
 	button_icon_state = "consume"
 	glow_intensity = 0

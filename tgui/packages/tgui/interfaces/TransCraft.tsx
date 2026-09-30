@@ -129,7 +129,7 @@ const TransRecipe = (props: {
           )}
         </button>
       </div>
-      {open && (
+      {!!open && (
         <div
           style={{
             padding: '2px 4px 8px 8px',

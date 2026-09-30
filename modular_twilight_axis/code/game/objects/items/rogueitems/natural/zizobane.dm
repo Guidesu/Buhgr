@@ -1,6 +1,6 @@
 /*
 /obj/structure/zizo_bane
-    name = "Zizo's bane"
+    name = "The Forbidden's bane"
     desc = "A small purple mushroom that has been growing in areas of rot."
     icon = 'modular_twilight_axis/icons/obj/flora/rogueflora.dmi'
     icon_state = "zizo_bane"
@@ -36,7 +36,7 @@
         qdel(src)
     
 /obj/item/reagent_containers/food/snacks/zizo_bane
-    name = "Zizo's bane"
+    name = "The Forbidden's bane"
     desc = "A small purple mushroom that has been growing in areas of rot."
     icon = 'modular_twilight_axis/icons/obj/flora/rogueflora.dmi'
     icon_state = "zizo_bane"

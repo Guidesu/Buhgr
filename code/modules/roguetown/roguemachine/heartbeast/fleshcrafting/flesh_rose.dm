@@ -4,7 +4,7 @@
 	name = "black rose"
 	desc = "A sickly-sweet scented rose. Like honeyed rotten meat. Its dim petals seem laced with a black ooze that retreats away from your fingers."
 	w_class = WEIGHT_CLASS_SMALL
-	var/effect_desc = "You know this can be implanted with the cure rot miracle within a follower of Pestra. It protects her followers."
+	var/effect_desc = "You know this can be implanted with the cure rot miracle within a follower of Healing. It protects her followers."
 
 /obj/item/black_rose/get_examine_highlight_status()
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_ODD, HERESYDESC_BLACK_ROT)

@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/bless_cross
 	name = "Bless Cross"
-	desc = "Channel holy energy to bless a Morwennan cross, allowing it to be activated against undead. devout can maintain one cross, while masters can maintain three. You can unbless a previously blessed cross to reclaim the slot."
-	invocations = list("Morwenna, grant this cross your watchful gaze!")
+	desc = "Channel holy energy to bless a Death cross, allowing it to be activated against undead. devout can maintain one cross, while masters can maintain three. You can unbless a previously blessed cross to reclaim the slot."
+	invocations = list("Death, grant this cross your watchful gaze!")
 	sound = 'sound/magic/bless.ogg'
 	devotion_cost = 100
 	recharge_time = 2 MINUTES
@@ -19,7 +19,7 @@
 	var/obj/structure/fluff/psycross/necra/cloth/cross = targets[1]
 
 	if(!istype(cross))
-		to_chat(user, span_warning("I can only bless cloth decorated Morwennan crosses!"))
+		to_chat(user, span_warning("I can only bless cloth decorated Death crosses!"))
 		revert_cast()
 		return FALSE
 
@@ -68,7 +68,7 @@
 
 /obj/structure/fluff/psycross/necra
 	name = "morwennan cross"
-	desc = "Not all of the Six bear crosses, but as they oft mark the grave, so do Morwenna's faithful raise these in honor of the dead. The Ledger-Keeper watches."
+	desc = "Not all of the Six bear crosses, but as they oft mark the grave, so do Death's faithful raise these in honor of the dead. The Ledger-Keeper watches."
 	icon_state = "cross_necra"
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	max_integrity = 300
@@ -80,7 +80,7 @@
 	lose_hearing_sensitivity()
 
 /obj/structure/fluff/psycross/necra/cloth
-	desc = "A Morwennan cross blessed by a loyal follower. The strips of fabric symbolize the tears of the Ledger-Keeper as she welcomes another soul back. It seems sturdy."
+	desc = "A Death cross blessed by a loyal follower. The strips of fabric symbolize the tears of the Ledger-Keeper as she welcomes another soul back. It seems sturdy."
 	icon_state = "cross_necra_cloth"
 	// It's going to be hard to get rid of these when they're not active.
 	max_integrity = 1200
@@ -130,7 +130,7 @@
 	last_activation_time = world.time
 	set_light(3, 2, LIGHT_COLOR_HOLY_MAGIC)
 	icon_state = "cross_necra_cloth_active"
-	visible_message(span_notice("The Morwennan cross begins to glow with a pale, holy light!"))
+	visible_message(span_notice("The Death cross begins to glow with a pale, holy light!"))
 	playsound(src, 'sound/magic/ahh1.ogg', 50, TRUE)
 	START_PROCESSING(SSobj, src)
 
@@ -149,7 +149,7 @@
 	cross_active = FALSE
 	set_light(0)
 	icon_state = "cross_necra_cloth"
-	visible_message(span_notice("The glow fades from the Morwennan cross."))
+	visible_message(span_notice("The glow fades from the Death cross."))
 
 	// Inefficient but we're not doing this often.
 	for(var/mob/living/L in affected_mobs)
@@ -318,7 +318,7 @@
 
 /atom/movable/screen/alert/status_effect/necran_cross_debuff
 	name = "Holy Purification"
-	desc = "The holy light of Morwenna weakens your undead form. Your movements are slowed and your senses dulled."
+	desc = "The holy light of Death weakens your undead form. Your movements are slowed and your senses dulled."
 	icon_state = "holy"
 
 #define NECRAN_MISTS_FILTER "necra_mists_filter"
@@ -332,8 +332,8 @@
 	var/speed_buff = 1
 
 /atom/movable/screen/alert/status_effect/buff/necran_mists
-	name = "Morwenna's Mists"
-	desc = "The sacred mists of Morwenna envelop you, granting protection and speed."
+	name = "Death's Mists"
+	desc = "The sacred mists of Death envelop you, granting protection and speed."
 	icon_state = "holybuff"
 
 /datum/status_effect/buff/necran_mists/on_creation(mob/living/new_owner, tier = 1)

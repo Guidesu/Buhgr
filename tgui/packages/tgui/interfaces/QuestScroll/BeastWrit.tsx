@@ -60,7 +60,7 @@ export const BeastWrit = (props: {
       <p style={writParagraph}>
         A {beast} preys upon {realm}, to the great hurt of the country.
       </p>
-      {deeds && <p style={writParagraph}>{deeds}</p>}
+      {!!deeds && <p style={writParagraph}>{deeds}</p>}
       <p style={writParagraph}>
         The writ knows the beast and shall mark itself when the deed is done.
         Return it then to the Contract Ledger, and the bounty of{' '}
@@ -72,7 +72,7 @@ export const BeastWrit = (props: {
         />{' '}
         shall be paid.
       </p>
-      {hasRecoveryAddendum && (
+      {!!hasRecoveryAddendum && (
         <RecoveryAddendum
           shipment={recoveryShipment}
           destination={recoveryDestination}

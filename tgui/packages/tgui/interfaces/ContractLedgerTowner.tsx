@@ -80,12 +80,12 @@ const SummaryBlock = (props: { bearer?: string; poster?: string }) => {
       className="ContractLedger__CardObjective"
       style={{ marginTop: 6, fontSize: '0.9em', opacity: 0.85 }}
     >
-      {props.bearer && (
+      {!!props.bearer && (
         <div>
           <b>To bearer:</b> {props.bearer}.
         </div>
       )}
-      {props.poster && (
+      {!!props.poster && (
         <div>
           <b>To poster:</b> {props.poster}.
         </div>
@@ -117,7 +117,7 @@ const ActivePostingCard = (props: {
     <div className="ContractLedger__Card" style={{ width: 300 }}>
       <div className="ContractLedger__CardTitle">{props.posting.label}</div>
       <div className="ContractLedger__CardObjective">{props.posting.blurb}</div>
-      {crown && (
+      {!!crown && (
         <div
           className="ContractLedger__CardObjective"
           style={{ marginTop: 4, fontSize: '0.85em', fontWeight: 'bold' }}
@@ -299,7 +299,7 @@ export const TownerPostingPanel = () => {
         </span>
         <span>
           Balance: {data.balance}m
-          {anyCrown && <> | Purse: {data.towner_purse_balance ?? 0}m</>}
+          {!!anyCrown && <> | Purse: {data.towner_purse_balance ?? 0}m</>}
         </span>
       </div>
       <div style={blurbStyle}>

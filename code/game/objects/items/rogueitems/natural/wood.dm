@@ -78,7 +78,7 @@
 				new /obj/item/natural/cured/essence(get_turf(user))
 				if(!sound_played)
 					sound_played = TRUE
-					to_chat(user, span_warning("Ignatius weeps..."))
+					to_chat(user, span_warning("The Wilds weeps..."))
 					playsound(src,pick('sound/items/gem.ogg'), 100, FALSE)
 		if(!skill_level)
 			to_chat(user, span_info("Due to inexperience, I ruin some of the timber..."))

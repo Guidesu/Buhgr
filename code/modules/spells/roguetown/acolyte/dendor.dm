@@ -86,7 +86,7 @@
 		if(amount_blessed >= 5)
 			break
 	if(growed)
-		visible_message(span_green("[usr] blesses the nearby crops with Ignatius's Favour!"))
+		visible_message(span_green("[usr] blesses the nearby crops with the Wilds's Favour!"))
 	return growed
 
 /////////////////////
@@ -115,7 +115,7 @@
 
 /obj/effect/proc_holder/spell/targeted/beasttame/cast(list/targets,mob/user = usr)
 	. = ..()
-	visible_message(span_green("[usr] soothes the beastblood with Ignatius's whisper."))
+	visible_message(span_green("[usr] soothes the beastblood with the Wilds's whisper."))
 	var/tamed = FALSE
 	for(var/mob/living/simple_animal/hostile/retaliate/animal in get_hearers_in_view(2, usr))
 		if((animal.mob_biotypes & MOB_UNDEAD))
@@ -127,7 +127,7 @@
 				animal.ai_controller.clear_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET)
 				animal.ai_controller.clear_blackboard_key(BB_BASIC_MOB_RETALIATE_LIST)
 				animal.ai_controller.set_blackboard_key(BB_BASIC_MOB_TAMED, TRUE)
-			to_chat(usr, "With Ignatius's aide, you soothe [animal] of their anger.")
+			to_chat(usr, "With the Wilds's aide, you soothe [animal] of their anger.")
 	return tamed
 
 //////////////////////
@@ -196,6 +196,6 @@
 
 	if (!first_cast)
 		to_chat(user, span_boldwarning("So it is murmured in the Earth and Air: the Call of the Moon is sacred, and to share knowledge gleaned from it with those not of Him is a SIN."))
-		to_chat(user, span_boldwarning("Ware thee well, child of Ignatius."))
+		to_chat(user, span_boldwarning("Ware thee well, child of the Wilds."))
 		first_cast = TRUE
 	. = ..()

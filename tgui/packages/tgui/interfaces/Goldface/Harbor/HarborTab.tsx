@@ -143,7 +143,7 @@ export const HarborTab = (props: {
       >
         Tip: Ctrl+F in this window to find a good or realm quickly.
       </div>
-      {harbor.kinship?.realm_name && (
+      {!!harbor.kinship?.realm_name && (
         <div
           style={{
             margin: '6px 0 8px',
@@ -171,7 +171,7 @@ export const HarborTab = (props: {
           </span>
         </div>
       )}
-      {harbor.kinship?.agent_realm_name && (
+      {!!harbor.kinship?.agent_realm_name && (
         <div
           style={{
             margin: '6px 0 8px',

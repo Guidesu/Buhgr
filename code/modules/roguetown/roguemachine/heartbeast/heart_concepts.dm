@@ -347,9 +347,9 @@
 	name = "decay"
 	tier_questions = alist(
 		1 = list("Get old?", "Break down?", "Not work?"),
-		2 = list("What is Pestra?", "Why Pestra?", "Pestra bad?"),
-		3 = list("Does Pestra's decay make space for new life?", "What beauty exists in deterioration?", "Is ending part of cycles?"),
-		4 = list("What is Pestra's greatest gift?", "Does Pestra's dissolution serve renewal?", "What ancient patterns does Pestra require return to source?")
+		2 = list("What is Healing?", "Why Healing?", "Healing bad?"),
+		3 = list("Does Healing's decay make space for new life?", "What beauty exists in deterioration?", "Is ending part of cycles?"),
+		4 = list("What is Healing's greatest gift?", "Does Healing's dissolution serve renewal?", "What ancient patterns does Healing require return to source?")
 	)
 	answer_keywords = list("decay", "rot", "decompose", "deteriorate", "wither", "fade", "corrupt", "pestra")
 

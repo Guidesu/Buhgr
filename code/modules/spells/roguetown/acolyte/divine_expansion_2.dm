@@ -29,8 +29,8 @@
 // T2 — Roadwarden's Step: Short-range teleport to a visible location
 /datum/action/cooldown/spell/viator_expansion/roadwardens_step
 	name = "Roadwarden's Step"
-	desc = "Steps through the road between places. Teleports you to a visible tile within 7 tiles. The road is always shorter for Viator's faithful."
-	fluff_desc = "Every border Viator walked, every road he traveled — he knows the shortcuts that aren't on any map. His faithful learn to step between places as he did."
+	desc = "Steps through the road between places. Teleports you to a visible tile within 7 tiles. The road is always shorter for Trickery's faithful."
+	fluff_desc = "Every border Trickery walked, every road he traveled — he knows the shortcuts that aren't on any map. His faithful learn to step between places as he did."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_BARDIC
 
@@ -73,8 +73,8 @@
 // T3 — Fortune's Favor: Grant a luck buff to a target
 /datum/action/cooldown/spell/viator_expansion/fortunes_favor
 	name = "Fortune's Favor"
-	desc = "Grants a target Viator's luck: +3 LCK for 5 minutes. The road rewards those the Wayward God blesses."
-	fluff_desc = "Viator's luck is the luck of the open road — the dice that fall right, the deal that closes fair, the storm that breaks around you. His favor follows the blessed."
+	desc = "Grants a target Trickery's luck: +3 LCK for 5 minutes. The road rewards those the Wayward God blesses."
+	fluff_desc = "Trickery's luck is the luck of the open road — the dice that fall right, the deal that closes fair, the storm that breaks around you. His favor follows the blessed."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_BARDIC
 
@@ -111,7 +111,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/viator_fortune
 	name = "Fortune's Favor"
-	desc = "Viator's luck guides your steps. +3 Fortune."
+	desc = "Trickery's luck guides your steps. +3 Fortune."
 	icon_state = "buff"
 
 // ═══════════════════════════════════════════════════════════════════
@@ -140,7 +140,7 @@
 /datum/action/cooldown/spell/wulfric_expansion/hearthfire_aura
 	name = "Hearthfire Aura"
 	desc = "Channels the warmth of the hearth into an aura. Allies within 5 tiles gain +2 STR and regenerate stamina faster for 2 minutes."
-	fluff_desc = "The hearth is Wulfric's altar — the fire that warms, the fire that protects. His aura carries that warmth into battle, turning allies into hearth-guardians."
+	fluff_desc = "The hearth is the Sea's altar — the fire that warms, the fire that protects. His aura carries that warmth into battle, turning allies into hearth-guardians."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_HEARTH
 
@@ -167,7 +167,7 @@
 		if(H == owner)
 			continue
 		H.apply_status_effect(/datum/status_effect/buff/wulfric_hearthfire)
-		to_chat(H, span_notice("Wulfric's hearthfire burns in your veins!"))
+		to_chat(H, span_notice("The Sea's hearthfire burns in your veins!"))
 	var/mob/living/caster = owner
 	caster.apply_status_effect(/datum/status_effect/buff/wulfric_hearthfire)
 	to_chat(caster, span_notice("The hearthfire surges through me!"))
@@ -186,14 +186,14 @@
 
 /atom/movable/screen/alert/status_effect/buff/wulfric_hearthfire
 	name = "Hearthfire Aura"
-	desc = "Wulfric's hearthfire burns in you. +2 Strength and stamina regeneration."
+	desc = "The Sea's hearthfire burns in you. +2 Strength and stamina regeneration."
 	icon_state = "buff"
 
 // T3 — Sacrificial Strike: Deal damage to yourself to deal massive damage to a target
 /datum/action/cooldown/spell/wulfric_expansion/sacrificial_strike
 	name = "Sacrificial Strike"
-	desc = "Channels Wulfric's sacrifice: you take 20 brute damage, and in return your next melee attack within 10 seconds deals double damage."
-	fluff_desc = "Wulfric's war is not conquest — it is sacrifice. The father who bleeds so his children don't, the guard who falls so the gate holds. His faithful learn to pay the same price."
+	desc = "Channels the Sea's sacrifice: you take 20 brute damage, and in return your next melee attack within 10 seconds deals double damage."
+	fluff_desc = "The Sea's war is not conquest — it is sacrifice. The father who bleeds so his children don't, the guard who falls so the gate holds. His faithful learn to pay the same price."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_HEARTH
 
@@ -217,7 +217,7 @@
 	var/mob/living/caster = owner
 	caster.apply_damage(20, BRUTE)
 	caster.apply_status_effect(/datum/status_effect/buff/wulfric_sacrifice)
-	caster.visible_message(span_warning("[caster] draws blood from their own palm, eyes blazing with sacrificial fury!"), span_notice("I offer my blood to Wulfric. My next strike shall be devastating!"))
+	caster.visible_message(span_warning("[caster] draws blood from their own palm, eyes blazing with sacrificial fury!"), span_notice("I offer my blood to the Sea. My next strike shall be devastating!"))
 	playsound(get_turf(caster), 'sound/magic/bloodheal.ogg', 60, TRUE)
 	return TRUE
 
@@ -228,7 +228,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/wulfric_sacrifice
 	name = "Sacrificial Strike"
-	desc = "Your next melee attack will deal double damage. Wulfric accepts your sacrifice."
+	desc = "Your next melee attack will deal double damage. The Sea accepts your sacrifice."
 	icon_state = "buff"
 
 // ═══════════════════════════════════════════════════════════════════
@@ -256,8 +256,8 @@
 // T0 — Warrior's Resolve: Self-buff that grants STR and reduces stamina drain briefly
 /datum/action/cooldown/spell/ravox_expansion/warriors_resolve
 	name = "Warrior's Resolve"
-	desc = "Steels yourself with Ravox's resolve: +2 STR for 1 minute. The justicar's strength flows through you."
-	fluff_desc = "Ravox does not grant strength to the cruel — he grants it to those who fight with purpose. His resolve turns a soldier into a champion, a champion into a legend."
+	desc = "Steels yourself with Law's resolve: +2 STR for 1 minute. The justicar's strength flows through you."
+	fluff_desc = "Law does not grant strength to the cruel — he grants it to those who fight with purpose. His resolve turns a soldier into a champion, a champion into a legend."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_RAVOX
 
@@ -278,7 +278,7 @@
 	. = ..()
 	var/mob/living/caster = owner
 	caster.apply_status_effect(/datum/status_effect/buff/ravox_resolve)
-	to_chat(caster, span_notice("Ravox's resolve steels my arm!"))
+	to_chat(caster, span_notice("Law's resolve steels my arm!"))
 	playsound(get_turf(caster), 'sound/magic/battle_cry.ogg', 50, TRUE)
 	return TRUE
 
@@ -290,14 +290,14 @@
 
 /atom/movable/screen/alert/status_effect/buff/ravox_resolve
 	name = "Warrior's Resolve"
-	desc = "Ravox's strength flows through you. +2 Strength."
+	desc = "Law's strength flows through you. +2 Strength."
 	icon_state = "buff"
 
 // T4 — Glorious Judgment: AOE divine damage centered on caster
 /datum/action/cooldown/spell/ravox_expansion/glorious_judgment
 	name = "Glorious Judgment"
-	desc = "Calls down Ravox's judgment in a 5-tile radius around you. All enemies take 40 brute damage and are knocked down. You are unaffected."
-	fluff_desc = "When the battle is at its thickest, when the justicar's patience is spent, Ravox delivers his judgment — not with a whisper, but with a thunderclap that lays the wicked low."
+	desc = "Calls down Law's judgment in a 5-tile radius around you. All enemies take 40 brute damage and are knocked down. You are unaffected."
+	fluff_desc = "When the battle is at its thickest, when the justicar's patience is spent, Law delivers his judgment — not with a whisper, but with a thunderclap that lays the wicked low."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_RAVOX
 
@@ -325,7 +325,7 @@
 			continue
 		L.apply_damage(40, BRUTE)
 		L.Knockdown(20)
-		L.visible_message(span_warning("[L] is struck down by Ravox's judgment!"), span_danger("Divine judgment crashes down upon you!"))
+		L.visible_message(span_warning("[L] is struck down by Law's judgment!"), span_danger("Divine judgment crashes down upon you!"))
 		new /obj/effect/temp_visual/ravox_judgment(get_turf(L))
 	return TRUE
 
@@ -361,8 +361,8 @@
 // T0 — Pilfer's Eye: Reveal the value of all items in a target's inventory
 /datum/action/cooldown/spell/matthios_expansion/pilfers_eye
 	name = "Pilfer's Eye"
-	desc = "Examines a target and reveals the total value of all items they carry. Matthios sees the worth in everything — and everyone."
-	fluff_desc = "The Fire-Thief's first lesson: know the value of what you take. Matthios's eye appraises all things, and his faithful see gold where others see only rags."
+	desc = "Examines a target and reveals the total value of all items they carry. Trade sees the worth in everything — and everyone."
+	fluff_desc = "The Fire-Thief's first lesson: know the value of what you take. Trade's eye appraises all things, and his faithful see gold where others see only rags."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_MATTHIOS
 
@@ -398,7 +398,7 @@
 /datum/action/cooldown/spell/matthios_expansion/shadow_exchange
 	name = "Shadow Exchange"
 	desc = "Swaps your position with a target's. The ultimate theft — taking their very place in the world."
-	fluff_desc = "Matthios stole fire from the sun. His faithful learn a lesser theft: stealing another's place, leaving them where you stood, confused and displaced."
+	fluff_desc = "Trade stole fire from the sun. His faithful learn a lesser theft: stealing another's place, leaving them where you stood, confused and displaced."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_MATTHIOS
 
@@ -458,7 +458,7 @@
 /datum/action/cooldown/spell/hausvette_expansion/harvest_blessing
 	name = "Harvest Blessing"
 	desc = "Blesses a target with the bounty of the harvest: +3 CON and reduced hunger for 5 minutes."
-	fluff_desc = "Hausvette's harvest feeds the village through the winter. Her blessing carries that same fullness — the strength of a well-fed body, the endurance of a community that shares."
+	fluff_desc = "The Forbidden's harvest feeds the village through the winter. Her blessing carries that same fullness — the strength of a well-fed body, the endurance of a community that shares."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_BAOTHA
 
@@ -483,7 +483,7 @@
 	if(!istype(L))
 		return FALSE
 	L.apply_status_effect(/datum/status_effect/buff/hausvette_harvest)
-	to_chat(L, span_notice("Hausvette's harvest blessing fills you with warmth and plenty!"))
+	to_chat(L, span_notice("The Forbidden's harvest blessing fills you with warmth and plenty!"))
 	playsound(get_turf(L), 'sound/magic/bless.ogg', 50, TRUE)
 	return TRUE
 
@@ -495,14 +495,14 @@
 
 /atom/movable/screen/alert/status_effect/buff/hausvette_harvest
 	name = "Harvest Blessing"
-	desc = "Hausvette's bounty sustains you. +3 Constitution and reduced hunger."
+	desc = "The Forbidden's bounty sustains you. +3 Constitution and reduced hunger."
 	icon_state = "buff"
 
 // T3 — Community's Shield: Grant damage reduction to all nearby allies
 /datum/action/cooldown/spell/hausvette_expansion/communitys_shield
 	name = "Community's Shield"
 	desc = "Channels the strength of community: all allies within 5 tiles gain 25% damage reduction for 30 seconds. The hearth protects its own."
-	fluff_desc = "A village survives what a single hut cannot. Hausvette's shield is the shield of neighbors who stand together — the debt of mutual protection made manifest."
+	fluff_desc = "A village survives what a single hut cannot. The Forbidden's shield is the shield of neighbors who stand together — the debt of mutual protection made manifest."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_BAOTHA
 
@@ -582,7 +582,7 @@
 /datum/action/cooldown/spell/volkovoi_expansion/winters_bite
 	name = "Winter's Bite"
 	desc = "Bites a target with the cold of winter: deals 30 burn damage (cold) and slows them for 5 seconds."
-	fluff_desc = "Volkovoi's winter does not negotiate. It bites, and the bitten grow slow, and the slow are culled. His faithful bring that same winter to the battlefield."
+	fluff_desc = "War's winter does not negotiate. It bites, and the bitten grow slow, and the slow are culled. His faithful bring that same winter to the battlefield."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_GRAGGAR
 
@@ -641,7 +641,7 @@
 /datum/action/cooldown/spell/volkovoi_expansion/hungers_call
 	name = "Hunger's Call"
 	desc = "Calls the winter-hunger into a target's belly, draining their nutrition severely. They become weak and desperate."
-	fluff_desc = "The cull begins with hunger. Volkovoi's call empties the belly, weakens the limbs, and makes the strong as desperate as the starving. The winter asks its question: who survives?"
+	fluff_desc = "The cull begins with hunger. War's call empties the belly, weakens the limbs, and makes the strong as desperate as the starving. The winter asks its question: who survives?"
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_GRAGGAR
 
@@ -710,8 +710,8 @@
 // T1 — Ember Touch: Ignite a target with a small flame
 /datum/action/cooldown/spell/ignatius_expansion/ember_touch
 	name = "Ember Touch"
-	desc = "Touches a target with Ignatius's ember: deals 15 burn damage and ignites them briefly. The fire that clears old growth."
-	fluff_desc = "Ignatius's fire is not destruction — it is renewal. The ember that burns away the deadwood so new growth can take root. But the deadwood feels it all the same."
+	desc = "Touches a target with the Wilds's ember: deals 15 burn damage and ignites them briefly. The fire that clears old growth."
+	fluff_desc = "The Wilds's fire is not destruction — it is renewal. The ember that burns away the deadwood so new growth can take root. But the deadwood feels it all the same."
 	button_icon_state = "ignite"
 	spell_color = GLOW_COLOR_FIRE
 
@@ -746,7 +746,7 @@
 /datum/action/cooldown/spell/ignatius_expansion/wild_growth
 	name = "Wild Growth"
 	desc = "Causes wild plants to erupt in a 5-tile radius. Allies are healed for 30 brute. Enemies are entangled and slowed for 5 seconds."
-	fluff_desc = "The forest does not ask permission to grow. Ignatius's wild growth surges through the earth, mending his faithful and grasping at those who would harm them."
+	fluff_desc = "The forest does not ask permission to grow. The Wilds's wild growth surges through the earth, mending his faithful and grasping at those who would harm them."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_FIRE
 
@@ -839,7 +839,7 @@
 /datum/action/cooldown/spell/custodius_expansion/oathbind
 	name = "Oathbind"
 	desc = "Speaks an oath of binding that roots a target in place for 3 seconds. They cannot move but can still act."
-	fluff_desc = "Custodius's oath is not a request — it is a chain. The bound hand does not let go, and those he binds do not walk away until the oath is fulfilled."
+	fluff_desc = "Law's oath is not a request — it is a chain. The bound hand does not let go, and those he binds do not walk away until the oath is fulfilled."
 	button_icon_state = "calming_respite"
 	spell_color = GLOW_COLOR_UNDIVIDED
 
@@ -871,8 +871,8 @@
 // T3 — Corrective Strike: Deal damage that scales inversely with the target's health
 /datum/action/cooldown/spell/custodius_expansion/corrective_strike
 	name = "Corrective Strike"
-	desc = "Delivers Custodius's correction: deals damage that is higher the healthier the target is. A full-health target takes 50 damage; a near-dead target takes almost none."
-	fluff_desc = "Correction is measured. Custodius does not strike to kill — he strikes to correct. The healthy need more correction; the broken have already learned their lesson."
+	desc = "Delivers Law's correction: deals damage that is higher the healthier the target is. A full-health target takes 50 damage; a near-dead target takes almost none."
+	fluff_desc = "Correction is measured. Law does not strike to kill — he strikes to correct. The healthy need more correction; the broken have already learned their lesson."
 	button_icon_state = "calming_respite"
 	spell_color = GLOW_COLOR_UNDIVIDED
 
@@ -901,7 +901,7 @@
 	var/damage = 50 * health_percent
 	damage = max(damage, 5) // minimum 5 damage
 	L.apply_damage(damage, BRUTE)
-	L.visible_message(span_warning("[L] is struck by corrective force!"), span_danger("Custodius's correction strikes you!"))
+	L.visible_message(span_warning("[L] is struck by corrective force!"), span_danger("Law's correction strikes you!"))
 	playsound(get_turf(L), 'sound/magic/PSY.ogg', 60, TRUE)
 	to_chat(owner, span_notice("Correction delivered: [damage] damage."))
 	return TRUE
@@ -932,7 +932,7 @@
 /datum/action/cooldown/spell/aurelian_expansion/grave_bolt
 	name = "Grave Bolt"
 	desc = "Fires a bolt of necrotic energy at a target. Deals 25 brute damage and drains 10 blood from the target."
-	fluff_desc = "Aurelian's left-hand magic draws from the grave itself. Her bolts carry the cold of the tomb and the hunger of the dead — flesh withers, blood drains."
+	fluff_desc = "The Forbidden's left-hand magic draws from the grave itself. Her bolts carry the cold of the tomb and the hunger of the dead — flesh withers, blood drains."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_ZIZO
 
@@ -967,8 +967,8 @@
 // T4 — Unmake: Strip a target of their magical buffs
 /datum/action/cooldown/spell/aurelian_expansion/unmake
 	name = "Unmake"
-	desc = "Strips all magical buffs and status effects from a target. The ultimate expression of Aurelian's philosophy: what was made can be unmade."
-	fluff_desc = "Aurelian claims no priesthood should stand between a soul and the divine. Her unmake extends that claim to magic itself: no enchantment is sacred, no buff is permanent, no protection cannot be stripped away."
+	desc = "Strips all magical buffs and status effects from a target. The ultimate expression of the Forbidden's philosophy: what was made can be unmade."
+	fluff_desc = "The Forbidden claims no priesthood should stand between a soul and the divine. Her unmake extends that claim to magic itself: no enchantment is sacred, no buff is permanent, no protection cannot be stripped away."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_ZIZO
 

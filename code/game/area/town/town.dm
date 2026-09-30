@@ -122,7 +122,7 @@
 	converted_type = /area/rogue/outdoors/exposed/bath
 
 /area/rogue/indoors/town/church/grim
-	name = "The House of the Ten"
+	name = "The House of the Domains"
 	icon_state = "church"
 	droning_sound = 'sound/music/area/grimchurch.ogg'
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
@@ -130,10 +130,10 @@
 	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
 	holy_area = TRUE
 	converted_type = /area/rogue/outdoors/exposed/church/grim
-	deathsight_message = "a hallowed place, sworn to the Ten"
+	deathsight_message = "a hallowed place, sworn to the Domains"
 
 /area/rogue/indoors/town/church/grim/infirmary
-	name = "The Infirmary of the Ten"
+	name = "The Infirmary of the Domains"
 	icon_state = "church"
 	droning_sound = 'sound/music/area/grimchurch.ogg'
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
@@ -141,7 +141,7 @@
 	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
 	holy_area = TRUE
 	converted_type = /area/rogue/outdoors/exposed/church/grim
-	deathsight_message = "a hallowed place, sworn to the Ten"
+	deathsight_message = "a hallowed place, sworn to the Domains"
 
 /area/rogue/outdoors/exposed/church/grim
 	icon_state = "church"
@@ -149,7 +149,7 @@
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'
 	droning_sound_night = null
 	droning_sound_dawn = 'sound/music/area/grimtowndawn.ogg'
-	deathsight_message = "a hallowed place, sworn to the Ten"
+	deathsight_message = "a hallowed place, sworn to the Domains"
 
 /area/rogue/indoors/town/church/chapel/grim
 	icon_state = "chapel"
@@ -172,7 +172,7 @@
 	detail_text = DETAIL_TEXT_CHAPEL
 
 /area/rogue/indoors/town/pestra_sanctum/grim
-	name = "Pestran Crypts"
+	name = "Healing Crypts"
 	icon_state = "pestrasanctum"
 	droning_sound = 'sound/music/area/grimsanctum.ogg'
 	droning_sound_dusk = 'sound/music/area/grimdusk.ogg'
@@ -242,7 +242,7 @@
 	detail_text = DETAIL_TEXT_UNIVERSITY_OF_THE_OUTPOST
 
 /area/rogue/indoors/town/pestra_sanctum
-	name = "Sanctum of Pestra"
+	name = "Sanctum of Healing"
 	icon_state = "pestrasanctum"
 	droning_sound = 'sound/music/area/catacombs.ogg'
 	spookysounds = SPOOKY_MYSTICAL
@@ -346,7 +346,7 @@
 	tavern_area = TRUE
 
 /area/rogue/indoors/town/church
-	name = "The House of the Ten"
+	name = "The House of the Domains"
 	icon_state = "church"
 	droning_sound = 'sound/music/area/church.ogg'
 	droning_sound_dusk = null
@@ -354,7 +354,7 @@
 	holy_area = TRUE
 	droning_sound_dawn = 'sound/music/area/churchdawn.ogg'
 	converted_type = /area/rogue/outdoors/exposed/church
-	deathsight_message = "a hallowed place, sworn to the Ten"
+	deathsight_message = "a hallowed place, sworn to the Domains"
 
 /area/rogue/outdoors/exposed/church
 	icon_state = "church"
@@ -362,7 +362,7 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 	droning_sound_dawn = 'sound/music/area/churchdawn.ogg'
-	deathsight_message = "a hallowed place, sworn to the Ten"
+	deathsight_message = "a hallowed place, sworn to the Domains"
 
 /area/rogue/indoors/town/church/chapel
 	icon_state = "chapel"

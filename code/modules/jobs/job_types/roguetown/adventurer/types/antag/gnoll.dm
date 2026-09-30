@@ -7,7 +7,7 @@
 	total_positions = 0
 	spawn_positions = 0
 	forbidden_races = list(RACES_CONSTRUCT RACES_DESPISED)
-	tutorial = "You have proven yourself worthy to Graggar, and he's granted you his blessing most divine. Now you hunt for worthy opponents, seeking out those strong enough to make you bleed."
+	tutorial = "You have proven yourself worthy to War, and he's granted you his blessing most divine. Now you hunt for worthy opponents, seeking out those strong enough to make you bleed."
 	outfit = null
 	outfit_female = null
 	display_order = JDO_GNOLL
@@ -98,7 +98,7 @@
 			to_chat(H, span_bignotice("I can expect to be joined by my pack this week. I should wait for them and group up."))
 		else
 			to_chat(H, span_bignotice("Isolated from my pack, I am likely a lone soul this week. I should especially avoid getting killed, and look for my pack next week."))
-		to_chat(H, span_bignotice("Graggar is patient, and values good strategy. I mustn't be hasty, especially if my marks prove difficult to isolate.\n Perhaps there is merit in forging alliances, or setting up camp."))
+		to_chat(H, span_bignotice("War is patient, and values good strategy. I mustn't be hasty, especially if my marks prove difficult to isolate.\n Perhaps there is merit in forging alliances, or setting up camp."))
 		spawn(50)
 			var/name_choice = alert(H, "What name do you want?", "MY NAME IS [H.real_name]", "Pick New Name", "Random Gnoll Name", "Keep Current Name")
 			switch(name_choice)

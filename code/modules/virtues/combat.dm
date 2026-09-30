@@ -25,7 +25,7 @@
 
 /datum/virtue/combat/devotee
 	name = "Devotee"
-	desc = "Though not officially of the Church, my relationship with my chosen Patron is strong enough to grant me the most minor of their blessings. I've also kept a psycross of my deity."
+	desc = "Though not officially of the Church, my relationship with my chosen Patron is strong enough to grant me the most minor of their blessings. I've also kept a holy cross of my deity."
 	ui_fa_icon = "person-praying"
 
 	custom_text = "You gain access to T0 miracles of your patron. As a non-combat role you also receive a minor passive devotion gain. If you already have access to Miracles, you get slightly increased passive devotion gain."
@@ -46,37 +46,37 @@
 		START_PROCESSING(SSobj, our_faith)
 	switch(recipient.patron?.type)
 		if(/datum/patron/concordat/auxentius)
-			recipient.mind?.special_items["Amulet of Auxentius"] = /obj/item/clothing/neck/roguetown/psicross/auxentius
+			recipient.mind?.special_items["Amulet of the Sun"] = /obj/item/clothing/neck/roguetown/psicross/auxentius
 		if(/datum/patron/concordat/wulfric)
-			recipient.mind?.special_items["Amulet of Abyssor"] = /obj/item/clothing/neck/roguetown/psicross/wulfric
+			recipient.mind?.special_items["Amulet of the Sea"] = /obj/item/clothing/neck/roguetown/psicross/wulfric
 		if(/datum/patron/severance/ignatius)
-			recipient.mind?.special_items["Amulet of Ignatius"] = /obj/item/clothing/neck/roguetown/psicross/ignatius
+			recipient.mind?.special_items["Amulet of the Wilds"] = /obj/item/clothing/neck/roguetown/psicross/ignatius
 		if(/datum/patron/concordat/morwenna)
-			recipient.mind?.special_items["Amulet of Necra"] = /obj/item/clothing/neck/roguetown/psicross/morwenna
+			recipient.mind?.special_items["Amulet of Death"] = /obj/item/clothing/neck/roguetown/psicross/morwenna
 		if(/datum/patron/concordat/handwerra)
-			recipient.mind?.special_items["Amulet of Pestra"] = /obj/item/clothing/neck/roguetown/psicross/handwerra
+			recipient.mind?.special_items["Amulet of Healing"] = /obj/item/clothing/neck/roguetown/psicross/handwerra
 		if(/datum/patron/concordat/miluse) 
-			recipient.mind?.special_items["Amulet of Eora"] = /obj/item/clothing/neck/roguetown/psicross/miluse
+			recipient.mind?.special_items["Amulet of Love"] = /obj/item/clothing/neck/roguetown/psicross/miluse
 		if(/datum/patron/concordat/miluse)
-			recipient.mind?.special_items["Amulet of Noc"] = /obj/item/clothing/neck/roguetown/psicross/miluse
+			recipient.mind?.special_items["Amulet of the Moon"] = /obj/item/clothing/neck/roguetown/psicross/miluse
 		if(/datum/patron/concordat/handwerra)
-			recipient.mind?.special_items["Amulet of Malum"] = /obj/item/clothing/neck/roguetown/psicross/handwerra
+			recipient.mind?.special_items["Amulet of the Craft"] = /obj/item/clothing/neck/roguetown/psicross/handwerra
 		if(/datum/patron/tribunal/praecursor)
 			ADD_TRAIT(recipient, TRAIT_VAELTITE, TRAIT_GENERIC)
 			recipient.mind?.special_items["Psycross"] = /obj/item/clothing/neck/roguetown/psicross
 		if(/datum/patron/tribunal/custodius)
 			recipient.mind?.special_items["Amulet of the Undivided"] = /obj/item/clothing/neck/roguetown/psicross/custodius
 		if(/datum/patron/concordat/morwenna)
-			recipient.mind?.special_items["Amulet of Matthios"] = /obj/item/clothing/neck/roguetown/psicross/morwenna
+			recipient.mind?.special_items["Amulet of Trade"] = /obj/item/clothing/neck/roguetown/psicross/morwenna
 		if(/datum/patron/oldkin/volkovoi)
-			recipient.mind?.special_items["Amulet of Graggar"] = /obj/item/clothing/neck/roguetown/psicross/volkovoi
+			recipient.mind?.special_items["Amulet of War"] = /obj/item/clothing/neck/roguetown/psicross/volkovoi
 		if(/datum/patron/oldkin/hausvette)
-			recipient.mind?.special_items["Amulet of Baotha"] = /obj/item/clothing/neck/roguetown/psicross/hausvette
+			recipient.mind?.special_items["Amulet of the Forbidden"] = /obj/item/clothing/neck/roguetown/psicross/hausvette
 		if(/datum/patron/unveiled/aurelian)
-			recipient.mind?.special_items["Inverted Psycross"] = /obj/item/clothing/neck/roguetown/psicross/aurelian/iron
+			recipient.mind?.special_items["Inverted Holy cross"] = /obj/item/clothing/neck/roguetown/psicross/aurelian/iron
 
 /datum/virtue/combat/devotee/auxentian_affinity
-	name = "Auxentian Affinity (Racial, Sun Elves)"
+	name = "Sun Affinity (Racial, Sun Elves)"
 	desc = "This Virtue is unlisted and should not be visible."
 	unlisted = TRUE
 
@@ -170,7 +170,7 @@
 	choice_tooltips = list(
 		SC_ROTCURED = "<font color='#4a8d48'>I was once afflicted with the accursed rot, and was cured. It has left me changed: my limbs are weaker, but I feel no pain and have no need to breathe.<br><br><font color=red>(Grants Easy Dismember, Painless, Breathless, Deathless, Poison Immune, Deadite Immune, Silver Weakness.)<br><br><font color=white>(Additionally, you can eat brains, you don't suffer nausea, and your heart does not beat.)</font></font></font>",
 		SC_PALLID = "<font color='#8d4848'>I was once afflicted with vampirism, but was cured by somethign short of divine intervention. It has left me changed: silver burns my flesh, and the open sky fills me with unease. Yet I draw no breath, and my eyes pierce the darkness. Lingering traces of the curse that once claimed me. Traces I hope will fade in time.<br><br><font color=red>(Grants Darkvision, Breathless, Deadite Immunity and Silver Weakness.)<br><br><font color=white>(Additionally, being outdoors causes stress.)</font></font></font>",
-		SC_BLACKBLOOD = "<font color='#8b488d'>I was once a nite-creacher, be it lycanthrope or vampyre, before the Otavan Inquisition subdued and exported me as a test subject of an experimental \"cure\" for my Quicksilver-resistant taint. This intense therapy had me warped, inside, outside, body and mind, into something 'idealistically' humen-like for Otavan standards, even if I am now no different than a sentient, hollowed ghoul.<br><br><font color=red>(Grants Darkvision, Leaden Lux, Strong Bite, Inhumen Digestion, and Silver Weakness.)<br><br><font color=white>(Additionally, consuming any food will grant a minor healing buff. You bleed slower and passively recover from wounds (while not hungry). You will feel stressed when exposed to Sunlight, and panic while being around or interacting with members of the Inquisition.)</font></font></font>",
+		SC_BLACKBLOOD = "<font color='#8b488d'>I was once a nite-creacher, be it lycanthrope or vampyre, before the Otavan Inquisition subdued and exported me as a test subject of an experimental \"cure\" for my Quicksilver-resistant taint. This intense therapy had me warped, inside, outside, body and mind, into something 'idealistically' humen-like for Otavan standards, even if I am now no different than a sentient, hollowed ghoul.<br><br><font color=red>(Grants Darkvision, Leaden Lux, Strong Bite, Forbidden Digestion, and Silver Weakness.)<br><br><font color=white>(Additionally, consuming any food will grant a minor healing buff. You bleed slower and passively recover from wounds (while not hungry). You will feel stressed when exposed to Sunlight, and panic while being around or interacting with members of the Inquisition.)</font></font></font>",
 	)
 
 /datum/virtue/combat/second_chance/apply_to_human(mob/living/carbon/human/recipient)
@@ -202,7 +202,7 @@
 					ADD_TRAIT(recipient, TRAIT_NOBREATH, TRAIT_VIRTUE)
 					ADD_TRAIT(recipient, TRAIT_ZOMBIE_IMMUNE, TRAIT_VIRTUE)
 					ADD_TRAIT(recipient, TRAIT_SILVER_WEAK, TRAIT_VIRTUE)
-					to_chat(recipient, "You are no longer one scorned by Auxentius, by the mercy of the gods.</font>")
+					to_chat(recipient, "You are no longer one scorned by the Sun, by the mercy of the gods.</font>")
 				
 				if(SC_BLACKBLOOD)
 					ADD_TRAIT(recipient, TRAIT_BLACKBLOOD, TRAIT_VIRTUE)

@@ -1,6 +1,6 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/astratan
 	name = "astratan helmet"
-	desc = "Gilded gold and silvered metal, the bright, vibrant colors of an Auxentian crusader radiate from this blessed helmet."
+	desc = "Gilded gold and silvered metal, the bright, vibrant colors of a Sun crusader radiate from this blessed helmet."
 	icon_state = "astratanhelm"
 	item_state = "astratahnelm"
 	emote_environment = 3
@@ -55,7 +55,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/malum
 	name = "helm of malum"
-	desc = "Forged in a coal-black, this helmet carries a sigiled blade upon its visor, ever reminding its wearer of Malum's powerful gaze."
+	desc = "Forged in a coal-black, this helmet carries a sigiled blade upon its visor, ever reminding its wearer of the Craft's powerful gaze."
 	icon_state = "malumhelm"
 	item_state = "malumhelm"
 	emote_environment = 3
@@ -89,7 +89,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/pestran/keeper
 	name = "keeper's stone mask"
-	desc = "A hooded stone mask worn by Pestran keepers. Their face, oft marred by disease doth not hold value, for it is the pursuit of knowledge of the heartbeast that is the true cause."
+	desc = "A hooded stone mask worn by Healing keepers. Their face, oft marred by disease doth not hold value, for it is the pursuit of knowledge of the heartbeast that is the true cause."
 	icon_state = "keeperhelm"
 	item_state = "keeperhelm"
 	// Best approximation for stone as we have no standard!
@@ -99,7 +99,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/eoran
 	name = "eoran helmet"
-	desc = "A visage of beauty, this helm made in soft pink and beige reminds one of the grace of Eora."
+	desc = "A visage of beauty, this helm made in soft pink and beige reminds one of the grace of Love."
 	icon_state = "eorahelm"
 	item_state = "eorahelm"
 	emote_environment = 3
@@ -140,7 +140,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/undivided_alt
 	name = "templar bucket helmet"
-	desc = "A gold-plated bucket helm adorned with symbol of Auxentius, beacon of hope worn during crusades. \
+	desc = "A gold-plated bucket helm adorned with symbol of the Sun, beacon of hope worn during crusades. \
 	Sacrificial Hero, fear not your enemy; it is only the first tilt."
 	worn_x_dimension = 64
 	worn_y_dimension = 64

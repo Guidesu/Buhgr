@@ -17,7 +17,7 @@
 
 /obj/item/clothing/head/roguetown/eoramask
 	name = "eoran mask"
-	desc = "A silver mask in the likeness of a rabbit. Usually worn by the faithful of Eora during their rituals, but it's not like anyone's going to stop you. Right?"
+	desc = "A silver mask in the likeness of a rabbit. Usually worn by the faithful of Love during their rituals, but it's not like anyone's going to stop you. Right?"
 	color = null
 	icon_state = "eoramask"
 	item_state = "eoramask"

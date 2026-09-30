@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/lirvanmerc
 	name = "Lirvan Tithebound"
-	tutorial = "Contrary to the name, you're not indebted. Far from it. Lirvas is well-known for its economically aggressive brand of Matthiosianism, and the Tithebound are no exception to this opportunistic mammon-making. With tough scales reinforced by Matthiosian rituo, and solid armor, stand 'gainst the tide, and turn thyne WEALTH to POWER. A few rare Tithebound are more aligned towards Auxentius."
+	tutorial = "Contrary to the name, you're not indebted. Far from it. Lirvas is well-known for its economically aggressive brand of Matthiosianism, and the Tithebound are no exception to this opportunistic mammon-making. With tough scales reinforced by Matthiosian rituo, and solid armor, stand 'gainst the tide, and turn thyne WEALTH to POWER. A few rare Tithebound are more aligned towards the Sun."
 	allowed_sexes = list(MALE, FEMALE)
 	forbidden_races = list(RACES_LIRVAS) //no wildkin; i'd like to allow snek/liznerd wildkin, but i don't have a way of mechanically enforcing that
 	outfit = /datum/outfit/job/roguetown/mercenary/lirvanmerc
@@ -31,7 +31,7 @@
 		/datum/skill/combat/swords = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/staves = SKILL_LEVEL_APPRENTICE //awww yeah
 	)
-	extra_context = "This subclass is race-limited to: Drakian, Zardman, and Kobold. This subclass locks you to Matthios or Auxentius-worship."
+	extra_context = "This subclass is race-limited to: Drakian, Zardman, and Kobold. This subclass locks you to Trade or the Sun-worship."
 
 /datum/outfit/job/roguetown/mercenary/lirvanmerc
 	allowed_patrons = list(/datum/patron/concordat/auxentius, /datum/patron/concordat/morwenna)
@@ -81,13 +81,13 @@
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/lirvan_talon)
 
 	if(H.mind)
-		var/list/patron_choices = list("The ORDER and KINGSHIP of Auxentius", "The DEBT and INHERITANCE of Morwenna")
-		var/patron_choice = input(H, "What do you worship?", "Choose a Patron", "The DEBT and INHERITANCE of Morwenna") as anything in patron_choices
+		var/list/patron_choices = list("The ORDER and KINGSHIP of the Sun", "The DEBT and INHERITANCE of Death")
+		var/patron_choice = input(H, "What do you worship?", "Choose a Patron", "The DEBT and INHERITANCE of Death") as anything in patron_choices
 		switch(patron_choice)
-			if("The ORDER and KINGSHIP of Auxentius")
+			if("The ORDER and KINGSHIP of the Sun")
 				H.set_patron(/datum/patron/concordat/auxentius)
 				H.adjust_skillrank_up_to(/datum/skill/misc/reading, SKILL_LEVEL_EXPERT, TRUE) //idfk what auxentians do man
-			if("The DEBT and INHERITANCE of Morwenna")
+			if("The DEBT and INHERITANCE of Death")
 				H.set_patron(/datum/patron/concordat/morwenna)
 				H.adjust_skillrank_up_to(/datum/skill/misc/athletics, SKILL_LEVEL_JOURNEYMAN, TRUE)
 

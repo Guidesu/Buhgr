@@ -68,9 +68,6 @@ export const SubtabIdentity = () => {
           <Stack.Item>
             <SubtabIdentityCardGameplay />
           </Stack.Item>
-          <Stack.Item>
-            <SubtabIdentityCardVices />
-          </Stack.Item>
           <SubtabIdentityDownstreamPaneRight />
         </Stack>
       </Box>
@@ -253,7 +250,7 @@ export const SubtabIdentityCardGameplay = () => {
                 'PreferencesMenu__PatronSelection',
                 selected_faith,
               ])}
-              label={'\u16C9 Patron \u16E3'}
+              label="Domain & God"
             >
               <Button
                 fluid
@@ -264,7 +261,7 @@ export const SubtabIdentityCardGameplay = () => {
               </Button>
             </LabeledGridList.Item>
             <LabeledGridList.Item label="Origin">
-              <Button fluid icon="bars" onClick={() => setPopupId('Origin')}>
+              <Button fluid icon="map" onClick={() => act('dv_open_origin_map')}>
                 {virtue_origin}
               </Button>
             </LabeledGridList.Item>

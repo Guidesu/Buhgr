@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(gronn_amulet_types, get_amulet_type_list_gronn())
 		// In a perfect world, we'd have all Zizo amulets neatly organized underneath a type that denominates it as Zizite.
 		// But this is not a perfect world...
 		var/cross_name = initial(cross.name)
-		var/list/zcross_names = list("zcross", "inverted psycross")
+		var/list/zcross_names = list("zcross", "inverted holy cross")
 		for(var/zname in zcross_names)
 			var/regex/name_search = regex("([zname])", "im")
 			if(name_search.Find(cross_name))

@@ -223,7 +223,7 @@ export const ContractLedger = () => {
             ))}
           </div>
 
-          {showingContracts && (
+          {!!showingContracts && (
             <div className="ContractLedger__TabBar">
               {regionTabs.map((region) => {
                 const count = data.pool.filter(
@@ -246,7 +246,7 @@ export const ContractLedger = () => {
             </div>
           )}
 
-          {showingContracts && (
+          {!!showingContracts && (
             <div className="ContractLedger__FilterBar">
               {FILTER_BUTTONS.map((diff) => {
                 const isActive = diff === activeDifficulty;
@@ -269,7 +269,7 @@ export const ContractLedger = () => {
             </div>
           )}
 
-          {showingContracts && <HoardRecoveryCallStrip />}
+          {!!showingContracts && <HoardRecoveryCallStrip />}
 
           <div className="ContractLedger__Board">
             {mode.kind === 'scouts' ? (
@@ -621,7 +621,7 @@ const ContractCard = (props: { contract: Contract }) => {
           </span>
         </div>
       )}
-      {c.objective && (
+      {!!c.objective && (
         <div className="ContractLedger__CardObjective">{c.objective}</div>
       )}
       <div className="ContractLedger__CardFooter">
@@ -700,7 +700,7 @@ const ActiveStrip = (props: {
           behalf - the reward is credited to the holder, and you take no cut.
         </div>
       )}
-      {showFellowshipHelp && (
+      {!!showFellowshipHelp && (
         <Dialog
           title="Form a Fellowship for more benefits"
           width="420px"
@@ -722,7 +722,7 @@ const ActiveStrip = (props: {
           </div>
         </Dialog>
       )}
-      {blockReason && (
+      {!!blockReason && (
         <div
           className="ContractLedger__ActiveRow"
           style={{ color: '#c44', fontWeight: 'bold' }}

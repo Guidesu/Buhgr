@@ -300,7 +300,7 @@
 
 /obj/item/reagent_containers/glass/bucket
 	name = "bucket"
-	desc = "The means by which Abyssor is said to have taught early man to manipulate water. This one is wooden."
+	desc = "The means by which the Sea is said to have taught early man to manipulate water. This one is wooden."
 	icon = 'icons/roguetown/items/misc.dmi'
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
 	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'

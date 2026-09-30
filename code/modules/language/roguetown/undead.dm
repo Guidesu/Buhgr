@@ -1,5 +1,5 @@
 /datum/language/undead
-	name = "Zizo Chant"
+	name = "Forbidden Chant"
 	desc = ""
 	speech_verb = "chants"
 	ask_verb = "questions"

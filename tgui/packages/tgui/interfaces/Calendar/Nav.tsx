@@ -61,7 +61,7 @@ export const Nav = (props: NavProps) => {
         </button>
       </div>
       <div style={monthSubStyle}>{seasonLine}</div>
-      {showReturn && (
+      {!!showReturn && (
         <div style={returnRowStyle}>
           <button type="button" style={inkButtonStyle({})} onClick={onReturn}>
             Return to Today

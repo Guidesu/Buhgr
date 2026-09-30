@@ -143,29 +143,31 @@ type SkillConversionDomainState = {
   take_text?: string;
 };
 
-type QuirkSlot = {
-  id: number;
-  slot_name: string;
-  greater: boolean;
-  path: string;
-  name: string;
-  spawn_error?: string | null;
-};
-
-type QuirkOption = {
+type QuirkEntry = {
   path: string;
   name: string;
   desc?: string | null;
   mechdesc?: string | null;
   icon?: string | null;
-  greater: boolean;
-  unavailable?: string | null;
+  cost: number;
+  taken: boolean;
+  blocked?: string | null;
+};
+
+type ViceEntry = {
+  path: string;
+  name: string;
+  desc?: string | null;
+  taken: boolean;
+  blocked?: string | null;
 };
 
 type QuirksData = {
-  slots: QuirkSlot[];
-  options: QuirkOption[];
-  open_slots: number;
+  budget: number;
+  spent: number;
+  per_vice: number;
+  quirks: QuirkEntry[];
+  vices: ViceEntry[];
 };
 
 type Data = {
@@ -2199,7 +2201,7 @@ const TraitNode = ({
       <Box bold style={{ fontSize: '12px', lineHeight: 1.15 }}>
         {entry.name || traitId}
       </Box>
-      {(!!cost || (entry.repeatable && amount > 0)) && (
+      {(!!cost || (!!entry.repeatable && amount > 0)) && (
         <Box mt={0.25} style={{ opacity: 0.78, fontSize: '10px' }}>
           {cost ? `Cost ${cost}` : ''}
           {entry.repeatable && amount > 0 ? ` x${amount}` : ''}
@@ -2223,7 +2225,7 @@ const TraitNode = ({
   return (
     <Box style={{ width: '188px' }}>
       {card}
-      {selected && (
+      {!!selected && (
         <Box
           mt={0.25}
           style={{
@@ -3026,7 +3028,7 @@ const LoadoutTabInner = ({
                         {slot.shortLabel || slot.label}
                       </div>
 
-                      {hasCompatible && (
+                      {!!hasCompatible && (
                         <div
                           style={{
                             position: 'absolute',
@@ -3046,7 +3048,7 @@ const LoadoutTabInner = ({
                   );
                 })}
 
-                {chooserOpen && (
+                {!!chooserOpen && (
                   <div
                     style={{
                       position: 'absolute',
@@ -3268,6 +3270,56 @@ const LoadoutTabInner = ({
 // cost applies here (paper doll + bag/stash rows both use onMouseEnter).
 const LoadoutTab = memo(LoadoutTabInner);
 
+const QUIRK_GRID_STYLE = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+  gap: '4px',
+};
+
+const QuirkRow = ({
+  name,
+  desc,
+  icon,
+  taken,
+  blocked,
+  badge,
+  onClick,
+}: {
+  name: string;
+  desc?: string | null;
+  icon?: string | null;
+  taken: boolean;
+  blocked?: string | null;
+  badge: string;
+  onClick: () => void;
+}) => (
+  <Button
+    fluid
+    compact
+    selected={taken}
+    disabled={!taken && !!blocked}
+    tooltip={[desc, blocked].filter(Boolean).join(' - ') || undefined}
+    onClick={onClick}
+    style={{ padding: '2px 6px' }}
+  >
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '5px',
+        fontSize: '12px',
+        whiteSpace: 'nowrap',
+      }}
+    >
+      {!!icon && <Icon name={icon} />}
+      <span style={{ flex: '1 1 auto', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        {name}
+      </span>
+      <span style={{ opacity: 0.75, fontSize: '11px' }}>{badge}</span>
+    </div>
+  </Button>
+);
+
 const QuirksTab = ({
   quirks,
   act,
@@ -3277,7 +3329,6 @@ const QuirksTab = ({
   act: BackendAct;
   search: string;
 }) => {
-  const [slotId, setSlotId] = useState(1);
   if (!quirks) {
     return (
       <Section title="Quirks">
@@ -3285,84 +3336,88 @@ const QuirksTab = ({
       </Section>
     );
   }
-  const slot = quirks.slots.find((entry) => entry.id === slotId);
-  const taken = quirks.slots
-    .filter((entry) => entry.id !== slotId)
-    .map((entry) => entry.path);
-  const query = search.trim().toLowerCase();
-  const isGreaterSlot = !!slot?.greater;
-  const options = quirks.options
-    .filter(
-      (option) =>
-        !query ||
-        option.name.toLowerCase().includes(query) ||
-        (option.desc || '').toLowerCase().includes(query),
-    )
-    .sort((a, b) => {
-      if (a.name === 'None') return -1;
-      if (b.name === 'None') return 1;
-      return a.name.localeCompare(b.name);
-    });
+  const q = search.trim().toLowerCase();
+  const matches = (name: string, desc?: string | null) =>
+    !q || name.toLowerCase().includes(q) || (desc || '').toLowerCase().includes(q);
+  const byName = (a: { name: string }, b: { name: string }) =>
+    a.name.localeCompare(b.name);
+  const byCost = (a: QuirkEntry, b: QuirkEntry) =>
+    Math.abs(a.cost) - Math.abs(b.cost) || byName(a, b);
+  const perks = quirks.quirks
+    .filter((entry) => entry.cost >= 0 && matches(entry.name, entry.desc))
+    .sort(byCost);
+  const drawbacks = quirks.quirks
+    .filter((entry) => entry.cost < 0 && matches(entry.name, entry.desc))
+    .sort(byCost);
+  const vices = quirks.vices
+    .filter((entry) => matches(entry.name, entry.desc))
+    .sort(byName);
+  const left = quirks.budget - quirks.spent;
 
   return (
-    <Section title="Quirks">
-      <Box mb={1} style={{ opacity: 0.8 }}>
-        Take up to four lesser quirks and two greater quirks. Greater quirks
-        only fit the greater slots.
-      </Box>
-      <Tabs>
-        {quirks.slots.map((entry) => (
-          <Tabs.Tab
-            key={entry.id}
-            selected={entry.id === slotId}
-            color={entry.spawn_error ? 'bad' : undefined}
-            onClick={() => setSlotId(entry.id)}
-          >
-            {entry.slot_name}: {entry.name}
-          </Tabs.Tab>
-        ))}
-      </Tabs>
-      {slot?.spawn_error && slot.name !== 'None' && (
-        <NoticeBox color="bad">{slot.spawn_error}</NoticeBox>
-      )}
-      <Stack vertical>
-        {options.map((option) => {
-          const selected = slot?.path === option.path;
-          let blocked = option.unavailable || null;
-          if (!blocked && option.greater && !isGreaterSlot) {
-            blocked = 'Can only be taken in the greater quirk slot.';
-          }
-          if (
-            !blocked &&
-            option.name !== 'None' &&
-            taken.includes(option.path)
-          ) {
-            blocked = 'Already taken in another slot.';
-          }
-          return (
-            <Stack.Item key={option.path}>
-              <Button
-                fluid
-                selected={selected}
-                disabled={!!blocked && !selected}
-                icon={option.icon || undefined}
-                tooltip={
-                  [option.desc, option.mechdesc, blocked]
-                    .filter(Boolean)
-                    .join(' — ') || undefined
-                }
-                onClick={() =>
-                  act('select_quirk', { id: slotId, quirk: option.path })
-                }
-              >
-                {option.name}
-                {option.greater ? ' (greater)' : ''}
-              </Button>
-            </Stack.Item>
-          );
-        })}
-      </Stack>
-    </Section>
+    <>
+      <Section title={`Quirk points: ${left} of ${quirks.budget} left`}>
+        <Box color="label">
+          Every character starts with a few quirk points, and each vice adds{' '}
+          {quirks.per_vice} more. Quirks cost points; drawbacks give points
+          back.
+        </Box>
+        <Box color="label" mt={0.5}>
+          <b>1</b> flavour or knowledge · <b>2</b> useful · <b>3</b> strong ·{' '}
+          <b>4</b> exceptional. Drawbacks use the same scale in reverse.
+        </Box>
+      </Section>
+      <Section title="Quirks">
+        <div style={QUIRK_GRID_STYLE}>
+          {perks.map((entry) => (
+            <div key={entry.path}>
+              <QuirkRow
+                name={entry.name}
+                desc={entry.mechdesc ? `${entry.desc} ${entry.mechdesc}` : entry.desc}
+                icon={entry.icon}
+                taken={entry.taken}
+                blocked={entry.blocked}
+                badge={`${entry.cost} pt${entry.cost === 1 ? '' : 's'}`}
+                onClick={() => act('toggle_quirk', { quirk: entry.path })}
+              />
+            </div>
+          ))}
+        </div>
+      </Section>
+      <Section title="Drawbacks">
+        <div style={QUIRK_GRID_STYLE}>
+          {drawbacks.map((entry) => (
+            <div key={entry.path}>
+              <QuirkRow
+                name={entry.name}
+                desc={entry.desc}
+                icon={entry.icon}
+                taken={entry.taken}
+                blocked={entry.blocked}
+                badge={`+${-entry.cost} pt${entry.cost === -1 ? '' : 's'}`}
+                onClick={() => act('toggle_quirk', { quirk: entry.path })}
+              />
+            </div>
+          ))}
+        </div>
+      </Section>
+      <Section title="Vices">
+        <div style={QUIRK_GRID_STYLE}>
+          {vices.map((entry) => (
+            <div key={entry.path}>
+              <QuirkRow
+                name={entry.name}
+                desc={entry.desc}
+                taken={entry.taken}
+                blocked={entry.blocked}
+                badge={`+${quirks.per_vice} pts`}
+                onClick={() => act('toggle_vice', { vice: entry.path })}
+              />
+            </div>
+          ))}
+        </div>
+      </Section>
+    </>
   );
 };
 

@@ -171,7 +171,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/auxentius
 	name = "sun hood"
-	desc = "A hood worn by those who favor Auxentius, guarding the devoted from His radiant flames. It is said that \
+	desc = "A hood worn by those who favor the Sun, guarding the devoted from His radiant flames. It is said that \
 	those of particular devotion will often combine their hoods with golden masks that've been sculpted in His divine \
 	visage, further guarding them from those who'd seek to harm them."
 	color = null
@@ -191,7 +191,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/auxentius/stonekeep
 	name = "sunwrought visage"
-	desc = "A ceremonial hood that billows around a golden mask, stylized in tribute to Auxentius's divine radiance. It \
+	desc = "A ceremonial hood that billows around a golden mask, stylized in tribute to the Sun's divine radiance. It \
 	is traditionally worn by devoted Acolytes and Priests, though it isn't uncommon to be seen worn by others who \
 	revere the sun above all else."
 	color = null
@@ -208,7 +208,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/nochood
 	name = "moon hood"
-	desc = "A hood worn by those who favor Noc with a mask in the shape of a crescent."
+	desc = "A hood worn by those who favor the Moon with a mask in the shape of a crescent."
 	color = null
 	icon_state = "nochood"
 	item_state = "nochood"
@@ -225,7 +225,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/abyssor
 	name = "depths hood"
-	desc = "A hood worn by the followers of Abyssor, with a unique, coral-shaped mask. How do they even see out of this?"
+	desc = "A hood worn by the followers of the Sea, with a unique, coral-shaped mask. How do they even see out of this?"
 	color = null
 	icon_state = "abyssorhood"
 	item_state = "abyssorhood"
@@ -242,7 +242,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/eorahood
 	name = "opera hood"
-	desc = "An opera mask worn by the faithful of Eora, usually during their rituals. Comes with a hood that can be pulled up for warmth."
+	desc = "An opera mask worn by the faithful of Love, usually during their rituals. Comes with a hood that can be pulled up for warmth."
 	color = null
 	icon = 'icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
@@ -296,7 +296,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/eora
 	name = "eoran hood"
-	desc = "A hood of devotees of Eora, coupled with her silver cabbit mask. Does not pacify the wearer for every rose has it's thorns."
+	desc = "A hood of devotees of Love, coupled with her silver cabbit mask. Does not pacify the wearer for every rose has it's thorns."
 	color = null
 	icon = 'icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
@@ -466,7 +466,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/praecursor/black
 	name = "blessed hood"
-	desc = "A hood worn by the worshippers of Praecursor, oft-donned in conjunction with its matching tabard. Mourn, but do not despair; for even the smallest spark of faith might yet reignite the hearth of this dying world."
+	desc = "A hood worn by the worshippers of the Absent God, oft-donned in conjunction with its matching tabard. Mourn, but do not despair; for even the smallest spark of faith might yet reignite the hearth of this dying world."
 	icon_state = "blackpsydonhood"
 	item_state = "blackpsydonhood"
 

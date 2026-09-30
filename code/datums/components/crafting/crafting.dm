@@ -218,7 +218,7 @@
 
 /datum/component/personal_crafting/proc/construct_item(mob/user, datum/crafting_recipe/R)
 	if (HAS_TRAIT(user, TRAIT_CURSE_HANDWERRA))
-		to_chat(user, span_warning("Your cursed hands tremble and fail to craft... Malum forbids it."))
+		to_chat(user, span_warning("Your cursed hands tremble and fail to craft... The Craft forbids it."))
 		return
 	if(user.doing)
 		return

@@ -14,11 +14,11 @@
 		You share authority within the University with the Court Magician - \
 		your authority over mundane and medical matters is supreme, whereas they \
 		have total authority over all matters of magic and arcane practice. \
-		You have also an arrangement with the Keepers of Pestra beneath the University \
+		You have also an arrangement with the Keepers of Healing beneath the University \
 		courtyard, enabling you and your subordinates to access the heartbeast, source of \
 		the heartsblood vital for your craft. Oversee your clinic and your subordinate \
 		apothecaries, ensure the continued health of your community, and embody the \
-		ideals of Pestra wherever you go."
+		ideals of Healing wherever you go."
 	outfit = /datum/outfit/job/roguetown/physician
 	whitelist_req = TRUE
 	advclass_cat_rolls = list(CTAG_COURTPHYS = 2)
@@ -44,11 +44,11 @@
 		You share authority within the University with the Court Magician - \
 		your authority over mundane and medical matters is supreme, whereas they \
 		have total authority over all matters of magic and arcane practice. \
-		You have also an arrangement with the Keepers of Pestra beneath the University \
+		You have also an arrangement with the Keepers of Healing beneath the University \
 		courtyard, enabling you and your subordinates to access the heartbeast, source of \
 		the heartsblood vital for your craft. Oversee your clinic and your subordinate \
 		apothecaries, ensure the continued health of your community, and embody the \
-		ideals of Pestra wherever you go."
+		ideals of Healing wherever you go."
 	outfit = /datum/outfit/job/roguetown/physician/basic
 	category_tags = list(CTAG_COURTPHYS)
 	subclass_stats = list(

@@ -265,7 +265,7 @@
 ////////BROKEN////////
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron/vampire
 	name = "regal maille"
-	desc = "An ornate aketon, woven from crimson silk and worn beneath a layer of enchanted gilbranze maille. Vheslyn and Zizo had both failed in their pursuits - yet, the ancient truths they left behind were more valuable than lyfe itself. It's time to show them all how a Lord truly gets it done."
+	desc = "An ornate aketon, woven from crimson silk and worn beneath a layer of enchanted gilbranze maille. Vheslyn and the Forbidden had both failed in their pursuits - yet, the ancient truths they left behind were more valuable than lyfe itself. It's time to show them all how a Lord truly gets it done."
 	icon_state = "vunder"
 	item_state = "vunder"
 	icon = 'icons/roguetown/clothing/shirts.dmi'
@@ -315,7 +315,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/paalloy/vampire
 	name = "ancient ceremonial vestments"
-	desc = "An ornate aketon, woven from crimson silk and worn beneath a layer of enchanted gilbranze maille. Vheslyn, and Zizo had both failed in their pursuits - yet, the ancient truths they left behind were more valuable than lyfe itself. It's time to show them all how a Lord truly gets it done."
+	desc = "An ornate aketon, woven from crimson silk and worn beneath a layer of enchanted gilbranze maille. Vheslyn, and the Forbidden had both failed in their pursuits - yet, the ancient truths they left behind were more valuable than lyfe itself. It's time to show them all how a Lord truly gets it done."
 	icon_state = "vhauberk"
 	item_state = "vhauberk"
 	armor_class = ARMOR_CLASS_HEAVY
@@ -334,7 +334,7 @@
 
 /obj/item/clothing/under/roguetown/platelegs/vampire
 	name = "ancient ceremonial plate greaves"
-	desc = "Enchanted gilbranze tassets, meticulously shingled over silk-lined chausses. Auxentius tore open the sky, and Her light sundered all who had embraced your gift. They cried for your help - but you stood there, numb."
+	desc = "Enchanted gilbranze tassets, meticulously shingled over silk-lined chausses. The Sun tore open the sky, and Her light sundered all who had embraced your gift. They cried for your help - but you stood there, numb."
 	gender = PLURAL
 	icon_state = "vpants"
 	item_state = "vpants"

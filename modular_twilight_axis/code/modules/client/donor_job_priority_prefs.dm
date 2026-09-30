@@ -4,10 +4,10 @@
 	var/datum/preferences/prefs = user.client?.prefs
 	var/patreon_level = donor_job_boost_patreon_level(user.ckey, user.client)
 	var/remaining = donor_job_boost_rounds_remaining(prefs, user.ckey, user.client)
-	var/status = remaining ? "   [remaining] " : ""
-	var/cooldown_text = donor_job_boost_has_no_cooldown(patreon_level) ? " " : "    ([status])"
-	var/job_limit_text = donor_job_boost_grants_any_job(patreon_level) ? " " : "    "
-	return "<b> ([DONOR_JOB_BOOST_MIN_PATREON_LEVEL]+ .):</b>    <font color='gold'>HIGH +</font> ([cooldown_text]), [job_limit_text].<br>"
+	var/status = remaining ? "available in [remaining] round(s)" : "available"
+	var/cooldown_text = donor_job_boost_has_no_cooldown(patreon_level) ? "every round" : "every other round ([status])"
+	var/job_limit_text = donor_job_boost_grants_any_job(patreon_level) ? "any role" : "only roles with several slots"
+	return "<b>Patron ([DONOR_JOB_BOOST_MIN_PATREON_LEVEL]+ tier):</b> one class at <font color='gold'>HIGH +</font> ([cooldown_text]), [job_limit_text].<br>"
 
 /datum/preferences/proc/job_pref_display_data(datum/job/job, mob/user)
 	var/list/result = list(
@@ -67,14 +67,14 @@
 			return JP_HIGH
 		if(JOB_PREF_UI_BOOST)
 			if(!donor_job_boost_ckey_eligible(user?.ckey, user?.client))
-				to_chat(user, span_warning("HIGH +    [DONOR_JOB_BOOST_MIN_PATREON_LEVEL]-   ."))
+				to_chat(user, span_warning("HIGH + is available to patrons of tier [DONOR_JOB_BOOST_MIN_PATREON_LEVEL] and above."))
 				return null
 			if(!donor_job_boost_job_eligible(job, user?.ckey, user?.client))
-				to_chat(user, span_warning("HIGH +        (  [DONOR_JOB_BOOST_ANY_JOB_LEVEL]- )."))
+				to_chat(user, span_warning("HIGH + can't be used on single-slot roles (available from tier [DONOR_JOB_BOOST_ANY_JOB_LEVEL])."))
 				return null
 			if(!donor_job_boost_available(src, user?.ckey, user?.client))
 				var/remaining = donor_job_boost_rounds_remaining(src, user?.ckey, user?.client)
-				to_chat(user, span_warning("HIGH +    [remaining] () ( [DONOR_JOB_BOOST_NO_COOLDOWN_LEVEL]-  —  )."))
+				to_chat(user, span_warning("HIGH + will be available in [remaining] round(s) (every round from tier [DONOR_JOB_BOOST_NO_COOLDOWN_LEVEL])."))
 				return null
 			return JP_BOOST
 	return null

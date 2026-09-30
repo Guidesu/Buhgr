@@ -100,7 +100,7 @@ export const RealmRow = (props: { realm: HarborRealm }) => {
 
         <RealmCard realm={realm} />
       </div>
-      {expanded && (
+      {!!expanded && (
         <div
           style={{
             padding: '6px 8px 10px 36px',

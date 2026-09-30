@@ -596,8 +596,8 @@
 	if(Were && Were.transformed == TRUE)
 		user.visible_message(span_notice("[user] brings [src] to soak up the ichor of [M]'s wounds."))
 		if(do_after(user, 5 SECONDS, target = M))
-			user.visible_message(span_notice("[user] draws the ichor of Ignatius's Curse from [M]'s open wounds into [src]."), \
-								 span_notice("I have captured the ferocity of Ignatius's Curse inside [src]."))
+			user.visible_message(span_notice("[user] draws the ichor of the Wilds's Curse from [M]'s open wounds into [src]."), \
+								 span_notice("I have captured the ferocity of the Wilds's Curse inside [src]."))
 			success = TRUE
 	else if(Vamp)
 		user.visible_message(span_notice("[user] brings [src] to soak up the petrified blood of [M]'s wounds."))
@@ -775,7 +775,7 @@
 // poppies, from vanderlin
 /obj/item/reagent_containers/food/snacks/grown/rogue/poppy
 	name = "poppy"
-	desc = "For their crimson beauty and the sedating effect of their crushed seeds, these flowers are considered a symbol of Eora."
+	desc = "For their crimson beauty and the sedating effect of their crushed seeds, these flowers are considered a symbol of Love."
 	icon_state = "poppy"
 	seed = /obj/item/seeds/poppy
 	throwforce = 0
@@ -834,7 +834,7 @@
 /obj/item/reagent_containers/food/snacks/grown/fruit/blackberry/skysugarbase
 	name = "panacea of skysugar"
 	desc = "A combination of perplexingly diverse ingredients, that - when specifically boiled in fat - merges together to create an \
-	alchemically pure substance. Down the coast, it's known as 'skysugar'; a Pestran heresy, rumored to've originally been \
+	alchemically pure substance. Down the coast, it's known as 'skysugar'; a Healing heresy, rumored to've originally been \
 	brewed to cure that which even a quicksilver poultice couldn't mend. Despite its fruity aroma, it probably shouldn't be nibbled at."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "lux_impure_combo"
@@ -848,7 +848,7 @@
 /obj/item/reagent_containers/food/snacks/grown/skysugarslab
 	name = "skysugar slab"
 	desc = "A crystalline brick that radiates with an almost-ethereal hue, yet to be broken up at an alchemical lab. They call \
-	it 'luchtblauw' in the old highland tongue; alchemically purified starsugar, to a ninth-of-a-hundreth dram. Born of a Pestran heresy, this \
+	it 'luchtblauw' in the old highland tongue; alchemically purified starsugar, to a ninth-of-a-hundreth dram. Born of a Healing heresy, this \
 	mysterious substance is both ludicrously potent and condemned by the Church. Even so, it's worth its weight in gold; and in the \
 	hands of a yeoman willing to 'break bad', it can be sold to an amoral Merchant or Bathmatron for a hefty sum."
 	icon = 'icons/roguetown/items/produce.dmi'
@@ -865,7 +865,7 @@
 /obj/item/reagent_containers/powder/starsugar/skysugar
 	name = "skysugar"
 	desc = "A crystalline powder that radiates with an almost-ethereal hue, and feels deathly cold to the touch. They call \
-	it 'luchtblauw' in the old highland tongue; alchemically purified starsugar, to a ninth-of-a-hundreth dram. Born of a Pestran heresy, this \
+	it 'luchtblauw' in the old highland tongue; alchemically purified starsugar, to a ninth-of-a-hundreth dram. Born of a Healing heresy, this \
 	mysterious substance is both ludicrously potent and condemned by the Church. Even so, it's worth its weight in gold; and in the \
 	hands of a yeoman willing to 'break bad', it can be sold to an amoral Merchant or Bathmatron for a hefty sum."
 	icon = 'icons/roguetown/items/produce.dmi'

@@ -15,7 +15,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/newmoon_jacket
 	name = "newmoon jacket"
-	desc = "A weighty, elegant, yet sufficiently protective coat made of dense and sturdy fabric. It is the distinctive mark of the Sacred Order of the New Moon, with a Noc amulet at the center of the chestpiece. A loud symbol of radical Nocitism."
+	desc = "A weighty, elegant, yet sufficiently protective coat made of dense and sturdy fabric. It is the distinctive mark of the Sacred Order of the New Moon, with a the Moon amulet at the center of the chestpiece. A loud symbol of radical Nocitism."
 	icon = 'modular_twilight_axis/church_classes/icons/spellblade_clothes.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/church_classes/icons/spellblade_clothes.dmi'
 	icon_state = "newmoon_jacket"

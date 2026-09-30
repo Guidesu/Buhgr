@@ -51,7 +51,7 @@ export const TariffHeader = (props: Props) => {
           </span>
         )}
       </div>
-      {isProprietor && (
+      {!!isProprietor && (
         <div
           style={{
             textAlign: 'center',

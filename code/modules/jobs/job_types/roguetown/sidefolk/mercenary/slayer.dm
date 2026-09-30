@@ -36,7 +36,7 @@
 /datum/outfit/job/roguetown/mercenary/trollslayer/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		to_chat(H, span_warning("You are a Slayer - an elite hunter of monsters, hailing from the windy peaks of the dwarven Mountainhomes. Your devotion is matched only by your unbridled fury. You forgo defense, entrusting your life to the Ten and make a living by selling your trophies."))
+		to_chat(H, span_warning("You are a Slayer - an elite hunter of monsters, hailing from the windy peaks of the dwarven Mountainhomes. Your devotion is matched only by your unbridled fury. You forgo defense, entrusting your life to the Domains and make a living by selling your trophies."))
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/axedance)
 		armor = /obj/item/clothing/suit/roguetown/armor/manual/pushups/slayer //light iron maille
 		pants = /obj/item/clothing/under/roguetown/heavy_leather_pants

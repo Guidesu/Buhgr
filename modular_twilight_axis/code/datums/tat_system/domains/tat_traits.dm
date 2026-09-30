@@ -875,8 +875,37 @@ GLOBAL_VAR_INIT(tat_virtue_trait_entries_ready, FALSE)
 /datum/tat_traits/proc/get_trait_requirement_map()
 	if(length(GLOB.tat_trait_requirement_map))
 		return GLOB.tat_trait_requirement_map
-	// All TAT requirements removed — any trait can be selected without prerequisites
-	GLOB.tat_trait_requirement_map = list()
+	// Traits that only work on top of another trait require it.
+	GLOB.tat_trait_requirement_map = list(
+		TAT_TRAIT_WEAPON_TRAINING = list("message" = "\"[get_trait_display_name(TAT_TRAIT_WEAPON_TRAINING)]\""),
+		TAT_TRAIT_WARRIOR_EXPERT = list("all" = list(TAT_TRAIT_WEAPON_TRAINING), "message" = "\"[get_trait_display_name(TAT_TRAIT_WARRIOR_EXPERT)]\" requires \"[get_trait_display_name(TAT_TRAIT_WEAPON_TRAINING)]\"."),
+		TAT_TRAIT_WARRIOR_MASTER = list("all" = list(TAT_TRAIT_WARRIOR_EXPERT), "message" = "\"[get_trait_display_name(TAT_TRAIT_WARRIOR_MASTER)]\" requires \"[get_trait_display_name(TAT_TRAIT_WARRIOR_EXPERT)]\"."),
+		TAT_TRAIT_BARDIC_INSPIRATION_T2 = list("all" = list(TAT_TRAIT_BARDIC_INSPIRATION_T1), "message" = "\"[get_trait_display_name(TAT_TRAIT_BARDIC_INSPIRATION_T2)]\" requires \"[get_trait_display_name(TAT_TRAIT_BARDIC_INSPIRATION_T1)]\"."),
+		TAT_TRAIT_SPELLBLADE = list("all" = list(TAT_TRAIT_MAGE_INITIATE, TRAIT_ARCYNE), "message" = "\"[get_trait_display_name(TAT_TRAIT_SPELLBLADE)]\" requires \"[get_trait_display_name(TAT_TRAIT_MAGE_INITIATE)]\" and \"[get_trait_display_name(TRAIT_ARCYNE)]\"."),
+		TAT_TRAIT_SPELLFIST = list("all" = list(TRAIT_CIVILIZEDBARBARIAN, TAT_TRAIT_MAGE_INITIATE), "message" = "\"[get_trait_display_name(TAT_TRAIT_SPELLFIST)]\" requires \"[get_trait_display_name(TRAIT_CIVILIZEDBARBARIAN)]\" and \"[get_trait_display_name(TAT_TRAIT_MAGE_INITIATE)]\"."),
+		TAT_TRAIT_EXPERT_ARMAMENT = list("any" = list(TRAIT_ARCYNE, TAT_TRAIT_MAGE_INITIATE), "message" = "\"[get_trait_display_name(TAT_TRAIT_EXPERT_ARMAMENT)]\" requires \"[get_trait_display_name(TRAIT_ARCYNE)]\" or \"[get_trait_display_name(TAT_TRAIT_MAGE_INITIATE)]\"."),
+		TAT_TRAIT_HANDICRAFT_APPRENTICE = list("message" = "\"[get_trait_display_name(TAT_TRAIT_HANDICRAFT_APPRENTICE)]\""),
+		TAT_TRAIT_STRAYING_SOUL_APPRENTICE = list("message" = "\"[get_trait_display_name(TAT_TRAIT_STRAYING_SOUL_APPRENTICE)]\""),
+		TAT_TRAIT_MAGE_MINOR_SLOT_1 = list("all" = list(TAT_TRAIT_MAGE_INITIATE), "message" = "\"[get_trait_display_name(TAT_TRAIT_MAGE_MINOR_SLOT_1)]\" requires \"[get_trait_display_name(TAT_TRAIT_MAGE_INITIATE)]\"."),
+		TAT_TRAIT_MAGE_MINOR_SLOT_2 = list("all" = list(TAT_TRAIT_MAGE_MINOR_SLOT_1), "message" = "\"[get_trait_display_name(TAT_TRAIT_MAGE_MINOR_SLOT_2)]\" requires \"[get_trait_display_name(TAT_TRAIT_MAGE_MINOR_SLOT_1)]\"."),
+		TAT_TRAIT_MAGE_MAJOR_SLOT = list("all" = list(TAT_TRAIT_MAGE_INITIATE), "message" = "\"[get_trait_display_name(TAT_TRAIT_MAGE_MAJOR_SLOT)]\" requires \"[get_trait_display_name(TAT_TRAIT_MAGE_INITIATE)]\"."),
+		TAT_TRAIT_MAGE_UTILITY_SLOT = list("all" = list(TAT_TRAIT_MAGE_INITIATE), "message" = "\"[get_trait_display_name(TAT_TRAIT_MAGE_UTILITY_SLOT)]\" requires \"[get_trait_display_name(TAT_TRAIT_MAGE_INITIATE)]\"."),
+		TAT_TRAIT_DIVINE_BOON_1 = list("all" = list(TAT_TRAIT_DIVINE_INITIATE), "message" = "\"[get_trait_display_name(TAT_TRAIT_DIVINE_BOON_1)]\" requires \"[get_trait_display_name(TAT_TRAIT_DIVINE_INITIATE)]\"."),
+		TAT_TRAIT_DIVINE_BOON_2 = list("all" = list(TAT_TRAIT_DIVINE_INITIATE, TAT_TRAIT_DIVINE_BOON_1), "message" = "\"[get_trait_display_name(TAT_TRAIT_DIVINE_BOON_2)]\" requires previous divine progression."),
+		TAT_TRAIT_DIVINE_BOON_3 = list("all" = list(TAT_TRAIT_DIVINE_INITIATE, TAT_TRAIT_DIVINE_BOON_2), "message" = "\"[get_trait_display_name(TAT_TRAIT_DIVINE_BOON_3)]\" requires previous divine progression."),
+		TAT_TRAIT_DIVINE_BLAST = list("all" = list(TAT_TRAIT_DIVINE_BOON_3), "message" = "\"[get_trait_display_name(TAT_TRAIT_DIVINE_BLAST)]\" requires \"[get_trait_display_name(TAT_TRAIT_DIVINE_BOON_3)]\"."),
+		TRAIT_RITUALIST = list("all" = list(TAT_TRAIT_HERETIC), "message" = "\"[get_trait_display_name(TRAIT_RITUALIST)]\" requires the Heretic vice."),
+		TAT_TRAIT_ARTIFACTS_SUPPLIER = list("all" = list(TAT_TRAIT_PARTY_LEADER), "message" = "\"[get_trait_display_name(TAT_TRAIT_ARTIFACTS_SUPPLIER)]\" requires \"[get_trait_display_name(TAT_TRAIT_PARTY_LEADER)]\"."),
+		TAT_TRAIT_SILVER_SUPPLIER = list("all" = list(TRAIT_PURITAN_ADVENTURER), "message" = "\"[get_trait_display_name(TAT_TRAIT_SILVER_SUPPLIER)]\" requires \"[get_trait_display_name(TRAIT_PURITAN_ADVENTURER)]\"."),
+		TAT_TRAIT_SAVAGE_SKIN = list("all" = list(TRAIT_NOPAINSTUN), "message" = "\"[get_trait_display_name(TAT_TRAIT_SAVAGE_SKIN)]\" requires \"[get_trait_display_name(TRAIT_NOPAINSTUN)]\"."),
+		TAT_TRAIT_BODYBUILDER_SKIN = list("message" = "\"[get_trait_display_name(TAT_TRAIT_BODYBUILDER_SKIN)]\""),
+		TRAIT_STRONGBITE = list("all" = list(TAT_TRAIT_SAVAGE_SKIN), "message" = "\"[get_trait_display_name(TRAIT_STRONGBITE)]\" requires \"[get_trait_display_name(TAT_TRAIT_SAVAGE_SKIN)]\"."),
+		TAT_TRAIT_SAVAGE_RAGE = list("all" = list(TAT_TRAIT_SAVAGE_SKIN), "message" = "\"[get_trait_display_name(TAT_TRAIT_SAVAGE_RAGE)]\" requires \"[get_trait_display_name(TAT_TRAIT_SAVAGE_SKIN)]\"."),
+		TAT_TRAIT_BERSERKER_RAGE = list("all" = list(TAT_TRAIT_SAVAGE_SKIN, TAT_TRAIT_HERETIC), "message" = "\"[get_trait_display_name(TAT_TRAIT_BERSERKER_RAGE)]\" requires \"[get_trait_display_name(TAT_TRAIT_SAVAGE_SKIN)]\" and the Heretic vice."),
+		TAT_TRAIT_HUNTER_BEATER = list("all" = list(TRAIT_OUTDOORSMAN), "message" = "\"[get_trait_display_name(TAT_TRAIT_HUNTER_BEATER)]\" requires \"[get_trait_display_name(TRAIT_OUTDOORSMAN)]\"."),
+		TAT_TRAIT_HUNTER_SHOOTER = list("all" = list(TRAIT_OUTDOORSMAN), "message" = "\"[get_trait_display_name(TAT_TRAIT_HUNTER_SHOOTER)]\" requires \"[get_trait_display_name(TRAIT_OUTDOORSMAN)]\"."),
+		TAT_TRAIT_LOOTRAT_2 = list("all" = list(TAT_TRAIT_LOOTRAT), "message" = "\"[get_trait_display_name(TAT_TRAIT_LOOTRAT_2)]\" requires \"[get_trait_display_name(TAT_TRAIT_LOOTRAT)]\"."),
+	)
 	return GLOB.tat_trait_requirement_map
 
 /datum/tat_traits/proc/trait_requirement_is_met(list/rule)
@@ -1081,9 +1110,9 @@ GLOBAL_VAR_INIT(tat_virtue_trait_entries_ready, FALSE)
 		owner_build?.grant_mind_spell_if_missing(H, /datum/action/cooldown/spell/gravemark)
 	if(has_trait(TAT_TRAIT_DIVINE_BLAST))
 		if(istype(H.patron, /datum/patron/concordat))
-			owner_build?.grant_mind_spell_if_missing(H, /obj/effect/proc_holder/spell/invoked/projectile/divineblast)
+			owner_build?.grant_mind_spell_if_missing(H, /datum/action/cooldown/spell/projectile/divine_blast)
 		else if(istype(H.patron, /datum/patron/unveiled))
-			owner_build?.grant_mind_spell_if_missing(H, /obj/effect/proc_holder/spell/invoked/projectile/unholyblast)
+			owner_build?.grant_mind_spell_if_missing(H, /datum/action/cooldown/spell/projectile/unholy_blast)
 
 /datum/tat_traits/proc/apply_mage_package(mob/living/carbon/human/H)
 	if(!H || !has_trait(TAT_TRAIT_MAGE_INITIATE) || !H.mind)

@@ -23,14 +23,14 @@
 		complete_objective()
 
 /datum/objective/retainer/proc/complete_objective()
-	to_chat(owner.current, span_greentext("You have recruited a retainer and completed Auxentius's objective!"))
+	to_chat(owner.current, span_greentext("You have recruited a retainer and completed the Sun's objective!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Auxentius", 10)
 	escalate_objective()
 
 /datum/objective/retainer/update_explanation_text()
-	explanation_text = "Recruit atleast one retainer to serve you and to demonstrate your ability to lead to Auxentius."
+	explanation_text = "Recruit atleast one retainer to serve you and to demonstrate your ability to lead to the Sun."
 
 /obj/effect/proc_holder/spell/self/convertrole/retainer
 	name = "Recruit Retainer"

@@ -86,7 +86,7 @@
 	return "braies"
 
 /datum/sprite_accessory/underwear/briefs/eoran
-	name = "Briefs - Eoran"
+	name = "Briefs - Love"
 	icon_state = "eoran_reg"
 	underwear_type = /obj/item/undies
 

@@ -1,6 +1,6 @@
 /datum/language/abyssal
 	name = "Abyssal"
-	desc = "An ancient and mysterious language spoken by those who have a link to Abyssor's Dreamworld."
+	desc = "An ancient and mysterious language spoken by those who have a link to the Sea's Dreamworld."
 	speech_verb = "chants"
 	ask_verb = "inquires"
 	exclaim_verb = "intones"

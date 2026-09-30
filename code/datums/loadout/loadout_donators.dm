@@ -115,7 +115,7 @@
 	path = /obj/item/enchantingkit/gothicsteelarmor
 
 /datum/loadout_item/donator/universal/armor_gothic_psydonic
-	name = "Gift - Kit, Gothic Psydonic Cuirass"
+	name = "Gift - Kit, Gothic Old Faith Cuirass"
 	path = /obj/item/enchantingkit/gothicpsydoniccuirass
 
 /datum/loadout_item/donator/universal/cuirass_throwback
@@ -455,7 +455,7 @@
 	ckeywhitelist = list("toasterstrudes")
 
 /datum/loadout_item/donator/strudel2
-	name = "Donator Kit - Xylixian Fasching Leotard"
+	name = "Donator Kit - Trickery Fasching Leotard"
 	path = /obj/item/enchantingkit/strudel2
 	ckeywhitelist = list("toasterstrudes")
 
@@ -612,7 +612,7 @@
 	ckeywhitelist = list("ryan180602")
 
 /datum/loadout_item/donator/ryan/psy_helm
-	name = "Donator Kit - Unorthodoxist Vaeltite Helm"
+	name = "Donator Kit - Unorthodoxist Old Faith Helm"
 	path = /obj/item/enchantingkit/ryan_psyhelm
 
 /datum/loadout_item/donator/ryan/naginata
@@ -685,7 +685,7 @@
 	ckeywhitelist = list("lmwevil", "theeternalflame")
 
 /datum/loadout_item/donator/shudderfly/eoranspike
-	name = "Donator Kit - Eoran Spike"
+	name = "Donator Kit - Love Spike"
 	path = /obj/item/enchantingkit/shudderfly_dagger
 	ckeywhitelist = list("shudderfly")
 
@@ -783,7 +783,7 @@
 	ckeywhitelist = list("koruu", "pneumothorax")
 
 /datum/loadout_item/donator/magi1138
-	name = "Donator Kit - Stolen Xylix Cloak"
+	name = "Donator Kit - Stolen Trickery Cloak"
 	path = /obj/item/clothing/cloak/magi1138
 	ckeywhitelist = list("magi1138")
 
@@ -847,7 +847,7 @@
 	ckeywhitelist = list("olympus7")
 
 /datum/loadout_item/donator/bobby
-	name = "Donator Kit - Holy Auxentian Bascinet"
+	name = "Donator Kit - Holy Sun Bascinet"
 	path = /obj/item/enchantingkit/bobby_helm
 	ckeywhitelist = list("spartanbobby")
 

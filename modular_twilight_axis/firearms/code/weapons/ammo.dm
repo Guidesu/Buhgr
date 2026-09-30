@@ -102,7 +102,7 @@
 
 /obj/projectile/bullet/twilight_lead/twilight_runelock
 	name = "runed sphere"
-	desc = "A small, perfectly round metal ball covered in Psydonite runes. Deadly at high speed."
+	desc = "A small, perfectly round metal ball covered in Old Faith runes. Deadly at high speed."
 	damage = 90
 	speed = 0.6
 	damage_type = BRUTE
@@ -443,7 +443,7 @@
 
 /obj/item/ammo_casing/caseless/rogue/twilight_lead/runelock
 	name = "runed sphere"
-	desc = "A small, perfectly round metal ball covered in Psydonite runes. Deadly at high speed."
+	desc = "A small, perfectly round metal ball covered in Old Faith runes. Deadly at high speed."
 	projectile_type = /obj/projectile/bullet/twilight_lead/twilight_runelock
 	caliber = "runed_sphere"
 	icon = 'modular_twilight_axis/firearms/icons/ammo.dmi'

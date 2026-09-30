@@ -15,7 +15,7 @@
 	favor_cost = ROSAWOOD_ARSENAL_FAVOR
 	home_origin_name = "Auxentia"
 	home_realm_id = REALM_AUXENTIA
-	home_label = "Auxentian origin"
+	home_label = "Sun origin"
 	stock = list(
 		/datum/supply_pack/rogue/rosawood/elvish_longsword = 2,
 		/datum/supply_pack/rogue/rosawood/elvish_shortsword = 2,

@@ -51,11 +51,11 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_biginfo("Xylix demands great entertainment! Seek out and viciously mock the ruler to prove your devotion and earn Xylix's favor!"))
+	to_chat(chosen_one, span_biginfo("Trickery demands great entertainment! Seek out and viciously mock the ruler to prove your devotion and earn Trickery's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/vo/male/evil/laugh (1).ogg', 100)
 
 	var/datum/action/cooldown/spell/projectile/vicious_mockery/mock_spell = new()
 	chosen_one.mind.AddSpell(mock_spell)
-	to_chat(chosen_one, span_notice("Xylix has granted you the gift of savage mockery! Use it to ridicule your target."))
+	to_chat(chosen_one, span_notice("Trickery has granted you the gift of savage mockery! Use it to ridicule your target."))
 
 	chosen_one.mind.announce_personal_objectives()

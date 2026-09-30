@@ -1,9 +1,9 @@
 /datum/advclass/templar/noc_spellblade
-	name = "Noccite Spellblade"
-	tutorial = "You are a Noccite Spellblade - A devotee of the Church\
+	name = "Moon Spellblade"
+	tutorial = "You are a Moon Spellblade - A devotee of the Church\
 	Other templars clad themselves in heavy armor and relies on their miracles and their cone\
-	But you know Noc's true teaching - he granted knowledge so we, humen, may seize upon it and uses magyck\
-	to seize our own destiny. With steel in one hand, sorcery in the other, and Noc's blessing in your heart\
+	But you know the Moon's true teaching - he granted knowledge so we, humen, may seize upon it and uses magyck\
+	to seize our own destiny. With steel in one hand, sorcery in the other, and the Moon's blessing in your heart\
 	None can stand against you. Protect the Church, its myriad acolytes, and further the pursuit of enlightenment, knowledge and mastery"
 	outfit = /datum/outfit/job/roguetown/templar/noc_spellblade
 	category_tags = list(CTAG_TEMPLAR)
@@ -123,8 +123,8 @@
 
 		var/helmets = list(
 			"Greatplumed Owl Armet" = /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/owl,
-			"Noc Helmet"			= /obj/item/clothing/head/roguetown/helmet/heavy/nochelm,
-			"Snouted Noc Helmet"			= /obj/item/clothing/head/roguetown/helmet/heavy/nochelm/snouted
+			"Moon Helmet"			= /obj/item/clothing/head/roguetown/helmet/heavy/nochelm,
+			"Snouted Moon Helmet"			= /obj/item/clothing/head/roguetown/helmet/heavy/nochelm/snouted
 		)
 		var/helmchoice = input(H, "Choose your Helm.", "REFLECTION OF PALE LIGHT") as anything in helmets
 		head = helmets[helmchoice]

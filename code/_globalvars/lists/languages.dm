@@ -14,14 +14,22 @@ GLOBAL_LIST_INIT(languages_character_selection, list(
 	/datum/language/hellspeak,
 	/datum/language/draconic,
 	/datum/language/celestial,
-	/datum/language/raneshi,
-	/datum/language/grenzelhoftian,
-	/datum/language/kazengunese,
-	/datum/language/lingyuese,
-	/datum/language/etruscan,
-	/datum/language/gronnic,
-	/datum/language/otavan,
-	/datum/language/aavnic
+	// Tongues of Palimpseste
+	/datum/language/medullan,
+	/datum/language/auxentian,
+	/datum/language/vergenmarkian,
+	/datum/language/ostrovian,
+	/datum/language/dvojezemi,
+	/datum/language/valorian,
+	/datum/language/palimpseste/skarnic,
+	/datum/language/palimpseste/nordling,
+	/datum/language/palimpseste/aennach,
+	/datum/language/palimpseste/khemeti,
+	/datum/language/palimpseste/ashurite,
+	/datum/language/palimpseste/oruni,
+	/datum/language/palimpseste/hinomuran,
+	/datum/language/palimpseste/shelltongue,
+	/datum/language/palimpseste/dunmoorish,
 ))
 
 /proc/init_language_prototypes()

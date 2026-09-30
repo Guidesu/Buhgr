@@ -105,7 +105,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/baotha_ta
 	name = "saccharine sallet"
-	desc = "Lo', the twins of beauty; Eora and Belladoth, they sought a prize which but one may have.."
+	desc = "Lo', the twins of beauty; Love and Belladoth, they sought a prize which but one may have.."
 	icon_state = "baothahelm"
 	item_state = "baothahelm"
 	body_parts_covered = HEAD | HAIR | EARS | MOUTH | EYES
@@ -122,7 +122,7 @@
 
 /obj/item/clothing/neck/roguetown/coif/baotha_ta
 	name = "saccharine veil"
-	desc = "And yet, their methods differed; Belladoth proposed with Her lust and temptation, Eora with Her love and warmth.."
+	desc = "And yet, their methods differed; Belladoth proposed with Her lust and temptation, Love with Her love and warmth.."
 	icon_state = "baothacoif"
 	item_state = "baothacoif"
 	armor = ARMOR_MAILLE
@@ -154,7 +154,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/baotha_ta
 	name = "saccharine plate armor"
-	desc = "Is it not obvious what Ravox would've chosen? Yet upon the dae of His choice, She refused to gift any chance to Her sister.."
+	desc = "Is it not obvious what Law would've chosen? Yet upon the dae of His choice, She refused to gift any chance to Her sister.."
 	icon_state = "baothaplate"
 	item_state = "baothaplate"
 	max_integrity = ARMOR_INT_CHEST_PLATE_ANTAG - 250 //TA EDIT
@@ -180,7 +180,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/baotha_ta
 	name = "saccharine vestments"
-	desc = "A gemmed chalice, Eora's own, swilled with Psydonia's most noxious venoms - and but a simple sip was enough to bring Her to death's door.."
+	desc = "A gemmed chalice, Love's own, swilled with Psydonia's most noxious venoms - and but a simple sip was enough to bring Her to death's door.."
 	icon_state = "baothagamb"
 	armor_class = ARMOR_CLASS_LIGHT
 	armor = ARMOR_BRIGANDINE
@@ -234,7 +234,7 @@
 
 /obj/item/clothing/under/roguetown/skirt/baotha_ta
 	name = "saccharine fauldcoat"
-	desc = "Only did Belladona's haze clear, once She heard Eora's gasps and Ravox's fright; what else could She've done besides fleeing the heavens?"
+	desc = "Only did Belladona's haze clear, once She heard Love's gasps and Law's fright; what else could She've done besides fleeing the heavens?"
 	armor = ARMOR_MAILLE
 	icon_state = "baothaskirt"
 	chunkcolor = "#6d1c87"
@@ -260,7 +260,7 @@
 
 /obj/item/clothing/gloves/roguetown/plate/baotha_ta
 	name = "saccharine gauntlets"
-	desc = "Belladonna's ego died on that dae, and Baotha's venomous id rose in Her stead; for it was better to numb the regret than to face the guilt.."
+	desc = "Belladonna's ego died on that dae, and the Forbidden's venomous id rose in Her stead; for it was better to numb the regret than to face the guilt.."
 	icon_state = "baothagloves"
 	item_state = "baothagloves"
 	chunkcolor = "#6d1c87"

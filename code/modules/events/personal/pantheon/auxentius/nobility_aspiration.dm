@@ -46,7 +46,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Auxentius wishes you to ascend in status! Become a part of the nobility to earn his favor!"))
+	to_chat(chosen_one, span_notice("The Sun wishes you to ascend in status! Become a part of the nobility to earn his favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/magic/bless.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

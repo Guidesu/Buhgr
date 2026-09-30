@@ -149,8 +149,8 @@
 		L.Slowdown(slow_tick)
 
 /atom/movable/screen/alert/status_effect/debuff/necra_harvested
-	name = "Necra's Harvest"
-	desc = "Under Necra's veil, your strength withers."
+	name = "Death's Harvest"
+	desc = "Under Death's veil, your strength withers."
 	icon_state = "debuff"
 
 /datum/status_effect/debuff/necra_harvested
@@ -170,8 +170,8 @@
 
 
 /datum/special_intent/martyr_necra_harvest
-	name = "Necra's Harvest"
-	desc = "You sweep the scythe in a grim harvest, marking the living for reaping. A moment later, Necra claims a portion of their strength and uses it to restore your body."
+	name = "Death's Harvest"
+	desc = "You sweep the scythe in a grim harvest, marking the living for reaping. A moment later, Death claims a portion of their strength and uses it to restore your body."
 	tile_coordinates = list(
 		list(-1,0), list(0,0), list(1,0),
 		list(-2,1), list(-1,1), list(0,1), list(1,1), list(2,1)
@@ -202,10 +202,10 @@
 	var/self_commit = 0.7 SECONDS
 
 	var/list/necra_cries = list(
-		"Necra, Lady of the Veil, accept their souls.",
-		"Their hour has come — Necra, reap them.",
-		"Necra, shroud them in the darkness of your veil.",
-		"Let Necra's harvest be fulfilled."
+		"Death, Lady of the Veil, accept their souls.",
+		"Their hour has come — Death, reap them.",
+		"Death, shroud them in the darkness of your veil.",
+		"Let Death's harvest be fulfilled."
 	)
 
 /datum/special_intent/martyr_necra_harvest/_reset()
@@ -280,7 +280,7 @@
 			apply_generic_weapon_damage(L, harvest_dam, "slash", BODY_ZONE_CHEST, bclass = BCLASS_CHOP)
 
 		L.visible_message(
-			span_danger("[L] loses strength under Necra's harvest!"),
+			span_danger("[L] loses strength under Death's harvest!"),
 			span_userdanger("My strength drains away!")
 		)
 
@@ -302,14 +302,14 @@
 
 		howner.visible_message(
 			span_warning("[howner] draws strength from the harvested souls!"),
-			span_notice("Necra restores my strength.")
+			span_notice("Death restores my strength.")
 		)
 
 
 
 /datum/special_intent/martyr_astrata_verdict
-	name = "Astrata's Verdict"
-	desc = "You brand all sinners before you with sacred fire. After a brief delay, Astrata's judgment descends upon each of them."
+	name = "The Sun's Verdict"
+	desc = "You brand all sinners before you with sacred fire. After a brief delay, the Sun's judgment descends upon each of them."
 	tile_coordinates = list(
 		list(-1,0), list(0,0), list(1,0),
 		list(-1,1), list(0,1), list(1,1),
@@ -336,10 +336,10 @@
 	var/verdict_token = 0
 
 	var/list/astrata_cries = list(
-		"Astrata, behold the guilty!",
-		"Let Astrata's judgment be done!",
-		"Astrata, cast down your verdict!",
-		"Let the light of Astrata judge you!"
+		"The Sun, behold the guilty!",
+		"Let the Sun's judgment be done!",
+		"The Sun, cast down your verdict!",
+		"Let the light of the Sun judge you!"
 	)
 
 /datum/special_intent/martyr_astrata_verdict/_reset()
@@ -385,7 +385,7 @@
 			new /obj/effect/temp_visual/astrata_mark(mark_turf)
 
 		L.visible_message(
-			span_warning("[L] is marked by Astrata's judgment!"),
+			span_warning("[L] is marked by the Sun's judgment!"),
 			span_warning("Sacred flame brands me with the seal of judgment!")
 		)
 
@@ -442,15 +442,15 @@
 		apply_generic_weapon_damage(target, final_dam, "fire", BODY_ZONE_CHEST, bclass = BCLASS_CUT)
 
 	target.visible_message(
-		span_warning("Astrata's judgment descends upon [target]!"),
+		span_warning("The Sun's judgment descends upon [target]!"),
 		span_warning("Divine verdict crashes down upon me!")
 	)
 
 
 
 /datum/special_intent/martyr_ravox_charge
-	name = "Ravox's Charge"
-	desc = "You call upon Ravox and charge toward the chosen point. When you reach it, all enemies around are knocked off their feet. If you hit no one, you fall yourself."
+	name = "Law's Charge"
+	desc = "You call upon Law and charge toward the chosen point. When you reach it, all enemies around are knocked off their feet. If you hit no one, you fall yourself."
 	tile_coordinates = list(
 		list(-1,0), list(0,0), list(1,0),
 		list(-1,1), list(0,1), list(1,1),
@@ -476,10 +476,10 @@
 	var/hit_someone = FALSE
 	var/charge_running = FALSE
 	var/list/ravox_cries = list(
-		"For the glory of Ravox!",
-		"Ravox, lead me into battle!",
-		"Ravox, behold my valor!",
-		"In the name of Ravox, face me!"
+		"For the glory of Law!",
+		"Law, lead me into battle!",
+		"Law, behold my valor!",
+		"In the name of Law, face me!"
 	)
 
 /datum/special_intent/martyr_ravox_charge/_reset()
@@ -662,8 +662,8 @@
 #define MARTYR_MALUM_WAVE2_DELAY 3 SECONDS
 
 /datum/special_intent/martyr_malum_hammerfall
-	name = "Malum's Hammerfall"
-	desc = "A crushing blow to the ground ahead. A moment later Malum's hammer falls from the heavens, striking the same area again and badly damaging any walls and fortifications."
+	name = "The Craft's Hammerfall"
+	desc = "A crushing blow to the ground ahead. A moment later the Craft's hammer falls from the heavens, striking the same area again and badly damaging any walls and fortifications."
 	tile_coordinates = list(
 		list(-1,0), list(0,0), list(1,0),
 		list(-1,1), list(0,1), list(1,1),
@@ -701,10 +701,10 @@
 	var/scorched_duration = 15 SECONDS
 
 	var/list/malum_cries = list(
-		"Malum, crush them in the forge of war!",
-		"Let Malum's fire and hammer fall upon you!",
-		"Malum, reveal your forge upon the battlefield!",
-		"In Malum's crucible you'll be reforged into ash!"
+		"The Craft, crush them in the forge of war!",
+		"Let the Craft's fire and hammer fall upon you!",
+		"The Craft, reveal your forge upon the battlefield!",
+		"In the Craft's crucible you'll be reforged into ash!"
 	)
 
 /datum/special_intent/martyr_malum_hammerfall/_reset()
@@ -838,7 +838,7 @@
 #undef MARTYR_MALUM_WAVE2_DELAY
 
 /datum/special_intent/martyr_abyssor_harpoon
-	name = "Abyssor's Harpoon"
+	name = "The Sea's Harpoon"
 	desc = "You hurl a trident toward the cursor. The first enemy it hits is impaled and dragged to you. If it hits nothing, it returns."
 	use_clickloc = TRUE
 	respect_adjacency = FALSE
@@ -870,7 +870,7 @@
 
 	var/list/abyssor_cries = list(
 		"Catch me some prey, trident!",
-		"Abyssor claims his due!"
+		"The Sea claims his due!"
 	)
 
 /datum/special_intent/martyr_abyssor_harpoon/_reset()
@@ -1316,8 +1316,8 @@
 
 
 /datum/special_intent/martyr_dendor_vine_reap
-	name = "Dendor's Vine Reap"
-	desc = "You sweep your scythe ahead of you and Dendor's vines burst from the ground. They seize their victims by the legs and hold them in place for a while."
+	name = "The Wilds's Vine Reap"
+	desc = "You sweep your scythe ahead of you and the Wilds's vines burst from the ground. They seize their victims by the legs and hold them in place for a while."
 	tile_coordinates = list(
 		list(-1,0), list(0,0), list(1,0),
 		list(-2,1), list(-1,1), list(0,1), list(1,1), list(2,1)
@@ -1354,10 +1354,10 @@
 	var/vulnerable_dur = 5 SECONDS
 
 	var/list/dendor_cries = list(
-		"Dendor, bind them in root and vine!",
-		"Let Dendor's thicket rise against you!",
-		"Dendor, bind them with the will of the forest!",
-		"Let Dendor's vines close upon you!"
+		"The Wilds, bind them in root and vine!",
+		"Let the Wilds's thicket rise against you!",
+		"The Wilds, bind them with the will of the forest!",
+		"Let the Wilds's vines close upon you!"
 	)
 
 /datum/special_intent/martyr_dendor_vine_reap/_reset()
@@ -1399,7 +1399,7 @@
 			new /obj/effect/temp_visual/dendor_vines_begin(mark_turf)
 
 		L.visible_message(
-			span_warning("Dendor's vines begin sprouting rapidly beneath [L]!"),
+			span_warning("The Wilds's vines begin sprouting rapidly beneath [L]!"),
 			span_userdanger("Vines are sprouting beneath me!")
 		)
 
@@ -1427,7 +1427,7 @@
 		apply_generic_weapon_damage(L, constrict_dam, "slash", BODY_ZONE_CHEST, bclass = BCLASS_CHOP)
 
 	L.visible_message(
-		span_danger("Dendor's vines snap shut around [L]!"),
+		span_danger("The Wilds's vines snap shut around [L]!"),
 		span_userdanger("The vines snap tight around me and hold me fast!")
 	)
 

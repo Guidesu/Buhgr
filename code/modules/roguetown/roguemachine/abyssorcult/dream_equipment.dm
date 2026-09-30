@@ -48,7 +48,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/abyssor_painter
 	name = "quicksilver hood"
-	desc = "A hood worn by the followers of Abyssor, with a unique spiral wrapping. How do they even see out of this? \
+	desc = "A hood worn by the followers of the Sea, with a unique spiral wrapping. How do they even see out of this? \
 	It's said out of the many pigments of the dream, the most potent resembles quicksilver. \
 	Hoods like these are designed to capture the fumes that are given off by the silvery paint... after completing certain rites."
 	color = null
@@ -69,7 +69,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/abyssor_painter
 	name = "sylveric helmet"
 	desc = "Much like the accompanying robes, this sylveric-based creation serves to obscure the wearer. \
-	Whether to hide the wearer's horrifically mutated visage as per the rumors surrounding the enigmatic voice of Abyssor. \
+	Whether to hide the wearer's horrifically mutated visage as per the rumors surrounding the enigmatic voice of the Sea. \
 	Or to hide a less than imposing, dashing dark elf that would undermine the painter's authority. \
 	It doesn't seem to be as sturdy as a dreamwalker's creations. \
 	Somehow it allows the wearer to view through it clearly, though the thin, flakey metal hardly seems protective as a result."
@@ -139,7 +139,7 @@
 
 /obj/item/rogueweapon/woodstaff/quarterstaff/steel/paint
 	name = "sacred paintbrush"
-	desc = "A divine paintbrush of a comical size. The blunt end is quite serviceable as an offensive implement, whilst the brush end lets Abyssorite painted harness their miracles."
+	desc = "A divine paintbrush of a comical size. The blunt end is quite serviceable as an offensive implement, whilst the brush end lets Sea painted harness their miracles."
 	icon_state = "brush"
 	icon = 'icons/roguetown/weapons/dream_weapons64.dmi'
 	item_state = "brush"
@@ -149,7 +149,7 @@
 
 /obj/item/rogueweapon/woodstaff/quarterstaff/steel/paint_heal
 	name = "sacred paintbrush"
-	desc = "A divine paintbrush of a comical size. The blunt end is quite serviceable as an offensive implement, whilst the brush end lets Abyssorite painted harness their miracles."
+	desc = "A divine paintbrush of a comical size. The blunt end is quite serviceable as an offensive implement, whilst the brush end lets Sea painted harness their miracles."
 	icon_state = "brush_heal"
 	icon = 'icons/roguetown/weapons/dream_weapons64.dmi'
 	item_state = "brush_heal"

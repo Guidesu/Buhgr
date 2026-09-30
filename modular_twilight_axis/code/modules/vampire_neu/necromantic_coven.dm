@@ -51,7 +51,7 @@
 			player_mob = ghost_mob
 
 	if(!player_mob.client)
-		to_chat(owner, span_warning("Necra's grasp on this one is too strong, not even your blood magic can reach them."))
+		to_chat(owner, span_warning("Death's grasp on this one is too strong, not even your blood magic can reach them."))
 		return ta_refund_failed_use()
 
 	var/dead_message = tgui_input_text(player_mob, "The vampyre [owner.real_name] asks of you: [input_message]. You are not compelled in any way. What is your response?", "Speak with the Dead", timeout = 2 MINUTES)

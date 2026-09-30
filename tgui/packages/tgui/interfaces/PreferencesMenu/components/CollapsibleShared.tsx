@@ -29,7 +29,7 @@ export const CollapsibleShared = (props: Props) => {
       >
         {title}
       </Button>
-      {open && <Box>{children}</Box>}
+      {!!open && <Box>{children}</Box>}
     </Box>
   );
 };

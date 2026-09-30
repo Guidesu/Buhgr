@@ -346,7 +346,7 @@
 
 /obj/item/phylactery
 	name = "phylactery"
-	desc = "An otherworldly crystal that radiates with intense power. </br>Under a light's scrutiny, its crystalline edges refract into the sigil of an inverted psicross. What the hell is this thing.. !?"
+	desc = "An otherworldly crystal that radiates with intense power. </br>Under a light's scrutiny, its crystalline edges refract into the sigil of an inverted holy cross. What the hell is this thing.. !?"
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "soulstone"
 	item_state = "electronic"
@@ -372,7 +372,7 @@
 		if(H.patron.type == /datum/patron/unveiled/aurelian) //DIVINITY. ASCENSION. ZIZO. ZIZO. ZIZO.
 			. += span_rose("A crystalline fragment of divinity, used by Lyches to thwart death's grasp. If a Lych's incarnation is slain, they will be resurrected wherever their nearest phylactrey happens to be, destroying it in the process. Lyches can only be slain, permenantly, once all phylactries linked to their spirit have been destroyed.")
 		else if(H.patron.type == /datum/patron/concordat/morwenna || H.patron.type == /datum/patron/concordat/auxentius || H.patron.type == /datum/patron/tribunal/custodius) //Tennites think Necra's getting your soul (hah) and in their eyes your divinity is false, because they're baised towards their masters.
-			. += span_rose("A crystalline fragment of false divinity, used by Lyches to thwart Necra's grasp. If a Lych's incarnation is slain, they will be resurrected wherever their nearest phylactrey happens to be, destroying it in the process. Lyches can only be slain, permenantly, once all phylactries linked to their spirit have been destroyed.")
+			. += span_rose("A crystalline fragment of false divinity, used by Lyches to thwart Death's grasp. If a Lych's incarnation is slain, they will be resurrected wherever their nearest phylactrey happens to be, destroying it in the process. Lyches can only be slain, permenantly, once all phylactries linked to their spirit have been destroyed.")
 		else if(H.patron.type == /datum/patron/tribunal/praecursor) //Vaeltites are moderately neutral, as they are wildcards, your divinity is self-made. Interpretation is up to you.
 			. += span_rose("A crystalline fragment of self-made divinity, used by Lyches to thwart death's grasp. If a Lych's incarnation is slain, they will be resurrected wherever their nearest phylactrey happens to be, destroying it in the process. Lyches can only be slain, permenantly, once all phylactries linked to their spirit have been destroyed.")
 

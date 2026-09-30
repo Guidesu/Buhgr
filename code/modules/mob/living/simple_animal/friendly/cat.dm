@@ -2,7 +2,7 @@
 /mob/living/simple_animal/pet/cat
 	anatomy_type = /datum/anatomy/quadruped/trash
 	name = "cat"
-	desc = "A nuisance and a valued, pest-killing companion. Also symbols of the benevolent side of Saint Pestra for their enmity with vermin."
+	desc = "A nuisance and a valued, pest-killing companion. Also symbols of the benevolent side of Saint Healing for their enmity with vermin."
 	icon = 'icons/mob/pets.dmi'
 	icon_state = "cat2"
 	icon_living = "cat2"
@@ -96,7 +96,7 @@
 
 /mob/living/simple_animal/pet/cat/rogue/black
 	name = "black cat"
-	desc = "Possessed of lamplike eyes and a meow that sounds like the rattle of bones. Black cats are sacred to Necra, said to bring wandering spirits to the Ferryman."
+	desc = "Possessed of lamplike eyes and a meow that sounds like the rattle of bones. Black cats are sacred to Death, said to bring wandering spirits to the Ferryman."
 	gender = FEMALE
 	icon = 'icons/roguetown/topadd/takyon/Cat.dmi'
 	icon_state = "cat"

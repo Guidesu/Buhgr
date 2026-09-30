@@ -5,20 +5,20 @@
 	var/mob/living/target = M
 
 	var/list/curse_choices = list(
-		"Curse of Auxentius" = /datum/curse/auxentius,
-		"Curse of Noc" = /datum/curse/miluse,
-		"Curse of Ignatius" = /datum/curse/ignatius,
-		"Curse of Abyssor" = /datum/curse/wulfric,
-		"Curse of Auxentius" = /datum/curse/auxentius,
-		"Curse of Necra" = /datum/curse/morwenna,
-		"Curse of Xylix" = /datum/curse/viator,
-		"Curse of Pestra" = /datum/curse/handwerra,
-		"Curse of Malum" = /datum/curse/handwerra,
-		"Curse of Eora" = /datum/curse/miluse,
-		"Curse of Zizo" = /datum/curse/aurelian,
-		"Curse of Graggar" = /datum/curse/volkovoi,
-		"Curse of Matthios" = /datum/curse/morwenna,
-		"Curse of Baotha" = /datum/curse/hausvette,
+		"Curse of the Sun" = /datum/curse/auxentius,
+		"Curse of the Moon" = /datum/curse/miluse,
+		"Curse of the Wilds" = /datum/curse/ignatius,
+		"Curse of the Sea" = /datum/curse/wulfric,
+		"Curse of the Sun" = /datum/curse/auxentius,
+		"Curse of Death" = /datum/curse/morwenna,
+		"Curse of Trickery" = /datum/curse/viator,
+		"Curse of Healing" = /datum/curse/handwerra,
+		"Curse of the Craft" = /datum/curse/handwerra,
+		"Curse of Love" = /datum/curse/miluse,
+		"Curse of the Forbidden" = /datum/curse/aurelian,
+		"Curse of War" = /datum/curse/volkovoi,
+		"Curse of Trade" = /datum/curse/morwenna,
+		"Curse of the Forbidden" = /datum/curse/hausvette,
 		)
 
 	if(!isliving(target))

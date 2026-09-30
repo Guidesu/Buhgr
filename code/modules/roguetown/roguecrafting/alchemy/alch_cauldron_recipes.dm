@@ -182,12 +182,12 @@
 	output_reagents = list(/datum/reagent/medicine/trait/negative/evilcaffiene = 30)
 
 /datum/alch_cauldron_recipe/trait/negative/singing
-	name = "Xylix's Boon"
+	name = "Trickery's Boon"
 	smells_like = "exuberance"
 	output_reagents = list(/datum/reagent/medicine/trait/negative/singing = 30)
 
 /datum/alch_cauldron_recipe/trait/negative/funnyvoice
-	name = "Xylix's Bane"
+	name = "Trickery's Bane"
 	smells_like = "whimsy"
 	output_reagents = list(/datum/reagent/medicine/trait/negative/funnyvoice = 30)
 

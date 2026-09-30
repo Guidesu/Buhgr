@@ -359,7 +359,7 @@
 
 /obj/item/reagent_containers/food/snacks/fish/sunny
 	name = "sunny"
-	desc = "A pitiful beast, clinging to Auxentius's light as if it would make it stronger. Little does it know that it needs faith for such miracles."
+	desc = "A pitiful beast, clinging to the Sun's light as if it would make it stronger. Little does it know that it needs faith for such miracles."
 	icon_state = "sunny"
 	faretype = FARE_NEUTRAL
 	no_rarity_sprite = TRUE
@@ -598,7 +598,7 @@
 /obj/item/reagent_containers/food/snacks/fish/zizo_abberation
 	name = "zizo abberation"
 	icon_state = "zizo_abberation"
-	desc = "Zizo Aberration is a cave-dwelling creature found in murky underground waters. It is edible, but widely nicknamed the “Zizo creature” due to its disgusting behavior, it viciously bites any hand that comes into contact with it, whether in water or out."
+	desc = "Forbidden Aberration is a cave-dwelling creature found in murky underground waters. It is edible, but widely nicknamed the “the Forbidden creature” due to its disgusting behavior, it viciously bites any hand that comes into contact with it, whether in water or out."
 	faretype = FARE_NEUTRAL
 	no_rarity_sprite = TRUE
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/zizo_abberation

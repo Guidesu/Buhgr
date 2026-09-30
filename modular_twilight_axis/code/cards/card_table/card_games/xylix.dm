@@ -65,7 +65,7 @@
 	if(!unseen.len)
 		return
 	seen += pick(unseen)
-	to_chat(user, span_notice("Xylix briefly reveals one card of [target.name]."))
+	to_chat(user, span_notice("Trickery briefly reveals one card of [target.name]."))
 
 /datum/card_table_session/proc/xylix_try_reveal_for_turn_holder(datum/card_table_player/turn_holder)
 	if(!turn_holder)
@@ -90,5 +90,5 @@
 		var/mob/O = card_table_find_mob_by_ckey(ckey)
 		if(O && O != user)
 			to_chat(O, span_warning(msg))
-	to_chat(user, span_warning("Xylix's fingers faltered. Someone might have noticed the cheating."))
+	to_chat(user, span_warning("Trickery's fingers faltered. Someone might have noticed the cheating."))
 	return TRUE

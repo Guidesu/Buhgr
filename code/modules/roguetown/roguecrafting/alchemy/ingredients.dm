@@ -372,7 +372,7 @@
 
 /obj/item/alch/solardust
 	name = "solar dust"
-	desc = "A pinch of Auxentius worked into radiant matter. Looking at it hurts your eyes."
+	desc = "A pinch of the Sun worked into radiant matter. Looking at it hurts your eyes."
 	icon_state = "solardust"
 	sellprice = SELLPRICE_ARCANE_DUST_MID
 
@@ -606,7 +606,7 @@
 	name = "rosa"
 	icon_state = "rosa"
 	item_state = "rosa"
-	desc = "It is said that these were white - until Graggar bled on its fields."
+	desc = "It is said that these were white - until War bled on its fields."
 	sellprice = SELLPRICE_HERB_COMMON
 	icon = 'icons/roguetown/misc/alchemy.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'

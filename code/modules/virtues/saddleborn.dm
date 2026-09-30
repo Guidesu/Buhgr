@@ -168,7 +168,7 @@ GLOBAL_LIST_INIT(virtue_mount_choices_anthrax, (list(
 
 	var/mob/living/simple_animal/honse = user.saddleborn_mount.resolve()
 	if (!honse || honse.stat == DEAD)
-		to_chat(user, span_warning("Necra has them now..."))
+		to_chat(user, span_warning("Death has them now..."))
 		return FALSE
 
 	if (honse && honse.has_buckled_mobs())

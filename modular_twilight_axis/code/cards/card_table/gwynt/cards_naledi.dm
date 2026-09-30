@@ -81,7 +81,7 @@
 
 /datum/ccg_card/unique_naledian_psydon_mage
 	id = "unique_naledian_psydon_mage"
-	name = "Naledian Psydon Mage"
+	name = "Naledian Absent God Mage"
 	desc = "Hero. Elemental arcyne sealed under church doctrine."
 	row = CCG_ROW_ARCHERS
 	power = 7

@@ -1,5 +1,5 @@
 /datum/action/cooldown/spell/summon_bed/pestra
-	name = "Pestra's Rest"
+	name = "Healing's Rest"
 	desc = "Summon a bed of black rose petals to tend to the deceased and punish non-believers. \
 	You can only maintain 1 bed at a time. Prevents deadite infection from reanimating corpses laid on the bed."
 	background_icon = 'icons/mob/actions/pestraspells.dmi'
@@ -7,7 +7,7 @@
 	button_icon_state = "pestrabed"
 	sound = 'sound/magic/slimesquish.ogg'
 	spell_color = "#4a0d66"
-	invocations = list("Pestra, provide sanctuary for the dead.")
+	invocations = list("Healing, provide sanctuary for the dead.")
 	bed_type = /obj/structure/bed/rogue/sanctuary/pestra
 	scale_with_skill = FALSE
 	base_max_beds = 1
@@ -32,7 +32,7 @@
 	healing_on_tick = 4
 
 /atom/movable/screen/alert/status_effect/buff/healing/pestra_bed
-	name = "Pestra's black petals"
+	name = "Healing's black petals"
 	desc = "The cold petals underneath me cause a strange sensation in my flesh."
 	icon_state = "pestrabed"
 

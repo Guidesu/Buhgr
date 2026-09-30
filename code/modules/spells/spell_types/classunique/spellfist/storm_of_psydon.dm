@@ -1,7 +1,7 @@
 /datum/action/cooldown/spell/storm_of_praecursor
 	button_icon = 'icons/mob/actions/classuniquespells/spellfist.dmi'
 	button_icon_state = "storm_of_psydon"
-	name = "Storm of Praecursor"
+	name = "Storm of the Absent God"
 	desc = "Channel mana into your legs to leap toward a target from a distance, closing the gap rapidly. \
 		Then, channel the mana into your fists to unleash a storm of blows. \
 		Requires 7 Momentum: 3 punches + 1 kick (20 damage each). \
@@ -281,7 +281,7 @@
 				combo_broken = TRUE
 				break
 			hit_num++
-			arcyne_strike(user, target, null, punch_damage, target_zone, BCLASS_BLUNT, spell_name = "Storm of Praecursor (Punch [hit_num])", exact_zone = TRUE)
+			arcyne_strike(user, target, null, punch_damage, target_zone, BCLASS_BLUNT, spell_name = "Storm of the Absent God (Punch [hit_num])", exact_zone = TRUE)
 			playsound(get_turf(target), pick('sound/combat/hits/punch/punch_hard (1).ogg','sound/combat/hits/punch/punch_hard (2).ogg','sound/combat/hits/punch/punch_hard (3).ogg'), 80, TRUE)
 			animate(shadow_left, pixel_x = -10 + lunge_px, pixel_y = 4 + lunge_py, time = 0.5, easing = EASE_OUT)
 			animate(pixel_x = -10, pixel_y = 4, time = 0.5, easing = EASE_IN)
@@ -293,13 +293,13 @@
 	if(!combo_broken && cling(user, target) && combo_valid(user, target))
 		if(!spell_guard_check(target, FALSE, user, punish_caster = deflected ? FALSE : null))
 			user.emote("attack", forced = TRUE)
-			arcyne_strike(user, target, null, kick_damage, target_zone, BCLASS_BLUNT, spell_name = "Storm of Praecursor (Kick)", exact_zone = TRUE)
+			arcyne_strike(user, target, null, kick_damage, target_zone, BCLASS_BLUNT, spell_name = "Storm of the Absent God (Kick)", exact_zone = TRUE)
 			playsound(get_turf(target), pick('sound/combat/hits/blunt/genblunt (1).ogg','sound/combat/hits/blunt/genblunt (2).ogg','sound/combat/hits/blunt/genblunt (3).ogg'), 100, TRUE)
 			var/atom/throw_target = get_edge_target_turf(user, get_dir(user, target))
 			target.throw_at(throw_target, 3, 4)
 
 	combo_cleanup(shadow_left, shadow_right)
-	log_combat(user, target, "used Storm of Praecursor (full)")
+	log_combat(user, target, "used Storm of the Absent God (full)")
 
 /datum/action/cooldown/spell/storm_of_praecursor/proc/oraora_lame(mob/living/carbon/human/user, mob/living/target)
 	user.changeNext_move(CLICK_CD_MELEE * 2)
@@ -318,16 +318,16 @@
 			deflected = TRUE
 			combo_broken = TRUE
 			break
-		arcyne_strike(user, target, null, punch_damage, target_zone, BCLASS_BLUNT, spell_name = "Storm of Praecursor (Punch [i])", exact_zone = TRUE)
+		arcyne_strike(user, target, null, punch_damage, target_zone, BCLASS_BLUNT, spell_name = "Storm of the Absent God (Punch [i])", exact_zone = TRUE)
 		playsound(get_turf(target), pick('sound/combat/hits/punch/punch_hard (1).ogg','sound/combat/hits/punch/punch_hard (2).ogg','sound/combat/hits/punch/punch_hard (3).ogg'), 80, TRUE)
 
 	sleep(1)
 	if(!combo_broken && cling(user, target) && combo_valid(user, target))
 		if(!spell_guard_check(target, FALSE, user, punish_caster = deflected ? FALSE : null))
 			user.emote("attack", forced = TRUE)
-			arcyne_strike(user, target, null, kick_damage, target_zone, BCLASS_BLUNT, spell_name = "Storm of Praecursor (Kick)", exact_zone = TRUE)
+			arcyne_strike(user, target, null, kick_damage, target_zone, BCLASS_BLUNT, spell_name = "Storm of the Absent God (Kick)", exact_zone = TRUE)
 			playsound(get_turf(target), pick('sound/combat/hits/blunt/genblunt (1).ogg','sound/combat/hits/blunt/genblunt (2).ogg','sound/combat/hits/blunt/genblunt (3).ogg'), 100, TRUE)
 			var/atom/throw_target = get_edge_target_turf(user, get_dir(user, target))
 			target.throw_at(throw_target, 3, 4)
 
-	log_combat(user, target, "used Storm of Praecursor (lame)")
+	log_combat(user, target, "used Storm of the Absent God (lame)")

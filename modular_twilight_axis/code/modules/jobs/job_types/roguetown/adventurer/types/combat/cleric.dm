@@ -25,8 +25,8 @@
 	category_tags = list(CTAG_ADVENTURER, CTAG_COURTAGENT)
 	class_select_category = CLASS_CAT_CLERIC
 	subclass_stashed_items = list(
-		"The Verses and Acts of the Ten" = /obj/item/book/rogue/bibble,
-		"Tome of Psydon" = /obj/item/book/rogue/bibble/psy
+		"The Verses and Acts of the Domains" = /obj/item/book/rogue/bibble,
+		"Tome of the Absent God" = /obj/item/book/rogue/bibble/psy
 	)
 	extra_context = "This subclass can pick twin daggers, gaining increased speed, or ranged options, gaining increased perception."
 
@@ -247,7 +247,7 @@
 //Oblate
 /datum/advclass/cleric/oblate
 	name = "Oblate"
-	tutorial = "The Psydon was struck - and yet endured. You are sworn to mirror His wound. Violence is beneath you; endurance is not. Flesh fails. Faith does not."
+	tutorial = "The Absent God was struck - and yet endured. You are sworn to mirror His wound. Violence is beneath you; endurance is not. Flesh fails. Faith does not."
 	outfit = /datum/outfit/job/roguetown/adventurer/oblate
 	forbidden_races = list(RACES_CONSTRUCT RACES_OOZE)
 	allowed_patrons = list(/datum/patron/old_god)
@@ -300,12 +300,12 @@
 		/obj/item/storage/belt/rogue/pouch/medicine = 1
 		)
 	var/list/facewear = list(
-		"Psydonic Hood" = /obj/item/clothing/head/roguetown/roguehood/psydon/black,
+		"Old Faith Hood" = /obj/item/clothing/head/roguetown/roguehood/psydon/black,
 		"Blessed Blindfold" = /obj/item/clothing/mask/rogue/blindfold/psydon
 	)
 	var/facewear_choice = input(H, "Choose your facewear.", "PSYDON'S VESTMENTS.") as anything in facewear
 	if(!facewear_choice)
-		facewear_choice = "Psydonic Hood"
+		facewear_choice = "Old Faith Hood"
 	mask = facewear[facewear_choice]
 	if(H.mind)
 		H.mind.RemoveSpell(/datum/action/cooldown/spell/psydon/respite)

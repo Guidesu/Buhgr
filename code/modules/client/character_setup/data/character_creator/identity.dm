@@ -83,9 +83,10 @@
 	data["loadout_cost"] = loadout_cost
 	data["loadout_tri_cost"] = loadout_tri_cost
 
-	var/datum/faith/selected_faith = GLOB.faithlist[selected_patron.associated_faith]
-	data["selected_faith"] = selected_faith.name
-	data["selected_patron"] = selected_patron.name
+	validate_domain()
+	var/datum/domain/selected_dom = get_selected_domain()
+	data["selected_faith"] = selected_dom?.name || "No domain"
+	data["selected_patron"] = get_god_display_name()
 
 	var/datum/bark/B = GLOB.bark_list[bark_id]
 	data["bark_name"] = B::name

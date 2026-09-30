@@ -361,7 +361,7 @@ export const CityAssembly = () => {
             {historyOpen ? 'Hide record' : 'Show record'} ({data.history.length}
             )
           </div>
-          {historyOpen && <HistoryBlock history={data.history} />}
+          {!!historyOpen && <HistoryBlock history={data.history} />}
         </div>
       </Window.Content>
     </Window>

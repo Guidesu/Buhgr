@@ -93,7 +93,7 @@
 			else
 				S.obj_integrity += repair_points
 			owner.visible_message(span_notice("[owner] point on [door.name] and repair this."), \
-			span_notice("I point on [door.name]. Malum blessing!"))
+			span_notice("I point on [door.name]. The Craft blessing!"))
 			return TRUE
 
 		if(istype(S, /obj/structure/roguewindow/))
@@ -116,7 +116,7 @@
 				else
 					S.obj_integrity += repair_points
 				owner.visible_message(span_notice("[owner] point on [window.name] and repair this."), \
-				span_notice("I point on [window.name]. Malum blessing!"))
+				span_notice("I point on [window.name]. The Craft blessing!"))
 				return TRUE
 		else
 			if(!do_after(owner, (150 / skill), target = S))
@@ -148,7 +148,7 @@
 /datum/action/cooldown/spell/malum/vigorousexchange
 	name = "Vigorous Exchange"
 	desc = "Restores the target's Energy, twice as effective on someone else."
-	fluff_desc = "Behind every great work is a hard-working master, dilligent and patient yet not immune from intricacies of lyfe. Even Handwerra has once fallen to such after losing her hammer, exhausted and weak she nursed herself back to health with the same steady hands that mend the sick, so that even she may continue on. Now that gift fuels the forges of Vaeltis, for no great work shall go unfinished so long as she maintains vigil."
+	fluff_desc = "Behind every great work is a hard-working master, dilligent and patient yet not immune from intricacies of lyfe. Even the Craft has once fallen to such after losing her hammer, exhausted and weak she nursed herself back to health with the same steady hands that mend the sick, so that even she may continue on. Now that gift fuels the forges of Vaeltis, for no great work shall go unfinished so long as she maintains vigil."
 	button_icon_state = "vigorousexchange"
 	sound = 'sound/magic/undivided_recuperation.ogg'
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -163,7 +163,7 @@
 	secondary_resource_cost = SPELLCOST_UTILITY_BUFF
 
 	//invocations = list("Through flame and ash, let vigor rise, by Handwerra's hand, let strength reprise!") Old Invocation
-	invocations = list("Lay stone upon stone, pile foe upon foe, ‘til thy Handwerra's work is done.")
+	invocations = list("Lay stone upon stone, pile foe upon foe, ‘til thy the Craft's work is done.")
 	invocation_type = INVOCATION_SHOUT
 
 	charge_required = TRUE
@@ -329,7 +329,7 @@
 
 	secondary_resource_cost = SPELLCOST_MIRACLE
 
-	invocations = list("With heat I wield, with flame I claim, Let metal serve in Handwerra's name!")
+	invocations = list("With heat I wield, with flame I claim, Let metal serve in the Craft's name!")
 	invocation_type = INVOCATION_SHOUT //It has seperate message ON USE
 
 	charge_required = TRUE
@@ -494,7 +494,7 @@
 
 /datum/action/cooldown/spell/malum/fortress
 	name = "Fortress"
-	desc = "Channel an immense surge of chi energy to erect a 5x5 fortress of arrow wards around yourself. \
+	desc = "Channel an immense surge of arcyne energy to erect a 5x5 fortress of arrow wards around yourself. \
 	Each wall segment blocks incoming projectiles from the outside while allowing you and allies to shoot out freely. \
 	The fortress lasts until its cooldown expires or until the walls are destroyed."
 	button_icon_state = "fortress"
@@ -509,7 +509,7 @@
 
 	secondary_resource_cost = SPELLCOST_ULTIMATE
 
-	invocations = list("Malum lead me against the dark towards the light!")
+	invocations = list("The Craft lead me against the dark towards the light!")
 	invocation_type = INVOCATION_SHOUT
 
 	charge_required = TRUE
@@ -555,7 +555,7 @@
 	if(!length(perimeter_data))
 		return FALSE
 
-	H.visible_message(span_boldwarning("[H] channels a massive ward inscription - the air crackles with chi energy!"), span_notice("I erect the Arcyne Fortress!"))
+	H.visible_message(span_boldwarning("[H] channels a massive ward inscription - the air crackles with arcyne energy!"), span_notice("I erect the Arcyne Fortress!"))
 	playsound(center, 'sound/magic/whiteflame.ogg', 80, TRUE, 5)
 
 	for(var/list/entry in perimeter_data)

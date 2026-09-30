@@ -60,6 +60,8 @@ SUBSYSTEM_DEF(dungeon_generator)
 	var/use_procedural_generation = TRUE
 
 /datum/controller/subsystem/dungeon_generator/Initialize(start_timeofday)
+	// The tomb needs a way in from the surface; open one if the map has none.
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(ensure_dungeon_entrance)), 1 SECONDS)
 	var/list/dungeon_templates = list()
 	templates_by_connection = list()
 	templates_by_connection_and_depth = list()

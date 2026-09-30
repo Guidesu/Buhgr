@@ -49,7 +49,7 @@
 	add_verb(chosen_one, /mob/living/carbon/human/proc/revelations)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_biginfo("Zizo demands suffering! Extract information through pain to earn Zizo's favor!"))
+	to_chat(chosen_one, span_biginfo("The Forbidden demands suffering! Extract information through pain to earn the Forbidden's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg', 100)
 
 	to_chat(chosen_one, span_notice("You have gained an ability to <b>torture</b> others!"))

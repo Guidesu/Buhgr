@@ -277,7 +277,7 @@ const OccupancyPanel = () => {
             {formatCountdown(remaining)}
           </div>
         </div>
-        {warning && (
+        {!!warning && (
           <div
             style={{ color: SEAL_RED, fontSize: FONT_BODY, marginTop: '4px' }}
           >

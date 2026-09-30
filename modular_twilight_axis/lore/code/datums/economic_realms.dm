@@ -73,7 +73,7 @@
 		"By the Ziggurat's shadow, I bring silk, glass and gold. Come bargain with sense and coin.",
 		"Spices from the South, silks from the looms of Kamar. Buy fine, or go hungry.",
 		"No priests, no judges; only fair trade and sealed ledgers. Dvergeil pays on sight for true goods.",
-		"My captain's word, sworn to Mansa-Padashi under Noc's gaze: masks, parchment and stargazer vestments for the right price.",
+		"My captain's word, sworn to Mansa-Padashi under the Moon's gaze: masks, parchment and stargazer vestments for the right price.",
 		"We take coin, charms, and rare gems. We do not take thieves or excuses.",
 		"Raneshen steel and Naledi gold welcome aboard. Strong arms fetch strong coin.",
 		"I bring silks, incense and the finest glass. Pay in gold, or in goods - everything has a price.",

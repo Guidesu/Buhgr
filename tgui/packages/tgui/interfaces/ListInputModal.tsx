@@ -133,7 +133,7 @@ export const ListInputModal = () => {
 
   return (
     <Window title={title} width={400} height={windowHeight}>
-      {timeout && <Loader value={timeout} />}
+      {!!timeout && <Loader value={timeout} />}
       <Window.Content
         onKeyDown={(event) => {
           handleKeyDown(event);
@@ -169,7 +169,7 @@ export const ListInputModal = () => {
                 selected={selected}
               />
             </Stack.Item>
-            {searchBarVisible && (
+            {!!searchBarVisible && (
               <Input
                 autoFocus
                 autoSelect

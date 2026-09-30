@@ -878,7 +878,7 @@
 	cuisine = CUISINE_SOUTH_IMPERIAL
 	dish_type = DISH_PASTRY
 	name = "bookbread loaf"
-	desc = "On the days when Noc's reign lengthens to its apex, all proper Pantheon-fearing folk huddle by their warm hearths, exchanging both books and pastries such as this."
+	desc = "On the days when the Moon's reign lengthens to its apex, all proper Pantheon-fearing folk huddle by their warm hearths, exchanging both books and pastries such as this."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "bookbread5"
 	slices_num = 5
@@ -1129,7 +1129,7 @@
 	cuisine = CUISINE_SOUTH_IMPERIAL
 	dish_type = DISH_PASTRY
 	name = "sliced lemon bookbread"
-	desc = "Sweet but a little sour, like a good Xylixian comedy."
+	desc = "Sweet but a little sour, like a good Trickery comedy."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "lemon_bookbread_slice"
 	faretype = FARE_FINE

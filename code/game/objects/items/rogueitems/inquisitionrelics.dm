@@ -154,10 +154,10 @@
 	var/undividedlines =list("'THEY HAVE TRAPPED US HERE FOR ETERNITY!'", "'SAVE US, CHILD OF TEN! SHATTER THIS ACCURSED MUSIC BOX!'", "'DEATH TO THE VAELTIAN, FREE US!'")
 	var/astratanlines =list("'HER LIGHT HAS LEFT ME! WHERE AM I?!'", "'SHATTER THIS CONTRAPTION, SO I MAY FEEL HER WARMTH ONE LAST TIME!'", "'I am royal.. Why did they do this to me...?'")
 	var/noclines =list("'Colder than moonlight...'", "'No wisdom can reach me here...'", "'Please help me, I miss the stars...'")
-	var/necralines =list("'They snatched me from her grasp, for eternal torment...'", "'Necra! Please! I am so tired! Release me!'", "'I am lost, lost in a sea of stolen ends.'")
+	var/necralines =list("'They snatched me from her grasp, for eternal torment...'", "'Death! Please! I am so tired! Release me!'", "'I am lost, lost in a sea of stolen ends.'")
 	var/abyssorlines =list("'I cannot feel the coast's breeze...'", "'We churn tighter here than schooling fish...'", "'Free me, please, so I may return to the sea...'")
-	var/ravoxlines =list("'Auxentian kin! Tear this Otavan dog's head off! Free me from this damnable witchery!'", "'There is no justice nor glory to be found here, just endless fatigue...'", "'I begged for a death by the sword...'")
-	var/pestralines =list("'I only wanted to perfect my cures...'", "'A thousand plagues upon the holder of this accursed machine! Pestra! Can you not hear me?!'", "'I can feel their suffering as they brush against me...'")
+	var/ravoxlines =list("'Sun kin! Tear this Otavan dog's head off! Free me from this damnable witchery!'", "'There is no justice nor glory to be found here, just endless fatigue...'", "'I begged for a death by the sword...'")
+	var/pestralines =list("'I only wanted to perfect my cures...'", "'A thousand plagues upon the holder of this accursed machine! Healing! Can you not hear me?!'", "'I can feel their suffering as they brush against me...'")
 	var/eoralines =list("'Every caress feels like a thousand splintering bones...'", "'She was a heretic, but how could I hurt her?!'", "'I'm sorry! I only wanted peace! Please release me!'")
 	var/dendorlines =list("'HIS MADNESS CALLS FOR ME! RRGHNN...'", "'SHATTER THIS BOX, SO WE MAY CHOKE THIS OTAVAN ON DIRT AND ROOTS!'", "'I miss His voice in the leaves... Free me, please...'")
 	var/xylixlines =list("'ONE, TWO, THREE, FOUR- TWO, TWO, THREE, FOUR. --What do you mean, annoying?'", "'There are thirteen others in here, you know! What a good audience- they literally can't get out of their seats!'", "'Of course I went all-in! I thought he had an ace-high!'", "'No, the XYLIX'S FORTUNE was right- this definitely is quite bad.'")
@@ -337,7 +337,7 @@ Inquisitorial armory down here
 
 /obj/item/flashlight/flare/torch/lantern/psycenser
 	name = "Golgatha"
-	desc = "A masterfully-crafted thurible that, when opened, emits a ghastly perfume that reinvigorates the flesh-and-steel of Vaeltites. It is said to contain a volatile fragment of the Comet Syon, which - if mishandled - can lead to unforeseen consequences."
+	desc = "A masterfully-crafted thurible that, when opened, emits a ghastly perfume that reinvigorates the flesh-and-steel of Old Faith faithful. It is said to contain a volatile fragment of the Comet Syon, which - if mishandled - can lead to unforeseen consequences."
 	icon_state = "psycenser"
 	item_state = "psycenser"
 	light_outer_range = 8
@@ -353,7 +353,7 @@ Inquisitorial armory down here
 	if(fuel > 0)
 		. += span_info("Activate in your hand to open it.")
 		. += span_info("When opened, the 'BLESS' intent can be used to anoint Vaeltic silver weaponry. Blessing a Vaeltic silver weapon greatly enhances the power of its critical hits and debuffs against sunderable opponents.")
-		. += span_info("Blessing someone else, who happens to be a worshipper of Praecursor, will temporarily buff them with increased Willpower, Constitution, and Fortune.")
+		. += span_info("Blessing someone else, who happens to be a worshipper of the Absent God, will temporarily buff them with increased Willpower, Constitution, and Fortune.")
 		. += span_warning("If the 'SMASH' intent is used while it's opened, the residing shard will violently explode with unimaginable force.")
 		. += span_warning("<font color='#00e1ff'>While active, Golgatha burns and weakens anyone who attacks its bearer. The effect persists only while the attacker remains within the relic's light. This feature requires the bearer to be Silverblessed, and inflicts extra damage to mindless foes.</font>")
 	if(fuel <= 0)
@@ -532,7 +532,7 @@ Inquisitorial armory down here
 
 /atom/movable/screen/alert/status_effect/syonchurn
 	name = "Dying Light"
-	desc = "The shard of Syon rejects my hostility against Praecursor's anointed! Luminous fragments scour my body and spirit!"
+	desc = "The shard of Syon rejects my hostility against the Absent God's anointed! Luminous fragments scour my body and spirit!"
 	icon_state = "supersunder"
 
 /datum/status_effect/syonchurn
@@ -1800,12 +1800,12 @@ GLOBAL_LIST_INIT(inquisition_used_ids, list())
 		"Duplicate sample suppression active; prior entries retained for comparative judgement.",
 		"Record forwarded to Inner Inquisition Scribes for doctrinal annotation.",
 		"Entry marked for secondary review under anti-corruption protocol VIII: Silent Flame.",
-		"Sample placed under conditional observation for latent Inhumen resonance.",
+		"Sample placed under conditional observation for latent Forbidden resonance.",
 		"Cross-reference completed with regional heresy hunting ledgers.",
 		"Transit record confirms no interference by non-Otavan authorities.",
 		"Filed under PRAECURSOR's Mandate Archive. All other divine attributions rejected as falsehoods.",
 		"Archival note: subject appears in minor peripheral inquiry logs unrelated to current case.",
-		"Record sealed under Inquisitorial Authority. Access restricted to sworn Hands of Praecursor.",
+		"Record sealed under Inquisitorial Authority. Access restricted to sworn Hands of the Absent God.",
 		"Administrative remark: repeated submissions from same sect logged; efficiency rating adjusted.",
 		"Final classification withheld pending Lux Resonance Determination."
 	)
@@ -1844,19 +1844,19 @@ GLOBAL_LIST_INIT(inquisition_used_ids, list())
 	report_html += "<b>LYFEBLOOD-LUX RESONATOR RESULTS</b><br><br>"
 	if(HAS_TRAIT(H, TRAIT_ANCIENT_HAG))
 		report_html += "<font color='#1e8b61'><b><u>Anomalous Lux</b></u></font><br><br>"
-		report_html += "<i>No measurable corruption or hallowed overresonance could be detected through our devices, the nature of this sample cannot be traced to anything within our Grand Archives. It does not seem to be neither Divine nor Inhumen, yet it is not Pure either.</i><br><br>"
+		report_html += "<i>No measurable corruption or hallowed overresonance could be detected through our devices, the nature of this sample cannot be traced to anything within our Grand Archives. It does not seem to be neither Divine nor Forbidden, yet it is not Pure either.</i><br><br>"
 	else if(H.patron?.type in ALL_DIVINE_PATRONS)
 		report_html += "<font color='#e8da5a'><b><u>Blessed Lux</b></u></font><br><br>"
 		report_html += "<i>Minor hallowed resonance permeates the subject's Lux. The sample bears evidence of covenant with saintly energies consistent with apostate worship and prolonged participation in rites associated with the <b>Ten Saints</b>.</i><br><br>"
 	else if(H.patron?.type in ALL_INHUMEN_PATRONS)
 		report_html += "<font color='#8B1E1E'><b><u>Tainted Lux</b></u></font><br><br>"
-		report_html += "<i>The Lux has suffered measurable spiritual degradation. The sample carries contamination consistent with apostate worship and prolonged participation in rites associated with the <b>Inhumen</b>.</i><br><br>"
+		report_html += "<i>The Lux has suffered measurable spiritual degradation. The sample carries contamination consistent with apostate worship and prolonged participation in rites associated with the <b>Forbidden</b>.</i><br><br>"
 	else if(H.patron?.type in OLD_GOD_PATRON)
 		report_html += "<font color='#00b7ff'><b><u>Pure Lux</b></u></font><br><br>"
 		report_html += "<i>No measurable corruption or hallowed overresonance could be detected through our devices. The subject's Lux is devoid of external influence.</i><br><br>"
 	else
 		report_html += "<font color='#1e8b61'><b><u>Anomalous Lux</b></u></font><br><br>"
-		report_html += "<i>No measurable corruption or hallowed overresonance could be detected through our devices, the nature of this sample cannot be traced to anything within our Grand Archives. It does not seem to be neither Divine nor Inhumen, yet it is not Pure either.</i><br><br>"
+		report_html += "<i>No measurable corruption or hallowed overresonance could be detected through our devices, the nature of this sample cannot be traced to anything within our Grand Archives. It does not seem to be neither Divine nor Forbidden, yet it is not Pure either.</i><br><br>"
 
 	report_html += "<b>CROSS-REFERENCED PUBLIC RECORDS</b><br><br>"
 	var/list/crimes = list()
@@ -1874,7 +1874,7 @@ GLOBAL_LIST_INIT(inquisition_used_ids, list())
 		for(var/entry in crimes)
 			report_html += "[entry]<br>"
 		report_html += "<br><b>Total Castifico Value:</b> [total_bounty] Mammon<br><br>"
-		report_html += "<i>Standing Instruction: Individuals bearing active OTAVAN writs may be surrendered to a CASTIFICO for disposition. In the absence of Otavan criminal record, this certificate alone shall not justify detention save in cases of suspected Heresy, Apostasy, witchcraft, or Inhumen corruption.</i><br><br>"
+		report_html += "<i>Standing Instruction: Individuals bearing active OTAVAN writs may be surrendered to a CASTIFICO for disposition. In the absence of Otavan criminal record, this certificate alone shall not justify detention save in cases of suspected Heresy, Apostasy, witchcraft, or Forbidden corruption.</i><br><br>"
 
 	report_html += "<b>HAEMOLOGICAL FINDINGS</b><br><br>"
 	var/found = FALSE
@@ -1901,7 +1901,7 @@ GLOBAL_LIST_INIT(inquisition_used_ids, list())
 			if(istype(D, /datum/antagonist/gnoll))
 				found = TRUE
 				report_html += "<font color='#6E4F2C'><b>Anthropophagic Corruption</b></font><br><br>"
-				report_html += "<i>The sample demonstrates irreversible haemological restructuring characterized by predatory adaptation, excessive ferric saturation, and biochemical residues consistent with prolonged consumption of human flesh. Such degeneration has historically been observed only in individuals subjected to advanced war-cults devoted to the Inhumen, whose champions abandon their humanity through ritual slaughter and cannibalism.</i><br><br>"
+				report_html += "<i>The sample demonstrates irreversible haemological restructuring characterized by predatory adaptation, excessive ferric saturation, and biochemical residues consistent with prolonged consumption of human flesh. Such degeneration has historically been observed only in individuals subjected to advanced war-cults devoted to the Forbidden, whose champions abandon their humanity through ritual slaughter and cannibalism.</i><br><br>"
 				break
 		if(!found)
 			report_html += "<font color='#2D7A42'><b>Clean</b></font><br><br>"

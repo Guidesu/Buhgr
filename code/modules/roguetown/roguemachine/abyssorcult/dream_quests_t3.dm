@@ -27,7 +27,7 @@
 	Tales and promises, how it will watch over us like PSYDON once did. \
 	No more suffering, simply peace and tranquility in an otherwise tumultuous time. \
 	It is only the swirling mealstorm of the pool that whisks me away from the creature. \
-	Abyssor brings my salvation. \
+	the Sea brings my salvation. \
 	May -IT- remain down there, for good."
 	possible_phrases = list(
 		"do not believe whispers of salvation",
@@ -50,14 +50,14 @@
 	Countless eyes like pearls, slide open from the uniform, writhing mass, surrounding me. \
 	Tendrils caress my back, filling every pore with a suffocating intimacy. Crevices between the flesh I did not know to possess. \
 	\n\nWhen the squirming darkness finally parts, a suffocating warmth settles. A red glow suffuses the void, whilst my footing is found upon a mighty, pulsating rock. \
-	The realization hits. Abyssor? Is that you? \
-	Mishapen, tumorous and decrepit. A form no longer bearing Psydon's grace. It matters naught. \
+	The realization hits. The Sea? Is that you? \
+	Mishapen, tumorous and decrepit. A form no longer bearing the Absent God's grace. It matters naught. \
 	He is a sleeping giant not at peace, but tormented by a fever-dream. The past distant, where he stood above the seas, as SYON approaches. \
 	The fragment lies here now, an affliction. The flesh burns where it touches the stone, not just mine, but His just the same. \
 	A challenge to overcome, we must be greater, for His struggle is the greatest."
 	possible_phrases = list(
 		"The deepfather is ill",
-		"Abyssor requires your faith",
+		"The Sea requires your faith",
 		"Some tumors are pure",
 		"His sleep is pained"
 	)
@@ -106,15 +106,15 @@
 	Hardly the first wreck, nor the last. \
 	A hand sticks out from the waves as the captain washes ashore. \
 	Far removed from his flock, they'll be dredging sailors out of the waters for weeks to come, so chaotic are the seas. \
-	Some here, some the next town over, and some will never see the embrace of Dendor's soil again. \
+	Some here, some the next town over, and some will never see the embrace of the Wilds's soil again. \
 	Doomed to become yet another silent grave huddled against the ocean floor. \
 	Despite the danger, the call of the ocean is so hard to ignore. \
-	Abyssor's song promising distant lands and novel discoveries. A great bounty of fish and trade. \
+	the Sea's song promising distant lands and novel discoveries. A great bounty of fish and trade. \
 	The depths especially, ever so alluring. Ruins of the distant past, riches thought to be lost to time. \
 	A mistique that draws you into the mists, never to be seen again by those you love. \
 	The fresh gills in your neck itch. You may dive, you may even thrive a little, underneath the surface. \
 	But never shall humenkind truly dominate the depths, for they are hostile to our very nature. \
-	Psydon did not intend for these feet to step where fish swim."
+	the Absent God did not intend for these feet to step where fish swim."
 	possible_phrases = list(
 		"the depths are not our domain",
 		"sing a prayer for those lost to the waves",
@@ -137,7 +137,7 @@
 	There's no refreshing touch of liquid. As you chew, all you find stuffing your teeth is grains of black salt. \
 	They shatter your teeth with ease, for even they have grown to be as brittle as the very salt between them. \
 	You've never felt better. \
-	The call of Abyssor rings loudly in your ears, as if His song travels through your frame with ease. \
+	The call of the Sea rings loudly in your ears, as if His song travels through your frame with ease. \
 	One basalt step at a time, you mount the cliffs. \
 	Your legs move with stiff movements, gazing down to see the very same darkened salt you imbided replace your flesh. \
 	Stepping like screeching clockwork, your toes step upon the waving grass, even if you do not feel their embrace. \
@@ -155,7 +155,7 @@
 	name = "The Tide Below"
 	description = "The deep dark waters bubble up through the cellar tiles, carrying old secrets."
 	target_description = "unknown"
-	summary = "The subterranean depths reclaim the surface on Psydon's Dae."
+	summary = "The subterranean depths reclaim the surface on the Absent God's Dae."
 	vision_text = "Brine trickles up through the cracks in the flagstones, cold and smelling of kelp. \
 	By noon, the throne room is ankle-deep in black water that ripples without disturbance. \
 	Things with pale, translucent ribs dart beneath the surface, bumping against the legs of sleeping guards. \
@@ -163,12 +163,12 @@
 	Hands grip the legs, whispers of truth delivered through the marrow instead of deaf ears. \
 	Of the injustice unseen in great wars of the past, the lies between spouses, otherwise only sung by zad or rat alike. \
 	The dessicated husk of an old councillor, now languishing in the sewers, a service lended by a great scheme. \
-	Psydon's Dae dredges up the stains of the past."
+	the Absent God's Dae dredges up the stains of the past."
 	possible_phrases = list(
-		"Psydon's Dae shall reveal old secrets",
-		"On Psydon's Dae hidden truths of the past must be spoken",
-		"On Psydon's Dae, the guilty shall confess",
-		"Drink no water on Psydon's Dae"
+		"The Absent God's Dae shall reveal old secrets",
+		"On the Absent God's Dae hidden truths of the past must be spoken",
+		"On the Absent God's Dae, the guilty shall confess",
+		"Drink no water on the Absent God's Dae"
 	)
 
 /datum/vision_quest/tier_3/day_six_psydon/is_valid_target(mob/living/carbon/human/target, mob/living/carbon/human/seeker)
@@ -184,13 +184,13 @@
 	description = "The zenith fire blazes white, consuming all decay and forging new iron."
 	target_description = "unknown"
 	summary = "Solar fire purges the old world to make way for new growth on Sun's Dae."
-	vision_text = "Astrata reaches its zenith and locks into place, shedding its amber glow for a searing heat. \
+	vision_text = "The Sun reaches its zenith and locks into place, shedding its amber glow for a searing heat. \
 	The air turns thick, yet nothing catches instead, rotting wood turns back to green saplings, and rusted iron sheds its flakes like dry skin. \
 	Crowds gather under the blaze, shedding heavy cloaks as old scars itch with new life. \
 	Yet those burdened by corrupt blood or rotting minds feel the heat sink straight into their lux, cooking them from within. \
 	Next are those who would doubt the light, melting together into a formless mass so that they may finally agree. \
 	Her light, her truth, her future. Even the very earth does not shield the unfaithful. \
-	Malum's mantle abused by the craven, turned into a boiling coffin under her radiance. \
+	the Craft's mantle abused by the craven, turned into a boiling coffin under her radiance. \
 	Sun's Dae melts the crucible down, forging either a weapon or worthless slag."
 	possible_phrases = list(
 		"Sun's Dae shall burn away the rot",

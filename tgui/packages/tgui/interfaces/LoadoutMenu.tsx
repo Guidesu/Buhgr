@@ -135,7 +135,7 @@ const ColorLink = (props: {
           </Box>
         )}
       </Box>
-      {currentColor && (
+      {!!currentColor && (
         <Box
           inline
           color="bad"
@@ -234,7 +234,7 @@ const ItemDetailPanel = (props: {
           </Button>
         </Stack.Item>
 
-        {isSelected && (
+        {!!isSelected && (
           <>
             <Stack.Item>
               <Box color="label" mb={0.3}>
@@ -637,13 +637,13 @@ const LoadoutDisplay = () => {
                             meta?.detail_color ||
                             meta?.altdetail_color) && (
                             <Box mt={0.2}>
-                              {meta?.color && (
+                              {!!meta?.color && (
                                 <ColorSwatch color={meta.color} />
                               )}
-                              {meta?.detail_color && (
+                              {!!meta?.detail_color && (
                                 <ColorSwatch color={meta.detail_color} />
                               )}
-                              {meta?.altdetail_color && (
+                              {!!meta?.altdetail_color && (
                                 <ColorSwatch color={meta.altdetail_color} />
                               )}
                             </Box>

@@ -3,7 +3,7 @@
 	attack_aim = MOB_AIM_LOW
 	icon = 'icons/roguetown/mob/monster/fox.dmi'
 	name = "venard"
-	desc = "A majestic beast of Dendor's realm, hopping through the local fauna."
+	desc = "A majestic beast of the Wilds's realm, hopping through the local fauna."
 	anatomy_type = /datum/anatomy/quadruped/trash
 	icon_state = "fox"
 	icon_living = "fox"

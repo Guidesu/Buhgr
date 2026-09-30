@@ -1,5 +1,5 @@
 /datum/round_event_control/graggar_punch
-	name = "Graggar's Rage"
+	name = "War's Rage"
 	track = EVENT_TRACK_PERSONAL
 	typepath = /datum/round_event/graggar_punch
 	weight = 7

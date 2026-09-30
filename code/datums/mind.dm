@@ -55,8 +55,6 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 	var/list/spell_list = list()
 	/// Whether this mind has arcyne momentum (persists through death)
 	var/has_arcyne_momentum = FALSE
-	/// Bending combo tracker — stores recent form casts for combo matching
-	var/datum/bending_combo_tracker/bending_combo_tracker
 
 	var/list/major_aspects
 	var/list/minor_aspects
@@ -691,10 +689,10 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 				if(target_heart && target_heart.owner && target_heart.owner != target) // Rival is not gone but their heart is in someone else
 					output += "<br>[target.real_name], the [target.job]"
 					output += "<br>Your rival's heart beats in [target_heart.owner.real_name]'s chest in [target_heart_location]"
-					output += "<br>Retrieve and consume it to claim victory! Graggar will not forgive failure."
+					output += "<br>Retrieve and consume it to claim victory! War will not forgive failure."
 				else
 					output += "<br>[target.real_name], the [target.job]"
-					output += "<br>Eat your rival's heart before they eat YOURS! Graggar will not forgive failure."
+					output += "<br>Eat your rival's heart before they eat YOURS! War will not forgive failure."
 			else if(target_heart)
 				if(target_heart.owner && target_heart.owner != recipient)
 					output += "<br>Rival's Heart"
@@ -712,10 +710,10 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 				if(challenger_heart && challenger_heart.owner && challenger_heart.owner != challenger) // Rival is not gone but their heart is in someone else
 					output += "<br>[challenger.real_name], the [challenger.job]"
 					output += "<br>Your rival's heart beats in [challenger_heart.owner.real_name]'s chest in [challenger_heart_location]"
-					output += "<br>Retrieve and consume it to claim victory! Graggar will not forgive failure."
+					output += "<br>Retrieve and consume it to claim victory! War will not forgive failure."
 				else
 					output += "<br>[challenger.real_name], the [challenger.job]"
-					output += "<br>Eat your rival's heart before he eat YOURS! Graggar will not forgive failure."
+					output += "<br>Eat your rival's heart before he eat YOURS! War will not forgive failure."
 			else if(challenger_heart)
 				if(challenger_heart.owner && challenger_heart.owner != recipient)
 					output += "<br>Rival's Heart"
@@ -917,6 +915,10 @@ GLOBAL_LIST_EMPTY(personal_objective_minds)
 
 /datum/mind/proc/AddSpell(datum/spell_or_action, mob/living/user)
 	if(!spell_or_action)
+		return
+	// DreamValley: miracles that written prayer replaced are not handed out by class kits either.
+	if(miracle_replaced_by_prayer(spell_or_action.type))
+		qdel(spell_or_action)
 		return
 
 	// New action-based spell system

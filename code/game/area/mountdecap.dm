@@ -134,7 +134,7 @@
 	area_sniff_message = "You smell vile daemonspawn."
 
 /area/rogue/under/cave/scarymaze
-	name = "Necran Labyrinth"
+	name = "Death Labyrinth"
 	loot_budget = LOOT_BUDGET_NECRAN_LABYRINTH
 	icon_state = "spidercave"
 	first_time_text = "NECRAN LABYRINTH"

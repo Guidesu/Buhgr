@@ -111,5 +111,5 @@
 		"The aurora followed us south. The crew calls that a witness. Your Six Seats have nothing to do with it; do not bring your priests to argue otherwise.",
 		"We do not raid this season. The compact holds. Pray the next captain you meet from our shore says the same.",
 		"I bring mead enough to drown the winter. Drink it as men, not as your southern fashion of sipping it like broth.",
-		"My people dream of plaice in butter, herbed with mentha. You people call it Ignatius's Salmon, a dish from the Marrow Roads I heard. Sell me the southern butter, the mentha, and the plaices in ice. We pays well."
+		"My people dream of plaice in butter, herbed with mentha. You people call it the Wilds's Salmon, a dish from the Marrow Roads I heard. Sell me the southern butter, the mentha, and the plaices in ice. We pays well."
 	)

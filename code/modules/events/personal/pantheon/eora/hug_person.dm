@@ -55,7 +55,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Eora wishes to see compassion! Show kindness to the less fortunate by hugging a towner to earn Eora's favor!"))
+	to_chat(chosen_one, span_notice("Love wishes to see compassion! Show kindness to the less fortunate by hugging a towner to earn Love's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/vo/female/gen/giggle (1).ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

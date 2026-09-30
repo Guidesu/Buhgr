@@ -37,7 +37,7 @@
 	icon_state = "debuff"
 
 /obj/effect/proc_holder/spell/invoked/order/martyr_guidance
-	name = "Dictat of Noc"
+	name = "Dictat of the Moon"
 	desc = "Command your Templar to aim for the weak spots. +2 Perception outside the Holy Ground, +4 Perception within Holy Ground."
 	overlay_state = "noc_sight"
 	recharge_time = 30 SECONDS
@@ -55,13 +55,13 @@
 	duration = 15 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/order/martyr_guidance
-	name = "Dictat of Noc"
-	desc = "The Martyr has blessed me with Noc's guidance!"
+	name = "Dictat of the Moon"
+	desc = "The Martyr has blessed me with the Moon's guidance!"
 	icon_state = "buff"
 
 /datum/status_effect/buff/order/martyr_guidance/on_apply()
 	. = ..()
-	to_chat(owner, span_blue("The Martyr has blessed me with Noc's guidance!"))
+	to_chat(owner, span_blue("The Martyr has blessed me with the Moon's guidance!"))
 
 /obj/effect/proc_holder/spell/invoked/order/martyr_guidance/cast(list/targets, mob/living/user)
 	. = ..()
@@ -79,7 +79,7 @@
 			to_chat(user, span_alert("I must wait before I can issue another Dictat!"))
 			revert_cast()
 			return
-		user.say("Templars, focus on the target! May Noc guide your hand!!")
+		user.say("Templars, focus on the target! May the Moon guide your hand!!")
 		var/area/rogue/our_area = get_area(target)
 		if(!(our_area.holy_area))
 			target.apply_status_effect(/datum/status_effect/buff/order/martyr_guidance)
@@ -97,7 +97,7 @@
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/order/martyr_expedite
-	name = "Dictat of Xylix"
+	name = "Dictat of Trickery"
 	desc = "Command your Templar to advance quickly. +2 Speed outside the Holy Ground, +4 Speed within Holy Ground."
 	overlay_state = "xylix_slip"
 	recharge_time = 30 SECONDS
@@ -115,13 +115,13 @@
 	duration = 15 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/order/martyr_expedite
-	name = "Dictat of Xylix"
-	desc = "The Martyr has blessed me with Xylix's guidance!"
+	name = "Dictat of Trickery"
+	desc = "The Martyr has blessed me with Trickery's guidance!"
 	icon_state = "buff"
 
 /datum/status_effect/buff/order/martyr_expedite/on_apply()
 	. = ..()
-	to_chat(owner, span_blue("The Martyr has blessed me with Xylix's guidance!"))
+	to_chat(owner, span_blue("The Martyr has blessed me with Trickery's guidance!"))
 
 /obj/effect/proc_holder/spell/invoked/order/martyr_expedite/cast(list/targets, mob/living/user)
 	. = ..()
@@ -139,7 +139,7 @@
 			to_chat(user, span_alert("I must wait before I can issue another Dictat!"))
 			revert_cast()
 			return
-		user.say("Forward, templars! Xylix will guide us to victory!!")
+		user.say("Forward, templars! Trickery will guide us to victory!!")
 		var/area/rogue/our_area = get_area(target)
 		if(!(our_area.holy_area))
 			target.apply_status_effect(/datum/status_effect/buff/order/martyr_expedite)
@@ -157,7 +157,7 @@
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/order/martyr_onfeet
-	name = "Dictat of Ravox"
+	name = "Dictat of Law"
 	desc = "Command your Templar to hold fast. Forces them to stand up, enduring through the struggle. Grants resistance to pain within Holy Ground."
 	overlay_state = "ravoxchallenge"
 	recharge_time = 30 SECONDS
@@ -173,13 +173,13 @@
 	duration = 15 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/order/martyr_onfeet
-	name = "Dictat of Ravox"
-	desc = "The Martyr has blessed me with Ravox's guidance!"
+	name = "Dictat of Law"
+	desc = "The Martyr has blessed me with Law's guidance!"
 	icon_state = "buff"
 
 /datum/status_effect/buff/order/martyr_onfeet/on_apply()
 	. = ..()
-	to_chat(owner, span_blue("The Martyr has blessed me with Ravox's guidance!"))
+	to_chat(owner, span_blue("The Martyr has blessed me with Law's guidance!"))
 
 /datum/status_effect/buff/order/martyr_onfeet/church/on_apply()
 	. = ..()
@@ -205,7 +205,7 @@
 			to_chat(user, span_alert("I must wait before I can issue another Dictat!"))
 			revert_cast()
 			return
-		user.say("Templars! Stand and fight! Ravox watches over you!!")
+		user.say("Templars! Stand and fight! Law watches over you!!")
 		var/area/rogue/our_area = get_area(target)
 		if(!(target.mobility_flags & MOBILITY_STAND))
 			target.SetUnconscious(0)
@@ -239,7 +239,7 @@
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/order/martyr_laststand
-	name = "Dictat of Malum"
+	name = "Dictat of the Craft"
 	desc = "Command your Templar to assume defense formation. +2 Willpower and +1 Constitution outside the Holy Ground, +3 Willpower and +2 Constitution within Holy Ground."
 	overlay_state = "magicians_brick"
 	recharge_time = 30 SECONDS
@@ -257,13 +257,13 @@
 	duration = 15 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/order/martyr_laststand
-	name = "Dictat of Malum"
-	desc = "The Martyr has blessed me with Malum's guidance!"
+	name = "Dictat of the Craft"
+	desc = "The Martyr has blessed me with the Craft's guidance!"
 	icon_state = "buff"
 
 /datum/status_effect/buff/order/martyr_laststand/on_apply()
 	. = ..()
-	to_chat(owner, span_blue("The Martyr has blessed me with Malum's guidance!"))
+	to_chat(owner, span_blue("The Martyr has blessed me with the Craft's guidance!"))
 
 /obj/effect/proc_holder/spell/invoked/order/martyr_laststand/cast(list/targets, mob/living/user)
 	. = ..()
@@ -281,7 +281,7 @@
 			to_chat(user, span_alert("I must wait before I can issue another Dictat!"))
 			revert_cast()
 			return
-		user.say("Not a step back, templars! Malum will strengthen our will!!")
+		user.say("Not a step back, templars! The Craft will strengthen our will!!")
 		var/area/rogue/our_area = get_area(target)
 		if(!(our_area.holy_area))
 			target.apply_status_effect(/datum/status_effect/buff/order/martyr_laststand)

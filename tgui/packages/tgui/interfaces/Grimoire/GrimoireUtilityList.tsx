@@ -100,7 +100,7 @@ export const GrimoireUtilityList = ({
               learned
             </span>
           )}
-          {isPendingUnbind && (
+          {!!isPendingUnbind && (
             <span
               className="AspectPicker__spell-desc"
               style={{ marginLeft: '4px', color: 'rgba(200,100,100,0.8)' }}
@@ -108,7 +108,7 @@ export const GrimoireUtilityList = ({
               unbinding
             </span>
           )}
-          {selectedElsewhere && (
+          {!!selectedElsewhere && (
             <span
               className="AspectPicker__spell-desc"
               style={{ marginLeft: '4px', opacity: 0.6 }}

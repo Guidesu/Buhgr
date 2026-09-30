@@ -49,7 +49,7 @@
 		to_chat(user, span_notice("I feel mundane once more"))
 
 /datum/magic_item/mundane/xylix
-	name = "Xylix's boon"
+	name = "Trickery's boon"
 	description = "It almost seems to give off the faint sound of laughter."
 	glow_color = "#DAA520"
 	var/active_item = FALSE

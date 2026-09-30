@@ -93,6 +93,7 @@
 		adf = round(adf * CLICK_CD_MOD_AIMED)
 	if(istype(user.rmb_intent, /datum/rmb_intent/swift))
 		adf = max(round(adf * CLICK_CD_MOD_SWIFT), CLICK_CD_INTENTCAP)
+	adf = max(round(adf * user.guard_speed_mult()), CLICK_CD_INTENTCAP)
 	user.changeNext_move(adf)
 	for(var/obj/item/clothing/worn_thing in get_equipped_items(include_pockets = TRUE))//checks clothing worn by src.
 	// Things that are supposed to be worn, being held = cannot block
@@ -133,12 +134,12 @@
 
 
 	if(item_flags & NOBLUDGEON)
-		return FALSE
+		return FALSE	
 
 	if(force && HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("I don't want to harm other living beings!"))
 		return
-
+	
 	if(force && user.has_status_effect(/datum/status_effect/debuff/deadite_grace) && M.mind)
 		to_chat(user, span_warning("Ah, Lux... I calm down considerably, but my hunger only increases."))
 		user.remove_status_effect(/datum/status_effect/debuff/deadite_grace)
@@ -174,7 +175,7 @@
 		if(user.add_swingdelay(cached_intent))
 			sleep(cached_intent.swingdelay)
 
-	// Getting struck w/ /disrupt swingdelay type sets our swing_state to false.
+	// Getting struck w/ /disrupt swingdelay type sets our swing_state to false. 
 	// If we had the effect, but not the bool, we were interrupted. (Or something else went wrong.)
 	if(user.is_swinging() && !user.swing_state)
 		return
@@ -228,7 +229,7 @@
 			user.adjust_blurriness(3)
 			user.adjustBruteLoss(5)
 			user.apply_status_effect(/datum/status_effect/churned, M)
-
+	
 	//Niche signal for post-swingdelay attacks when we want to care about those.
 	_attacker_signal = null
 	_attacker_signal = SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK_POST_SWINGDELAY, M, user, src)
@@ -357,7 +358,7 @@
 
 	if(!istype(user))
 		return newforce
-
+	
 	var/dullness_ratio
 	if(I.max_blade_int && I.sharpness != IS_BLUNT)
 		dullness_ratio = I.blade_int / I.max_blade_int
@@ -514,6 +515,9 @@
 	if(istype(user.rmb_intent, /datum/rmb_intent/weak))
 		newforce = (newforce * WEAK_STANCE_DMG_MULT)
 
+	// DreamValley guards: high and back guards hit harder, hanging and low guards softer.
+	newforce *= user.guard_damage_mult()
+
 	newforce = CLAMP(newforce, user.used_intent.min_intent_damage, user.used_intent.max_intent_damage)
 
 	return newforce
@@ -622,7 +626,7 @@
 
 	if(multiplier)
 		newforce = newforce * multiplier
-
+	
 	take_damage(newforce, I.damtype, I.d_type, 1)
 	if(newforce > 1)
 		I.take_damage(1, BRUTE, I.d_type)

@@ -56,7 +56,7 @@ export const RecipeBookSidebar = memo((props: Props) => {
 
   return (
     <Stack fill>
-      {hasCategories && (
+      {!!hasCategories && (
         <Stack.Item style={{ overflow: 'auto', minWidth: '140px' }}>
           <Stack vertical fill>
             <Stack.Item grow basis={0} style={{ overflow: 'auto' }}>

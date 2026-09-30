@@ -176,7 +176,7 @@
 /datum/stressevent/protege_nearby
 	stressadd = -2
 	timer = 5 MINUTES
-	desc = span_green("My protégé hasn't met Necra yet. Great!")
+	desc = span_green("My protégé hasn't met Death yet. Great!")
 
 /datum/stressevent/protege_lord_nearby
 	stressadd = -2

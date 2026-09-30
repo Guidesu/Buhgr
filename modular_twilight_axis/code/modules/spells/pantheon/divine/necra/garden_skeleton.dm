@@ -197,7 +197,7 @@
 	if(QDELETED(src))
 		return
 	necra_garden_purge_inventory()
-	visible_message(span_warning("[src] crumbles into ash as Necra's gardens call it back."))
+	visible_message(span_warning("[src] crumbles into ash as Death's gardens call it back."))
 	new /obj/effect/temp_visual/gib_animation(get_turf(src), "gibbed-h")
 	qdel(src)
 

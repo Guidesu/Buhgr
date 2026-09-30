@@ -226,7 +226,7 @@
 
 /obj/item/rogueweapon/greatsword/psygsword
 	name = "vaeltic greatsword"
-	desc = "It is said that a Vaeltian smith was guided by Saint Malum himself to forge such a formidable blade, and given the task to slay a \
+	desc = "It is said that a Vaeltian smith was guided by Saint the Craft himself to forge such a formidable blade, and given the task to slay a \
 	daemon preying on the Otavan farmlands. The design was retrieved, studied, and only a few replicas made - for they believe it dulls its edge."
 	icon_state = "silverexealt"
 	force = 8
@@ -249,8 +249,8 @@
 
 /obj/item/rogueweapon/greatsword/psygsword/relic
 	name = "Apocrypha"
-	desc = "In Otava's grandest mosaics, Saint Auxentius - bare in all but a beaked helmet and loincloth - is depicted wielding such an imposing \
-	greatweapon against the Sinistar, Graggar. Regardless of whether this relic was actually wielded by divinity-or-not, its unparallel strength \
+	desc = "In Otava's grandest mosaics, Saint the Sun - bare in all but a beaked helmet and loincloth - is depicted wielding such an imposing \
+	greatweapon against the Sinistar, War. Regardless of whether this relic was actually wielded by divinity-or-not, its unparallel strength \
 	will nevertheless command even the greatest foes to fall. Stand fast, childe o' God, and drive the unforgivable back to Hell."
 	force = 25
 	force_wielded = 30
@@ -315,8 +315,8 @@
 /obj/item/rogueweapon/greatsword/bsword/psy/unforgotten
 	name = "unforgotten blade"
 	desc = "'Let His name be naught but forgot'n.' </br>High Inquisitor Archibald once recorded an expedition of seven brave Adjudicators into Gronnian snow-felled wastes to \
-	root out evil. Its leader, Holy Ordinator Guillemin, was said to have held on for seven daes and seven nights against darksteel-clad heretics before Praecursor acknowledged his \
-	endurance. Nothing but his blade remained - his psycross wrapped around its hilt in rememberance."
+	root out evil. Its leader, Holy Ordinator Guillemin, was said to have held on for seven daes and seven nights against darksteel-clad heretics before the Absent God acknowledged his \
+	endurance. Nothing but his blade remained - his holy cross wrapped around its hilt in rememberance."
 	icon_state = "forgottenblade"
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silver
@@ -334,8 +334,8 @@
 
 /obj/item/rogueweapon/greatsword/bsword/psy/relic
 	name = "Creed"
-	desc = "Vaeltian prayers and Tennite smiths, working as one to craft a weapon to slay the Four. A heavy and large blade, favored by Saint Auxentius, to lay \
-	waste to those who threaten His flock. The crossguard's psycross reflects even the faintest of Noc's light. You're the light - show them the way."
+	desc = "Vaeltian prayers and Domain-faithful smiths, working as one to craft a weapon to slay the Four. A heavy and large blade, favored by Saint the Sun, to lay \
+	waste to those who threaten His flock. The crossguard's holy cross reflects even the faintest of the Moon's light. You're the light - show them the way."
 	icon_state = "psybroadsword"
 	force = 25
 	force_wielded = 25

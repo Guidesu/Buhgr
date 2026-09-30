@@ -29,7 +29,7 @@
 
 /obj/effect/proc_holder/spell/invoked/resurrect/matthios
 	name = "Rekindled Ledger"
-	desc = "Revives the target by invoking a deal with Morwenna. In exchange for their lyfe returned, they will be placed\
+	desc = "Revives the target by invoking a deal with Death. In exchange for their lyfe returned, they will be placed\
 	in a lasting debt to Her. Any coins within their hands will be spent paying off said debt. Blood for gold."
 	debuff_type = /datum/status_effect/debuff/debt_indicator
 	alt_required_items = list()
@@ -46,7 +46,7 @@
 	matthios = TRUE // is this true?!
 
 /obj/effect/proc_holder/spell/invoked/resurrect/graggar
-	name = "Blood for Volkovoi"
+	name = "Blood for War"
 	desc = "You cannot dominate the dead. Place VOLKOVOI'S EYES upon a fallen mortal, granting them the\
 	chance to fight again... for a price. Their intelligence will be drained for some time, or until\
 	they slay a challenger from His wintry realm."
@@ -168,7 +168,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/debt_indicator
 	name = "Indentured Spirit"
-	desc = "A spiritual debt weighs heavy on your soul, sapping your vitality. Standard coins you touch are consumed to appease Morwenna."
+	desc = "A spiritual debt weighs heavy on your soul, sapping your vitality. Standard coins you touch are consumed to appease Death."
 	icon_state = "pom_regret"
 
 /atom/movable/screen/alert/status_effect/debuff/debt_indicator/examine_ui(mob/user)
@@ -298,7 +298,7 @@
 	qdel(src)
 
 /obj/structure/primal_rift/proc/trigger_consequences()
-	to_chat(target, span_boldannounce("Volkovoi punishes your cowardice!"))
+	to_chat(target, span_boldannounce("War punishes your cowardice!"))
 	var/datum/status_effect/debuff/graggar_challenge/G = target.has_status_effect(/datum/status_effect/debuff/graggar_challenge)
 	if(G)
 		G.trigger_failure_consequences(target)
@@ -314,7 +314,7 @@
 
 /atom/movable/screen/alert/status_effect/graggar_challenge
 	name = "Blood debt"
-	desc = "Volkovoi demands blood be spilt in exchange for his mercy! Summon the rift! Prove yourself! Cowardice is not an option!"
+	desc = "War demands blood be spilt in exchange for his mercy! Summon the rift! Prove yourself! Cowardice is not an option!"
 	icon_state = "pom_regret"
 
 /datum/status_effect/debuff/graggar_challenge
@@ -331,7 +331,7 @@
 /datum/status_effect/debuff/graggar_challenge/on_apply()
 	. = ..()
 	creation_time = world.time
-	to_chat(owner, span_userdanger("Your mind feels clouded by a primal bloodlust. Volkovoi demands a challenge! Summon the rift before your time runs out!"))
+	to_chat(owner, span_userdanger("Your mind feels clouded by a primal bloodlust. War demands a challenge! Summon the rift before your time runs out!"))
 
 	// Grant the summoning spell
 	var/obj/effect/proc_holder/spell/invoked/summon_rift/S = new(owner)
@@ -340,7 +340,7 @@
 /datum/status_effect/debuff/graggar_challenge/on_remove()
 	// If the duration ran out naturally (didn't get cleared by the rift)
 	if(world.time >= (creation_time + failure_time - 5))
-		to_chat(owner, span_userdanger("You failed to prove your worth to Volkovoi!"))
+		to_chat(owner, span_userdanger("You failed to prove your worth to War!"))
 		trigger_failure_consequences(owner)
 
 	// Cleanup the spell if they still have it
@@ -367,7 +367,7 @@
 
 /obj/effect/proc_holder/spell/invoked/summon_rift
 	name = "Summon Primal Rift"
-	desc = "Challenge the rift-born to clear your blood-debt. Must be cast on a nearby floor. Make sure to kill all foes, Volkovoi will not tolerate further acts of mercy."
+	desc = "Challenge the rift-born to clear your blood-debt. Must be cast on a nearby floor. Make sure to kill all foes, War will not tolerate further acts of mercy."
 	invocation_type = "shout"
 	invocations = list("VOLKOVOI, WITNESS ME!")
 	recharge_time = 5 SECONDS
@@ -480,7 +480,7 @@
 
 /atom/movable/screen/alert/status_effect/baotha_addiction
 	name = "Endless Addiction"
-	desc = "Hausvette's gifts come with a price. Your body now craves drugs. Tick tock..."
+	desc = "The Forbidden's gifts come with a price. Your body now craves drugs. Tick tock..."
 
 /atom/movable/screen/alert/status_effect/baotha_withdrawal
 	name = "Withdrawal"
@@ -547,7 +547,7 @@
 		to_chat(user, span_nicegreen("You wrench the victim's rekindled Lux into yourself, leaving them hollowed and starving for life."))
 
 /atom/movable/screen/alert/status_effect/debuff/zizo_temp_undeath
-	name = "Embrace of Aurelian"
+	name = "Embrace of the Forbidden"
 	desc = "You feel your very essence struggling against the hold of Undeath... Your mind is beseethed with dark, evil thoughts, and all you feel is hunger..."
 
 /datum/status_effect/debuff/zizo_temp_undeath
@@ -698,7 +698,7 @@
 
 	if(auxentius_cross)
 		if(user_indebted)
-			user.visible_message(span_boldwarning("[user]'s counterfeit sanctity shatters beneath Auxentius's gaze! HERETIC!"))
+			user.visible_message(span_boldwarning("[user]'s counterfeit sanctity shatters beneath the Sun's gaze! HERETIC!"))
 
 			new /obj/effect/temp_visual/explosion(user)
 			playsound(user, 'sound/magic/churn.ogg', 50)
@@ -708,7 +708,7 @@
 			user.ignite_mob()
 
 			if(found_cross)
-				found_cross.visible_message(span_userdanger("[found_cross] erupts with blinding solar fury! Auxentius is NOT happy!!"))
+				found_cross.visible_message(span_userdanger("[found_cross] erupts with blinding solar fury! The Sun is NOT happy!!"))
 
 			to_chat(user, span_userdanger("Morwenna turns her back on you, as Auxentius sees right through your profane act!"))
 			to_chat(target, span_nicegreen("Warm sanctity wraps around your rekindled soul, but not so warmly upon another. What a surprise to be back to."))
@@ -719,7 +719,7 @@
 		var/paid = pay_matthios_mammon(user, cost)
 
 		if(paid >= cost)
-			to_chat(user, span_nicegreen("You quietly trade with Morwenna into veiling the miracle from Auxentius's divine scrutiny."))
+			to_chat(user, span_nicegreen("You quietly trade with Death into veiling the miracle from the Sun's divine scrutiny."))
 			to_chat(target, span_nicegreen("Warm sanctity wraps around your rekindled soul. It feels great to be back."))
 
 			return TRUE
@@ -735,7 +735,7 @@
 		else
 			user.AddComponent(/datum/component/debt_collector, unpaid)
 
-		to_chat(user, span_userdanger("Your hoard proves lighter than your ambition. Morwenna accepts what little you managed to offer, but the remainder settles quietly under YOUR name."))
+		to_chat(user, span_userdanger("Your hoard proves lighter than your ambition. Death accepts what little you managed to offer, but the remainder settles quietly under YOUR name."))
 		to_chat(target, span_nicegreen("Warm sanctity wraps around your rekindled soul. It feels great to be back."))
 
 		return TRUE
@@ -763,10 +763,10 @@
 				else
 					user.AddComponent(/datum/component/debt_collector, unpaid)
 
-				to_chat(user, span_userdanger("You attempt to purchase their absolution outright, but Morwenna notices the missing balance. The remainder becomes YOUR debt."))
+				to_chat(user, span_userdanger("You attempt to purchase their absolution outright, but Death notices the missing balance. The remainder becomes YOUR debt."))
 
 			else
-				to_chat(user, span_nicegreen("You fully shoulder the burden of resurrection yourself. Morwenna leaves the revived soul untouched."))
+				to_chat(user, span_nicegreen("You fully shoulder the burden of resurrection yourself. Death leaves the revived soul untouched."))
 				to_chat(target, span_nicegreen("You rise strangely free of obligation, as if someone else paid your toll."))
 
 			return TRUE
@@ -777,7 +777,7 @@
 			if(HAS_TRAIT(target, TRAIT_FREEMAN))
 				final_debt = round(final_debt / 3)
 
-			to_chat(user, span_userdanger("Morwenna smiles upon your respectful bargain and greed!"))
+			to_chat(user, span_userdanger("Death smiles upon your respectful bargain and greed!"))
 
 			var/discount_cap = round(final_debt / 2)
 			var/stolen = pay_matthios_mammon(target, discount_cap)
@@ -787,7 +787,7 @@
 				final_debt = max(0, final_debt - stolen)
 				playsound(user, 'sound/effects/matth_barter.ogg', 100, TRUE)
 				to_chat(user, span_nicegreen("[stolen] mammon materializes before you... Your sanctioned cut of the transaction."))
-				to_chat(target, span_userdanger("Part of your remaining wealth is forcefully extracted to sweeten Morwenna's bargain."))
+				to_chat(target, span_userdanger("Part of your remaining wealth is forcefully extracted to sweeten Death's bargain."))
 
 			target.apply_status_effect(/datum/status_effect/debuff/debt_indicator)
 
@@ -803,7 +803,7 @@
 			return TRUE
 
 	if(user_indebted)
-		to_chat(user, span_boldwarning("You invoke an unsanctioned miracle while already indebted. Morwenna's patience snaps completely."))
+		to_chat(user, span_boldwarning("You invoke an unsanctioned miracle while already indebted. Death's patience snaps completely."))
 		to_chat(target, span_userdanger("NO, MORWENNA!! O' LADY!! WAIT! I'LL PAY, I'LL PA--!!"))
 
 		new /obj/effect/temp_visual/explosion(user)

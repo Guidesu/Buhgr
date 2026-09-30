@@ -86,7 +86,7 @@
 
 /obj/item/roguegem/jade
 	name = "jade"
-	desc = "A dull green gem prized in Lingyue and Kazengun alike. Lingyuese tradition holds that jade is the essence of Praecursor, protecting both soul and flesh from decay and corruption."
+	desc = "A dull green gem prized in Lingyue and Kazengun alike. Lingyuese tradition holds that jade is the essence of the Absent God, protecting both soul and flesh from decay and corruption."
 	icon = 'icons/roguetown/gems/gem_jade.dmi'
 	icon_state = "raw_jade"
 	sellprice = SELLPRICE_JADE
@@ -100,7 +100,7 @@
 
 /obj/item/roguegem/coral
 	name = "heartstone"
-	desc = "Jagged like a hound's tooth. Heartstone is speculated to be the crystalized blood of fallen sailors. It is sacred to Abyssorites and is used in numerous Abyssorites rituals."
+	desc = "Jagged like a hound's tooth. Heartstone is speculated to be the crystalized blood of fallen sailors. It is sacred to Sea faithful and is used in numerous Sea faithful rituals."
 	icon = 'icons/roguetown/gems/gem_coral.dmi'
 	icon_state = "raw_coral"
 	sellprice = SELLPRICE_HEARTSTONE
@@ -114,7 +114,7 @@
 
 /obj/item/roguegem/amber
 	name = "amber"
-	desc = "A chunk of fossilized sunlight. Believed to have been shed during the shattering of the First Sun, its remnants are prized among Auxentians. Raaneshi sometimes use fragments as currency, instead of mammon."
+	desc = "A chunk of fossilized sunlight. Believed to have been shed during the shattering of the First Sun, its remnants are prized among Sun faithful. Raaneshi sometimes use fragments as currency, instead of mammon."
 	icon = 'icons/roguetown/gems/gem_amber.dmi'
 	icon_state = "raw_amber"
 	sellprice = SELLPRICE_AMBER
@@ -253,7 +253,7 @@
 /obj/item/pearl/blue
 	name = "Blue pearl"
 	icon_state = "bpearl"
-	desc = "A beautiful blue pearl. A bounty of Abyssor. Can be strung up into amulets."
+	desc = "A beautiful blue pearl. A bounty of the Sea. Can be strung up into amulets."
 	sellprice = 60
 
 /obj/item/pearl/blue/Initialize(mapload)

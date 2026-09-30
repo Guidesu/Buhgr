@@ -84,7 +84,7 @@ const CharterRow = ({ charter }: { charter: Charter }) => {
           <span style={badgeStyle(SEAL_RED)}>SUSPENDED</span>
         )}
       </div>
-      {open && (
+      {!!open && (
         <div
           style={{
             marginTop: 6,

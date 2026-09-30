@@ -61,7 +61,7 @@ SUBSYSTEM_DEF(rogueinfo)
 			"note" = "No custom notes."
 		),
 		"bathhouse" = list(
-			"desc" = "The sanctuary of Eoran cleanliness, offering public sanitation and relaxation for the weary townsfolk. Unwind as our skilled attendants see to your every need.",
+			"desc" = "The sanctuary of Love cleanliness, offering public sanitation and relaxation for the weary townsfolk. Unwind as our skilled attendants see to your every need.",
 			"note" = "No custom notes."
 		),
 		"merchant" = list(

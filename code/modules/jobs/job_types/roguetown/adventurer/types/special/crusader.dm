@@ -92,7 +92,7 @@
 /obj/item/clothing/cloak/tabard/stabard/crusader
 	name = "surcoat of the golden order"
 	desc = "A regal surcoat, inlined with golden threading. The stitchwork tethers it to the Golden Orders; a catch-all term for the various faith-militances that \
-	ward Vaeltis from heathens, cultists, and the ever-looming threat of another calamity. This variant bears the psicruciformic sigil of the Vaeltic and Necran \
+	ward Vaeltis from heathens, cultists, and the ever-looming threat of another calamity. This variant bears the psicruciformic sigil of the Vaeltic and Death \
 	orders."
 	icon_state = "crusader_surcoat"
 	icon = 'icons/roguetown/clothing/special/crusader.dmi'
@@ -103,20 +103,20 @@
 /obj/item/clothing/cloak/tabard/stabard/crusader/t
 	name = "surcoat of the silver order"
 	desc = "A noble surcoat, inlined with silver threading. The stitchwork tethers it to the Silver Orders; a catch-all term for the various faith-militances that \
-	ward Vaeltis from monsters, deadites, and the ever-looming threat of another calamity. This variant bears the psicruciformic sigil of the Vaeltic and Necran \
+	ward Vaeltis from monsters, deadites, and the ever-looming threat of another calamity. This variant bears the psicruciformic sigil of the Vaeltic and Death \
 	orders."
 	icon_state = "crusader_surcoatt2"
 
 /obj/item/clothing/cloak/tabard/stabard/crusader/auxentius
 	name = "surcoat of the golden order"
 	desc = "A regal surcoat, inlined with golden threading. The stitchwork tethers it to the Golden Orders; a catch-all term for the various faith-militances that \
-	ward Vaeltis from heathens, cultists, and the ever-looming threat of another calamity. This variant bears the cruciform sigil of the Auxentian orders."
+	ward Vaeltis from heathens, cultists, and the ever-looming threat of another calamity. This variant bears the cruciform sigil of the Sun orders."
 	icon_state = "acrusader_surcoat"
 
 /obj/item/clothing/cloak/tabard/stabard/crusader/t/auxentius
 	name = "surcoat of the silver order"
 	desc = "A noble surcoat, inlined with silver threading. The stitchwork tethers it to the Silver Orders; a catch-all term for the various faith-militances that \
-	ward Vaeltis from monsters, deadites, and the ever-looming threat of another calamity. This variant bears the cruciform sigil of the Auxentian orders."
+	ward Vaeltis from monsters, deadites, and the ever-looming threat of another calamity. This variant bears the cruciform sigil of the Sun orders."
 	icon_state = "acrusader_surcoatt2"
 
 /obj/item/clothing/cloak/tabard/stabard/crusader/undivided

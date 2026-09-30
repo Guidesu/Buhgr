@@ -118,7 +118,7 @@ const RosterView = ({
           {enrolled} / {rosterStatic.cap} enrolled
         </div>
       </div>
-      {full && (
+      {!!full && (
         <div style={{ color: SEAL_AMBER, marginBottom: 8 }}>
           The roster is full. Revoke an existing patron before drafting a new
           writ.

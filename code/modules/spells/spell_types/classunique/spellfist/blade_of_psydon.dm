@@ -1,8 +1,8 @@
 /datum/action/cooldown/spell/blade_of_praecursor
 	button_icon = 'icons/mob/actions/classuniquespells/spellfist.dmi'
-	name = "Blade of Praecursor"
-	desc = "The manifestation of the higher concept of a blade itself. Said to be drawn upon from Noc's treasury of wisdom, each casting a poor facsimile of the perfect weapon They hold.\n\n\
-	Centuries ago, the wise Yogi of Naledi travelled to the city of Tarichea, to learn their arts of Spellbladery, and perfected the art of arcyne weapon conjuration, to lend the fists of Praecursor a blade when time calls for a cutting edge..."
+	name = "Blade of the Absent God"
+	desc = "The manifestation of the higher concept of a blade itself. Said to be drawn upon from the Moon's treasury of wisdom, each casting a poor facsimile of the perfect weapon They hold.\n\n\
+	Centuries ago, the wise Yogi of Naledi travelled to the city of Tarichea, to learn their arts of Spellbladery, and perfected the art of arcyne weapon conjuration, to lend the fists of the Absent God a blade when time calls for a cutting edge..."
 	button_icon_state = "boundkatar"
 	spell_color = GLOW_COLOR_ARCANE
 	glow_intensity = GLOW_INTENSITY_LOW

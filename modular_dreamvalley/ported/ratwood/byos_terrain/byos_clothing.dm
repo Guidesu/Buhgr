@@ -231,13 +231,13 @@
 
 /obj/item/clothing/gloves/roguetown/chain/ancient
 	name = "ancient chain gauntlets"
-	desc = "Polished gilbranze rings, delicately daisy-chained together into mittens. The filament is ruptured, and it will never heal; Zizo's ascension made sure of that. By the hands of Her disciples, the final obstacle preventing this world's salvation shall be dismantled - lyfe."
+	desc = "Polished gilbranze rings, delicately daisy-chained together into mittens. The filament is ruptured, and it will never heal; the Forbidden's ascension made sure of that. By the hands of Her disciples, the final obstacle preventing this world's salvation shall be dismantled - lyfe."
 	icon_state = "acgloves"
 	smeltresult = /obj/item/ingot/aaslag
 
 /obj/item/clothing/head/roguetown/helmet/heavy/ancient
 	name = "ancient barbute"
-	desc = "Polished gilbranze plates, pounded to form a visored helmet. Zizo commands ambition, and ambition commands sacrifice; let these sundered legionnaires rise again, to spill the blood of unenlightened fools. A coiled pocket is perched atop the rim, awaiting to be plumed."
+	desc = "Polished gilbranze plates, pounded to form a visored helmet. The Forbidden commands ambition, and ambition commands sacrifice; let these sundered legionnaires rise again, to spill the blood of unenlightened fools. A coiled pocket is perched atop the rim, awaiting to be plumed."
 	icon_state = "ancientbarbute"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -258,7 +258,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/guard/ancient
 	name = "ancient savoyard"
-	desc = "Polished gilbranze plates, molded into a bulwark's greathelm. The Comet Syon's glare has been forever burnt into the alloy; a decayed glimpse into the world that was, before Praecursor's slumber and Zizo's awakening."
+	desc = "Polished gilbranze plates, molded into a bulwark's greathelm. The Comet Syon's glare has been forever burnt into the alloy; a decayed glimpse into the world that was, before the Absent God's slumber and the Forbidden's awakening."
 	icon_state = "ancientsavoyard"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -287,7 +287,7 @@
 
 /obj/item/clothing/neck/roguetown/chaincoif/ancient
 	name = "ancient coif"
-	desc = "Polished gilbranze rings, linked together to form a billowing hood. Let it not be a crown of thorns that saves this dying world, but a crown of ambition; of fettered metal and stained bone, rejuvenated by Zizo's will to herald Her greatest works yet."
+	desc = "Polished gilbranze rings, linked together to form a billowing hood. Let it not be a crown of thorns that saves this dying world, but a crown of ambition; of fettered metal and stained bone, rejuvenated by the Forbidden's will to herald Her greatest works yet."
 	icon_state = "achaincoif"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -414,7 +414,7 @@
 
 /obj/item/clothing/under/roguetown/chainlegs/kilt/ancient
 	name = "ancient chain kilt"
-	desc = "Polished gilbranze rings, linked together with bindings of silk to form a waist's vestment. These undying legionnaires once marched for Vheslyn, and again for Zizo; but now, they are utterly beholden to the whims of their resurrector."
+	desc = "Polished gilbranze rings, linked together with bindings of silk to form a waist's vestment. These undying legionnaires once marched for Vheslyn, and again for the Forbidden; but now, they are utterly beholden to the whims of their resurrector."
 	icon_state = "achainkilt"
 	sleevetype = "achainkilt"
 	smeltresult = /obj/item/ingot/aaslag

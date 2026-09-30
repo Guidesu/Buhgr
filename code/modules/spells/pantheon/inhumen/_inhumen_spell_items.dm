@@ -427,7 +427,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 
 	var/choice
 	if(target.client)
-		choice = alert(target, "You feel divine warmth offering you freedom from the shackles of Necra...", "Revival", "I need to wake up! Freedom!", "I'd rather be dead than free.")
+		choice = alert(target, "You feel divine warmth offering you freedom from the shackles of Death...", "Revival", "I need to wake up! Freedom!", "I'd rather be dead than free.")
 	else
 		choice = "I'd rather be dead than free."
 
@@ -673,7 +673,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 
 	if(level <= SKILL_LEVEL_JOURNEYMAN && prob(60 - (level * 10)))
 		var/tax = rand(2,10)
-		to_chat(user, span_warning("Matthios claims His due... (1/[tax] lost)"))
+		to_chat(user, span_warning("Trade claims His due... (1/[tax] lost)"))
 		result = round(base - (base / tax))
 
 	if(result > 0)
@@ -825,7 +825,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 		return
 
 	if(ishungry && prob(25))
-		to_chat(user, span_notice("Matthios takes pity on your mortal limitations. You compulsively shout in gratitude!"))
+		to_chat(user, span_notice("Trade takes pity on your mortal limitations. You compulsively shout in gratitude!"))
 		user.say(pick("PRAISE YOU, O' GENEROUS MATTHIOS!!","AT LAST, THE TRUE GOLD OF CULINARY ALCHEMY!!","BLESSED BE THY HANDS WHICH GRANT ME SUSTENANCE, MATTHIOS!!","I SHALL GIVE ALL FOR THY SMILE, LORD OF FREEDOM!!"), language = /datum/language/common)
 
 	to_chat(user, span_notice("The mixture responds to your greed, shaping and taking the desired form. It feels warm and tasty!"))
@@ -1555,7 +1555,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 
 //EQUIPPABLES
 /obj/item/clothing/neck/roguetown/psicross/morwenna/matthios/gilded
-	name = "ornate amulet of Matthios"
+	name = "ornate amulet of Trade"
 	desc = "He was ever the one to make you ask questions: Why are we still here? Just to suffer? Nae. We are here to make a change. And a change we shall make, together."
 	icon_state = "matthios"
 	resistance_flags = FIRE_PROOF
@@ -1598,7 +1598,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 	return list(EXAMINEHIGHLIGHT_HERESYSEVERITY_ALARMING, HERESYDESC_MATTHIOS_ICON)
 
 /obj/item/clothing/neck/roguetown/psicross/morwenna/matthios/gilded/astrata
-	name = "ornate amulet of Astrata"
+	name = "ornate amulet of the Sun"
 	desc = "Her command is absolute, and Her tyranny is unmarrable. Reclaim this world, child of mine, from those who'd seek to destroy it."
 	icon_state = "astrata_g"
 	aura_color = null
@@ -1623,7 +1623,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 			user.grant_language(/datum/language/thievescant)
 			grant_chant = TRUE
 		else
-			to_chat(user, span_info("You already know Thieves' Cant, but praise be Matthios anyway!"))
+			to_chat(user, span_info("You already know Thieves' Cant, but praise be Trade anyway!"))
 
 /obj/item/clothing/neck/roguetown/psicross/morwenna/matthios/gilded/dropped(mob/living/carbon/human/user)
 	. = ..()
@@ -1740,7 +1740,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 	if(prob(halluc_chance))
 		if(C.hallucination < 400)
 			C.hallucination = min(400, C.hallucination + rand(5, 15))
-			to_chat(C, span_warning(pick("This sight was not made for me.","I can feel my thoughts peeling apart.","The world looks wrong.","I should remove this.","My mind recoils from what it sees.","Too much truth presses inward.","Matthios, is this true?!","Matthios, is this TRVE?!","I regret everything.","Something broke.","DAFUQ?","What is that?!","What is this?!","Where am I??","I see it clearly now.","The truth is fine. Everything is fine.","I'm fine... I'm fine... I'm fine...","I can see Matthios. He is grinning.","I can see Astrata. She is furious.","Is this right?","What is wrong?","Behind me.","Behind you.","Free is watching you.","Grand Liege...?","La li lu le lo?","There are too many angles here.","Why does the floor have veins?","I can hear colors.","The walls know my name.","This was hidden for a reason.","I understand less each second.","The shadows are explaining things.","Who moved the horizon?","The stars are too close.","My teeth feel observant.","Why is the silence screaming?","I looked too far.","Everything has a second face.","The room blinked.","Truth tastes metallic.","I can smell geometry.","Someone is standing inside my reflection.","I should not know this.","The corners are whispering.","I remember tomorrow.","My heartbeat is counting backwards.","Why are there footprints on the ceiling?","The light is lying.","There is another sky above this one.","Numbers keep crawling away.","The door was never a door.","I have too many hands.","Did the world always breathe?","I can see where prayers go.","Something old just noticed me.","The dust is watching.","My bones disagree.","Reality feels temporary.","I found the seam.","Don't turn around.","Too late.","I was always behind me.")))
+			to_chat(C, span_warning(pick("This sight was not made for me.","I can feel my thoughts peeling apart.","The world looks wrong.","I should remove this.","My mind recoils from what it sees.","Too much truth presses inward.","Trade, is this true?!","Trade, is this TRVE?!","I regret everything.","Something broke.","DAFUQ?","What is that?!","What is this?!","Where am I??","I see it clearly now.","The truth is fine. Everything is fine.","I'm fine... I'm fine... I'm fine...","I can see Trade. He is grinning.","I can see the Sun. She is furious.","Is this right?","What is wrong?","Behind me.","Behind you.","Free is watching you.","Grand Liege...?","La li lu le lo?","There are too many angles here.","Why does the floor have veins?","I can hear colors.","The walls know my name.","This was hidden for a reason.","I understand less each second.","The shadows are explaining things.","Who moved the horizon?","The stars are too close.","My teeth feel observant.","Why is the silence screaming?","I looked too far.","Everything has a second face.","The room blinked.","Truth tastes metallic.","I can smell geometry.","Someone is standing inside my reflection.","I should not know this.","The corners are whispering.","I remember tomorrow.","My heartbeat is counting backwards.","Why are there footprints on the ceiling?","The light is lying.","There is another sky above this one.","Numbers keep crawling away.","The door was never a door.","I have too many hands.","Did the world always breathe?","I can see where prayers go.","Something old just noticed me.","The dust is watching.","My bones disagree.","Reality feels temporary.","I found the seam.","Don't turn around.","Too late.","I was always behind me.")))
 			C.Jitter(5)
 
 	if(holyLV < SKILL_LEVEL_JOURNEYMAN)
@@ -1783,7 +1783,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 //THROWABLES
 /obj/item/impact_grenade/truthsnuke/lesser
 	name = "Incomplete TRUTHSNUKE"
-	desc = "A fragile canister, filled with an explosive surprise. Shards of flint line its thin sleeve, aching to ignite at the slightest disturbance. The fire of Astrata does not seem to be imbuing it, but..."
+	desc = "A fragile canister, filled with an explosive surprise. Shards of flint line its thin sleeve, aching to ignite at the slightest disturbance. The fire of the Sun does not seem to be imbuing it, but..."
 
 /obj/item/impact_grenade/truthsnuke/lesser/explodes()
 	STOP_PROCESSING(SSfastprocess, src)
@@ -1822,7 +1822,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 		target.apply_status_effect(/datum/status_effect/buff/alch/fire_resist)
 
 		if(is_heretic)
-			to_chat(target, span_artery("They called us Inhumen. They called this Heresy. Yet here we stand—unbroken, unburned. Let the world choke on truth."))
+			to_chat(target, span_artery("They called us Forbidden. They called this Heresy. Yet here we stand—unbroken, unburned. Let the world choke on truth."))
 			target.visible_message(span_notice("[target] stands untouched amidst the inferno."))
 			target.emote("laugh")
 		else
@@ -1916,7 +1916,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 		target.apply_status_effect(/datum/status_effect/buff/alch/fire_resist)
 
 		if(is_heretic)
-			to_chat(target, span_artery("They called us Inhumen. They called this Heresy. Yet here we stand—unbroken, unburned. Let the world choke on truth."))
+			to_chat(target, span_artery("They called us Forbidden. They called this Heresy. Yet here we stand—unbroken, unburned. Let the world choke on truth."))
 			target.visible_message(span_notice("[target] stands untouched amidst the inferno."))
 			target.emote("laugh")
 		else
@@ -2076,7 +2076,7 @@ GLOBAL_LIST_INIT(da_bubbles, list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 
 /obj/item/melee/touch_attack/lesserknock/matthios
 	name = "gilded lockpick"
-	desc = "A golden, glowing lockpick that appears to be held together by the truth of Matthios. To dispel it, simply use it on anything that isn't a door."
+	desc = "A golden, glowing lockpick that appears to be held together by the truth of Trade. To dispel it, simply use it on anything that isn't a door."
 	catchphrase = null
 	possible_item_intents = list(/datum/intent/use)
 	icon = 'icons/roguetown/items/keys.dmi'

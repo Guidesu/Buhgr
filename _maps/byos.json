@@ -4,6 +4,9 @@
 	"map_file": ["byos.dmm"],
 	"traits": [{"Up": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Down": true}],
 	"minetype": null,
+	"other_z": [
+		"_maps/map_files/shared/dungeon.json"
+	],
 	"space_empty_levels": 0,
 	"space_ruin_levels": 0,
 	"shuttles": {

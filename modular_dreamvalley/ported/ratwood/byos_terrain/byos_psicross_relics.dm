@@ -20,27 +20,27 @@
 
 /obj/item/clothing/neck/roguetown/psicross/astrata
 	name = "sunworn amulet"
-	desc = "A tarnished amulet bearing the sunburst sigil of a queen-goddess no longer named in any living creed. Some old-timers say it predates even the Concordat's Court of Six Seats — a relic of whichever god watched the sun before Auxentius did."
+	desc = "A tarnished amulet bearing the sunburst sigil of a queen-goddess no longer named in any living creed. Some old-timers say it predates even the Domains's Court of Six Seats — a relic of whichever god watched the sun before the Sun did."
 
 /obj/item/clothing/neck/roguetown/psicross/dendor
 	name = "verdant amulet"
-	desc = "A weathered amulet etched with crawling vines and root-shapes. Whatever life-cult once wore this has long since been absorbed or forgotten; these days, Trnava's folk keep to the deep wood instead."
+	desc = "A weathered amulet etched with crawling vines and root-shapes. Whatever life-cult once wore this has long since been absorbed or forgotten; these days, the Harvest's folk keep to the deep wood instead."
 
 /obj/item/clothing/neck/roguetown/psicross/eora
 	name = "kinship amulet"
-	desc = "A plain, well-worn amulet, its only ornament a ring of clasped hands. An old symbol of shared hardship, from a faith long since folded into quieter household customs like Hausvette's hearth-offerings."
+	desc = "A plain, well-worn amulet, its only ornament a ring of clasped hands. An old symbol of shared hardship, from a faith long since folded into quieter household customs like the Forbidden's hearth-offerings."
 
 /obj/item/clothing/neck/roguetown/psicross/malum
 	name = "ashen amulet"
-	desc = "A blackened amulet, warm to the touch despite its age. 'From the ashes, creation' reads the pitted inscription — a scorched-earth creed that these days sounds more like Ignatius's fire than any god still prayed to by name."
+	desc = "A blackened amulet, warm to the touch despite its age. 'From the ashes, creation' reads the pitted inscription — a scorched-earth creed that these days sounds more like the Wilds's fire than any god still prayed to by name."
 
 /obj/item/clothing/neck/roguetown/psicross/necra
 	name = "gravebound amulet"
-	desc = "A somber amulet shaped like a closing eye. Its old creed — that death's certainty should be a reminder to live — has outlived whatever god it was first sworn to; these days it's Morwenna's ledgers that keep the dead's accounts."
+	desc = "A somber amulet shaped like a closing eye. Its old creed — that death's certainty should be a reminder to live — has outlived whatever god it was first sworn to; these days it's Death's ledgers that keep the dead's accounts."
 
 /obj/item/clothing/neck/roguetown/psicross/noc
 	name = "scholar's amulet"
-	desc = "A tarnished amulet stamped with an open book. Once worn by seekers of some forgotten god of knowledge — a creed with no obvious heir in the current pantheon, though old Verita's truth-oaths carry a whisper of its spirit."
+	desc = "A tarnished amulet stamped with an open book. Once worn by seekers of some forgotten god of knowledge — a creed with no obvious heir in the current pantheon, though old Knowledge's truth-oaths carry a whisper of its spirit."
 
 /obj/item/clothing/neck/roguetown/psicross/pestra
 	name = "plaguebearer's amulet"
@@ -58,12 +58,12 @@
 // gods were). Ported verbatim from Ratwood-2.0's neck.dm, using the same
 // zcross_iron/zcross_a icon_states already present in this repo's neck.dmi.
 /obj/item/clothing/neck/roguetown/psicross/inhumen
-	name = "inverted psycross"
+	name = "inverted holy cross"
 	desc = "A symbol of ambition from an era that had reason to believe in it."
 	icon_state = "zcross_iron"
 
 /obj/item/clothing/neck/roguetown/psicross/inhumen/ancient
-	name = "ancient zcross"
+	name = "ancient forbidden cross"
 	desc = "'Ambition. Destiny. Ascension. A mandate, commanded by God, to be fulfilled by Man. She called us forth from the edge of reality - and with Her dying breath, rasped out the final truth; the fire is gone, and the world will soon follow.'"
 	icon_state = "zcross_a"
 	color = "#bb9696"

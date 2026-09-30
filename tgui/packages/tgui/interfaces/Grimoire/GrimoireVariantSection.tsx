@@ -58,7 +58,7 @@ export const GrimoireVariantSection = ({
                 </>
               )}
               <span className="AspectPicker__spell-name">{swap.to.name}</span>
-              {swap.to.desc && (
+              {!!swap.to.desc && (
                 <div
                   className="AspectPicker__spell-desc"
                   dangerouslySetInnerHTML={{ __html: swap.to.desc }}

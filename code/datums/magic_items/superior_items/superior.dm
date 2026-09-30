@@ -1,7 +1,7 @@
 ///T2 Enchantments
 /datum/magic_item/superior/nightvision
 	name = "night vision"
-	description = "It has a sigil of Noc's eye."
+	description = "It has a sigil of the Moon's eye."
 	glow_color = "#B0C4DE"
 	var/active_item = FALSE
 

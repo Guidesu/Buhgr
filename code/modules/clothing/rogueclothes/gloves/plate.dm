@@ -56,7 +56,7 @@
 
 /obj/item/clothing/gloves/roguetown/plate/graggar
 	name = "vicious gauntlets"
-	desc = "Fluted gauntlets, razor-tipped and fluidic in motion. Most are led to believe that 'might makes right', yet Graggar's truth is far more succinct - 'might makes'. Murder is the ultimate force; the only difference between you and them is that they're too afraid to admit it."
+	desc = "Fluted gauntlets, razor-tipped and fluidic in motion. Most are led to believe that 'might makes right', yet War's truth is far more succinct - 'might makes'. Murder is the ultimate force; the only difference between you and them is that they're too afraid to admit it."
 	max_integrity = ARMOR_INT_SIDE_ANTAG
 	icon_state = "graggarplategloves"
 	smeltresult = /obj/item/ingot/component/graggar
@@ -108,7 +108,7 @@
 
 /obj/item/clothing/gloves/roguetown/plate/baotha
 	name = "saccharine gauntlets"
-	desc = "Belladoth took the priestess in Her holy embrace and took her pain, and the pain of the her congregation. The greatest taboo; combination of divinity and mortalkind to create something not quite either. Baotha was born."
+	desc = "Belladoth took the priestess in Her holy embrace and took her pain, and the pain of the her congregation. The greatest taboo; combination of divinity and mortalkind to create something not quite either. The Forbidden was born."
 	icon_state = "baothagloves"
 	item_state = "baothagloves"
 	chunkcolor = "#6d1c87"

@@ -20,7 +20,7 @@
 
 	var/list/choices = list()
 	for(var/list/record in records)
-		choices["[record["name"]] - saved [record["saved_at"]], [record["bed"] ? "in bed at [record["bed"]["location"]]" : "at [record["location"]]"]"] = record["uid"]
+		choices["[record["name"]] ([record["saved_at"]], [record["bed"] ? "abed, [record["bed"]["location"]]" : record["location"]])"] = record["uid"]
 	var/choice = tgui_input_list(lobby, "Which character do you want to play?", "Saved Characters", choices)
 	if(!choice || QDELETED(lobby) || !lobby.client)
 		return
@@ -58,6 +58,7 @@
 		return FALSE
 
 	dreamvalley_restore_missing_appearance(body, lobby.client?.prefs, record)
+	dreamvalley_restore_faith(body, lobby.client?.prefs)
 	body.dreamvalley_character_uid = uid
 	var/list/position = record["position"]
 	if(islist(position) && isnum(position["dir"]))
@@ -160,3 +161,27 @@
 	body.update_body()
 	body.update_hair()
 	body.update_body_parts(TRUE)
+
+
+/// Saves don't carry the domain or a written god's details; take them from the
+/// character's preferences, and hand out any prayers devotion now grants.
+/proc/dreamvalley_restore_faith(mob/living/carbon/human/body, datum/preferences/prefs)
+	if(!body)
+		return
+	if(prefs)
+		prefs.validate_domain()
+		body.divine_domain = prefs.get_selected_domain()
+		if(istype(body.patron, /datum/patron/custom) && prefs.uses_custom_god())
+			body.set_patron(make_custom_god(prefs.custom_god_name, prefs.get_custom_god_titles(), prefs.custom_god_desc, body.divine_domain))
+	body.devotion?.try_add_spells(silent = TRUE)
+	// Older saves carry empty placeholder blasts ("invoked spell"); swap in the real ones.
+	var/list/stubs = list(
+		/obj/effect/proc_holder/spell/invoked/projectile/divineblast = /datum/action/cooldown/spell/projectile/divine_blast,
+		/obj/effect/proc_holder/spell/invoked/projectile/unholyblast = /datum/action/cooldown/spell/projectile/unholy_blast,
+	)
+	for(var/stub in stubs)
+		if(body.mind?.has_spell(stub))
+			body.mind.RemoveSpell(stub)
+			var/real = stubs[stub]
+			if(!body.mind.has_spell(real))
+				body.mind.AddSpell(new real)

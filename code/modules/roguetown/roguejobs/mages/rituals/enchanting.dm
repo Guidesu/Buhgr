@@ -40,7 +40,7 @@
 	result_atoms = list(/obj/item/enchantmentscroll/basic/mining)
 
 /datum/runeritual/enchanting/xylix
-	name = "Xylix's Grace"
+	name = "Trickery's Grace"
 	desc = "How fortunate!"
 	blacklisted = FALSE
 	tier = 1

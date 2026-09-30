@@ -34,7 +34,7 @@
 /datum/action/cooldown/spell/klokner/threshold_ward
 	name = "Threshold Ward"
 	desc = "Marks a tile as a boundary. When any mob crosses it, you are alerted with their name and direction. Lasts 5 minutes."
-	fluff_desc = "Klokner knows every door, every fence, every line drawn in the dust. What crosses, He sees."
+	fluff_desc = "The Forbidden knows every door, every fence, every line drawn in the dust. What crosses, He sees."
 	button_icon_state = "heal"
 	spell_color = "#4a4a6a"
 
@@ -61,7 +61,7 @@
 
 /obj/effect/klokner_ward
 	name = "threshold ward"
-	desc = "An invisible boundary marked by Klokner's will."
+	desc = "An invisible boundary marked by the Forbidden's will."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = ""
 	invisibility = INVISIBILITY_OBSERVER
@@ -95,7 +95,7 @@
 /datum/action/cooldown/spell/klokner/lost_and_found
 	name = "Lost and Found"
 	desc = "Reveals all hidden, concealed, or invisible objects and creatures within a wide radius. Pings their locations briefly."
-	fluff_desc = "What is lost does not stay lost. Klokner's dark whispers back every misplaced thing to those who know to listen."
+	fluff_desc = "What is lost does not stay lost. The Forbidden's dark whispers back every misplaced thing to those who know to listen."
 	button_icon_state = "heal"
 	spell_color = "#4a4a6a"
 
@@ -148,7 +148,7 @@
 /datum/action/cooldown/spell/klokner/echoing_dark
 	name = "Echoing Dark"
 	desc = "Whispers a message into the dark. A random living soul somewhere in the world will hear it as a disembodied voice. They cannot reply."
-	fluff_desc = "Klokner's boundary is the horizon itself. What is whispered into His dark finds ears on the other side."
+	fluff_desc = "The Forbidden's boundary is the horizon itself. What is whispered into His dark finds ears on the other side."
 	button_icon_state = "heal"
 	spell_color = "#4a4a6a"
 
@@ -194,7 +194,7 @@
 /datum/action/cooldown/spell/klokner/banish_beyond
 	name = "Banish Beyond"
 	desc = "Tears open a boundary in reality, casting a target far from this place. They arrive somewhere random, dazed and disoriented."
-	fluff_desc = "The ultimate expression of Klokner's domain: to be put beyond the boundary, beyond the known. Even He does not choose where they land."
+	fluff_desc = "The ultimate expression of the Forbidden's domain: to be put beyond the boundary, beyond the known. Even He does not choose where they land."
 	button_icon_state = "heal"
 	spell_color = "#4a4a6a"
 
@@ -264,8 +264,8 @@
 // T0 — Stone's Patience: Self-buff that grants CON and reduces stamina damage taken
 /datum/action/cooldown/spell/kamenka/stones_patience
 	name = "Stone's Patience"
-	desc = "Grants the caster the patience of stone: CON+2 and reduced stamina damage for 2 minutes. The stillness of Kamenka flows through you."
-	fluff_desc = "Stone does not tire. Stone does not rush. Kamenka teaches that all things come to those who wait upon duty."
+	desc = "Grants the caster the patience of stone: CON+2 and reduced stamina damage for 2 minutes. The stillness of the Hearth flows through you."
+	fluff_desc = "Stone does not tire. Stone does not rush. The Hearth teaches that all things come to those who wait upon duty."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_EARTHEN
 
@@ -321,7 +321,7 @@
 /datum/action/cooldown/spell/kamenka/preserve
 	name = "Preserve"
 	desc = "Touches an item of food or a corpse, preventing decay and rot. Food stays fresh; bodies stay whole."
-	fluff_desc = "Kamenka's first gift to the dutiful: that what must be kept, shall be kept. The stiller co-equal does not allow entropy to claim what duty has not yet released."
+	fluff_desc = "The Hearth's first gift to the dutiful: that what must be kept, shall be kept. The stiller co-equal does not allow entropy to claim what duty has not yet released."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_EARTHEN
 
@@ -345,26 +345,26 @@
 	if(istype(cast_on, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/F = cast_on
 		ADD_TRAIT(F, TRAIT_FOOD_PRESERVED, "kamenka_preserve")
-		to_chat(owner, span_notice("[F] shall not spoil. Kamenka's stillness holds."))
+		to_chat(owner, span_notice("[F] shall not spoil. The Hearth's stillness holds."))
 		playsound(F, 'sound/magic/fleshtostone.ogg', 30, TRUE)
 		return TRUE
 	if(iscarbon(cast_on))
 		var/mob/living/carbon/C = cast_on
 		if(C.stat == DEAD)
 			ADD_TRAIT(C, TRAIT_PRESERVED_CORPSE, "kamenka_preserve")
-			to_chat(owner, span_notice("[C] shall not decay. Kamenka holds them still."))
+			to_chat(owner, span_notice("[C] shall not decay. The Hearth holds them still."))
 			playsound(C, 'sound/magic/fleshtostone.ogg', 30, TRUE)
 			return TRUE
-		to_chat(owner, span_warning("They still live. Kamenka does not still the living."))
+		to_chat(owner, span_warning("They still live. The Hearth does not still the living."))
 		return FALSE
-	to_chat(owner, span_warning("Kamenka's preservation applies to food and the dead only."))
+	to_chat(owner, span_warning("The Hearth's preservation applies to food and the dead only."))
 	return FALSE
 
 // T3 — Petrify: Slow and eventually paralyze a target with stone
 /datum/action/cooldown/spell/kamenka/petrify
 	name = "Petrify"
-	desc = "Casts Kamenka's stillness into a target's limbs, slowing them drastically. After 5 seconds, they are fully paralyzed for 3 seconds."
-	fluff_desc = "The ultimate duty is to hold. Kamenka can teach this to the unwilling — stone creeping through flesh, stillness replacing motion."
+	desc = "Casts the Hearth's stillness into a target's limbs, slowing them drastically. After 5 seconds, they are fully paralyzed for 3 seconds."
+	fluff_desc = "The ultimate duty is to hold. The Hearth can teach this to the unwilling — stone creeping through flesh, stillness replacing motion."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_EARTHEN
 
@@ -428,8 +428,8 @@
 // T4 — Monument: Create a permanent stone shrine that provides passive buffs to the faithful
 /datum/action/cooldown/spell/kamenka/monument
 	name = "Monument"
-	desc = "Raises a stone monument from the earth. All faithful Kamenka worshippers nearby gain CON+2 and reduced stamina damage. The monument is permanent until destroyed."
-	fluff_desc = "The pinnacle of Kamenka's craft: a monument that outlasts the maker, a duty that outlasts the dutiful. Stone remembers what flesh forgets."
+	desc = "Raises a stone monument from the earth. All faithful the Hearth worshippers nearby gain CON+2 and reduced stamina damage. The monument is permanent until destroyed."
+	fluff_desc = "The pinnacle of the Hearth's craft: a monument that outlasts the maker, a duty that outlasts the dutiful. Stone remembers what flesh forgets."
 	button_icon_state = "heal"
 	spell_color = GLOW_COLOR_EARTHEN
 
@@ -460,7 +460,7 @@
 	return TRUE
 
 /obj/structure/fluff/kamenka_monument
-	name = "Kamenka Monument"
+	name = "Hearth Monument"
 	desc = "A rough-hewn stone monument, radiating stillness and duty. The faithful feel their endurance bolstered near it."
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "cross_undivided_r"
@@ -510,7 +510,7 @@
 /datum/action/cooldown/spell/praecursor_expansion/edict
 	name = "Edict"
 	desc = "Speaks a Word of Law that compels a target to cease all violence. They cannot attack for 15 seconds. Mindless undead and beasts are immune."
-	fluff_desc = "The Word was first, and the Word was law. Praecursor's edicts carry the weight of the first judgment — even the violent must hear and obey."
+	fluff_desc = "The Word was first, and the Word was law. The Absent God's edicts carry the weight of the first judgment — even the violent must hear and obey."
 	button_icon_state = "BOOTCHECK"
 	spell_color = GLOW_COLOR_AUXENTIUS_SUN
 
@@ -566,7 +566,7 @@
 /datum/action/cooldown/spell/praecursor_expansion/final_word
 	name = "Final Word"
 	desc = "Speaks the Final Word of Judgment upon a target. Deals divine damage scaling with how many people the target has killed this round. Innocent targets take minimal damage."
-	fluff_desc = "When all other words have failed, there is one last word. Praecursor spoke it once, and the world was made. He speaks it again, and the guilty are unmade."
+	fluff_desc = "When all other words have failed, there is one last word. The Absent God spoke it once, and the world was made. He speaks it again, and the guilty are unmade."
 	button_icon_state = "BOOTCHECK"
 	spell_color = GLOW_COLOR_AUXENTIUS_SUN
 
@@ -631,7 +631,7 @@
 /datum/action/cooldown/spell/verita/zone_of_truth
 	name = "Zone of Truth"
 	desc = "Creates a 5-tile radius zone where anyone who speaks a lie takes burn damage. Lasts 1 minute. The caster is also affected."
-	fluff_desc = "Verita's domain is truth itself. In Her presence, lies burn — not with fire, but with the searing weight of what is not."
+	fluff_desc = "Knowledge's domain is truth itself. In Her presence, lies burn — not with fire, but with the searing weight of what is not."
 	button_icon_state = "heal"
 	spell_color = "#e8e8d0"
 
@@ -678,7 +678,7 @@
 /datum/action/cooldown/spell/verita/binding_contract
 	name = "Binding Contract"
 	desc = "Forges a magical contract between you and a target. For 30 seconds, 50% of the damage you take is also dealt to them, and vice versa."
-	fluff_desc = "A contract signed in spirit is stronger than one signed in ink. Verita binds two souls together — what befalls one, befalls both."
+	fluff_desc = "A contract signed in spirit is stronger than one signed in ink. Knowledge binds two souls together — what befalls one, befalls both."
 	button_icon_state = "heal"
 	spell_color = "#e8e8d0"
 
@@ -745,7 +745,7 @@
 /datum/action/cooldown/spell/verita/final_verdict
 	name = "Final Verdict"
 	desc = "Renders final judgment on a target. If they are hostile, deals massive divine damage. Otherwise, does nothing."
-	fluff_desc = "When truth has been violated, when testimony has been ignored, there is the verdict. Verita's final word is not kind — it is simply correct."
+	fluff_desc = "When truth has been violated, when testimony has been ignored, there is the verdict. Knowledge's final word is not kind — it is simply correct."
 	button_icon_state = "heal"
 	spell_color = "#e8e8d0"
 
@@ -777,7 +777,7 @@
 		to_chat(owner, span_notice("The verdict finds no crime. [L] has not wronged me."))
 		return TRUE
 	var/damage = 150
-	L.visible_message(span_warning("[L] is struck down by Verita's final verdict!"), span_danger("The weight of truth crushes you!"))
+	L.visible_message(span_warning("[L] is struck down by Knowledge's final verdict!"), span_danger("The weight of truth crushes you!"))
 	playsound(get_turf(L), 'sound/magic/PSY.ogg', 100, TRUE)
 	L.apply_damage(damage, BRUTE)
 	L.Dizzy(15)
@@ -810,7 +810,7 @@
 /datum/action/cooldown/spell/trnava/thorn_burst
 	name = "Thorn Burst"
 	desc = "Causes thorny vines to erupt from the ground around you, dealing poison damage to all enemies in a 3-tile radius and poisoning them."
-	fluff_desc = "Trnava's forest does not welcome strangers. Those who enter without Her blessing leave with thorns in their flesh and venom in their blood."
+	fluff_desc = "The Harvest's forest does not welcome strangers. Those who enter without Her blessing leave with thorns in their flesh and venom in their blood."
 	button_icon_state = "heal"
 	spell_color = "#3a6b2a"
 
@@ -855,7 +855,7 @@
 /datum/action/cooldown/spell/trnava/mothers_wrath
 	name = "Mother's Wrath"
 	desc = "Channels the fierce mother's protective rage. Allies within 5 tiles gain +3 CON and +3 STR for 1 minute. Enemies are filled with dread and lose 3 PER."
-	fluff_desc = "Trnava is the mother who protects with venom and thorn. Her wrath is not rage — it is love, sharpened to a point."
+	fluff_desc = "The Harvest is the mother who protects with venom and thorn. Her wrath is not rage — it is love, sharpened to a point."
 	button_icon_state = "heal"
 	spell_color = "#3a6b2a"
 
@@ -883,7 +883,7 @@
 			continue
 		if(H.patron && istype(H.patron, /datum/patron/oldkin/trnava))
 			H.apply_status_effect(/datum/status_effect/buff/trnava_wrath)
-			to_chat(H, span_notice("Trnava's wrath fills you with fierce strength!"))
+			to_chat(H, span_notice("The Harvest's wrath fills you with fierce strength!"))
 		else
 			H.apply_status_effect(/datum/status_effect/debuff/trnava_dread)
 			to_chat(H, span_warning("A mother's wrathful gaze falls upon you. You feel small."))
@@ -897,7 +897,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/trnava_wrath
 	name = "Mother's Wrath"
-	desc = "Trnava's protective rage fills you with strength."
+	desc = "The Harvest's protective rage fills you with strength."
 	icon_state = "buff"
 
 /datum/status_effect/debuff/trnava_dread
@@ -915,7 +915,7 @@
 /datum/action/cooldown/spell/trnava/poison_ward
 	name = "Poison Ward"
 	desc = "Grants a target immunity to poison for 5 minutes. Also cures any existing poison in their system."
-	fluff_desc = "Trnava knows every poison and every cure, for they are the same leaf seen from different sides. Her ward turns venom to water."
+	fluff_desc = "The Harvest knows every poison and every cure, for they are the same leaf seen from different sides. Her ward turns venom to water."
 	button_icon_state = "heal"
 	spell_color = "#3a6b2a"
 
@@ -944,7 +944,7 @@
 		for(var/datum/reagent/R in L.reagents.reagent_list)
 			if(istype(R, /datum/reagent/toxin))
 				L.reagents.remove_reagent(R.type, R.volume)
-	to_chat(L, span_notice("You feel Trnava's ward settle over you. Poison shall not touch you."))
+	to_chat(L, span_notice("You feel the Harvest's ward settle over you. Poison shall not touch you."))
 	playsound(get_turf(L), 'sound/magic/heal.ogg', 50, TRUE)
 	return TRUE
 
@@ -972,7 +972,7 @@
 /datum/action/cooldown/spell/trnava/wild_regrowth
 	name = "Wild Regrowth"
 	desc = "Causes a surge of wild growth that heals all allies in a 7-tile radius for a large amount, cures their poisons, and restores their stamina. The forest provides."
-	fluff_desc = "The forest does not hoard its gifts. When Trnava's children are hurt, the earth itself rises to mend them — roots to bind wounds, sap to seal them, water to wash away venom."
+	fluff_desc = "The forest does not hoard its gifts. When the Harvest's children are hurt, the earth itself rises to mend them — roots to bind wounds, sap to seal them, water to wash away venom."
 	button_icon_state = "heal"
 	spell_color = "#3a6b2a"
 

@@ -41,7 +41,7 @@
 	chosen_illiterate.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_illiterate, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_illiterate, span_notice("Noc demands you get literate! Learn to read to earn Noc's favor!"))
+	to_chat(chosen_illiterate, span_notice("The Moon demands you get literate! Learn to read to earn the Moon's favor!"))
 	chosen_illiterate.playsound_local(chosen_illiterate, 'sound/ambience/noises/mystical (4).ogg', 100)
 
 	chosen_illiterate.mind.announce_personal_objectives()

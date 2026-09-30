@@ -63,7 +63,7 @@ export const Header = (props: Props) => {
             <b>Ordinance:</b> broken - {tariffRatePct}% Crown duty levied
           </span>
         )}
-        {isProprietor && (
+        {!!isProprietor && (
           <>
             <span style={{ color: INK_SOFT }}>
               <b>Church tithed here:</b>{' '}

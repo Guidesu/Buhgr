@@ -53,7 +53,7 @@
 		to_chat(user, span_warning("[H]'s groin is covered. I can't see a cage let alone unlock one!"))
 		return
 	if(!H.chastity_device)
-		to_chat(user, span_warning("[H] isn't wearing a chastity device. Against Astrata's Will their genitals are free ranged."))
+		to_chat(user, span_warning("[H] isn't wearing a chastity device. Against the Sun's Will their genitals are free ranged."))
 		return TRUE
 
 	var/obj/item/chastity/device = H.chastity_device

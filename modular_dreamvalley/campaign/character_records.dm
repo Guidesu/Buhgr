@@ -46,6 +46,10 @@
 		return null
 
 	var/uid = character.dreamvalley_character_uid
+	// A fresh body of a character this player already saved updates that save
+	// instead of starting a second copy of them.
+	if(!uid)
+		uid = find_record_by_name(owner, character.real_name)
 	var/list/previous = uid ? character_records[uid] : null
 	// A uid that belongs to someone else (body handed over by an admin) starts a new record.
 	if(!islist(previous) || previous["owner_ckey"] != owner)
@@ -78,12 +82,32 @@
 	character_records[uid] = record
 	return record
 
-/// Characters a player can resume right now, newest first.
-/datum/dreamvalley_campaign_manager/proc/get_resumable_characters(player_ckey)
-	var/list/result = list()
+/// The newest record of a character with this name, or null.
+/datum/dreamvalley_campaign_manager/proc/find_record_by_name(owner, char_name)
+	var/list/best
 	for(var/uid in character_records)
 		var/list/record = character_records[uid]
-		if(islist(record) && record["owner_ckey"] == player_ckey && record["state"] == "stored")
+		if(!islist(record) || record["owner_ckey"] != owner || record["name"] != char_name)
+			continue
+		if(!best || sorttext(best["saved_at"] || "", record["saved_at"] || "") > 0)
+			best = record
+	return best?["uid"]
+
+/// Characters a player can resume right now, newest first. Older saves of the
+/// same character are hidden; only the latest can be resumed.
+/datum/dreamvalley_campaign_manager/proc/get_resumable_characters(player_ckey)
+	var/list/newest = list()
+	for(var/uid in character_records)
+		var/list/record = character_records[uid]
+		if(!islist(record) || record["owner_ckey"] != player_ckey)
+			continue
+		var/list/current = newest[record["name"]]
+		if(!current || sorttext(current["saved_at"] || "", record["saved_at"] || "") > 0)
+			newest[record["name"]] = record
+	var/list/result = list()
+	for(var/char_name in newest)
+		var/list/record = newest[char_name]
+		if(record["state"] == "stored")
 			result += list(record)
 	return sort_list(result, GLOBAL_PROC_REF(cmp_character_records_newest_first))
 

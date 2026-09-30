@@ -145,7 +145,7 @@
 
 /obj/item/soap/alch
 	name = "soothing soap"
-	desc = "An alchemical soap infused with Eora's sacred herbs. Has a slight restorative effect."
+	desc = "An alchemical soap infused with Love's sacred herbs. Has a slight restorative effect."
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "soap"
 	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'

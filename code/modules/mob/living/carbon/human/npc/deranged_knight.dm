@@ -110,12 +110,12 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 /mob/living/carbon/human/species/human/northern/deranged_knight/death(gibbed, nocutscene)
 	if(preset == "matthios")
 		if(prob(95))
-			say("Matthios, I have failed you...", forced = TRUE, npc_speech = TRUE)
+			say("Trade, I have failed you...", forced = TRUE, npc_speech = TRUE)
 		else
-			say("Matthios, is this true?!", forced = TRUE, npc_speech = TRUE)
+			say("Trade, is this true?!", forced = TRUE, npc_speech = TRUE)
 	else if(preset == "zizo")
 		if(prob(95))
-			say("Zizo, forgive me!", forced = TRUE, npc_speech = TRUE)
+			say("The Forbidden, forgive me!", forced = TRUE, npc_speech = TRUE)
 		else
 			say("We lyve in a Zociety...", forced = TRUE, npc_speech = TRUE)
 	else if(preset == "graggar")

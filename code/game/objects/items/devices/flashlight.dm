@@ -372,7 +372,7 @@
 	name = "ancient lamptern"
 	icon_state = "bronzelamp"
 	item_state = "bronzelamp"
-	desc = "A marvel of enginseering that emits a strange teal glow. This one bears an emblem related to Malum and has an inscription. It reads, 'Wield me against your foe and the power of creation shall shield you from harm.'"
+	desc = "A marvel of enginseering that emits a strange teal glow. This one bears an emblem related to the Craft and has an inscription. It reads, 'Wield me against your foe and the power of creation shall shield you from harm.'"
 	light_outer_range = 8
 	light_color = "#2bd0d6"
 	color = "#2bd0d6"

@@ -13,7 +13,7 @@
 /datum/objective/auxentius_duel/proc/on_duel_won()
 	duels_won++
 	if(duels_won >= duels_required && !completed)
-		to_chat(owner.current, span_greentext("You have proven your worth in combat! Auxentius is pleased!"))
+		to_chat(owner.current, span_greentext("You have proven your worth in combat! The Sun is pleased!"))
 		owner.current.adjust_triumphs(2)
 		completed = TRUE
 		adjust_storyteller_influence("Auxentius", 25)

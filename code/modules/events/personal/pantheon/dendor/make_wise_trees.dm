@@ -53,9 +53,9 @@
 	chosen_one.mind.AddSpell(tree_spell)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_biginfo("Ignatius wants you to choose suitable trees, which are to become guardians of the forest! [new_objective.explanation_text]"))
+	to_chat(chosen_one, span_biginfo("The Wilds wants you to choose suitable trees, which are to become guardians of the forest! [new_objective.explanation_text]"))
 	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg', 100)
 
-	to_chat(chosen_one, span_notice("Ignatius grants you the power to transform trees into wise trees!"))
+	to_chat(chosen_one, span_notice("The Wilds grants you the power to transform trees into wise trees!"))
 
 	chosen_one.mind.announce_personal_objectives()

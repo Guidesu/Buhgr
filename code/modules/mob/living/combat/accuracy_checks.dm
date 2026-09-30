@@ -109,7 +109,7 @@
 		return TRUE
 
 /proc/badluckmessage(mob/living/user)
-	var/static/list/usedp = list("Critical miss!", "Damn! Critical miss!", "No! Critical miss!", "It can't be! Critical miss!", "Xylix laughs at me! Critical miss!", "Bad luck! Critical miss!", "Curse creation! Critical miss!", "What?! Critical miss!")
+	var/static/list/usedp = list("Critical miss!", "Damn! Critical miss!", "No! Critical miss!", "It can't be! Critical miss!", "Trickery laughs at me! Critical miss!", "Bad luck! Critical miss!", "Curse creation! Critical miss!", "What?! Critical miss!")
 	to_chat(user, span_boldwarning("[pick(usedp)]"))
 	user.flash_fullscreen("blackflash2")
 	user.aftermiss()

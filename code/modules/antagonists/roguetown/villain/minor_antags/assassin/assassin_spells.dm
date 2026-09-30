@@ -129,14 +129,14 @@
 	/area/rogue/indoors/vampire_manor = "I see a vision of a manor, bats, and a glowing red eye. My target's exact location is protected.",
 	/area/rogue/outdoors/woods/vampire_lair = "I see a vision of a manor, bats, and a glowing red eye. My target's exact location is protected.",
 	// LICH-BASED STUFF
-	/area/rogue/indoors/lich_start = "A chill creeps up my spine. It reminds me of the Zizoid Cults of old. Perhaps my target is near a liche...?",
-	/area/rogue/under/cave/licharena = "A chill creeps up my spine. It reminds me of the Zizoid Cults of old. Perhaps my target is near a liche...?",
+	/area/rogue/indoors/lich_start = "A chill creeps up my spine. It reminds me of the Forbidden Cults of old. Perhaps my target is near a liche...?",
+	/area/rogue/under/cave/licharena = "A chill creeps up my spine. It reminds me of the Forbidden Cults of old. Perhaps my target is near a liche...?",
 	// UNDERWORLD
-	/area/rogue/indoors/deathsedge = "I hear veiled whispers. My target is within Necra's Domain.",
+	/area/rogue/indoors/deathsedge = "I hear veiled whispers. My target is within Death's Domain.",
 	/area/rogue/underworld = "Something is deeply, deeply wrong. My senses tell me my target is somewhere in the Underworld.",
 	// SPECIAL
 	/area/rogue/indoors/eventarea = "My HEART POUNDS. My target is hidden somewhere special.",
-	/area/rogue/indoors/auxentiusarena = "Clamorous battle! My head hurts... my target has been transported into Auxentius's domain!",
+	/area/rogue/indoors/auxentiusarena = "Clamorous battle! My head hurts... my target has been transported into the Sun's domain!",
 	// HAG
 	/area/rogue/indoors/shelter/bog_hag = "The foul magicks of faerie-creachers surrounds my target. A hag has taken what I desire."
 	)
@@ -153,8 +153,8 @@
 /datum/action/cooldown/spell/assassin/get_dagger
 	name = "Summon Dagger"
 	desc = span_cult("Summon your personal Profane Dagger. ") + "Your dagger is required for a number of your abilities. By using the 'PECULATE' intent, \
-	you can steal the faces of viable dead-or-dying targets. This also captures the souls of those marked by Graggar. Your dagger is unable to be destroyed \
-	by normal means, but a Necran rite, or perhaps some other odd happening can render it naught but smoke.\
+	you can steal the faces of viable dead-or-dying targets. This also captures the souls of those marked by War. Your dagger is unable to be destroyed \
+	by normal means, but a Death rite, or perhaps some other odd happening can render it naught but smoke.\
 	\nYou get one dagger. Make it count."
 	click_to_activate = FALSE
 	sound = null

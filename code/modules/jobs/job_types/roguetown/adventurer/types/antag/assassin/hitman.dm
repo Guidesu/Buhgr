@@ -1,6 +1,6 @@
 /datum/advclass/assassin_hitman
 	name = "Snickersnacker"
-	tutorial = "Some devotees of Psydon say that killing Graggarites through cuts is wrong, as blood empowers the Sinistar. \
+	tutorial = "Some devotees of the Absent God say that killing War faithful through cuts is wrong, as blood empowers the Sinistar. \
 	You prove that he cares not whether blood flows, as long as death follows. \
 	Use your garrote, strength, or a mace to assist in your slayings. Snick-snack, a neck cracks."
 	allowed_sexes = list(MALE, FEMALE)
@@ -72,5 +72,5 @@
 	if(!istype(H.patron, /datum/patron/oldkin/volkovoi))
 		var/inputty = input(H, "Would you like to change your patron to Graggar?", "The beast roars", "No") as anything in list("Yes", "No")
 		if(inputty == "Yes")
-			to_chat(H, span_warning("My former deity has abandoned me.. Graggar is my new master."))
+			to_chat(H, span_warning("My former deity has abandoned me.. War is my new master."))
 			H.set_patron(/datum/patron/oldkin/volkovoi)

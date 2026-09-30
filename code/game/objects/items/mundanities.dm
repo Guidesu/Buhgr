@@ -20,7 +20,7 @@
 /obj/item/mundane/puzzlebox/easy/Initialize(mapload)
 	. = ..()
 	dice_roll = rand(6,15)
-	fluff_desc = pick("It, frankly, looks rather depressing.","I can see an engraving of Praecursor sending the Comet Syon on the side.","It doesn't look so difficult.","It's dusty and boring.","Why do I want to play with this for hours?","I could probably get a vagrant to solve this.","It looks like it was made for fools.")
+	fluff_desc = pick("It, frankly, looks rather depressing.","I can see an engraving of the Absent God sending the Comet Syon on the side.","It doesn't look so difficult.","It's dusty and boring.","Why do I want to play with this for hours?","I could probably get a vagrant to solve this.","It looks like it was made for fools.")
 	desc += "[fluff_desc]"
 
 
@@ -107,7 +107,7 @@
 
 /obj/item/mundane/puzzlebox/impossible/Initialize(mapload)
 	. = ..()
-	fluff_desc = pick("It, frankly, looks nearly impossible.","Its centerpiece is that of Auxentius banishing a heretic from this world.","Without doubt, this is rather befuddling.","It looks arcane and nearly-impossible.","Why do I feel like I could try for hours and not succeed at this?","Even a bored archivist would probably have trouble with this one.","It looks nearly impossible.")
+	fluff_desc = pick("It, frankly, looks nearly impossible.","Its centerpiece is that of the Sun banishing a heretic from this world.","Without doubt, this is rather befuddling.","It looks arcane and nearly-impossible.","Why do I feel like I could try for hours and not succeed at this?","Even a bored archivist would probably have trouble with this one.","It looks nearly impossible.")
 	desc += "[fluff_desc]"
 
 /obj/item/mundane/puzzlebox/impossible/attack_self(mob/living/user)

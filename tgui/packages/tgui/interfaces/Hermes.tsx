@@ -257,7 +257,7 @@ export const Hermes = (props: any, context: any) => {
                         {isFree ? 'Send Letter (Free)' : 'Send Letter'}
                       </Button>
                     </Stack.Item>
-                    {has_tube && (
+                    {!!has_tube && (
                       <Stack.Item grow>
                         <Button
                           fluid

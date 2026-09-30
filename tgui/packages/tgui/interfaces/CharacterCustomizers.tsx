@@ -123,7 +123,7 @@ const ExtraFieldRow = ({
 
 const CustomizerCard = ({ row, act }: { row: CustomizerRow; act: BackendAct }) => (
   <Section title={row.name}>
-    {row.allows_disabling && (
+    {!!row.allows_disabling && (
       <FieldRow label="Present">
         <Button
           icon={row.disabled ? 'toggle-off' : 'toggle-on'}

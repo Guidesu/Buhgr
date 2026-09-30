@@ -105,7 +105,7 @@
 
 /obj/item/clothing/mask/rogue/facemask/steel/psythorns
 	name = "mask of psydonian thorns"
-	desc = "Expressionless steel mask, decorated with a set of blacksteel thorns. Never forget you are why Psydon wept."
+	desc = "Expressionless steel mask, decorated with a set of blacksteel thorns. Never forget you are why the Absent God wept."
 	icon = 'modular_twilight_axis/icons/roguetown/clothing/masks.dmi'
 	mob_overlay_icon = 'modular_twilight_axis/icons/roguetown/clothing/onmob/masks.dmi'
 	icon_state = "psybarbsmask"

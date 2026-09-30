@@ -1,5 +1,5 @@
 /datum/advclass/iconoclast
-	tutorial = "Born to be Free, trained from childhood by Free-God's most loyal, and tasked to uphold the purity of the Matthian Creed. Take from the wealthy, give to the worthless, empower. They will look up to you, in search of the Father's guidance. Be their light in the dark."
+	tutorial = "Born to be Free, trained from childhood by Free-God's most loyal, and tasked to uphold the purity of the Trade Creed. Take from the wealthy, give to the worthless, empower. They will look up to you, in search of the Father's guidance. Be their light in the dark."
 
 /datum/advclass/inquisitor/inspector
 	tutorial = "Investigators from countless backgrounds, personally chosen by the Marshal Inquisitionis to root out heresy all across the world. Dressed in fashionable leathers and armed with a plethora of equipment, these beplumed officers are ready to tackle the inhumen: anywhere, anytime. Ideal for those who prefer sleuthy-and-clandestine affairs."

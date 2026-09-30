@@ -657,11 +657,8 @@
 	var/newcd = base
 
 	// Dominant faith adjust
-	if(istype(living_owner) && (primary_resource_type == SPELL_COST_DEVOTION || secondary_resource_type == SPELL_COST_DEVOTION) && !ispath(living_owner.patron.associated_faith, /datum/faith/tribunal) && !ispath(GLOB.dominant_faith_tracker.dominant_faith, /datum/faith/tribunal))
-		if(living_owner.patron.associated_faith == GLOB.dominant_faith_tracker.dominant_faith)
-			newcd -= base * DOMINANT_FAITH_ADJUST
-		else
-			newcd += base * DOMINANT_FAITH_ADJUST
+	if(istype(living_owner) && (primary_resource_type == SPELL_COST_DEVOTION || secondary_resource_type == SPELL_COST_DEVOTION))
+		newcd -= base * DOMINANT_FAITH_ADJUST * GLOB.dominant_faith_tracker.favour_for(living_owner)
 
 	// Stat scaling
 	var/stat_value = get_caster_stat(living_owner)
@@ -681,16 +678,6 @@
 
 	if(HAS_TRAIT(living_owner, TRAIT_LEYLINE_HASTE)) // Hastens CD by 25%.
 		newcd *= 0.75
-
-	// Tempo: being swarmed by foes focuses the mind, hastening cooldowns
-	var/tempo_cd_bonus = living_owner.get_tempo_bonus(TEMPO_TAG_SPELL_COOLDOWN)
-	if(tempo_cd_bonus > 0)
-		newcd = max(newcd - tempo_cd_bonus, 0.5 SECONDS)
-
-	// Stance cooldown multiplier (bending/miracle stances)
-	var/stance_cd_mult = get_any_stance_cooldown_mult(living_owner)
-	if(stance_cd_mult != 1.0)
-		newcd *= stance_cd_mult
 
 	return newcd
 
@@ -731,21 +718,6 @@
 	if(weapon_penalty_active)
 		new_cost += base_cost * WEAPON_CAST_PENALTY
 
-	// Tempo: being swarmed by foes focuses the mind, reducing chi/devotion costs
-	var/tempo_cost_mult = living_owner.get_tempo_bonus(TEMPO_TAG_SPELL_COST)
-	if(tempo_cost_mult < 1.0)
-		new_cost *= tempo_cost_mult
-
-	// Stance cost multiplier (bending/miracle stances)
-	var/stance_cost_mult = get_any_stance_cost_mult(living_owner)
-	if(stance_cost_mult != 1.0)
-		new_cost *= stance_cost_mult
-
-	// Faith/bending flow cost multiplier
-	var/flow_cost_mult = get_bending_flow_cost_mult(living_owner)
-	if(flow_cost_mult != 1.0)
-		new_cost *= flow_cost_mult
-
 	return max(new_cost, 0.1)
 
 /// Checks if the owner of the spell can currently cast it.
@@ -766,7 +738,7 @@
 
 	if(HAS_TRAIT(owner, TRAIT_CURSE_NOC))
 		if(feedback)
-			owner.balloon_alert(owner, "My bendinga has left me...")
+			owner.balloon_alert(owner, "My magicka has left me...")
 		return FALSE
 
 	if(owner.mind?.has_spellmiracle_block_antag())
@@ -956,6 +928,9 @@
 	if(!(precast_result & SPELL_NO_IMMEDIATE_COST))
 		// Invoke the base cost of the spell based on primary/secondary resource types
 		spent = invoke_cost()
+	if(isliving(owner) && is_arcane_spell(src))
+		var/mob/living/caster = owner
+		caster.strain_after_arcane_cast(src)
 
 	apply_residual_focus(spent)
 
@@ -986,6 +961,11 @@
 	var/sig_return = SEND_SIGNAL(src, COMSIG_SPELL_BEFORE_CAST, cast_on)
 	if(owner)
 		sig_return |= SEND_SIGNAL(owner, COMSIG_MOB_BEFORE_SPELL_CAST, src, cast_on)
+	// DreamValley Strain: an overdrawn caster's working may lash back instead.
+	if(isliving(owner) && is_arcane_spell(src) && !(sig_return & SPELL_CANCEL_CAST))
+		var/mob/living/strained = owner
+		if(strained.strain_before_arcane_cast(src))
+			return sig_return | SPELL_CANCEL_CAST
 
 	if(click_to_activate)
 		if(sig_return & SPELL_CANCEL_CAST)
@@ -1790,11 +1770,11 @@
 	var/base = cooldown_time
 	var/stat_value = get_caster_stat(user)
 	var/stat_label = get_stat_label()
-	if((primary_resource_type == SPELL_COST_DEVOTION || secondary_resource_type == SPELL_COST_DEVOTION) && !ispath(user.patron.associated_faith, /datum/faith/tribunal) && !ispath(GLOB.dominant_faith_tracker.dominant_faith, /datum/faith/tribunal))
-		if(user.patron.associated_faith == GLOB.dominant_faith_tracker.dominant_faith)
-			breakdown += span_smallgreen("	Dominant faith: -[DisplayTimeText(base * DOMINANT_FAITH_ADJUST)]")
-		else
-			breakdown += span_smallred("	Suppressed faith: +[DisplayTimeText(base * DOMINANT_FAITH_ADJUST)]")
+	var/favour = (primary_resource_type == SPELL_COST_DEVOTION || secondary_resource_type == SPELL_COST_DEVOTION) ? GLOB.dominant_faith_tracker.favour_for(user) : 0
+	if(favour > 0)
+		breakdown += span_smallgreen("	My domain holds sway: -[DisplayTimeText(base * DOMINANT_FAITH_ADJUST)]")
+	else if(favour < 0)
+		breakdown += span_smallred("	Another domain holds sway: +[DisplayTimeText(base * DOMINANT_FAITH_ADJUST)]")
 	if(stat_value > SPELL_SCALING_THRESHOLD)
 		var/diff = min(stat_value, SPELL_POSITIVE_SCALING_THRESHOLD) - SPELL_SCALING_THRESHOLD
 		var/stat_mod = base * diff * COOLDOWN_REDUCTION_PER_INT

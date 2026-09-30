@@ -445,7 +445,7 @@
 /obj/item/rogueweapon/shield/tower/metal/avantyne
 	name = "avantyne-threaded pavise"
 	desc = "An interloper in causality's ever-so-fragile stream, woven from wafers to ward against those who're not yet ready to comprehend \
-	the gospel of Her disciples. Zizo sought to ward Her children from extinction, but failed; and in the throes of divine mania, She had come \
+	the gospel of Her disciples. The Forbidden sought to ward Her children from extinction, but failed; and in the throes of divine mania, She had come \
 	to realize that this world was no longer worth saving."
 	max_integrity = 400
 	force = 25
@@ -686,7 +686,7 @@
 /obj/item/rogueweapon/shield/iron/graggar
 	name = "vicious targe"
 	desc = "A decorated targe, splattered and sanctified with the trophies of Vaeltis's most dangerous hunters. No matter the icy rains, \
-	no matter the scorching heat – no matter the wrath of their enemies, Graggar never faltered in His arms. When Auxentius broke their oath and \
+	no matter the scorching heat – no matter the wrath of their enemies, War never faltered in His arms. When the Sun broke their oath and \
 	rescinded their claim to Godhood, grief could not describe what He had felt."
 	icon_state = "graggarshield"
 	max_integrity = 300

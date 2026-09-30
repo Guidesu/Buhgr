@@ -4,7 +4,7 @@
 
 /obj/structure/ritualcircle/matthios
 	name = "Rune of Brotherhood"
-	desc = "A Holy Rune of Matthios. Freedom for all, no matter the cost."
+	desc = "A Holy Rune of Trade. Freedom for all, no matter the cost."
 
 /obj/effect/decal/cleanable/roguerune/god/psydon
 	name = "Rune of Sacrament"

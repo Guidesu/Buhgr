@@ -9,13 +9,13 @@ export const GrimoireSpellEntry = ({ spell }: { spell: Spell }) => (
     >
       {spell.name}
     </span>
-    {spell.desc && (
+    {!!spell.desc && (
       <div
         className="AspectPicker__spell-desc"
         dangerouslySetInnerHTML={{ __html: spell.desc }}
       />
     )}
-    {spell.fluff_desc && (
+    {!!spell.fluff_desc && (
       <div
         className="AspectPicker__spell-fluff"
         dangerouslySetInnerHTML={{ __html: spell.fluff_desc }}

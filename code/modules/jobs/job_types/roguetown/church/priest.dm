@@ -81,7 +81,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		/datum/skill/craft/alchemy = SKILL_LEVEL_JOURNEYMAN,
 	)
 	subclass_stashed_items = list(
-		"The Verses and Acts of the Ten" = /obj/item/book/rogue/bibble,
+		"The Verses and Acts of the Domains" = /obj/item/book/rogue/bibble,
 	)
 	tempo_capable = FALSE
 
@@ -115,7 +115,6 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	H.AddComponent(/datum/component/wise_tree_alert)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron) // This creates the cleric holder used for devotion spells
 	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.
-	grant_miracle_stance(H)
 
 	add_verb(H, /mob/living/carbon/human/proc/coronate_lord)
 	add_verb(H, /mob/living/carbon/human/proc/churchannouncement)
@@ -353,13 +352,13 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	//Flavor messages for cursing certain god's faithful.
 	//Ignatius works in mysterious ways.
 	if (istype(H.patron, /datum/patron/severance/ignatius))
-		to_chat(src, span_warning("The mad god Ignatius is felt strongly. The wolf in this one balks and trashes as it is faintly restrained."))
+		to_chat(src, span_warning("The mad god the Wilds is felt strongly. The wolf in this one balks and trashes as it is faintly restrained."))
 		//If we check this here there's no need to apply this trait preemtively to a bunch of people, and allows for greater fluff feedback.
 		ADD_TRAIT(H, TRAIT_CURSE_RESIST, TRAIT_GENERIC)
 
 	//Abyssor's clergy are gripped by his dream.
 	if (istype(H.patron, /datum/patron/concordat/wulfric))
-		to_chat(src, span_warning("The Dreamer, Abyssor has his clutches grasped firmly around this one. The light of the ten only barely penetrates the depths."))
+		to_chat(src, span_warning("The Dreamer, the Sea has his clutches grasped firmly around this one. The light of the ten only barely penetrates the depths."))
 		ADD_TRAIT(H, TRAIT_CURSE_RESIST, TRAIT_GENERIC)
 
 	//Let's not curse heretical antags.
@@ -383,7 +382,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		return
 
 	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-		to_chat(src, span_warning("I need to do this from the House of the Ten."))
+		to_chat(src, span_warning("I need to do this from the House of the Domains."))
 		return FALSE
 
 	if(!src.key)
@@ -407,7 +406,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		return TRUE
 
 	if (inputty in GLOB.excommunicated_players)
-		return //No stacking
+		return //No stacking	
 
 	if (H.real_name == inputty)
 		if (!COOLDOWN_FINISHED(src, priest_apostasy))
@@ -449,13 +448,13 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		return
 
 	var/found = FALSE
-	var/inputty = input(src, "Excommunicate someone, away from the Ten...	(excommunicate them again to remove it)", "Sinner Name") as text|null
+	var/inputty = input(src, "Excommunicate someone, away from the Domains...	(excommunicate them again to remove it)", "Sinner Name") as text|null
 
 	if (!inputty)
 		return
 
 	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-		to_chat(src, span_warning("I need to do this from the House of the Ten."))
+		to_chat(src, span_warning("I need to do this from the House of the Domains."))
 		return FALSE
 
 	if(!src.key)
@@ -527,7 +526,7 @@ code\modules\admin\verbs\divinewrath.dm has a variant with all the gods so keep 
 		return
 
 	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-		to_chat(src, span_warning("I need to do this from the House of the Ten."))
+		to_chat(src, span_warning("I need to do this from the House of the Domains."))
 		return FALSE
 
 	if(!src.key)
@@ -538,11 +537,11 @@ code\modules\admin\verbs\divinewrath.dm has a variant with all the gods so keep 
 		return
 
 	var/list/curse_choices = list(
-		"Curse of Auxentius" = /datum/curse/auxentius,
-		"Curse of Noc" = /datum/curse/miluse,
-		"Curse of Auxentius" = /datum/curse/auxentius,
-		"Curse of Necra" = /datum/curse/morwenna,
-		"Curse of Xylix" = /datum/curse/viator,
+		"Curse of the Sun" = /datum/curse/auxentius,
+		"Curse of the Moon" = /datum/curse/miluse,
+		"Curse of the Sun" = /datum/curse/auxentius,
+		"Curse of Death" = /datum/curse/morwenna,
+		"Curse of Trickery" = /datum/curse/viator,
 		)
 
 	var/curse_pick = input(src, "Choose a curse to apply or lift.", "Select Curse") as null|anything in curse_choices

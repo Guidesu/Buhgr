@@ -102,7 +102,7 @@
 /datum/action/cooldown/spell/repulse/runed
 	name = "Runed Repulse"
 	desc = "Trigger a ryne on your chest, repelling anyone around you.\
-	Deal massive damage to anyone below you on the ground for the Psydon."
+	Deal massive damage to anyone below you on the ground for the Absent God."
 	button_icon = 'modular_twilight_axis/icons/mob/actions/inq.dmi'
 	button_icon_state = "repulse"
 	invocations = list("Éloigne-toi!", "Pas Maintenant!")
@@ -141,7 +141,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/psy_inv
 	name = "Invisible"
-	desc = "Psydon covers me"
+	desc = "The Absent God covers me"
 	icon_state = "triumph"
 
 /datum/status_effect/buff/psy_inv/on_apply()

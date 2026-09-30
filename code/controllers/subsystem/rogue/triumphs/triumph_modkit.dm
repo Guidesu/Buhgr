@@ -261,8 +261,8 @@
 	custom_name = TRUE
 
 /obj/item/enchantingkit/triumph_weaponkit_psyswords
-	name = "'Slimguarded Psydonic Longsword' morphing elixir"
-	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to agnosticize the crossguard of a Psydonic Longsword or Enduring Longsword."
+	name = "'Slimguarded Old Faith Longsword' morphing elixir"
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to agnosticize the crossguard of an Old Faith Longsword or Enduring Longsword."
 	target_items = list(
 		/obj/item/rogueweapon/sword/long/oldpsysword		= /obj/item/rogueweapon/sword/long/oldpsysword/triumph_slim,
 		/obj/item/rogueweapon/sword/long/psysword			= /obj/item/rogueweapon/sword/long/psysword/triumph_slim
@@ -453,7 +453,7 @@
 
 /obj/item/enchantingkit/triumph_armorkit_classicbeakhelm
 	name = "'Valorian Beak Helmet' morphing elixir"
-	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of either a Sugarloaf Helmet, or the Justice Eagle of a Ravoxian Templar."
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can restore the original appearance of either a Sugarloaf Helmet, or the Justice Eagle of a Law Templar."
 	target_items = list(
 		/obj/item/clothing/head/roguetown/helmet/heavy/bucket/crusader		= /obj/item/clothing/head/roguetown/helmet/heavy/bucket/crusader/triumph,
 		/obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm			= /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm/triumph
@@ -462,8 +462,8 @@
 	custom_name = TRUE
 
 /obj/item/enchantingkit/triumph_weaponkit_psymace
-	name = "'Classic Psydonic Handmace' morphing elixir"
-	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of a Psydonic Handmace or Enduring Handmace."
+	name = "'Classic Old Faith Handmace' morphing elixir"
+	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of an Old Faith Handmace or Enduring Handmace."
 	target_items = list(
 		/obj/item/rogueweapon/mace/cudgel/psy/old						= /obj/item/rogueweapon/mace/cudgel/psy/old/triumph_classic,
 		/obj/item/rogueweapon/mace/cudgel/psy								= /obj/item/rogueweapon/mace/cudgel/psy/triumph_classic
@@ -519,28 +519,28 @@
 /obj/item/rogueweapon/sword/khanda
 	name = "steel khanda"
 	icon = 'icons/roguetown/weapons/swords32.dmi'
-	desc = "A flat headed, double-edged straight sword hailing from Raneshen, Xylix is oft depicted wielding this blade in ancient Ranesheni murals. The Khanda been long adapted as a symbol for freedom-fighters across the nation."
+	desc = "A flat headed, double-edged straight sword hailing from Raneshen, Trickery is oft depicted wielding this blade in ancient Ranesheni murals. The Khanda been long adapted as a symbol for freedom-fighters across the nation."
 	icon_state = "khanda"
 	sheathe_icon = "sbroadsword"
 
 /obj/item/rogueweapon/sword/iron/khanda
 	name = "iron khanda"
 	icon = 'icons/roguetown/weapons/swords32.dmi'
-	desc = "A flat headed, double-edged straight sword hailing from Raneshen, Xylix is oft depicted wielding this blade in ancient Ranesheni murals. The Khanda been long adapted as a symbol for freedom-fighters across the nation."
+	desc = "A flat headed, double-edged straight sword hailing from Raneshen, Trickery is oft depicted wielding this blade in ancient Ranesheni murals. The Khanda been long adapted as a symbol for freedom-fighters across the nation."
 	icon_state = "ikhanda"
 	sheathe_icon = "sbroadsword"
 
 /obj/item/rogueweapon/sword/silver/khanda
 	name = "silver khanda"
 	icon = 'icons/roguetown/weapons/swords32.dmi'
-	desc = "A flat headed, double-edged straight sword hailing from Raneshen, Xylix is oft depicted wielding this blade in ancient Ranesheni murals. The Khanda been long adapted as a symbol for freedom-fighters across the nation."
+	desc = "A flat headed, double-edged straight sword hailing from Raneshen, Trickery is oft depicted wielding this blade in ancient Ranesheni murals. The Khanda been long adapted as a symbol for freedom-fighters across the nation."
 	icon_state = "silver_khanda"
 	sheathe_icon = "sbroadsword"
 
 /obj/item/rogueweapon/sword/bronze/khanda
 	name = "bronze khanda"
 	icon = 'icons/roguetown/weapons/swords32.dmi'
-	desc = "A flat headed, double-edged straight sword hailing from Raneshen, Xylix is oft depicted wielding this blade in ancient Ranesheni murals. The Khanda been long adapted as a symbol for freedom-fighters across the nation."
+	desc = "A flat headed, double-edged straight sword hailing from Raneshen, Trickery is oft depicted wielding this blade in ancient Ranesheni murals. The Khanda been long adapted as a symbol for freedom-fighters across the nation."
 	icon_state = "bronze_khanda"
 	sheathe_icon = "sbroadsword"
 
@@ -810,7 +810,7 @@
 
 /obj/item/rogueweapon/huntingknife/combat/kris
 	name = "steel kris"
-	desc = "A large steel dagger with a unique, flame-shaped blade. It is coveted as a ceremonial tool by Auxentian \
+	desc = "A large steel dagger with a unique, flame-shaped blade. It is coveted as a ceremonial tool by Sun \
 	priests and clerics, especially during rites of sacrifice; symbolically, of course."
 	icon_state = "kris"
 	sheathe_icon = "sdagger"
@@ -824,7 +824,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/kris
 	name = "steel kris"
-	desc = "A large steel dagger with a unique, flame-shaped blade. It is coveted as a ceremonial tool by Auxentian \
+	desc = "A large steel dagger with a unique, flame-shaped blade. It is coveted as a ceremonial tool by Sun \
 	priests and clerics, especially during rites of sacrifice; symbolically, of course."
 	icon_state = "kris"
 	sheathe_icon = "sdagger"
@@ -925,7 +925,7 @@
 /obj/item/rogueweapon/stoneaxe/woodcut/triumph
 	name = "valorian axe"
 	icon_state = "axelegacy"
-	desc = "'Through thick-and-thin, I have never failed you. May we trounce through the Terrorbog, one last time, before Auxentius's glare vanishes 'neath the horizon?'"
+	desc = "'Through thick-and-thin, I have never failed you. May we trounce through the Terrorbog, one last time, before the Sun's glare vanishes 'neath the horizon?'"
 
 /obj/item/rogueweapon/stoneaxe/handaxe/triumph
 	name = "valorian hatchet"

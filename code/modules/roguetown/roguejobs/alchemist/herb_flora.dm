@@ -203,7 +203,7 @@
 /obj/structure/flora/roguegrass/herb/benedictus
 	name = "benedictus"
 	desc = "Known as 'blessed thistle' by many commonfolk, the priests of the Otavan Orthodoxy claim \
-	this hairy, leathery plant to be sacred to Praecursor; it thereby features often in sites of Vaeltite \
+	this hairy, leathery plant to be sacred to the Absent God; it thereby features often in sites of Old Faith \
 	pilgrimage. The Holy See, in conscious contradiction, refuses to acknowledge any sacred association whatsoever."
 	icon_state = "benedictus"
 
@@ -228,7 +228,7 @@
 
 /obj/structure/flora/roguegrass/herb/rosa
 	name = "rosa"
-	desc = "Said to be the beloved flower of Eora, these are taken by many as the ultimate \
+	desc = "Said to be the beloved flower of Love, these are taken by many as the ultimate \
 	expression of romantic affection; as beautiful to behold as they are painful to hold, owed \
 	to their many prickly spines."
 	icon_state = "rosa"

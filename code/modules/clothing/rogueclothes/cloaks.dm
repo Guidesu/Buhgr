@@ -190,7 +190,7 @@
 
 /obj/item/clothing/cloak/tabard/praecursortabard
 	name = "vaeltian tabard"
-	desc = "A tabard worn by the adherents of the Holy Vaeltic Inquisition. Delicate stitchwork professes the psycross with pride."
+	desc = "A tabard worn by the adherents of the Holy Vaeltic Inquisition. Delicate stitchwork professes the holy cross with pride."
 	color = null
 	icon_state = "psydontabard"
 	item_state = "psydontabard"
@@ -233,7 +233,7 @@
 			to_chat(usr, span_warning("ENDURING, like the MARTYRS who'll guide the faithful-and-pious to PARADISE."))
 		if(TRUE)
 			name = "vaeltian tabard"
-			desc = "A tabard worn by the adherents of the Holy Vaeltic Inquisition. Delicate stitchwork professes the psycross with pride."
+			desc = "A tabard worn by the adherents of the Holy Vaeltic Inquisition. Delicate stitchwork professes the holy cross with pride."
 			body_parts_covered = CHEST|GROIN
 			icon_state = "psydontabard"
 			item_state = "psydontabard"
@@ -249,13 +249,13 @@
 
 /obj/item/clothing/cloak/tabard/praecursortabard/black
 	name = "blessed tabard"
-	desc = "A tabard worn by the worshippers of Praecursor. A funeral shroud for the paradise that could've been, and a solemn vow to continue the struggle towards salvation."
+	desc = "A tabard worn by the worshippers of the Absent God. A funeral shroud for the paradise that could've been, and a solemn vow to continue the struggle towards salvation."
 	icon_state = "blackpsydontabard"
 	item_state = "blackpsydontabard"
 
 /obj/item/clothing/cloak/tabard/praecursortabard/black/alt
 	name = "opened blessed tabard"
-	desc = "A tabard worn by the worshippers of Praecursor, peeled back to reveal its mourning innards."
+	desc = "A tabard worn by the worshippers of the Absent God, peeled back to reveal its mourning innards."
 	body_parts_covered = GROIN
 
 /obj/item/clothing/cloak/tabard/praecursortabard/black/MiddleClick(mob/user)
@@ -266,7 +266,7 @@
 	switch(open_wear)
 		if(FALSE)
 			name = "opened blessed tabard"
-			desc = "A tabard worn by the worshippers of Praecursor, peeled back to reveal its mourning innards."
+			desc = "A tabard worn by the worshippers of the Absent God, peeled back to reveal its mourning innards."
 			body_parts_covered = GROIN
 			icon_state = "blackpsydontabardalt"
 			item_state = "blackpsydontabardalt"
@@ -275,7 +275,7 @@
 			to_chat(usr, span_warning("You pull back the threaded burlap, baring your heart to Vaeltis's eyes."))
 		if(TRUE)
 			name = "blessed tabard"
-			desc = "A tabard worn by the worshippers of Praecursor. A funeral shroud for the paradise that could've been, and a solemn vow to continue the struggle towards salvation."
+			desc = "A tabard worn by the worshippers of the Absent God. A funeral shroud for the paradise that could've been, and a solemn vow to continue the struggle towards salvation."
 			body_parts_covered = CHEST|GROIN
 			icon_state = "blackpsydontabard"
 			item_state = "blackpsydontabard"
@@ -348,13 +348,13 @@
 	alternate_worn_layer = TABARD_LAYER
 	boobed = FALSE
 	name = "astratan tabard"
-	desc = "The washed out golds of an Auxentian crusader adorn these fine robes."
+	desc = "The washed out golds of a Sun crusader adorn these fine robes."
 	icon_state = "astratatabard"
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/cloak/tabard/abyssorite
 	name = "abyssorite tabard"
-	desc = "A tabard worn by Abyssorite devouts. It reeks of brine."
+	desc = "A tabard worn by Sea devouts. It reeks of brine."
 	color = null
 	icon_state = "abyssortabard"
 	item_state = "abyssortabard"
@@ -370,7 +370,7 @@
 	alternate_worn_layer = TABARD_LAYER
 	boobed = FALSE
 	name = "tabard of malum"
-	desc = "Light blacks and greys, with a tinge of red, the everlasting fire of Malum's iron hammer as it strikes."
+	desc = "Light blacks and greys, with a tinge of red, the everlasting fire of the Craft's iron hammer as it strikes."
 	icon_state = "malumtabard"
 
 /obj/item/clothing/cloak/templar/necran
@@ -409,7 +409,7 @@
 
 /obj/item/clothing/cloak/templar/ravox
 	name = "justice tabard"
-	desc = "An underarmor vestments with a neck cover, worn by templars of Auxentius."
+	desc = "An underarmor vestments with a neck cover, worn by templars of the Sun."
 	icon_state = "justicetabard"
 	body_parts_covered = CHEST|GROIN
 	boobed = TRUE
@@ -452,7 +452,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/praecursor
 	name = "vaeltic tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Praecursor on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of the Absent God on it."
 	icon_state = "tabard_weeping"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -460,7 +460,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/auxentius
 	name = "auxentian tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Auxentius on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of the Sun on it."
 	icon_state = "tabard_astrata_alt"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -468,7 +468,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/noc
 	name = "noc tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Noc on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of the Moon on it."
 	icon_state = "tabard_noc"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -476,7 +476,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/ignatius
 	name = "ignatius tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Ignatius on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of the Wilds on it."
 	icon_state = "tabard_dendor"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -484,7 +484,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/necra
 	name = "necra tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Necra on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Death on it."
 	icon_state = "tabard_necra"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -492,7 +492,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/pestra
 	name = "pestra tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Pestra on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Healing on it."
 	icon_state = "tabard_pestra"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -500,7 +500,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/abyssor
 	name = "abyssor tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Abyssor on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of the Sea on it."
 	icon_state = "tabard_abyssor"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -508,7 +508,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/malum
 	name = "malum tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Malum on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of the Craft on it."
 	icon_state = "tabard_malum"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -516,7 +516,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/auxentius/battle
 	name = "auxentian battle tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Auxentius on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of the Sun on it."
 	icon_state = "tabard_ravox"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -524,7 +524,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/xylix
 	name = "xylix tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Xylix on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Trickery on it."
 	icon_state = "tabard_xylix"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -532,7 +532,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/eora
 	name = "eora tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Eora on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Love on it."
 	icon_state = "tabard_eora"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -1550,7 +1550,7 @@
 	if(slot == SLOT_NECK)
 		active_item = TRUE
 		if(user.mind.special_role == "Bandit")
-			to_chat(user, span_monkeyhive("Matthios empowers me! My body glistens with spiritual wealth!"))
+			to_chat(user, span_monkeyhive("Trade empowers me! My body glistens with spiritual wealth!"))
 			user.change_stat(STATKEY_STR, 1)
 			user.change_stat(STATKEY_PER, 1)
 			user.change_stat(STATKEY_INT, 1)
@@ -1568,7 +1568,7 @@
 		return
 	active_item = FALSE
 	if(user.mind.special_role == "Bandit")
-		to_chat(user, span_monkeyhive("Golden sparks flutter from the teeth, before they fade away - and with it, the blessing of Matthios.."))
+		to_chat(user, span_monkeyhive("Golden sparks flutter from the teeth, before they fade away - and with it, the blessing of Trade.."))
 		user.change_stat(STATKEY_STR, -1)
 		user.change_stat(STATKEY_PER, -1)
 		user.change_stat(STATKEY_INT, -1)
@@ -2119,7 +2119,7 @@
 
 /obj/item/clothing/cloak/tabard/psydontabard
 	name = "psydonian tabard"
-	desc = "A tabard worn by the adherents of the Holy Psydonic Inquisition. Delicate stitchwork professes the psycross with pride."
+	desc = "A tabard worn by the adherents of the Holy Old Faith Inquisition. Delicate stitchwork professes the holy cross with pride."
 	color = null
 	icon_state = "psydontabard"
 	item_state = "psydontabard"
@@ -2134,7 +2134,7 @@
 
 /obj/item/clothing/cloak/tabard/psydontabard/alt
 	name = "opened psydonian tabard"
-	desc = "A tabard worn by the adherents of the Holy Psydonic Inquisition, peeled back to reveal its enduring innards."
+	desc = "A tabard worn by the adherents of the Holy Old Faith Inquisition, peeled back to reveal its enduring innards."
 	body_parts_covered = GROIN
 	icon_state = "psydontabardalt"
 	item_state = "psydontabardalt"
@@ -2149,7 +2149,7 @@
 	switch(open_wear)
 		if(FALSE)
 			name = "opened psydonian tabard"
-			desc = "A tabard worn by the adherents of the Holy Psydonic Inquisition, peeled back to reveal its enduring innards."
+			desc = "A tabard worn by the adherents of the Holy Old Faith Inquisition, peeled back to reveal its enduring innards."
 			body_parts_covered = GROIN
 			icon_state = "psydontabardalt"
 			item_state = "psydontabardalt"
@@ -2158,7 +2158,7 @@
 			to_chat(usr, span_warning("ENDURING, like the MARTYRS who'll guide the faithful-and-pious to PARADISE."))
 		if(TRUE)
 			name = "psydonian tabard"
-			desc = "A tabard worn by the adherents of the Holy Psydonic Inquisition. Delicate stitchwork professes the psycross with pride."
+			desc = "A tabard worn by the adherents of the Holy Old Faith Inquisition. Delicate stitchwork professes the holy cross with pride."
 			body_parts_covered = CHEST|GROIN
 			icon_state = "psydontabard"
 			item_state = "psydontabard"
@@ -2174,13 +2174,13 @@
 
 /obj/item/clothing/cloak/tabard/psydontabard/black
 	name = "blessed tabard"
-	desc = "A tabard worn by the worshippers of Psydon. A funeral shroud for the paradise that could've been, and a solemn vow to continue the struggle towards salvation."
+	desc = "A tabard worn by the worshippers of the Absent God. A funeral shroud for the paradise that could've been, and a solemn vow to continue the struggle towards salvation."
 	icon_state = "blackpsydontabard"
 	item_state = "blackpsydontabard"
 
 /obj/item/clothing/cloak/tabard/psydontabard/black/alt
 	name = "opened blessed tabard"
-	desc = "A tabard worn by the worshippers of Psydon, peeled back to reveal its mourning innards."
+	desc = "A tabard worn by the worshippers of the Absent God, peeled back to reveal its mourning innards."
 	body_parts_covered = GROIN
 
 /obj/item/clothing/cloak/tabard/psydontabard/black/MiddleClick(mob/user)
@@ -2191,7 +2191,7 @@
 	switch(open_wear)
 		if(FALSE)
 			name = "opened blessed tabard"
-			desc = "A tabard worn by the worshippers of Psydon, peeled back to reveal its mourning innards."
+			desc = "A tabard worn by the worshippers of the Absent God, peeled back to reveal its mourning innards."
 			body_parts_covered = GROIN
 			icon_state = "blackpsydontabardalt"
 			item_state = "blackpsydontabardalt"
@@ -2200,7 +2200,7 @@
 			to_chat(usr, span_warning("You pull back the threaded burlap, baring your heart to Psydonia's eyes."))
 		if(TRUE)
 			name = "blessed tabard"
-			desc = "A tabard worn by the worshippers of Psydon. A funeral shroud for the paradise that could've been, and a solemn vow to continue the struggle towards salvation."
+			desc = "A tabard worn by the worshippers of the Absent God. A funeral shroud for the paradise that could've been, and a solemn vow to continue the struggle towards salvation."
 			body_parts_covered = CHEST|GROIN
 			icon_state = "blackpsydontabard"
 			item_state = "blackpsydontabard"
@@ -2216,7 +2216,7 @@
 
 /obj/item/clothing/cloak/tabard/psydontabard/white
 	name = "traditional tabard"
-	desc = "A traditional tabard worn by the worshippers of Psydon, fashioned into a sleeveless garment that harks back to the ancient yils of the Holy Inquisition."
+	desc = "A traditional tabard worn by the worshippers of the Absent God, fashioned into a sleeveless garment that harks back to the ancient yils of the Holy Inquisition."
 	icon_state = "whitepsydontabard"
 	item_state = "whitepsydontabard"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
@@ -2229,7 +2229,7 @@
 
 /obj/item/clothing/cloak/tabard/psydontabard/white/alt
 	name = "opened traditional tabard"
-	desc = "A traditional tabard worn by the worshippers of Psydon, fashioned into a bared sleeveless garment that harks back to the ancient yils of the Holy Inquisition."
+	desc = "A traditional tabard worn by the worshippers of the Absent God, fashioned into a bared sleeveless garment that harks back to the ancient yils of the Holy Inquisition."
 	body_parts_covered = GROIN
 	icon_state = "whitepsydontabardalt"
 	item_state = "whitepsydontabardalt"
@@ -2244,7 +2244,7 @@
 	switch(open_wear)
 		if(FALSE)
 			name = "opened traditional tabard"
-			desc = "A traditional tabard worn by the worshippers of Psydon, fashioned into a bared sleeveless garment that harks back to the ancient yils of the Holy Inquisition."
+			desc = "A traditional tabard worn by the worshippers of the Absent God, fashioned into a bared sleeveless garment that harks back to the ancient yils of the Holy Inquisition."
 			body_parts_covered = GROIN
 			icon_state = "whitepsydontabardalt"
 			item_state = "whitepsydontabardalt"
@@ -2253,7 +2253,7 @@
 			to_chat(usr, span_warning("You pull back the threaded cloth, baring your heart to Psydonia's eyes."))
 		if(TRUE)
 			name = "traditional tabard"
-			desc = "A traditional tabard worn by the worshippers of Psydon, fashioned into a sleeveless garment that harks back to the ancient yils of the Holy Inquisition."
+			desc = "A traditional tabard worn by the worshippers of the Absent God, fashioned into a sleeveless garment that harks back to the ancient yils of the Holy Inquisition."
 			body_parts_covered = CHEST|GROIN
 			icon_state = "whitepsydontabard"
 			item_state = "whitepsydontabard"
@@ -2274,7 +2274,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	sleevetype = "shirt"
 	name = "astratan cloak"
-	desc = "A golden-colored cloak with frayed edges, bearing the radiant hues of Astrata. It marks the wearer as a beacon of light amidst the chaos of battle."
+	desc = "A golden-colored cloak with frayed edges, bearing the radiant hues of the Sun. It marks the wearer as a beacon of light amidst the chaos of battle."
 	icon_state = "astrataclerictabard"
 	sleevetype = "shirt"
 	boobed = FALSE
@@ -2287,13 +2287,13 @@
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	sleevetype = "shirt"
 	name = "necran cloak"
-	desc = "A dark, battle-worn cloak secured with a silver buckle. Marked with the somber symbols of Necra, its frayed hem bears testament to endless skirmishes with death."
+	desc = "A dark, battle-worn cloak secured with a silver buckle. Marked with the somber symbols of Death, its frayed hem bears testament to endless skirmishes with death."
 	icon_state = "necraclerictabard"
 	boobed = FALSE
 
 /obj/item/clothing/cloak/templar/ravoxcleric
 	name = "justice cloak"
-	desc = "A tattered red tabard dyed in the bold colors of Ravox. Its striking crimson fabric stands out on the frontlines, signaling unyielding judgment."
+	desc = "A tattered red tabard dyed in the bold colors of Law. Its striking crimson fabric stands out on the frontlines, signaling unyielding judgment."
 	icon_state = "justiceclerictabard"
 	boobed = FALSE
 	body_parts_covered = CHEST|GROIN
@@ -2304,7 +2304,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/psydon
 	name = "psydonic tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Psydon on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of the Absent God on it."
 	icon_state = "tabard_weeping"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -2312,7 +2312,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/astrata
 	name = "astratan tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Astrata on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of the Sun on it."
 	icon_state = "tabard_astrata_alt"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -2320,7 +2320,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/dendor
 	name = "dendor tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Dendor on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of the Wilds on it."
 	icon_state = "tabard_dendor"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
@@ -2328,7 +2328,7 @@
 
 /obj/item/clothing/cloak/tabard/devotee/ravox
 	name = "ravox tabard"
-	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Ravox on it."
+	desc = "An outer garment commonly worn by soldiers. This one has the symbol of Law on it."
 	icon_state = "tabard_ravox"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/detailed/tabards.dmi'

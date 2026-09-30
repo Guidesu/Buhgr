@@ -2,7 +2,7 @@
 	icon = 'icons/obj/structures/heart_items.dmi'
 	icon_state = "leechtick"
 	name = "leech tick"
-	desc = "A pestran invader of Abyssor's divine sea. These are well known to latch onto the corpses of underwater leviathans. More than a pest, leechticks suck the soul out of those that disturb them, digesting the lux of assailants."
+	desc = "A pestran invader of the Sea's divine sea. These are well known to latch onto the corpses of underwater leviathans. More than a pest, leechticks suck the soul out of those that disturb them, digesting the lux of assailants."
 	// Don't lower the size, they'll make effective throwing weapons otherwise.
 	w_class = WEIGHT_CLASS_NORMAL
 	isbait = TRUE

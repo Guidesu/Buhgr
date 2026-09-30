@@ -43,12 +43,28 @@ type DreamValleyData = {
 
 const ADULT_CONTENT = [
   ['erp_panel', 'ERP Panel', 'Let others use ERP panel interactions on you.'],
-  ['erp_visuals', 'ERP Visual Effects', 'Hearts and screen effects during ERP.'],
+  [
+    'erp_visuals',
+    'ERP Visual Effects',
+    'Hearts and screen effects during ERP.',
+  ],
   ['chastity', 'Chastity Content', 'See and interact with chastity devices.'],
-  ['permanent_binding', 'Permanent Binding', 'Chastity devices can only be opened with their own key.'],
-  ['extreme_erp', 'Extreme ERP Content', 'Show the extreme categories in the ERP panel.'],
+  [
+    'permanent_binding',
+    'Permanent Binding',
+    'Chastity devices can only be opened with their own key.',
+  ],
+  [
+    'extreme_erp',
+    'Extreme ERP Content',
+    'Show the extreme categories in the ERP panel.',
+  ],
   ['edging', 'Edging', 'Allow edging content in the ERP panel.'],
-  ['cursed_collars', 'Cursed Collars', 'Let others put a cursed collar on you.'],
+  [
+    'cursed_collars',
+    'Cursed Collars',
+    'Let others put a cursed collar on you.',
+  ],
 ] as const;
 
 const SubtabIdentityCardAdultContent = () => {
@@ -80,14 +96,25 @@ const SubtabIdentityCardDreamValley = () => {
   return (
     <Section title="DreamValley">
       <LabeledGridList>
-        <LabeledGridList.Item label="Origin Map">
-          <Button fluid icon="map" onClick={() => act('dv_open_origin_map')}>
-            Choose origin on the map
-          </Button>
-        </LabeledGridList.Item>
         <LabeledGridList.Item label="Character Creation">
           <Button fluid icon="scroll" onClick={() => act('dv_open_tat')}>
-            Stats, skills, traits, quirks and loadout
+            Stats, traits, and loadout
+          </Button>
+        </LabeledGridList.Item>
+        <LabeledGridList.Item label="Prayers">
+          <Button
+            fluid
+            icon="hands-praying"
+            onClick={() => act('dv_open_prayer_presets')}
+          >
+            Prayers known by heart
+          </Button>
+          <Button
+            fluid
+            icon="wand-sparkles"
+            onClick={() => act('dv_open_incantations')}
+          >
+            Incantations known by heart
           </Button>
         </LabeledGridList.Item>
         <LabeledGridList.Item label="Scent">

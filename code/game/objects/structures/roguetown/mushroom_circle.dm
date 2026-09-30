@@ -126,7 +126,7 @@ GLOBAL_LIST_EMPTY(mushroom_circles)
 //==============================================================================
 /obj/structure/mushroom_circle/fey
 	name = "fey mushroom circle"
-	desc = "A magical ring of pale and purple mushrooms that pulse with faint light. Druids of Ignatius use these as waypoints to travel across long distances instantly."
+	desc = "A magical ring of pale and purple mushrooms that pulse with faint light. Druids of the Wilds use these as waypoints to travel across long distances instantly."
 	max_integrity = 200
 	attacked_sound = 'sound/misc/woodhit.ogg'
 	destroy_sound = "plantcross"
@@ -198,7 +198,7 @@ GLOBAL_LIST_EMPTY(mushroom_circles)
 		var/mob/living/carbon/human/H = user
 		if(H.patron && H.patron.type == /datum/patron/severance/ignatius)
 			if(H.get_skill_level(/datum/skill/magic/druidic) >= SKILL_LEVEL_EXPERT)
-				. += span_notice("Hold my amulet of Ignatius and press it on this circle to travel to another fey circle.")
+				. += span_notice("Hold my amulet of the Wilds and press it on this circle to travel to another fey circle.")
 			else
 				. += span_warning("The fey's mysteries are beyond my current understanding — I need greater druidic training to commune with this circle.")
 
@@ -241,7 +241,7 @@ GLOBAL_LIST_EMPTY(mushroom_circles)
 	// Ignatius amulet — opens fey teleport menu
 	if(istype(I, /obj/item/clothing/neck/roguetown/psicross/ignatius))
 		if(!user.patron || user.patron.type != /datum/patron/severance/ignatius)
-			to_chat(user, span_warning("Only a follower of Ignatius may commune with this circle."))
+			to_chat(user, span_warning("Only a follower of the Wilds may commune with this circle."))
 			return
 		if(!active)
 			to_chat(user, span_warning("This circle has waned in power — it can no longer carry you anywhere."))

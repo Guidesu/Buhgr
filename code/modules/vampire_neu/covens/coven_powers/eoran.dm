@@ -1,13 +1,13 @@
 /datum/coven/eora
-	name = "Eoran Embrace"
+	name = "Love Embrace"
 	desc = "Blessed by the Goddess of Love, Family, and Art, these vampires have developed powers that strengthen bonds, inspire beauty, and heal emotional wounds."
 	icon_state = "eora"
 	power_type = /datum/coven_power/eora
 	max_level = 4
 
 /datum/coven_power/eora
-	name = "Eora power name"
-	desc = "Eora power description"
+	name = "Love power name"
+	desc = "Love power description"
 
 //EMPATHIC BOND
 /datum/coven_power/eora/empathic_bond
@@ -140,7 +140,7 @@
 //BEAUTY'S RESTORATION
 /datum/coven_power/eora/beautys_restoration
 	name = "Beauty's Restoration"
-	desc = "Channel Eora's power to restore physical beauty and heal disfigurements."
+	desc = "Channel Love's power to restore physical beauty and heal disfigurements."
 
 	level = 4
 	research_cost = 1
@@ -158,7 +158,7 @@
 
 	var/mob/living/carbon/human/patient = target
 
-	to_chat(owner, span_notice("You channel Eora's restorative power into [patient]."))
+	to_chat(owner, span_notice("You channel Love's restorative power into [patient]."))
 	to_chat(patient, span_purple("You feel divine energy coursing through you, restoring your natural beauty!"))
 
 	// Visual effect

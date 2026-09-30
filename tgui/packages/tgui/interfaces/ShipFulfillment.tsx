@@ -156,7 +156,7 @@ const LineRow = (props: { line: DemandLine; cutPercent: number }) => {
           fontWeight: 'bold',
         }}
       >
-        {hasKin && (
+        {!!hasKin && (
           <span
             style={{
               color: INK_FAINT,
@@ -294,7 +294,7 @@ const ManifestSection = (props: { manifest: Manifest; cutPercent: number }) => {
           lastGroup = group;
           return (
             <div key={tag}>
-              {insertDivider && <GroupDivider label={GROUP_LABEL[group]} />}
+              {!!insertDivider && <GroupDivider label={GROUP_LABEL[group]} />}
               <Subsection
                 tag={tag}
                 lines={grouped[tag] || []}

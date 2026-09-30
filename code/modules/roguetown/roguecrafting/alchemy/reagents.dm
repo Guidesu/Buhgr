@@ -535,7 +535,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 
 /datum/reagent/infection
 	name = "excess choleric humour"
-	description = "Red-yellow pustulence - the carrier of disease, the enemy of all Pestrans."
+	description = "Red-yellow pustulence - the carrier of disease, the enemy of all Healing faithful."
 	reagent_state = LIQUID
 	color = "#dfe36f"
 	metabolization_rate = 0.1
@@ -564,7 +564,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 
 /datum/reagent/infection/major
 	name = "excess melancholic humour"
-	description = "Kingsfield's Bane. Excess melancholic has killed thousands, and even Pestra's greatest struggle against its insidious advance."
+	description = "Kingsfield's Bane. Excess melancholic has killed thousands, and even Healing's greatest struggle against its insidious advance."
 	damage_tick = 1
 	lethal_fever = TRUE
 	fever_multiplier = 3
@@ -664,7 +664,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 
 /datum/reagent/medicine/trait/nitevision
 	name = "Nocsight Elixir"
-	description = "Grants the eyes a silvery glow, Noc's light guiding one's gaze even in the darkest nites."
+	description = "Grants the eyes a silvery glow, the Moon's light guiding one's gaze even in the darkest nites."
 	taste_description = "shimmering moonlight"
 	scent_description = "crisp nite air"
 	trait = TRAIT_NITEVISION
@@ -710,7 +710,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 
 /datum/reagent/medicine/trait/waterbreathing
 	name = "Elixir of Hadal Grace"
-	description = "Draws upon Abyssor's blessing, allowing one to persist without breath - for a time."
+	description = "Draws upon the Sea's blessing, allowing one to persist without breath - for a time."
 	taste_description = "abyssal saltiness"
 	scent_description = "the sea"
 	trait = TRAIT_NOBREATH
@@ -734,7 +734,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 
 /datum/reagent/medicine/trait/ravenous
 	name = "Ravenous Elixir"
-	description = "Taps into Dendor's feral nature, granting the ability to safely digest even the most dubious of foods. Won't save you from poisons, though."
+	description = "Taps into the Wilds's feral nature, granting the ability to safely digest even the most dubious of foods. Won't save you from poisons, though."
 	taste_description = "viscera and marrow"
 	scent_description = "raw meat"
 	trait = TRAIT_NASTY_EATER
@@ -787,7 +787,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	delmsg = "The restless feeling fades."
 
 /datum/reagent/medicine/trait/negative/funnyvoice
-	name = "Xylix's Bane"
+	name = "Trickery's Bane"
 	description = "Alters the vocal chords, inflicting a silly voice on the imbiber."
 	taste_description = "a slight sweetness"
 	scent_description = "sweetness"
@@ -808,7 +808,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	speech_args[SPEECH_SPANS] |= SPAN_SANS
 
 /datum/reagent/medicine/trait/negative/singing
-	name = "Xylix's Boon"
+	name = "Trickery's Boon"
 	description = "Alters the vocal chords, inflicting a compulsion to sing on the imbiber."
 	taste_description = "a slight sweetness"
 	scent_description = "sweetness"

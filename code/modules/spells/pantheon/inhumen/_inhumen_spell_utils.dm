@@ -171,7 +171,7 @@
 			shake_camera(user, min(i * 2, 3), i)
 
 		if(!do_after(user, 3 SECONDS, target = user))
-			to_chat(user, span_warning("The ritual collapses. Zizo's gaze turns away."))
+			to_chat(user, span_warning("The ritual collapses. The Forbidden's gaze turns away."))
 			return FALSE
 
 	return TRUE
@@ -302,7 +302,7 @@
 
 	if(total < min_invest)
 		if(feedback)
-			to_chat(H, span_warning("I lack the wealth to invoke Matthios' favor... ([min_invest] mammon needed for [H.rmb_intent.name] stance.)"))
+			to_chat(H, span_warning("I lack the wealth to invoke Trade' favor... ([min_invest] mammon needed for [H.rmb_intent.name] stance.)"))
 		return FALSE
 
 	return TRUE

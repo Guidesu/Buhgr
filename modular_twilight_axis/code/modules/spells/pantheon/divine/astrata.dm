@@ -26,7 +26,7 @@
 	glow_intensity = GLOW_INTENSITY_MEDIUM
 	miracle = TRUE
 	devotion_cost = 40
-	invocations = list("Astrata, ignis sacrum!")
+	invocations = list("The Sun, ignis sacrum!")
 	invocation_type = "shout"
 
 /obj/projectile/magic/TAsacred_flame
@@ -151,7 +151,7 @@
 
 /obj/effect/proc_holder/spell/invoked/TArevive
 	name = "Anastasis"
-	desc = "Focus Astratas energy through a stationary psycross, reviving the target from death. If target not noble, or not cleric - Sun will punish you"
+	desc = "Focus Astratas energy through a stationary holy cross, reviving the target from death. If target not noble, or not cleric - Sun will punish you"
 	action_icon = 'icons/mob/actions/astratamiracles.dmi'
 	overlay_icon = 'icons/mob/actions/astratamiracles.dmi'
 	overlay_state = "revive"
@@ -368,7 +368,7 @@
 
 //T0. Removes cone vision for a dynamic duration.
 /obj/effect/proc_holder/spell/self/TAastrata_gaze
-	name = "Astratan Gaze"
+	name = "Sun Gaze"
 	desc = "Removes the limit on your vision, letting you see behind you for a time, lasts longer during the dae and gives a perception bonus to those skilled and holy arts."
 	action_icon = 'icons/mob/actions/astratamiracles.dmi'
 	overlay_icon = 'icons/mob/actions/astratamiracles.dmi'
@@ -380,7 +380,7 @@
 	sound = 'sound/magic/astrata_choir.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
-	invocations = "Astrata show me true."
+	invocations = "The Sun show me true."
 	invocation_type = "shout"
 	recharge_time = 90 SECONDS
 	devotion_cost = 30
@@ -396,7 +396,7 @@
 	return TRUE
 
 /atom/movable/screen/alert/status_effect/buff/TAastrata_gaze
-	name = "Astratan's Gaze"
+	name = "Sun's Gaze"
 	desc = "She shines through me, illuminating all injustice."
 	icon = 'icons/mob/actions/astratamiracles.dmi'
 	icon_state = "gaze"
@@ -565,7 +565,7 @@
 	duration = 11 SECONDS
 
 /obj/effect/proc_holder/spell/targeted/touch/summonrogueweapon/TAastratagrasp
-	name = "Astrata's Grasp"
+	name = "The Sun's Grasp"
 	desc = "HER fire burnet eaternae. Summon Her flame from your soul and let it envelop your hand. Use on ashes, fire dust and fyritius flowers to convert them into devotion. Can ignite objects. Consumes fire stacks on people to do extra damage."
 	clothes_req = FALSE
 	action_icon = 'icons/mob/actions/astratamiracles.dmi'
@@ -585,7 +585,7 @@
 
 /obj/item/melee/touch_attack/rogueweapon/TAastratagrasp
 	name = "Burning Hand"
-	desc = "The Sacred Flame of Astrata"
+	desc = "The Sacred Flame of the Sun"
 	icon = 'icons/roguetown/misc/miraclestuff.dmi'
 	mob_overlay_icon = 'icons/roguetown/misc/miraclestuff.dmi'
 	lefthand_file = 'icons/roguetown/misc/miraclestuff.dmi'
@@ -876,7 +876,7 @@
 // =====================
 /obj/effect/proc_holder/spell/invoked/immolation
 	name = "Immolation"
-	desc = "Ignite a target in holy flames, burning those that surround them. The fire burns brighter within devout Astratans."
+	desc = "Ignite a target in holy flames, burning those that surround them. The fire burns brighter within devout Sun faithful."
 	overlay_state = "immolation"
 	base_icon_state = "regalyscroll"
 	range = 2
@@ -908,7 +908,7 @@
 	// Channeling requirement
 	user.visible_message(span_danger("[user] begins lighting [target] ablaze with strange, divine fire!"))
 	if(!do_after(user, 1 SECONDS, target = target))
-		to_chat(user, span_warning("Astratan might requires unwavering focus to channel!"))
+		to_chat(user, span_warning("Sun might requires unwavering focus to channel!"))
 		revert_cast()
 		return FALSE
 
@@ -982,7 +982,7 @@
 
 /obj/effect/proc_holder/spell/invoked/TAsunstrike
 	name = "Sun Strike"
-	desc = "Focus Astratas energy through a stationary Psycross or Bishop's hands. Call down the mercy of the Sun Goddess upon the enemy."
+	desc = "Focus Astratas energy through a stationary Holy cross or Bishop's hands. Call down the mercy of the Sun Goddess upon the enemy."
 	action_icon = 'modular_twilight_axis/icons/mob/actions/astrataspells.dmi'
 	action_icon = 'modular_twilight_axis/icons/mob/actions/astrataspells.dmi'
 	overlay_state = "sunstrike"
@@ -1040,7 +1040,7 @@
 	animate(mark_on_user, alpha = 255, time = 20, flags = ANIMATION_PARALLEL)
 	if(!do_after(user, 20 SECONDS, target = target))
 		mark_on_user.alpha = 255
-		to_chat(user, span_warning("Astratan might requires unwavering focus to channel!"))
+		to_chat(user, span_warning("Sun might requires unwavering focus to channel!"))
 		qdel(mark)
 		qdel(mark_on_user)
 		revert_cast()

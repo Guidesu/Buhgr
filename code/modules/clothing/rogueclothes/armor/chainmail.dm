@@ -102,7 +102,7 @@
 /obj/item/clothing/suit/roguetown/armor/chainmail/paalloy
 	name = "ancient haubergeon"
 	desc = "Polished gilbranze rings and silk, woven together to form a short maille-atekon. The death of a million brought forth the \
-	ascension of Zizo; and if a million more must perish to complete Her works, then let it be done."
+	ascension of the Forbidden; and if a million more must perish to complete Her works, then let it be done."
 	icon_state = "ancientchain"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -157,7 +157,7 @@
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/aalloy
 	name = "decrepit hauberk"
 	desc = "Rotted metal rings and rotting leather, woven together to form a sleeved maille-atekon. Once, the armored vestments of a \
-	paladin: now, the withered veil of Zizo's undying legionnaires."
+	paladin: now, the withered veil of the Forbidden's undying legionnaires."
 	icon_state = "ancienthauberk"
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_DECREPIT
 	color = "#bb9696"
@@ -169,7 +169,7 @@
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/paalloy
 	name = "ancient hauberk"
 	desc = "Polished gilbranze rings and silk, woven together to form a sleeved maille-atekon. To bring the lyfeless back from decrepity, \
-	to elevate them to heights once thought unsurmountable; that is the will of Zizo, made manifest."
+	to elevate them to heights once thought unsurmountable; that is the will of the Forbidden, made manifest."
 	icon_state = "ancienthauberk"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -252,7 +252,7 @@
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate/get_mechanics_examine(mob/user)
 	. = ..()
 	. += span_info("With more blessed silver and an armorsmith's hammer, this armor can be further upgraded.")
-	. += span_info("If a character has the 'Maille Training' trait and has Praecursor as their selected patron, they can comfortably wear Vaeltic plate armor without suffering any downsides.")
+	. += span_info("If a character has the 'Maille Training' trait and has the Absent God as their selected patron, they can comfortably wear Vaeltic plate armor without suffering any downsides.")
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/heavy/decorated
 	name = "decorated plate-and-maille"

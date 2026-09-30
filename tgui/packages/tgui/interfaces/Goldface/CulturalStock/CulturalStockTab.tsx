@@ -159,7 +159,7 @@ const ShipSection = (props: {
           ({entries.length} wares)
         </span>
       </div>
-      {expanded && (
+      {!!expanded && (
         <div
           style={{
             display: 'grid',
@@ -297,7 +297,7 @@ const CatalogSection = (props: {
               : `(sealed - ${catalog.favor_cost} favor to sign)`}
         </span>
       </div>
-      {expanded && (
+      {!!expanded && (
         <>
           <div
             style={{
@@ -307,7 +307,7 @@ const CatalogSection = (props: {
           >
             {catalog.desc}
           </div>
-          {accessible && (
+          {!!accessible && (
             <div
               style={{
                 ...noteStyleItalic,
@@ -422,7 +422,7 @@ export const CulturalStockTab = (props: Props) => {
           </span>
         </KinshipBanner>
       )}
-      {kinship?.realm_name && (
+      {!!kinship?.realm_name && (
         <KinshipBanner>
           <span
             style={{
@@ -439,7 +439,7 @@ export const CulturalStockTab = (props: Props) => {
           </span>
         </KinshipBanner>
       )}
-      {kinship?.agent_realm_name && (
+      {!!kinship?.agent_realm_name && (
         <KinshipBanner>
           <span
             style={{

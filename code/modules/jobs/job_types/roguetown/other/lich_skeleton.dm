@@ -811,7 +811,7 @@ LICH SKELETONS
 //Most importantly, unlike other lich skeletons, these ones really stand out amongst the many. You know who to target on-sight pretty much.
 //Yes the name is a bitter irony because Sectarian means a closed-minded us vs them, mindset. Aka limited or bigoted, but this fits the "slaughter the living so they may walk with her" mindset of skeletons.
 /datum/advclass/greater_skeleton/lich/sectarian
-	name = "Ancient Zizite Sectarian"
+	name = "Ancient Forbidden Sectarian"
 	tutorial = "'Progress. Ascension. Destiny. A mandate, commanded by God, to be fufilled by Man.' - Amongst the many fallen, few not only take their place not only in reverence but through faith and channeling divinity. No matter how far you've fallen, your faith will be that which shall peirce the heavens - Let Progress be your chariot, let her will be your guide and let your master's vision become reality."
 	outfit = /datum/outfit/job/roguetown/greater_skeleton/lich/sectarian
 	maximum_possible_slots = 3 //don't want too many healers for skeletons in a round but we want leniency for when they die and get replaced
@@ -884,7 +884,7 @@ LICH SKELETONS
 	H.adjust_blindness(-3)
 
 	//Our offensive kit
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/unholyblast)
+	H.mind.AddSpell(new /datum/action/cooldown/spell/projectile/unholy_blast)
 	H.mind.AddSpell(new /datum/action/cooldown/spell/raise_deadite) //SPREAD THE... ROT? turn-player-corpses-into-player-zombies spell. No skeleton mitosis please.
 	//Our Utility Spells
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
@@ -910,7 +910,7 @@ LICH SKELETONS
 /////////////////////////////
 /obj/item/clothing/suit/roguetown/armor/vestments_padded/lich //Zizo acolyte esc-robes, armor is meant to be the same as padded vestaments
 	name = "decrepit unholy undervestaments"
-	desc = "Roughspan fabrics, silks and burlap from beyond your lyfetyme, wrapped and coiled around the waist uncomfortably tight.</br>Its adorned with inverted psycrosses in the stitchwork, a sworn unbreakable promise against the orders that bind this world to stagnation.</br></br>‎<font color='FF0000'>..Just looking at the fabric makes you feel like you're being watched..</font>"
+	desc = "Roughspan fabrics, silks and burlap from beyond your lyfetyme, wrapped and coiled around the waist uncomfortably tight.</br>Its adorned with inverted holy crosses in the stitchwork, a sworn unbreakable promise against the orders that bind this world to stagnation.</br></br>‎<font color='FF0000'>..Just looking at the fabric makes you feel like you're being watched..</font>"
 	icon_state = "monkvestments" //placeholdery as fuck
 	item_state = "monkvestments"
 	icon = 'icons/roguetown/clothing/armor.dmi'
@@ -933,7 +933,7 @@ LICH SKELETONS
 
 /obj/item/clothing/head/roguetown/roguehood/lich_sectarian
 	name = "decrepit unholy hood"
-	desc = "A padded and reinforced hood of roughspun fabrics, silks and worn leather from beyond your lyfetime, splinted across creating a cocooon to shroud the face. It bares the sigil of the inverted Psycross upon its crest in defiance to the world.</br></br>‎<font color='FF0000'>..Should you stare too long into it, you could almost glimpse something staring back with eternal malice..</font>"
+	desc = "A padded and reinforced hood of roughspun fabrics, silks and worn leather from beyond your lyfetime, splinted across creating a cocooon to shroud the face. It bares the sigil of the inverted Holy cross upon its crest in defiance to the world.</br></br>‎<font color='FF0000'>..Should you stare too long into it, you could almost glimpse something staring back with eternal malice..</font>"
 	color = CLOTHING_BLACK
 	max_integrity = ARMOR_INT_HELMET_HARDLEATHER //to encourage keeping it
 	armor = ARMOR_LEATHER

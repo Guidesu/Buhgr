@@ -18,7 +18,7 @@
 
 /obj/item/reagent_containers/food/snacks/fish/clam
 	name = "clam"
-	desc = "A beastye built by Abyssor in the image of a knight. Hard shell, squishy interior."
+	desc = "A beastye built by the Sea in the image of a knight. Hard shell, squishy interior."
 	icon_state = "clam"
 	fish_normal_size_scale = 0.9
 	faretype = FARE_NEUTRAL

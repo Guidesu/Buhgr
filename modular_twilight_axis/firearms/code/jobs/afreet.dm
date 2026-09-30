@@ -44,7 +44,7 @@
 /datum/outfit/job/roguetown/bandit/twilight_afreet/pre_equip(mob/living/carbon/human/H) //Basically an evil jager
 	..()
 	if (!istype(H.patron, /datum/patron/inhumen/matthios))
-		to_chat(H, span_warning("My former deity has abandoned me.. Matthios is my new master."))
+		to_chat(H, span_warning("My former deity has abandoned me.. Trade is my new master."))
 		H.set_patron(/datum/patron/inhumen/matthios)	//We allow other heretics into the cool-kids club, but if you are a tennite/psydonian it sets you to matthiosan.
 	neck = /obj/item/clothing/neck/roguetown/coif
 	shoes = /obj/item/clothing/shoes/roguetown/grenzelhoft

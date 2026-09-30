@@ -51,9 +51,10 @@
 	if (patron.type == /datum/patron/unveiled/aurelian || patron.type == /datum/patron/concordat/morwenna)
 		REMOVE_TRAIT(holder, TRAIT_DEATHSIGHT, "devotion")
 
-	if(length(patron.traits_tier))
-		for(var/trait in patron.traits_tier)
-			var/required_tier = patron.traits_tier[trait]
+	var/list/tier_traits = get_traits_tier()
+	if(length(tier_traits))
+		for(var/trait in tier_traits)
+			var/required_tier = tier_traits[trait]
 			if(required_tier <= level)
 				REMOVE_TRAIT(holder, trait, ROUNDSTART_TRAIT)
 	holder?.hud_used?.shutdown_bloodpool()
@@ -117,16 +118,23 @@
 		return
 
 	if(patron)
-		if(length(patron.miracles))
-			for(var/spell_type in patron.miracles)
-				var/required_tier = patron.miracles[spell_type]
+		var/list/domain_miracles = get_miracles()
+		if(length(domain_miracles))
+			for(var/spell_type in domain_miracles)
+				var/required_tier = domain_miracles[spell_type]
 				if(required_tier <= level)
 					if(holder.mind.has_spell(spell_type))
 						continue
+					var/obj/effect/proc_holder/spell/newspell = new spell_type
+					if(!silent)
+						to_chat(holder, span_boldnotice("I have unlocked a new spell: [newspell]"))
+					holder.mind.AddSpell(newspell, holder)
+					LAZYADD(granted_spells, newspell)
 
-		if(length(patron.traits_tier))
-			for(var/trait in patron.traits_tier)
-				var/required_tier = patron.traits_tier[trait]
+		var/list/tier_traits = get_traits_tier()
+		if(length(tier_traits))
+			for(var/trait in tier_traits)
+				var/required_tier = tier_traits[trait]
 				if(required_tier <= level)
 					if(!silent)
 						to_chat(holder, span_boldnotice("I have unlocked a new trait: [trait]"))
@@ -347,9 +355,10 @@ GLOBAL_LIST_EMPTY(miracle_tiers)
 /datum/devotion/proc/allocate_standard_miracles(silent = FALSE)
 	if(!patron || !holder?.mind)
 		return
-	if(length(patron.miracles))
-		for(var/spell_type in patron.miracles)
-			var/required_tier = patron.miracles[spell_type]
+	var/list/domain_miracles = get_miracles()
+	if(length(domain_miracles))
+		for(var/spell_type in domain_miracles)
+			var/required_tier = domain_miracles[spell_type]
 			if(required_tier <= level)
 				if(holder.mind.has_spell(spell_type))
 					continue

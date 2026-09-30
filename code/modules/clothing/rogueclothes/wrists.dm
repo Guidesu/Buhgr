@@ -238,7 +238,7 @@
 
 /obj/item/clothing/wrists/roguetown/bracers/cloth/naledi
 	name = "sojourner's wrappings"
-	desc = "Sheared burlap and cloth, meticulously fashioned around the forearms. Naledian-trained monks rarely share the same fatalistic mindset as their Otavan cousins, and - consequency - tend to be averse with binding their wrists in jagged thorns. Unbloodied fingers tend to work far better with the arcyne, too. </br>'..And so, the great tears that they wept when it took its last breath, the rain of the Weeper, is what marked this era of silence. Fools would tell you that Praecursor has died, that they splintered into ‘ten smaller fragments', but that does not make sense. They are everything within and without, they are beyond size and shape. How can everything become something? No, they have merely turned their ear from us. They mourn, for their greatest child and their worst..'"
+	desc = "Sheared burlap and cloth, meticulously fashioned around the forearms. Naledian-trained monks rarely share the same fatalistic mindset as their Otavan cousins, and - consequency - tend to be averse with binding their wrists in jagged thorns. Unbloodied fingers tend to work far better with the arcyne, too. </br>'..And so, the great tears that they wept when it took its last breath, the rain of the Weeper, is what marked this era of silence. Fools would tell you that the Absent God has died, that they splintered into ‘ten smaller fragments', but that does not make sense. They are everything within and without, they are beyond size and shape. How can everything become something? No, they have merely turned their ear from us. They mourn, for their greatest child and their worst..'"
 	color = "#48443B"
 
 /obj/item/clothing/wrists/roguetown/bracers/cloth/gladiator
@@ -636,7 +636,7 @@
 /obj/item/clothing/wrists/roguetown/bracers/graggar/heavy
 	name = "vicious wristguards"
 	desc = "Swaying chains, padded with a mixture of twine, leather and entrails. Steel and bone on the outside. It won't survive the onslaught - but it's \
-	not meant to. </br>Everything He did, He did for Auxentius. To see them squander such power in favor of mortality's chains - it broke Him. Yils of resentment, \
+	not meant to. </br>Everything He did, He did for the Sun. To see them squander such power in favor of mortality's chains - it broke Him. Yils of resentment, \
 	of jealousy and frustration; released all at once. Through flowing tears, He disemboweled the divine filament and shattered His chains once and for all.. \
 	for if He would not be loved, then He would settle for hatred instead."
 	icon_state = "graggarplatebracer_heavy"
@@ -656,7 +656,7 @@
 
 /obj/item/clothing/wrists/roguetown/bracers/leather/baotha
 	name = "saccharine cuffs"
-	desc = "The priestess, desperate to relieve the pain of her sickly congregation, attempted to take more than Eora's grace would give; but she was discovered, and the Eleven were incensed."
+	desc = "The priestess, desperate to relieve the pain of her sickly congregation, attempted to take more than Love's grace would give; but she was discovered, and the Eleven were incensed."
 	icon_state = "baothabracers"
 	chunkcolor = "#6d1c87"
 	armor = ARMOR_PADDED

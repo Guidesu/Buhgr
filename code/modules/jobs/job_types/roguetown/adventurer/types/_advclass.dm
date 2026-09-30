@@ -251,7 +251,7 @@
 	if(length(allowed_ages) && !(H.age in allowed_ages))
 		return FALSE
 
-	if(length(allowed_patrons) && !(H.patron.type in allowed_patrons))
+	if(length(allowed_patrons) && !dreamvalley_mob_patron_permitted(H, allowed_patrons))
 		return FALSE
 
 	if(length(virtue_limits) && H.client)
@@ -300,7 +300,7 @@
 	if(length(allowed_ages) && !(prefs.age in allowed_ages))
 		return "age"
 
-	if(length(allowed_patrons) && !(prefs.selected_patron?.type in allowed_patrons))
+	if(length(allowed_patrons) && !dreamvalley_prefs_patron_permitted(prefs, allowed_patrons))
 		return "faith"
 
 	if(length(virtue_limits))

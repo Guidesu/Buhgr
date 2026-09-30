@@ -106,8 +106,8 @@
 
 	var/is_role_ban = roles[1] != "Server"
 
-	var/title = is_role_ban ? " " : ""
-	var/description = "     ."
+	var/title = is_role_ban ? "Role ban" : "Ban"
+	var/description = "The player loses the ability to play on the server."
 
 	if(is_role_ban)
 		var/list/role_lines = list()
@@ -121,7 +121,7 @@
 	if(localized_severity != "none")
 		description += "** :** [localized_severity]\n"
 
-	description += "** :** [duration ? time_message : "FOREVER"]"
+	description += "**Duration:** [duration ? time_message :"FOREVER"]"
 
 	if(applies_to_admins)
 		description += "\n*  *"
@@ -148,8 +148,8 @@
 		return
 
 	var/datum/tgs_chat_embed/structure/embed = new()
-	embed.title = " PQ"
-	embed.description = reason ? "****\n" + reason : "  !"
+	embed.title = "PQ change"
+	embed.description = reason ? "****\n" + reason : "No reason given!"
 	embed.colour = value > 0 ? "#a6da95" : "#ed8796"
 	embed.footer = create_discord_embed_footer()
 
@@ -162,7 +162,7 @@
 	)
 
 	var/datum/tgs_chat_embed/field/field_changed_value = new(
-		" ", "`[value]`"
+		"Changed to", "`[value]`"
 	)
 
 	field_player_ckey.is_inline = TRUE
@@ -194,8 +194,8 @@
 		return
 
 	var/datum/tgs_chat_embed/structure/embed = new()
-	embed.title = " "
-	embed.description = reason ? "****\n" + reason : "  !"
+	embed.title = "Triumph change"
+	embed.description = reason ? "****\n" + reason : "No reason given!"
 	embed.colour = value > 0 ? "#a6da95" : "#ed8796"
 	embed.footer = create_discord_embed_footer()
 
@@ -208,7 +208,7 @@
 	)
 
 	var/datum/tgs_chat_embed/field/field_changed_value = new(
-		" ", "`[value]`"
+		"Changed to", "`[value]`"
 	)
 
 	field_player_ckey.is_inline = TRUE
@@ -344,11 +344,11 @@
 		role_lines += "• `[role]`"
 	var/description
 	if(server_unban && !length(non_server_roles))
-		description = "    !"
+		description = "The player has regained access to the server!"
 	else if(server_unban)
 		description = "    !\n\n     :\n[role_lines.Join("\n")]"
 	else if(length(non_server_roles) == 1)
-		description = "      `[non_server_roles[1]]`!"
+		description = "The player has regained access to the role `[non_server_roles[1]]`!"
 	else
 		description = "     :\n[role_lines.Join("\n")]"
 
@@ -377,7 +377,7 @@
 		"Key" = "Key",
 		"IP" = "IP",
 		"CID" = "CID",
-		"Applies to admins" = "  ",
+		"Applies to admins" = "Applies to admins",
 		"Duration" = "Duration",
 		"Reason" = "Reason",
 	)
@@ -394,7 +394,7 @@
 	for(var/index in 1 to chunks.len)
 		var/datum/tgs_chat_embed/structure/embed = new()
 		if(index == 1)
-			embed.title = " "
+			embed.title = "Ban change"
 		embed.description = chunks[index]
 		embed.colour = "#f5a97f"
 		if(index == chunks.len)
@@ -422,7 +422,7 @@
 		if("message")
 			pretty_type = "messages"
 		if("watchlist entry")
-			pretty_type = "  watchlist"
+			pretty_type = "watchlist entry"
 		else
 			return
 
@@ -433,7 +433,7 @@
 	for(var/index in 1 to chunks.len)
 		var/datum/tgs_chat_embed/structure/embed = new()
 		if(index == 1)
-			embed.title = " [pretty_type]"
+			embed.title = "[pretty_type] change"
 		embed.description = chunks[index]
 		embed.colour = "#f5a97f"
 		if(index == chunks.len)
@@ -453,7 +453,7 @@
 
 	var/pretty_type = capitalize("[type]")
 	var/datum/tgs_chat_embed/structure/embed = new()
-	embed.title = " [pretty_type]"
+	embed.title = "[pretty_type] deletion"
 	embed.description = copytext_char("[text]", 1, 4000)
 	embed.colour = "#ed8796"
 	embed.footer = create_discord_embed_footer()
@@ -503,7 +503,7 @@
 	if(!target_ckey)
 		return list("status" = "error", "message" = "Target ckey is empty.")
 	if(admin_ckey == target_ckey)
-		return list("status" = "error", "message" = "  PQ  .")
+		return list("status" = "error", "message" = "You can't change your own PQ.")
 	if(isnull(amount))
 		return list("status" = "error", "message" = "Amount is invalid.")
 	amount = round(amount)

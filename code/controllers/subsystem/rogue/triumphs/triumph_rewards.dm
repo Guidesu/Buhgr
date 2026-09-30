@@ -42,63 +42,63 @@
 	sellprice = 33
 
 /obj/item/clothing/neck/roguetown/psicross/g/triumph
-	name = "ornate golden psycross"
+	name = "ornate golden holy cross"
 	desc = "'It does not matter, whether He is lyving or gone. His greatest creation still persists; the very world that our feet tread 'pon, now. That, alone, makes everything worth fighting for.'"
 	sellprice = 55
 
 /obj/item/clothing/neck/roguetown/psicross/aurelian/g/triumph
-	name = "ornate inverted psycross"
+	name = "ornate inverted holy cross"
 	desc = "'Meet your lord, and know your place. Let progress be my chariot, and let my hands be the vessel that rips paradise free from its heavenly grasp. Let Vaeltis's carcass not spell the death of Man, but the birth of Gods.'"
 	sellprice = 66
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius/g/triumph
-	name = "ornate amulet of Auxentius"
+	name = "ornate amulet of the Sun"
 	desc = "Her command is absolute, and Her tyranny is unmarrable. Reclaim this world, child of mine, from those who'd seek to destroy it."
 	icon_state = "astrata_g"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/reform/g/triumph
-	name = "ornate reformist psycross"
+	name = "ornate reformist holy cross"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/miluse/g/triumph
-	name = "ornate amulet of Miluše"
+	name = "ornate amulet of the Moon"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/wulfric/g/triumph
-	name = "ornate amulet of Abyssor"
+	name = "ornate amulet of the Sea"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/ignatius/g/triumph
-	name = "ornate amulet of Ignatius"
+	name = "ornate amulet of the Wilds"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/morwenna/g/triumph
-	name = "ornate amulet of Necra"
+	name = "ornate amulet of Death"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/handwerra/g/triumph
-	name = "ornate amulet of Pestra"
+	name = "ornate amulet of Healing"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/auxentius/ravox/g/triumph
-	name = "ornate amulet of Auxentius"
+	name = "ornate amulet of the Sun"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/handwerra/malum/g/triumph
-	name = "ornate amulet of Malum"
+	name = "ornate amulet of the Craft"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/miluse/eora/g/triumph
-	name = "ornate amulet of Eora"
+	name = "ornate amulet of Love"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/viator/g/triumph
-	name = "ornate amulet of Xylix"
+	name = "ornate amulet of Trickery"
 	sellprice = 77
 
 /obj/item/clothing/neck/roguetown/psicross/volkovoi/g/triumph
-	name = "ornate amulet of Graggar"
+	name = "ornate amulet of War"
 	sellprice = 77
 
 //

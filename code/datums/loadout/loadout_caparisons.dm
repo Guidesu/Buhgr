@@ -6,17 +6,17 @@
 	sort_category = "Caparison"
 
 /datum/loadout_item/caparison/psy
-	name = "Vaeltite Caparison"
+	name = "Old Faith Caparison"
 	path = /obj/item/caparison/psy
 	sort_category = "Caparison"
 
 /datum/loadout_item/caparison/auxentius
-	name = "Auxentian Caparison"
+	name = "Sun Caparison"
 	path = /obj/item/caparison/auxentius
 	sort_category = "Caparison"
 
 /datum/loadout_item/caparison/eora
-	name = "Eoran Caparison"
+	name = "Love Caparison"
 	path = /obj/item/caparison/eora
 	sort_category = "Caparison"
 

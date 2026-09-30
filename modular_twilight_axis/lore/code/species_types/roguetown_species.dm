@@ -25,7 +25,7 @@
 /datum/species/elf/sun
 	desc_title = "Sun Elves"
 	desc = "Elves are one of the oldest races of Grimoria, distinguished by a rich history and refined culture. Endowed with longevity and the wisdom of centuries, it was the elves who founded the Divine Empire, which served as the backbone of the Pantheon of the Primordial Five in the lands now belonging to the Western Kingdoms. \
-	Sun elves are those who could not accept the end of the Divine Empire. They remained on the former imperial lands: in Etrusca, Valoria, and the prefecture of Raneshen of the Zybantian Empire, continuing to preserve the traditions and the cult of Astrata. Unlike their pragmatic northern kin, sun elves live in the past. They devoutly honor the rituals of the Divine Empire, maintain ancient temples, and continue to believe that the favor of the Pantheon can be restored. Their societies are characterized by conservatism, adherence to strict hierarchy, and deep reverence for Astrata as the first among the Undivided Pantheon."
+	Sun elves are those who could not accept the end of the Divine Empire. They remained on the former imperial lands: in Etrusca, Valoria, and the prefecture of Raneshen of the Zybantian Empire, continuing to preserve the traditions and the cult of the Sun. Unlike their pragmatic northern kin, sun elves live in the past. They devoutly honor the rituals of the Divine Empire, maintain ancient temples, and continue to believe that the favor of the Pantheon can be restored. Their societies are characterized by conservatism, adherence to strict hierarchy, and deep reverence for the Sun as the first among the Undivided Pantheon."
 	origin_default = /datum/virtue/origin/etrusca
 	origin = "Etrusca"
 
@@ -38,8 +38,8 @@
 
 /datum/species/dullahan
 	desc_title = "Dullahans"
-	desc = "Little is known about the sinister dullahans who originate from the ice of Mandira — one of the realms of the Inferno. The most common theory of their origin revolves around the Inferno's property of altering and corrupting representatives of mortal races who find themselves in the chaotic environment of this Plane over time. It is believed that those of the races of Grimoria who are unfortunate enough to perish in the lands of Mandira — or become trapped in them long enough for the corruptive influence of these lands, forever tainted by the power of unlife since Zizo's invasion, to become irreversible — become dullahans. \
-	Revenants began appearing in the lands of Grimoria relatively recently — the first encounter with them was recorded in the chronicles of Otava seventy years ago. Like the tieflings before them, revenants cross the boundary between Planes, fleeing the Inferno for various reasons. Their unnatural nature, however, has become a cause for distrust and apprehension among the inhabitants of Grimoria — where tieflings are accepted, and sometimes even exalted for their willingness to fight their demonic nature, dullahans are feared and rejected throughout the world. The less educated segments of the population not unreasonably mistake them for servants of Zizo, with predictable results."
+	desc = "Little is known about the sinister dullahans who originate from the ice of Mandira — one of the realms of the Inferno. The most common theory of their origin revolves around the Inferno's property of altering and corrupting representatives of mortal races who find themselves in the chaotic environment of this Plane over time. It is believed that those of the races of Grimoria who are unfortunate enough to perish in the lands of Mandira — or become trapped in them long enough for the corruptive influence of these lands, forever tainted by the power of unlife since the Forbidden's invasion, to become irreversible — become dullahans. \
+	Revenants began appearing in the lands of Grimoria relatively recently — the first encounter with them was recorded in the chronicles of Otava seventy years ago. Like the tieflings before them, revenants cross the boundary between Planes, fleeing the Inferno for various reasons. Their unnatural nature, however, has become a cause for distrust and apprehension among the inhabitants of Grimoria — where tieflings are accepted, and sometimes even exalted for their willingness to fight their demonic nature, dullahans are feared and rejected throughout the world. The less educated segments of the population not unreasonably mistake them for servants of the Forbidden, with predictable results."
 	origin_default = /datum/virtue/origin/racial/infernal
 	origin = "Infernal"
 	languages = list(/datum/language/common)
@@ -47,9 +47,9 @@
 
 /datum/species/aasimar
 	desc_title = "Aasimars"
-	desc = "The first aasimars were created by Malum shortly after his ascension to the Pantheon. Unwilling to lose his connection with his flock, the dwarf chosen to become a deity blessed certain mortal women to bear divine messengers, who were endowed with the ability to hear the dictums of celestials in their dreams, and sometimes even while awake. Possessing a portion of their creator's divine power, these messengers were met by mortals with awe and respect, and their words were often interpreted as the ultimate truth. As aasimars proved their usefulness, all the deities of the Pantheon, as well as the Allfather himself, adopted this practice, creating their own messengers among the mortal races of Grimoria. \
+	desc = "The first aasimars were created by the Craft shortly after his ascension to the Pantheon. Unwilling to lose his connection with his flock, the dwarf chosen to become a deity blessed certain mortal women to bear divine messengers, who were endowed with the ability to hear the dictums of celestials in their dreams, and sometimes even while awake. Possessing a portion of their creator's divine power, these messengers were met by mortals with awe and respect, and their words were often interpreted as the ultimate truth. As aasimars proved their usefulness, all the deities of the Pantheon, as well as the Allfather himself, adopted this practice, creating their own messengers among the mortal races of Grimoria. \
 	It is said that the power of an aasimar can slumber in a family's genetic line for many generations, until its time comes. At least, this is how the birth of aasimars to ordinary mortal couples is explained in our days. Despite the fact that the former reverence for divine messengers is no longer as widespread, the birth of an aasimar is still considered a blessed omen for the family, and the aasimar themselves, as well as their parents, often find themselves surrounded by honor and respect. \
-	The Church of the Ten categorically denies any claims that some aasimars originate not from the Ten or the Allfather, but from the deities of the Despised Pantheon."
+	The Church of the Domains categorically denies any claims that some aasimars originate not from the Domains or the Allfather, but from the deities of the Despised Pantheon."
 	origin_default = /datum/virtue/origin/valorian
 	origin = "Valoria"
 	languages = list(/datum/language/common)
@@ -91,19 +91,19 @@
 
 /datum/species/anthromorph
 	desc_title = "Wildkins"
-	desc = "How exactly mortals become beast-like is not reliably known to this day. Some half-bloods, quite predictably, are the result of interracial crossbreeding, although far more often such unions produce no offspring at all. At the same time, beast-like children can sometimes appear to ordinary couples — the causes of this phenomenon remain unclear, and some call it a curse of the gods, generally attributing it to Dendor or Xylix. \
+	desc = "How exactly mortals become beast-like is not reliably known to this day. Some half-bloods, quite predictably, are the result of interracial crossbreeding, although far more often such unions produce no offspring at all. At the same time, beast-like children can sometimes appear to ordinary couples — the causes of this phenomenon remain unclear, and some call it a curse of the gods, generally attributing it to the Wilds or Trickery. \
 	Another source of beast-like beings is powerful magical rituals. Thus, the magical storm that destroyed the Crimson Lands turned all the survivors of the cataclysm in those lands into wildkins. Given how rare the birth of a halfkin or wildkin is by ordinary means, it is in the Crimson Lands that the largest population of beast-like beings currently resides."
 	languages = list(/datum/language/common)
 
 /datum/species/anthromorphsmall
 	desc_title = "Verminwolves"
-	desc = "How exactly mortals become beast-like is not reliably known to this day. Some half-bloods, quite predictably, are the result of interracial crossbreeding, although far more often such unions produce no offspring at all. At the same time, beast-like children can sometimes appear to ordinary couples — the causes of this phenomenon remain unclear, and some call it a curse of the gods, generally attributing it to Dendor or Xylix. \
+	desc = "How exactly mortals become beast-like is not reliably known to this day. Some half-bloods, quite predictably, are the result of interracial crossbreeding, although far more often such unions produce no offspring at all. At the same time, beast-like children can sometimes appear to ordinary couples — the causes of this phenomenon remain unclear, and some call it a curse of the gods, generally attributing it to the Wilds or Trickery. \
 	Another source of beast-like beings is powerful magical rituals. Thus, the magical storm that destroyed the Crimson Lands turned all the survivors of the cataclysm in those lands into wildkins. Given how rare the birth of a halfkin or wildkin is by ordinary means, it is in the Crimson Lands that the largest population of beast-like beings currently resides."
 	languages = list(/datum/language/common)
 
 /datum/species/demihuman
 	desc_title = "Halfkins"
-	desc = "How exactly mortals become beast-like is not reliably known to this day. Some half-bloods, quite predictably, are the result of interracial crossbreeding, although far more often such unions produce no offspring at all. At the same time, beast-like children can sometimes appear to ordinary couples — the causes of this phenomenon remain unclear, and some call it a curse of the gods, generally attributing it to Dendor or Xylix. \
+	desc = "How exactly mortals become beast-like is not reliably known to this day. Some half-bloods, quite predictably, are the result of interracial crossbreeding, although far more often such unions produce no offspring at all. At the same time, beast-like children can sometimes appear to ordinary couples — the causes of this phenomenon remain unclear, and some call it a curse of the gods, generally attributing it to the Wilds or Trickery. \
 	Another source of beast-like beings is powerful magical rituals. Thus, the magical storm that destroyed the Crimson Lands turned all the survivors of the cataclysm in those lands into wildkins. Given how rare the birth of a halfkin or wildkin is by ordinary means, it is in the Crimson Lands that the largest population of beast-like beings currently resides."
 	languages = list(/datum/language/common)
 
@@ -117,9 +117,9 @@
 
 /datum/species/lupian
 	desc_title = "Lupians"
-	desc = "According to ancient legends, in the beginning of times, wolves were the favorite creations of Dendor, the First Beast. They howled at the moon every night, and their voices reached the heavens where Noc dwelled. The Moon Goddess heard in the wolves' howling something more than animal instinct — she heard a longing for something unattainable, a striving for knowledge. And Noc, the mistress of knowledge and dreams, decided to answer this call. \
+	desc = "According to ancient legends, in the beginning of times, wolves were the favorite creations of the Wilds, the First Beast. They howled at the moon every night, and their voices reached the heavens where the Moon dwelled. The Moon Goddess heard in the wolves' howling something more than animal instinct — she heard a longing for something unattainable, a striving for knowledge. And the Moon, the mistress of knowledge and dreams, decided to answer this call. \
 	On one night of the full moon, she descended to the wolf pack and touched them with her light. Those wolves that looked directly at the moon received the Lunar Gift — a spark of reason, the ability to think and speak. Their bodies changed, gaining the ability to walk on two legs, and their souls awakened to awareness of the world. \
-	Thus the first lupians appeared — wolves who became something greater under the influence of Noc."
+	Thus the first lupians appeared — wolves who became something greater under the influence of the Moon."
 	languages = list(/datum/language/common)
 
 /datum/species/moth
@@ -141,7 +141,7 @@
 
 /datum/species/construct/metal
 	desc_title = "Constructs"
-	desc = "The origin of these automatons is shrouded in mystery. The constructs themselves claim they were originally created by Zizo, the Lady of Darkness, in the aftermath of the betrayal by her closest ally, Xylix. It is unknown where the main population of constructs currently resides, and whether they truly serve the Arch-Traitor, but those encountered in the lands of the Western Kingdoms are free from her influence. At least, that is what they claim."
+	desc = "The origin of these automatons is shrouded in mystery. The constructs themselves claim they were originally created by the Forbidden, the Lady of Darkness, in the aftermath of the betrayal by her closest ally, Trickery. It is unknown where the main population of constructs currently resides, and whether they truly serve the Arch-Traitor, but those encountered in the lands of the Western Kingdoms are free from her influence. At least, that is what they claim."
 	origin_default = /datum/virtue/origin/heartfelt
 	origin = "Heartfelt"
 	languages = list(/datum/language/common)
@@ -156,5 +156,5 @@
 
 /datum/species/goblinp
 	desc_title = "Goblins"
-	desc = "Goblins are a short race of humanoids with large ears and usually green skin. Presumably, they were formed from the blood spilled when the fierce God of War Graggar was wounded by Ravox. Although most goblins still heed the call of their tainted blood, worshipping Graggar and remaining aggressive toward all they encounter, some of them do display free will, forming secluded enclaves where they hide from both their kin and the persecution of other sentient races. Only recently, in the last few centuries, have sentient goblins begun to leave their isolated villages and tribes to seek their future in civilized society, striving to overcome the discrimination and distrust of the Church, states, and peoples of Grimoria."
+	desc = "Goblins are a short race of humanoids with large ears and usually green skin. Presumably, they were formed from the blood spilled when the fierce God of War War was wounded by Law. Although most goblins still heed the call of their tainted blood, worshipping War and remaining aggressive toward all they encounter, some of them do display free will, forming secluded enclaves where they hide from both their kin and the persecution of other sentient races. Only recently, in the last few centuries, have sentient goblins begun to leave their isolated villages and tribes to seek their future in civilized society, striving to overcome the discrimination and distrust of the Church, states, and peoples of Grimoria."
 	languages = list(/datum/language/common)

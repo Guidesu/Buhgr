@@ -1,6 +1,6 @@
 /datum/advclass/wretch/munitioneer
 	name = "Munitioneer"
-	tutorial = "You are a true devotee of the God of the Forge; a wandering priest of Malum, your altar an anvil and your prayer the hiss of steam from a fresh-wrought blade. You care little for 'politics' or 'schisms'; you are a hammer in a worlde of nails."
+	tutorial = "You are a true devotee of the God of the Forge; a wandering priest of the Craft, your altar an anvil and your prayer the hiss of steam from a fresh-wrought blade. You care little for 'politics' or 'schisms'; you are a hammer in a worlde of nails."
 
 	outfit = /datum/outfit/job/roguetown/wretch/munitioneer
 	cmode_music = 'sound/music/combat_dwarf.ogg'

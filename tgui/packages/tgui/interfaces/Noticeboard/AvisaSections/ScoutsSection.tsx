@@ -63,7 +63,7 @@ export const ScoutsSection = ({ data }: { data: NoticeboardData }) => {
         >
           {helpOpen ? 'Hide About Scout Reports' : 'About Scout Reports'}
         </button>
-        {helpOpen && <HelpPanel />}
+        {!!helpOpen && <HelpPanel />}
       </div>
 
       {regions.length === 0 ? (

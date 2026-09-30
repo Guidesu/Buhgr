@@ -239,7 +239,7 @@
 /obj/item/clothing/cloak/templar/eoran/alt/attack_right(mob/user)
 	..()
 	if(!picked)
-		var/choiceC = input(user, "Choose a color.", "Eora colors") as anything in eora_colors
+		var/choiceC = input(user, "Choose a color.", "Love colors") as anything in eora_colors
 		if(choiceC == "Blue Tabard")
 			icon_state = "tabard_blue"
 			item_state = "tabard_blue"

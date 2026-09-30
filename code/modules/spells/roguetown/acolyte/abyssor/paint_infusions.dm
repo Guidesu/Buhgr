@@ -6,7 +6,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/intelligence_infusion
 	name = "Intelligence Infusion"
-	desc = "Abyssor's dream is vivid in my mind, improving my ability to imagine all sorts of new posibilities."
+	desc = "The Sea's dream is vivid in my mind, improving my ability to imagine all sorts of new posibilities."
 
 /datum/status_effect/infusion/perception
 	id = "Perception Infusion"
@@ -16,7 +16,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/perception_infusion
 	name = "Perception Infusion"
-	desc = "Abyssor's dream is vivid in my mind, shapes of paint outline objects and people in the distance, making them clearer."
+	desc = "The Sea's dream is vivid in my mind, shapes of paint outline objects and people in the distance, making them clearer."
 
 /datum/status_effect/infusion/fortune
 	id = "Fortuitous Infusion"
@@ -26,7 +26,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/fortune_infusion
 	name = "Fortuitous Infusion"
-	desc = "Abyssor's dream is vivid in my mind, paint sinking out in nearby waters to draw forth the rarest fish."
+	desc = "The Sea's dream is vivid in my mind, paint sinking out in nearby waters to draw forth the rarest fish."
 
 /datum/status_effect/infusion/strength
 	id = "Strength Infusion"
@@ -38,7 +38,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/strength_infusion
 	name = "Strength Infusion"
-	desc = "Abyssor's dream is vivid in my mind, my mind flooded with imagery of myself lifting heavy objects and people."
+	desc = "The Sea's dream is vivid in my mind, my mind flooded with imagery of myself lifting heavy objects and people."
 
 /datum/status_effect/infusion/speed
 	id = "Speed Infusion"
@@ -49,7 +49,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/speed_infusion
 	name = "Speed Infusion"
-	desc = "Abyssor's dream is vivid in my mind, my mind flooded with imagery of hares outspeeding turtles."
+	desc = "The Sea's dream is vivid in my mind, my mind flooded with imagery of hares outspeeding turtles."
 
 /datum/status_effect/infusion/ambush_trait
 	id = "Sneaky Infusion"
@@ -67,4 +67,4 @@
 
 /atom/movable/screen/alert/status_effect/buff/sneak_infusion
 	name = "Sneaky Infusion"
-	desc = "Abyssor's dream is vivid in my mind, showing hints of rustling bushes and maneaters."
+	desc = "The Sea's dream is vivid in my mind, showing hints of rustling bushes and maneaters."

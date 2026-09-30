@@ -26,7 +26,7 @@
 		"Save me...",
 		"It's cold...",
 		"Free us... please...",
-		"Necra... deliver us...",
+		"Death... deliver us...",
 		"I can still feel the pain...",
 		"Break the dagger... please...",
 	)
@@ -81,7 +81,7 @@
 	if(HAS_TRAIT(user, TRAIT_ASSASSIN))
 		. += "<span style='color:#3F5C6D'>The profane dagger</span> whispers, " + span_cult("<i>\"...here we are!\"</i>")
 	else if(HAS_TRAIT(user, TRAIT_DEATHSIGHT))
-		. += span_gamedeadsay("This is the VILE DAGGER of a SOUL-THIEF! SLAY IT'S MASTER and BREAK IT by invoking a Necran ritual upon it!")
+		. += span_gamedeadsay("This is the VILE DAGGER of a SOUL-THIEF! SLAY IT'S MASTER and BREAK IT by invoking a Death ritual upon it!")
 	if(stored_souls.len)
 		// tried some bullshit w/ the expression being in here like the pale aura from dnr for practice
 		. += span_gamedeadsay("You can hear [stored_souls.len] soul[stored_souls.len > 1 ? "s" : ""] screaming from within...")
@@ -102,7 +102,7 @@
 	or oozelings. Their souls will still be trapped if they are valid, however.")
 	. += span_info("BREAKING the dagger requires the assassin to be slain.")
 	// keep this updated w/ absolver if that also gets added
-	. += span_info("This dagger can be broken through a Necran Rite, a Bishop's blessing, or an Absolver's Golgatha blessing.")
+	. += span_info("This dagger can be broken through a Death Rite, a Bishop's blessing, or an Absolver's Golgatha blessing.")
 	. += span_info("Breaking the dagger will restore the souls, allowing any ghosts who are still present in-round to be returned to their \
 	bodies and revived.")
 	. += span_redinfo("If you are an assassin, you can break any dagger you own by MMB'ing it. Please consider using this is if you are about to ERP \
@@ -412,9 +412,9 @@
 			var/mob/living/carbon/human/H = soul.body
 			var/mob/dead/observer/playerghost = H.get_ghost(TRUE, TRUE)
 			if(playerghost)
-				to_chat(playerghost, "<b>I have been freed from my vile prison! I await revival, or Necra's cold grasp... SALVATION!</b>")
+				to_chat(playerghost, "<b>I have been freed from my vile prison! I await revival, or Death's cold grasp... SALVATION!</b>")
 			else
-				to_chat(H, "<b>I have been freed from my vile prison! I await revival, or Necra's cold grasp... SALVATION!</b>")
+				to_chat(H, "<b>I have been freed from my vile prison! I await revival, or Death's cold grasp... SALVATION!</b>")
 			src.visible_message(span_cult("The soul of [soul.name] flows out from the profane dagger, finally free of its grasp. Revival may be possible!"))
 			// qdel handles removing traits
 			qdel(soul)

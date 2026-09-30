@@ -496,7 +496,7 @@
 
 /datum/antagonist/vampire/lord/proc/ta_announce_demonic_ascension()
 	priority_announce(
-		"Crimson darkness has entered these lands. Now the Lord of Evil rules not only the face of Astrata, but the souls of its inhabitants. Beware, for you now hold power only over your own life!",
+		"Crimson darkness has entered these lands. Now the Lord of Evil rules not only the face of the Sun, but the souls of its inhabitants. Beware, for you now hold power only over your own life!",
 		"Crimson Darkness",
 		'sound/villain/dreamer_warning.ogg'
 	)

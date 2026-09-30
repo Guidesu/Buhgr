@@ -1,398 +1,125 @@
-<p><strong><em><span style="font-size:115%"> Welcome to the Outpost! </span></em></strong></p>
-<p> This lore primer serves as an introduction to the Outpost's setting.
+<p><strong><em><span style="font-size:115%"> Welcome to Palimpseste! </span></em></strong></p>
+<p> A quick primer on the setting. Nothing in here is law. Characters get things wrong, argue about them and believe whatever their grandmother told them, and that's how it should be.
 <br><br>
-As always, note that this lore primer shouldn't be treated as gospel. Don't stress too much about trying to "get it all right" - it's far more fun to spark conflict through contradiction, and to explore the many unique interpretations that characters can have.
-<br><br>
-Only the broadest strokes have been applied onto this canvas. There's plenty of supplemental lore hidden throughout the Outpost: level a keen eye towards the dungeons, tomes, events, and descriptions of examined items, if you wish to uncover Vaeltis's secrets.
-<br><br>
-Don't be afraid to check out the Outpost's Wiki - https://azurepeak.miraheze.org/ - for more information regarding the lore, mechanics, and more.</p>
+Most of what follows is written the way someone in the world might put it. Where it matters for play, it says so plainly.</p>
 
 <details>
 	<summary><strong><span style="font-size:130%"> THE STORY SO FAR </span></strong></summary>
 
-	<p><strong> The year is 1513 AC. Somewhere at the edge of the map, built into ancient elven mountainscapes that nobody bothered to claim, there is the Outpost, and it is the end of the world.
+	<p>There isn't one story. It might start in a Skarnheim longhall, a Conjunct village that's lost three children to something in the well, a muddy town under Azure Peak, or a caravan camp in the Seamvale waiting out the rain. Wherever it starts, you won't be the only stranger there. Palimpseste is a crowded world and it moves around a lot.
 	<br><br>
-	No one agrees on how old Vaeltis is, because no one agrees on whether the gods made it or simply arrived once it already existed. What the oldest stones remember - the Weeping Idols on Auxentia's northern border, worn past reading, older than any faith that claims the land now - is that something was here first, and something else came after, and the world has been arguing about the difference ever since.
-	<br><br>
-	What the Tribunal teaches is this: before there were Six Seats, before there was a Compact, there was the Word. Praecursor spoke the first law against the formless dark, and for an age His law was the only order Vaeltis knew. Then came the Unmaker - not a devil in a pit, but a hunger wearing the shape of an ending, unpicking the boundary between what is and what was never meant to be. Praecursor spent Himself binding it, and did so with the Comet Syon: a falling star that struck the world, sealed the Unmaker beneath it, and left the Word silent ever since. He has not spoken again. Whether that silence is death, exhaustion, or a Father simply letting His children finish growing up, not even His most devoted magistrates can agree.
-	<br><br>
-	Into that silence came the others. Not angels sent to finish Praecursor's work, but a Court: six gods who set their own covenant, the Vaeltis Compact, and offered mortals something the Word never had - a bargain instead of a decree. Auxentius took up the sun and the law of kings; Miluše the moon, the tide, and the turning seasons; Wulfric the hearth worth burning a field to protect; Morwenna the debts that outlive the debtor; Viator the roads between all of it; Handwerra the hands that build and mend. None of the Six claims to be Praecursor's heir. All of them insist their bargain works better than His silence did - and for a thousand years and more, most of Vaeltis has agreed with them.
-	<br><br>
-	But an agreement is not a unity. Long before the Compact, the north belonged entire to the Ordo Iusta, the Tribunal's hard doctrine, ruled from the peaks that would come to be called Vergenmark. A war came - the details depend entirely on which side's grandchildren are telling it - and when it ended, Vergenmark had lost most of its lowland reach to the Concordat's Six Seats, and kept only the enclave in the crags where the Ordo Iusta's schools, and its grudge, still live. They have not forgiven the Compact for winning. They have not forgiven Praecursor for staying silent through the losing, either, though they'd sooner bite their own tongues than say so aloud.
-	<br><br>
-	Then there is Dvojezem, half a world away and yet everyone's favorite cautionary tale: a single god who tore Himself into two remembering the same life differently, Ignatius the fire and Kamenka the stone, Ognica and Kamenrad the land each half now walks on. No priest can say what caused the Severance. Every priest has a theory. The Threshold Council governs both halves precisely because neither will admit the other is the senior twin.
-	<br><br>
-	And in Via Medulla - the Marrow Roads, the free cities that kneel to no crown and no single Seat - a newer wound is opening. Aurelian, once mortal, claims to be the visible edge of the Overgod that Praecursor bound with the Comet Syon: proof, she says, that no priesthood ever stood between a soul and the divine except the ones built to collect its tithes. Her gentler Plainfolk simply worship unshepherded. Her Stripping zealots have started pulling down the shrines of older gods to make the point stick. The Tribunal calls it the same heresy the Unmaker always wore, one skin newer. Via Medulla's free cities, being free cities, mostly just ask what it costs.
-	<br><br>
-	Children of the Compact: the Court of Six Seats has kept its bargain a thousand years - will you keep faith with a covenant instead of a commandment?
-	<br><br>
-	Sons and daughters of the Word: Praecursor is silent, not gone, and Vergenmark remembers what it lost - will you carry a grudge a thousand years old until He speaks again?
-	<br><br>
-	Halves of one being, Ognican and Kamenradi both: the Severance split you, but never explained why - will you spend your life burning forward, holding steady, or trying to work out which?
-	<br><br>
-	Unveiled and unshepherded: Aurelian says the only honest god is the one with no priest standing in front of it - will you believe her, or is that just what every apotheosis says on its way up?
-	<br><br>
-	Lowly fool - will you keep this bargain? Or do you watch someone rewrite it?</em><br></p>
-</details>
-<br><br>
-
-
-<p><strong><em><span style="font-size:115%"> ... </span></em></strong></p>
-
-
-<details>
-	<summary><strong><span style="font-size:130%"> MYTHOS OF VAELTIS </span></strong></summary>
-
-	<strong><span style="font-size:115%"> OVERVIEW OF THE DIVINE </span></strong>
-	<br><br>
-	<details>
-		<summary><strong> THE OVERGOD (or: what Praecursor bound) </strong></summary>
-		<br>
-		<span style="display:block; color:#007fff; font-size:115%"> "..." </span>
-		<br>
-		No faith agrees on what to call the thing beneath the Comet Syon, which is itself a small miracle of consistency, since no two faiths agree on much else about it. The Tribunal calls it the Unmaker and teaches that Praecursor's Word bound it there at the cost of His own voice - an ending given a shape and a cage, kept just barely dormant beneath a millennium of silence. The Concordat mostly declines to name it at all, treating the whole affair as a closed chapter that the Six Seats were wise enough not to reopen. The Old Kin figure it's just another old, patient thing, not so different from what answers at a crossroads shrine - bigger, is all.
-	<br><br>
-	Aurelian alone claims to know it intimately: that what Praecursor bound was not a monster but the Overgod itself, the source every other god quietly answers to and none will admit binds them, and that she - unmade and remade herself - is the closest thing to it a mortal has ever gotten. Whether that makes her its herald, its jailer's escaped extension, or simply a very convincing liar is a question the Tribunal considers settled and everyone else considers very much alive.
-	<br><br>
-		Worship of the bound thing itself, whatever it is, is vanishingly rare and near-universally outlawed - though every so often a shrine turns up that wasn't raised to any of the Six, the Word, the Severance, or the Old Kin, and the debate about who put it there starts all over again.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> THE CONCORDAT </strong></summary>
-		<br>
-		<span style="display:block; color:#ffd700; font-size:115%"> "WITH COVENANT, WE STAND; AND WITH FAITH, WE PROSPER." </span>
-		<br>
-		The Concordat is six gods who share a table rather than one god who sits a throne. When the Word fell silent and Vaeltis was left to sort itself out, it was Auxentius and his five siblings who stepped forward with something new: not a commandment handed down, but the Vaeltis Compact, a covenant sworn between gods and mortals both, administered by the Court of Six Seats.
-	<br><br>
-	Auxentius holds first seat as sun, law, and kingship, though the Compact is emphatic that first is not highest - Miluše's moon and tide, Wulfric's hearth-fire, Morwenna's ledger of the dead, Viator's open road, and Handwerra's working hands are each owed the same reverence. It isn't uncommon to see an Auxentian magistrate pray to Wulfric before a hard fight, nor a Handwerran smith curse Viator's luck when a shipment goes missing.
-	<br><br>
-	Concordat worship is the overwhelming majority across Auxentia and most of the settled world, and has been since the Compact was struck. Nearly every kingdom keeps some form of its civic temples, even where a Seat's particular emphasis shifts town to town. Auxentia itself, seat of the Court, treats all six with rough equality - though its craft-guilds keep a special nod to Handwerra, and its magistrates swear their oaths on Auxentius's name before any other.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> THE TRIBUNAL </strong></summary>
-		<br>
-		<span style="display:block; color:#800080; font-size:115%"> "THE WORD DOES NOT BEND." </span>
-		<br>
-		Before the Compact, there was the Word. The Tribunal holds that Praecursor's law was the first and only true order laid over the formless dark, and that everything since - the Compact included - is a mortal compromise struck in the vacuum His silence left behind. Custodius gives that law hands: enforcement, oathbinding, the correction visited on whoever breaks a sworn bond. Verita gives it eyes: the truth that cannot be lied to, the weight behind testimony and contract.
-	<br><br>
-	The Tribunal once ruled the whole of Auxentia's north as the Ordo Iusta, before a war and a schism folded most of that reach under the Concordat's Court instead. What's left is Vergenmark: a doctrinal enclave in the mountains, orthodox on its surface, but growing a harsher fringe underneath - an Inquisition in all but official standing, answering to no seat but its own conviction, that reads Vergenmark's fall from dominance not as a defeat to be mourned but a wound still owed repayment.
-	<br><br>
-	Tribunal worshippers are the minority nearly everywhere outside Vergenmark's valleys, and are treated with everything from wary respect to open suspicion depending on how recently their local Inquisition-adjacent zealots made themselves known. Even so, its magistrates, witnesses, and heretics-turned-faithful hold that the Word does not bend, whatever the Compact tolerates on the plains below - and that Praecursor's silence is patience, not absence.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> THE SEVERANCE </strong></summary>
-		<br>
-		<span style="display:block; color:#b5651d; font-size:115%"> "ONE BEING, REMEMBERING ITSELF AS TWO." </span>
-		<br>
-		No one - not Ignatius, not Kamenka, not the oldest priest in either Ognica or Kamenrad - can say with confidence what the Severance actually was. What's agreed is that a single god split the land of Dvojezem in half along with Himself: Ignatius keeping the restless inheritance of growth, change, risk, and fire, Kamenka keeping the stiller inheritance of preservation, duty, and stone.
-	<br><br>
-	Shrines in Dvojezem are raised in pairs by long custom, one face lit for Ignatius and one left dark for Kamenka, and most worshippers venerate both across a lifetime rather than pick a side - though a life spent chasing risk and reinvention marks an Ognican just as surely as a life spent finishing what your grandmother started marks a Kamenradi. The Threshold Council, seated wherever the two halves' roads meet, governs jointly precisely because neither will concede seniority: they insist, against all appearances, that they are still one god.
-	<br><br>
-	Severance worship is essentially universal within Dvojezem and a curiosity everywhere else, though its ash-and-terrace aesthetic and its refusal to pick a side between change and permanence has made it a quiet favorite of settlers, gamblers, masons, and anyone else who's had to rebuild something more than once.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> THE OLD KIN </strong></summary>
-		<br>
-		<span style="display:block; color:#2e8b57; font-size:115%"> "WHAT IS OWED IS REMEMBERED." </span>
-		<br>
-		Beneath every Seat and every Word, there's the Old Kin: hearth-shrines, wood-shrines, crossroads offerings, the barely-a-gods that don't need a cathedral to be worshipped properly. Trnava of the forests stands most central - poison and cure both cupped in the same patient, ferocious hand - alongside Volkovoi, who takes his due from the hungriest months so the rest of the village survives them, Hausvette, who keeps the ledger of who fed whose children through which winter, and Klokner, who answers from wells and boundary-stones for whatever's been lost.
-	<br><br>
-	The high orthodoxy of both the Concordat and the Tribunal look down on the Old Kin as superstition too small to deserve a Seat or a share of the Word - and most common folk simply ignore that judgment and keep both kinds of worship without contradiction. A coin left for Hausvette at the hearth is no less pious, to the people who leave it, than a vow sworn before an Auxentian magistrate.
-	<br><br>
-	Old Kin worship touches nearly everyone in Vaeltis in some small way, even devout Concordat or Tribunal households, if only as a folk habit too old and too useful to fully abandon.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> THE UNVEILED </strong></summary>
-		<br>
-		<span style="display:block; color:#556b2f; font-size:115%"> "NO PRIEST STANDS BETWEEN ME AND THE DIVINE." </span>
-		<br>
-		Aurelian was mortal, once - the details of how she stopped being so are murky by design, since she considers the murkiness part of the lesson. Her claim is simple and dangerous: no priesthood should stand between a soul and the divine, because every older god's guarded domain is a wall built to keep the faithful paying tithes, and she - having unmade her own limits - is the closest thing to true divinity a mortal can touch without a Seat, a Word, or a Council standing in the way.
-	<br><br>
-	Most of her followers, the Plainfolk, take this as an invitation to simply worship without hierarchy - a quieter heresy than it sounds, since it asks nothing more than that you stop paying a tithe to have a feeling about a god. Her Stripping sect takes the claim to its logical end, and has taken up actively unmaking the shrines of older gods to prove the point stands even when the older god objects.
-	<br><br>
-	The Unveiled are strongest in Via Medulla's free cities, where no crown or Seat holds uncontested sway to begin with, and are near-universally condemned as heresy by the Concordat and outright targeted by the Tribunal. Whether Aurelian is a liberator, a liar, or something the old gods themselves are quietly worried about is the one question her own faith refuses to settle - on purpose.
-		<br>
-	</details>
-	<br><br>
+	What people talk about these days is the seams acting up. A shepherd near the Vyrlish border walked his flock home by the usual path and found a cliff. Fishermen out of Dunmoor pulled up a net full of fish nobody could name. Somebody's cousin swears the stars over the hills changed on a Tuesday. Most of it's drink talking. Not all of it.</p>
 </details>
 
-
 <details>
-	<summary><strong><span style="font-size:130%"> TIMELINE OF VAELTIS </span></strong></summary>
+	<summary><strong><span style="font-size:130%"> THE PALIMPSEST </span></strong></summary>
 
-	<strong><span style="font-size:115%"> NOTEWORTHY EVENTS </span></strong>
+	<p>Scholars in the Hinge have a word for the world, and it isn't a flattering one. A palimpsest is a page that's been scraped and written over so many times you can still see the old ink under the new.
 	<br><br>
-	<details>
-		<summary><strong> The Word - reckoning uncertain, ending at Year Zero </strong></summary>
-		<br>
-		Before there were Six Seats, before there was a Compact, there was only the Word. Praecursor spoke the first law against the formless dark, and mortals - newly given shape and thought - built the whole of their earliest civilization inside that single, unbending order. No king answered to any authority higher than a Tribunal magistrate; no magistrate answered to anyone higher than the Word itself.
-		<br><br>
-		Then the Unmaker came: an ending given shape, unpicking the boundary between what is and what should never have been allowed to be. Praecursor's law alone could not hold it. His children - the first Tribunal - fought a war that has no clean telling, because half its combatants left no descendants to remember it, and the other half remember it as a triumph too costly to celebrate.
-		<br><br>
-		In the war's final hour, Praecursor spent the whole of Himself binding the Unmaker beneath a single falling star: the Comet Syon. The impact sealed the threat, scarred the land where it struck, and left the Word silent. He has not spoken since. Whether He is dead, spent, or simply waiting is the oldest unanswered question in Vaeltis.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> The Compact - Year Zero AC </strong></summary>
-		<br>
-		Into Praecursor's silence, six gods stepped forward where His angels had only enforced. Auxentius, Miluše, Wulfric, Morwenna, Viator, and Handwerra offered mortals something new: not a law handed down from a throne no one could question, but a covenant - the Vaeltis Compact - sworn between the divine and the governed, administered by a Court of Six Seats rather than a single Word.
-		<br><br>
-		The Compact did not conquer the Tribunal's faithful; it simply proved, over the following generations, that a bargain could hold a kingdom together as well as a commandment could, and with less blood spent enforcing it. Auxentia's river-plain heartland formed first around the Court, its capital at Cynwic, and the reckoning of years reset to Year Zero: the world would now count its age from the Compact, not the Word.
-		<br><br>
-		Vergenmark's Ordo Iusta refused the new covenant outright, and for a time held the whole of Auxentia's north against it, insisting the Compact was heresy dressed as diplomacy. It would take a war neither side likes to describe in detail before that argument was settled - imperfectly, and not for good.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> The Schism - c. 200-400 AC </strong></summary>
-		<br>
-		The war between the Ordo Iusta and the young Court of Six Seats is remembered differently on every side of the Vergenmark passes. What's agreed is that it was long, that it was costly, and that it ended with the Ordo Iusta's lowland holdings folded under the Concordat's governance while the mountain enclave itself - Vergenmark proper - kept its doctrine, its schools, and its grudge.
-		<br><br>
-		The Tribunal's faithful call it a schism forced on them by a Court that mistook popularity for righteousness. The Concordat's faithful call it a correction, the mortal world simply catching up to a Word that had already gone quiet. Both sides agree on one detail: Vergenmark never surrendered. It retreated, kept its Word, and has spent every year since raising children who remember losing as though it happened last season.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> The Severance - reckoning disputed, predates most surviving Dvojezemi record </strong></summary>
-		<br>
-		Half a world from Auxentia, a single god - name and shape lost even to His own faithful - tore Himself in two, and the land of Dvojezem tore with Him. Ignatius rose from the volcanic western half, Ognica, carrying growth, change, risk, and fire. Kamenka rose from the terraced eastern half, Kamenrad, carrying stillness, preservation, duty, and stone.
-		<br><br>
-		No surviving account agrees on the cause - a punishment, an accident, a mutual and willing division, a war between the god and Himself that neither half remembers losing. What's certain is that the split was total: two lands, two gods, one shared and unresolved memory of having once been whole.
-		<br><br>
-		The Threshold Council formed not long after, seated wherever Ognica's and Kamenrad's roads meet, precisely because no arrangement that favored one half over the other ever held for more than a generation. It endures today as a rare thing: a government built entirely around refusing to decide who was the original.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> The Long Peace - c. 400 AC to 1400 AC </strong></summary>
-		<br>
-		For a thousand years, more or less, the Compact held. Auxentia prospered under the Court of Six Seats, its craft-guilds and river-trade drawing settlers from across Vaeltis. Via Medulla's free cities grew fat on the caravan trade between Auxentia, Dvojezem, and the sea, answering to coin before crown. Ostrovia's island confederation charted the sea-lanes that made all of it possible. Vergenmark simmered, but did not boil over.
-		<br><br>
-		It was not a peace without cost. The Old Kin's shrines persisted quietly beneath every Seat's civic temple, tolerated but never elevated. The Underdark's Western reaches, beneath Auxentia and Vergenmark both, stayed a place surfacedwellers only entered by force or desperation. And in a handful of Via Medulla's least-governed corners, a new heresy had already begun to take root, murmured about long before anyone put a name to it.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> The Unveiling - c. 1450 AC to ??? AC </strong></summary>
-		<br>
-		Aurelian's claim did not arrive with fanfare. It arrived the way most dangerous ideas do: quietly, reasonably, in a free city that had already stopped answering to anyone in particular. No priest, she said, ever stood between a soul and the divine except the ones who built a career out of pretending otherwise - and she, having unmade her own mortal limits, was proof a soul could reach divinity unescorted.
-		<br><br>
-		The claim split into two currents almost immediately. The Plainfolk took it as permission: worship simply, worship alone, keep your coin. The Stripping sect took it as a mandate, and began - city by city, shrine by shrine - unmaking the physical trappings of older faiths to demonstrate that the old gods' silence, when tested, looked exactly like absence.
-		<br><br>
-		The Tribunal named it the Unmaker's heresy wearing a new face, and pressed the Concordat to act in kind. The Concordat, characteristically, convened, debated, and issued a joint condemnation slow enough that three more Via Medulla cities had gone Unveiled by the time it was signed. The argument is far from over.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> Now - 1513 AC </strong></summary>
-		<br>
-		The world is not ending the way the old stories claim it once nearly did. It's slower than that, and stranger: a wound left over from a war nobody currently living fought, a heresy spreading through free cities that were never anyone's to lose, two brothers-who-are-one-god still not speaking about whatever tore them apart, and a silence from the Word that has now lasted longer than most kingdoms have existed.
-		<br><br>
-		The Outpost endures regardless - a scatter of settlements and trade contacts burrowed into ancient elven mountainscapes, of no great strategic importance to Auxentia, Vergenmark, or anyone else, and precisely for that reason left mostly alone to keep its own counsel. No crown claims it. No court governs it from afar. Some say it sits closer to whatever the Comet Syon still guards than is entirely comfortable. Most residents don't think about it until the northern sky does something they can't explain.
-		<br><br>
-		Churchbells chime throughout the Outpost, christening the start of a new week. Some lament about strange-and-prophetic dreams from the nights prior, though they oft-brush it off as nothing more than that: something spawned from a crumb of spoiled mustard, rather than anything divine. Others simply groan, rise from their cots, and prepare for the labors-to-come.
-		<br><br>
-		What about you?
-	</details>
+	Their argument goes like this. No god made Palimpseste. Lands came from somewhere else - other worlds, other planes, nobody's sure - and settled in one after another over ages, like silt. Each land arrived with its own history and its own creation story, and each one woke up certain it had always been here. The Achaeons will tell you their gods raised the islands from the sea. The Khemeti will tell you the first mound rose out of the waters of chaos. Both are right, as far as their own shores go.
 	<br><br>
+	Where two lands meet, you can see the stitching if you look. A coastline stops making sense. A road runs straight into a ruin older than the hill it's built on. A town on the border keeps two calendars because the two halves never agreed how long a year is.
+	<br><br>
+	Say any of this in a temple and you'll be asked to leave, or worse. Say it in the Hinge and people will ask why you're telling them something they learned as children.</p>
 </details>
 
-
 <details>
-	<summary><strong><span style="font-size:130%"> POWERS OF VAELTIS </span></strong></summary>
+	<summary><strong><span style="font-size:130%"> GODS </span></strong></summary>
 
-	<strong><span style="font-size:115%"> NOTEWORTHY REALMS </span></strong>
+	<p>The gods are real. Pray right and they'll answer; blaspheme loudly enough and they'll answer that too.
 	<br><br>
-	<details>
-		<summary><strong> AUXENTIA </strong></summary>
-		<br>
-		<em>The Heartland, Seat of the Court of Six Seats</em>
-		<br><br>
-		Auxentia is the broad river-plain heartland bound together under the Vaeltis Compact, the covenant by which the Concordat's Court of Six Seats governs in the name of its six gods. Its capital, Cynwic, sits astride the river that threads the realm from Vergenmark's foothills to the southern coast, and its craft-guilds - nominally sworn to Handwerra's patronage - are counted among the finest in Vaeltis.
+	They also didn't make anything. A god, the heretics say, is what happens when enough people believe in the same thing for long enough, or when one person believes so hard it takes shape. Gods can starve. There are shrines in the Vyrlands to gods whose names nobody remembers, and it's an open question whether anyone is still on the other end.
 	<br><br>
-	Long before the Compact, the land bore witness to older, quieter powers: the Weeping Idols still stand near the northern border, a ruin no living faith claims as its own, older than any of the Six. Auxentia's fields and forests are dotted with Old Kin shrines as much as Concordat temples, and most Auxentians keep both without contradiction. It is at the center of most worldly affairs, both past and present - though the azure-mountained reaches far to its edge, the Outpost among them, answer to no crown at all, bound to Auxentia by nothing more than the odd trade ship and an old habit of calling the Compact's calendar their own.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> VERGENMARK </strong></summary>
-		<br>
-		<em>The Enclave, Seat of the Ordo Iusta's Doctrine</em>
-		<br><br>
-		Vergenmark crowns Auxentia's northern border: a knot of craggy peaks and terraced mountain holds that once held the Ordo Iusta's rule over the whole of Auxentia, before a war and schism folded most of that reach under the Court of Six Seats instead. What remains is a doctrinal enclave still bound to strict Tribunal hierarchy - Praecursor's Word above all, Custodius's law enforcing it, Verita's truth binding every oath sworn within its valleys.
+	Every land brought its own. Tamarhel has its Nine Lights and the Daedric Princes who hate them. The Achaeons have their squabbling family on the mountain. The Ilé-Orun Coast has the orisha, who show up at festivals in borrowed bodies. Psyiadonia has the Ten, who inherited the world when the Allfather Psyiadon was killed, and the Inhumen, who want it for themselves. Each pantheon is quite sure it made the world. It's best not to point out that they can't all be right.
 	<br><br>
-	Vergenmarkers are raised on that history the way other folk are raised on scripture: a fall from dominance to enclave, remembered less as a defeat than as a wound still owed repayment. Orthodox clergy hold the temples, but a harsher fringe - never called the Inquisition to its face, though everyone knows what it is - grows from the same doctrine and answers to no seat but its own conviction. Vergenmark's stonework and hard grey wool are prized as far as the Tidesworn Isles, and its folk are known for meaning exactly what they say.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> OGNICA </strong></summary>
-		<br>
-		<em>The Ashlands, Ignatius's Restless Half of Dvojezem</em>
-		<br><br>
-		Ognica is the volcanic, ash-black western half of Dvojezem, the realm the Severance split from one being into two. It keeps to Ignatius's inheritance of growth, change, risk, and fire, and it shows: settlements are built expecting to burn or be buried, and rebuilt without much mourning when they are.
+	Since so many gods do the same jobs, priests talk about <b>domains</b>. A sailor doesn't much care whether the god that calms the sea is Poseidos or Abyssar, so long as the sea calms. A Death-priest of Haedes and a Death-priest of Nekhra will argue theology all night and then bury the dead exactly the same way.
 	<br><br>
-	Shrines here are raised in pairs, one face lit for Ignatius and one left dark for Kamenka, and most Ognicans venerate both across a lifetime. In the ash-flats stands the Gallows Oak, a single gnarled dead tree where the old folk-custom of Volkovoi's winter-offering is still kept, untouched by either god of the Severance. A narrow strait connects Ognica south to sister-land Kamenrad, and further on to the free-city road of Via Medulla; caravans and ships alike stop first at Blackcrag before braving the crossing.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> KAMENRAD </strong></summary>
-		<br>
-		<em>The Terraces, Kamenka's Stiller Half of Dvojezem</em>
-		<br><br>
-		Kamenrad is the terraced highland peninsula south of volcanic Ognica, the two together making up Dvojezem - one people, split since the Severance between Ignatius's fire and Kamenka's stone. Kamenrad keeps to stillness: preservation, duty, and the slow, exact work of building terraces that will still hold soil for one's great-grandchildren.
+	You don't need a temple either. Plenty of families keep a god of their own, sometimes one that nobody outside the house has ever heard of. It still listens.
 	<br><br>
-	The two halves of Dvojezem are governed jointly by a Threshold Council, seated wherever Ognica's and Kamenrad's roads meet, since neither half claims seniority over the other. Most Kamenradi keep shrines to both Ignatius and Kamenka, though a Kamenradi is more likely to be the one who finally finishes building the shrine. Kamenrad's terraced slopes produce the finest stoneware and hill-wine in Vaeltis, and its people have a reputation - not unearned - for outlasting whatever trouble finds them.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> VIA MEDULLA </strong></summary>
-		<br>
-		<em>The Marrow Roads, Free Cities of the Unveiled</em>
-		<br><br>
-		Via Medulla is not a nation so much as a corridor: a scatter of free cities strung along the trade route between Auxentia, the sundered lands of Dvojezem, and the sea beyond, none answering to a single crown or Seat. What holds it together is coin and caravan, not doctrine - which is exactly why it's where Aurelian's heresy has taken deepest root.
-	<br><br>
-	The Unveiled themselves are divided between the gentle Plainfolk majority, content to simply worship without clergy, and the violent Stripping minority, which has taken to actively unmaking the shrines of older gods within cities it's won over - at least one free city has abolished tithes to any temple entirely on its urging. Medullans are traders, caravaners, and free-city artisans first and believers second, practical people who measure a god's worth by what it costs to keep faith with.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> OSTROVIA </strong></summary>
-		<br>
-		<em>The Tidesworn Isles, Confederation of Open Water</em>
-		<br><br>
-		Ostrovia is a confederation of island ports scattered southeast of Auxentia's coast, bound together less by any single government than by shared dependence on open sea-lanes and fair trade. No land in Vaeltis is more alarmed by instability elsewhere, since a war on the mainland or a blockade in Via Medulla can starve an island city as surely as a siege.
-	<br><br>
-	Ostrovians keep Viator's patronage of trade, travel, and the luck of the road close, but at sea it's Miluše they invoke first - moon, tide, and the fickle fortune of open water. A ship's captain who scorns the tide-shrine before departure is thought a fool, whatever Seat they answer to on land. The isles export coral-work, salt, and the sharpest pilots in Vaeltis, along with a healthy suspicion of anyone whose fortune doesn't depend on the sea the way theirs does.
-		<br>
-	</details>
-
-	<br>
-	<strong><span style="font-size:115%"> THE OUTPOST AND ITS NEIGHBORS </span></strong>
-	<br><br>
-	<details>
-		<summary><strong> THE OUTPOST </strong></summary>
-		<br>
-		<em>Syon's Rest</em>
-		<br><br>
-		The Outpost is an isolated settlement, burrowed halfway into ancient elvish mountainscapes that stand vigil over Vaeltis's central oceans, answering to no crown, no court, and no Compact save by choice. Long ago, its coast lay closest to the Comet Syon's fall - nowadays, it's more well-known for its strong fishing economy and delicious salted trout pies. Owing to its nature as a welcoming refuge for both travelers and pilgrims alike, the Outpost's population happens to be unusually diverse. Whoever the settlement's residents have chosen to speak for them holds the role in name only - there is no throne here, no bloodline to inherit, and no court to intrigue over.
-	<br><br>
-	Not unlike the star that has long since come to rest beneath its shores, so too does the Outpost's foliage glimmer with brilliant hues of blue during the winter. Many believe the land has been seeded with such energy, which is why it remains blissfully calm within a world that stands a mere tremor away from an old, half-forgotten argument catching fire again.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> KINGSFIELD </strong></summary>
-		<br>
-		<em>Old Ground of the Golden Bull</em>
-		<br><br>
-		Colony is an independent settlement some distance from the Outpost, known for its grain, meat, and dairy, and for old charters and civic compacts - the Golden Bull chief among them - that still shape how trading partners the world over deal with burghers and guilds. It keeps the Concordat's Six close, Auxentius and Wulfric especially, and its knightly traditions are still spoken of with a certain wistfulness by traders who've dealt with its caravans.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> ROSAWOOD </strong></summary>
-		<br>
-		<em>Looms and Workshops</em>
-		<br><br>
-		Rosawood is a trading partner known the world over for its textiles and artisan craftwork - fine cloth, dyework, and the sort of tailoring that a coin-flush traveler pays double for. Its caravans and factors are a familiar sight wherever cloth changes hands, the Outpost included.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> DAFTSMARCH </strong></summary>
-		<br>
-		<em>Veins in the Rock</em>
-		<br><br>
-		Daftsmarch built its name on minerals and precious ore, its mines and assayers supplying half the world's smiths and jewelers. It trades independently with whoever can meet its price, the Outpost's own miners and merchants among its regulars.
-		<br>
-	</details>
-
-	<details>
-		<summary><strong> SALTWICK </strong></summary>
-		<br>
-		<em>Nets and Brine</em>
-		<br><br>
-		Saltwick is a coastal trading settlement built on seafood - salted, smoked, and fresh off the boat. Its fleets and its brine-cured stores make it a natural counterpart to the Outpost's own fishing trade, and the two ports keep up a steady, informal exchange.
-		<br>
-	</details>
-	<br><br>
+	<i>In play:</i> you choose a domain and then a god who holds it, or you write your own. Your miracles come from the domain. Gods hear you best near a holy cross, ritual chalk or their statue, or somewhere their domain cares about - by the water for sea-gods, at the anvil for craft-gods, at a graveside for death.</p>
 </details>
 
+<details>
+	<summary><strong><span style="font-size:130%"> MAGIC AND MIRACLES </span></strong></summary>
+
+	<p>Magic is study and nerve. A mage picks a discipline - fire, frost, lightning, stone, force or something less polite - and spends years learning to push it around. It costs the body every time. Mages call it Strain: an ache at first, then blood, then burns, and at the edge the whole working breaks out of you at once. Mages who forget that tend to get short careers.
+	<br><br>
+	No spell is sure. Most failures just slip away; some misfire; the worst leave a mark on the mage for good. Ley stones and drawn circles make it easier. A desperate mage can burn their own body into a spell to force it through.
+	<br><br>
+	<i>In play:</i> every arcane spell rolls a spell check. Watch your Strain alert. Mages can also <b>Incant</b> - write a spell in their own words, the way priests pray. The Codex of Palimpseste in the encyclopedia has the rest.
+	<br><br>
+	Miracles are a different thing. A priest asks, and the god decides. Faithful service earns more devotion and deeper miracles, but nobody is owed an answer.
+	<br><br>
+	<i>In play:</i> anyone with devotion can <b>Pray</b> - write a prayer in your own words, name your god, say what you want and for whom. The god reads every word. Humility helps, orders usually don't (war and trickster gods excepted), holy ground and a devout life help more, and offering your blood or strength buys a stronger answer. Say the same prayer over and over and it stops meaning much.
+	<br><br>
+	Priests and mages mostly tolerate each other. In some places that tolerance is thin.</p>
+</details>
 
 <details>
-	<summary><strong><span style="font-size:130%"> GLOSSARY OF VAELTIS </span></strong></summary>
-	<details>
-	<strong><span style="font-size:115%"> NOTEWORTHY CONCEPTS </span></strong>
-	<br><br>
-		<p><strong> Vaeltis </strong> - The world that the Outpost takes place in. No single faith claims naming rights to it, which most take as fitting. </p>
-		<p><strong> Comet Syon </strong> - The falling star Praecursor spent Himself to loose, binding the Unmaker beneath it and falling silent in the doing. Its resting place lies just off of the Outpost's coast. </p>
-		<p><strong> The Unmaker </strong> - What Praecursor bound. The Tribunal calls it an ending given shape; Aurelian calls it the Overgod's true edge. No one agrees, and that's rather the point. </p>
-		<p><strong> Undermaiden </strong> - Death. The personification of Morwenna, who is said to ferry the deceased toward the reckoning of their ledger. </p>
-		<p><strong> Paradise </strong> - Heaven, or whatever rest awaits the dutiful. Debatably kept by Morwenna, debatably by no one at all. </p>
-		<p><strong> The Underworld </strong> - Hell, or the closest word mortals have for what the Unmaker's touch leaves behind. Home to devils, demons, and taxmen. </p>
-		<p><strong> The Concordat </strong> - The Court of Six Seats: Auxentius, Miluše, Wulfric, Morwenna, Viator, and Handwerra, governing under the Vaeltis Compact. </p>
-		<p><strong> The Tribunal </strong> - Praecursor's Word, Custodius's enforcement, and Verita's testimony. Vergenmark's doctrine, and the Ordo Iusta's inheritance. </p>
-		<p><strong> The Severance </strong> - Ignatius and Kamenka, one god remembering itself as two since something tore Dvojezem, and Him, in half. </p>
-		<p><strong> The Old Kin </strong> - Everyday folk religion: Trnava, Volkovoi, Hausvette, and Klokner, worshipped at hearths and crossroads beneath every Seat and every Word. </p>
-		<p><strong> The Unveiled </strong> - Aurelian's heresy: no priesthood between a soul and the divine. Split into the gentle Plainfolk and the violent Stripping sect. </p>
-		<p><strong> The Ordo Iusta </strong> - Vergenmark's ruling doctrinal order, once sovereign over all of Auxentia's north before the Schism folded most of it under the Concordat. </p>
-		<p><strong> Alotheos </strong> - A labyrinthian tomb, located within reach of the Outpost. Though its origins aren't known, it's said to hold untold riches within. </p>
-		<p><strong> Arcyne </strong> - Magicka. A blessing of Miluše, which allows for the manipulation of Vaeltis's latent energies. </p>
-		<p><strong> Leyline </strong> - Channels of pure magicka, running across Vaeltis like the arteries in a body. Most arcyne acts draw from these veins. </p>
-		<p><strong> Phlogiston </strong> - The star-speckled space that cradles the Sun, the Moon, Vaeltis, and all the various astralities surrounding them. </p>
-		<p><strong> Murderwood </strong> - The Outpost's northern forests, better known in the current dae as the 'Grove'. Temperate, but teeming with brigandry.</p>
-		<p><strong> Terrorbog </strong> - The Outpost's western swamps, notoriously difficult to traverse and hazardous to even the most well-seasoned Adventurers.</p>
-		<p><strong> Coast </strong> - The Outpost's eastern coastline. It usually refers to its most popular point of entry, sandwiched between the Grove and Hamlet.</p>
-		<p><strong> Hamlet </strong> - The northernmost point of the Outpost's reach; a former settlement that has recently fallen to neglect.</p>
-		<p><strong> Keep </strong> - The old seat of local authority, located to the east of the Outpost's town square. Nowadays it mostly houses whoever the settlement looks to for leadership, along with its guardsmen.</p>
-		<p><strong> Church </strong> - The seat of faith, located to the west of the Outpost's town square. It preaches the Concordat's covenant to the Outpost's faithful.</p>
-		<br>
-	</details>
+	<summary><strong><span style="font-size:130%"> LANDS </span></strong></summary>
 
-	<details>
-	<strong><span style="font-size:115%"> NOTEWORTHY TERMS </span></strong>
+	<p><b>The Seamvale.</b> A long valley where half a dozen lands press together. Good for trade, bad for anyone who likes things to stay put.
 	<br><br>
-		<p><strong> Miracle </strong> - Holy magicka. Unlike the arcyne, miracles are powered by one's faith and devotion to their chosen deity. </p>
-		<p><strong> Lux </strong> - The physical condensation of soulmatter, present along the heart. It's said to tether one's spirit to their body. </p>
-		<p><strong> Deadite </strong> - Luxless corpses, resurrected through unholy means. Interchangeably used to describe both zombies and skeletons. </p>
-		<p><strong> Nitebeast </strong> - Monsters who rely on night-and-darkness to prowl. Primarily references werewolves, but can reference vampires as well. </p>
-		<p><strong> Lycker </strong> - Vampires. These luxless revenants are said to drink the blood of the living, and are empowered with unholy magicks. </p>
-		<p><strong> Gnoll </strong> - Lesser nitebeasts, born of Volkovoi's cull turned inward on itself. Like verevolves, they were once men; unlike them, they embrace their inhumenity. </p>
-		<p><strong> Verevolf </strong> - Greater nitebeasts, said to be Ignatius's risk taken to its worst extreme. When nite comes, even the meekest blightee turns into a fierce beast. </p>
-		<p><strong> Lich </strong> - Necromancers, ancient and well-versed in unholy magicka. They serve as the self-proclaimed lieutenants of Aurelian, and are one of the Outpost's gravest threats. </p>
-		<p><strong> Vampyre-Lord </strong> - Lords of lyckerdom, thought only to be restricted to the legends of antiquity. Should one resurface, terrible events are surely to follow. </p>
-		<p><strong> Avantyne </strong> - A so-called 'evil' alloy, wielded by Aurelian's most devoted worshippers. More commonly known as 'darksteel'.</p>
-		<p><strong> Inquisitor </strong> - Esoteric lieutenants of Vergenmark's militant fringe, equally respected and reviled for their techniques in handling the unholiest-of-foes. </p>
-		<p><strong> Taff </strong> - A profanity that happens to be quite popular amongst the peasantry. In the crudest terms, it refers to intercourse or despair.</p>
-		<p><strong> Saiga </strong> - Large antelopes, and Vaeltis's most popular choice for cavalrymen and travelers. Analogous to the far-rarer horse. </p>
-		<p><strong> Fogbeast </strong> - Horses. A rarely-seen alternative to the Saiga, due to its regional exclusivity to a few specific plains in Vaeltis. </p>
-		<p><strong> Red </strong> - A healing potion - specifically, the regenerative juices inside. Additionally known as 'lifeblood'.  </p>
-		<p><strong> Blue </strong> - A fatigue potion - or, rather, the energy-boosting juices inside. Additionally known as 'manna'. </p>
-		<p><strong> Cackleberry </strong> - Eggs. The favored pronunciation amongst the peasantry and antiquated. Doubles as an allusion to one's lowest-hanging fruits. </p>
-		<p><strong> Mammon </strong> - Currency. A copper zenny is one mammon, a silver ziliquae is five mammons, and a gold zenar is ten mammons. </p>
-		<p><strong> Scom </strong> - A rous-powered communication machine. Also functions as a verb, when used to describe 'calling' or 'contacting' someone. </p>
-		<p><strong> Meister </strong> - A coinage-machine that - with the cost of a bloodied finger - allows one to access their personal reserve of mammons. </p>
-		<p><strong> Nervemaster </strong> - The nexus that all coinage-machines are connected to. It can both deposit-and-tax mammons from all personal reserves.</p>
-		<p><strong> Vomitorium </strong> - A twin-throated chute that trails all the way to a city's stockpile. It both eats-and-vomits mammons and materials.</p>
-		<p><strong> Silverface </strong> - Toggleable vendors, drawing from the stockpile of local businesses. Far more expensive, yet quicker, than commissions.</p>
-		<p><strong> Excidium </strong> - The leyline of bounty-hunters: a machine that both tracks and redeems local bounties for a sum of coinage.</p>
-		<p><strong> Lampternball </strong> - A popular sport, where one maneuvers a rounded lamptern into either a hoop, goal, or a blaggard's face.</p>
-		<p><strong> Blastpowder </strong> - An alchemic enigma, capable of erupting with tremendous power at the lightest spark. Additionally known as 'blastsand'.</p>
-		<p><strong> AC </strong> - The current calendar era: "After the Compact," counted from the year the Vaeltis Compact was struck and the Court of Six Seats began governing Auxentia in the Concordat's name. The current date is 1513 AC. </p>
-		<br>
-	</details>
+	<b>Tamarhel.</b> A whole continent. Skarnheim's jarls up north, the old Imperial City in Cyrodel, ash and dark elves in Morrowvale, courtly backstabbing in High Rook, high elves in Sumersette, desert swordsmen in Hammerfel, cat-folk in Elswyr, lizard-folk in the Black Marsh, wood elves in Valenwood. The empire over all of it has fallen apart more than once.
 	<br><br>
+	<b>The Vyrlands.</b> Birch forest going on forever. Leave bread and salt on the windowsill and don't whistle after dark.
+	<br><br>
+	<b>Varovia.</b> A valley under a mist that kills anyone who tries to leave, and a lord in a castle who is not alive. You got out somehow. Nobody believes you.
+	<br><br>
+	<b>The Conjunct.</b> Northern kingdoms that have been at war with each other and with monsters for as long as anyone remembers. They hire mutated slayers to deal with the monsters and don't thank them.
+	<br><br>
+	<b>Tír Aenna.</b> Rain, stone walls and hills that aren't always hills. Be careful what you promise. Be more careful what you accept.
+	<br><br>
+	<b>Faerhen.</b> Wizard towers, adventuring companies with charters, and a god for everything. If there's a dungeon, someone in Faerhen has a map of it for sale.
+	<br><br>
+	<b>Thessadra.</b> Mages live in towers under guard, and there are good reasons for it. Demons wait on the other side of dreams.
+	<br><br>
+	<b>Golaren.</b> More nations than you can count, and scholarly lodges that insist on counting anyway.
+	<br><br>
+	<b>The Laurentine Dominion.</b> Roads, legions, aqueducts and lawyers. Any god is welcome so long as it's registered and pays tax.
+	<br><br>
+	<b>The Achaeon Isles.</b> City-states, heroes and a family of gods who can't leave mortals alone. The door to the underworld is somewhere in the hills.
+	<br><br>
+	<b>The Khemet Sands.</b> One great river and a lot of desert. The kings build tombs the size of cities and the grave-robbers keep very good notes.
+	<br><br>
+	<b>Athrae.</b> Green once, until its sorcerer-kings burned the life out of the land for power. Using magic openly there will get you killed.
+	<br><br>
+	<b>Ashurim.</b> Brick cities between two rivers. They wrote the first laws down and have been suing each other ever since. Most great houses keep a djinn on contract.
+	<br><br>
+	<b>The Ilé-Orun Coast.</b> Trading kingdoms, bronze-casters and griots who can recite your family back forty generations. The spider owns all the stories.
+	<br><br>
+	<b>Turtle's Back.</b> Prairie and river country resting on the first turtle's shell. Spirit-walkers talk to the animal nations. Some hungers in the winter woods are not talked about.
+	<br><br>
+	<b>Hinomura.</b> Islands full of kami, shrines and very polite people with very sharp swords. When the lanterns go out, the yokai come.
+	<br><br>
+	<b>The Dunmoor Isles.</b> Grey cities that burn whale oil and cough up plague. Rich people live behind walls of light. Something whispers from carved bone.
+	<br><br>
+	<b>Yharrow.</b> A gothic city whose church heals any sickness with blood. Don't ask where the blood comes from. Stay indoors on the night of the hunt.
+	<br><br>
+	<b>Psyiadonia.</b> An old, hard world whose creator was murdered. Its people tithe to the Ten, burn heretics and live one bad winter from ruin. The Grand Duchy of Azuria and Azure Peak are here.
+	<br><br>
+	<b>The Hinge.</b> A city with no sky, where any doorway might open onto anywhere. Everyone there knows how the world was made and finds it a bit boring.
+	<br><br>
+	<b>Elsewhere.</b> A village too small to name, a wagon, a patch of land nobody claims. Some people come from nowhere in particular and like it that way.</p>
+</details>
+
+<details>
+	<summary><strong><span style="font-size:130%"> TONGUES </span></strong></summary>
+
+	<p>Most lands have their own language: Tamarhelic, Vyrlish, Nordling, Aennach, Faerhenic, Thessic, Laurentine, Achaean, Khemeti, Ashurite, Oruni, Hinomuran, Shelltongue, Dunmoorish. Clergy nearly everywhere learn Laurentine for the old texts, whether they like it or not.
+	<br><br>
+	Travellers mostly get by in <b>Seamspeak</b>, a trade pidgin cobbled together at the borders. No one grows up speaking it. Everyone ends up speaking some.</p>
+</details>
+
+<details>
+	<summary><strong><span style="font-size:130%"> WORDS YOU'LL HEAR </span></strong></summary>
+
+	<p><b>Palimpseste</b> - the world.
+	<br><b>Seam</b> - a place where two lands meet and don't quite fit.
+	<br><b>The Hinge</b> - the city of doors.
+	<br><b>Domain</b> - what a god has power over. Sea, Death, Craft and so on.
+	<br><b>Private devotion</b> - worshipping a god no church knows. It still counts.
+	<br><b>The Ten</b> - Psyiadonia's gods: Astratha, Nokk, Dendhor, Abyssar, Ravokh, Nekhra, Zylix, Pestrah, Malumm, Eorah.
+	<br><b>The Inhumen</b> - the ones Psyiadonia burns people for: Zyzo, Gragghar, Mathios, Baothe.
+	<br><b>Elsewhere</b> - where you're from if you'd rather not say.</p>
 </details>

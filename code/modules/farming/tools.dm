@@ -368,7 +368,7 @@
 
 /obj/item/rogueweapon/pitchfork/aalloy
 	name = "decrepit pitchfork"
-	desc = "Do not fault the layman for fearing Her disciples, nor for driving them out of the villages with pitchforks-and-torches. They, too, will come to see the blessings of Zizo, all in due tyme."
+	desc = "Do not fault the layman for fearing Her disciples, nor for driving them out of the villages with pitchforks-and-torches. They, too, will come to see the blessings of the Forbidden, all in due tyme."
 	icon_state = "apitchfork"
 	smeltresult = /obj/item/ingot/aalloy
 	color = "#bb9696"

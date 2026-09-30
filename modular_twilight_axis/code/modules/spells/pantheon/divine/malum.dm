@@ -12,7 +12,7 @@
 	no_early_release = TRUE
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/items/bsmithfail.ogg'
-	invocations = list("Through flame and ash, let vigor rise, by Malum’s hand, let strength reprise!")
+	invocations = list("Through flame and ash, let vigor rise, by the Craft’s hand, let strength reprise!")
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
@@ -38,7 +38,7 @@
 	no_early_release = TRUE
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/items/bsmithfail.ogg'
-	invocations = list("With heat I wield, with flame I claim, Let metal serve in Malum's name!")
+	invocations = list("With heat I wield, with flame I claim, Let metal serve in the Craft's name!")
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
@@ -84,7 +84,7 @@
 	no_early_release = TRUE
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/items/bsmithfail.ogg'
-	invocations = list("By molten might and hammer's weight, in Malum’s flame, the earth shall quake!")
+	invocations = list("By molten might and hammer's weight, in the Craft’s flame, the earth shall quake!")
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
@@ -155,7 +155,7 @@
 	no_early_release = TRUE
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/items/bsmithfail.ogg'
-	invocations = list("Coins to ash, flame to form, in Malum’s name, let creation be born!")
+	invocations = list("Coins to ash, flame to form, in the Craft’s name, let creation be born!")
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
@@ -381,7 +381,7 @@
 		item_map[display_name] = item_type
 
 	if(!length(item_map))
-		show_visible_message_TA(usr, "A wave of heat washes over the pile as [user] speaks Malum's name. The pile of valuables crumble into dust.", "A wave of heat washes over the pile as you speak Malum's name. The pile of valuables crumble into dust. Malum accepted your sacrifice. Yet it seems it wasn't enough.")
+		show_visible_message_TA(usr, "A wave of heat washes over the pile as [user] speaks the Craft's name. The pile of valuables crumble into dust.", "A wave of heat washes over the pile as you speak the Craft's name. The pile of valuables crumble into dust. The Craft accepted your sacrifice. Yet it seems it wasn't enough.")
 		return
 
 	var/itemchoice = input(user, "Choose your boon", "Available boons") as null|anything in item_map
@@ -395,7 +395,7 @@
 	new item_type(altar)
 	sparks.set_up(1, 1, altar)
 	sparks.start()
-	show_visible_message_TA(usr, "A wave of heat washes over the pile as [user] speaks Malum's name. The pile of valuables crumble into dust, only for the dust to reform into an item as if reborn from the flames. Malum has accepted the offering.", "A wave of heat washes over the pile as you speak Malum's name. The pile of valuables crumble into dust, only for the dust to reform into an item as if reborn from the flames. Malum has accepted the offering.")
+	show_visible_message_TA(usr, "A wave of heat washes over the pile as [user] speaks the Craft's name. The pile of valuables crumble into dust, only for the dust to reform into an item as if reborn from the flames. The Craft has accepted the offering.", "A wave of heat washes over the pile as you speak the Craft's name. The pile of valuables crumble into dust, only for the dust to reform into an item as if reborn from the flames. The Craft has accepted the offering.")
 
 //T0
 
@@ -657,7 +657,7 @@
 			else
 				S.obj_integrity += repair_points
 			user.visible_message(span_notice("[user] point on [door.name] and repair this."), \
-			span_notice("I point on [door.name]. Malum blessing!"))
+			span_notice("I point on [door.name]. The Craft blessing!"))
 			return TRUE
 
 		if(istype(S, /obj/structure/roguewindow/))
@@ -680,7 +680,7 @@
 				else
 					S.obj_integrity += repair_points
 				user.visible_message(span_notice("[user] point on [window.name] and repair this."), \
-				span_notice("I point on [window.name]. Malum blessing!"))
+				span_notice("I point on [window.name]. The Craft blessing!"))
 				return TRUE
 		else
 			if(!do_after(user, (150 / skill), target = S))

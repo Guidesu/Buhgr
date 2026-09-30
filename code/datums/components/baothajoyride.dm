@@ -81,6 +81,6 @@
 
 /atom/movable/screen/alert/status_effect/baotha_joyride
 	name = "Joyride"
-	desc = "At the tip of the tongue, Baotha's blessing in purest form."
+	desc = "At the tip of the tongue, the Forbidden's blessing in purest form."
 
 #undef JOYRIDE_FILTER

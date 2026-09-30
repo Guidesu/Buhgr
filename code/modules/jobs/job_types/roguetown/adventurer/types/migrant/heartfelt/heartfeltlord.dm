@@ -283,11 +283,11 @@
 		to_chat(recruiter, span_warning("They're already part of the Peak's guard! They can't join our cause!"))
 		return FALSE
 	if(HAS_TRAIT(recruit, TRAIT_INQUISITION))
-		to_chat(recruiter, span_warning("Their loyalty is to Praecursor alone! They can't join our cause!"))
+		to_chat(recruiter, span_warning("Their loyalty is to the Absent God alone! They can't join our cause!"))
 		return FALSE
 	//If you're reading this, please refactor this once we have TRAIT_CLERGY thanks
 	if(HAS_TRAIT(recruit, TRAIT_CLERGY))
-		to_chat(recruiter, span_warning("Clergy cannot join our cause! Their loyalty is to the Ten!"))
+		to_chat(recruiter, span_warning("Clergy cannot join our cause! Their loyalty is to the Domains!"))
 		return FALSE
 	..()
 

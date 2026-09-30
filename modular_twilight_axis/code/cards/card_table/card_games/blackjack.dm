@@ -178,7 +178,7 @@
 		blackjack_mark_action(player, player.busted)
 	xylix_cheat_used += user.ckey
 	xylix_check_exposure(user)
-	to_chat(user, span_notice("Xylix nudges [card_table_card_label(card)] into place."))
+	to_chat(user, span_notice("Trickery nudges [card_table_card_label(card)] into place."))
 	if(game_type == CARD_TABLE_GAME_BLACKJACK)
 		blackjack_process_spirit_turn(FALSE)
 	if(game_type == CARD_TABLE_GAME_BLACKJACK && blackjack_all_done())

@@ -101,7 +101,7 @@ export const Goldface = () => {
             >
               Goods
             </div>
-            {canSeeHarborTabs && (
+            {!!canSeeHarborTabs && (
               <div
                 style={tabStyle(activeTab === 'cultural')}
                 onClick={() => setTab('cultural')}
@@ -109,7 +109,7 @@ export const Goldface = () => {
                 Cultural Stock
               </div>
             )}
-            {canSeeHarborTabs && (
+            {!!canSeeHarborTabs && (
               <div
                 style={tabStyle(activeTab === 'harbor')}
                 onClick={() => setTab('harbor')}
@@ -117,7 +117,7 @@ export const Goldface = () => {
                 Harbor
               </div>
             )}
-            {canSeeMerchantTabs && (
+            {!!canSeeMerchantTabs && (
               <div
                 style={tabStyle(activeTab === 'market')}
                 onClick={() => setTab('market')}
@@ -125,7 +125,7 @@ export const Goldface = () => {
                 Market
               </div>
             )}
-            {canSeeMerchantTabs && (
+            {!!canSeeMerchantTabs && (
               <div
                 style={tabStyle(activeTab === 'management')}
                 onClick={() => setTab('management')}
@@ -133,7 +133,7 @@ export const Goldface = () => {
                 Management
               </div>
             )}
-            {canSeeMerchantTabs && (
+            {!!canSeeMerchantTabs && (
               <div
                 style={tabStyle(activeTab === 'ledger')}
                 onClick={() => setTab('ledger')}

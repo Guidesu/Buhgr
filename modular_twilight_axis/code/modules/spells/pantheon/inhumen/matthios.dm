@@ -38,7 +38,7 @@
 
 /datum/action/cooldown/spell/matthios/freemans_tools
 	spell_color = GLOW_COLOR_MATTHIOS
-	desc = "A simple prayer to the Free-God Matthios, for tools of liberation and struggle.<br><br>His will manifests in three forms: gutter-born arts of the freemen, gilded tools of blessed liberation, or by granting the bases of Malchem, a form of primordial alchemy so impossible it is oft mistaken for sorcery."
+	desc = "A simple prayer to the Free-God Trade, for tools of liberation and struggle.<br><br>His will manifests in three forms: gutter-born arts of the freemen, gilded tools of blessed liberation, or by granting the bases of Malchem, a form of primordial alchemy so impossible it is oft mistaken for sorcery."
 	options = list(
 		//a simple 'blinds u for 1 sec' throwable
 		"Pocket Sand" = list(
@@ -56,7 +56,7 @@
 			m_devotion = 10,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Gilded Tools",
-			lines = list("+Guide my hand, Matthios.", "+No lock can hold those who are free!", "+Your tools will lead us to freedom!")
+			lines = list("+Guide my hand, Trade.", "+No lock can hold those who are free!", "+Your tools will lead us to freedom!")
 		),
 		//freely spawns 400 mammon!!! no wae! is this trve?!!?!??
 		"Pouch of Smuggling" = list(
@@ -65,7 +65,7 @@
 			m_devotion = 100,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Rogue Arts",
-			lines = list("+Matthios, protect our stores.", "+The greedy hunger for our riches, but they'll never see the gold of free folk...", "+May your tools protect our spoils...")
+			lines = list("+Trade, protect our stores.", "+The greedy hunger for our riches, but they'll never see the gold of free folk...", "+May your tools protect our spoils...")
 		),
 		//makes failed lockpicking attempts muffled
 		"Gilded Dexterous Gloves" = list(
@@ -92,7 +92,7 @@
 			m_devotion = 200,
 			m_rank = SKILL_LEVEL_EXPERT,
 			category = "Gilded Tools",
-			lines = list("+Matthios, show me the way.","+Through bolts and locks I see what we fight for.","+Matthios, reveal the truth to me in the dark.")
+			lines = list("+Trade, show me the way.","+Through bolts and locks I see what we fight for.","+Trade, reveal the truth to me in the dark.")
 		),
 		//normal chains that bind nobility faster
 		"Gilded Chains" = list(
@@ -101,16 +101,16 @@
 			m_devotion = 200,
 			m_rank = SKILL_LEVEL_JOURNEYMAN,
 			category = "Gilded Tools",
-			lines = list("Matthios! Chains for the masters!", "You won't escape the people's justice!", "Let us bind the tyrants in their own chains!")
+			lines = list("Trade! Chains for the masters!", "You won't escape the people's justice!", "Let us bind the tyrants in their own chains!")
 		),
 		//enables thieves' cant when worn on neck
-		"Gilded Amulet of Matthios" = list(
+		"Gilded Amulet of Trade" = list(
 			path = /obj/item/clothing/neck/roguetown/psicross/inhumen/matthios/gilded,
 			m_cooldown = 30 MINUTES,
 			m_devotion = 50,
 			m_rank = SKILL_LEVEL_NONE,
 			category = "Gilded Tools",
-			lines = list("+Matthios, I place myself in your hands.", "+Lord of Nothing, I bear your banner with pride.", "+Father of Freedom, your will be done.")
+			lines = list("+Trade, I place myself in your hands.", "+Lord of Nothing, I bear your banner with pride.", "+Father of Freedom, your will be done.")
 		),
 		//miralchemy mode on
 		"Vial of Firstlaw" = list(
@@ -119,7 +119,7 @@
 			m_devotion = 75,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Malchem Vials",
-			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
+			lines = list("+Trade, give me the base and I will finish your work!", "+Trade, send me the truth of alchemy!", "+O Trade, I will finish what you began!")
 		),
 		//turns 10 organic items into 1 rich food of choice (that will often be burned mess or bread if you're not starving to death)
 		"Vial of Kingsfeast Base" = list(
@@ -128,7 +128,7 @@
 			m_devotion = 25,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Malchem Vials",
-			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
+			lines = list("+Trade, give me the base and I will finish your work!", "+Trade, send me the truth of alchemy!", "+O Trade, I will finish what you began!")
 		),
 		//basically turns water or fruits into wine, if used with blood or lux instead, becomes Kingsblood
 		"Vial of Kingswine Base" = list(
@@ -137,7 +137,7 @@
 			m_devotion = 25,
 			m_rank = SKILL_LEVEL_NOVICE,
 			category = "Malchem Vials",
-			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
+			lines = list("+Trade, give me the base and I will finish your work!", "+Trade, send me the truth of alchemy!", "+O Trade, I will finish what you began!")
 		),
 		//makes you honk shoo mimimi, while restoring energy over time
 		"Vial of Goodnite Base" = list(
@@ -146,7 +146,7 @@
 			m_devotion = 50,
 			m_rank = SKILL_LEVEL_APPRENTICE,
 			category = "Malchem Vials",
-			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
+			lines = list("+Trade, give me the base and I will finish your work!", "+Trade, send me the truth of alchemy!", "+O Trade, I will finish what you began!")
 		),
 		//a 4 use vial of mending
 		"Vial of Warsmith Base" = list(
@@ -155,7 +155,7 @@
 			m_devotion = 50,
 			m_rank = SKILL_LEVEL_JOURNEYMAN,
 			category = "Malchem Vials",
-			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
+			lines = list("+Trade, give me the base and I will finish your work!", "+Trade, send me the truth of alchemy!", "+O Trade, I will finish what you began!")
 		),
 		// idk what else, but it should be used by baothans, something they'll want a lot
 /*		"Vial of Liquid Desire Base" = list(
@@ -163,7 +163,7 @@
 			m_cooldown = 10 MINUTES,
 			m_rank = SKILL_LEVEL_MASTER,
 			category = "Malchem Vials",
-			lines = list("Matthios, provide the base, I shall complete thy work!", "Matthios! Deliver unto me the truth of alchemy!", "Lord of Exchange, I shall finish thy work!")
+			lines = list("Trade, provide the base, I shall complete thy work!", "Trade! Deliver unto me the truth of alchemy!", "Lord of Exchange, I shall finish thy work!")
 		),
 		// same idea but graggarites
 		"Vial of Liquid Bloodlust Base" = list(
@@ -171,7 +171,7 @@
 			m_cooldown = 10 MINUTES,
 			m_rank = SKILL_LEVEL_MASTER,
 			category = "Malchem Vials",
-			lines = list("Matthios, provide the base, I shall complete thy work!", "Matthios! Deliver unto me the truth of alchemy!", "Lord of Exchange, I shall finish thy work!")
+			lines = list("Trade, provide the base, I shall complete thy work!", "Trade! Deliver unto me the truth of alchemy!", "Lord of Exchange, I shall finish thy work!")
 		),
 		// same idea but zizoids
 		"Vial of Liquid Progress Base" = list(
@@ -179,7 +179,7 @@
 			m_cooldown = 10 MINUTES,
 			m_rank = SKILL_LEVEL_MASTER,
 			category = "Malchem Vials",
-			lines = list("Matthios, provide the base, I shall complete thy work!", "Matthios! Deliver unto me the truth of alchemy!", "Lord of Exchange, I shall finish thy work!")
+			lines = list("Trade, provide the base, I shall complete thy work!", "Trade! Deliver unto me the truth of alchemy!", "Lord of Exchange, I shall finish thy work!")
 		),
 		// the og idea was to make this deconvert nobles but idk now
 		"Vial of Liquid Freedom Base" = list(
@@ -187,7 +187,7 @@
 			m_cooldown = 10 MINUTES,
 			m_rank = SKILL_LEVEL_MASTER,
 			category = "Malchem Vials",
-			lines = list("Matthios, provide the base, I shall complete thy work!", "Matthios! Deliver unto me the truth of alchemy!", "Lord of Exchange, I shall finish thy work!")
+			lines = list("Trade, provide the base, I shall complete thy work!", "Trade! Deliver unto me the truth of alchemy!", "Lord of Exchange, I shall finish thy work!")
 		),*/
 
 		// a spicy, explosive, very, very difficult-to-make revive vial, uses all herbs in the world and 1 of any lux type
@@ -197,7 +197,7 @@
 			m_devotion = 100,
 			m_rank = SKILL_LEVEL_EXPERT,
 			category = "Malchem Vials",
-			lines = list("+Matthios, give me the base and I will finish your work!", "+Matthios, send me the truth of alchemy!", "+O Matthios, I will finish what you began!")
+			lines = list("+Trade, give me the base and I will finish your work!", "+Trade, send me the truth of alchemy!", "+O Trade, I will finish what you began!")
 		),
 		// a spicy, explosive grenade that ignites over a massive area, making tennites and nobles roll in agony and go insane
 		// but in my BETTER JUDGEMENT, this is just my early april fools joke, go to sleep my child
@@ -230,7 +230,7 @@
 	glow_intensity = GLOW_INTENSITY_LOW
 	recharge_time = 3 MINUTES
 	invocations = list("Father, break my chains.",
-		"Matthios, don't let them hold me.",
+		"Trade, don't let them hold me.",
 		"Father of Freedom, shatter these chains."
 	)
 	invocation_type = "whisper"
@@ -446,7 +446,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/twilight_equalized
 	name = "Equalized"
-	desc = "Matthios grants you strength to face even the most wicked of tyrants."
+	desc = "Trade grants you strength to face even the most wicked of tyrants."
 	icon_state = "equalize_buff"
 	icon = 'modular_twilight_axis/icons/mob/actions/matthios_miracles.dmi'
 
@@ -655,7 +655,7 @@
 
 /obj/effect/proc_holder/spell/self/twilight_amongus
 	name = "No Gods Among Us"
-	desc = "Dispells all divine gifts applied to those who do not follow the Matthian creed around you, and all divine maluses that affect your allies."
+	desc = "Dispells all divine gifts applied to those who do not follow the Trade creed around you, and all divine maluses that affect your allies."
 	overlay_state = "nogodsamongus"
 	action_icon = 'modular_twilight_axis/icons/mob/actions/matthios_miracles.dmi'
 	glow_color = GLOW_COLOR_MATTHIOS
@@ -837,7 +837,7 @@
 
 /obj/effect/proc_holder/spell/invoked/twilight_commieflag
 	name = "The People's Banner"
-	desc = "Summon a Matthian banner and rally your comrades. So long as the banner is in your hands, you and your allies cannot be slowed down, and your will to fight strenghtens."
+	desc = "Summon a Trade banner and rally your comrades. So long as the banner is in your hands, you and your allies cannot be slowed down, and your will to fight strenghtens."
 	clothes_req = FALSE
 	overlay_state = "peoplesbanner"
 	action_icon = 'modular_twilight_axis/icons/mob/actions/matthios_miracles.dmi'
@@ -895,7 +895,7 @@
 
 /obj/item/rogueweapon/spear/matthios_standard
 	name = "people's banner"
-	desc = "The banner of those who would stand against tyranny and oppression, proudly bearing the sigil of Matthios, Father of Freedom"
+	desc = "The banner of those who would stand against tyranny and oppression, proudly bearing the sigil of Trade, Father of Freedom"
 	force = 0
 	force_wielded = 0
 	wdefense = 1
@@ -919,7 +919,7 @@
 
 /atom/movable/screen/alert/status_effect/buff/twilight_peoplesbanner
 	name = "The People's Banner"
-	desc = "The sigil of Matthios inspires me to fight on!"
+	desc = "The sigil of Trade inspires me to fight on!"
 	icon_state = "peoplesbanner_buff"
 	icon = 'modular_twilight_axis/icons/mob/actions/matthios_miracles.dmi'
 
@@ -987,7 +987,7 @@
 /datum/stressevent/twilight_peoplesbanner_good
 	timer = 999 MINUTES
 	stressadd = -3
-	desc = span_green("The sigil of Matthios inspires me to fight on!")
+	desc = span_green("The sigil of Trade inspires me to fight on!")
 
 /datum/stressevent/twilight_peoplesbanner_bad
 	timer = 999 MINUTES
@@ -998,7 +998,7 @@
 
 /obj/effect/proc_holder/spell/self/wildshape_twilight_wingsoffreedom
 	name = "Wings of Freedom"
-	desc = "Transform into the strongest form of Matthios' own - a dragon. A mere mortal can't sustain this form for long, yet with the power Matthios grants you, you shall burn this world of tyranny to the ground."
+	desc = "Transform into the strongest form of Trade' own - a dragon. A mere mortal can't sustain this form for long, yet with the power Trade grants you, you shall burn this world of tyranny to the ground."
 	overlay_state = "wingsoffreedom"
 	action_icon = 'modular_twilight_axis/icons/mob/actions/matthios_miracles.dmi'
 	glow_color = GLOW_COLOR_MATTHIOS
@@ -1034,7 +1034,7 @@
 		return FALSE
 
 	if(istype(get_area(user), /area/rogue/indoors/ravoxarena))
-		to_chat(user, span_userdanger("I reach for my draconic form, but something rebukes me! Ravox is too strong in this dimension!"))
+		to_chat(user, span_userdanger("I reach for my draconic form, but something rebukes me! Law is too strong in this dimension!"))
 		revert_cast(user)
 		return FALSE
 
@@ -1211,7 +1211,7 @@
 
 /obj/item/rogueweapon/twilight_dragon_claw
 	name = "dragon claw"
-	desc = "It is said that true dragons used to infuse their claws with metal alloys to make them more dangerous in combat. Regardless of whether that's true, those talons, blessed by Matthios, are no less powerful."
+	desc = "It is said that true dragons used to infuse their claws with metal alloys to make them more dangerous in combat. Regardless of whether that's true, those talons, blessed by Trade, are no less powerful."
 	item_state = null
 	lefthand_file = null
 	righthand_file = null
@@ -1390,7 +1390,7 @@
 		apply_status_effect(/datum/status_effect/buff/twilight_dragon_form/short)
 		return
 	if(istype(get_area(src), /area/rogue/indoors/ravoxarena))
-		to_chat(src, span_userdanger("I reach for my normal form, but something rebukes me! Ravox is too strong in this dimension!"))
+		to_chat(src, span_userdanger("I reach for my normal form, but something rebukes me! Law is too strong in this dimension!"))
 		if(has_status_effect(/datum/status_effect/buff/twilight_dragon_form))
 			remove_status_effect(/datum/status_effect/buff/twilight_dragon_form)
 		apply_status_effect(/datum/status_effect/buff/twilight_dragon_form/short)
@@ -1458,8 +1458,8 @@
 	invocation_type = "none"
 
 /obj/effect/proc_holder/spell/invoked/resurrect/twilight_matthios
-	name = "Shackles of Necra"
-	desc = "Invoke Matthios's power to rip the target's soul out of Necra's unholy grasp, reviving them. The strength of your returned comrade will depend on the number of freemen present during the ritual."
+	name = "Shackles of Death"
+	desc = "Invoke Trade's power to rip the target's soul out of Death's unholy grasp, reviving them. The strength of your returned comrade will depend on the number of freemen present during the ritual."
 	debuff_type = /datum/status_effect/debuff/twilight_matthios_revival
 	alt_required_items = list()
 	required_items = list()
@@ -1501,13 +1501,13 @@
 	return ..()
 
 /atom/movable/screen/alert/status_effect/debuff/twilight_matthios_revival
-	name = "Shackles of Necra"
-	desc = "Matthios has cleaved a way for your soul to escape Necra's unholy grasp. Hopefully, enough of your comrades were there to light the path."
+	name = "Shackles of Death"
+	desc = "Trade has cleaved a way for your soul to escape Death's unholy grasp. Hopefully, enough of your comrades were there to light the path."
 	icon_state = "pom_regret"
 
 /datum/status_effect/debuff/twilight_matthios_revival/on_apply()
 	. = ..()
-	owner.visible_message("<font size=9 color=9c830b>Necra has no power over my children. Rise, son of Freedom.</font><br>", "<font size=9 color=9c830b>Your comrades need you. Rise, son of Freedom.</font><br>")
+	owner.visible_message("<font size=9 color=9c830b>Death has no power over my children. Rise, son of Freedom.</font><br>", "<font size=9 color=9c830b>Your comrades need you. Rise, son of Freedom.</font><br>")
 
 #undef EQUALIZED_GLOW
 #undef FREEDOM_FILTER

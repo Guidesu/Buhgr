@@ -270,7 +270,7 @@
 
 /obj/item/rogueweapon/flail/sflail/psyflail/relic
 	name = "Consecratia"
-	desc = "The weight of His anguish, His pain, His hope and His love for humenkind - all hanging on the ornamental silver-steel head chained to this arm. <br><br>A declaration of love for all that Praecursor lives for, and a crushing reminder to the arch-nemesis that they will not triumph as long as He endures."
+	desc = "The weight of His anguish, His pain, His hope and His love for humenkind - all hanging on the ornamental silver-steel head chained to this arm. <br><br>A declaration of love for all that the Absent God lives for, and a crushing reminder to the arch-nemesis that they will not triumph as long as He endures."
 	icon_state = "psymorningstar"
 	possible_item_intents = list(/datum/intent/flail/strike, /datum/intent/flail/smash/ranged, /datum/intent/flail/bash)
 
@@ -363,9 +363,9 @@
 /obj/item/rogueweapon/flail/sflail/holysee
 	name = "holy see flail"
 	desc = "A blessed flail, oft conflicts arise betwixt the Otavian Orthodoxy and Holy See on the origins \
-			being betwixt Praecursor and Noc being the origin of such weapon, regardless against the forces of evil, \
+			being betwixt the Absent God and the Moon being the origin of such weapon, regardless against the forces of evil, \
 			it serves one absolute truth - smashing through plate and skull of Heathen and Heretic alike. Often favored \
-			by Xylix's following for theatrics but also curiously Noc's following as a ceremonial tool of war."
+			by Trickery's following for theatrics but also curiously the Moon's following as a ceremonial tool of war."
 	icon_state = "churchflail"
 	wlength = WLENGTH_LONG
 

@@ -83,7 +83,7 @@
 	outline_colour = "#d04ae2"
 
 /atom/movable/screen/alert/status_effect/buff/healing/eora_bed
-	name = "Eora's reprieve"
+	name = "Love's reprieve"
 	desc = "The warmth of the petals soothes my breathing and heals my ails."
 	icon_state = "eorabed"
 
@@ -111,7 +111,7 @@
 
 /obj/structure/bed/rogue/sanctuary/eora
 	name = "flower bed"
-	desc = "A bed of flower petals that looks soft enough to sleep on! Said to spare the dying from Necra's domain."
+	desc = "A bed of flower petals that looks soft enough to sleep on! Said to spare the dying from Death's domain."
 	icon_state = "eora"
 	status_effect_type = /datum/status_effect/buff/healing/bed_rest
 
@@ -200,10 +200,10 @@
 	return ..()
 
 /datum/action/cooldown/spell/summon_bed/eora
-	name = "Eora's Rest"
-	desc = "Summon a sacred Eoran bed to provide sanctuary and soothe the wounded. \
+	name = "Love's Rest"
+	desc = "Summon a sacred Love bed to provide sanctuary and soothe the wounded. \
 	You may only maintain a limited amount of beds at a time depending on miracle skill."
 	button_icon_state = "eorabed"
 	spell_color = "#b74ae2"
-	invocations = list("Eora, grant us respite!")
+	invocations = list("Love, grant us respite!")
 	bed_type = /obj/structure/bed/rogue/sanctuary/eora

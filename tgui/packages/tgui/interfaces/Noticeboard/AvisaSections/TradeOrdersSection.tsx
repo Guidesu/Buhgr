@@ -62,7 +62,7 @@ export const TradeOrdersSection = ({ data }: { data: NoticeboardData }) => {
         >
           {helpOpen ? 'Hide About Trade Orders' : 'About Trade Orders'}
         </button>
-        {helpOpen && <HelpPanel />}
+        {!!helpOpen && <HelpPanel />}
       </div>
 
       {orders.length === 0 ? (

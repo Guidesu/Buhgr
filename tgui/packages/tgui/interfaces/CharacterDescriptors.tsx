@@ -44,7 +44,7 @@ const CustomDescriptorRow = ({ row, act }: { row: CustomDescriptor; act: Backend
   return (
     <FieldRow label={row.name}>
       <Stack align="center">
-        {row.has_prefix && (
+        {!!row.has_prefix && (
           <Stack.Item>
             <Dropdown
               selected={row.prefix_display || undefined}

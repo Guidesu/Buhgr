@@ -55,6 +55,19 @@ const overflowStyle: CSSProperties = {
   paddingRight: '2px',
 };
 
+/** Moon for a day of the 28-day month; full moon on days 13-15. */
+export const moonForDay = (day: number): { glyph: string; name: string } => {
+  const d = ((day - 1) % 28) + 1;
+  if (d === 1 || d === 28) return { glyph: '\u{1F311}', name: 'New Moon' };
+  if (d <= 6) return { glyph: '\u{1F312}', name: 'Waxing Crescent' };
+  if (d === 7) return { glyph: '\u{1F313}', name: 'First Quarter' };
+  if (d <= 12) return { glyph: '\u{1F314}', name: 'Waxing Gibbous' };
+  if (d <= 15) return { glyph: '\u{1F315}', name: 'Full Moon' };
+  if (d <= 20) return { glyph: '\u{1F316}', name: 'Waning Gibbous' };
+  if (d === 21) return { glyph: '\u{1F317}', name: 'Last Quarter' };
+  return { glyph: '\u{1F318}', name: 'Waning Crescent' };
+};
+
 export const DayCell = (props: DayCellProps) => {
   const { day, isToday, isSelected, events, visible, overflow, onClick } =
     props;
@@ -64,7 +77,18 @@ export const DayCell = (props: DayCellProps) => {
       onClick={onClick}
       title={events.map((e) => e.title).join(', ')}
     >
-      <div style={dayNumberStyle(isToday)}>{day}</div>
+      <div
+        style={{
+          ...dayNumberStyle(isToday),
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
+        <span>{day}</span>
+        <span title={moonForDay(day).name} style={{ opacity: 0.85 }}>
+          {moonForDay(day).glyph}
+        </span>
+      </div>
       <div style={barsContainerStyle}>
         {visible.map(({ event: e }) => (
           <EventBar

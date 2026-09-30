@@ -161,3 +161,31 @@
 #undef REST_PRAYER
 #undef REST_MUSIC
 #undef REST_SMOKE
+
+// --- Mood and sanity feed each other --------------------------------------
+
+/datum/stressevent/mind_fraying
+	timer = 1 MINUTES
+	stressadd = 2
+	desc = "<span class='red'>My thoughts keep slipping. Something is wrong with me.</span>"
+
+/datum/stressevent/mind_breaking
+	timer = 1 MINUTES
+	stressadd = 5
+	desc = "<span class='red'>I can barely hold myself together.</span>"
+
+/datum/sanity/onLife()
+	..()
+	if(!owner || owner.stat == DEAD || HAS_TRAIT(owner, TRAIT_NOMOOD))
+		return
+	// A bad mood wears the mind down; a good one slowly mends it.
+	var/stress = owner.get_stress_amount()
+	if(stress > 0)
+		changeLevel(-stress * 0.08)
+	else if(stress < 0)
+		changeLevel(-stress * 0.05)
+	// And a fraying mind darkens the mood in turn.
+	if(level < SANITY_THRESHOLD_CRITICAL)
+		owner.add_stress(/datum/stressevent/mind_breaking)
+	else if(level < SANITY_THRESHOLD_SPOOK)
+		owner.add_stress(/datum/stressevent/mind_fraying)

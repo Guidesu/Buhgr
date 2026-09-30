@@ -28,7 +28,7 @@
 		to_chat(owner.current, span_notice("Abyssoid created! [abyssoids_required - abyssoids_created] more abyssoid\s needed."))
 
 /datum/objective/create_abyssoids/proc/complete_objective()
-	to_chat(owner.current, span_greentext("You have created enough abyssoids to satisfy Abyssor!"))
+	to_chat(owner.current, span_greentext("You have created enough abyssoids to satisfy the Sea!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Abyssor", 15)

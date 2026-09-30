@@ -32,7 +32,7 @@
 	levels_gained += level_diff
 
 	if(levels_gained >= required_levels)
-		to_chat(owner.current, span_greentext("You've improved your craft skills enough to please Malum!"))
+		to_chat(owner.current, span_greentext("You've improved your craft skills enough to please the Craft!"))
 		owner.current.adjust_triumphs(1)
 		completed = TRUE
 		adjust_storyteller_influence("Malum", 10)
@@ -40,7 +40,7 @@
 		UnregisterSignal(owner.current, COMSIG_SKILL_RANK_INCREASED)
 	else
 		var/remaining = required_levels - levels_gained
-		to_chat(owner.current, span_notice("Craft skill improved! [remaining] more level[remaining == 1 ? "" : "s"] needed to fulfill Malum's task!"))
+		to_chat(owner.current, span_notice("Craft skill improved! [remaining] more level[remaining == 1 ? "" : "s"] needed to fulfill the Craft's task!"))
 
 /datum/objective/improve_craft/update_explanation_text()
-	explanation_text = "Improve your craft skills by gaining [required_levels] new skill levels through practice or dreams. For Malum!"
+	explanation_text = "Improve your craft skills by gaining [required_levels] new skill levels through practice or dreams. For the Craft!"

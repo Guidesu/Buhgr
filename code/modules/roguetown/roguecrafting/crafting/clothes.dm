@@ -329,7 +329,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodcross
-	name = "wooden psycross"
+	name = "wooden holy cross"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/wood
@@ -339,7 +339,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodreformcross
-	name = "wooden reformist psycross"
+	name = "wooden reformist holy cross"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/reform/wood
@@ -349,7 +349,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodzcross
-	name = "wooden inverted psycross"
+	name = "wooden inverted holy cross"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/aurelian/wood
@@ -359,7 +359,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodmatthioscross
-	name = "wooden amulet of Matthios"
+	name = "wooden amulet of Trade"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/morwenna/matthios/wood
@@ -369,7 +369,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodgraggarcross
-	name = "wooden amulet of Graggar"
+	name = "wooden amulet of War"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/volkovoi/wood
@@ -379,7 +379,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodbaothacross
-	name = "wooden amulet of Baotha"
+	name = "wooden amulet of the Forbidden"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/hausvette/wood
@@ -389,7 +389,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodtencross
-	name = "wooden amulet of Ten"
+	name = "wooden amulet of the Domains"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/custodius/wood
@@ -399,7 +399,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodastratacross
-	name = "wooden amulet of Auxentius"
+	name = "wooden amulet of the Sun"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/auxentius/wood
@@ -409,7 +409,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodnoccross
-	name = "wooden amulet of Noc"
+	name = "wooden amulet of the Moon"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/miluse/wood
@@ -419,7 +419,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodabyssorcross
-	name = "wooden amulet of Abyssor"
+	name = "wooden amulet of the Sea"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/wulfric/wood
@@ -429,7 +429,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/wooddendorcross
-	name = "wooden amulet of Ignatius"
+	name = "wooden amulet of the Wilds"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/ignatius/wood
@@ -439,7 +439,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodnecracross
-	name = "wooden amulet of Necra"
+	name = "wooden amulet of Death"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/morwenna/wood
@@ -449,7 +449,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodpestracross
-	name = "wooden amulet of Pestra"
+	name = "wooden amulet of Healing"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/handwerra/wood
@@ -459,7 +459,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodravoxcross
-	name = "wooden amulet of Auxentius"
+	name = "wooden amulet of the Sun"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/auxentius/ravox/wood
@@ -469,7 +469,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodmalumcross
-	name = "wooden amulet of Malum"
+	name = "wooden amulet of the Craft"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/handwerra/malum/wood
@@ -479,7 +479,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodeoracross
-	name = "wooden amulet of Eora"
+	name = "wooden amulet of Love"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/miluse/eora/wood
@@ -489,7 +489,7 @@
 		)
 
 /datum/crafting_recipe/roguetown/survival/woodxylixcross
-	name = "wooden amulet of Xylix"
+	name = "wooden amulet of Trickery"
 	display_category = ITEM_CAT_GARMENT_COMMON
 	category = "Clothes"
 	result = /obj/item/clothing/neck/roguetown/psicross/viator/wood

@@ -44,7 +44,7 @@
 /datum/action/cooldown/spell/zizo/snuff_lights
 	name = "Snuff Lights"
 	desc = "Extinguish most light sources within 2 range. For 5 seconds, you will also hone your Darksight. Both effects scale up from Miracle skill."
-	fluff_desc = "Flame, light, purity... all arrogant lies of the Living. Wretched falsehoods peddled by the Ten to keep mortals fearful of the dark. They are intrusions; frail comforts that convince men they are safe from what waits beyond their sight. Zizo's first revelation was simple: light is not needed to see. Truth does not shine. It festers in the dark, waiting for those willing to behold it."
+	fluff_desc = "Flame, light, purity... all arrogant lies of the Living. Wretched falsehoods peddled by the Domains to keep mortals fearful of the dark. They are intrusions; frail comforts that convince men they are safe from what waits beyond their sight. The Forbidden's first revelation was simple: light is not needed to see. Truth does not shine. It festers in the dark, waiting for those willing to behold it."
 	button_icon_state = "snufflight"
 	associated_stat = null
 	charge_required = FALSE
@@ -118,8 +118,8 @@
 
 /datum/action/cooldown/spell/zizo/stripknowledgeorprofane
 	name = "Means of Progress"
-	desc = "Choose between Zizo's Knowledge at the price of your sanity and perception (Insight), or Zizo's Power for offensively embedding bone lances into victims at range (Profane Bone)."
-	fluff_desc = "There is always a cost to Progress, if there's anything every follower of Zizo knows; 'Progress commands sacrifice'."
+	desc = "Choose between the Forbidden's Knowledge at the price of your sanity and perception (Insight), or the Forbidden's Power for offensively embedding bone lances into victims at range (Profane Bone)."
+	fluff_desc = "There is always a cost to Progress, if there's anything every follower of the Forbidden knows; 'Progress commands sacrifice'."
 	button_icon_state = "firstspellpack"
 
 	click_to_activate = FALSE
@@ -168,8 +168,8 @@
 
 /datum/action/cooldown/spell/zizo/stripknowledge
 	name = "Strip Wisdom"
-	desc = "Invoke Zizo's will onto a target, stripping their unworthy knowledge and dulling their mynd."
-	fluff_desc = "Truth, Inzanity, Progress, the Absolute mandate of her Design. It is a difficult matter for the ignorant masses to even comprehend the means, but even Zizo knows not all are beyond the grasp of her ultimate truth, no matter how much they deny it."
+	desc = "Invoke the Forbidden's will onto a target, stripping their unworthy knowledge and dulling their mynd."
+	fluff_desc = "Truth, Inzanity, Progress, the Absolute mandate of her Design. It is a difficult matter for the ignorant masses to even comprehend the means, but even the Forbidden knows not all are beyond the grasp of her ultimate truth, no matter how much they deny it."
 	button_icon_state = "stripknowledge"
 	sound = 'sound/magic/baotha_blessdrink.ogg'
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -180,7 +180,7 @@
 	primary_resource_cost = 30 //slightly more expensive vs profane
 	secondary_resource_cost = 20
 
-	invocations = list("Zizo! Zizo! Strip away this unworthy mynd!") //Slightly louder whisper than Noc
+	invocations = list("The Forbidden! The Forbidden! Strip away this unworthy mynd!") //Slightly louder whisper than Noc
 	invocation_type = INVOCATION_WHISPER
 
 	spell_flags = SPELL_PSYDON
@@ -347,7 +347,7 @@
 /datum/action/cooldown/spell/conjure_summon/zizo/skeleton_swarm
 	name = "Raise Lesser Skeletons"
 	desc = "Invoke raw Enochian magicka to bind loose bones into two simple skeletal thralls. Their crude physiology is held together purely by magic; unable to be incapacitated, they shall stand until they crumble into spare bones. Toggle their armaments with Shift+G: Sword and Shield, Spear, or Two Daggers. Each one killed gives a partial recoil."
-	fluff_desc = "The faithful of Zizo do not raise the dead, they mock life by proving how little of it is truly required. Flesh decays, thought falters, and souls flee screaming into the arms of Necra, yet bone remains obedient. Through the language of ancient Enochian words of power, scattered remains are lashed together into a parody of mortal form, animated not by purpose or memory, but by the simple joy of defying the natural order."
+	fluff_desc = "The faithful of the Forbidden do not raise the dead, they mock life by proving how little of it is truly required. Flesh decays, thought falters, and souls flee screaming into the arms of Death, yet bone remains obedient. Through the language of ancient Enochian words of power, scattered remains are lashed together into a parody of mortal form, animated not by purpose or memory, but by the simple joy of defying the natural order."
 
 	button_icon = 'icons/mob/actions/zizomiracles.dmi'
 	button_icon_state = "skeleton_formation"
@@ -450,8 +450,8 @@
 
 /datum/action/cooldown/spell/zizo/bestowcant
 	name = "Bestow Zizocant"
-	desc = "Bestow the forbidden tongue of Zizo's chant, requires a semi-lengthy ritual and a fellow Cabalist of Zizo's faith. You must remain still during the ritual."
-	fluff_desc = "A tongue known to the initated of Zizo's Cabal, as well as the reanimated by those whom serve in her name. To the ignorant it is but gibberish with an eerie resemblance to the elven tongue; but to the enlightened it is a hallowed tongue reborn from the reminants of all that were lost."
+	desc = "Bestow the forbidden tongue of the Forbidden's chant, requires a semi-lengthy ritual and a fellow Cabalist of the Forbidden's faith. You must remain still during the ritual."
+	fluff_desc = "A tongue known to the initated of the Forbidden's Cabal, as well as the reanimated by those whom serve in her name. To the ignorant it is but gibberish with an eerie resemblance to the elven tongue; but to the enlightened it is a hallowed tongue reborn from the reminants of all that were lost."
 	button_icon_state = "zizocant"
 	sound = 'sound/magic/baotha_blessdrink.ogg'
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -485,12 +485,12 @@
 	var/mob/living/spelltarget = cast_on
 
 	if(spelltarget != H && !HAS_TRAIT(spelltarget, TRAIT_CABAL))
-		to_chat(H, span_warning("They do not hold Zizo's blessing! The rites reject them!"))
+		to_chat(H, span_warning("They do not hold the Forbidden's blessing! The rites reject them!"))
 		return FALSE
 
 	if(spelltarget != H && HAS_TRAIT(spelltarget, TRAIT_CABAL))
-		to_chat(H, span_warning("I bestow Zizo's sacred tongue upon [spelltarget]!"))
-		to_chat(spelltarget, span_warning("A strange chant settles into familarity in my mind. I can use ,W to speak Zizo's tongue, however its best I do so carefully as to not draw attention."))
+		to_chat(H, span_warning("I bestow the Forbidden's sacred tongue upon [spelltarget]!"))
+		to_chat(spelltarget, span_warning("A strange chant settles into familarity in my mind. I can use ,W to speak the Forbidden's tongue, however its best I do so carefully as to not draw attention."))
 		spelltarget.grant_language(/datum/language/undead)
 	return TRUE
 
@@ -515,8 +515,8 @@
 
 /datum/action/cooldown/spell/zizo/rituos
 	name = "Rituos"
-	desc = "Enact one of the Lesser Work of Zizo - a single, agonizing ritual that tears open a path to power. Choose Progress to gain arcyne knowledge, or Unlife to embrace undeath."
-	fluff_desc = "The holiest of Zizo's Lesser Works among the Cabal. A rite of surrendering weakness and mortality to embrace your purpose in Her design. Through agony, the faithful offer either mind or flesh, allowing Zizo to strip away mortal frailty and shape them into reflections of her ascension. Some surrender thought for forbidden understanding. Others surrender flesh for the stillness of unlife. Few endure enough to become what She envisioned. When the gifts fade, the faithful are taught only one truth: they have not sacrificed enough."
+	desc = "Enact one of the Lesser Work of the Forbidden - a single, agonizing ritual that tears open a path to power. Choose Progress to gain arcyne knowledge, or Unlife to embrace undeath."
+	fluff_desc = "The holiest of the Forbidden's Lesser Works among the Cabal. A rite of surrendering weakness and mortality to embrace your purpose in Her design. Through agony, the faithful offer either mind or flesh, allowing the Forbidden to strip away mortal frailty and shape them into reflections of her ascension. Some surrender thought for forbidden understanding. Others surrender flesh for the stillness of unlife. Few endure enough to become what She envisioned. When the gifts fade, the faithful are taught only one truth: they have not sacrificed enough."
 	button_icon_state = "rituos"
 	charge_sound = 'sound/magic/chargingold.ogg'
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC | SPELL_REQUIRES_NO_MOVE
@@ -589,7 +589,7 @@
 /datum/action/cooldown/spell/zizo/bone_cataclysm
 	name = "Bone Cataclysm"
 	desc = "Detonate all of your nearby skeletons in a wave of profane bone shrapnel. You and Gravemarked allies will not be harmed by it.<br><br>If used outside Combat Mode, you will disintegrate them and restore your energy."
-	fluff_desc = "Zizo taught her faithful that the dead must always serve twice: once in unlife, and once more when their bones are shattered in her name."
+	fluff_desc = "The Forbidden taught her faithful that the dead must always serve twice: once in unlife, and once more when their bones are shattered in her name."
 	button_icon_state = "cataclysm"
 	click_to_activate = FALSE
 	self_cast_possible = TRUE
@@ -674,7 +674,7 @@
 // Diagnosis (T?) - Progress Path: Reflavored version of Pestra's diagnosis, it basically does what you'd expect. Has a highly inefficent cost for some unique perks like extra range.
 /obj/effect/proc_holder/spell/invoked/diagnose/zizo
 	name = "Profane Diagnosis"
-	desc = "Call upon Enochian magicka and Zizo's stolen medical knowledge to read the body's humors and hidden ailments at a sizable distance. Reveals a target's condition with perfect clarity. To perceive one's blood content, all you'll need is but an incision."
+	desc = "Call upon Enochian magicka and the Forbidden's stolen medical knowledge to read the body's humors and hidden ailments at a sizable distance. Reveals a target's condition with perfect clarity. To perceive one's blood content, all you'll need is but an incision."
 	overlay_icon = 'icons/mob/actions/zizomiracles.dmi'
 	action_icon = 'icons/mob/actions/zizomiracles.dmi'
 	range = SPELL_RANGE_GROUND //Longer than regular diagnosis range. Progress Baby!
@@ -683,7 +683,7 @@
 // Enochian Analyze (T?) - Comes w/ diagnosis cantrip for free, tradeoff from an offensive cantrip.
 /obj/effect/proc_holder/spell/invoked/engineeranalyze/zizo
 	name = "Enochian Analyze"
-	desc = "Examine a structure's details through invoking Enochian magicka to see the world through Zizo's design without the need of specialised tools, close or afar."
+	desc = "Examine a structure's details through invoking Enochian magicka to see the world through the Forbidden's design without the need of specialised tools, close or afar."
 	overlay_icon = 'icons/mob/actions/zizomiracles.dmi'
 	action_icon = 'icons/mob/actions/zizomiracles.dmi'
 	range = SPELL_RANGE_GROUND

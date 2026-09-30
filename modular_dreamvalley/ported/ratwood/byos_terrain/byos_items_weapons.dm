@@ -21,7 +21,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/ancient
 	name = "ancient dagger"
-	desc = "A short blade, forged from polished gilbranze. It is violence that shepherds ambition, and it is ambition that will free this world from mortality's chains. Zizo, Zizo, Zizo - I call upon thee; bring forth the undying, so that your works may yet be done!"
+	desc = "A short blade, forged from polished gilbranze. It is violence that shepherds ambition, and it is ambition that will free this world from mortality's chains. The Forbidden, the Forbidden, the Forbidden - I call upon thee; bring forth the undying, so that your works may yet be done!"
 	icon_state = "adagger"
 	sheathe_icon = "adagger"
 	smeltresult = /obj/item/ingot/aaslag

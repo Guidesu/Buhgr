@@ -20,7 +20,7 @@
 	)
 	first_time_text = "THE AZURE COAST"
 	converted_type = /area/rogue/indoors/shelter/woods
-	deathsight_message = "somewhere betwixt Abyssor's realm and Dendor's bounty"
+	deathsight_message = "somewhere betwixt the Sea's realm and the Wilds's bounty"
 	threat_region = THREAT_REGION_AZUREAN_COAST
 	detail_text = DETAIL_TEXT_NORTH_COAST
 	area_sniff_message = "You smell deadite animals."
@@ -49,7 +49,7 @@
 	droning_sound = 'sound/music/area/dungeon2.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	deathsight_message = "somewhere betwixt Abyssor's realm and Dendor's bounty"
+	deathsight_message = "somewhere betwixt the Sea's realm and the Wilds's bounty"
 	threat_region = THREAT_REGION_AZUREAN_COAST
 	detail_text = DETAIL_TEXT_MAD_DUKE_COURT
 	area_sniff_message = "You smell an old fool."
@@ -77,7 +77,7 @@
 	)
 	first_time_text = "BILEWOOD"
 	converted_type = /area/rogue/indoors/shelter/woods/grim
-	deathsight_message = "somewhere betwixt Abyssor's realm and Dendor's bounty"
+	deathsight_message = "somewhere betwixt the Sea's realm and the Wilds's bounty"
 	threat_region = THREAT_REGION_AZUREAN_COAST
 	detail_text = DETAIL_TEXT_NORTH_COAST
 

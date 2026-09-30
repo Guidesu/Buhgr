@@ -1,6 +1,6 @@
 // Merge of the old Necra (necra_requiem) and Matthios (matthios_fingers) intervention events.
 /datum/round_event_control/morwenna_requiem
-	name = "Morwenna's Requiem"
+	name = "Death's Requiem"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/morwenna_requiem
 	weight = 8
@@ -13,7 +13,7 @@
 	SSmapping.add_world_trait(/datum/world_trait/morwenna_requiem, 15 MINUTES)
 
 /datum/round_event_control/morwenna_fingers
-	name = "Morwenna's Fingers"
+	name = "Death's Fingers"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/morwenna_fingers
 	weight = 8

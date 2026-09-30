@@ -48,7 +48,7 @@
 /datum/action/cooldown/spell/undivided/recuperation
 	name = "Recuperation"
 	desc = "Restores the targets Energy and provides brief regeneration to it. Twice as effective on target other than yourself."
-	fluff_desc = "Behind every enforced law is a tireless magistrate, diligent and patient yet not immune from the intricacies of lyfe. Even Custodius's bound hands grow weary from the endless work of correction - but His vigil does not end, and so His faithful are granted the strength to see their own duties through to completion."
+	fluff_desc = "Behind every enforced law is a tireless magistrate, diligent and patient yet not immune from the intricacies of lyfe. Even Law's bound hands grow weary from the endless work of correction - but His vigil does not end, and so His faithful are granted the strength to see their own duties through to completion."
 	button_icon_state = "calming_respite"
 	sound = 'sound/magic/undivided_recuperation.ogg'
 	glow_intensity = GLOW_INTENSITY_LOW
@@ -140,7 +140,7 @@
 	name = "Greater Miracle"
 	desc = "Blesses the target with minor health regeneration. If casted in conjunction with the 'Fortify' blessing, its healing power is greatly \
 	increased. Most healing Miracles cannot affect devoted Vaeltians."
-	fluff_desc = "Under Custodius's correction, disease and ailments hold no sway over the devout, even the deepest wound shall soon come apart in His light."
+	fluff_desc = "Under Law's correction, disease and ailments hold no sway over the devout, even the deepest wound shall soon come apart in His light."
 	background_icon = 'icons/mob/actions/undividedmiracles.dmi'
 	button_icon = 'icons/mob/actions/undividedmiracles.dmi'
 
@@ -150,7 +150,7 @@
 /datum/action/cooldown/spell/undivided/twinned_gaze
 	name = "Twinned Gaze"
 	desc = "Removes the limit on your vision, letting you see behind you for a time, as well varying degrees of night vision. Duration & Darksight scales off holy skill and time of dae."
-	fluff_desc = "The Bound Hand sees by dae and by nite alike, piercing through both with ease - a gift lent to lowly mortals so that no wrongdoing may hide from Custodius's correction, whatever the hour."
+	fluff_desc = "The Bound Hand sees by dae and by nite alike, piercing through both with ease - a gift lent to lowly mortals so that no wrongdoing may hide from Law's correction, whatever the hour."
 	button_icon_state = "twinned_gaze"
 	sound = 'sound/magic/undivided_bless.ogg'
 	glow_intensity = 0
@@ -236,7 +236,7 @@
 /datum/action/cooldown/spell/undivided/perseverance
 	name = "Perseverance"
 	desc = "Slows down bleed rate of living beings as well calming them down."
-	fluff_desc = "Custodius's correction is not cruelty alone - the oath that binds also shelters. He heeds the pleas of dying warriors and the innocents lost to the ravages of war alike, offering them but a mote of respite and a chance at lyfe, that they might live to see their own oaths kept."
+	fluff_desc = "Law's correction is not cruelty alone - the oath that binds also shelters. He heeds the pleas of dying warriors and the innocents lost to the ravages of war alike, offering them but a mote of respite and a chance at lyfe, that they might live to see their own oaths kept."
 	button_icon_state = "perseverance"
 	sound = 'sound/magic/undivided_perserverance.ogg'
 	glow_intensity = GLOW_INTENSITY_MEDIUM
@@ -308,7 +308,7 @@
 /datum/action/cooldown/spell/undivided/undivided_spellpack
 	name = "Divine Inspiration"
 	desc = "Allows you to pick out miracles from three different sets - Generalist (3 choices) Acolyte (2 choices) Templar (2 choices)."
-	fluff_desc = "He protects against the encroaching darkness; when Praecursor fell silent we wept a thousand tears in His name. Custodius liberated us from that sorrow, gave us a path to correction denied to us in the Word's absence - for this we are grateful and obedient to His machinations."
+	fluff_desc = "He protects against the encroaching darkness; when the Absent God fell silent we wept a thousand tears in His name. Law liberated us from that sorrow, gave us a path to correction denied to us in the Word's absence - for this we are grateful and obedient to His machinations."
 	button_icon_state = "inspiration"
 	sound = 'sound/magic/undivided_bless.ogg'
 	glow_intensity = 0
@@ -399,7 +399,7 @@
 /datum/action/cooldown/spell/undivided/gallow_humor
 	name = "Gallows Humor"
 	desc = "Share a terrible secret of lyfe with your target, reducing their Fortune and stressing them out."
-	fluff_desc = "Vaeltis is a place of many joys but underneath the facade lies true terror, lying in wait for another to stumble upon it. Deep within Morwenna's realm lies a great archive from the age before the Word fell silent, filled to the brim with knowledge not meant for the eyes of mortals. Custodius, undeterred by warnings, claimed a measure of that knowledge and bestows it upon His faithful in hopes they use it well - for one only underestimates the enforcer once."
+	fluff_desc = "Vaeltis is a place of many joys but underneath the facade lies true terror, lying in wait for another to stumble upon it. Deep within Death's realm lies a great archive from the age before the Word fell silent, filled to the brim with knowledge not meant for the eyes of mortals. Law, undeterred by warnings, claimed a measure of that knowledge and bestows it upon His faithful in hopes they use it well - for one only underestimates the enforcer once."
 	button_icon_state = "gallows"
 	sound = 'sound/magic/undivided_gallows.ogg'
 	glow_intensity = GLOW_INTENSITY_MEDIUM
@@ -503,8 +503,8 @@
 
 /datum/action/cooldown/spell/undivided/undivided_battlecry
 	name = "Oathbound United"
-	desc = "Rally the faithful to fight by your side, providing a buff (CONSTITUTION 2, WILLPOWER 2, FORTUNE 4) to Concordat worshippers. Old Kin and Vaeltites are left out, deadites suffer Daze (PERCEPTION -1, INTELLIGENCE -2, SPEED -1) within the radius."
-	fluff_desc = "One law, one oath, one correction shared by all who swear it - alone, the faithful would wither away and die by the encroaching darkness. Bound together under Custodius's hand, they endure."
+	desc = "Rally the faithful to fight by your side, providing a buff (CONSTITUTION 2, WILLPOWER 2, FORTUNE 4) to Domain worshippers. Old Kin and Old Faith faithful are left out, deadites suffer Daze (PERCEPTION -1, INTELLIGENCE -2, SPEED -1) within the radius."
+	fluff_desc = "One law, one oath, one correction shared by all who swear it - alone, the faithful would wither away and die by the encroaching darkness. Bound together under Law's hand, they endure."
 	button_icon_state = "united"
 	sound = 'sound/magic/battle_cry_undivided.ogg'
 	glow_intensity = GLOW_INTENSITY_VERY_HIGH

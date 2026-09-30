@@ -251,7 +251,7 @@ const OtherInfo = () => {
                 {ooc_extra_img || 'Unset'}
               </Button>
             </Stack.Item>
-            {ooc_extra_img && (
+            {!!ooc_extra_img && (
               <Stack.Item>
                 <Box textAlign="center">
                   <Image
@@ -276,7 +276,7 @@ const OtherInfo = () => {
                 {nsfw_ooc_extra_img || 'Unset'}
               </Button>
             </Stack.Item>
-            {nsfw_ooc_extra_img && (
+            {!!nsfw_ooc_extra_img && (
               <Stack.Item>
                 <Box textAlign="center">
                   <Image

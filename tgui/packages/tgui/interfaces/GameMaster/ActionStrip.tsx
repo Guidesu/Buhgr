@@ -95,7 +95,7 @@ export function ActionStrip() {
                 Dust
               </Button.Checkbox>
             </Stack.Item>
-            {warband && (
+            {!!warband && (
               <Stack.Item>
                 <Button.Checkbox
                   compact

@@ -19,7 +19,7 @@
 
 /obj/structure/autosmither
 	name = "auto anvil"
-	desc = "A holy amalgamation of buttons and levers built purposely to fulfill Malum's will."
+	desc = "A holy amalgamation of buttons and levers built purposely to fulfill the Craft's will."
 
 	icon = 'icons/obj/autosmithy.dmi'
 	icon_state = "1"

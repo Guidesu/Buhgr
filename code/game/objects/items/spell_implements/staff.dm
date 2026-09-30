@@ -121,7 +121,7 @@
 /obj/item/rogueweapon/woodstaff/implement/grand/naledi
 	base_implement_name = "naledian warstaff"
 	name = "naledian warstaff"
-	desc = "A staff carrying the crescent moon of Praecursor's knowledge, as well as the black and gold insignia of the war scholars."
+	desc = "A staff carrying the crescent moon of the Absent God's knowledge, as well as the black and gold insignia of the war scholars."
 	icon_state = "naledistaff"
 
 /obj/item/rogueweapon/woodstaff/implement/grand/naledi/getonmobprop(tag)

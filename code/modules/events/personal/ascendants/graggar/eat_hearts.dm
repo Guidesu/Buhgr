@@ -54,9 +54,9 @@
 	chosen_one.mind.AddSpell(heart_spell)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_biginfo("Graggar hungers! [new_objective.explanation_text]"))
+	to_chat(chosen_one, span_biginfo("War hungers! [new_objective.explanation_text]"))
 	chosen_one.playsound_local(chosen_one, 'sound/ambience/noises/genspooky (1).ogg', 100)
 
-	to_chat(chosen_one, span_notice("Graggar grants you a power to extract hearts from the dead!"))
+	to_chat(chosen_one, span_notice("War grants you a power to extract hearts from the dead!"))
 
 	chosen_one.mind.announce_personal_objectives()

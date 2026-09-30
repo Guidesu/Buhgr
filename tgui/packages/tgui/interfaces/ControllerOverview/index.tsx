@@ -50,7 +50,7 @@ export function ControllerContent() {
 
   return (
     <Stack fill vertical>
-      {selected && (
+      {!!selected && (
         <SubsystemDialog
           onClose={() => setSelected(undefined)}
           subsystem={selected}

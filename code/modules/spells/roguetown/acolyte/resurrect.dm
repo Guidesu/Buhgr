@@ -517,7 +517,7 @@
 	return ..()
 
 /atom/movable/screen/alert/status_effect/malum_revival
-	name = "Malum's Burden"
+	name = "The Craft's Burden"
 	desc = "Your body feels heavy and slow to recover.."
 	icon_state = "malum_burden"
 
@@ -534,7 +534,7 @@
 	return ..()
 
 /atom/movable/screen/alert/status_effect/auxentius_revival
-	name = "Auxentius's Weakness"
+	name = "The Sun's Weakness"
 	desc = "Your muscles feel feeble and your movements feel sluggish.."
 	icon_state = "ravox_weakness"
 
@@ -551,7 +551,7 @@
 	return ..()
 
 /atom/movable/screen/alert/status_effect/ignatius_revival
-	name = "Ignatius's Sluggishness"
+	name = "The Wilds's Sluggishness"
 	desc = "Your movements are weighted by invisible roots and your body feels fragile.."
 	icon_state = "dendor_sluggish"
 
@@ -612,7 +612,7 @@
 	can_cauterize = FALSE
 
 /atom/movable/screen/alert/status_effect/noc_revival
-	name = "Noc's Moonlit Curse"
+	name = "The Moon's Moonlit Curse"
 	desc = "Your mind feels clouded and moonlight burns your skin."
 	icon_state = "noc_curse"
 

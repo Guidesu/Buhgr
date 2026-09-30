@@ -383,6 +383,7 @@
 	SStitle.splash_turf = src
 	if(SStitle.icon)
 		icon = SStitle.icon
+		SStitle.fit_splash(src)
 	..()
 
 /turf/closed/indestructible/splashscreen/vv_edit_var(var_name, var_value)

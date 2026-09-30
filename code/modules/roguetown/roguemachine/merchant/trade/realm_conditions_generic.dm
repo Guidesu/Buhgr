@@ -88,7 +88,7 @@
 /datum/realm_condition/etrusca_harvest_festival
 	id = "etrusca_harvest_festival"
 	name = "Harvest Festival"
-	description = "A harvest festival held in honor of Auxentius, Ignatius and Miluše is underway. Abundant fruits and alcohol are being exported, while silk and fur are in high demand for festival garments, costumes, and customary gifts."
+	description = "A harvest festival held in honor of the Sun, the Wilds and the Moon is underway. Abundant fruits and alcohol are being exported, while silk and fur are in high demand for festival garments, costumes, and customary gifts."
 	weight = 10
 	affected_realms = list(REALM_VIAMEDULLA)
 	supply_modifiers = list(
@@ -424,7 +424,7 @@
 /datum/realm_condition/otava_inquisition_writ
 	id = "otava_inquisition_writ"
 	name = "Inquisition Writ"
-	description = "The Holy Tribunal has issued a writ against the Vallouise-sur-Mer docks. Confessor detachments need cured leather and iron at premium, while seized silk and gems from heretic houses appear cheap at the Esperance auction-block. Tallow is dear; the Inquisition burns much."
+	description = "The Holy Law has issued a writ against the Vallouise-sur-Mer docks. Confessor detachments need cured leather and iron at premium, while seized silk and gems from heretic houses appear cheap at the Esperance auction-block. Tallow is dear; the Inquisition burns much."
 	weight = 8
 	affected_realms = list(REALM_VIAMEDULLA)
 	demand_modifiers = list(

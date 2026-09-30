@@ -6,7 +6,7 @@
 	desc = "An unbelievably decadant slab of fudge, made with Etrusca's cocoa beans and Aavnr's saiga milk. A \
 	recent trade agreement between the two realms has turned this once-expensive delicacy into a slightly-less-expensive \
 	treat for many. </br>Following a rather unfortunate diplomatic incident involving a Lupian nobleman and a box of chocolates, \
-	chocolate is also now-known to double as a potent 'humor rebalancer' for some of Ignatius's children. </br>It looks like it can be \
+	chocolate is also now-known to double as a potent 'humor rebalancer' for some of the Wilds's children. </br>It looks like it can be \
 	split in half with a dagger."
 	icon = 'modular/Neu_Food/icons/others/sweet.dmi'
 	icon_state = "chocolate"
@@ -46,7 +46,7 @@
 	desc = "An unbelievably decadant halve of fudge, made with Etrusca's cocoa beans and Aavnr's saiga milk. A \
 	recent trade agreement between the two realms has turned this once-expensive delicacy into a slightly-less-expensive \
 	treat for many. </br>Following a rather unfortunate diplomatic incident involving a Lupian nobleman and a box of chocolates, \
-	chocolate is also now-known to double as a potent 'humor rebalancer' for some of Ignatius's children. </br>When combined with \
+	chocolate is also now-known to double as a potent 'humor rebalancer' for some of the Wilds's children. </br>When combined with \
 	pumpkin spice and tossed into a kettle, it makes for an absolutely divine drink."
 	bitesize = 3 //Sharing is caring!
 	icon_state = "chocolatehalf"
@@ -58,7 +58,7 @@
 	desc = "An unbelievably decadant quarter of fudge, made with Etrusca's cocoa beans and Aavnr's saiga milk. A \
 	recent trade agreement between the two realms has turned this once-expensive delicacy into a slightly-less-expensive \
 	treat for many. </br>Following a rather unfortunate diplomatic incident involving a Lupian nobleman and a box of chocolates, \
-	chocolate is also now-known to double as a potent 'humor rebalancer' for some of Dendor's children. </br>When combined with \
+	chocolate is also now-known to double as a potent 'humor rebalancer' for some of the Wilds's children. </br>When combined with \
 	pumpkin spice and tossed into a kettle, it makes for an absolutely divine drink."
 	bitesize = 1 //is a literal bite
 	icon_state = "chocolatequarter"
@@ -245,12 +245,12 @@
 
 /obj/item/reagent_containers/food/snacks/grown/sugarshape/zmark
 	name = "sugarshape of zizonic mark"
-	desc = "A mound of sugar, shaped into a decorative mark with Zizo's sigil. It yearns to be completed beneath an oven's heat, or to be milled back down into sugarpowder."
+	desc = "A mound of sugar, shaped into a decorative mark with the Forbidden's sigil. It yearns to be completed beneath an oven's heat, or to be milled back down into sugarpowder."
 	cooked_type = /obj/item/reagent_containers/food/snacks/sugarstatue/zmark
 
 /obj/item/reagent_containers/food/snacks/grown/sugarshape/pmark
 	name = "sugarshape of vaeltic mark"
-	desc = "A mound of sugar, shaped into a decorative mark with Praecursor's sigil. It yearns to be completed beneath an oven's heat, or to be milled back down into sugarpowder."
+	desc = "A mound of sugar, shaped into a decorative mark with the Absent God's sigil. It yearns to be completed beneath an oven's heat, or to be milled back down into sugarpowder."
 	cooked_type = /obj/item/reagent_containers/food/snacks/sugarstatue/pmark
 
 /obj/item/reagent_containers/food/snacks/grown/sugarshape/hmark
@@ -357,13 +357,13 @@
 
 /obj/item/reagent_containers/food/snacks/sugarstatue/zmark
 	name = "zizonic sugarglass mark"
-	desc = "A decorative piece of sugarglass, meticulously fashioned to mimic a sigil of Zizo. Deliciously sinful!"
+	desc = "A decorative piece of sugarglass, meticulously fashioned to mimic a sigil of the Forbidden. Deliciously sinful!"
 	icon_state = "sugarstatuemarkz"
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/sugarstatue/pmark
 	name = "vaeltic sugarglass mark"
-	desc = "A decorative piece of sugarglass, meticulously fashioned to mimic a sigil of Praecursor. Deliciously enduring!"
+	desc = "A decorative piece of sugarglass, meticulously fashioned to mimic a sigil of the Absent God. Deliciously enduring!"
 	icon_state = "sugarstatuemarkp"
 	bitesize = 2
 

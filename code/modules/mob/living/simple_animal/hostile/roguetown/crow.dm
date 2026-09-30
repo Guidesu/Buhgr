@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/food/snacks/crow
 	name = "zad"
-	desc = "A black bird commonly associated with Necra. They were once trained for use in carrying messages around and respected for their cleverness, but are nowadays considered no better than vermin."
+	desc = "A black bird commonly associated with Death. They were once trained for use in carrying messages around and respected for their cleverness, but are nowadays considered no better than vermin."
 	icon_state = "crow"
 	icon = 'icons/roguetown/mob/monster/crow.dmi'
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)

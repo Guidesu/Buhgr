@@ -946,7 +946,7 @@
 /obj/structure/flora/rogueshroom/happy/white
 	name = "marrow-cap"
 	icon_state = "scarymush1"
-	desc = "You swear these mushrooms weren't so vile, it's as if Baotha herself lifted the veil."
+	desc = "You swear these mushrooms weren't so vile, it's as if the Forbidden herself lifted the veil."
 	mush_light_range = 4
 	mush_light_power = 2
 	mush_light_color = "#e2e2e2"

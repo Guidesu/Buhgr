@@ -46,7 +46,7 @@
 	chosen_one.mind.add_personal_objective(new_objective)
 
 	to_chat(chosen_one, span_userdanger("YOU ARE GOD'S CHOSEN!"))
-	to_chat(chosen_one, span_notice("Malum wants you to hone your craft! Improve your crafting skills to earn Malum's favor!"))
+	to_chat(chosen_one, span_notice("The Craft wants you to hone your craft! Improve your crafting skills to earn the Craft's favor!"))
 	chosen_one.playsound_local(chosen_one, 'sound/magic/dwarf_chant01.ogg', 100)
 
 	chosen_one.mind.announce_personal_objectives()

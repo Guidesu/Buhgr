@@ -71,7 +71,7 @@
 
 /obj/structure/deadbody/adventurer_leather
 	name = "dead adventurer"
-	desc = "Came looking for glory. You suppose they found it - with Necra."
+	desc = "Came looking for glory. You suppose they found it - with Death."
 	pose_states = list("adventurer_leather", "adl10", "adl20", "adl30", "adl40")
 	loot_table = list(
 		/obj/item/storage/belt/rogue/pouch/coins/poor                     = 30,
@@ -275,7 +275,7 @@
 
 /obj/structure/deadbody/greater_skeleton
 	name = "dead legionnaire"
-	desc = "One of Zizo's many warriors. They probably died before, during or after Her reign."
+	desc = "One of the Forbidden's many warriors. They probably died before, during or after Her reign."
 	pose_states = list(
 		"gsk10", "gsk20", "gsk30", "gsk40", "gsk50",
 		"gske10", "gske20", "gske30", "gske40", "gske50",

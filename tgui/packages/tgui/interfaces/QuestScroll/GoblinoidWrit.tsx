@@ -65,7 +65,7 @@ export const GoblinoidWrit = (props: {
         />{' '}
         shall be paid.
       </p>
-      {hasRecoveryAddendum && (
+      {!!hasRecoveryAddendum && (
         <RecoveryAddendum
           shipment={recoveryShipment}
           destination={recoveryDestination}

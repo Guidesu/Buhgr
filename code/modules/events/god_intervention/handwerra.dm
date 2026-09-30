@@ -1,6 +1,6 @@
 // Merge of the old Malum (malum_diligence) and Pestra (pestra_mercy) intervention events.
 /datum/round_event_control/handwerra_diligence
-	name = "Handwerra's Diligence"
+	name = "The Craft's Diligence"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/handwerra_diligence
 	weight = 8
@@ -13,7 +13,7 @@
 	SSmapping.add_world_trait(/datum/world_trait/handwerra_diligence, 20 MINUTES)
 
 /datum/round_event_control/handwerra_mercy
-	name = "Handwerra's Mercy"
+	name = "The Craft's Mercy"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/handwerra_mercy
 	weight = 8

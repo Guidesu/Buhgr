@@ -43,7 +43,7 @@
 
 /datum/hag_boon/spell/twist_food
 	name = "Boon of invigorating cooking"
-	desc = "Similar to Eoran clergy, the bearer can enchant food with random bonuses and negatives being applied on a bite."
+	desc = "Similar to Love clergy, the bearer can enchant food with random bonuses and negatives being applied on a bite."
 	spell_type = /obj/effect/proc_holder/spell/invoked/twist_food
 	points = 20
 
@@ -128,8 +128,8 @@
 
 /obj/effect/proc_holder/spell/invoked/twist_food
 	name = "Twist Food"
-	desc = "Infuse a snack with wyrd magycks. Consumption shuffles the eater's stats (+5/-3 budget). Mimics Eora's incantations"
-	invocations = list("Eora, nourish this offering!")
+	desc = "Infuse a snack with wyrd magycks. Consumption shuffles the eater's stats (+5/-3 budget). Mimics Love's incantations"
+	invocations = list("Love, nourish this offering!")
 	recharge_time = 90 SECONDS
 	overlay_state = "bread"
 	associated_skill = /datum/skill/magic/arcane

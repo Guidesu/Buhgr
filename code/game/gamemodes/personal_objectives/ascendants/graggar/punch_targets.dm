@@ -29,7 +29,7 @@
 		complete_objective()
 
 /datum/objective/punch_people/proc/complete_objective()
-	to_chat(owner.current, span_greentext("You have dealt enough face punches to satisfy Graggar!"))
+	to_chat(owner.current, span_greentext("You have dealt enough face punches to satisfy War!"))
 	owner.current.adjust_triumphs(1)
 	completed = TRUE
 	adjust_storyteller_influence("Graggar", 15)
@@ -37,4 +37,4 @@
 	UnregisterSignal(owner.current, COMSIG_HEAD_PUNCHED)
 
 /datum/objective/punch_people/update_explanation_text()
-	explanation_text = "Punch people [punches_required] time\s in the face to demonstrate your devotion to Graggar!"
+	explanation_text = "Punch people [punches_required] time\s in the face to demonstrate your devotion to War!"

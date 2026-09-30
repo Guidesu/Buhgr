@@ -30,7 +30,7 @@
 
 /datum/advclass/heartfelt/lord/chief
 	name = "Chieftain of Heartfelt"
-	tutorial = "You are the Chieftain of Heartfelt, once the leader of one of the Dendorite tribes under the de Lovett royal dynasty. \
+	tutorial = "You are the Chieftain of Heartfelt, once the leader of one of the Wilds tribes under the de Lovett royal dynasty. \
 	However, with the civil war continuing to ravage your homeland without an end in sight, you chose to seek refuge in the distant land of Azuria."
 
 /datum/outfit/job/heartfelt/lord/chief/pre_equip(mob/living/carbon/human/H)
@@ -67,7 +67,7 @@
 
 /datum/advclass/heartfelt/retinue/prior
 	tutorial = "The Priest of Heartfelt, you were destined for ascension within the Church. \
-	Still guided by the blessings of Astrata, you journey to Azuria, determined to offer what aid and solace you can."
+	Still guided by the blessings of the Sun, you journey to Azuria, determined to offer what aid and solace you can."
 
 /datum/outfit/job/roguetown/heartfelt/prior/pre_equip(mob/living/carbon/human/H)
 	. = ..()

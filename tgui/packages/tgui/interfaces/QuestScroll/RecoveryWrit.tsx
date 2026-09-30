@@ -44,7 +44,7 @@ export const RecoveryWrit = (props: {
       <p style={writParagraph}>
         <i>Be it known by writ of the {rulerTitle}:</i>
       </p>
-      {circumstance && <p style={writParagraph}>{circumstance}</p>}
+      {!!circumstance && <p style={writParagraph}>{circumstance}</p>}
       <p style={writParagraph}>
         Whosoever shall recover {itemLabel} from {region} and bring them unto
         the Contract Ledger shall be paid the bounty of{' '}

@@ -61,7 +61,7 @@ export const GrimoireUtilitiesDetail = ({
           >
             {spell.cost > 0 ? `(${spell.cost} pts)` : '(free)'}
           </span>
-          {isSelected && (
+          {!!isSelected && (
             <span
               className="AspectPicker__spell-desc"
               style={{ marginLeft: '6px' }}
@@ -77,7 +77,7 @@ export const GrimoireUtilitiesDetail = ({
               learned
             </span>
           )}
-          {isPendingUnbind && (
+          {!!isPendingUnbind && (
             <span
               className="AspectPicker__spell-desc"
               style={{ marginLeft: '6px', color: 'rgba(200,100,100,0.8)' }}
@@ -85,7 +85,7 @@ export const GrimoireUtilitiesDetail = ({
               unbinding
             </span>
           )}
-          {spell.desc && (
+          {!!spell.desc && (
             <div
               className="AspectPicker__spell-desc"
               dangerouslySetInnerHTML={{ __html: spell.desc }}

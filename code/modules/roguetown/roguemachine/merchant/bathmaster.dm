@@ -3,7 +3,7 @@
 
 /obj/structure/roguemachine/bathvend
 	name = "BRASSFACE"
-	desc = "A brass-faced cabinet wrought of Eora's hearth, that the lonely and weary may take comfort within."
+	desc = "A brass-faced cabinet wrought of Love's hearth, that the lonely and weary may take comfort within."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "brassface"
 	density = TRUE
@@ -346,7 +346,7 @@
 
 /obj/structure/roguemachine/bathvend/public
 	name = "PURITY"
-	desc = "A pillar of the bathhouse's solace, in Eora's name."
+	desc = "A pillar of the bathhouse's solace, in Love's name."
 	icon_state = "purity"
 	light_outer_range = 6
 	light_color = "#ff13d8ff"

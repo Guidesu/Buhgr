@@ -766,7 +766,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/excomm
 	name = "Excommunicated!"
-	desc = "The Ten have forsaken me!"
+	desc = "The Domains have forsaken me!"
 	icon_state = "excommunication"
 
 /datum/status_effect/debuff/apostasy
@@ -1073,7 +1073,7 @@
 
 
 /datum/status_effect/debuff/necrandeathdoorwilloss
-	id = "Necran Deathly Calm"
+	id = "Death Deathly Calm"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/necranwilloss
 	effectedstats = list(STATKEY_WIL = -4)
 	var/blimmune = FALSE
@@ -1113,7 +1113,7 @@
 			owner.remove_status_effect(/datum/status_effect/debuff/necrandeathdoorwilloss)
 
 /atom/movable/screen/alert/status_effect/debuff/necranwilloss
-	name = "Necran Deathly Calm"
+	name = "Deathly Calm"
 	desc = "I am on the edge of my lady's realm. My motivation slackens with such deathly tranquility."
 	icon_state = "necravow"
 	color ="#af9f9f"

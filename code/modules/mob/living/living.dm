@@ -937,7 +937,7 @@
 		to_chat(user, span_danger("None of the divine have them. Their only chance is spent. Where did they go?"))
 		return FALSE
 	if(HAS_TRAIT(src, TRAIT_NECRAS_VOW))
-		to_chat(user, span_warning("This one has pledged themselves whole to Necra. They are Hers."))
+		to_chat(user, span_warning("This one has pledged themselves whole to Death. They are Hers."))
 		return FALSE
 
 	var/obj/item/bodypart/head = get_bodypart("head")
@@ -2866,6 +2866,9 @@ GLOBAL_LIST_INIT(sight_trait_signals, build_sight_trait_signals())
 
 /mob/living/proc/roll_mob_affixes_for_self()
 	if(client || ckey)
+		return
+	// Preview mannequins, bodies not yet in the world, and bodies waiting for their player.
+	if(istype(src, /mob/living/carbon/human/dummy) || !loc || mind?.key)
 		return
 	if(!affix_base_name)
 		affix_base_name = real_name || name

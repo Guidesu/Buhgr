@@ -13,7 +13,6 @@ import {
 import { useConstantPrefs } from '../constant_data';
 import type { AllPagesData } from './CharacterCreator/data';
 import { SubtabAppearance } from './CharacterCreator/subtabs/Appearance';
-import { SubtabClass } from './CharacterCreator/subtabs/Class';
 import { SubtabDescriptors } from './CharacterCreator/subtabs/Descriptors';
 import { SubtabIdentity } from './CharacterCreator/subtabs/Identity';
 import { SubtabVillain } from './CharacterCreator/subtabs/Villains';
@@ -34,7 +33,7 @@ export const CharacterCreator = () => {
 
   return (
     <Stack fill>
-      {subtab !== Subtab.CLASS ? <Sidebar /> : null}
+      <Sidebar />
       <Stack.Item grow>
         <Stack vertical fill>
           <Stack.Item>
@@ -59,13 +58,6 @@ export const CharacterCreator = () => {
                 onClick={() => setSubtab(Subtab.DESCRIPTORS)}
               >
                 Descriptors
-              </Tabs.Tab>
-              <Tabs.Tab
-                icon="dungeon"
-                selected={subtab === Subtab.CLASS}
-                onClick={() => setSubtab(Subtab.CLASS)}
-              >
-                Class
               </Tabs.Tab>
               <Tabs.Tab
                 icon="skull"
@@ -299,15 +291,13 @@ const CharacterCreatorSubtab = (props: { subtab: Subtab }) => {
   const { subtab } = props;
 
   switch (subtab) {
-    case Subtab.IDENTITY:
-      return <SubtabIdentity />;
     case Subtab.APPEARANCE:
       return <SubtabAppearance />;
     case Subtab.DESCRIPTORS:
       return <SubtabDescriptors />;
-    case Subtab.CLASS:
-      return <SubtabClass />;
     case Subtab.VILLAIN:
       return <SubtabVillain />;
+    default:
+      return <SubtabIdentity />;
   }
 };

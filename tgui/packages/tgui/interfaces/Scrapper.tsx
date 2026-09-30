@@ -219,7 +219,7 @@ export const Scrapper = () => {
                 {data.budget}m
               </div>
             </div>
-            {isKeyholder && (
+            {!!isKeyholder && (
               <div
                 style={{
                   fontSize: FONT_BODY,
@@ -231,7 +231,7 @@ export const Scrapper = () => {
                 Drop coins into the machine to fund payouts.
               </div>
             )}
-            {isKeyholder && (
+            {!!isKeyholder && (
               <button
                 type="button"
                 style={inkButtonStyle({ disabled: data.budget <= 0 })}
@@ -241,7 +241,7 @@ export const Scrapper = () => {
                 Withdraw
               </button>
             )}
-            {isKeyholder && (
+            {!!isKeyholder && (
               <button
                 type="button"
                 style={inkButtonStyle({ disabled: data.total_items <= 0 })}

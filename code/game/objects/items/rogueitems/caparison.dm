@@ -97,13 +97,13 @@
 
 /obj/item/caparison/auxentius
 	name = "auxentian caparison"
-	desc = "A decorative piece of cloth meant to be used as a saddle decoration. It's adorned with Auxentian crosses. This one fits on a Saiga."
+	desc = "A decorative piece of cloth meant to be used as a saddle decoration. It's adorned with Sun crosses. This one fits on a Saiga."
 	caparison_state = "astra_caparison"
 	female_caparison_state = "astra_caparison-f"
 
 /obj/item/caparison/eora
 	name = "eoran caparison"
-	desc = "A decorative piece of cloth meant to be used as a saddle decoration. It's adorned with Eoran hearts. This one fits on a Saiga."
+	desc = "A decorative piece of cloth meant to be used as a saddle decoration. It's adorned with Love hearts. This one fits on a Saiga."
 	caparison_state = "eora_caparison"
 	female_caparison_state = "eora_caparison-f"
 

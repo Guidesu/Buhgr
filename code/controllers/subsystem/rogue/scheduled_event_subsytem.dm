@@ -27,7 +27,7 @@ SUBSYSTEM_DEF(event_scheduler)
 	fog_scheduled = TRUE
 	priority_announce("The fog looms over the hills in the distance. The Peaks are hungry tonight.\n\n\
 	- The fog is lethal, do not venture forth without a fog-repelling lamptern. These relics protect those in their light.\n\
-	- Necran clergy may ward off the fog or perform rituals to safeguard entire areas.\n\
+	- Death clergy may ward off the fog or perform rituals to safeguard entire areas.\n\
 	- Lampterns are not eternal, they must be refilled with blessed, golden-colored oils.", 
 	"Outpost Weather")
 	addtimer(CALLBACK(src, .proc/delayed_tech_unlock), 1 MINUTES)
@@ -38,7 +38,7 @@ SUBSYSTEM_DEF(event_scheduler)
 	SSParticleWeather.run_weather(/datum/particle_weather/fog/necra, TRUE)
 	priority_announce("The fog bellows in from over the hills, coating the peaks in ominous hue.\n\n\
 	- The fog is lethal; do not venture forth without a fog-repelling lamptern. These relics protect those in their light.\n\
-	- Necran clergy may ward off the fog or perform rituals to safeguard entire areas.\n\
+	- Death clergy may ward off the fog or perform rituals to safeguard entire areas.\n\
 	- Lampterns are not eternal; they must be refilled with blessed, golden-colored oils.", 
 	"Outpost Weather")
 

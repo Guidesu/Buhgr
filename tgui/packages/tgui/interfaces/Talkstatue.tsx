@@ -92,7 +92,7 @@ const RosterRow = (props: {
             </span>
           )}
         </div>
-        {entry.message && (
+        {!!entry.message && (
           <div
             style={{
               fontSize: FONT_BODY,
@@ -105,7 +105,7 @@ const RosterRow = (props: {
         )}
       </div>
       <span style={badgeStyle(color)}>{entry.status}</span>
-      {action && (
+      {!!action && (
         <button type="button" style={inkButtonStyle()} onClick={action.onClick}>
           {action.label}
         </button>
@@ -153,7 +153,7 @@ const OwnControls = (props: {
             {myEntry?.status || 'Not Registered'}
           </b>
         </div>
-        {myEntry?.message && (
+        {!!myEntry?.message && (
           <div
             style={{
               fontSize: FONT_BODY,
@@ -461,7 +461,7 @@ export const Talkstatue = () => {
               Adventurers{' '}
               {data.adventurers.length > 0 && `(${data.adventurers.length})`}
             </div>
-            {wretchVisible && (
+            {!!wretchVisible && (
               <div
                 style={tabStyle(activeTab === 'wretches')}
                 onClick={() => setTab('wretches')}

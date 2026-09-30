@@ -86,7 +86,7 @@
 	droning_sound_night = null
 
 /area/rogue/indoors/town/bath/grim/abyssorbath
-	name = "Abyssor Shrine"
+	name = "Sea Shrine"
 	first_time_text = "ABYSSOR SHRINE"
 	droning_sound = list('sound/music/area/bathchill.ogg', 'sound/music/area/bathcalm.ogg', 'sound/music/area/grimpeace.ogg')
 	droning_sound_dusk = 'sound/music/area/townalright.ogg'

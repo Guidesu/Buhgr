@@ -243,7 +243,7 @@
 	cuisine = CUISINE_RANESHENI
 	dish_type = DISH_BREAD
 	name = "jamtallowed bun"
-	desc = "A delicious treat to bring along for those long-and-lonesome hikes through the Naledian deserts; doubly-so, if you happen to be smuggling enough starsugar to buy out Auxentius's throne."
+	desc = "A delicious treat to bring along for those long-and-lonesome hikes through the Naledian deserts; doubly-so, if you happen to be smuggling enough starsugar to buy out the Sun's throne."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	tastes = list("sweetly-sour jamminess" = 1, "a lavish break from the dae's woes" = 1)
 	icon_state = "bun_jamtallow"
@@ -272,7 +272,7 @@
 /*	.................	Crossbuns	................... */
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/crossbun_raw
 	name = "raw crossbun"
-	desc = "A piece of raw dough with the shape of Auxentius's cross pressed onto it. In Her Light."
+	desc = "A piece of raw dough with the shape of the Sun's cross pressed onto it. In Her Light."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "crossbun_raw"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SMALLDOUGH_NUTRITION)
@@ -281,7 +281,7 @@
 // Praecursor variant
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/psycrossbun_raw
 	name = "raw psycrossbun"
-	desc = "A piece of raw dough with the shape of a Psycross pressed onto it. He ENDURES."
+	desc = "A piece of raw dough with the shape of a Holy cross pressed onto it. He ENDURES."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "psycrossbun_raw"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/psycrossbun
@@ -297,7 +297,7 @@
 // Zizo variant
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/zbun_raw
 	name = "raw zun"
-	desc = "A piece of raw dough with Zizo's mark pressed onto it."
+	desc = "A piece of raw dough with the Forbidden's mark pressed onto it."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "zbun_raw"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/zbun
@@ -306,7 +306,7 @@
 	cuisine = CUISINE_NORTH_IMPERIAL|CUISINE_SOUTH_IMPERIAL
 	dish_type = DISH_BREAD
 	name = "crossbun"
-	desc = "Traditionally eaten for breakfast amongst Vaeltis's abbeys. Auxentians in particular have made it a \
+	desc = "Traditionally eaten for breakfast amongst Vaeltis's abbeys. Sun faithful in particular have made it a \
 	practice to add a slice of marmalade to their crossbuns, in reverance of Her golden authority."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "crossbun"
@@ -338,7 +338,7 @@
 	dish_type = DISH_BREAD
 	name = "marmaladed crossbun"
 	desc = "A particularly favorite treat amonst the papacies of Grenzelhoft and Etruscea, especially during the \
-	holidaes that pay reverance to Auxentius. The marmalade is said to represent the Sun's blessed light and warming \
+	holidaes that pay reverance to the Sun. The marmalade is said to represent the Sun's blessed light and warming \
 	radiance, though the spiritual implication tends to be lost on more eager-minded children."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "crossbun_marmalade"
@@ -369,7 +369,7 @@
 	dish_type = DISH_BREAD
 	name = "jamtallowed psycrossbun"
 	desc = "A particularly favorite treat amonst the papacies of Otava and Rockhill, especially during the \
-	holidaes that pay reverance to Praecursor's sacrifice. The jamtallow is said to represent the Weeping God's \
+	holidaes that pay reverance to the Absent God's sacrifice. The jamtallow is said to represent the Weeping God's \
 	tears, though the spiritual implication tends to be lost on more eager-minded children."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "psycrossbun_jamtallow"
@@ -402,7 +402,7 @@
 	cuisine = CUISINE_NORTH_IMPERIAL|CUISINE_SOUTH_IMPERIAL
 	dish_type = DISH_BREAD
 	name = "decabun"
-	desc = "A bun bearing the symbol of the Ten, undivided and ever whole. The only thing to possibly seperate them would be a \
+	desc = "A bun bearing the symbol of the Domains, undivided and ever whole. The only thing to possibly seperate them would be a \
 	helping of jam or marmalade."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "decabun"
@@ -716,7 +716,7 @@
 	cuisine = CUISINE_SOUTH_IMPERIAL|CUISINE_ETRUSCAN
 	dish_type = DISH_BREAD|DISH_PIE
 	name = "slice of sausaged tomatoplate"
-	desc = "What do you mean this is a Baothan's favorite kind of slice?"
+	desc = "What do you mean this is a Forbidden's favorite kind of slice?"
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "meat_pizza_slice"
 	faretype = FARE_NEUTRAL
@@ -1210,7 +1210,7 @@
 	cuisine = CUISINE_RANESHENI
 	dish_type = DISH_BREAD
 	name = "challah loaf"
-	desc = "A Nshkormh loaf of bread, made from leavened dough and egg, the communities of Vaeltites in the region continued it's usage even during the Sun Dominion's banning of it's creation for it's 'rejection of Auxentian butterness'."
+	desc = "A Nshkormh loaf of bread, made from leavened dough and egg, the communities of Old Faith faithful in the region continued it's usage even during the Sun Dominion's banning of it's creation for it's 'rejection of Sun butterness'."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "challah4"
 	slices_num = 4

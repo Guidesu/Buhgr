@@ -48,4 +48,4 @@
 	UnregisterSignal(owner.current, COMSIG_ORGAN_CONSUMED)
 
 /datum/objective/consume_organs/update_explanation_text()
-	explanation_text = "Consume [organs_required] organ\s to appease Graggar!"
+	explanation_text = "Consume [organs_required] organ\s to appease War!"

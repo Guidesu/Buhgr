@@ -1,8 +1,8 @@
 /datum/action/cooldown/spell/grasp_of_praecursor
 	button_icon = 'icons/mob/actions/classuniquespells/spellfist.dmi'
 	button_icon_state = "grasp_of_psydon"
-	name = "Grasp of Praecursor"
-	desc = "Slam your open palm forward, sending forth tendrils of chi force to a target area up to 4 paces away on the same level. After a brief telegraph, all targets in the area are yanked toward you. \
+	name = "Grasp of the Absent God"
+	desc = "Slam your open palm forward, sending forth tendrils of arcyne force to a target area up to 4 paces away on the same level. After a brief telegraph, all targets in the area are yanked toward you. \
 		At 3+ momentum: consumes 3 to deal 40 blunt damage to the aimed bodypart on each yanked target.\n\n\
 		'Push forth your hand with your conduit open, and imagine, with His will, seizing upon the very object or person you desire within your grasp, then, pull your hand backward. Close, and clench your fist, pushing forward slightly, opening your conduit again, and you shall seize your enemy from afar, and pull them toward you.'"
 	sound = list('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
@@ -91,19 +91,19 @@
 			victim.visible_message(span_warning("[victim] breaks free of the tendrils!"))
 			continue
 		var/def_zone = H.zone_selected || BODY_ZONE_CHEST
-		arcyne_strike(H, victim, null, base_damage, def_zone, BCLASS_BLUNT, spell_name = "Grasp of Praecursor")
+		arcyne_strike(H, victim, null, base_damage, def_zone, BCLASS_BLUNT, spell_name = "Grasp of the Absent God")
 		if(empowered)
-			arcyne_strike(H, victim, null, empowered_damage, def_zone, BCLASS_BLUNT, spell_name = "Grasp of Praecursor (Empowered)")
+			arcyne_strike(H, victim, null, empowered_damage, def_zone, BCLASS_BLUNT, spell_name = "Grasp of the Absent God (Empowered)")
 		victim.throw_at(caster_turf, pull_distance, 4)
 
-		victim.visible_message(span_warning("[victim] is yanked toward [H] by tendrils of chi force!"))
+		victim.visible_message(span_warning("[victim] is yanked toward [H] by tendrils of arcyne force!"))
 		new /obj/effect/temp_visual/grasp_telegraph/long(get_turf(victim))
 		hit_count++
 
 	if(hit_count)
 		H.visible_message(span_danger("[H] clenches [H.p_their()] fist, pulling [hit_count > 1 ? "enemies" : "an enemy"] toward [H.p_them()]!"))
 
-	log_combat(H, null, "used Grasp of Praecursor[empowered ? " (empowered)" : ""]")
+	log_combat(H, null, "used Grasp of the Absent God[empowered ? " (empowered)" : ""]")
 
 /obj/effect/temp_visual/grasp_telegraph
 	icon = 'icons/effects/effects.dmi'

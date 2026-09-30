@@ -1,7 +1,7 @@
 // Diagnose
 /obj/effect/proc_holder/spell/invoked/diagnose
 	name = "Diagnose"
-	desc = "Call upon Pestra's medical wisdom to read the body's humors and hidden ailments at a distance. Reveals a target's condition with perfect clarity. To perceive one's blood content, all you'll need is but an incision."
+	desc = "Call upon Healing's medical wisdom to read the body's humors and hidden ailments at a distance. Reveals a target's condition with perfect clarity. To perceive one's blood content, all you'll need is but an incision."
 	overlay_icon = 'icons/mob/actions/pestraspells.dmi'
 	action_icon = 'icons/mob/actions/pestraspells.dmi'
 	overlay_state = "diagnose"
@@ -57,7 +57,7 @@
 		to_chat(user, span_blue("<i>Suffocation: [human_target.oxyloss]%</i>"))
 	else // else you don't and you get those IC hints of how bad it is
 		if(human_target.stat >= DEAD)
-			to_chat(user, span_purple("No breath passes through their lips; Pestra rest their soul."))
+			to_chat(user, span_purple("No breath passes through their lips; Healing rest their soul."))
 		else
 			switch(human_target.oxyloss)
 				if(0 to 1)
@@ -67,7 +67,7 @@
 				if(50 to 100)
 					to_chat(user, span_boldred("They are openly suffocating to death; air is desperately needed!"))
 				if(100 to INFINITY)
-					to_chat(user, span_purple("No breath passes through their lips; Pestra rest their soul.")) // im a fool, this is better
+					to_chat(user, span_purple("No breath passes through their lips; Healing rest their soul.")) // im a fool, this is better
 	// mostly to show a disparity in skill, no-skill seculars will be able to tell when poison has taken a deep root, not early signs
 	if(!(is_mid_tier || is_high_tier || miracle))
 		switch(human_target.toxloss)
@@ -83,7 +83,7 @@
 			if(50 to 100)
 				to_chat(user, span_boldred("Multiple subtle physical distress are seen, the body is crumbling under heavy toxicity."))
 			if(100 to INFINITY)
-				to_chat(user, span_necrosis("Their body is ravaged under the weight of fatal toxicity; Pestra rest their soul."))
+				to_chat(user, span_necrosis("Their body is ravaged under the weight of fatal toxicity; Healing rest their soul."))
 		//very important to let them know that spamming water buckets is not a real medical procedure when someone is bleeding to death
 		if(bleed_rate > 10)
 			to_chat(user, span_bloody("They are bleeding worryingly faster than the body can recover!"))
@@ -186,7 +186,7 @@
 	// and this is mostly for when you have surgical tools, pestrans with miracles can cheat better (of course why the hell not rolls eyes), it takes an incision only rather than a forceps inside
 	if(names.len)
 		if(miracle && has_incision)
-			to_chat(user, span_necrosis("<b><i>With Pestra's wisdom, I perceive their blood in full detail, revealing [english_list(names_with_amounts)] within.</b></i>"))
+			to_chat(user, span_necrosis("<b><i>With Healing's wisdom, I perceive their blood in full detail, revealing [english_list(names_with_amounts)] within.</b></i>"))
 
 		else if(is_high_tier && has_hemostat && !miracle)
 			to_chat(user, span_boldwarning("<i>Studying the blood drawn upon the instrument, I easily discern [english_list(names)] within.</i>"))
@@ -252,7 +252,7 @@
 	var/attached_count = 0
 	if(human_target.has_status_effect(/datum/status_effect/buff/necras_vow))
 		same_owner = TRUE
-		to_chat(user, span_warning("This one has pledged a vow to Necra. Only their own limbs will be accepted."))
+		to_chat(user, span_warning("This one has pledged a vow to Death. Only their own limbs will be accepted."))
 
 	// Get missing limbs first
 	var/list/missing_limbs = human_target.get_missing_limbs()
@@ -275,7 +275,7 @@
 
 		// Necra vow check
 		if(same_owner && limb.original_owner && limb.original_owner != human_target)
-			to_chat(user, span_warning("Limb [limb] doesn't belong to target due to Necra vow!"))
+			to_chat(user, span_warning("Limb [limb] doesn't belong to target due to Death vow!"))
 			continue
 
 		// Check if target already has this limb
@@ -561,7 +561,7 @@
 // Cure rot
 /obj/effect/proc_holder/spell/invoked/cure_rot
 	name = "Cure Rot"
-	desc = "Invoke Pestras will though a Psycross to cast out rot from people or regrow their flesh."
+	desc = "Invoke Pestras will though a Holy cross to cast out rot from people or regrow their flesh."
 	overlay_icon = 'icons/mob/actions/pestraspells.dmi'
 	action_icon = 'icons/mob/actions/pestraspells.dmi'
 	overlay_state = "rot"
@@ -585,7 +585,7 @@
 	var/is_lethal = TRUE
 
 /obj/effect/proc_holder/spell/invoked/cure_rot/priest
-	desc = "Burn out the rot by Auxentius's will."
+	desc = "Burn out the rot by the Sun's will."
 	is_lethal = FALSE
 
 /obj/effect/proc_holder/spell/invoked/cure_rot/cast(list/targets, mob/living/user)
@@ -600,21 +600,21 @@
 			var/time_elapsed = STATION_TIME_PASSED() / (1 MINUTES)
 			if(time_elapsed < 45)
 				var/time_left = 45 - time_elapsed
-				to_chat(user, span_smallred("Pestra's rot is still preparing to bloom. Wait another [round(time_left, 0.1)] minutes."))
+				to_chat(user, span_smallred("Healing's rot is still preparing to bloom. Wait another [round(time_left, 0.1)] minutes."))
 				revert_cast()
 			if(!target.GetComponent(/datum/component/infestation_black_rot))
 				target.AddComponent(/datum/component/infestation_black_rot)
 				ADD_TRAIT(target, TRAIT_PESTRAS_BLESSING, TRAIT_MIRACLE)
 				target.visible_message(span_notice("[user] gently presses the [rose] against [target]'s flesh. The rose dissolves, leaving a black mark."), \
-										span_userdanger("The rose fuses with my flesh, granting me the trait of Pestra's protection."))
+										span_userdanger("The rose fuses with my flesh, granting me the trait of Healing's protection."))
 				qdel(rose)
 				return TRUE
 			else
-				to_chat(user, span_warning("[target] is already infused with Pestra's black blessing."))
+				to_chat(user, span_warning("[target] is already infused with Healing's black blessing."))
 				revert_cast()
 				return FALSE
 		if(!target.mind.has_spell(/datum/action/cooldown/spell/summon_bed/pestra) && target.patron?.type == /datum/patron/divine/pestra && target.get_skill_level(/datum/skill/magic/holy) >= 1 && SSchimeric_tech.get_node_status("BLACK_ROSE"))
-			target.visible_message(span_green("[target]'s body seems to jitter for a moment, their eyes flash with black rot momentarily."), span_green("Thanks to your affinity to Pestra, you can now create black rose petal beds."))
+			target.visible_message(span_green("[target]'s body seems to jitter for a moment, their eyes flash with black rot momentarily."), span_green("Thanks to your affinity to Healing, you can now create black rose petal beds."))
 			target.mind.AddSpell(new /datum/action/cooldown/spell/summon_bed/pestra)
 
 		if(GLOB.tod == "night")
@@ -708,7 +708,7 @@
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/heal.ogg'
-	invocations = list("Pestra! Let them be reborn!")
+	invocations = list("Healing! Let them be reborn!")
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
@@ -817,7 +817,7 @@
 
 /obj/effect/proc_holder/spell/invoked/pestilent_blade
 	name = "Pestilent Blade"
-	desc = "Enchant your blade with Pestra's power, consuming one infestation charge to make your next strike against an infested target more potent. Negligible effect if the target isn't infested..."
+	desc = "Enchant your blade with Healing's power, consuming one infestation charge to make your next strike against an infested target more potent. Negligible effect if the target isn't infested..."
 	overlay_icon = 'icons/mob/actions/pestraspells.dmi'
 	action_icon = 'icons/mob/actions/pestraspells.dmi'
 	overlay_state = "blade"
@@ -829,7 +829,7 @@
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/slimesquish.ogg'
-	invocations = list("Pestra, bless this blade!")
+	invocations = list("Healing, bless this blade!")
 	invocation_type = "whisper"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE

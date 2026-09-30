@@ -147,7 +147,7 @@
 				to_chat(user, span_warning("You lack the holy proficiency required to initiate an abyssal ritual."))
 				return TRUE
 			if(!istype(user.patron, /datum/patron/divine/abyssor))
-				to_chat(user, span_warning("Only a true follower of Abyssor can initiate this ritual."))
+				to_chat(user, span_warning("Only a true follower of the Sea can initiate this ritual."))
 				return TRUE
 			if(!chosen_ritual.check_ingredients(pool))
 				to_chat(user, span_warning("The materials on the rim shifted! You no longer have the correct alignment for [chosen_ritual.name]."))

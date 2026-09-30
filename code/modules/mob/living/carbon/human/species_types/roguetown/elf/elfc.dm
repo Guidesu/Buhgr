@@ -13,19 +13,19 @@
 	desc_title = "Sun Elf"
 	desc = "Native to the vast region of Raneshen, Sun Elves are an elven subspecies descended \
 	from the followers of the Günayan Crusade who settled in the region a millenium \
-	ago. Tradition holds that Auxentius guided their ancestors on a holy mission to carve out \
-	a divine Dominion of the Sun, one that would purge all darkness with Auxentius's holy light.<br><br>\
+	ago. Tradition holds that the Sun guided their ancestors on a holy mission to carve out \
+	a divine Dominion of the Sun, one that would purge all darkness with the Sun's holy light.<br><br>\
 	For most of their history, Sun Elves ruled over Raneshen's Nshkormh region as a deeply-hierarchical \
-	slaver state, with brutal and oft-controversial Auxentian worship, comprised of odd, bespoke rituals that came at the cost of the chosen enslaved. \
+	slaver state, with brutal and oft-controversial Sun worship, comprised of odd, bespoke rituals that came at the cost of the chosen enslaved. \
 	The See had never acknowledged such practices, however it is suspected that due to them the thinly-numbered race had received their 'blessings'.<br><br> \
 	The past half-century has seen an eruption of religious warfare, spurred on by the inevitable anger from other faiths as well as the enslaved themselves, \
-	with strings of Matthiosite & Vaeltic rebellions ultimately shattering the Solar Dominion. Since \
+	with strings of Trade & Vaeltic rebellions ultimately shattering the Solar Dominion. Since \
 	then, many Sun Elf refugees have traveled from the East. Some bring their Crusade \
 	along with them, while others yearn for sanctuary from the ever-encroaching \
 	Darkness — and many more seek only to selfish enrich themselves in this foreign land.<br><br>\
 	Sun Elves are often deeply concerned with social order, castes, and superiority. Many \
 	are vain or power-hungry, and they tend to have imperious and assertive personalities. \
-	It is a common sentiment among Sun Elves that they are the 'chosen' of Auxentius, leading \
+	It is a common sentiment among Sun Elves that they are the 'chosen' of the Sun, leading \
 	to a great deal of condescension or disdain toward those faiths deemed 'lesser'."
 
 	custom_selection = list(
@@ -35,7 +35,7 @@
 		"+1 WIL" = STATKEY_WIL,
 		"+1 PER" = STATKEY_PER,
 		"+1 STR, -1 CON" = list(STATKEY_STR = 1, STATKEY_CON = -1),
-		"Auxentian Affinity" = list(TRAIT_AUXENTIAN_AFFINITY, /datum/virtue/combat/devotee/auxentian_affinity)
+		"Sun Affinity" = list(TRAIT_AUXENTIAN_AFFINITY, /datum/virtue/combat/devotee/auxentian_affinity)
 	)
 
 	skin_tone_wording = "Skintone"
@@ -183,4 +183,4 @@
 	return " [pick(world.file2list("strings/rt/names/elf/elfwlast.txt"))]"
 
 /datum/species/elf/sun/get_string_bonus_stats(return_null_if_no_stats = FALSE, end_with_glue = FALSE)
-	return ..(TRUE, TRUE) + "CHOOSE: +1 bonus stat of your choosing, OR Auxentian Affinity (Tier 0 Miracles, Auxentius patron only)"
+	return ..(TRUE, TRUE) + "CHOOSE: +1 bonus stat of your choosing, OR Sun Affinity (Tier 0 Miracles, the Sun patron only)"

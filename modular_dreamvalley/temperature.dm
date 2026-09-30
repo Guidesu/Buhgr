@@ -100,3 +100,42 @@
 #undef TEMPERATURE_SCORCH_LIMIT
 #undef TEMPERATURE_WARN_DELAY
 #undef TEMPERATURE_AFFLICTION_DELAY
+
+// --- What the air around you actually feels like ------------------------
+// Tiles used to sit at a flat 20C all year. Now season, time of day, shelter,
+// water, fires and weather all set the temperature a body reacts to.
+
+/// Kelvin, by season, for open air at midday.
+/proc/season_outdoor_temperature()
+	switch(SSseason?.current_season)
+		if(SEASON_WINTER)
+			return T0C - 20
+		if(SEASON_AUTUMN)
+			return T0C + 2
+		if(SEASON_SPRING)
+			return T0C + 10
+		if(SEASON_SUMMER)
+			return T0C + 27
+	return T20C
+
+/turf/proc/get_ambient_temperature()
+	var/area/A = get_area(src)
+	var/ambient
+	if(istype(A, /area/rogue/under))
+		ambient = T0C + 10 // caves and cellars hold a steady cool
+	else
+		ambient = season_outdoor_temperature()
+		if(GLOB.tod == "night")
+			ambient -= 8
+		if(!A?.outdoors)
+			// Walls and a roof take the edge off either way.
+			ambient = T20C + (ambient - T20C) * 0.4
+	if(istype(src, /turf/open/water))
+		ambient -= 15
+	var/turf/open/floor/F = src
+	if(istype(F) && F.heat)
+		ambient += min(F.heat * 8, 45)
+	// Weather chill is kept as a drop below 20C on the tile itself.
+	if(temperature < T20C)
+		ambient -= (T20C - temperature)
+	return ambient

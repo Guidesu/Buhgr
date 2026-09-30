@@ -145,7 +145,7 @@ const DemandLineRow = (props: { line: BulkLine }) => {
         {line.qty_fulfilled}/{line.qty_target}
       </span>
       <span style={{ flex: '0 0 auto', fontWeight: 'bold' }}>
-        {hasKin && (
+        {!!hasKin && (
           <span
             style={{
               color: INK_FAINT,
@@ -333,7 +333,7 @@ export const ShipRow = (props: Props) => {
             )}
             {ship.ship_name}
           </div>
-          {ship.captain_name && (
+          {!!ship.captain_name && (
             <div style={{ color: INK_SOFT, fontSize: FONT_BODY }}>
               Captain {ship.captain_name}
               {ship.port_of_origin
@@ -487,7 +487,7 @@ export const ShipRow = (props: Props) => {
             </div>
           )}
         </div>
-        {onHail && (
+        {!!onHail && (
           <div style={{ flexShrink: 0 }}>
             <button
               type="button"
@@ -500,7 +500,7 @@ export const ShipRow = (props: Props) => {
             </button>
           </div>
         )}
-        {onSendAway && (
+        {!!onSendAway && (
           <div style={{ flexShrink: 0 }}>
             <button
               type="button"
@@ -520,7 +520,7 @@ export const ShipRow = (props: Props) => {
           </div>
         )}
       </div>
-      {hasBulk && (
+      {!!hasBulk && (
         <div
           style={{
             marginTop: '4px',

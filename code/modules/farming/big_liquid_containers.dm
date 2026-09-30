@@ -206,7 +206,7 @@
 
 /obj/structure/fermentation_keg/zarum
 	name = "overwhelmingly fishy barrel"
-	desc = "A barrel that reeks of a horrid stench, as if someone had poured the entrails of Abyssor's bounty into a casket and left it to ferment for centuries. </br>..wait, what do you mean that's exactly what it is?"
+	desc = "A barrel that reeks of a horrid stench, as if someone had poured the entrails of the Sea's bounty into a casket and left it to ferment for centuries. </br>..wait, what do you mean that's exactly what it is?"
 
 /obj/structure/fermentation_keg/zarum/Initialize(mapload)
 	. = ..()

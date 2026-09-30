@@ -199,7 +199,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/paalloy
 	name = "ancient barbute"
-	desc = "Polished gilbranze plates, pounded to form a visored helmet. Zizo commands progress, and progress commands sacrifice; let these \
+	desc = "Polished gilbranze plates, pounded to form a visored helmet. The Forbidden commands progress, and progress commands sacrifice; let these \
 	sundered legionnaires rise again, to spill the blood of unenlightened fools. A coiled pocket is perched atop the rim, awaiting to be plumed."
 	icon_state = "ancientbarbute"
 	smeltresult = /obj/item/ingot/aaslag
@@ -254,7 +254,7 @@
 /obj/item/clothing/head/roguetown/helmet/heavy/guard/paalloy
 	name = "ancient savoyard"
 	desc = "Polished gilbranze plates, molded into a bulwark's greathelm. The Comet Syon's glare has been forever burnt into the alloy; a \
-	decayed glimpse into the world that was, before Praecursor's slumber and Zizo's awakening."
+	decayed glimpse into the world that was, before the Absent God's slumber and the Forbidden's awakening."
 	icon_state = "ancientsavoyard"
 	smeltresult = /obj/item/ingot/aaslag
 
@@ -576,7 +576,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet
 	name = "armet"
-	desc = "Holy lamb, sacrificial hero, blessed idiot - Praecursor endures. Will you endure alongside Him, as a knight of humenity, or crumble before temptation?"
+	desc = "Holy lamb, sacrificial hero, blessed idiot - the Absent God endures. Will you endure alongside Him, as a knight of humenity, or crumble before temptation?"
 	icon_state = "armet"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/ComponentInitialize()
@@ -694,7 +694,7 @@
 	desc = "A greathelmet that offers excellent protection to the head, while also ensuring total coverage to its most vulnerable spots. It \
 	resembles an overturned bucket when worn - ergo, 'bucket helmet'. Owing to its simple-yet-robust design, the bucket helmet's venerability \
 	can still be observed todae, atop the shoulders of hedge-knights and paladins alike. This particular variant is decorated with golden \
-	iconography of Auxentian design. </br>'Bravery, justice, ever-unyielding.'"
+	iconography of Sun design. </br>'Bravery, justice, ever-unyielding.'"
 	smeltresult = /obj/item/ingot/gold
 	smelt_bar_num = 1
 
@@ -756,7 +756,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/auxentiushelm
 	name = "auxentian helmet"
-	desc = "Headwear commonly worn by Templars in service to Auxentius. The firstborn child's light will forever shine on within its crest."
+	desc = "Headwear commonly worn by Templars in service to the Sun. The firstborn child's light will forever shine on within its crest."
 	icon_state = "astratahelm"
 	item_state = "astratahelm"
 	emote_environment = 3
@@ -767,13 +767,13 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/astratahelm/cleric
 	name = "astrata plumed helmet"
-	desc = "Topped with a magnificent plume, this helmet turns the wearer into a walking beacon of Astrata's wrath. Designed to cut a striking silhouette, it strikes terror into the hearts of nonbelievers from afar."
+	desc = "Topped with a magnificent plume, this helmet turns the wearer into a walking beacon of the Sun's wrath. Designed to cut a striking silhouette, it strikes terror into the hearts of nonbelievers from afar."
 	icon_state = "astrataclerichelm"
 	item_state = "astrataclerichelm"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/praecursorbarbute
 	name = "vaeltic barbute"
-	desc = "A ceremonial barbute, masterfully forged to represent Praecursor's divine authority. The Order of Saint Malum's artisans \
+	desc = "A ceremonial barbute, masterfully forged to represent the Absent God's divine authority. The Order of Saint the Craft's artisans \
 	have chiseled this pronged visage into more statues than you could possibly imagine."
 	icon_state = "psydonbarbute"
 	item_state = "psydonbarbute"
@@ -782,7 +782,7 @@
 // Upstream compatibility alias: a map references the old /psydonbarbute path.
 /obj/item/clothing/head/roguetown/helmet/heavy/psydonbarbute
 	name = "psydonic barbute"
-	desc = "A ceremonial barbute, masterfully forged to represent Psydon's divine authority. The Order of Saint Malum's artisans \
+	desc = "A ceremonial barbute, masterfully forged to represent the Absent God's divine authority. The Order of Saint the Craft's artisans \
 	have chiseled this pronged visage into more statues than you could possibly imagine."
 	icon_state = "psydonbarbute"
 	item_state = "psydonbarbute"
@@ -798,7 +798,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/praecursorhelm
 	name = "vaeltic armet"
-	desc = "An ornate helmet, whose visor has been bound shut with blacksteel chains. The Order of Saint Eora often decorates \
+	desc = "An ornate helmet, whose visor has been bound shut with blacksteel chains. The Order of Saint Love often decorates \
 	these armets with flowers - not only as a lucky charm gifted to them by fair maidens and family, but also as a vibrant reminder \
 	that 'happiness has to be fought for.'"
 	icon_state = "psydonarmet"
@@ -863,7 +863,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/psy
 	name = "vaeltic armet"
-	desc = "An ornate helmet, whose visor has been bound shut with blacksteel chains. The Order of Saint Eora often decorates \
+	desc = "An ornate helmet, whose visor has been bound shut with blacksteel chains. The Order of Saint Love often decorates \
 	these armets with flowers - not only as a lucky charm gifted to them by fair maidens and family, but also as a vibrant reminder \
 	that 'happiness has to be fought for.'"
 	icon_state = "psyknight"
@@ -875,7 +875,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/psy/greatplume
 	name = "vaeltic armet with greatplume"
-	desc = "An ornate helmet, whose visor has been bound shut with blacksteel chains. The Order of Saint Eora often decorates \
+	desc = "An ornate helmet, whose visor has been bound shut with blacksteel chains. The Order of Saint Love often decorates \
 	these armets with flowers - not only as a lucky charm gifted to them by fair maidens and family, but also as a vibrant reminder \
 	that 'happiness has to be fought for.' This particular armet has a wider couplet, for accepting greatplumes."
 	icon_state = "psyknight"
@@ -914,7 +914,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/ordinatorhelm
 	name = "ordinator's blessed froggemund"
-	desc = "A design suggested by a Grenzelhoftian smith, an avid follower of Saint Abyssor - implying to base it on the templar's \
+	desc = "A design suggested by a Grenzelhoftian smith, an avid follower of Saint the Sea - implying to base it on the templar's \
 	greathelm design, and it was proved worthy of usage: a silver casket with thin slits that allow for deceptively clear vision. The \
 	tainted will drown on the blood you will bring their way."
 	icon_state = "ordinatorhelm"
@@ -982,7 +982,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/absolver
 	name = "absolver's greathelm"
-	desc = "Based on the visage worn by Saint Pestra's order, this cryptic helmet provides its wearer with the satisfaction \
+	desc = "Based on the visage worn by Saint Healing's order, this cryptic helmet provides its wearer with the satisfaction \
 	of reminding heathens that fear is not an emotion easily lost. Even the dead may learn to taste terror again."
 	icon_state = "absolutionisthelm"
 	item_state = "absolutionisthelm"
@@ -1020,7 +1020,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/psybucket
 	name = "vaeltic bucket helmet"
-	desc = "Worn by the blade-carrying arms of Saint Auxentius and Saint Auxentius, it is a true-and-tested design. Silver \
+	desc = "Worn by the blade-carrying arms of Saint the Sun and Saint the Sun, it is a true-and-tested design. Silver \
 	encapsulates your head, and His cross when facing enemies reminds them that you will endure until they meet oblivion. Only then may you rest."
 	icon_state = "psybucket"
 	item_state = "psybucket"
@@ -1085,7 +1085,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/nochelm
 	name = "noc helmet"
-	desc = "Headwear commonly worn by Templars in service to Noc. Without the night there can be no day; without Noc there can be no light in the dark hours."
+	desc = "Headwear commonly worn by Templars in service to the Moon. Without the night there can be no day; without the Moon there can be no light in the dark hours."
 	icon_state = "nochelm"
 	item_state = "nochelm"
 	emote_environment = 3
@@ -1097,13 +1097,13 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/nochelm/snouted
 	name = "noc burgonet"
-	desc = "Headwear commonly worn by Templars in service to Noc, an open face to settle snouts. Without the night there can be no day; without Noc there can be no light in the dark hours."
+	desc = "Headwear commonly worn by Templars in service to the Moon, an open face to settle snouts. Without the night there can be no day; without the Moon there can be no light in the dark hours."
 	icon_state = "nochelm_s"
 	item_state = "nochelm_s"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/necrahelm
 	name = "necra helmet"
-	desc = "Headwear commonly worn by Templars in service to Necra. Let its skeletal features remind you of the only thing which is guaranteed in life: You will die."
+	desc = "Headwear commonly worn by Templars in service to Death. Let its skeletal features remind you of the only thing which is guaranteed in life: You will die."
 	icon_state = "necrahelm"
 	item_state = "necrahelm"
 	emote_environment = 3
@@ -1114,13 +1114,13 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/necrahelm/cleric
 	name = "necra skullhelm"
-	desc = "A skull-visaged helm shrouded in a dark hood. The wearer becomes an anonymous herald of Necra, presenting only the face of death to those foolish enough to stand against them."
+	desc = "A skull-visaged helm shrouded in a dark hood. The wearer becomes an anonymous herald of Death, presenting only the face of death to those foolish enough to stand against them."
 	icon_state = "necraclerichelm"
 	item_state = "necraclerichelm"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
 	name = "dendor helmet"
-	desc = "Headwear commonly worn by Templars in service to Ignatius. Its protrusions almost resemble branches. Take root in the earth, and you will never be moved."
+	desc = "Headwear commonly worn by Templars in service to the Wilds. Its protrusions almost resemble branches. Take root in the earth, and you will never be moved."
 	icon_state = "dendorhelm"
 	item_state = "dendorhelm"
 	emote_environment = 3
@@ -1131,7 +1131,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/abyssorgreathelm
 	name = "abyssorite helmet"
-	desc = "A helmet commonly worn by Templars in service to Abyssor. It evokes imagery of the sea with a menacing crustacean visage."
+	desc = "A helmet commonly worn by Templars in service to the Sea. It evokes imagery of the sea with a menacing crustacean visage."
 	icon_state = "abyssorgreathelm"
 	item_state = "abyssorgreathelm"
 	emote_environment = 3
@@ -1142,7 +1142,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm
 	name = "justice eagle"
-	desc = "Forged in reverence to Auxentius, this helm bears the stylized visage of an eagle, symbol of unyielding judgment and \
+	desc = "Forged in reverence to the Sun, this helm bears the stylized visage of an eagle, symbol of unyielding judgment and \
 	divine vigilance. Its hollow eyes see not just foes, but the truth behind every deed."
 	icon_state = "ravoxhelmet"
 	item_state = "ravoxhelmet"
@@ -1167,7 +1167,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm/cleric
 	name = "ravox helmet"
-	desc = "Adorned with powerful ox horns and a seamless blindfold, this helm embodies the steadfast resolve of Ravox. It shuts out the physical world so that judgment may be delivered without bias or hesitation."
+	desc = "Adorned with powerful ox horns and a seamless blindfold, this helm embodies the steadfast resolve of Law. It shuts out the physical world so that judgment may be delivered without bias or hesitation."
 	icon_state = "ravoxclerichelmet"
 	item_state = "ravoxclerichelmet"
 
@@ -1581,7 +1581,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/holyseebarbute
 	name = "holy see barbute"
-	desc = "A polished plate of sheer silver curtains the barbute's front, its mirror-like sheen reflecting that which the Ten make of His Creation. \
+	desc = "A polished plate of sheer silver curtains the barbute's front, its mirror-like sheen reflecting that which the Domains make of His Creation. \
 			\n\n'Look upon their works, ye mighty, and despair.'"
 	icon_state = "seebascinet"
 	item_state = "seebascinet"
@@ -1702,7 +1702,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/iron
 	name = "iron armet"
-	desc = "Holy lamb, sacrificial hero, blessed idiot - Praecursor endures. Will you endure alongside Him, as a knight of humenity, or crumble before temptation?"
+	desc = "Holy lamb, sacrificial hero, blessed idiot - the Absent God endures. Will you endure alongside Him, as a knight of humenity, or crumble before temptation?"
 	icon_state = "iarmet"
 	smeltresult = /obj/item/ingot/iron
 	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON - ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY

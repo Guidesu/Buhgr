@@ -1,6 +1,6 @@
 // Direct rename of the old Baotha's Revelry intervention event.
 /datum/round_event_control/hausvette_revelry
-	name = "Hausvette's Revelry"
+	name = "The Forbidden's Revelry"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/hausvette_revelry
 	weight = 8

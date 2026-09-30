@@ -40,7 +40,7 @@ GLOBAL_LIST_EMPTY(concordat_schisms)
 	if(!challenger || !H)
 		return
 
-	to_chat(H, span_notice("There is an active schism within the Concordat! [challenger.name] has challenged Auxentius's leadership!"))
+	to_chat(H, span_notice("There is an active schism within the Domains! [challenger.name] has challenged the Sun's leadership!"))
 	setup_mob(H)
 
 /datum/concordat_schism/proc/setup_mob(mob/living/carbon/human/H)
@@ -49,7 +49,7 @@ GLOBAL_LIST_EMPTY(concordat_schisms)
 
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/choose_schism_side)
 	if(!is_concordat_follower(H))
-		to_chat(H, span_notice("Even though you are not a follower of the Concordat and won't matter in the ultimate resolution of this conflict, you may pretend to be one and use the schism to further your own goals..."))
+		to_chat(H, span_notice("Even though you are not a follower of the Domains and won't matter in the ultimate resolution of this conflict, you may pretend to be one and use the schism to further your own goals..."))
 
 /datum/concordat_schism/proc/process_winner()
 	var/datum/patron/challenger = challenger_god.resolve()
@@ -81,13 +81,13 @@ GLOBAL_LIST_EMPTY(concordat_schisms)
 			if(supporter && supporter.patron == auxentius)
 				for(var/obj/effect/proc_holder/spell/self/choose_schism_side/spell in supporter.mind.spell_list)
 					if(spell.chose_early)
-						to_chat(supporter, span_notice("Auxentius's light prevails! Your steadfast devotion is rewarded with many triumphs."))
+						to_chat(supporter, span_notice("The Sun's light prevails! Your steadfast devotion is rewarded with many triumphs."))
 						supporter.adjust_triumphs(3)
 					else
-						to_chat(supporter, span_notice("Auxentius's light prevails, but your late support goes unrewarded."))
+						to_chat(supporter, span_notice("The Sun's light prevails, but your late support goes unrewarded."))
 					break
 			else if(supporter)
-				to_chat(supporter, span_notice("Auxentius's light prevails over the challenge of [challenger.name]! The Sun Lord expected no less than your total support."))
+				to_chat(supporter, span_notice("The Sun's light prevails over the challenge of [challenger.name]! The Sun Lord expected no less than your total support."))
 
 		for(var/datum/weakref/supporter_ref in supporters_challenger)
 			var/mob/living/carbon/human/supporter = supporter_ref.resolve()
@@ -115,7 +115,7 @@ GLOBAL_LIST_EMPTY(concordat_schisms)
 			else if(supporter)
 				for(var/obj/effect/proc_holder/spell/self/choose_schism_side/spell in supporter.mind.spell_list)
 					if(spell.chose_early)
-						to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against Auxentius's tyranny! Your support is rewarded with a triumph."))
+						to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds against the Sun's tyranny! Your support is rewarded with a triumph."))
 						supporter.adjust_triumphs(1)
 					else
 						to_chat(supporter, span_notice("[challenger.name]'s challenge succeeds, but your late support goes unrewarded."))
@@ -228,7 +228,7 @@ GLOBAL_LIST_EMPTY(concordat_schisms)
 	switch(new_side)
 		if("auxentius")
 			supporters_auxentius += WEAKREF(user)
-			to_chat(user, span_notice("You have declared your allegiance to Auxentius!"))
+			to_chat(user, span_notice("You have declared your allegiance to the Sun!"))
 		if("challenger")
 			supporters_challenger += WEAKREF(user)
 			var/datum/patron/challenger = challenger_god.resolve()
@@ -292,7 +292,7 @@ GLOBAL_LIST_EMPTY(concordat_schisms)
 	return TRUE
 
 /datum/round_event_control/schism_within_concordat
-	name = "Schism within the Concordat"
+	name = "Schism within the Domains"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/schism_within_concordat
 	weight = 0.25
@@ -340,7 +340,7 @@ GLOBAL_LIST_EMPTY(concordat_schisms)
 			continue
 
 		if(human_mob.patron == strongest_challenger)
-			to_chat(human_mob, span_notice("You hear a divine calling from your patron - the time has come to challenge Auxentius's authority! Prepare for the coming schism!"))
+			to_chat(human_mob, span_notice("You hear a divine calling from your patron - the time has come to challenge the Sun's authority! Prepare for the coming schism!"))
 			human_mob.playsound_local(human_mob, 'sound/magic/marked.ogg', 100)
 
 	new /datum/concordat_schism(strongest_challenger)

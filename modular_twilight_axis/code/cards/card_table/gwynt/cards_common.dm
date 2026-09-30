@@ -697,7 +697,7 @@
 /datum/ccg_card/unique_neutral_adjudicator
 	id = "unique_neutral_adjudicator"
 	name = "Adjudicator"
-	desc = "Neutral hero. Psydonite knight entrusted with lesser invocations."
+	desc = "Neutral hero. Old Faith knight entrusted with lesser invocations."
 	row = CCG_ROW_INFANTRY
 	power = 7
 	rarity = CCG_RARITY_UNIQUE

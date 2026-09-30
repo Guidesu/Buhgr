@@ -34,7 +34,7 @@
 /datum/outfit/job/roguetown/bandit/iconoclast/pre_equip(mob/living/carbon/human/H)
 	..()
 	if (!(istype(H.patron, /datum/patron/concordat/morwenna)))	//This is the only class that forces Matthios. Needed for miracles + limited slot.
-		to_chat(H, span_warning("Matthios embraces me.. I must uphold his creed. I am his light in the darkness."))
+		to_chat(H, span_warning("Trade embraces me.. I must uphold his creed. I am his light in the darkness."))
 		H.set_patron(/datum/patron/concordat/morwenna)
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/rogueweapon/katar

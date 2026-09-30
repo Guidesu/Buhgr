@@ -276,12 +276,12 @@
 			detail_color = "#6a9295"
 			update_icon()
 	if(C.reagents.has_reagent(/datum/reagent/water/medicine, 10) && !medicine_amount)
-		to_chat(user, span_notice("You start soaking the [src] in Pestran Medicine..."))
+		to_chat(user, span_notice("You start soaking the [src] in Healing Medicine..."))
 		if(do_after(user, 3 SECONDS, target = src))
 			C.reagents.remove_reagent(/datum/reagent/water/medicine, 10)
 			medicine_quality = 0.6 //cheap yet not very common
 			medicine_amount += 30 // medicine_amount is equal to half the medication duration on a bandage, this will heal a total of 36 on a targeted area
-			desc += " It has been soaked in Pestran Medicine."
+			desc += " It has been soaked in Healing Medicine."
 			detail_color = "#428b42"
 			update_icon()
 

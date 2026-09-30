@@ -1,6 +1,6 @@
 // Direct rename of the old Abyssor's Rage intervention event.
 /datum/round_event_control/wulfric_rage
-	name = "Wulfric's Rage"
+	name = "The Sea's Rage"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/wulfric_rage
 	weight = 8

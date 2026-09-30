@@ -186,7 +186,7 @@
 			STATS_WATER_CONSUMED = list("name" = "Water consumed:", "points" = 0.014, "capacity" = 90),
 		),
 		"Set 3" = list(
-			STATS_ABYSSOR_REMEMBERED = list("name" = "Wulfric remembered:", "points" = 1.1, "capacity" = 50),
+			STATS_ABYSSOR_REMEMBERED = list("name" = "The Sea remembered:", "points" = 1.1, "capacity" = 50),
 			STATS_ALIVE_AXIAN = list("name" = "Number of axians:", "points" = 8, "capacity" = 70),
 		),
 		"Set 4" = list(

@@ -248,7 +248,7 @@ export const ManifestTab = (props: {
         </div>
       )}
 
-      {overCap && (
+      {!!overCap && (
         <div
           style={{
             marginTop: '8px',
@@ -262,7 +262,7 @@ export const ManifestTab = (props: {
         </div>
       )}
 
-      {hasActive && (
+      {!!hasActive && (
         <div
           style={{
             marginTop: '8px',

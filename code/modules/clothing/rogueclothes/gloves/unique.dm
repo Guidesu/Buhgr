@@ -105,7 +105,7 @@
 
 /obj/item/clothing/gloves/roguetown/knuckles/praecursor
 	name = "vaeltic knuckles"
-	desc = "A simple piece of harm molded in a holy mixture of steel and silver, finished with three stumps - Praecursor's crown - to crush the heretics' garments and armor into smithereens."
+	desc = "A simple piece of harm molded in a holy mixture of steel and silver, finished with three stumps - the Absent God's crown - to crush the heretics' garments and armor into smithereens."
 	icon_state = "psyknuckle"
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silverblessed
@@ -227,7 +227,7 @@
 
 /obj/item/clothing/gloves/roguetown/knuckles/psydon
 	name = "psydonic knuckles"
-	desc = "A simple piece of harm molded in a holy mixture of steel and silver, finished with three stumps - Psydon's crown - to crush the heretics' garments and armor into smithereens."
+	desc = "A simple piece of harm molded in a holy mixture of steel and silver, finished with three stumps - the Absent God's crown - to crush the heretics' garments and armor into smithereens."
 	icon_state = "psyknuckle"
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silverblessed

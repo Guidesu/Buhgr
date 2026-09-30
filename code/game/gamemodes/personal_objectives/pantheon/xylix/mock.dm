@@ -34,7 +34,7 @@
 
 /datum/objective/mock/monarch/update_explanation_text()
 	. = ..()
-	explanation_text = "Viciously mock the monarch for Xylix!"
+	explanation_text = "Viciously mock the monarch for Trickery!"
 
 /// Noble variant
 /datum/objective/mock/noble
@@ -44,7 +44,7 @@
 
 /datum/objective/mock/noble/update_explanation_text()
 	. = ..()
-	explanation_text = "Viciously mock [required_count] nobles for Xylix!"
+	explanation_text = "Viciously mock [required_count] nobles for Trickery!"
 
 /datum/objective/mock/noble/on_mock_used(datum/source, mob/living/victim)
 	. = ..()

@@ -320,7 +320,7 @@
 	// Deploying spikes is extreme content — block if the wearer has opted out.
 	// Retraction is always permitted regardless of the toggle.
 	if(!cursed_spikes_on && (H.client?.prefs && !H.client.prefs.extreme_erp))
-		to_chat(H, span_warning("Eora intervenes. The spikes strain in their housing but cannot deploy."))
+		to_chat(H, span_warning("Love intervenes. The spikes strain in their housing but cannot deploy."))
 		return FALSE
 	cursed_spikes_on = !cursed_spikes_on
 	apply_cursed_state(H)
@@ -337,7 +337,7 @@
 	// Deploying spikes is extreme content — block if the wearer has opted out.
 	// Retraction (new_state == FALSE) is always permitted.
 	if(new_state && (H.client?.prefs && !H.client.prefs.extreme_erp))
-		to_chat(H, span_warning("Eora intervenes. The spikes strain in their housing but cannot deploy."))
+		to_chat(H, span_warning("Love intervenes. The spikes strain in their housing but cannot deploy."))
 		return FALSE
 	if(cursed_spikes_on == new_state)
 		log_cursed_chastity_command(H, CHASTITY_LOG_SPIKES, "enabled=[cursed_spikes_on] changed=FALSE")

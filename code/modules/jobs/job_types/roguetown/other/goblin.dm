@@ -10,7 +10,7 @@
 
 	allowed_sexes = list(MALE, FEMALE)
 
-	tutorial = "Make Graggar proud or die trying."
+	tutorial = "Make War proud or die trying."
 
 	outfit = /datum/outfit/job/roguetown/npc/goblin
 	show_in_credits = FALSE

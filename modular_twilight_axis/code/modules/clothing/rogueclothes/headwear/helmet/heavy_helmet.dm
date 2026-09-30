@@ -152,7 +152,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/eoran/resprite
 	name = "eoran helmet"
-	desc = "A visage of beauty, this helm made in soft pink and beige reminds one of the grace of Eora."
+	desc = "A visage of beauty, this helm made in soft pink and beige reminds one of the grace of Love."
 	icon_state = "helmet_eora"
 	item_state = "helmet_eora"
 	icon = 'modular_twilight_axis/icons/roguetown/clothing/head.dmi'

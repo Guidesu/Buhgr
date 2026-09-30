@@ -353,11 +353,11 @@
 
 //Zizonic Bible
 /obj/item/book/rogue/bibble/zizo
-	name = "The Verses and Chants of Zizo"
+	name = "The Verses and Chants of the Forbidden"
 	desc = "<font color='ff0000'>'She called us forth from the edge of reality - and with Her dying breath, rasped out the final truth; the fire is gone, and the world will soon follow.'</font> \
-	</br>An old, dusty leatherbound tome; a strip of velvet silk threaded into the leather resembling a zcross made out of avantyne upon the cover. \
+	</br>An old, dusty leatherbound tome; a strip of velvet silk threaded into the leather resembling a forbidden cross made out of avantyne upon the cover. \
 	chronicling the beliefs held throughout the collective of the Cabal which could mutually agree on the same matters; \
-	such tomes are often considered major contraband in most of Psydonia and oft burned, even by followers of Noc. \
+	such tomes are often considered major contraband in most of Psydonia and oft burned, even by followers of the Moon. \
 	Even to this dae its unknown how such tomes keep circulating, presumably from some unknown printing press or two somewhere; \
 	but they are seldom found outside of the black market. Inside are two seperate testaments. </br> \
 	</br>PROGRESS - TESTAMENTS OF PROGRESS, HER TRUTH, FAITH. \
@@ -508,7 +508,7 @@
 
 /obj/item/book/rogue/robber
 	name = "Reading for Robbers"
-	desc = "By Flavius of Ignatius"
+	desc = "By Flavius of the Wilds"
 	icon_state ="basic_book_0"
 	base_icon_state = "basic_book"
 	bookfile = "tales4.json"
@@ -542,15 +542,15 @@
 	bookfile = "tales8.json"
 
 /obj/item/book/rogue/necra
-	name = "Burial Rites for Necra"
-	desc = "By Hunlaf, Gravedigger. Revised by Lenore, Priest of Necra."
+	name = "Burial Rites for Death"
+	desc = "By Hunlaf, Gravedigger. Revised by Lenore, Priest of Death."
 	icon_state ="book6_0"
 	base_icon_state = "book6"
 	bookfile = "tales9.json"
 
 /obj/item/book/rogue/noc
 	name = "Dreamseeker"
-	desc = "By Hunlaf, Gravedigger. Revised by Lenore, Priest of Necra."
+	desc = "By Hunlaf, Gravedigger. Revised by Lenore, Priest of Death."
 	icon_state ="book6_0"
 	base_icon_state = "book6"
 	bookfile = "tales10.json"

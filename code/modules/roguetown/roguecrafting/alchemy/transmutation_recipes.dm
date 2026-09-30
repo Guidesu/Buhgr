@@ -192,7 +192,7 @@
 
 /datum/transmutation_recipe/argyropoeia/execution_blocked(mob/user) // also you can only do it at nite because noccite ritual and whatnot
 	if(GLOB.tod != "night")
-		return "This work of Noc may only be performed while His light shines."
+		return "This work of the Moon may only be performed while His light shines."
 	return FALSE
 
 // NIGREDO: lit. 'blackening'. the first stage of the great work, its recipes follow a theme of decomposition and are irreversable

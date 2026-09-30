@@ -143,7 +143,7 @@ const OrderCard = (props: CardProps) => {
           <span style={badgeStyle('#a872c4')}>PETITIONED</span>
         )}
       </div>
-      {o.description && (
+      {!!o.description && (
         <div
           style={{
             color: INK_SOFT,
@@ -243,7 +243,7 @@ const PairGroup = (props: {
         </span>
       </div>
       <OrderCard {...props} order={primary} embedded />
-      {sibling && <OrderCard {...props} order={sibling} embedded />}
+      {!!sibling && <OrderCard {...props} order={sibling} embedded />}
     </div>
   );
 };

@@ -741,7 +741,7 @@ export const EconomicPanel = () => {
                         <Table.Cell>From</Table.Cell>
                         <Table.Cell>To</Table.Cell>
                         <Table.Cell>Amount</Table.Cell>
-                        {ledgerGroup && <Table.Cell>Count</Table.Cell>}
+                        {!!ledgerGroup && <Table.Cell>Count</Table.Cell>}
                         <Table.Cell>Reason</Table.Cell>
                       </Table.Row>
                       {pageRows.map((e, idx) => (
@@ -767,7 +767,7 @@ export const EconomicPanel = () => {
                             {e.amount}
                             {e.currency ? e.currency.charAt(0) : ''}
                           </Table.Cell>
-                          {ledgerGroup && (
+                          {!!ledgerGroup && (
                             <Table.Cell>
                               {e.count > 1 ? `×${e.count}` : ''}
                             </Table.Cell>
