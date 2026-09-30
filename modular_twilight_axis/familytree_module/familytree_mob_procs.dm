@@ -106,7 +106,7 @@
 		return
 
 	if(!known_people || !known_people.len)
-		to_chat(user, span_warning("     ."))
+		to_chat(user, span_warning("I don't know any families."))
 		return
 
 	var/list/house_entries = list()
@@ -168,7 +168,7 @@
 		))
 
 	if(!house_names.len)
-		to_chat(user, span_warning("     ."))
+		to_chat(user, span_warning("I don't know any families."))
 		return
 
 	house_names = sortList(house_names)
@@ -190,7 +190,7 @@
 	set category = "IC"
 
 	if(!mind)
-		to_chat(src, span_warning("     ."))
+		to_chat(src, span_warning("I don't know any families."))
 		return
 
 	mind.familytree_display_known_families(src)
@@ -292,12 +292,12 @@
 			if(!relation)
 				continue
 			seen[member.person] = TRUE
-			var/house_name = house.housename || " "
+			var/house_name = house.housename || "an unknown house"
 			var/is_dummy = istype(member.person, /mob/living/carbon/human/dummy)
 			entries += list(list(
 				"name" = member.person.real_name,
 				"label" = uppertext(relation),
-				"details" = list(" [house_name]"),
+				"details" = list("House [house_name]"),
 				"accentColor" = family_datum?.GetRelationColor(relation),
 				"personRef" = is_dummy ? null : REF(member.person),
 				"descriptor" = null,
@@ -421,7 +421,7 @@
 		return JOB_UNAVAILABLE_SEX
 	if(length(job.allowed_ages) && !(job_prefs.age in job.allowed_ages))
 		return JOB_UNAVAILABLE_AGE
-	if(length(job.allowed_patrons) && !(job_prefs.selected_patron.type in job.allowed_patrons))
+	if(length(job.allowed_patrons) && !dreamvalley_prefs_patron_permitted(job_prefs, job.allowed_patrons))
 		return JOB_UNAVAILABLE_PATRON
 	if((job.same_job_respawn_delay) && (ckey in GLOB.job_respawn_delays))
 		if(world.time < GLOB.job_respawn_delays[ckey])

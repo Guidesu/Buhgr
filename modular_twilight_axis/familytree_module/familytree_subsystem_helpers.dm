@@ -631,17 +631,17 @@ GLOBAL_LIST_INIT(familytree_title_prefixes, list(
 /proc/familytree_role_text_ru(role)
 	switch(role)
 		if("spouse")
-			return "()"
+			return "spouse"
 		if("sibling")
-			return "/"
+			return "sibling"
 		if("child")
 			return "child"
 		if("parent")
 			return "parent"
 		if("uncle_aunt")
-			return "/"
+			return "uncle/aunt"
 		if("nibling")
-			return "()"
+			return "nephew/niece"
 		if("relative")
 			return "relative"
 	return null
@@ -722,7 +722,7 @@ GLOBAL_LIST_INIT(familytree_title_prefixes, list(
 /datum/controller/subsystem/familytree/proc/familytree_format_fate_reveal(mob/living/carbon/human/partner)
 	if(!partner)
 		return ""
-	var/species_name = partner.dna?.species?.name || " "
+	var/species_name = partner.dna?.species?.name || "unknown kind"
 	var/gender_text
 	switch(partner.gender)
 		if(MALE)
@@ -745,7 +745,7 @@ GLOBAL_LIST_INIT(familytree_title_prefixes, list(
 	else if(has_vagina)
 		anatomy_text = "female"
 	else
-		anatomy_text = "  "
+		anatomy_text = "sexless"
 	return "\n: [species_name]\n: [gender_text]\n: [anatomy_text]"
 
 /datum/controller/subsystem/familytree/proc/CanBeSiblings(age1, age2)
