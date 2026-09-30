@@ -217,6 +217,8 @@
 		if(HAS_TRAIT(attacker, TRAIT_FENCERDEXTERITY))
 			prob2defend -= 5
 
+	// DreamValley guards: the defender's guard, and the attacker's pressure.
+	prob2defend += defender.guard_parry() - attacker.guard_press()
 	prob2defend = clamp(prob2defend, 5, 90)
 	if(HAS_TRAIT(user, TRAIT_HARDSHELL) && defender.client)	//Dwarf-merc specific limitation w/ their armor on in pvp
 		prob2defend = clamp(prob2defend, 5, 70)

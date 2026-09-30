@@ -248,6 +248,9 @@
 				prob2defend -= 10
 				ignore_DE_bonus = TRUE
 
+		// DreamValley guards: the defender's guard, and the attacker's pressure.
+		prob2defend += defender.guard_dodge() - attacker.guard_press()
+
 		if(!is_in_cone)
 			ignore_DE_bonus = TRUE
 
