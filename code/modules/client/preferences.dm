@@ -88,6 +88,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/joblessrole = RETURNTOLOBBY  //defaults to 1 for fewer assistants
 
 	var/clientfps = 100//0 is sync
+	var/icon/admin_ghost_icon
 
 	var/ambientocclusion = TRUE
 	var/auto_fit_viewport = FALSE
@@ -110,6 +111,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/no_redflash = FALSE
 	var/no_storyteller_events = FALSE
 	var/top_examine = FALSE
+	var/show_nsfw_clothed = FALSE
 
 	var/list/exp = list()
 	var/list/menuoptions
