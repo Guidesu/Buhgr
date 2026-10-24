@@ -564,7 +564,7 @@
 	item_state = "gcuirass"
 	icon_state = "gcuirass"
 
-/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fencer/psydon/donator_gothic
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fencer/ornate/donator_gothic
 	name = "gothic chestplate"
 	desc = "A magnificent ornate cuirass, assembled by an Azurian mastersmith. The intricate fluting and interlocked plates are clear \
 	signs of its Grenzelhoftian heritage; expensive, but second-to-none when it comes to what truly matters in life."
@@ -632,6 +632,26 @@
 	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
 	item_state = "ghalfplate"
 	icon_state = "ghalfplate"
+
+//
+
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/donator_ornate
+	name = "silvered gothic cuirass"
+	desc = "A magnificent ornate cuirass, assembled by an Azurian mastersmith. The intricate fluting and interlocked plates are clear \
+	signs of its Grenzelhoftian heritage; expensive, but second-to-none when it comes to what truly matters in life."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	item_state = "gflutedcuirass"
+	icon_state = "gflutedcuirass"
+
+/datum/crafting_recipe/roguetown/survival/ornatemailledhauberk
+	name = "layer a silvered gothic cuirass atop hauberk"
+	result = list(/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/heavy/donator_gothic)
+	reqs = list(/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/donator_ornate = 1,
+				/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk = 1)
+	craftdiff = 0
+	req_table = TRUE
+	bypass_dupe_test = TRUE
 
 //
 
@@ -2670,6 +2690,18 @@ As Excaliber."
 	name = "inquisitorial tabis"
 	color = null
 	armor = ARMOR_PLATE
+
+/obj/item/clothing/shoes/roguetown/boots/tabi/hardened
+	name = "hardened tabis"
+	color = null
+	sewrepair = TRUE
+	armor = ARMOR_LEATHER
+	max_integrity = ARMOR_INT_SIDE_HARDLEATHER
+
+/obj/item/clothing/shoes/roguetown/boots/tabi/hardened/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
+	AddComponent(/datum/component/armour_filtering/positive, TRAIT_HONORBOUND)
 
 //MAGI1138
 /obj/item/clothing/cloak/magi1138
@@ -4859,3 +4891,238 @@ As Excaliber."
 		'sound/items/visor.ogg', \
 		null, \
 		UPD_HEAD)
+
+// LIMETEASE
+/obj/item/clothing/cloak/poncho/guidress
+	name = "Kazengun Silken Lounge Jacket"
+	desc = "A fine silken jacket from the shores of Kazegun, although calling this garment a jacket is a stretch. Typically worn by courtesans or those of ill-repute. The long sleaves give an air of elegance while the low-cut in front bring the viewer's eyes to the wearer's more delicate 'assets'."
+	icon_state = "guidress"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+
+/obj/item/clothing/cloak/poncho/guidress/equipped(mob/user, slot)
+	. = ..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/obj/item/organ/breasts/B = H.getorganslot(ORGAN_SLOT_BREASTS)
+
+		if(B && B.breast_size == 3)
+			flags_inv &= ~HIDEBOOB
+			boobed = TRUE
+			boobed_detail = TRUE
+		else
+			flags_inv |= HIDEBOOB
+			boobed = FALSE
+			boobed_detail = FALSE
+
+		H.update_inv_wear_suit()
+
+// LIMETEASE
+/obj/item/storage/belt/rogue/leather/ulqbelt
+	name = "Belt of the Potionkeeper"
+	desc = "Gronnic leather adorned with a golden volf-esque symbol, this belt carries heavy sloshing potions that radiate a terrible feeling."
+	icon_state = "ulqbelt"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+
+// LIMETEASE
+/obj/item/storage/belt/rogue/leather/ulqsusbelt
+	name = "Messy Belt of the Potionkeeper"
+	desc = "Gronnic leather adorned with a golden volf-esque symbol, this belt carries heavy sloshing waste that exudes a freeky feeling."
+	icon_state = "ulqsusbelt"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+
+// Solar Dominion Cestus
+/obj/item/clothing/gloves/roguetown/knuckles/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon_state = "dominion_cestus"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/knuckles/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
+
+/datum/component/dominion_cestus_cycle
+	var/mob/living/carbon/human/wearer
+
+	var/static/list/variants = list(
+		"dominion_cestus" = "You wear the %SRC% over both arms.",
+		"dominion_cestus_r" = "You wear the %SRC% over your right arm.",
+		"dominion_cestus_l" = "You wear the %SRC% over your left arm.",
+	)
+
+/datum/component/dominion_cestus_cycle/Initialize()
+	if(!isitem(parent))
+		return COMPONENT_INCOMPATIBLE
+	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equipped))
+	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(on_dropped))
+
+/datum/component/dominion_cestus_cycle/Destroy()
+	unregister_wearer()
+	return ..()
+
+/datum/component/dominion_cestus_cycle/proc/on_equipped(obj/item/source, mob/equipper, slot)
+	SIGNAL_HANDLER
+	if(!ishuman(equipper))
+		return
+	unregister_wearer()
+	wearer = equipper
+	RegisterSignal(wearer, COMSIG_MOB_MIDDLECLICKON, PROC_REF(on_middle_click_on))
+
+/datum/component/dominion_cestus_cycle/proc/on_dropped(obj/item/source, mob/user)
+	SIGNAL_HANDLER
+	unregister_wearer()
+
+/datum/component/dominion_cestus_cycle/proc/unregister_wearer()
+	if(wearer)
+		UnregisterSignal(wearer, COMSIG_MOB_MIDDLECLICKON)
+		wearer = null
+
+/datum/component/dominion_cestus_cycle/proc/on_middle_click_on(mob/source, atom/A)
+	SIGNAL_HANDLER
+	if(A != parent)
+		return
+	var/obj/item/gauntlet = parent
+	var/current_index = variants.Find(gauntlet.icon_state)
+	if(!current_index)
+		current_index = 1
+	else
+		current_index = (current_index % length(variants)) + 1
+	gauntlet.icon_state = variants[current_index]
+	to_chat(source, span_info(replacetext(variants[gauntlet.icon_state], "%SRC%", gauntlet.name)))
+	source.update_inv_gloves()
+
+/obj/item/clothing/gloves/roguetown/knuckles/bronze/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "dominion_cestus"
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/knuckles/bronze/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
+
+/obj/item/clothing/gloves/roguetown/knuckles/iron/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "dominion_cestus"
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/knuckles/iron/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
+
+/obj/item/clothing/gloves/roguetown/knuckles/silver/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "dominion_cestus"
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/knuckles/silver/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
+
+/obj/item/clothing/gloves/roguetown/knuckles/blacksteel/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "dominion_cestus"
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/knuckles/blacksteel/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
+
+/obj/item/clothing/gloves/roguetown/leather/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "dominion_cestus"
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/leather/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
+
+/obj/item/clothing/gloves/roguetown/angle/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "dominion_cestus"
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/angle/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
+
+/obj/item/clothing/gloves/roguetown/chain/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "dominion_cestus"
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/chain/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
+
+/obj/item/clothing/gloves/roguetown/plate/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "dominion_cestus"
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/plate/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
+
+/obj/item/clothing/gloves/roguetown/bandages/weighted/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "dominion_cestus"
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/bandages/weighted/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
+
+/obj/item/clothing/gloves/roguetown/bandages/pugilist/dominion_cestus
+	name = "Dominion cestus"
+	desc = "A sun-elven treasure, likely seized amid the rebellions in Raneshen. Intricately carved from dark onyxa and imbued with the strength of steel through arcyne craft."
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	icon_state = "dominion_cestus"
+	detail_tag = "_detail"
+	detail_color = "#b32d70"
+
+/obj/item/clothing/gloves/roguetown/bandages/pugilist/dominion_cestus/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/dominion_cestus_cycle)
