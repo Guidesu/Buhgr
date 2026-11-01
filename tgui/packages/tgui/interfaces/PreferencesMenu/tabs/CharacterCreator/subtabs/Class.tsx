@@ -287,6 +287,7 @@ export const Department = (props: { dept: DepartmentEnum }) => {
 export const ClassEntry = (props: { cls: Class }) => {
   const { cls } = props;
 
+  const { act } = useBackendStrict<ClassData>();
   const createSetPriority = createCreateSetPriorityFromName(cls.title);
 
   return (
@@ -295,6 +296,16 @@ export const ClassEntry = (props: { cls: Class }) => {
         <Stack.Item>
           <ClassTitle cls={cls} />
         </Stack.Item>
+        {cls.title === 'Towner' ? (
+          <Stack.Item>
+            <Button
+              compact
+              icon="hammer"
+              tooltip="Homesteader Build"
+              onClick={() => act('homestead_build')}
+            />
+          </Stack.Item>
+        ) : null}
         <Stack.Item grow textAlign="right">
           {cls.unavailable ? (
             <UnavailableExplanation cls={cls} />

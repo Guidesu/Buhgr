@@ -86,6 +86,18 @@
 	if(advjob)
 		return SSrole_class_handler.get_advclass_by_name(advjob)
 
+/datum/advclass/proc/get_traits_applied(mob/living/carbon/human/H)
+	return traits_applied
+
+/datum/advclass/proc/get_subclass_stats(mob/living/carbon/human/H)
+	return subclass_stats
+
+/datum/advclass/proc/get_subclass_skills(mob/living/carbon/human/H)
+	return subclass_skills
+
+/datum/advclass/proc/get_subclass_virtues(mob/living/carbon/human/H)
+	return subclass_virtues
+
 /datum/advclass/proc/equipme(mob/living/carbon/human/H, dummy = FALSE)
 	// input sleeps....
 	set waitfor = FALSE
@@ -115,7 +127,7 @@
 				rogue_animal.owner = H
 				rogue_animal.friends |= H
 
-	for(var/trait in traits_applied)
+	for(var/trait in get_traits_applied(H))
 		ADD_TRAIT(H, trait, ADVENTURER_TRAIT)
 
 	if(noble_income)
@@ -133,21 +145,20 @@
 	if(reset_stats)
 		H.reset_stats()
 
-	if(length(subclass_stats))
-		for(var/stat in subclass_stats)
-			H.change_stat(stat, subclass_stats[stat])
+	var/list/stats = get_subclass_stats(H)
+	for(var/stat in stats)
+		H.change_stat(stat, stats[stat])
 
-	if(length(subclass_skills))
-		for(var/skill in subclass_skills)
-			H.adjust_skillrank_up_to(skill, subclass_skills[skill], TRUE)
+	var/list/skills = get_subclass_skills(H)
+	for(var/skill in skills)
+		H.adjust_skillrank_up_to(skill, skills[skill], TRUE)
 
 	// Set up spell systems before virtues so Arcyne Potential can detect and add to them
 	if(LAZYLEN(subclass_mage_aspects))
 		H.mind?.setup_mage_aspects(subclass_mage_aspects.Copy())
 
-	if(length(subclass_virtues))
-		for(var/virtue in subclass_virtues)
-			apply_virtue(H, new virtue)
+	for(var/virtue in get_subclass_virtues(H))
+		apply_virtue(H, new virtue)
 
 	if(age_mod)
 		if(istype(age_mod))

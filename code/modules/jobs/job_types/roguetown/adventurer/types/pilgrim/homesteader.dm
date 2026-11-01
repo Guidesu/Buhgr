@@ -118,16 +118,28 @@
 						/obj/item/roguegear = 1,
 	)
 	if(H.mind)
-		H.mind.special_items["Hammer"] = /obj/item/rogueweapon/hammer/steel
-		H.mind.special_items["Sheathe"] = /obj/item/rogueweapon/scabbard/sheath
-		H.mind.special_items["Laborer's Knife"] = /obj/item/rogueweapon/huntingknife/throwingknife/triumph
-		H.mind.special_items["Woodcutter's Axe"] = /obj/item/rogueweapon/stoneaxe/woodcut/steel/woodcutter
+		var/datum/homestead_build/build = get_active_homestead_build(H)
+		if(build)
+			var/list/all_kits = get_homestead_kits()
+			for(var/kit_type in build.kits)
+				var/datum/homestead_kit/kit = all_kits[kit_type]
+				kit.apply(H)
+			var/list/all_perks = get_homestead_perks()
+			for(var/perk_type in build.perks)
+				var/datum/homestead_perk/perk = all_perks[perk_type]
+				for(var/item_name in perk.items)
+					H.mind.special_items[item_name] = perk.items[item_name]
+		else
+			H.mind.special_items["Hammer"] = /obj/item/rogueweapon/hammer/steel
+			H.mind.special_items["Sheathe"] = /obj/item/rogueweapon/scabbard/sheath
+			H.mind.special_items["Laborer's Knife"] = /obj/item/rogueweapon/huntingknife/throwingknife/triumph
+			H.mind.special_items["Woodcutter's Axe"] = /obj/item/rogueweapon/stoneaxe/woodcut/steel/woodcutter
+			H.mind.special_items["Barber's Innocuous Bag"] = /obj/item/storage/belt/rogue/surgery_bag/full
+			H.mind.special_items["Trusty Pick"] = /obj/item/rogueweapon/pick/bronze
+			H.mind.special_items["Tuneful Instrument"] = pick(subtypesof(/obj/item/rogue/instrument))
+			H.mind.special_items["Fishing Rod"] = /obj/item/fishingrod/crafted
+			H.mind.special_items["Pan for Frying"] = /obj/item/cooking/pan
 		H.mind.special_items["[pick("Good", "Bad", "Normal")] Day's Wine"] = /obj/item/reagent_containers/glass/bottle/rogue/wine
-		H.mind.special_items["Barber's Innocuous Bag"] = /obj/item/storage/belt/rogue/surgery_bag/full
-		H.mind.special_items["Trusty Pick"] = /obj/item/rogueweapon/pick/bronze
-		H.mind.special_items["Tuneful Instrument"] = pick(subtypesof(/obj/item/rogue/instrument))
-		H.mind.special_items["Fishing Rod"] = /obj/item/fishingrod/crafted
-		H.mind.special_items["Pan for Frying"] = /obj/item/cooking/pan
 
 		H.adaptive_name_title = "Homesteader"
 		add_verb(H, /datum/advclass/homesteader/proc/choose_homesteader_title)
@@ -135,6 +147,22 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 	if(H.mind)
 		SStreasury.grant_savings(ECONOMIC_LOWER_CLASS, H)
+
+/datum/advclass/homesteader/get_traits_applied(mob/living/carbon/human/H)
+	var/datum/homestead_build/build = get_active_homestead_build(H)
+	return build ? build.get_perk_traits() : ..()
+
+/datum/advclass/homesteader/get_subclass_stats(mob/living/carbon/human/H)
+	var/datum/homestead_build/build = get_active_homestead_build(H)
+	return build ? build.stats : ..()
+
+/datum/advclass/homesteader/get_subclass_skills(mob/living/carbon/human/H)
+	var/datum/homestead_build/build = get_active_homestead_build(H)
+	return build ? build.get_spawn_skills() : ..()
+
+/datum/advclass/homesteader/get_subclass_virtues(mob/living/carbon/human/H)
+	var/datum/homestead_build/build = get_active_homestead_build(H)
+	return build ? build.get_perk_virtues(H) : ..()
 
 //==========
 

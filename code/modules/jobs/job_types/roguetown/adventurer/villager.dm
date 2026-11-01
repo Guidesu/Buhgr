@@ -56,7 +56,8 @@
 	var/favorite_name = favorite ? favorite::name : "Choose"
 	var/HTML = {"
 		<i>You can choose a favorite subclass here. You'll automatically select this subclass on roundstart if possible.</i><br/><br/>
-		<b>Selected class:</b> <a href="?src=[REF(src)];class=1">[favorite_name]</a>"}
+		<b>Selected class:</b> <a href="?src=[REF(src)];class=1">[favorite_name]</a>
+		<br/><b>Homesteader Build:</b> <a href="?src=[REF(src)];homestead_build=1">[roleprefs[HOMESTEAD_PREF_KEY]?["enabled"] ? "Custom" : "Default"]</a>"}
 	if(favorite == /datum/advclass/witch)
 		HTML += {"<br/><b>Witch Type:</b> <a href="?src=[REF(src)];witch_type=1">[roleprefs["witch_type"] || "Select"]</a>"}
 		HTML += {"<br/><b>Second Form:</b> <a href="?src=[REF(src)];witch_form=1">[roleprefs["witch_form"] || "Select"]</a>"}
@@ -77,6 +78,9 @@
 	var/list/prefs = get_roleprefs(usr.client)
 	if(!prefs)
 		return
+	if(href_list["homestead_build"])
+		var/datum/homestead_builder/builder = new(usr.client)
+		builder.ui_interact(usr)
 	if(href_list["witch_type"])
 		var/list/choices = list("Old Magick", "Godsblood", "Mystagogue")
 		var/choice = tgui_input_list(usr, "How do your powers manifest?", "THE OLD WAYS", choices)

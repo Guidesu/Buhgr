@@ -42,6 +42,10 @@
 
 			job.update_subprefs_window(user)
 			return CHARACTER_ACT_DATA_UPDATE
+		if("homestead_build")
+			var/datum/homestead_builder/builder = new(parent)
+			builder.ui_interact(user)
+			return CHARACTER_ACT_DATA_UPDATE
 		if("explainjob")
 			var/title = params["job"]
 			if(!istext(title))
