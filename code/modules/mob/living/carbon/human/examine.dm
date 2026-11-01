@@ -739,6 +739,8 @@
 				used_title = "Lich"
 			else if(src.mind?.has_antag_datum(/datum/antagonist/vampire/lord))
 				used_title = "Ancient Lord"
+		if(alt_title && used_title == alt_title)
+			used_title = get_alt_title_link()
 		var/display_as_wanderer = FALSE
 		if(observer_privilege)
 			used_name = real_name

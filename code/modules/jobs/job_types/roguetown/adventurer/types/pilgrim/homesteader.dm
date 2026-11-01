@@ -63,40 +63,6 @@
 		/datum/skill/labor/mining = SKILL_LEVEL_NOVICE
 	)
 	maximum_possible_slots = 20 // Should not fill, just a hack to make it shows what types of towners are in round
-	var/list/custom_title_options = list(
-		"Artisan",
-		"Artisana",
-		"Craftswoman",
-		"Devotee",
-		"Devotess",
-		"Fieldworker",
-		"Forager",
-		"Freeholder",
-		"Gardener",
-		"Handiworker",
-		"Hedgefolk",
-		"Herbalist",
-		"Homesteadress",
-		"Housekeeper",
-		"Householder",
-		"Househusband",
-		"Housewife",
-		"Hunter",
-		"Laborer",
-		"Nurse",
-		"Nun",
-		"Pioneer",
-		"Prospector",
-		"Scholar",
-		"Settler",
-		"Shepherd",
-		"Varlet",
-		"Villager",
-		"Weaver",
-		"Woodsman",
-		"Woodswoman",
-		"Chirurgeon"
-	)
 
 /datum/outfit/job/roguetown/homesteader/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -175,7 +141,7 @@
 //=========
 /datum/advclass/homesteader/proc/get_skill_title_options()
 	var/list/skill_titles = list()
-	for(var/title in custom_title_options)
+	for(var/title in filter_free_alt_titles(GLOB.general_alt_titles))
 		if(title && !(title in skill_titles))
 			skill_titles += title
 	for(var/skill_path in subclass_skills)
@@ -202,6 +168,8 @@
 		return FALSE
 	switch(title_mode)
 		if("Homesteader")
+			H.alt_title = null
+			H.alt_title_origin = null
 			H.adaptive_name_title = name
 			H.advjob = name
 		if("Single Skill Title")
@@ -213,12 +181,10 @@
 			var/title_choice = input(H, "Which title should I use?", "Homesteader Title", default_title) as null|anything in title_options
 			if(!title_choice)
 				return FALSE
-			H.adaptive_name_title = title_choice
-			H.advjob = title_choice
+			H.set_alt_title(title_choice)
 		if("Adaptive Skill Titles")
-			H.adaptive_name_title = null
 			H.advjob = name
-			H.update_adaptive_name()
+			H.set_alt_title(null)
 	to_chat(H, span_notice("I will be known as [H.advjob]."))
 	return TRUE
 

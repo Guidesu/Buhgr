@@ -103,6 +103,8 @@
 	H.flag_gear_as_worn()
 
 	H.advjob = name
+	if(length(alt_titles) && !adaptive_name)
+		add_verb(H, /mob/living/carbon/human/proc/choose_alt_title)
 
 	var/turf/TU = get_turf(H)
 	if(TU)

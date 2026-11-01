@@ -3831,5 +3831,8 @@
 #include "modular\piercing\piercing.dm"
 #include "modular\piercing\piercings.dm"
 #include "modular\piercing\supply.dm"
+#include "modular\towner_titles\_alt_title_defines.dm"
+#include "modular\towner_titles\alt_title_lists.dm"
+#include "modular\towner_titles\alt_titles.dm"
 #include "modular\ze_genesis_call\genesis_call.dm"
 // END_INCLUDE

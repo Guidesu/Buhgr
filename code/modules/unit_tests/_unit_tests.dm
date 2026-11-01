@@ -74,6 +74,7 @@
 #include "spawn_humans.dm"
 #include "species_whitelists.dm"
 #include "timer_sanity.dm"
+#include "towner_alt_titles.dm"
 #include "unit_test.dm"
 #include "worn_ac_cache.dm"
 // END_INCLUDE

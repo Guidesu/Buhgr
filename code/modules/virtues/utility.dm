@@ -66,7 +66,7 @@
 	)
 	choice_tooltips = list(
 		NOTABLE_SHREWD = "I've managed to secure a Meister account and a lump sum within it. Grants Secular Appraise -- a spell that allows you to tell how much wealth someone has on them, and in their Meister.",
-		NOTABLE_RESIDENCY = "I am a Resident of Azure Peak, with access to one of its buildings all to myself.",
+		NOTABLE_RESIDENCY = "I am a Resident of Azure Peak, with access to one of its buildings all to myself. I may go by a local title of my choosing.",
 	)
 
 /datum/virtue/utility/notable/apply_to_human(mob/living/carbon/human/recipient)
@@ -87,6 +87,7 @@
 			if(NOTABLE_RESIDENCY)
 				ADD_TRAIT(recipient, TRAIT_RESIDENT, TRAIT_VIRTUE)
 				ADD_TRAIT(recipient, TRAIT_WELLKNOWN, TRAIT_VIRTUE)
+				add_verb(recipient, /mob/living/carbon/human/proc/choose_alt_title)
 				if(recipient.mind)
 					for(var/X in (GLOB.peasant_positions + GLOB.burgher_positions + GLOB.retinue_positions + GLOB.garrison_positions + GLOB.noble_positions + GLOB.inquisition_positions))
 						for(var/datum/mind/MF in get_minds(X))
