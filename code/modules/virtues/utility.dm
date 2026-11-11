@@ -137,6 +137,7 @@
 #undef NOTABLE_SHREWD
 
 #define SOCIALITE_BEAUTIFUL "Beautiful Trait"
+#define SOCIALITE_MASSAGE "Massage Ability"
 #define SOCIALITE_NUTCRACKER "Nutcracker Trait"
 #define SOCIALITE_EMPATH "Empath Trait"
 #define SOCIALITE_PERFORMER "Performer Trait"
@@ -150,6 +151,7 @@
 	choice_costs = list(0, 0, 0, 2, 4)
 	extra_choices = list(
 	SOCIALITE_BEAUTIFUL,
+	SOCIALITE_MASSAGE,
 	SOCIALITE_NUTCRACKER,
 	SOCIALITE_EMPATH,
 	SOCIALITE_PERFORMER,
@@ -200,6 +202,9 @@
 				ADD_TRAIT(recipient, TRAIT_EMPATH, TRAIT_VIRTUE)
 			if(SOCIALITE_PERFORMER)
 				recipient.adjust_skillrank_up_to(/datum/skill/misc/music, SKILL_LEVEL_EXPERT, silent = TRUE)
+			if(SOCIALITE_MASSAGE)
+				if(recipient.mind)
+					recipient.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/massage)
 			else
 				recipient.mind.special_items[choice] = extra_choices[choice]
 
@@ -207,6 +212,7 @@
 #undef SOCIALITE_NUTCRACKER
 #undef SOCIALITE_EMPATH
 #undef SOCIALITE_PERFORMER
+#undef SOCIALITE_MASSAGE
 
 /datum/virtue/utility/failed_squire
 	name = "Failed Squire"
@@ -227,7 +233,7 @@
 
 /datum/virtue/utility/intellectual
 	name = "Intellectual"
-	desc = "I've spent my life surrounded by various books or sophisticated foreigners, be it through travel or other fortunes beset on my life. I've picked up several tongues and wits, and keep a journal closeby. I can tell people's exact prowess."
+	desc = "I've spent my life surrounded by various books or sophisticated foreigners, be it through travel or other fortunes beset on my life. I've picked up several tongues and wits, and keep a journal close-by. I can tell people's exact prowess."
 	ui_fa_icon = "book"
 	custom_text = "Maximizes Assess benefits with a bonus of the target's Stats. Allows the choice of up to 6 languages to learn."
 	added_traits = list(TRAIT_INTELLECTUAL)
@@ -270,8 +276,13 @@
 /datum/virtue/utility/hollow
 	name = "Hollow"
 	desc = "Some fell magick has rendered me inwardly unliving - I do not hunger, and I do not breathe."
+	custom_text = "Grants a unique verb called 'suicide prayer' which allows you to immediately end your feeble lyfe."
 	ui_fa_icon = "lungs"
 	added_traits = list(TRAIT_NOHUNGER, TRAIT_NOBREATH)
+
+/datum/virtue/utility/hollow/apply_to_human(mob/living/carbon/human/recipient)
+	. = ..()
+	add_verb(recipient, /mob/living/carbon/human/proc/praysuicide)
 
 /datum/virtue/utility/deadened
 	name = "Deadened"
@@ -287,7 +298,7 @@
 
 /datum/virtue/utility/prowler
 	name = "Prowler"
-	desc = "I've learned to stalk the shadows, in step and in sight. My hands had also been honed to be deft."
+	desc = "I've learned to stalk the shadows, light of step. My hands had also been honed to be deft."
 	ui_fa_icon = "moon"
 	max_choices = 3	//Tentative, feels more fun to limit yourself to a set out of these rather than all of them. (Used to be 6)
 	choice_costs = list(0, 0, 0)
@@ -297,7 +308,6 @@
 		"Alter Ego" = "I am me, yet I crave to be someone else. I can adjust my voice and physical posture at will - though the latter will need me to cover myself. (RoleUnique tab)."
 	)
 	extra_choices = list(
-		"Darksight" = TRAIT_DARKVISION,
 		"Light Steps" = TRAIT_LIGHT_STEP,
 		"Stashed Lockpick Ring" = /obj/item/lockpickring/mundane,
 		"Sneak Skill (+2, Up to Legendary)" = /datum/skill/misc/sneaking,
@@ -311,11 +321,6 @@
 		for(var/choice in picked_choices)
 			if(extra_choices[choice] in GLOB.roguetraits)
 				ADD_TRAIT(recipient, extra_choices[choice], TRAIT_VIRTUE)
-				if(choice == TRAIT_DARKVISION)
-					if(recipient.has_flaw(/datum/charflaw/colorblind))
-						to_chat(recipient, "Your eyes have become permanently colorblind.")
-					else if(recipient.charflaws.len)
-						add_verb(recipient, /mob/living/carbon/human/proc/toggleblindness)
 			else if(ispath(extra_choices[choice], /datum/skill))
 				if(extra_choices[choice] == /datum/skill/misc/sneaking)
 					recipient.adjust_skillrank(extra_choices[choice], SKILL_LEVEL_APPRENTICE, silent = TRUE)
@@ -330,6 +335,19 @@
 				add_verb(recipient, /mob/living/carbon/human/proc/alterego_looks)
 				add_verb(recipient, /mob/living/carbon/human/proc/alterego_swap)
 				recipient.AddComponent(/datum/component/alter_ego)
+
+/datum/virtue/utility/nighteye
+	name = "Night Eye"
+	desc = "My eyes are able to see through cloying darkness."
+	custom_text = "Adds a button to toggle colourblindness to aid seeing in the dark. Taking this with the Colorblind vice will permanently colourblind you."
+	ui_fa_icon = "eye"
+	added_traits = list(TRAIT_DARKVISION)
+
+/datum/virtue/utility/nighteye/apply_to_human(mob/living/carbon/human/recipient)
+	if(recipient.has_flaw(/datum/charflaw/colorblind))
+		to_chat(recipient, "Your eyes have become permanently colourblind.")
+	else if(recipient.charflaws.len)
+		add_verb(recipient, /mob/living/carbon/human/proc/toggleblindness)
 
 // Grim fandango
 /datum/virtue/utility/granary
@@ -387,7 +405,7 @@
 	name = "Bronze Limbs"
 	desc = "Through connections or wealth, my limb had been replaced by one of bronze and gears, that can grip and hold onto things. I've learned just a bit of Engineering as a result."
 	ui_fa_icon = "robot"
-	custom_text = "Replaces your chosen limbs with a prosthetic Bronze ones."
+	custom_text = "Replaces your chosen limbs with prosthetic bronze ones."
 	added_skills = list(list(/datum/skill/craft/engineering, 1, 6))
 	max_choices = 4
 	stackable = TRUE //We're OK with this, it's fairly innocuous
@@ -435,11 +453,23 @@
 	ui_fa_icon = "tree"
 	added_traits = list(TRAIT_WOODWALKER, TRAIT_OUTDOORSMAN)
 
-/datum/virtue/heretic/zchurch_keyholder
+/datum/virtue/utility/zchurch_keyholder
 	name = "Defiled Keyholder"
-	desc = "The 'Holy' See has their blood-stained grounds, and so do we. Underneath their noses, we pray to the true gods - I know the location of the local heretic conclave. Secrecy is paramount. If found out, I will surely be killed."
+	desc = "The 'Holy' See has their blood-stained grounds, and so does the conclave. Underneath their noses, prayers and ritual are afoot. I have been initiated; secrecy is paramount. I won't risk entering their grounds observed, if I don't swear allegiance to the Four. The local safe-houses are open to me."
 	ui_fa_icon = "mask"
 	added_traits = list(TRAIT_ZURCH)
+
+/datum/virtue/utility/zchurch_keyholder/apply_to_human(mob/living/carbon/human/recipient)
+	..()
+	// Non-Ascendant followers can only walk the secret paths unobserved.
+	if(!istype(recipient.patron, /datum/patron/inhumen))
+		ADD_TRAIT(recipient, TRAIT_CAREFULTRIP, TRAIT_VIRTUE)
+
+/datum/virtue/utility/zchurch_keyholder/restricts_job(datum/job/job, datum/preferences/prefs)
+	if(istype(prefs.selected_patron, /datum/patron/inhumen))
+		return null
+	if(length(job.allowed_patrons) || (job.department_flag & (COURTIERS | RETINUE | GARRISON | CHURCHMEN | INQUISITION)))
+		return "non-Ascendant"
 
 // AUTHOR NOTE - Probably remove this from court, leader and inquisition roles later since the barrier to roleplaying this correctly as those roles is extremely high.
 // Mostly meant as a virtue for strange fey creatures, or people roleplaying as if they have been influenced by hags positively in the past, following an active pact to avoid vengeance.

@@ -918,7 +918,7 @@
 
 /obj/item/clothing/head/roguetown/decoration/featherplume
 	name = "helmet's featherplume"
-	desc = "A resplendant plume, intended to be worn atop a helmet; a touch of flamboyance, indiscriminate of the alloy."
+	desc = "A resplendent plume, intended to be worn atop a helmet; a touch of flamboyance, indiscriminate of the alloy."
 	item_state = "pplume"
 	icon_state = "pplume"
 	icon = 'icons/clothing/donor_clothes.dmi'
@@ -1691,7 +1691,7 @@
 //Plexiant's donator item - rapier
 /obj/item/rogueweapon/sword/rapier/aliseo
 	name = "Rapier di Aliseo"
-	desc = "A rapier of sporting a steel blade and decrotive silver-plating. Elaborately designed in classic intricate yet functional Etrucian style, the pummel appears to be embedded with a cut emerald with a family crest engraved in the fine leather grip of the handle."
+	desc = "A rapier of sporting a steel blade and decorative silver-plating. Elaborately designed in classic intricate yet functional Etrucian style, the pommel appears to be embedded with a cut emerald with a family crest engraved in the fine leather grip of the handle."
 	icon_state = "plex"
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 
@@ -1901,7 +1901,7 @@
 
 /obj/item/rogueweapon/eirenxiv/eiren_m
 	name = "glintstone longsword"
-	desc = "A glimmering blade, forged from a blue-white ore found rarely within the Greyglint mines, located on the edge of the Ashen Forests of the duchy of Azuria. \
+	desc = "A glimmering blade, forged from a blue-white ore found rarely within the Greyglint mines, located on the edge of the Ashen Forest. \
 			Identical to steel in its properties, the tempering process to preserve the blue sheen is extensive and time consuming. \
 			Failure in performing a single step of the procedure causes the material to shift hue and redden, a process called 'Bleeding', which renders it brittle and unusable. \
 			\n\
@@ -1911,14 +1911,6 @@
 	icon_state = "eiren_m"
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 	sheathe_icon = "eiren_m"
-	bigboy = TRUE
-
-/obj/item/rogueweapon/eirenxiv/eirensword
-	name = "stygian longsword"
-	desc = "A finely crafted steel longsword, its design perfectly combining elegance and practicality. Quenched in white oil, refined by the dwarves of Hammerhold, the blade holds a darker hue than usual."
-	icon_state = "eirensword"
-	icon = 'icons/obj/items/donor_weapons_64.dmi'
-	sheathe_icon = "eirensword"
 	bigboy = TRUE
 
 /obj/item/clothing/head/roguetown/duelhat/pretzel
@@ -1962,7 +1954,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/longcoat/wyrd_cloak
 	name = "Cloak of the Wyrd"
-	desc = "Sewn by ways unknown to the land, what may have been garbs fitting for royalty once now lays aged beyond measure. However, it would surely provide much needed warmth for the cold and uncaring bog..."
+	desc = "Sewn by ways unknown to the land, what may have been garbs fitting for royalty once now lays aged beyond measure. However, it would surely provide much-needed warmth for the cold and uncaring bog..."
 	icon_state = "wyrd_cloak"
 	item_state = "wyrd_cloak"
 	icon = 'icons/clothing/donor_clothes.dmi'
@@ -2360,7 +2352,7 @@ As Excaliber."
 //DRD21
 /obj/item/rogueweapon/sword/long/drd
 	name = "ornate basket-hilted longsword"
-	desc = "A longsword, fitten with a basket-hilt. The grip is made out of a fine green-stained leather, with a piece of spiral-cared walnut connecting it to a lion-shaped pommel. A purple glowing rune sits atop the blade."
+	desc = "A longsword, fitted with a basket-hilt. The grip is made out of a fine green-stained leather, with a piece of spiral-cared walnut connecting it to a lion-shaped pommel. A purple glowing rune sits atop the blade."
 	icon_state = "drd_lsword"
 	icon = 'icons/obj/items/donor_weapons_64.dmi'
 
@@ -2382,7 +2374,7 @@ As Excaliber."
 /obj/item/rogueweapon/sword/donator_smallsword/drd_maere
 	name = "'Mære'"
 	desc = "Ivory-gripped, golden-guarded. For a blade that's outlasted generations of wielders, the tip remains impossibly sharp. One can only \
-	wonder if it's courtesy of a dilligent and skillful hand, or if it's a consequence of disuse beyond decorating the waistline."
+	wonder if it's courtesy of a diligent and skillful hand, or if it's a consequence of disuse beyond decorating the waistline."
 	icon_state = "drd_decsmallsword"
 	sheathe_icon = "drd_decsmallsword"
 
@@ -2536,7 +2528,7 @@ As Excaliber."
 //spaz - Armet/Hounskull/Barbute
 /obj/item/clothing/head/roguetown/helmet/heavy/barbute/visor/spaz
 	name = "hound-nosed bascinet"
-	desc = "A sturdy bascinet that seems to have been fitten with a long visor."
+	desc = "A sturdy bascinet that seems to have been fitted with a long visor."
 	icon_state = "spaz_helm"
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes64.dmi'
@@ -2546,14 +2538,14 @@ As Excaliber."
 
 /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/hounskull/spaz
 	name = "hound-nosed bascinet"
-	desc = "A sturdy bascinet that seems to have been fitten with a long visor."
+	desc = "A sturdy bascinet that seems to have been fitted with a long visor."
 	icon_state = "spaz_helm"
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/spaz
 	name = "hound-nosed bascinet"
-	desc = "A sturdy bascinet that seems to have been fitten with a long visor."
+	desc = "A sturdy bascinet that seems to have been fitted with a long visor."
 	icon_state = "spaz_helm"
 	icon = 'icons/clothing/donor_clothes.dmi'
 	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
@@ -2561,7 +2553,7 @@ As Excaliber."
 // LimeTease
 /obj/item/clothing/head/roguetown/helmet/sallet/visored/limetease
 	name = "serpentine bascinet"
-	desc = "A sturdy bascinet that seems to have been fitten with a long visor. Loosely resembles a drakynn or some sort of sea serpent."
+	desc = "A sturdy bascinet that seems to have been fitted with a long visor. Loosely resembles a drakynn or some sort of sea serpent."
 	icon_state = "limehelm"
 	worn_x_dimension = 64
 	worn_y_dimension = 64
@@ -2571,7 +2563,7 @@ As Excaliber."
 
 /obj/item/clothing/head/roguetown/helmet/heavy/abyssorgreathelm/limetease
 	name = "serpentine bascinet"
-	desc = "A sturdy bascinet that seems to have been fitten with a long visor. Loosely resembles a drakynn or some sort of sea serpent."
+	desc = "A sturdy bascinet that seems to have been fitted with a long visor. Loosely resembles a drakynn or some sort of sea serpent."
 	icon_state = "limehelm"
 	worn_x_dimension = 64
 	worn_y_dimension = 64
@@ -3001,63 +2993,6 @@ As Excaliber."
 	grid_height = 64
 	grid_width = 64
 	bigboy = TRUE
-
-// MORTOSASYE
-/obj/item/rogueweapon/woodstaff/implement/morto
-	base_implement_name = null
-	name = "Frozen Vow"
-	desc = "A magic staff sheathed in dark ice and crowned with flawless blortz gems of exceptional purity. Each crystalline facet drinks in the arcane energy that would otherwise dissipate into the air with every spell, preserving it within the frozen metal before returning it to its wielder. Extremely cold to the touch."
-	icon_state = "mystralstaff"
-	icon = 'icons/obj/items/donor_weapons_64.dmi'
-
-/obj/item/rogueweapon/woodstaff/implement/grand/magos/morto
-	base_implement_name = null
-	name = "Frozen Vow"
-	desc = "A magic staff sheathed in dark ice and crowned with flawless blortz gems of exceptional purity. Each crystalline facet drinks in the arcane energy that would otherwise dissipate into the air with every spell, preserving it within the frozen metal before returning it to its wielder. Extremely cold to the touch."
-	icon_state = "mystralstaff"
-	icon = 'icons/obj/items/donor_weapons_64.dmi'
-
-/obj/item/clothing/suit/roguetown/shirt/dress/silkdress/donator_mortosasye_deepcutdress
-	name = "deep cut dress"
-	desc = "A daring dress with a deep V-cut neckline, secured at the sides by sleek, fitted fabric straps. It is tailored to its owner specific measurements. It seems to have a light coat of frost."
-	icon_state = "mortosasye_deepcutdress"
-	item_state = "mortosasye_deepcutdress"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
-	color = null
-	allowed_sex = list(FEMALE)
-
-/obj/item/clothing/suit/roguetown/shirt/dress/silkdress/donator_mortosasye_sunrisegown
-	name = "sunrise gown"
-	desc = "A beautiful gown that seems to shimmer with the light of a rising sun, almost abnormally radiant."
-	icon_state = "mortosasye_sunrisegown"
-	item_state = "mortosasye_sunrisegown"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
-	color = null
-	allowed_sex = list(FEMALE)
-
-/obj/item/clothing/head/roguetown/crown/serpcrown/mortosuncrown
-	name = "sun crown"
-	article = null // prevents it becoming the the sun crown.
-	desc = "A far too extravagant crown made of gold, sporting a rontz at the center. The metal has been shaped to resemble sunrays."
-	replace_existing_roguemachine_crown = TRUE
-	icon_state = "mortosasye_suncrown"
-	item_state = "mortosasye_suncrown"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes64.dmi'
-	worn_x_dimension = 64
-	worn_y_dimension = 64
-
-/obj/item/clothing/head/roguetown/circlet/donator_mortosasye_golddiadem
-	name = "gold diadem"
-	desc = "A simple diadem sporting a diamond-shape at the center, made of gold. It is a simple, yet elegant piece of jewelry - passed down through generations of the Xulu noble house."
-	icon_state = "mortosasye_golddiadem"
-	item_state = "mortosasye_golddiadem"
-	icon = 'icons/clothing/donor_clothes.dmi'
-	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes64.dmi'
-	worn_x_dimension = 64
-	worn_y_dimension = 64
 
 // RACOBIO
 /obj/item/rogueweapon/woodstaff/implement/racobio
@@ -3657,6 +3592,106 @@ As Excaliber."
 	update_icon()
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/robed/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/apostle
+	name = "apostolic cuirass"
+	desc = "The one whom repents, whom has faith. </br> They whom remain unshaken, by the darkness of the world. </br> \
+	They are whom shall know true peace."
+	icon_state = "apostlecuirass"
+	item_state = "apostlecuirass"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/robed
+	name = "\improper Knight-Apostle's raiment"
+	desc = "The one whom repents, whom has faith. </br> They whom remain unshaken, by the darkness of the world. </br> \
+	They are whom shall know true peace."
+	icon_state = "robedcuirass"
+	item_state = "robedcuirass"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+	detail_tag = "_detail"
+	boobed_detail = FALSE
+	color = null
+	detail_color = CLOTHING_WHITE
+
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/robed/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/robed/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/apostle
+	name = "apostolic plate armor"
+	desc = "Let thy blade pass upon mine flesh. </br>Let mine blood be spill't 'pon the ground. </br>\
+	Let my cries touch the hearts of those I stand a'fore. </br>Let mine be the last sacrifice."
+	icon_state = "apostleplate"
+	item_state = "apostleplate"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/robed
+	name = "\improper Knight-Apostle's heavy raiment"
+	desc = "Let thy blade pass upon mine flesh. </br>Let mine blood be spill't 'pon the ground. </br>\
+	Let my cries touch the hearts of those I stand a'fore. </br>Let mine be the last sacrifice."
+	item_state = "robedplate"
+	icon_state = "robedplate"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+	detail_tag = "_detail"
+	boobed_detail = FALSE
+	color = null
+	detail_color = CLOTHING_WHITE
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/robed/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/robed/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate/robed
+	name = "\improper Knight-Apostle's heavy raiment"
+	desc = "Let thy blade pass upon mine flesh. </br>Let mine blood be spill't 'pon the ground. </br>\
+	Let my cries touch the hearts of those I stand a'fore. </br>Let mine be the last sacrifice."
+	item_state = "robedplate"
+	icon_state = "robedplate"
+	icon = 'icons/clothing/donor_clothes.dmi'
+	mob_overlay_icon = 'icons/clothing/onmob/donor_clothes.dmi'
+	sleeved = 'icons/clothing/onmob/donor_sleeves_armor.dmi'
+	detail_tag = "_detail"
+	boobed_detail = FALSE
+	color = null
+	detail_color = CLOTHING_WHITE
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate/robed/Initialize(mapload)
+	. = ..()
+	update_icon()
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate/robed/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -4666,7 +4701,7 @@ As Excaliber."
 
 /obj/item/clothing/cloak/templar/ravoxcleric/koruu
 	name = "Sefirot's Cloak"
-	desc = "A tattered red tabard dyed in the bold colors of Ravox. Its striking crimson fabric stands out on the frontlines, signaling unyielding judgment. For a thousand yils, our ancestors have defied the darkness. May their descendents defy the darkness for a thousand more."
+	desc = "A tattered red tabard dyed in the bold colors of Ravox. Its striking crimson fabric stands out on the front lines, signaling unyielding judgment. For a thousand yils, our ancestors have defied the darkness. May their descendants defy the darkness for a thousand more."
 	armor = ARMOR_CLOTHING
 
 /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm/cleric/koruu
@@ -5093,3 +5128,10 @@ As Excaliber."
 		to_chat(user, span_info("These lenses won't fit in this mask."))
 		return
 	return ..()
+// XLockwoodx
+/obj/item/clothing/suit/roguetown/armor/leather/heavy/jacket/courtphysician/female/lockwood
+	name = "aesthetic sanguine jacket"
+
+/obj/item/clothing/suit/roguetown/armor/leather/heavy/jacket/courtphysician/female/lockwood/Initialize(mapload)
+	. = ..()
+	loadoutize()

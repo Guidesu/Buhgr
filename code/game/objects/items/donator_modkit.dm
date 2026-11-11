@@ -705,39 +705,13 @@
 	target_items = list(/obj/item/rogueweapon/greataxe)
 	result_item = /obj/item/rogueweapon/greataxe/zygreataxe
 
-//Eiren - Zweihander and sabres
-/obj/item/enchantingkit/weapon/eiren
-	name = "'Regret' morphing elixir"
-	target_items = list(
-		/obj/item/rogueweapon/greatsword/grenz/flamberge,
-		/obj/item/rogueweapon/greatsword/zwei,
-		/obj/item/rogueweapon/greatsword
-		)
-	result_item = /obj/item/rogueweapon/example/eiren_greatsword
-
-/obj/item/enchantingkit/weapon/eirensabre
-	name = "'Lunae' morphing elixir"
-	target_items = list(/obj/item/rogueweapon/sword/sabre)
-	result_item = /obj/item/rogueweapon/example/eiren_sabre
-
-/obj/item/enchantingkit/weapon/eirensabre2
-	name = "'Cinis' morphing elixir"
-	target_items = list(/obj/item/rogueweapon/sword/sabre)
-	result_item = /obj/item/rogueweapon/example/eiren_sabre_alt
-
+//Eiren
 /obj/item/enchantingkit/weapon/eiren_m
 	name = "'glintstone longsword' morphing elixir"
 	target_items = list(
 		/obj/item/rogueweapon/sword/long
 	)
 	result_item = /obj/item/rogueweapon/eirenxiv/eiren_m
-
-/obj/item/enchantingkit/weapon/eirensword
-	name = "'stygian longsword' morphing elixir"
-	target_items = list(
-		/obj/item/rogueweapon/sword/long
-	)
-	result_item = /obj/item/rogueweapon/eirenxiv/eirensword
 
 //waffai - silver for monsters, steel for men
 /obj/item/enchantingkit/weapon/waff
@@ -1139,22 +1113,6 @@
 	)
 	result_item = null
 
-//MortoSasye - Ice Staffs + Azure Crown
-/obj/item/enchantingkit/morto_staff
-	name = "'Frozen Vow' morphing elixir"
-	target_items = list(
-		/obj/item/rogueweapon/woodstaff/implement/grand/magos		=	/obj/item/rogueweapon/woodstaff/implement/grand/magos/morto,
-		/obj/item/rogueweapon/woodstaff/implement/					=	/obj/item/rogueweapon/woodstaff/implement/morto
-	)
-	result_item = null
-
-/obj/item/enchantingkit/morto_crown
-	name = "'Sun Crown' morphing elixir"
-	target_items = list(
-		/obj/item/clothing/head/roguetown/crown/serpcrown
-	)
-	result_item = /obj/item/clothing/head/roguetown/crown/serpcrown/mortosuncrown
-
 //Tyesca
 
 /obj/item/enchantingkit/weapon/tyesca_sword
@@ -1420,8 +1378,8 @@
 	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of a Steel Cuirass or a set of Steel Plate Armor, alongside \
 	its Fluted variants."
 	target_items = list(
-		/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate		= /obj/item/clothing/suit/roguetown/armor/plate/full/apostle,
-		/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate		= /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/apostle,
+		/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate		= /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/apostle,
+		/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate		= /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/apostle,
 		/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted			= /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/apostle,
 		/obj/item/clothing/suit/roguetown/armor/plate/full/fluted				= /obj/item/clothing/suit/roguetown/armor/plate/full/apostle,
 		/obj/item/clothing/suit/roguetown/armor/plate/cuirass					= /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/apostle,
@@ -1436,10 +1394,10 @@
 	desc = "A small container of special morphing dust, perfect to make a specific item. It can be used to alter the appearance of a Steel Cuirass, a set of Steel Plate Armor, or a set of Steel Plate-and-Maille, alongside \
 	its Fluted variants."
 	target_items = list(
-		/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate		= /obj/item/clothing/suit/roguetown/armor/plate/full/robed,
-		/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate		= /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/robed,
+		/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate		= /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/robed,
+		/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate		= /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate/robed,
 		/obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted			= /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/robed,
-		/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate		= /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/fluted/robed,
+		/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate		= /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate/robed,
 		/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/fluted		= /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/fluted/robed,
 		/obj/item/clothing/suit/roguetown/armor/plate/full/fluted				= /obj/item/clothing/suit/roguetown/armor/plate/full/robed,
 		/obj/item/clothing/suit/roguetown/armor/plate/cuirass					= /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/robed,
