@@ -44,7 +44,7 @@
 		)
 	H.set_blindness(0)
 	if(H.mind)
-		var/weapons = list("Naginata","Quarterstaff","Hwando")
+		var/weapons = list("Naginata","Quarterstaff","Hwando", "Nodachi")
 		var/weapon_choice = input(H, "Choose your weapon", "TAKE UP ARMS") as anything in weapons
 		switch(weapon_choice)
 			if("Naginata")
@@ -61,6 +61,11 @@
 				beltr = /obj/item/rogueweapon/scabbard/sword/kazengun
 				armor = /obj/item/clothing/suit/roguetown/armor/basiceast
 				H.adjust_skillrank_up_to(/datum/skill/combat/swords, 4, TRUE)
+			if("Nodachi")
+				r_hand = /obj/item/rogueweapon/greatsword/nodachi/iron
+				backr = /obj/item/rogueweapon/scabbard/gwstrap
+				H.adjust_skillrank_up_to(/datum/skill/combat/swords, 4, TRUE)
+				armor = /obj/item/clothing/suit/roguetown/armor/basiceast/mentorsuit
 
 /datum/advclass/foreigner/yoruku
 	name = "Eastern Assassin"
@@ -102,7 +107,7 @@
 		/obj/item/rogueweapon/scabbard/sheath = 1,
 		)
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
-	belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/kazengun
+	belt = /obj/item/storage/belt/rogue/leather/tossbelt/blade/black/kazengun
 	gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/eastpants1
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt1

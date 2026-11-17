@@ -14,7 +14,6 @@
 	show_in_credits = FALSE
 	min_pq = 10
 	max_pq = null
-	vice_restrictions = list(/datum/charflaw/forlorne)
 
 	obfuscated_job = TRUE
 	class_categories = TRUE
@@ -173,7 +172,7 @@
 
 	var/list/sev_data = GLOB.wretch_bounty_severities[bounty_severity_key]
 	var/bounty_total = rand(sev_data["min"], sev_data["max"])
-	if(bounty_severity_key == "ATROCITY")
+	if(bounty_severity_key == "ATROCITY" || bounty_severity_key == "UNFORGIVABLE")
 		if(bounty_poster_key == "AZURIA")
 			GLOB.outlawed_players += H.real_name
 		else
